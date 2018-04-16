@@ -1,0 +1,15 @@
+name: qlient 
+description: Cross platform client for Qlik Associative Engine
+version: 0.0.2
+author: Vadim Tsushko <vadimtsushko@gmail.com>
+
+environment:
+  sdk: '>=1.20.1 <2.0.0'
+dependencies:
+  path: ^1.5.1
+  built_value: ^1.2.1
+dev_dependencies:
+  test: ^0.12.34
+  build_runner: ^0.3.4
+  recase: ^1.0.0
+  built_value_generator: ^1.2.1
