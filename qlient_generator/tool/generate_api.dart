@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:io';
 import 'package:recase/recase.dart';
+import 'package:qlient_generator/qlient_generator.dart';
 
 var listTypes = <String, String>{};
 main() {
@@ -14,7 +15,8 @@ main() {
   // new File('tool/schema.json').writeAsStringSync(schemaPP);
   var schemaContent = new File('tool/schema.json').readAsStringSync();
   var schemaJson = json.decode(schemaContent);
-  Map definitions = schemaJson['definitions'];
+  var schema = fromJson<Schema>(Schema, schemaJson);
+  var definitions = schema.definitions.asMap();
   for (var key in definitions.keys) {
     populateListTypes(key, definitions[key]);
   }
@@ -25,20 +27,20 @@ main() {
   generateModelExport(definitions.keys);
 }
 
-populateListTypes(String arrayTypeName, Map content) {
-  if (content['type'] == 'array') {
+populateListTypes(String arrayTypeName, SchemaType content) {
+  if (content.jsonType == 'array') {
     var importList = <String>[];
     var dartType = getDartType(content, importList);
     listTypes[arrayTypeName] = importList.first;
   }
 }
 
-generateStruct(String className, Map content) {
+generateStruct(String className, SchemaType content) {
   String fileName = getModelFileName(className);
   var buffer = new StringBuffer();
-  addComment(content['description'], buffer, '');
+  addComment(content.description, buffer, '');
   buffer.writeln('class $className {');
-  Map properties = content['properties'];
+  var properties = content.properties;
   if (properties == null) {
     return;
   }
@@ -82,8 +84,8 @@ generateModelExport(Iterable<String> classNames) {
   outFile.writeAsStringSync(buffer.toString());
 }
 
-String getDartType(Map fieldContent, List<String> importList) {
-  String ref = fieldContent[r'$ref'];
+String getDartType(SchemaType fieldContent, List<String> importList) {
+  String ref = fieldContent.ref;
   if (ref != null) {
     var className = ref.replaceFirst('#/definitions/', '');
     if (className == 'JsonObject') {
@@ -97,7 +99,7 @@ String getDartType(Map fieldContent, List<String> importList) {
     }
     return className;
   }
-  String jsonType = fieldContent['type'];
+  String jsonType = fieldContent.jsonType;
   const type2dartType = const {
     'string': 'String',
     'boolean': 'bool',
@@ -110,7 +112,7 @@ String getDartType(Map fieldContent, List<String> importList) {
     importList.add("import '${getModelFileName(itemType)}';");
     dartType = 'List<$itemType>';
   } else if (jsonType == 'array') {
-    var itemType = getDartType(fieldContent['items'], importList);
+    var itemType = getDartType(fieldContent.items, importList);
     dartType = 'List<$itemType>';
   } else {
     dartType = type2dartType[jsonType];
@@ -119,9 +121,9 @@ String getDartType(Map fieldContent, List<String> importList) {
 }
 
 var qPattern = new RegExp('^q');
-generateField(String jsonFieldName, Map fieldContent, StringBuffer buffer,
+generateField(String jsonFieldName, SchemaType fieldContent, StringBuffer buffer,
     List<String> importList) {
-  addComment(fieldContent['description'], buffer, '  ');
+  addComment(fieldContent.description, buffer, '  ');
   var fieldName = jsonFieldName.replaceFirst(qPattern, '');
   fieldName = new ReCase(fieldName).camelCase;
   var dartType = getDartType(fieldContent, importList);

@@ -11,4 +11,4 @@ part 'serializers.g.dart';
     Schema,
     SchemaType,
 ])
-final Serializers serializers = _$serializers.toBuilder();
+final Serializers serializers = _$serializers;
