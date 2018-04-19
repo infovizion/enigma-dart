@@ -5,7 +5,7 @@ import 'package:path/path.dart' as path;
 main() {
 //  createFile('enigma','NxValidationError');
 //  createFile('enigma','NxDimensionInfo');
-  createFile('Schema');
+  createFile('LibraryData');
 }
 
 createFile(String className) {
@@ -33,4 +33,5 @@ abstract class $className implements Built<$className, ${className}Builder> {
   
   ''';
   file.writeAsStringSync(content);
+  print('File ${file.path} created');
 }
