@@ -1,10 +1,11 @@
 import 'package:qlient_generator/qlient_generator.dart';
+import 'dart:io';
+import 'dart:convert';
+
 
 main() {
-  var definition = new SchemaType((b) => b
-  ..description = 'asdfasdfasdf'
-  ..ref = 'asdfasdf');
-
-  var obj = serializers.serialize(definition);
-  print(obj);
+  var schemaContent = new File('tool/schema.json').readAsStringSync();
+  var schemaJson = json.decode(schemaContent);
+  var schema = fromJson<Schema>(Schema, schemaJson);
+  print(schema);
 }
