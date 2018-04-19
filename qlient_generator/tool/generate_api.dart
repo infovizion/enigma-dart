@@ -49,7 +49,7 @@ generateStruct(String className, SchemaType content) {
     generateField(fieldName, content, buffer, importList);
   });
   buffer.writeln('}');
-  var outFile = new File('lib/src/models/$fileName');
+  var outFile = new File('../qlient/lib/src/models/$fileName');
   outFile.createSync();
   var importDirectives = importList.join('\n');
   var fileContent = '''
@@ -75,7 +75,7 @@ addComment(String description, StringBuffer buffer, String indent) {
 }
 
 generateModelExport(Iterable<String> classNames) {
-  var outFile = new File('lib/src/models.dart');
+  var outFile = new File('../qlient/lib/src/models.dart');
   outFile.createSync();
   var buffer = new StringBuffer();
   for (var each in classNames) {

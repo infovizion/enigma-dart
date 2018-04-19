@@ -13,12 +13,12 @@ class AssociationScore {
   String fieldPairName;
   /// Flag used to interpret calculated scores.
   /// One of the following values or sum of values that apply:
-  ///  0: The cardinal ratio cannot be zero but the symbol score and the row score can be zero.
-  ///  -1: The fields do not have the same type.
-  ///  -2: The number of rows of the field _FieldName1_ is zero.
-  ///  -4: The number of distinct values of the field _FieldName1_ is zero.
-  ///  -8: The number of rows of the field _FieldName2_ is zero.
-  ///  -16: The number of distinct values of the field _FieldName2_ is zero.
+  /// * 0: The cardinal ratio cannot be zero but the symbol score and the row score can be zero.
+  /// * -1: The fields do not have the same type.
+  /// * -2: The number of rows of the field _FieldName1_ is zero.
+  /// * -4: The number of distinct values of the field _FieldName1_ is zero.
+  /// * -8: The number of rows of the field _FieldName2_ is zero.
+  /// * -16: The number of distinct values of the field _FieldName2_ is zero.
   /// 
   /// Example:
   /// The number of rows of the field _FieldName1_ is zero, and the number of distinct values of the field _FieldName2_ is zero, then _qScoreSummary_ is -18.
