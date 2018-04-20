@@ -9,6 +9,9 @@ part 'serializers.g.dart';
 @SerializersFor(const [
     Schema,
     SchemaType,
-    LibraryData
+    LibraryData,
+    Method,
+    Layout,
+    Service,
 ])
 final Serializers serializers = _$serializers;

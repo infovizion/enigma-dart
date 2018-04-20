@@ -15,12 +15,29 @@ part of serializers;
 // ignore_for_file: sort_constructors_first
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(Layout.serializer)
       ..add(LibraryData.serializer)
+      ..add(Method.serializer)
       ..add(Schema.serializer)
       ..add(SchemaType.serializer)
+      ..add(Service.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(SchemaType)]),
+          () => new ListBuilder<SchemaType>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(SchemaType)]),
+          () => new ListBuilder<SchemaType>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltMap, const [const FullType(String), const FullType(Method)]),
+          () => new MapBuilder<String, Method>())
+      ..addBuilderFactory(
+          const FullType(BuiltMap,
+              const [const FullType(String), const FullType(SchemaType)]),
+          () => new MapBuilder<String, SchemaType>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType(SchemaType)]),
