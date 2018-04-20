@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:recase/recase.dart';
 
 main() {
    var schemaContent = new File('tool/schema.full.json').readAsStringSync();

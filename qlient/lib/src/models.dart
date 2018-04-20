@@ -215,7 +215,7 @@ export 'models/doc_list_entry.dart';
 export 'models/interact_def.dart';
 export 'models/app_entry.dart';
 export 'models/b_n_f_def.dart';
-export 'models/function.dart';
+export 'models/scripts_function.dart';
 export 'models/odbc_dsn.dart';
 export 'models/ole_db_provider.dart';
 export 'models/drive_info.dart';
