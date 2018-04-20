@@ -54,31 +54,25 @@ class ApiGenerator {
         var importDirective = "import '${getModelFileName(key)}';";
         typeData.importDirectives.add(importDirective);
         typeMap[typeData.jsonType] = typeData;
-        // print(typeData);
       }
     });
-    // schema.definitions.forEach((key, value) {
-    //   if (value.jsonType == 'array' && value.items.isNotEmpty) {
-    //     var typeData = new TypeData();
-    //     typeData.jsonType = key;
-    //     typeData.dartType = key;
-    //     var importDirective = "import '${getModelFileName(key)}';";
-    //     typeData.importDirectives.add(importDirective);
-    //     typeMap[typeData.jsonType] = typeData;
-    //     print(typeData);
-    //   }
-    // });
+    schema.definitions.forEach((key, value) {
+      if (value.jsonType == 'array') {
+        var typeData = getTypeData(value) ;
+        typeMap[typeData.jsonType] = typeData;
+      }
+    });
   }
 
-  populateType(SchemaType schemaType) {
-    var properties = schemaType.properties;
-    if (properties == null) {
-      return;
-    }
-    for (var each in properties.values) {
-      getTypeData(each);
-    }
-  }
+  // populateType(SchemaType schemaType) {
+  //   var properties = schemaType.properties;
+  //   if (properties == null) {
+  //     return;
+  //   }
+  //   for (var each in properties.values) {
+  //     getTypeData(each);
+  //   }
+  // }
 
   generateStruct(String className, SchemaType content) {
     String fileName = getModelFileName(className);

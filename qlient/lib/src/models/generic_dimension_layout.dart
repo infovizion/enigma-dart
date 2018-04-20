@@ -3,7 +3,7 @@ import 'package:built_value/built_value.dart';
 import 'nx_info.dart';
 import 'nx_meta.dart';
 import 'nx_library_dimension.dart';
-import 'generic_dimension_info.dart';
+import 'nx_cell.dart';
 
 /// Is the layout for _GenericDimensionProperties_.
 class GenericDimensionLayout {
@@ -19,6 +19,6 @@ class GenericDimensionLayout {
   /// Cardinal and tags related to the dimension.
   /// Length of the longest value in the field.
   /// Original name: qDimInfos
-  null dimInfos;
+  List<NxCell> dimInfos;
 }
 

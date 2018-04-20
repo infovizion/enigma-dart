@@ -2,8 +2,7 @@
 import 'package:built_value/built_value.dart';
 import 'nx_inline_measure_def.dart';
 import 'sort_criteria.dart';
-import 'nx_attr_expr_def.dart';
-import 'nx_attr_dim_def.dart';
+import 'nx_cell.dart';
 import 'value_expr.dart';
 import 'nx_calc_cond.dart';
 
@@ -25,10 +24,10 @@ class NxMeasure {
   SortCriteria sortBy;
   /// List of attribute expressions.
   /// Original name: qAttributeExpressions
-  null attributeExpressions;
+  List<NxCell> attributeExpressions;
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
-  null attributeDimensions;
+  List<NxCell> attributeDimensions;
   /// Specifies a calculation condition, which must be fulfilled for the measure to be calculated.
   /// If the calculation condition is not met, the measure is excluded from the calculation.
   /// By default, there is no calculation condition.

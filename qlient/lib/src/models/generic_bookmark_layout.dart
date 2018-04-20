@@ -3,7 +3,7 @@ import 'package:built_value/built_value.dart';
 import 'nx_info.dart';
 import 'nx_meta.dart';
 import 'nx_bookmark.dart';
-import 'layout_field_info.dart';
+import 'nx_cell.dart';
 
 /// Is the layout for _GenericBookmarkProperties_.
 class GenericBookmarkLayout {
@@ -17,6 +17,6 @@ class GenericBookmarkLayout {
   /// Original name: qBookmark
   NxBookmark bookmark;
   /// Original name: qFieldInfos
-  null fieldInfos;
+  List<NxCell> fieldInfos;
 }
 
