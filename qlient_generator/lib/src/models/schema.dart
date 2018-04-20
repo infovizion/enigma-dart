@@ -10,8 +10,9 @@ abstract class Schema implements Built<Schema, SchemaBuilder> {
 
   static Serializer<Schema> get serializer => _$schemaSerializer;
 
-  @nullable
   BuiltMap<String,SchemaType> get definitions;
+
+  BuiltMap<String,SchemaType> get services;
 
   factory Schema([updates(SchemaBuilder b)]) = _$Schema;
   Schema._();

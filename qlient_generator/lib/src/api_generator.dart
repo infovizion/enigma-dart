@@ -6,9 +6,6 @@ import 'package:recase/recase.dart';
 import 'json_serializer.dart';
 
 class ApiGenerator {
-  // var _fieldNameGuards = {
-  //   'num': 'qNum'
-  // };
   var typeMap = <String, TypeData>{};
   _addType(TypeData typeData) {
     typeMap[typeData.jsonType] = typeData;
@@ -32,21 +29,10 @@ class ApiGenerator {
     var schemaContent = new File('tool/schema.json').readAsStringSync();
     var schemaJson = json.decode(schemaContent);
     var schema = fromJson<Schema>(Schema, schemaJson);
-    // var definitions = schema.definitions.asMap();
-    // for (var schemaType in definitions.values) {
-    //   populateType(schemaType);
-    // }
     populateTypes(schema);
     schema.definitions.forEach((key, value) {
       generateStruct(key, value);
     });
-    // for (var each in typeMap.values) {
-    //   print(each);
-    // }
-    // return;
-    // for (var key in definitions.keys) {
-    //   generateStruct(key, definitions[key]);
-    // }
     generateModelExport();
   }
 
@@ -69,15 +55,6 @@ class ApiGenerator {
     });
   }
 
-  // populateType(SchemaType schemaType) {
-  //   var properties = schemaType.properties;
-  //   if (properties == null) {
-  //     return;
-  //   }
-  //   for (var each in properties.values) {
-  //     getTypeData(each);
-  //   }
-  // }
 
   generateStruct(String className, SchemaType content) {
     if (className == 'Function') {
@@ -108,7 +85,6 @@ $importDirectives
 $buffer
 ''';
     outFile.writeAsStringSync(fileContent);
-    // print('File ${outFile.path} generated');
   }
 
   String getModelFileName(String className) =>
@@ -132,7 +108,6 @@ $buffer
       buffer.writeln("export 'models/${getModelFileName(each)}';");
     }
     outFile.writeAsStringSync(buffer.toString());
-    // print('File ${outFile.path} generated');
   }
 
   TypeData getTypeData(SchemaType fieldContent) {
@@ -165,62 +140,8 @@ $buffer
       result.importDirectives.addAll(dataType.importDirectives);
       return result;
     }
-    //  else if (typeMap[result.dartType] != null) {
-    //   var itemType = typeMap[result.dartType];
-    //   result.importDirectives.add("import '${getModelFileName(itemType)}';");
-    //   result.dartType = 'List<$itemType>';
-    // } else {
-    //   result.importDirectives.add("import '${getModelFileName(result)}';");
-    // }
     return null;
-    // }
-    // String jsonType = fieldContent.jsonType;
-    // if (typeMap[jsonType] != null) {
-    //   var itemType = typeMap[jsonType];
-    //   result.importDirectives.add("import '${getModelFileName(itemType)}';");
-    //   result.dartType = 'List<${itemType.dartType}>';
-    // } else if (jsonType == 'array') {
-    //   var itemType = getTypeData(fieldContent.items);
-    //   result.dartType = 'List<${itemType.dartType}>';
-    // }
-    // return result;
   }
-
-  // String getDartType(SchemaType fieldContent, List<String> importList) {
-  //   String ref = fieldContent.ref;
-  //   if (ref != null) {
-  //     var className = ref.replaceFirst('#/definitions/', '');
-  //     if (className == 'JsonObject') {
-  //       importList.add("import 'package:built_value/json_object.dart';");
-  //     } else if (typeMap[className] != null) {
-  //       var itemType = typeMap[className];
-  //       importList.add("import '${getModelFileName(itemType)}';");
-  //       return 'List<$itemType>';
-  //     } else {
-  //       importList.add("import '${getModelFileName(className)}';");
-  //     }
-  //     return className;
-  //   }
-  //   String jsonType = fieldContent.jsonType;
-  //   const type2dartType = const {
-  //     'string': 'String',
-  //     'boolean': 'bool',
-  //     'number': 'num',
-  //     'integer': 'int',
-  //   };
-  //   String dartType = '';
-  //   if (typeMap[jsonType] != null) {
-  //     var itemType = typeMap[jsonType];
-  //     importList.add("import '${getModelFileName(itemType)}';");
-  //     dartType = 'List<$itemType>';
-  //   } else if (jsonType == 'array') {
-  //     var itemType = getDartType(fieldContent.items, importList);
-  //     dartType = 'List<$itemType>';
-  //   } else {
-  //     dartType = type2dartType[jsonType];
-  //   }
-  //   return dartType;
-  // }
 
   var _qPattern = new RegExp('^q');
   generateField(String jsonFieldName, SchemaType fieldContent,
