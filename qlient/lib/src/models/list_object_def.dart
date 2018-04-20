@@ -2,8 +2,7 @@
 import 'package:built_value/built_value.dart';
 import 'nx_inline_dimension_def.dart';
 import 'nx_auto_sort_by_state_def.dart';
-import 'nx_page.dart';
-import 'nx_list_object_expression_def.dart';
+import 'nx_cell.dart';
 
 /// Defines the properties of a list object.
 /// For more information about the definition of a list object, see _Generic object_.
@@ -41,10 +40,10 @@ class ListObjectDef {
   bool showAlternatives;
   /// Fetches an initial data set.
   /// Original name: qInitialDataFetch
-  null initialDataFetch;
+  List<NxCell> initialDataFetch;
   /// Lists the expressions in the list object.
   /// This parameter is optional.
   /// Original name: qExpressions
-  null expressions;
+  List<NxCell> expressions;
 }
 

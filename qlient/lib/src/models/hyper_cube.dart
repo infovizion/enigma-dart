@@ -2,12 +2,7 @@
 import 'package:built_value/built_value.dart';
 import 'size.dart';
 import 'nx_validation_error.dart';
-import 'nx_dimension_info.dart';
-import 'nx_measure_info.dart';
 import 'nx_cell.dart';
-import 'nx_data_page.dart';
-import 'nx_pivot_page.dart';
-import 'nx_stack_page.dart';
 import 'nx_cell_position.dart';
 
 /// Renders the properties of a hypercube. Is the layout for _HyperCubeDef_.
@@ -26,31 +21,31 @@ class HyperCube {
   NxValidationError error;
   /// Information on the dimension.
   /// Original name: qDimensionInfo
-  null dimensionInfo;
+  List<NxCell> dimensionInfo;
   /// Information on the measure.
   /// Original name: qMeasureInfo
-  null measureInfo;
+  List<NxCell> measureInfo;
   /// Sort order of the columns in the hypercube.
   /// Column numbers are separated by a comma.
   /// Example: [1,0,2] means that the first column to be sorted was the column 1, followed by the column 0 and the column 2.
   /// Original name: qEffectiveInterColumnSortOrder
-  null effectiveInterColumnSortOrder;
+  List<NxCell> effectiveInterColumnSortOrder;
   /// Aggregate for measures of all values in the field.
   /// The result value depends on the _qAggrFunc_ defined in _HyperCubeDef_.
   /// Original name: qGrandTotalRow
-  null grandTotalRow;
+  List<NxCell> grandTotalRow;
   /// Set of data.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qDataPages
-  null dataPages;
+  List<NxCell> dataPages;
   /// Set of data for pivot tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qPivotDataPages
-  null pivotDataPages;
+  List<NxCell> pivotDataPages;
   /// Set of data for stacked tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qStackedDataPages
-  null stackedDataPages;
+  List<NxCell> stackedDataPages;
   /// Information about the mode of the visualization.
   /// 
   /// One of:
@@ -105,12 +100,12 @@ class HyperCube {
   String title;
   /// The total number of nodes on each dimension (only applicable when _qMode = T_ ).
   /// Original name: qTreeNodesOnDim
-  null treeNodesOnDim;
+  List<NxCell> treeNodesOnDim;
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
   String calcCondMsg;
   /// The order of the columns.
   /// Original name: qColumnOrder
-  null columnOrder;
+  List<NxCell> columnOrder;
 }
 

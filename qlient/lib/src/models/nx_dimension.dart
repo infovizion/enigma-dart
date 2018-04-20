@@ -4,8 +4,7 @@ import 'nx_inline_dimension_def.dart';
 import 'other_total_spec_prop.dart';
 import 'string_expr.dart';
 import 'value_expr.dart';
-import 'nx_attr_expr_def.dart';
-import 'nx_attr_dim_def.dart';
+import 'nx_cell.dart';
 import 'nx_calc_cond.dart';
 
 /// <div class=note>Either **qDef** or **qLibraryId** must be set, but not both. </div> <div class=note>If the dimension is set in the hypercube and not in the library, this dimension cannot be shared with other objects.</div> <div class=note>A dimension that is set in the library can be used by many objects.</div>
@@ -59,10 +58,10 @@ class NxDimension {
   ValueExpr calcCond;
   /// List of attribute expressions.
   /// Original name: qAttributeExpressions
-  null attributeExpressions;
+  List<NxCell> attributeExpressions;
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
-  null attributeDimensions;
+  List<NxCell> attributeDimensions;
   /// Specifies a calculation condition object.
   /// If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.
   /// By default, there is no calculation condition.

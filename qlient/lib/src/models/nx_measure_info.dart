@@ -2,8 +2,7 @@
 import 'package:built_value/built_value.dart';
 import 'field_attributes.dart';
 import 'nx_validation_error.dart';
-import 'nx_attr_expr_info.dart';
-import 'nx_attr_dim_info.dart';
+import 'nx_cell.dart';
 
 /// Layout for _NxInlineMeasureDef_.
 class NxMeasureInfo {
@@ -49,10 +48,10 @@ class NxMeasureInfo {
   bool isAutoFormat;
   /// List of attribute expressions.
   /// Original name: qAttrExprInfo
-  null attrExprInfo;
+  List<NxCell> attrExprInfo;
   /// List of attribute dimensions.
   /// Original name: qAttrDimInfo
-  null attrDimInfo;
+  List<NxCell> attrDimInfo;
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
   String calcCondMsg;
