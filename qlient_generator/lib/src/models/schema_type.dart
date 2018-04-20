@@ -16,7 +16,6 @@ abstract class SchemaType implements Built<SchemaType, SchemaTypeBuilder> {
   @nullable
   String get format;
 
-  @nullable
   BuiltMap<String,SchemaType> get properties;
 
   @nullable

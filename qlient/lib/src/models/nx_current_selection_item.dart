@@ -3,50 +3,65 @@ import 'package:built_value/built_value.dart';
 import 'range_select_info.dart';
 import 'nx_state_counts.dart';
 import 'nx_field_selection_info.dart';
-import 'nx_field_selection_info.dart';
 
 class NxCurrentSelectionItem {
   /// Number of values in the field.
+  /// Original name: qTotal
   int total;
   /// This parameter is displayed if its value is true.
   /// Is set to true if the field is a numeric.
   /// This parameter is optional.
+  /// Original name: qIsNum
   bool isNum;
   /// Name of the field that is selected.
+  /// Original name: qField
   String field;
   /// This parameter is displayed if its value is true.
   /// Is set to true if the field is locked.
   /// This parameter is optional.
+  /// Original name: qLocked
   bool locked;
   /// This parameter is displayed if its value is true.
   /// Property that is set to a field. Is set to true if the field cannot be unselected.
   /// This parameter is optional.
+  /// Original name: qOneAndOnlyOne
   bool oneAndOnlyOne;
   /// Text that was used for the search. This parameter is filled when searching for a value and selecting it.
   /// This parameter is optional.
+  /// Original name: qTextSearch
   String textSearch;
   /// Number of values that are selected.
+  /// Original name: qSelectedCount
   int selectedCount;
   /// Values that are selected.
+  /// Original name: qSelected
   String selected;
   /// Information about the range of selected values.
   /// Is empty if there is no range of selected values.
-  List<RangeSelectInfo> rangeInfo;
+  /// Original name: qRangeInfo
+  null rangeInfo;
   /// Sort index of the field. Indexing starts from 0.
+  /// Original name: qSortIndex
   int sortIndex;
   /// Number of values in a particular state.
+  /// Original name: qStateCounts
   NxStateCounts stateCounts;
   /// Information about the fields that are selected.
-  List<NxFieldSelectionInfo> selectedFieldSelectionInfo;
+  /// Original name: qSelectedFieldSelectionInfo
+  null selectedFieldSelectionInfo;
   /// Information about the fields that are not selected.
-  List<NxFieldSelectionInfo> notSelectedFieldSelectionInfo;
+  /// Original name: qNotSelectedFieldSelectionInfo
+  null notSelectedFieldSelectionInfo;
   /// Maximum values to show in the current selections.
   /// The default value is 6.
+  /// Original name: qSelectionThreshold
   int selectionThreshold;
   /// Label that, if defined, is displayed in current selections instead of the actual expression.
+  /// Original name: qReadableName
   String readableName;
   /// Optional parameter. Indicates if the selection is to be hidden in the Selections bar.
   /// Is set to true if the current selection is hidden.
+  /// Original name: qIsHidden
   bool isHidden;
 }
 

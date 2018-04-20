@@ -4,6 +4,7 @@ import 'field_value.dart';
 
 class TableRow {
   /// Array of field values.
-  List<FieldValue> value;
+  /// Original name: qValue
+  null value;
 }
 

@@ -10,12 +10,16 @@ import 'nx_list_object_expression_def.dart';
 class ListObjectDef {
   /// Name of the alternate state.
   /// Default is current selections _$_ .
+  /// Original name: qStateName
   String stateName;
   /// Refers to a dimension stored in the library.
+  /// Original name: qLibraryId
   String libraryId;
   /// Refers to a dimension stored in the list object.
+  /// Original name: qDef
   NxInlineDimensionDef def;
   /// Defines the sorting by state.
+  /// Original name: qAutoSortByState
   NxAutoSortByStateDef autoSortByState;
   /// Defines the frequency mode. The frequency mode is used to calculate the frequency of a value in a list object.
   /// Default is _NX_FREQUENCY_NONE_ .
@@ -26,17 +30,21 @@ class ListObjectDef {
   /// * V or NX_FREQUENCY_VALUE
   /// * P or NX_FREQUENCY_PERCENT
   /// * R or NX_FREQUENCY_RELATIVE
+  /// Original name: qFrequencyMode
   String frequencyMode;
   /// If set to true, alternative values are allowed in _qData_ .
   /// If set to false, no alternative values are displayed in _qData_ . Values are excluded instead.
   /// The default value is false.
   /// Note that on the contrary, the _qStateCounts_ parameter counts the excluded values as alternative values.
   /// This parameter is optional.
+  /// Original name: qShowAlternatives
   bool showAlternatives;
   /// Fetches an initial data set.
-  List<NxPage> initialDataFetch;
+  /// Original name: qInitialDataFetch
+  null initialDataFetch;
   /// Lists the expressions in the list object.
   /// This parameter is optional.
-  List<NxListObjectExpressionDef> expressions;
+  /// Original name: qExpressions
+  null expressions;
 }
 

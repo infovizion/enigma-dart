@@ -9,11 +9,15 @@ class NxLibraryDimensionDef {
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
   /// * C or GRP_NX_COLLECTION
+  /// Original name: qGrouping
   String grouping;
   /// Array of dimension names.
-  List<String> fieldDefs;
+  /// Original name: qFieldDefs
+  null fieldDefs;
   /// Array of dimension labels.
-  List<String> fieldLabels;
+  /// Original name: qFieldLabels
+  null fieldLabels;
+  /// Original name: qLabelExpression
   String labelExpression;
 }
 

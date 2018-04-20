@@ -8,18 +8,23 @@ class SearchGroupItem {
   /// One of:
   /// * Field or FIELD
   /// * GenericObject or GENERIC_OBJECT
+  /// Original name: qItemType
   String itemType;
   /// Total number of distinct matches in the search group item.
+  /// Original name: qTotalNumberOfMatches
   int totalNumberOfMatches;
   /// Identifier of the item.
   /// It corresponds to:
   /// * The name of the field, if the type of the search group is data set.
   /// * The id of the generic object if the type of the search group is generic object.
+  /// Original name: qIdentifier
   String identifier;
   /// List of matches in the search group item.
   /// The group item matches are numbered from the value of _SearchGroupItemOptions.qOffset_ to the value of _SearchGroupItemOptions.qOffset_ \+ _SearchGroupItemOptions.qCount_ .
-  List<SearchGroupItemMatch> itemMatches;
+  /// Original name: qItemMatches
+  null itemMatches;
   /// Indexes of the search terms that are included in the group item. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ .
-  List<int> searchTermsMatched;
+  /// Original name: qSearchTermsMatched
+  null searchTermsMatched;
 }
 

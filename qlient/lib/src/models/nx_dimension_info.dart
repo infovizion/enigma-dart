@@ -9,12 +9,16 @@ import 'nx_attr_dim_info.dart';
 class NxDimensionInfo {
   /// Corresponds to the label of the dimension that is selected.
   /// If the label is not defined then the field name is used.
+  /// Original name: qFallbackTitle
   String fallbackTitle;
   /// Length of the longest value in the field.
+  /// Original name: qApprMaxGlyphCount
   int apprMaxGlyphCount;
   /// Number of distinct field values.
+  /// Original name: qCardinal
   int cardinal;
   /// Is set to true if the field is locked.
+  /// Original name: qLocked
   bool locked;
   /// Sort indicator.
   /// The default value is no sorting.
@@ -24,20 +28,26 @@ class NxDimensionInfo {
   /// * N or NX_SORT_INDICATE_NONE
   /// * A or NX_SORT_INDICATE_ASC
   /// * D or NX_SORT_INDICATE_DESC
+  /// Original name: qSortIndicator
   String sortIndicator;
   /// Array of dimension labels.
   /// Contains the labels of all dimensions in a hierarchy group (for example the labels of all dimensions in a drill down group).
-  List<String> groupFallbackTitles;
+  /// Original name: qGroupFallbackTitles
+  null groupFallbackTitles;
   /// Index of the dimension that is currently in use.
   /// _qGroupPos_ is set to 0 if there are no hierarchical groups (drill-down groups) or cycle groups.
+  /// Original name: qGroupPos
   int groupPos;
   /// Number of values in a particular state.
+  /// Original name: qStateCounts
   NxStateCounts stateCounts;
   /// Gives information on a field. For example, it can return the type of the field.
   /// Examples: key, text, ASCII
-  List<String> tags;
+  /// Original name: qTags
+  null tags;
   /// This parameter is optional.
   /// Gives information on the error.
+  /// Original name: qError
   NxValidationError error;
   /// Binary format of the field.
   /// 
@@ -45,8 +55,10 @@ class NxDimensionInfo {
   /// * D or NX_DIMENSION_TYPE_DISCRETE
   /// * N or NX_DIMENSION_TYPE_NUMERIC
   /// * T or NX_DIMENSION_TYPE_TIME
+  /// Original name: qDimensionType
   String dimensionType;
   /// If set to true, it inverts the sort criteria in the field.
+  /// Original name: qReverseSort
   bool reverseSort;
   /// Defines the grouping.
   /// 
@@ -54,35 +66,50 @@ class NxDimensionInfo {
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
   /// * C or GRP_NX_COLLECTION
+  /// Original name: qGrouping
   String grouping;
   /// If set to true, it means that the field is a semantic.
+  /// Original name: qIsSemantic
   bool isSemantic;
   /// If set to true, it means that the field always has one and only one selected value.
+  /// Original name: qIsOneAndOnlyOne
   bool isOneAndOnlyOne;
   /// Format of the field.
   /// This parameter is optional.
+  /// Original name: qNumFormat
   FieldAttributes numFormat;
   /// This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's definition.
+  /// Original name: qIsAutoFormat
   bool isAutoFormat;
   /// Array of field names.
-  List<String> groupFieldDefs;
+  /// Original name: qGroupFieldDefs
+  null groupFieldDefs;
   /// Minimum value.
+  /// Original name: qMin
   num min;
   /// Maximum value.
+  /// Original name: qMax
   num max;
   /// Is continuous axis used.
+  /// Original name: qContinuousAxes
   bool continuousAxes;
   /// Is a cyclic dimension used.
+  /// Original name: qIsCyclic
   bool isCyclic;
   /// Is derived field is used as a dimension.
+  /// Original name: qDerivedField
   bool derivedField;
   /// Array of attribute expressions.
-  List<NxAttrExprInfo> attrExprInfo;
+  /// Original name: qAttrExprInfo
+  null attrExprInfo;
   /// Array of attribute dimensions.
-  List<NxAttrDimInfo> attrDimInfo;
+  /// Original name: qAttrDimInfo
+  null attrDimInfo;
   /// The message displayed if calculation condition is not fulfilled.
+  /// Original name: qCalcCondMsg
   String calcCondMsg;
   /// True if this is a calculated dimension.
+  /// Original name: qIsCalculated
   bool isCalculated;
 }
 

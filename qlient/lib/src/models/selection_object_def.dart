@@ -8,6 +8,7 @@ import 'package:built_value/built_value.dart';
 /// ### Properties
 /// "qSelectionObjectDef": {}
 class SelectionObjectDef {
+  /// Original name: qStateName
   String stateName;
 }
 

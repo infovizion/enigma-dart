@@ -10,12 +10,15 @@ class SearchGroupOptions {
   /// One of:
   /// * DatasetType or DATASET_GROUP
   /// * GenericObjectsType or GENERIC_OBJECTS_GROUP
+  /// Original name: qGroupType
   String groupType;
   /// Position starting from 0.
   /// The default value is 0.
+  /// Original name: qOffset
   int offset;
   /// Maximum number of items per group (in _qItems[ ]_ ).
   /// The default value is -1; all values are returned.
+  /// Original name: qCount
   int count;
 }
 

@@ -5,8 +5,10 @@ import 'rect.dart';
 
 class NxStackPage {
   /// Array of data.
-  List<NxStackedPivotCell> data;
+  /// Original name: qData
+  null data;
   /// Size and offset of the data in the matrix.
+  /// Original name: qArea
   Rect area;
 }
 

@@ -6,9 +6,11 @@ import 'package:built_value/json_object.dart';
 /// <div class=note>An app object is a generic object created at app level.</div>
 class AppObjectListDef {
   /// Type of the app list.
+  /// Original name: qType
   String type;
   /// Data that you want to include in the app list definition.
   /// You need to enter the paths to the information you want to retrieve.
+  /// Original name: qData
   JsonObject data;
 }
 

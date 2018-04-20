@@ -4,6 +4,7 @@ import 'package:built_value/built_value.dart';
 
 class Function {
   /// Name of the script function.
+  /// Original name: qName
   String name;
   /// Group of the script function.
   /// 
@@ -35,9 +36,11 @@ class Function {
   /// * RNK or FUNC_GROUP_RANKING
   /// * GEO or FUNC_GROUP_GEO
   /// * EXT or FUNC_GROUP_EXTERNAL
+  /// Original name: qGroup
   String group;
   /// Signature of the script function.
   /// Gives general information about the function.
+  /// Original name: qSignature
   String signature;
 }
 

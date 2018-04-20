@@ -4,8 +4,10 @@ import 'rect.dart';
 
 class TableViewTableWinSaveInfo {
   /// Information about the position of the table.
+  /// Original name: qPos
   Rect pos;
   /// Table name.
+  /// Original name: qCaption
   String caption;
 }
 

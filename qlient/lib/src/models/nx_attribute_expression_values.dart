@@ -4,6 +4,7 @@ import 'nx_simple_value.dart';
 
 class NxAttributeExpressionValues {
   /// List of attribute expressions values.
-  List<NxSimpleValue> values;
+  /// Original name: qValues
+  null values;
 }
 

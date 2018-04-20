@@ -6,6 +6,7 @@ import 'nx_container_entry.dart';
 /// <div class=note>An app object is a generic object created at app level.</div>
 class AppObjectList {
   /// Information about the list of dimensions.
-  List<NxContainerEntry> items;
+  /// Original name: qItems
+  null items;
 }
 

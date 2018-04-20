@@ -6,15 +6,19 @@ import 'package:built_value/json_object.dart';
 
 class NxVariableListItem {
   /// Name of the variable.
+  /// Original name: qName
   String name;
   /// Description of the variable.
+  /// Original name: qDescription
   String description;
   /// Definition of the variable. It can be a value or an expression.
+  /// Original name: qDefinition
   String definition;
   /// If set to true, it means that the variable is a system variable.
   /// A system variable provides information about the system and is set by the engine. The content cannot be changed by the user.
   /// This parameter is optional.
   /// The default value is false.
+  /// Original name: qIsConfig
   bool isConfig;
   /// If set to true, it means that the variable is reserved.
   /// The default value is false.
@@ -22,16 +26,21 @@ class NxVariableListItem {
   /// Examples:
   /// * _ScriptError_ is a reserved variable, set by the engine.
   /// * _DayNames_ is a reserved variable, set by the user.
+  /// Original name: qIsReserved
   bool isReserved;
   /// Information about publishing and permissions.
   /// This parameter is optional.
+  /// Original name: qMeta
   NxMeta meta;
   /// Identifier and type of the object.
   /// This parameter is mandatory.
+  /// Original name: qInfo
   NxInfo info;
   /// Data.
+  /// Original name: qData
   JsonObject data;
   /// If set to true, it means that the variable was defined via script.
+  /// Original name: qIsScriptCreated
   bool isScriptCreated;
 }
 

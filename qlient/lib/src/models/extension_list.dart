@@ -3,6 +3,7 @@ import 'package:built_value/built_value.dart';
 
 
 class ExtensionList {
-  List<String> items;
+  /// Original name: qItems
+  null items;
 }
 

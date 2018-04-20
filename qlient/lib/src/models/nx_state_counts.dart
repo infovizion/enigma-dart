@@ -4,20 +4,28 @@ import 'package:built_value/built_value.dart';
 
 class NxStateCounts {
   /// Number of values in locked state.
+  /// Original name: qLocked
   int locked;
   /// Number of values in selected state.
+  /// Original name: qSelected
   int selected;
   /// Number of values in optional state.
+  /// Original name: qOption
   int option;
   /// Number of values in deselected state.
+  /// Original name: qDeselected
   int deselected;
   /// Number of values in alternative state.
+  /// Original name: qAlternative
   int alternative;
   /// Number of values in excluded state.
+  /// Original name: qExcluded
   int excluded;
   /// Number of values in selected excluded state.
+  /// Original name: qSelectedExcluded
   int selectedExcluded;
   /// Number of values in locked excluded state.
+  /// Original name: qLockedExcluded
   int lockedExcluded;
 }
 

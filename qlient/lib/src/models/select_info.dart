@@ -8,24 +8,31 @@ class SelectInfo {
   /// Text search string.
   /// Everything that matches the text is selected.
   /// This parameter is optional.
+  /// Original name: qTextSearch
   String textSearch;
   /// Lower value of the search range.
   /// This parameter is used when performing range selections or text searches in dimensions.
   /// Default is Null.
+  /// Original name: qRangeLo
   num rangeLo;
   /// Highest value of the search range.
   /// This parameter is used when performing range selections or text searches in dimensions.
   /// Default is Null.
+  /// Original name: qRangeHi
   num rangeHi;
   /// Gives information about the formatting of the range.
   /// This parameter is used when performing range selections or text searches in dimensions.
+  /// Original name: qNumberFormat
   FieldAttributes numberFormat;
   /// This parameter is used when performing range selections or text searches in measures.
   /// Gives information about the range of selections.
   /// bool SoftLock = false;
-  List<RangeSelectInfo> rangeInfo;
+  /// Original name: qRangeInfo
+  null rangeInfo;
+  /// Original name: qSoftLock
   bool softLock;
   /// List of information about ranges for selections.
-  List<Range> continuousRangeInfo;
+  /// Original name: qContinuousRangeInfo
+  null continuousRangeInfo;
 }
 

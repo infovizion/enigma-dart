@@ -9,6 +9,7 @@ class NxSelectionCell {
   /// * D or NX_CELL_DATA
   /// * T or NX_CELL_TOP
   /// * L or NX_CELL_LEFT
+  /// Original name: qType
   String type;
   /// Column index to select.
   /// Indexing starts from 0.
@@ -16,6 +17,7 @@ class NxSelectionCell {
   /// * D, the index is based on the data matrix.
   /// * T, the index is based on the data matrix.
   /// * L, the index is based on the left dimensions indexes.
+  /// Original name: qCol
   int col;
   /// Row index to select.
   /// Indexing starts from 0.
@@ -23,6 +25,7 @@ class NxSelectionCell {
   /// * D, the index is based on the data matrix.
   /// * T, the index is based on the top dimensions indexes.
   /// * L, the index is based on the data matrix.
+  /// Original name: qRow
   int row;
 }
 

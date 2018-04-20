@@ -6,6 +6,7 @@ class NxAutoSortByStateDef {
   /// This parameter applies to list objects.
   /// If the number of selected values in the list object is greater than the value set in _qDisplayNumberOfRows_ , the selected lines are promoted at the top of the list object.
   /// If _qDisplayNumberOfRows_ is set to a negative value or to 0, the sort by state is disabled.
+  /// Original name: qDisplayNumberOfRows
   int displayNumberOfRows;
 }
 

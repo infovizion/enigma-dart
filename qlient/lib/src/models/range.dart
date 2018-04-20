@@ -4,16 +4,20 @@ import 'package:built_value/built_value.dart';
 
 class Range {
   /// Lowest value in the range
+  /// Original name: qMin
   num min;
   /// Highest value in the range
+  /// Original name: qMax
   num max;
   /// If set to true, the range includes the lowest value in the range of selections (Equals to ). [bn(50500)]
   /// Example:
   /// The range is [1,10]. If _qMinInclEq_ is set to true it means that 1 is included in the range of selections.
+  /// Original name: qMinInclEq
   bool minInclEq;
   /// If set to true, the range includes the highest value in the range of selections (Equals to ). [bn(50500)]
   /// Example:
   /// The range is [1,10]. If _qMinInclEq_ is set to true it means that 10 is included in the range of selections.
+  /// Original name: qMaxInclEq
   bool maxInclEq;
 }
 

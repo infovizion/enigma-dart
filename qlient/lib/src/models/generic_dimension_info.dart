@@ -4,16 +4,21 @@ import 'package:built_value/built_value.dart';
 
 class GenericDimensionInfo {
   /// Length of the longest value in the field.
+  /// Original name: qApprMaxGlyphCount
   int apprMaxGlyphCount;
   /// Number of distinct field values
+  /// Original name: qCardinal
   int cardinal;
   /// Gives information on a field. For example, it can return the type of the field.
   /// Examples: key, text, ASCII
-  List<String> tags;
+  /// Original name: qTags
+  null tags;
   /// If set to true, it means that the field is a semantic.
+  /// Original name: qIsSemantic
   bool isSemantic;
   /// If set to true a logical AND (instead of a logical OR) is used when making selections in a field.
   /// The default value is false.
+  /// Original name: qAndMode
   bool andMode;
 }
 

@@ -25,7 +25,12 @@ class _$SchemaTypeSerializer implements StructuredSerializer<SchemaType> {
   @override
   Iterable serialize(Serializers serializers, SchemaType object,
       {FullType specifiedType: FullType.unspecified}) {
-    final result = <Object>[];
+    final result = <Object>[
+      'properties',
+      serializers.serialize(object.properties,
+          specifiedType: const FullType(BuiltMap,
+              const [const FullType(String), const FullType(SchemaType)])),
+    ];
     if (object.description != null) {
       result
         ..add('description')
@@ -37,13 +42,6 @@ class _$SchemaTypeSerializer implements StructuredSerializer<SchemaType> {
         ..add('format')
         ..add(serializers.serialize(object.format,
             specifiedType: const FullType(String)));
-    }
-    if (object.properties != null) {
-      result
-        ..add('properties')
-        ..add(serializers.serialize(object.properties,
-            specifiedType: const FullType(BuiltMap,
-                const [const FullType(String), const FullType(SchemaType)])));
     }
     if (object.schema != null) {
       result
@@ -162,7 +160,10 @@ class _$SchemaType extends SchemaType {
       this.title,
       this.ref,
       this.jsonType})
-      : super._();
+      : super._() {
+    if (properties == null)
+      throw new BuiltValueNullFieldError('SchemaType', 'properties');
+  }
 
   @override
   SchemaType rebuild(void updates(SchemaTypeBuilder b)) =>
@@ -289,7 +290,7 @@ class SchemaTypeBuilder implements Builder<SchemaType, SchemaTypeBuilder> {
           new _$SchemaType._(
               description: description,
               format: format,
-              properties: _properties?.build(),
+              properties: properties.build(),
               schema: _schema?.build(),
               items: _items?.build(),
               title: title,
@@ -299,7 +300,7 @@ class SchemaTypeBuilder implements Builder<SchemaType, SchemaTypeBuilder> {
       String _$failedField;
       try {
         _$failedField = 'properties';
-        _properties?.build();
+        properties.build();
         _$failedField = 'schema';
         _schema?.build();
         _$failedField = 'items';

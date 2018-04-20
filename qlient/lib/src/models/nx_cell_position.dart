@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class NxCellPosition {
   /// Position of the cell on the x-axis.
+  /// Original name: qx
   int x;
   /// Position of the cell on the y-axis.
+  /// Original name: qy
   int y;
 }
 

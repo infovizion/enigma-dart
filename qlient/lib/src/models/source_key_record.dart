@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class SourceKeyRecord {
   /// Name of the key field.
-  List<String> keyFields;
+  /// Original name: qKeyFields
+  null keyFields;
   /// Table the key belongs to.
-  List<String> tables;
+  /// Original name: qTables
+  null tables;
 }
 

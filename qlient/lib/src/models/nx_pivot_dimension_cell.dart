@@ -6,18 +6,23 @@ import 'nx_attribute_dim_values.dart';
 
 class NxPivotDimensionCell {
   /// Some text.
+  /// Original name: qText
   String text;
   /// Rank number of the value.
   /// If set to -1, it means that the value is not an element number.
+  /// Original name: qElemNo
   int elemNo;
   /// Value of the cell.
   /// Is set to _NaN_ , if the value is not a number.
+  /// Original name: qValue
   num value;
   /// If set to true, it means that the cell can be expanded.
   /// This parameter is not returned if it is set to false.
+  /// Original name: qCanExpand
   bool canExpand;
   /// If set to true, it means that the cell can be collapsed.
   /// This parameter is not returned if it is set to false.
+  /// Original name: qCanCollapse
   bool canCollapse;
   /// Type of the cell.
   /// 
@@ -32,20 +37,26 @@ class NxPivotDimensionCell {
   /// * R or NX_DIM_CELL_ROOT
   /// * U or NX_DIM_CELL_NULL
   /// * G or NX_DIM_CELL_GENERATED
+  /// Original name: qType
   String type;
   /// Number of elements that are part of the previous tail.
   /// This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ .
+  /// Original name: qUp
   int up;
   /// Number of elements that are part of the next tail.
   /// This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ .
+  /// Original name: qDown
   int down;
   /// Information about sub nodes (or sub cells).
   /// The array is empty _[ ]_ when there is no sub nodes.
-  List<NxPivotDimensionCell> subNodes;
+  /// Original name: qSubNodes
+  null subNodes;
   /// Information about attribute expressions.
   /// The array is empty _[ ]_ when there is no attribute expressions.
+  /// Original name: qAttrExps
   NxAttributeExpressionValues attrExps;
   /// Information about attribute dimensions.
+  /// Original name: qAttrDims
   NxAttributeDimValues attrDims;
 }
 

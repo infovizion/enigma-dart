@@ -6,24 +6,31 @@ import 'package:built_value/built_value.dart';
 class FieldListDef {
   /// Shows the system tables if set to true.
   /// Default is false.
+  /// Original name: qShowSystem
   bool showSystem;
   /// Shows the hidden fields if set to true.
   /// Default is false.
+  /// Original name: qShowHidden
   bool showHidden;
   /// Show the semantic fields if set to true.
   /// Default is false.
+  /// Original name: qShowSemantic
   bool showSemantic;
   /// Shows the tables and fields present in the data model viewer if set to true.
   /// Default is false.
+  /// Original name: qShowSrcTables
   bool showSrcTables;
   /// Shows the fields defined on the fly if set to true.
   /// Default is false.
+  /// Original name: qShowDefinitionOnly
   bool showDefinitionOnly;
   /// Shows the fields and derived fields if set to true.
   /// Default is false.
+  /// Original name: qShowDerivedFields
   bool showDerivedFields;
   /// Shows the Direct Discovery measure fields if set to true.
   /// Default is false.
+  /// Original name: qShowImplicit
   bool showImplicit;
 }
 

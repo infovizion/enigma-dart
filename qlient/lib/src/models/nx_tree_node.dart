@@ -8,15 +8,20 @@ import 'nx_attribute_dim_values.dart';
 /// Represents a dimension in the tree.
 class NxTreeNode {
   /// The text version of the value, if available.
+  /// Original name: qText
   String text;
   /// Element number.
+  /// Original name: qElemNo
   int elemNo;
   /// A generated number applicable to this page only. Used so that children can easily identify who their parents are.
+  /// Original name: qNodeNr
   int nodeNr;
   /// The qNodeNr of this node's parent for the current page.
+  /// Original name: qParentNode
   int parentNode;
   /// Row index in the data matrix.
   /// The indexing starts from 0.
+  /// Original name: qRow
   int row;
   /// Type of the cell.
   /// 
@@ -31,14 +36,19 @@ class NxTreeNode {
   /// * R or NX_DIM_CELL_ROOT
   /// * U or NX_DIM_CELL_NULL
   /// * G or NX_DIM_CELL_GENERATED
+  /// Original name: qType
   String type;
   /// The measures for this node.
-  List<NxTreeValue> values;
+  /// Original name: qValues
+  null values;
   /// The children of this node in the tree structure.
-  List<NxTreeNode> nodes;
+  /// Original name: qNodes
+  null nodes;
   /// Attribute expression values.
+  /// Original name: qAttrExps
   NxAttributeExpressionValues attrExps;
   /// Attribute dimension values.
+  /// Original name: qAttrDims
   NxAttributeDimValues attrDims;
 }
 

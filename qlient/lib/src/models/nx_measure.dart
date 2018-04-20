@@ -13,26 +13,33 @@ import 'nx_calc_cond.dart';
 /// </div>
 class NxMeasure {
   /// Refers to a measure stored in the library.
+  /// Original name: qLibraryId
   String libraryId;
   /// Refers to a measure stored in the hypercube.
+  /// Original name: qDef
   NxInlineMeasureDef def;
   /// Defines the sort criteria.
   /// The default value is sort by ascending alphabetic order.
   /// This property is optional.
+  /// Original name: qSortBy
   SortCriteria sortBy;
   /// List of attribute expressions.
-  List<NxAttrExprDef> attributeExpressions;
+  /// Original name: qAttributeExpressions
+  null attributeExpressions;
   /// List of attribute dimensions.
-  List<NxAttrDimDef> attributeDimensions;
+  /// Original name: qAttributeDimensions
+  null attributeDimensions;
   /// Specifies a calculation condition, which must be fulfilled for the measure to be calculated.
   /// If the calculation condition is not met, the measure is excluded from the calculation.
   /// By default, there is no calculation condition.
   /// This property is optional.
+  /// Original name: qCalcCond
   ValueExpr calcCond;
   /// Specifies a calculation condition object.
   /// If CalcCondition.Cond is not fulfilled, the measure is excluded from the calculation and CalcCondition.Msg is evaluated.
   /// By default, there is no calculation condition.
   /// This property is optional.
+  /// Original name: qCalcCondition
   NxCalcCond calcCondition;
 }
 

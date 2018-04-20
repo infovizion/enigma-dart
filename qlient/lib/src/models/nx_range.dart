@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class NxRange {
   /// Position in the expression of the first character of the field name.
+  /// Original name: qFrom
   int from;
   /// Number of characters in the field name.
+  /// Original name: qCount
   int count;
 }
 

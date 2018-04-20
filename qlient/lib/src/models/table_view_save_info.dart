@@ -6,15 +6,19 @@ import 'table_view_connection_point_save_info.dart';
 
 class TableViewSaveInfo {
   /// List of the tables in the database model viewer.
-  List<TableViewTableWinSaveInfo> tables;
+  /// Original name: qTables
+  null tables;
   /// List of the broom points in the database model viewer.
   /// Not used in Qlik Sense.
-  List<TableViewBroomPointSaveInfo> broomPoints;
+  /// Original name: qBroomPoints
+  null broomPoints;
   /// List of connection points in the database model viewer.
   /// Not used in Qlik Sense.
-  List<TableViewConnectionPointSaveInfo> connectionPoints;
+  /// Original name: qConnectionPoints
+  null connectionPoints;
   /// Zoom factor in the database model viewer.
   /// The default value is 1.0.
+  /// Original name: qZoomFactor
   num zoomFactor;
 }
 

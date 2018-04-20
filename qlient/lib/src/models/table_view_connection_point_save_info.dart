@@ -4,8 +4,10 @@ import 'point.dart';
 
 class TableViewConnectionPointSaveInfo {
   /// Information about the position of the connection point.
+  /// Original name: qPos
   Point pos;
   /// List of the fields in the table.
-  List<String> fields;
+  /// Original name: qFields
+  null fields;
 }
 

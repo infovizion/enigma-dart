@@ -6,10 +6,13 @@ import 'package:built_value/json_object.dart';
 
 class NxContainerEntry {
   /// Information about the object.
+  /// Original name: qInfo
   NxInfo info;
   /// Information on publishing and permissions.
+  /// Original name: qMeta
   NxMeta meta;
   /// Set of data.
+  /// Original name: qData
   JsonObject data;
 }
 

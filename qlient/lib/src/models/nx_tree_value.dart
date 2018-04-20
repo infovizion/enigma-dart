@@ -6,13 +6,17 @@ import 'nx_attribute_dim_values.dart';
 /// Represents a measure.
 class NxTreeValue {
   /// The text version of the value, if available.
+  /// Original name: qText
   String text;
   /// Value of the cell.
   /// Is set to _NaN_ , if the value is not a number.
+  /// Original name: qValue
   num value;
   /// Attribute expression values.
+  /// Original name: qAttrExps
   NxAttributeExpressionValues attrExps;
   /// Attribute dimension values.
+  /// Original name: qAttrDims
   NxAttributeDimValues attrDims;
 }
 

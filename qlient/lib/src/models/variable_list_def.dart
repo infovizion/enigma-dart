@@ -5,12 +5,16 @@ import 'package:built_value/json_object.dart';
 /// Defines the list of variables in an app.
 class VariableListDef {
   /// Type of the list.
+  /// Original name: qType
   String type;
   /// Shows the reserved variables if set to true.
+  /// Original name: qShowReserved
   bool showReserved;
   /// Shows the system variables if set to true.
+  /// Original name: qShowConfig
   bool showConfig;
   /// Data
+  /// Original name: qData
   JsonObject data;
 }
 

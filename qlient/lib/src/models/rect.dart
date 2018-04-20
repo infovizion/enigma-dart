@@ -5,13 +5,17 @@ import 'package:built_value/built_value.dart';
 class Rect {
   /// Position from the left.
   /// Corresponds to the first column.
+  /// Original name: qLeft
   int left;
   /// Position from the top.
   /// Corresponds to the first row.
+  /// Original name: qTop
   int top;
   /// Number of columns in the page. The indexing of the columns may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in _HyperCubeDef_ ).
+  /// Original name: qWidth
   int width;
   /// Number of rows or elements in the page. The indexing of the rows may vary depending on whether the cells are expanded or not (parameter _qAlwaysFullyExpanded_ in _HyperCubeDef_ ).
+  /// Original name: qHeight
   int height;
 }
 

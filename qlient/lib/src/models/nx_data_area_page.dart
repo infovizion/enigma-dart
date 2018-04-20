@@ -5,15 +5,19 @@ import 'package:built_value/built_value.dart';
 class NxDataAreaPage {
   /// Position from the left.
   /// Corresponds to the lowest possible value of the first measure (the measure on the x-axis).
+  /// Original name: qLeft
   num left;
   /// Position from the top.
   /// Corresponds to the highest possible value of the second measure (the measure on the y-axis).
+  /// Original name: qTop
   num top;
   /// Width of the page.
   /// Corresponds to the highest possible value of the first measure (the measure on the x-axis).
+  /// Original name: qWidth
   num width;
   /// Height of the page.
   /// The difference between _qTop_ and _qHeight_ gives the lowest possible value of the second measure (the measure on the y-axis).
+  /// Original name: qHeight
   num height;
 }
 

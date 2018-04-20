@@ -5,6 +5,7 @@ import 'nx_field_description.dart';
 /// Lists the fields present in the data model viewer. Is the layout for _FieldListDef_.
 class FieldList {
   /// Array of items.
-  List<NxFieldDescription> items;
+  /// Original name: qItems
+  null items;
 }
 

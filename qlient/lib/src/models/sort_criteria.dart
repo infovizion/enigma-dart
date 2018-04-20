@@ -4,19 +4,27 @@ import 'value_expr.dart';
 
 class SortCriteria {
   /// Sorts the field values according to their logical state (selected, optional, alternative or excluded).
+  /// Original name: qSortByState
   int sortByState;
   /// Sorts the field values by frequency (number of occurrences in the field).
+  /// Original name: qSortByFrequency
   int sortByFrequency;
   /// Sorts the field values by numeric value.
+  /// Original name: qSortByNumeric
   int sortByNumeric;
   /// Sorts the field by alphabetical order.
+  /// Original name: qSortByAscii
   int sortByAscii;
   /// Sorts the field values by the initial load order.
+  /// Original name: qSortByLoadOrder
   int sortByLoadOrder;
   /// Sorts the field by expression.
+  /// Original name: qSortByExpression
   int sortByExpression;
   /// Sort by expression.
+  /// Original name: qExpression
   ValueExpr expression;
+  /// Original name: qSortByGreyness
   int sortByGreyness;
 }
 

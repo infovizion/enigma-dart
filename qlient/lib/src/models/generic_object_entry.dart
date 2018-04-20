@@ -6,10 +6,13 @@ import 'generic_bookmark_entry.dart';
 
 class GenericObjectEntry {
   /// Information about the generic object properties.
+  /// Original name: qProperty
   GenericObjectProperties property;
   /// Information about the children of the generic object.
-  List<GenericObjectEntry> children;
+  /// Original name: qChildren
+  null children;
   /// Reference to a bookmark/snapshot that is embedded in the generic object.
+  /// Original name: qEmbeddedSnapshotRef
   GenericBookmarkEntry embeddedSnapshotRef;
 }
 

@@ -5,6 +5,7 @@ import 'nx_container_entry.dart';
 /// Lists the dimensions. Is the layout for _DimensionListDef_.
 class DimensionList {
   /// Information about the list of dimensions.
-  List<NxContainerEntry> items;
+  /// Original name: qItems
+  null items;
 }
 

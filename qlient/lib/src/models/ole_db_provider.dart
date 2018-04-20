@@ -4,12 +4,15 @@ import 'package:built_value/built_value.dart';
 
 class OleDbProvider {
   /// Name of the OLEDB provider.
+  /// Original name: qName
   String name;
   /// Description of the OLEDB provider.
+  /// Original name: qDescription
   String description;
   /// Is set to true if the version of the OLEDB provider is 32-bit.
   /// Default is false.
   /// This parameter is optional.
+  /// Original name: qBit32
   bool bit32;
 }
 

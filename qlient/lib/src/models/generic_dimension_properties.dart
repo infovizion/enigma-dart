@@ -2,16 +2,19 @@
 import 'package:built_value/built_value.dart';
 import 'nx_info.dart';
 import 'nx_library_dimension_def.dart';
-import 'nx_meta_def.dart';
+import 'package:built_value/json_object.dart';
 
 class GenericDimensionProperties {
   /// Identifier and type of the dimension.
   /// This parameter is mandatory.
+  /// Original name: qInfo
   NxInfo info;
   /// Definition of the dimension.
   /// This parameter is mandatory.
+  /// Original name: qDim
   NxLibraryDimensionDef dim;
   /// Definition of the dynamic properties.
-  NxMetaDef metaDef;
+  /// Original name: qMetaDef
+  JsonObject metaDef;
 }
 

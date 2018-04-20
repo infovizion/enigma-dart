@@ -18,29 +18,41 @@ import 'static_content_url.dart';
 /// * dynamicColor
 class NxAppLayout {
   /// Title of the app.
+  /// Original name: qTitle
   String title;
   /// In Qlik Sense Enterprise, this property corresponds to the app identifier (GUID).
   /// In Qlik Sense Desktop, this property corresponds to the full path of the app.
+  /// Original name: qFileName
   String fileName;
   /// Date and time of the last reload of the app in ISO format.
+  /// Original name: qLastReloadTime
   String lastReloadTime;
   /// Is set to true if the app has been updated since the last save.
+  /// Original name: qModified
   bool modified;
   /// Is set to true if a script is defined in the app.
+  /// Original name: qHasScript
   bool hasScript;
   /// Array of alternate states.
-  List<String> stateNames;
+  /// Original name: qStateNames
+  null stateNames;
   /// Information on publishing and permissions.
+  /// Original name: qMeta
   NxMeta meta;
   /// Information about the locale.
+  /// Original name: qLocaleInfo
   LocaleInfo localeInfo;
   /// Is set to true if the app contains data following a script reload.
+  /// Original name: qHasData
   bool hasData;
   /// If set to true, it means that the app is read-only.
+  /// Original name: qReadOnly
   bool readOnly;
   /// If set to true, it means that the app was opened without loading its data.
+  /// Original name: qIsOpenedWithoutData
   bool isOpenedWithoutData;
   /// App thumbnail.
+  /// Original name: qThumbnail
   StaticContentUrl thumbnail;
 }
 

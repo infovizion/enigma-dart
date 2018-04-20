@@ -3,7 +3,9 @@ import 'package:built_value/built_value.dart';
 
 
 class DoReloadExResult {
+  /// Original name: qSuccess
   bool success;
+  /// Original name: qScriptLogFile
   String scriptLogFile;
 }
 

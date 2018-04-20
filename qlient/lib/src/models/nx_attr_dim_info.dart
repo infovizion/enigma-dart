@@ -6,16 +6,22 @@ import 'nx_validation_error.dart';
 /// Layout for _NxAttrDimDef_.
 class NxAttrDimInfo {
   /// Cardinality of the attribute expression.
+  /// Original name: qCardinal
   int cardinal;
   /// Number of rows.
+  /// Original name: qSize
   Size size;
   /// The title for the attribute dimension.
+  /// Original name: qFallbackTitle
   String fallbackTitle;
   /// The Locked value of the dimension.
+  /// Original name: qLocked
   bool locked;
   /// Validation error.
+  /// Original name: qError
   NxValidationError error;
   /// True if this is a calculated dimension.
+  /// Original name: qIsCalculated
   bool isCalculated;
 }
 

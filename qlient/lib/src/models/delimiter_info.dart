@@ -6,14 +6,18 @@ class DelimiterInfo {
   /// Name of the delimiter.
   /// Example:
   /// "Tab_DELIMITER"
+  /// Original name: qName
   String name;
   /// Representation of the delimiter value that is used in the script.
   /// Example:
   /// "'\t'"
+  /// Original name: qScriptCode
   String scriptCode;
   /// Delimiter character number used by the engine to determine how to separate the values.
+  /// Original name: qNumber
   int number;
   /// Is set to true if multiple spaces are used to separate the values.
+  /// Original name: qIsMultiple
   bool isMultiple;
 }
 

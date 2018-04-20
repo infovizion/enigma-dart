@@ -13,6 +13,7 @@ import 'package:built_value/built_value.dart';
 /// <div class=note>The "=" sign in the value expression is not mandatory. Even if the "=" sign is not given, the expression is evaluated.</div>
 /// The expression is evaluated as a numeric.
 class ValueExpression {
+  /// Original name: qExpr
   String expr;
 }
 

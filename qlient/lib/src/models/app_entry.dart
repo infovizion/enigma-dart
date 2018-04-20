@@ -5,19 +5,27 @@ import 'static_content_url.dart';
 
 class AppEntry {
   /// Identifier of the app.
+  /// Original name: qID
   String iD;
   /// Title of the app.
+  /// Original name: qTitle
   String title;
   /// Path of the app.
+  /// Original name: qPath
   String path;
   /// Last reload time of the app.
+  /// Original name: qLastReloadTime
   String lastReloadTime;
   /// Is set to true if the app is read-only.
+  /// Original name: qReadOnly
   bool readOnly;
   /// Meta data.
+  /// Original name: qMeta
   NxMeta meta;
   /// App thumbnail.
+  /// Original name: qThumbnail
   StaticContentUrl thumbnail;
+  /// Original name: qFileSize
   int fileSize;
 }
 

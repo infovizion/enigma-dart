@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class RangeSelectInfo {
   /// Lowest value in the range.
+  /// Original name: qRangeLo
   num rangeLo;
   /// Highest value in the range.
+  /// Original name: qRangeHi
   num rangeHi;
   /// Label of the measure.
+  /// Original name: qMeasure
   String measure;
 }
 

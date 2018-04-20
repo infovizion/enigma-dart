@@ -6,8 +6,10 @@ class NxLinkedObjectInfo {
   /// Identifier of the root object.
   /// If the linked object is a child, the root identifier is the identifier of the parent.
   /// If the linked object is an app object, the root identifier is the same than the identifier of the linked object since the linked object is a root object.
+  /// Original name: qRootId
   String rootId;
   /// Information about the linked object.
+  /// Original name: qInfo
   NxInfo info;
 }
 

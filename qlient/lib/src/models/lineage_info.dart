@@ -12,8 +12,10 @@ class LineageInfo {
   /// * [webfile]: the data comes from a web-based file.
   /// * STORE: path to QVD or TXT file where data is stored.
   /// * EXTENSION: the data comes from a Server Side Extension (SSE).
+  /// Original name: qDiscriminator
   String discriminator;
   /// The LOAD and SELECT script statements from the data load script.
+  /// Original name: qStatement
   String statement;
 }
 

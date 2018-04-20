@@ -21,5 +21,13 @@
                 "run","build_runner","watch"],
             "group": "build"
         }
+        ,{
+            "label": "Generate API",
+            "type": "process",
+            "command": "dart",
+            "args":  [
+                "tool/generate_api.dart"],
+            "group": "build"
+        }
     ]
 }

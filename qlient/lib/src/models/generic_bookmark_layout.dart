@@ -8,11 +8,15 @@ import 'layout_field_info.dart';
 /// Is the layout for _GenericBookmarkProperties_.
 class GenericBookmarkLayout {
   /// Information about the object.
+  /// Original name: qInfo
   NxInfo info;
   /// Information on publishing and permissions.
+  /// Original name: qMeta
   NxMeta meta;
   /// Information about the bookmark.
+  /// Original name: qBookmark
   NxBookmark bookmark;
-  List<LayoutFieldInfo> fieldInfos;
+  /// Original name: qFieldInfos
+  null fieldInfos;
 }
 

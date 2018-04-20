@@ -4,6 +4,7 @@ import 'char_range.dart';
 
 class NxHighlightRanges {
   /// Ranges of highlighted values.
-  List<CharRange> ranges;
+  /// Original name: qRanges
+  null ranges;
 }
 

@@ -4,8 +4,10 @@ import 'search_field_match.dart';
 
 class SearchMatchCombination {
   /// Index of the search result, starting from 0.
+  /// Original name: qId
   int id;
   /// Information about the search matches.
-  List<SearchFieldMatch> fieldMatches;
+  /// Original name: qFieldMatches
+  null fieldMatches;
 }
 

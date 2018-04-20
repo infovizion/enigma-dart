@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class NxDerivedGroup {
   /// Identifier of the group.
+  /// Original name: qId
   String id;
   /// Name of the derived group.
+  /// Original name: qName
   String name;
   /// Grouping type.
   /// The grouping should be either H or C (Grouping is mandatory for derived definitions).
@@ -15,8 +17,10 @@ class NxDerivedGroup {
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
   /// * C or GRP_NX_COLLECTION
+  /// Original name: qGrouping
   String grouping;
   /// List of the derived fields in the group.
-  List<String> fieldDefs;
+  /// Original name: qFieldDefs
+  null fieldDefs;
 }
 

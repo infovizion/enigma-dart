@@ -7,7 +7,9 @@ class FilterInfo {
   /// One of:
   /// * NONE or FILTER_TYPE_NONE
   /// * RAW or FILTER_TYPE_RAW
+  /// Original name: qType
   String type;
+  /// Original name: qWherePredicate
   String wherePredicate;
 }
 

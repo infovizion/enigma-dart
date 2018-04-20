@@ -30,11 +30,13 @@ class FileDataFormat {
   /// * QVX or FILE_TYPE_QVX
   /// * JSON or FILE_TYPE_JSON
   /// * KML or FILE_TYPE_KML
+  /// Original name: qType
   String type;
   /// One of:
   /// * Embedded labels (field names are present in the file)
   /// * No labels
   /// * Explicit labels (for DIFfiles)
+  /// Original name: qLabel
   String label;
   /// One of:
   /// * None (no quotes)
@@ -42,32 +44,41 @@ class FileDataFormat {
   /// * Standard (quotes " " or ' ' can be used, but only if they are the first and last non blank characters of a field value)
   /// 
   /// This property is used for delimited files.
+  /// Original name: qQuote
   String quote;
   /// String that marks the beginning of the comment line.
   /// Example: “#” or “//”
   /// The engine ignores the commented lines during the data load.
   /// This property is only used for delimited files.
+  /// Original name: qComment
   String comment;
   /// Information about the delimiter.
   /// This property is used for delimited files.
+  /// Original name: qDelimiter
   DelimiterInfo delimiter;
   /// Character set used in the file.
+  /// Original name: qCodePage
   int codePage;
   /// Size of the header.
   /// Example: If the header size is 2, the first two rows in the file are considered as header and not as data. The header can contain the field names.
+  /// Original name: qHeaderSize
   int headerSize;
   /// Record length.
   /// Each record (row of data) contains a number of columns with a fixed field size.
   /// This property is used for fixed record data files.
+  /// Original name: qRecordSize
   int recordSize;
   /// Number of spaces that one tab character represents in the table file.
   /// This property is used for fixed record data files.
+  /// Original name: qTabSize
   int tabSize;
   /// Is set to true, the end-of-file character is not taken into account during reload.
   /// This property is used for delimited files and fixed record data files.
+  /// Original name: qIgnoreEOF
   bool ignoreEOF;
   /// Positions of the field breaks in the table.
   /// This property is used for fixed record data files.
+  /// Original name: qFixedWidthDelimiters
   String fixedWidthDelimiters;
 }
 

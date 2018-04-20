@@ -8,11 +8,13 @@ class MediaListItem {
   /// Media files located:
   /// * in the _/content/default/_ folder are outside the qvf file.
   /// * in the _/media/ folder_ are embedded in the qvf file.
+  /// Original name: qUrlDef
   String urlDef;
   /// Relative path to the media file.
   /// Media files located:
   /// * in the _/content/default/_ folder are outside the qvf file.
   /// * in the _/media/ folder_ are embedded in the qvf file.
+  /// Original name: qUrl
   String url;
 }
 

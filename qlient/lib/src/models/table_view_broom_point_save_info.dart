@@ -4,10 +4,13 @@ import 'point.dart';
 
 class TableViewBroomPointSaveInfo {
   /// Information about the position of the broom point.
+  /// Original name: qPos
   Point pos;
   /// Name of the table.
+  /// Original name: qTable
   String table;
   /// List of fields in the table.
-  List<String> fields;
+  /// Original name: qFields
+  null fields;
 }
 

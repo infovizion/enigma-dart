@@ -4,9 +4,11 @@ import 'range.dart';
 
 class NxRangeSelectInfo {
   /// Range of values.
+  /// Original name: qRange
   Range range;
   /// Number of the measure to select.
   /// Numbering starts from 0.
+  /// Original name: qMeasureIx
   int measureIx;
 }
 

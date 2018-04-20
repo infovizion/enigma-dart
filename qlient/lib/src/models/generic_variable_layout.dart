@@ -7,15 +7,20 @@ import 'nx_meta.dart';
 class GenericVariableLayout {
   /// Identifier and type of the object.
   /// This parameter is mandatory.
+  /// Original name: qInfo
   NxInfo info;
   /// Information about publishing and permissions.
   /// This parameter is optional.
+  /// Original name: qMeta
   NxMeta meta;
   /// Some text.
+  /// Original name: qText
   String text;
   /// A value.
+  /// Original name: qNum
   num num;
   /// If set to true, it means that the variable was defined via script.
+  /// Original name: qIsScriptCreated
   bool isScriptCreated;
 }
 

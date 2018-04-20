@@ -6,6 +6,7 @@ class NxFieldProperties {
   /// This parameter is set to true, if the field has one and only one selection (not 0 and not more than 1).
   /// If this property is set to true, the field cannot be cleared anymore and no more selections can be performed in that field.
   /// <div class=note>The property _OneAndOnlyOne_ can be set to true if one and only value has been selected in the field prior to setting the property. </div>
+  /// Original name: qOneAndOnlyOne
   bool oneAndOnlyOne;
 }
 

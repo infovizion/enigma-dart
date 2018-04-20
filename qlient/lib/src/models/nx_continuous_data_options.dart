@@ -4,14 +4,19 @@ import 'package:built_value/built_value.dart';
 
 class NxContinuousDataOptions {
   /// Start value.
+  /// Original name: qStart
   num start;
   /// End value.
+  /// Original name: qEnd
   num end;
   /// Number of bins for binning.
+  /// Original name: qNbrPoints
   int nbrPoints;
   /// Maximum number of ticks.
+  /// Original name: qMaxNbrTicks
   int maxNbrTicks;
   /// Maximum number of lines.
+  /// Original name: qMaxNumberLines
   int maxNumberLines;
 }
 

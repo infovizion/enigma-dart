@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class EditorBreakpoint {
   /// Name of the breakpoint.
+  /// Original name: qbufferName
   String bufferName;
   /// Line number in the script where the breakpoint is set.
+  /// Original name: qlineIx
   int lineIx;
   /// If set to true then the breakpoint is enabled (in use).
+  /// Original name: qEnabled
   bool enabled;
 }
 

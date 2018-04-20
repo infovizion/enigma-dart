@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class ProgressMessage {
   /// Code number to the corresponding localized message string.
+  /// Original name: qMessageCode
   int messageCode;
   /// Parameters to be inserted in the localized message string.
-  List<String> messageParameters;
+  /// Original name: qMessageParameters
+  null messageParameters;
 }
 

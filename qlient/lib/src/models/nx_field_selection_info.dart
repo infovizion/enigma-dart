@@ -4,6 +4,7 @@ import 'package:built_value/built_value.dart';
 
 class NxFieldSelectionInfo {
   /// Name of the field.
+  /// Original name: qName
   String name;
   /// Selection mode.
   /// ### Properties
@@ -15,6 +16,7 @@ class NxFieldSelectionInfo {
   /// * NORMAL or SELECTION_MODE_NORMAL
   /// * AND or SELECTION_MODE_AND
   /// * NOT or SELECTION_MODE_NOT
+  /// Original name: qFieldSelectionMode
   String fieldSelectionMode;
 }
 

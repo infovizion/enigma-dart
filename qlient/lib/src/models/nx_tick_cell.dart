@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class NxTickCell {
   /// Tick's label.
+  /// Original name: qText
   String text;
   /// Start value.
+  /// Original name: qStart
   num start;
   /// End value.
+  /// Original name: qEnd
   num end;
 }
 

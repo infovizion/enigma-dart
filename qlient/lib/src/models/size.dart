@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class Size {
   /// Number of pixels on the _x_ axis.
+  /// Original name: qcx
   int cx;
   /// Number of pixels on the _y_ axis.
+  /// Original name: qcy
   int cy;
 }
 

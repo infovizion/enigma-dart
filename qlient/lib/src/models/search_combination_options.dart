@@ -5,7 +5,8 @@ import 'package:built_value/built_value.dart';
 class SearchCombinationOptions {
   /// List of the search fields.
   /// If empty, the search is performed in all fields of the app.
-  List<String> searchFields;
+  /// Original name: qSearchFields
+  null searchFields;
   /// Search context.
   /// The default value is _LockedFieldsOnly_ .
   /// 
@@ -13,6 +14,7 @@ class SearchCombinationOptions {
   /// * Cleared or CONTEXT_CLEARED
   /// * LockedFieldsOnly or CONTEXT_LOCKED_FIELDS_ONLY
   /// * CurrentSelections or CONTEXT_CURRENT_SELECTIONS
+  /// Original name: qContext
   String context;
   /// Encoding used to compute qRanges of type SearchCharRange.
   /// <div class=note>Only affects the computation of the ranges. It does not impact the encoding of the text.</div>
@@ -20,11 +22,13 @@ class SearchCombinationOptions {
   /// One of:
   /// * Utf8 or CHAR_ENCODING_UTF8
   /// * Utf16 or CHAR_ENCODING_UTF16
+  /// Original name: qCharEncoding
   String charEncoding;
   /// Optional.
   /// * For SearchSuggest method, this array is empty.
   /// * For SearchObjects method, this array is empty or contain _qProperty_ .
   /// * For SearchResults method, this array is empty, or contains _qNum_ and/or _qElemNum_ . It allows the user to request details in the outputted _SearchGroupItemMatch_ . For more information, see _SearchGroupItemMatch_.
-  List<String> attributes;
+  /// Original name: qAttributes
+  null attributes;
 }
 

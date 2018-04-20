@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class NxLibraryMeasureDef {
   /// Label of the measure.
+  /// Original name: qLabel
   String label;
   /// Definition of the measure.
+  /// Original name: qDef
   String def;
   /// Used to define a cyclic group or drill-down group.
   /// Default value is no grouping.
@@ -15,11 +17,15 @@ class NxLibraryMeasureDef {
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
   /// * C or GRP_NX_COLLECTION
+  /// Original name: qGrouping
   String grouping;
   /// Array of expressions.
-  List<String> expressions;
+  /// Original name: qExpressions
+  null expressions;
   /// Index to the active expression in a measure.
+  /// Original name: qActiveExpression
   int activeExpression;
+  /// Original name: qLabelExpression
   String labelExpression;
 }
 

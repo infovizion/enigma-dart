@@ -16,31 +16,41 @@ import 'nx_cell_position.dart';
 class HyperCube {
   /// Name of the alternate state.
   /// Default is current selections _$_ .
+  /// Original name: qStateName
   String stateName;
   /// Defines the size of the hypercube.
+  /// Original name: qSize
   Size size;
   /// This parameter is optional and is displayed in case of error.
+  /// Original name: qError
   NxValidationError error;
   /// Information on the dimension.
-  List<NxDimensionInfo> dimensionInfo;
+  /// Original name: qDimensionInfo
+  null dimensionInfo;
   /// Information on the measure.
-  List<NxMeasureInfo> measureInfo;
+  /// Original name: qMeasureInfo
+  null measureInfo;
   /// Sort order of the columns in the hypercube.
   /// Column numbers are separated by a comma.
   /// Example: [1,0,2] means that the first column to be sorted was the column 1, followed by the column 0 and the column 2.
-  List<int> effectiveInterColumnSortOrder;
+  /// Original name: qEffectiveInterColumnSortOrder
+  null effectiveInterColumnSortOrder;
   /// Aggregate for measures of all values in the field.
   /// The result value depends on the _qAggrFunc_ defined in _HyperCubeDef_.
-  List<NxCell> grandTotalRow;
+  /// Original name: qGrandTotalRow
+  null grandTotalRow;
   /// Set of data.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
-  List<NxDataPage> dataPages;
+  /// Original name: qDataPages
+  null dataPages;
   /// Set of data for pivot tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
-  List<NxPivotPage> pivotDataPages;
+  /// Original name: qPivotDataPages
+  null pivotDataPages;
   /// Set of data for stacked tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
-  List<NxStackPage> stackedDataPages;
+  /// Original name: qStackedDataPages
+  null stackedDataPages;
   /// Information about the mode of the visualization.
   /// 
   /// One of:
@@ -48,6 +58,7 @@ class HyperCube {
   /// * P or DATA_MODE_PIVOT
   /// * K or DATA_MODE_PIVOT_STACK
   /// * T or DATA_MODE_TREE
+  /// Original name: qMode
   String mode;
   /// Number of left dimensions.
   /// Default value is -1.
@@ -74,24 +85,32 @@ class HyperCube {
   /// * The index 1 corresponds to the left dimension City.
   /// * The index 2 corresponds to the left dimension Product.
   /// * Category is a top dimension.
+  /// Original name: qNoOfLeftDims
   int noOfLeftDims;
   /// Is used for pivot tables only.
   /// If set to true, the formatting of the results is slightly different.
   /// This property is optional.
+  /// Original name: qIndentMode
   bool indentMode;
   /// Is used for pivot tables only.
   /// Position of the last expended cell.
   /// This property is optional.
+  /// Original name: qLastExpandedPos
   NxCellPosition lastExpandedPos;
   /// True if other row exists.
+  /// Original name: qHasOtherValues
   bool hasOtherValues;
   /// Title of the hypercube, for example the title of a chart.
+  /// Original name: qTitle
   String title;
   /// The total number of nodes on each dimension (only applicable when _qMode = T_ ).
-  List<int> treeNodesOnDim;
+  /// Original name: qTreeNodesOnDim
+  null treeNodesOnDim;
   /// The message displayed if calculation condition is not fulfilled.
+  /// Original name: qCalcCondMsg
   String calcCondMsg;
   /// The order of the columns.
-  List<int> columnOrder;
+  /// Original name: qColumnOrder
+  null columnOrder;
 }
 

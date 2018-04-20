@@ -3,8 +3,11 @@ import 'package:built_value/built_value.dart';
 
 
 class DoReloadExParams {
+  /// Original name: qMode
   int mode;
+  /// Original name: qPartial
   bool partial;
+  /// Original name: qDebug
   bool debug;
 }
 

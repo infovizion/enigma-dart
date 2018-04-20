@@ -55,24 +55,30 @@ class FieldAttributes {
   /// * T or TIME
   /// * TS or TIMESTAMP
   /// * IV or INTERVAL
+  /// Original name: qType
   String type;
   /// Number of decimals.
   /// Default is 10.
+  /// Original name: qnDec
   int nDec;
   /// Defines whether or not a thousands separator must be used.
   /// Default is 0.
+  /// Original name: qUseThou
   int useThou;
   /// Defines the format pattern that applies to _qText_ .
   /// Is used in connection to the type of the field (parameter **qType** ).
   /// For more information, see _Formatting mechanism_.
   /// Example: _YYYY-MM-DD_ for a date.
+  /// Original name: qFmt
   String fmt;
   /// Defines the decimal separator.
   /// Example: **.**
+  /// Original name: qDec
   String dec;
   /// Defines the thousand separator (if any).
   /// Is used if **qUseThou** is set to 1.
   /// Example: **,**
+  /// Original name: qThou
   String thou;
 }
 

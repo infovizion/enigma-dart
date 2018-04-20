@@ -5,8 +5,10 @@ import 'package:built_value/built_value.dart';
 /// <div class=warning>This struct is deprecated (not recommended to use).</div>
 class NxStreamListEntry {
   /// Name of the stream.
+  /// Original name: qName
   String name;
   /// Identifier of the stream.
+  /// Original name: qId
   String id;
 }
 

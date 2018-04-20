@@ -5,8 +5,10 @@ import 'string_expr.dart';
 
 class NxCalcCond {
   /// Condition for calculating an hypercube, dimension or measure.
+  /// Original name: qCond
   ValueExpr cond;
   /// Evaluated if Cond is not fullfilled.
+  /// Original name: qMsg
   StringExpr msg;
 }
 

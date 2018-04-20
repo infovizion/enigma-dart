@@ -5,12 +5,16 @@ import 'nx_derived_group.dart';
 
 class NxDerivedFieldsData {
   /// Name of the derived definition.
+  /// Original name: qDerivedDefinitionName
   String derivedDefinitionName;
   /// List of the derived fields.
-  List<NxDerivedField> fieldDefs;
+  /// Original name: qFieldDefs
+  null fieldDefs;
   /// List of the derived groups.
-  List<NxDerivedGroup> groupDefs;
+  /// Original name: qGroupDefs
+  null groupDefs;
   /// List of tags on the derived fields.
-  List<String> tags;
+  /// Original name: qTags
+  null tags;
 }
 

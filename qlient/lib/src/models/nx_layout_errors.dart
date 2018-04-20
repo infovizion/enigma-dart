@@ -4,6 +4,7 @@ import 'package:built_value/built_value.dart';
 
 class NxLayoutErrors {
   /// Error code.
+  /// Original name: qErrorCode
   int errorCode;
 }
 

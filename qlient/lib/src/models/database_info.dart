@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class DatabaseInfo {
   /// Name of the product accessed by the provider.
+  /// Original name: qDBMSName
   String dBMSName;
   /// If set to true, it means that the data source contains some databases.
+  /// Original name: qDBUsage
   bool dBUsage;
   /// If set to true, it means that the data source contains some owners.
+  /// Original name: qOwnerUsage
   bool ownerUsage;
   /// Character string used after the database name.
   /// Example with separator " **.** ":
@@ -16,6 +19,7 @@ class DatabaseInfo {
   /// * **LinkedTablesData** is the database name
   /// * **dbo** is the owner name
   /// * **Months** is the table name
+  /// Original name: qDBSeparator
   String dBSeparator;
   /// Character string used after the owner name.
   /// Example with separator " **.** ":
@@ -24,18 +28,25 @@ class DatabaseInfo {
   /// * **LinkedTablesData** is the database name
   /// * **dbo** is the owner name
   /// * **Months** is the table name
+  /// Original name: qOwnerSeparator
   String ownerSeparator;
   /// If set to true, it means that the database is displayed first, before the owners and tables.
+  /// Original name: qDBFirst
   bool dBFirst;
   /// Prefix used with field, database or owner names that contain special characters or keywords.
+  /// Original name: qQuotePreffix
   String quotePreffix;
   /// Suffix used with field, database or owner names that contain special characters or keywords.
+  /// Original name: qQuoteSuffix
   String quoteSuffix;
   /// List of the special characters.
+  /// Original name: qSpecialChars
   String specialChars;
   /// Name of the default database.
+  /// Original name: qDefaultDatabase
   String defaultDatabase;
   /// List of the script keywords.
-  List<String> keywords;
+  /// Original name: qKeywords
+  null keywords;
 }
 

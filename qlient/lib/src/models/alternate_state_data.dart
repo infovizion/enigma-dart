@@ -5,8 +5,10 @@ import 'bookmark_field_item.dart';
 class AlternateStateData {
   /// Name of the alternate state.
   /// Default is current selections: $
+  /// Original name: qStateName
   String stateName;
   /// List of the selections.
-  List<BookmarkFieldItem> fieldItems;
+  /// Original name: qFieldItems
+  null fieldItems;
 }
 

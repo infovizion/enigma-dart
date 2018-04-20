@@ -11,6 +11,7 @@ class MediaList {
   /// In Qlik Sense Enterprise, the media files are retrieved from:
   /// &lt;installation_directory&gt;\Qlik\Sense\Repository\Content\Default
   /// The default installation directory is _ProgramData_ .
-  List<MediaListItem> items;
+  /// Original name: qItems
+  null items;
 }
 

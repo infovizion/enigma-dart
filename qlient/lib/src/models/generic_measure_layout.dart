@@ -7,10 +7,13 @@ import 'nx_meta.dart';
 /// Is the layout for _GenericMeasureProperties_.
 class GenericMeasureLayout {
   /// Information about the object.
+  /// Original name: qInfo
   NxInfo info;
   /// Information about the measure.
+  /// Original name: qMeasure
   NxLibraryMeasure measure;
   /// Information on publishing and permissions.
+  /// Original name: qMeta
   NxMeta meta;
 }
 

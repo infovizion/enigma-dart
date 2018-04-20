@@ -5,8 +5,10 @@ import 'package:built_value/built_value.dart';
 /// Displays information about the number of possible undos and redos. Is the layout for _UndoInfoDef_.
 class UndoInfo {
   /// Number of possible undos.
+  /// Original name: qUndoCount
   int undoCount;
   /// Number of possible redos.
+  /// Original name: qRedoCount
   int redoCount;
 }
 

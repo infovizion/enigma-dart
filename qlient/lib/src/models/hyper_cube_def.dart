@@ -12,11 +12,14 @@ import 'nx_calc_cond.dart';
 class HyperCubeDef {
   /// Name of the alternate state.
   /// Default is current selections _$_ .
+  /// Original name: qStateName
   String stateName;
   /// Array of dimensions.
-  List<NxDimension> dimensions;
+  /// Original name: qDimensions
+  null dimensions;
   /// Array of measures.
-  List<NxMeasure> measures;
+  /// Original name: qMeasures
+  null measures;
   /// Defines the sort order of the columns in the hypercube.
   /// Column numbers are separated by a comma.
   /// Example: [1,0,2] means that the first column to be sorted should be the column 1, followed by the column 0 and the column 2.
@@ -25,13 +28,17 @@ class HyperCubeDef {
   /// Pseudo dimensions only apply for pivot tables with more than one measure.
   /// A pseudo dimension groups together the measures defined in a pivot table. You can neither collapse/expand a pseudo dimension nor make any selections in it.
   /// Stacked pivot tables can only contain one measure.
-  List<int> interColumnSortOrder;
+  /// Original name: qInterColumnSortOrder
+  null interColumnSortOrder;
   /// Removes zero values.
+  /// Original name: qSuppressZero
   bool suppressZero;
   /// Removes missing values.
+  /// Original name: qSuppressMissing
   bool suppressMissing;
   /// Initial data set.
-  List<NxPage> initialDataFetch;
+  /// Original name: qInitialDataFetch
+  null initialDataFetch;
   /// 
   /// One of:
   /// * N or DATA_REDUCTION_NONE
@@ -39,6 +46,7 @@ class HyperCubeDef {
   /// * S or DATA_REDUCTION_SCATTERED
   /// * C or DATA_REDUCTION_CLUSTERED
   /// * ST or DATA_REDUCTION_STACKED
+  /// Original name: qReductionMode
   String reductionMode;
   /// Defines the way the data are handled internally by the engine.
   /// Default value is _DATA_MODE_STRAIGHT_ .
@@ -49,7 +57,9 @@ class HyperCubeDef {
   /// * P or DATA_MODE_PIVOT
   /// * K or DATA_MODE_PIVOT_STACK
   /// * T or DATA_MODE_TREE
+  /// Original name: qMode
   String mode;
+  /// Original name: qPseudoDimPos
   int pseudoDimPos;
   /// Number of left dimensions.
   /// Default value is -1. In that case, all dimensions are left dimensions.
@@ -79,38 +89,49 @@ class HyperCubeDef {
   /// * The index 2 corresponds to the left dimension Product.
   /// * Category is a top dimension.
   /// * The pseudo dimension is a top dimension.
+  /// Original name: qNoOfLeftDims
   int noOfLeftDims;
   /// If this property is set to true, the cells are always expanded. It implies that it is not possible to collapse any cells.
   /// The default value is false.
+  /// Original name: qAlwaysFullyExpanded
   bool alwaysFullyExpanded;
   /// Maximum number of cells for an initial data fetch (set in _qInitialDataFetch_ ) when in stacked mode ( _qMode_ is K).
   /// The default value is 5000.
+  /// Original name: qMaxStackedCells
   int maxStackedCells;
   /// If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.
   /// The default value is false.
+  /// Original name: qPopulateMissing
   bool populateMissing;
   /// If set to true, the total (if any) is shown on the first row.
   /// The default value is false.
+  /// Original name: qShowTotalsAbove
   bool showTotalsAbove;
   /// This property applies for pivot tables and allows to change the layout of the table. An indentation is added to the beginning of each row.
   /// The default value is false.
+  /// Original name: qIndentMode
   bool indentMode;
   /// Specifies a calculation condition, which must be fulfilled for the hypercube to be (re)calculated.
   /// As long as the condition is not met, the engine does not perform a new calculation.
   /// This property is optional. By default, there is no calculation condition.
+  /// Original name: qCalcCond
   ValueExpr calcCond;
   /// To enable the sorting by ascending or descending order in the values of a measure.
   /// This property applies to pivot tables and stacked pivot tables.
   /// In the case of a pivot table, the measure or pseudo dimension should be defined as a top dimension. The sorting is restricted to the values of the first measure in a pivot table.
+  /// Original name: qSortbyYValue
   int sortbyYValue;
   /// Title of the hypercube, for example the title of a chart.
+  /// Original name: qTitle
   StringExpr title;
   /// Specifies a calculation condition object.
   /// If CalcCondition.Cond is not fulfilled, the hypercube is not calculated and CalcCondition.Msg is evaluated.
   /// By default, there is no calculation condition.
   /// This property is optional.
+  /// Original name: qCalcCondition
   NxCalcCond calcCondition;
   /// The order of the columns.
-  List<int> columnOrder;
+  /// Original name: qColumnOrder
+  null columnOrder;
 }
 

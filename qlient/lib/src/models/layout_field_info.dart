@@ -3,8 +3,11 @@ import 'package:built_value/built_value.dart';
 
 
 class LayoutFieldInfo {
+  /// Original name: qFieldName
   String fieldName;
+  /// Original name: qValuesCount
   int valuesCount;
+  /// Original name: qExcludedValuesCount
   int excludedValuesCount;
 }
 

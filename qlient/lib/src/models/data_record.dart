@@ -6,6 +6,7 @@ class DataRecord {
   /// List of values inside the table.
   /// The first values (in _result/qPreview/0/qValues_ ) correspond to the field names in the table.
   /// The following values (from _result/qPreview/1/qValues_ ) are the values of the fields in the table.
-  List<String> values;
+  /// Original name: qValues
+  null values;
 }
 
