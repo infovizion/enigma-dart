@@ -44,6 +44,6 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new MapBuilder<String, SchemaType>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
-              const [const FullType(String), const FullType(SchemaType)]),
-          () => new MapBuilder<String, SchemaType>()))
+              const [const FullType(String), const FullType(Service)]),
+          () => new MapBuilder<String, Service>()))
     .build();

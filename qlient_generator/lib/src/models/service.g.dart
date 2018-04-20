@@ -26,14 +26,17 @@ class _$ServiceSerializer implements StructuredSerializer<Service> {
   Iterable serialize(Serializers serializers, Service object,
       {FullType specifiedType: FullType.unspecified}) {
     final result = <Object>[
-      'description',
-      serializers.serialize(object.description,
-          specifiedType: const FullType(String)),
       'methods',
       serializers.serialize(object.methods,
           specifiedType: const FullType(BuiltMap,
               const [const FullType(String), const FullType(Method)])),
     ];
+    if (object.description != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(object.description,
+            specifiedType: const FullType(String)));
+    }
 
     return result;
   }
@@ -77,8 +80,6 @@ class _$Service extends Service {
       (new ServiceBuilder()..update(updates)).build();
 
   _$Service._({this.description, this.methods}) : super._() {
-    if (description == null)
-      throw new BuiltValueNullFieldError('Service', 'description');
     if (methods == null)
       throw new BuiltValueNullFieldError('Service', 'methods');
   }

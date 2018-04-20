@@ -10,9 +10,11 @@ part 'service.g.dart';
 abstract class Service implements Built<Service, ServiceBuilder> {
 
   static Serializer<Service> get serializer => _$serviceSerializer;
-  
+  @nullable 
   String get description;
+
   BuiltMap<String,Method> get methods;
+
   factory Service([updates(ServiceBuilder b)]) = _$Service;
   Service._();
 }
