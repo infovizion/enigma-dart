@@ -12,6 +12,11 @@ abstract class SchemaType implements Built<SchemaType, SchemaTypeBuilder> {
   @nullable
   String get description;
 
+  @nullable
+	String get name;
+
+  @nullable
+  bool get required;
 
   @nullable
   String get format;

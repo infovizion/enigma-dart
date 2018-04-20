@@ -26,9 +26,6 @@ class _$MethodSerializer implements StructuredSerializer<Method> {
   Iterable serialize(Serializers serializers, Method object,
       {FullType specifiedType: FullType.unspecified}) {
     final result = <Object>[
-      'description',
-      serializers.serialize(object.description,
-          specifiedType: const FullType(String)),
       'parameters',
       serializers.serialize(object.parameters,
           specifiedType:
@@ -38,6 +35,12 @@ class _$MethodSerializer implements StructuredSerializer<Method> {
           specifiedType:
               const FullType(BuiltList, const [const FullType(SchemaType)])),
     ];
+    if (object.description != null) {
+      result
+        ..add('description')
+        ..add(serializers.serialize(object.description,
+            specifiedType: const FullType(String)));
+    }
 
     return result;
   }
@@ -86,8 +89,6 @@ class _$Method extends Method {
       (new MethodBuilder()..update(updates)).build();
 
   _$Method._({this.description, this.parameters, this.responses}) : super._() {
-    if (description == null)
-      throw new BuiltValueNullFieldError('Method', 'description');
     if (parameters == null)
       throw new BuiltValueNullFieldError('Method', 'parameters');
     if (responses == null)

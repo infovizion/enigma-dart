@@ -37,6 +37,18 @@ class _$SchemaTypeSerializer implements StructuredSerializer<SchemaType> {
         ..add(serializers.serialize(object.description,
             specifiedType: const FullType(String)));
     }
+    if (object.name != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(object.name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.required != null) {
+      result
+        ..add('required')
+        ..add(serializers.serialize(object.required,
+            specifiedType: const FullType(bool)));
+    }
     if (object.format != null) {
       result
         ..add('format')
@@ -92,6 +104,14 @@ class _$SchemaTypeSerializer implements StructuredSerializer<SchemaType> {
           result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'required':
+          result.required = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
+          break;
         case 'format':
           result.format = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
@@ -134,6 +154,10 @@ class _$SchemaType extends SchemaType {
   @override
   final String description;
   @override
+  final String name;
+  @override
+  final bool required;
+  @override
   final String format;
   @override
   final BuiltMap<String, SchemaType> properties;
@@ -153,6 +177,8 @@ class _$SchemaType extends SchemaType {
 
   _$SchemaType._(
       {this.description,
+      this.name,
+      this.required,
       this.format,
       this.properties,
       this.schema,
@@ -177,6 +203,8 @@ class _$SchemaType extends SchemaType {
     if (identical(other, this)) return true;
     if (other is! SchemaType) return false;
     return description == other.description &&
+        name == other.name &&
+        required == other.required &&
         format == other.format &&
         properties == other.properties &&
         schema == other.schema &&
@@ -193,7 +221,13 @@ class _$SchemaType extends SchemaType {
             $jc(
                 $jc(
                     $jc(
-                        $jc($jc($jc(0, description.hashCode), format.hashCode),
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc($jc(0, description.hashCode),
+                                        name.hashCode),
+                                    required.hashCode),
+                                format.hashCode),
                             properties.hashCode),
                         schema.hashCode),
                     items.hashCode),
@@ -206,6 +240,8 @@ class _$SchemaType extends SchemaType {
   String toString() {
     return (newBuiltValueToStringHelper('SchemaType')
           ..add('description', description)
+          ..add('name', name)
+          ..add('required', required)
           ..add('format', format)
           ..add('properties', properties)
           ..add('schema', schema)
@@ -223,6 +259,14 @@ class SchemaTypeBuilder implements Builder<SchemaType, SchemaTypeBuilder> {
   String _description;
   String get description => _$this._description;
   set description(String description) => _$this._description = description;
+
+  String _name;
+  String get name => _$this._name;
+  set name(String name) => _$this._name = name;
+
+  bool _required;
+  bool get required => _$this._required;
+  set required(bool required) => _$this._required = required;
 
   String _format;
   String get format => _$this._format;
@@ -259,6 +303,8 @@ class SchemaTypeBuilder implements Builder<SchemaType, SchemaTypeBuilder> {
   SchemaTypeBuilder get _$this {
     if (_$v != null) {
       _description = _$v.description;
+      _name = _$v.name;
+      _required = _$v.required;
       _format = _$v.format;
       _properties = _$v.properties?.toBuilder();
       _schema = _$v.schema?.toBuilder();
@@ -289,6 +335,8 @@ class SchemaTypeBuilder implements Builder<SchemaType, SchemaTypeBuilder> {
       _$result = _$v ??
           new _$SchemaType._(
               description: description,
+              name: name,
+              required: required,
               format: format,
               properties: properties.build(),
               schema: _schema?.build(),

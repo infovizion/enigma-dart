@@ -33,7 +33,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
       'services',
       serializers.serialize(object.services,
           specifiedType: const FullType(BuiltMap,
-              const [const FullType(String), const FullType(SchemaType)])),
+              const [const FullType(String), const FullType(Service)])),
     ];
 
     return result;
@@ -61,7 +61,7 @@ class _$SchemaSerializer implements StructuredSerializer<Schema> {
           result.services.replace(serializers.deserialize(value,
               specifiedType: const FullType(BuiltMap, const [
                 const FullType(String),
-                const FullType(SchemaType)
+                const FullType(Service)
               ])) as BuiltMap);
           break;
       }
@@ -75,7 +75,7 @@ class _$Schema extends Schema {
   @override
   final BuiltMap<String, SchemaType> definitions;
   @override
-  final BuiltMap<String, SchemaType> services;
+  final BuiltMap<String, Service> services;
 
   factory _$Schema([void updates(SchemaBuilder b)]) =>
       (new SchemaBuilder()..update(updates)).build();
@@ -124,10 +124,10 @@ class SchemaBuilder implements Builder<Schema, SchemaBuilder> {
   set definitions(MapBuilder<String, SchemaType> definitions) =>
       _$this._definitions = definitions;
 
-  MapBuilder<String, SchemaType> _services;
-  MapBuilder<String, SchemaType> get services =>
-      _$this._services ??= new MapBuilder<String, SchemaType>();
-  set services(MapBuilder<String, SchemaType> services) =>
+  MapBuilder<String, Service> _services;
+  MapBuilder<String, Service> get services =>
+      _$this._services ??= new MapBuilder<String, Service>();
+  set services(MapBuilder<String, Service> services) =>
       _$this._services = services;
 
   SchemaBuilder();
