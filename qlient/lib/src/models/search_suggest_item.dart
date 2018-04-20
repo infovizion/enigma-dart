@@ -4,9 +4,11 @@ import 'package:built_value/built_value.dart';
 
 class SearchSuggestItem {
   /// Value of the suggestion.
+  /// Original name: qValue
   String value;
   /// Index of the suggestion value.
   /// The indexing starts from 0 and from the left.
+  /// Original name: qTerm
   int term;
 }
 

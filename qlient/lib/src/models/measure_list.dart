@@ -5,6 +5,7 @@ import 'nx_container_entry.dart';
 /// Lists the measures. Is the layout for _MeasureListDef_.
 class MeasureList {
   /// Information about the list of measures.
-  List<NxContainerEntry> items;
+  /// Original name: qItems
+  null items;
 }
 

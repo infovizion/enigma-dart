@@ -8,13 +8,17 @@ import 'generic_dimension_info.dart';
 /// Is the layout for _GenericDimensionProperties_.
 class GenericDimensionLayout {
   /// Identifier and type of the dimension.
+  /// Original name: qInfo
   NxInfo info;
   /// Information about publishing and permissions.
+  /// Original name: qMeta
   NxMeta meta;
   /// Name and label of the dimension, information about grouping.
+  /// Original name: qDim
   NxLibraryDimension dim;
   /// Cardinal and tags related to the dimension.
   /// Length of the longest value in the field.
-  List<GenericDimensionInfo> dimInfos;
+  /// Original name: qDimInfos
+  null dimInfos;
 }
 

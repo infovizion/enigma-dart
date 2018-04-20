@@ -4,9 +4,11 @@ import 'nx_layout_errors.dart';
 
 class NxListObjectExpression {
   /// Value of the expression.
+  /// Original name: qExpr
   String expr;
   /// Gives information on the error.
   /// This parameter is optional.
+  /// Original name: qError
   NxLayoutErrors error;
 }
 

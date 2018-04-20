@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class CodePage {
   /// Number of the code page.
+  /// Original name: qNumber
   int number;
   /// Name of the code page.
+  /// Original name: qName
   String name;
   /// Description of the code page.
+  /// Original name: qDescription
   String description;
 }
 

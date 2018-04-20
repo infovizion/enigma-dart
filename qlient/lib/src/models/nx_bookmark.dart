@@ -5,10 +5,13 @@ import 'bookmark_variable_item.dart';
 
 class NxBookmark {
   /// List of selections for each state.
-  List<AlternateStateData> stateData;
+  /// Original name: qStateData
+  null stateData;
   /// Time when the bookmark was created.
+  /// Original name: qUtcModifyTime
   num utcModifyTime;
   /// List of the variables in the app at the time the bookmark was created.
-  List<BookmarkVariableItem> variableItems;
+  /// Original name: qVariableItems
+  null variableItems;
 }
 

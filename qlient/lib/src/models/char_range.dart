@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class CharRange {
   /// Position of the first search occurrence.
+  /// Original name: qCharPos
   int charPos;
   /// Number of occurrences found.
+  /// Original name: qCharCount
   int charCount;
 }
 

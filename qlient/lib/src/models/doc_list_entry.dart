@@ -5,30 +5,40 @@ import 'static_content_url.dart';
 
 class DocListEntry {
   /// Name of the app.
+  /// Original name: qDocName
   String docName;
   /// Not used.
+  /// Original name: qConnectedUsers
   int connectedUsers;
   /// Last modified time stamp of the app.
   /// This property is used only with Qlik Sense Desktop.
   /// It is set to 0 for Qlik Sense Enterprise.
+  /// Original name: qFileTime
   num fileTime;
   /// Size of remote app.
   /// This property is used only with Qlik Sense Desktop.
   /// It is set to 0 for Qlik Sense Enterprise.
+  /// Original name: qFileSize
   num fileSize;
   /// Identifier of the app.
   /// * In Qlik Sense Desktop, the identifier is the path and name of the app.
   /// * In Qlik Sense Enterprise, the identifier is the app's GUID.
+  /// Original name: qDocId
   String docId;
   /// Meta data related to the app.
+  /// Original name: qMeta
   NxMeta meta;
   /// Last reload time of the app.
+  /// Original name: qLastReloadTime
   String lastReloadTime;
   /// If set to true, the app is read-only.
+  /// Original name: qReadOnly
   bool readOnly;
   /// Title of the app.
+  /// Original name: qTitle
   String title;
   /// Thumbnail of the app.
+  /// Original name: qThumbnail
   StaticContentUrl thumbnail;
 }
 

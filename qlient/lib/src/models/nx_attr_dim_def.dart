@@ -5,12 +5,16 @@ import 'sort_criteria.dart';
 /// Layout for _NxAttrDimDef_.
 class NxAttrDimDef {
   /// Expression or field name.
+  /// Original name: qDef
   String def;
   /// LibraryId for dimension.
+  /// Original name: qLibraryId
   String libraryId;
   /// Sorting.
+  /// Original name: qSortBy
   SortCriteria sortBy;
   /// If set to true, this attribute will not affect the number of rows in the cube.
+  /// Original name: qAttribute
   bool attribute;
 }
 

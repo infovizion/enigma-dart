@@ -9,10 +9,13 @@ import 'nx_attr_dim_info.dart';
 class NxMeasureInfo {
   /// Corresponds to the label of the measure.
   /// If the label is not defined then the measure name is used.
+  /// Original name: qFallbackTitle
   String fallbackTitle;
   /// Length of the longest value in the field.
+  /// Original name: qApprMaxGlyphCount
   int apprMaxGlyphCount;
   /// Number of distinct field values.
+  /// Original name: qCardinal
   int cardinal;
   /// Sort indicator.
   /// The default value is no sorting.
@@ -22,26 +25,36 @@ class NxMeasureInfo {
   /// * N or NX_SORT_INDICATE_NONE
   /// * A or NX_SORT_INDICATE_ASC
   /// * D or NX_SORT_INDICATE_DESC
+  /// Original name: qSortIndicator
   String sortIndicator;
   /// Format of the field.
   /// This parameter is optional.
+  /// Original name: qNumFormat
   FieldAttributes numFormat;
   /// Lowest value in the range.
+  /// Original name: qMin
   num min;
   /// Highest value in the range.
+  /// Original name: qMax
   num max;
   /// This parameter is optional.
   /// Gives information on the error.
+  /// Original name: qError
   NxValidationError error;
   /// If set to true, it inverts the sort criteria in the field.
+  /// Original name: qReverseSort
   bool reverseSort;
   /// This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's expression.
+  /// Original name: qIsAutoFormat
   bool isAutoFormat;
   /// List of attribute expressions.
-  List<NxAttrExprInfo> attrExprInfo;
+  /// Original name: qAttrExprInfo
+  null attrExprInfo;
   /// List of attribute dimensions.
-  List<NxAttrDimInfo> attrDimInfo;
+  /// Original name: qAttrDimInfo
+  null attrDimInfo;
   /// The message displayed if calculation condition is not fulfilled.
+  /// Original name: qCalcCondMsg
   String calcCondMsg;
 }
 

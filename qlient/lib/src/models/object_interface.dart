@@ -3,9 +3,13 @@ import 'package:built_value/built_value.dart';
 
 
 class ObjectInterface {
+  /// Original name: qType
   String type;
+  /// Original name: qHandle
   int handle;
+  /// Original name: qGenericType
   String genericType;
+  /// Original name: qGenericId
   String genericId;
 }
 

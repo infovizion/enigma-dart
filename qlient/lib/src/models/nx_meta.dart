@@ -6,6 +6,7 @@ import 'package:built_value/built_value.dart';
 class NxMeta {
   /// Name.
   /// This property is optional.
+  /// Original name: qName
   String name;
 }
 

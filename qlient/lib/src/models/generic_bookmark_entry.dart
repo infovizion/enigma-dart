@@ -5,8 +5,10 @@ import 'nx_bookmark.dart';
 
 class GenericBookmarkEntry {
   /// Information about the properties of the bookmark.
+  /// Original name: qProperties
   GenericBookmarkProperties properties;
   /// Information about the bookmark.
+  /// Original name: qBookmark
   NxBookmark bookmark;
 }
 

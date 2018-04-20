@@ -4,6 +4,7 @@ import 'package:built_value/built_value.dart';
 
 class DatabaseOwner {
   /// Name of the owner.
+  /// Original name: qName
   String name;
 }
 

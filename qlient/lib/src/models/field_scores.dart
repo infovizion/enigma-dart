@@ -5,16 +5,21 @@ import 'package:built_value/built_value.dart';
 class FieldScores {
   /// Field name.
   /// One of the field names defined in _qFieldPairName._
+  /// Original name: qFieldName
   String fieldName;
+  /// Original name: qReadableName
   String readableName;
   /// Cardinality of a column/field divided by the number of rows in the table.
   /// If the cardinal ratio is 1, it means that the column is a candidate/primary key.
+  /// Original name: qCardinalRatio
   num cardinalRatio;
   /// Number of distinct matches between the two fields defined in _qFieldPairName_ divided by the number of distinct values in the field _qFieldName_ .
   /// If 0, it means that there are no common values between the two fields defined in _qFieldPairName_ .
+  /// Original name: qSymbolScore
   num symbolScore;
   /// Number of matches between the two fields defined in _qFieldPairName_ divided by the number of values in the field _qFieldName_ .
   /// If 0, it means that there are no common values between the two fields defined in _qFieldPairName_ .
+  /// Original name: qRowScore
   num rowScore;
 }
 

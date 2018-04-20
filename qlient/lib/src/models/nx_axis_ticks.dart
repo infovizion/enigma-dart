@@ -4,10 +4,13 @@ import 'nx_tick_cell.dart';
 
 class NxAxisTicks {
   /// Name of the derived definition.
+  /// Original name: qName
   String name;
   /// List of tags.
-  List<String> tags;
+  /// Original name: qTags
+  null tags;
   /// List of ticks.
-  List<NxTickCell> ticks;
+  /// Original name: qTicks
+  null ticks;
 }
 

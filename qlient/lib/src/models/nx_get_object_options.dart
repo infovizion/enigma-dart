@@ -4,11 +4,14 @@ import 'package:built_value/json_object.dart';
 
 class NxGetObjectOptions {
   /// List of object types.
-  List<String> types;
+  /// Original name: qTypes
+  null types;
   /// Set to true to include session objects.
   /// The default value is false.
+  /// Original name: qIncludeSessionObjects
   bool includeSessionObjects;
   /// Set of data.
+  /// Original name: qData
   JsonObject data;
 }
 

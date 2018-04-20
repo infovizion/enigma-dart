@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class AlfaNumString {
   /// Calculated value.
+  /// Original name: qString
   String string;
   /// Is set to true if the value is a numeric.
+  /// Original name: qIsNum
   bool isNum;
 }
 

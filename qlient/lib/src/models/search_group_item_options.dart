@@ -10,12 +10,15 @@ class SearchGroupItemOptions {
   /// One of:
   /// * Field or FIELD
   /// * GenericObject or GENERIC_OBJECT
+  /// Original name: qGroupItemType
   String groupItemType;
   /// Position starting from 0.
   /// The default value is 0.
+  /// Original name: qOffset
   int offset;
   /// Maximum number of matches per item (in _qItemMatches[ ]_ ).
   /// The default value is -1: all values are returned.
+  /// Original name: qCount
   int count;
 }
 

@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class NxViewPort {
   /// Width of the canvas in pixels.
+  /// Original name: qWidth
   int width;
   /// Height of the canvas in pixels.
+  /// Original name: qHeight
   int height;
   /// Zoom level.
+  /// Original name: qZoomLevel
   int zoomLevel;
 }
 

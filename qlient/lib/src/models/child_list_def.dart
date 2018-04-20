@@ -7,6 +7,7 @@ import 'package:built_value/json_object.dart';
 class ChildListDef {
   /// Data that you want to include in the child list definition.
   /// You need to enter the paths to the information you want to retrieve.
+  /// Original name: qData
   JsonObject data;
 }
 

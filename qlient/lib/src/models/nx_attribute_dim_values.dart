@@ -4,6 +4,7 @@ import 'nx_simple_dim_value.dart';
 
 class NxAttributeDimValues {
   /// List of values.
-  List<NxSimpleDimValue> values;
+  /// Original name: qValues
+  null values;
 }
 

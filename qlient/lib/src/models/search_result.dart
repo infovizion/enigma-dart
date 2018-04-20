@@ -4,11 +4,14 @@ import 'search_group.dart';
 
 class SearchResult {
   /// List of the search terms.
-  List<String> searchTerms;
+  /// Original name: qSearchTerms
+  null searchTerms;
   /// Total number of groups.
+  /// Original name: qTotalNumberOfGroups
   int totalNumberOfGroups;
   /// List of search groups.
   /// The groups are numbered from the value of _SearchPage.qOffset_ to the value of _SearchPage.qOffset + SearchPage.qCount_ .
-  List<SearchGroup> searchGroupArray;
+  /// Original name: qSearchGroupArray
+  null searchGroupArray;
 }
 

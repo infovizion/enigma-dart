@@ -6,18 +6,23 @@ import 'nx_attribute_dim_values.dart';
 
 class NxStackedPivotCell {
   /// Some text.
+  /// Original name: qText
   String text;
   /// Rank number of the value.
   /// If set to -1, it means that the value is not an element number.
+  /// Original name: qElemNo
   int elemNo;
   /// Value of the cell.
   /// Is set to _NaN_ , if the value is not a number.
+  /// Original name: qValue
   num value;
   /// If set to true, it means that the cell can be expanded.
   /// This parameter is not returned if it is set to false.
+  /// Original name: qCanExpand
   bool canExpand;
   /// If set to true, it means that the cell can be collapsed.
   /// This parameter is not returned if it is set to false.
+  /// Original name: qCanCollapse
   bool canCollapse;
   /// Type of the cell.
   /// 
@@ -32,24 +37,33 @@ class NxStackedPivotCell {
   /// * R or NX_DIM_CELL_ROOT
   /// * U or NX_DIM_CELL_NULL
   /// * G or NX_DIM_CELL_GENERATED
+  /// Original name: qType
   String type;
   /// Total of the positive values in the current group of cells.
+  /// Original name: qMaxPos
   num maxPos;
   /// Total of the negative values in the current group of cells.
+  /// Original name: qMinNeg
   num minNeg;
   /// Number of elements that are part of the previous tail.
+  /// Original name: qUp
   int up;
   /// Number of elements that are part of the next tail.
+  /// Original name: qDown
   int down;
   /// Row index in the data matrix.
   /// The indexing starts from 0.
+  /// Original name: qRow
   int row;
   /// Information about sub nodes (or sub cells).
   /// The array is empty _[ ]_ when there are no sub nodes.
-  List<NxStackedPivotCell> subNodes;
+  /// Original name: qSubNodes
+  null subNodes;
   /// Attribute expressions values.
+  /// Original name: qAttrExps
   NxAttributeExpressionValues attrExps;
   /// Attribute dimensions values.
+  /// Original name: qAttrDims
   NxAttributeDimValues attrDims;
 }
 

@@ -5,6 +5,7 @@ import 'nx_container_entry.dart';
 /// Lists the bookmarks. Is the layout for _BookmarkListDef_.
 class BookmarkList {
   /// Information about the list of bookmarks.
-  List<NxContainerEntry> items;
+  /// Original name: qItems
+  null items;
 }
 

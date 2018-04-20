@@ -7,11 +7,13 @@ class NxGroupTail {
   /// This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ .
   /// Is not shown if the value is 0.
   /// This parameter is optional.
+  /// Original name: qUp
   int up;
   /// Number of elements that are part of the next tail.
   /// This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_
   /// Is not shown if the value is 0.
   /// This parameter is optional.
+  /// Original name: qDown
   int down;
 }
 

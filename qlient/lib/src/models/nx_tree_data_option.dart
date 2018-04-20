@@ -6,10 +6,13 @@ import 'nx_page_tree_level.dart';
 /// Specifies all the paging filters needed to define the tree to be fetched.
 class NxTreeDataOption {
   /// Maximum number of nodes in the tree. If this limit is exceeded, no nodes are returned. All nodes are counted.
+  /// Original name: qMaxNbrOfNodes
   int maxNbrOfNodes;
   /// Defines areas of the tree to be fetched. Areas must be defined left to right.
-  List<NxPageTreeNode> treeNodes;
+  /// Original name: qTreeNodes
+  null treeNodes;
   /// Filters out complete dimensions from the fetched tree.
+  /// Original name: qTreeLevels
   NxPageTreeLevel treeLevels;
 }
 

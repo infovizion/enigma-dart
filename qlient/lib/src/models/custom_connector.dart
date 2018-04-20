@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class CustomConnector {
   /// Name of the custom connector file.
+  /// Original name: qProvider
   String provider;
   /// Name of the parent folder that contains the custom connector file.
+  /// Original name: qParent
   String parent;
   /// Name of the custom connector as displayed in the Qlik interface.
+  /// Original name: qDisplayName
   String displayName;
   /// Mode of the machine (64 or 32 bits).
   /// 
@@ -15,7 +18,9 @@ class CustomConnector {
   /// * CONNECT_DEFAULT
   /// * CONNECT_64
   /// * CONNECT_32
+  /// Original name: qMachineMode
   String machineMode;
+  /// Original name: qSupportFileStreaming
   bool supportFileStreaming;
 }
 

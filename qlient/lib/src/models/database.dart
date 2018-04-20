@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class Database {
   /// Name of the database.
+  /// Original name: qName
   String name;
   /// Is set to true if the database is set by default.
+  /// Original name: qIsDefault
   bool isDefault;
 }
 

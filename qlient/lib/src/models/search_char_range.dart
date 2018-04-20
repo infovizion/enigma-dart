@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class SearchCharRange {
   /// Starting position of the match in the search result, starting from 0.
+  /// Original name: qCharPos
   int charPos;
   /// Length of the match in the search result.
+  /// Original name: qCharCount
   int charCount;
   /// Position of the term in the list of search terms, starting from 0.
+  /// Original name: qTerm
   int term;
 }
 

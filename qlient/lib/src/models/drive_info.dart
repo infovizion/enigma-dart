@@ -6,11 +6,14 @@ class DriveInfo {
   /// Value of the drive.
   /// Examples:
   /// C:\\\, E:\\\
+  /// Original name: qDrive
   String drive;
   /// Type of the drive.
   /// _Fixed_ means physical drive.
+  /// Original name: qType
   String type;
   /// Name of the drive.
+  /// Original name: qName
   String name;
   /// Information about the drive type.
   /// 
@@ -21,7 +24,9 @@ class DriveInfo {
   /// * CD_ROM
   /// * RAM
   /// * UNKNOWN_TYPE
+  /// Original name: qTypeIdentifier
   String typeIdentifier;
+  /// Original name: qUnnamedDrive
   bool unnamedDrive;
 }
 

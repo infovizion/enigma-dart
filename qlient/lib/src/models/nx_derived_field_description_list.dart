@@ -4,6 +4,7 @@ import 'nx_derived_fields_data.dart';
 
 class NxDerivedFieldDescriptionList {
   /// Information about the derived fields.
-  List<NxDerivedFieldsData> derivedFieldLists;
+  /// Original name: qDerivedFieldLists
+  null derivedFieldLists;
 }
 

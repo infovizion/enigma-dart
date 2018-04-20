@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class SearchAttribute {
   /// String corresponding to _SearchObjectOptions.qAttributes_. It will be _qProperty_ for _SearchObjectOptions_.
+  /// Original name: qKey
   String key;
   /// String corresponding to _qKey_ for the current _SearchGroupItemMatch_. For example, if the match is _Make by Price_ found in the title of a generic object, _qValue_ will be _qMetaDef/title_.
+  /// Original name: qValue
   String value;
 }
 

@@ -12,29 +12,37 @@ class NxInlineDimensionDef {
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
   /// * C or GRP_NX_COLLECTION
+  /// Original name: qGrouping
   String grouping;
   /// Array of field names.
   /// When creating a grouped dimension, more than one field name is defined.
   /// This parameter is optional.
-  List<String> fieldDefs;
+  /// Original name: qFieldDefs
+  null fieldDefs;
   /// Array of field labels.
   /// This parameter is optional.
-  List<String> fieldLabels;
+  /// Original name: qFieldLabels
+  null fieldLabels;
   /// Defines the sorting criteria in the field.
   /// Default is to sort by alphabetical order, ascending.
   /// This parameter is optional.
-  List<SortCriteria> sortCriterias;
+  /// Original name: qSortCriterias
+  null sortCriterias;
   /// Defines the format of the value.
   /// This parameter is optional.
-  List<FieldAttributes> numberPresentations;
+  /// Original name: qNumberPresentations
+  null numberPresentations;
   /// If set to true, it inverts the sort criteria in the field.
+  /// Original name: qReverseSort
   bool reverseSort;
   /// Index of the active field in a cyclic dimension.
   /// This parameter is optional. The default value is 0.
   /// This parameter is used in case of cyclic dimensions ( _qGrouping_ is C).
+  /// Original name: qActiveField
   int activeField;
   /// Label expression.
   /// This parameter is optional.
+  /// Original name: qLabelExpression
   String labelExpression;
 }
 

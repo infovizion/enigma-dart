@@ -4,6 +4,7 @@ import 'static_content_list_item.dart';
 
 class StaticContentList {
   /// Information about the list of content files.
-  List<StaticContentListItem> items;
+  /// Original name: qItems
+  null items;
 }
 

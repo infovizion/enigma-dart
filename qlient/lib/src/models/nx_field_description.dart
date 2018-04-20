@@ -32,31 +32,43 @@ import 'nx_derived_field_description_list.dart';
 /// </table>
 class NxFieldDescription {
   /// If set to true, it means that the field is a semantic.
+  /// Original name: qIsSemantic
   bool isSemantic;
   /// If set to true, it means that the field is hidden.
+  /// Original name: qIsHidden
   bool isHidden;
   /// If set to true, it means that the field is a system field.
+  /// Original name: qIsSystem
   bool isSystem;
   /// If set to true a logical AND (instead of a logical OR) is used when making selections in a field.
   /// The default value is false.
+  /// Original name: qAndMode
   bool andMode;
   /// Name of the field
+  /// Original name: qName
   String name;
   /// Number of distinct field values
+  /// Original name: qCardinal
   int cardinal;
   /// Gives information on a field. For example, it can return the type of the field.
   /// Examples: key, text, ASCII
-  List<String> tags;
+  /// Original name: qTags
+  null tags;
   /// If set to true, it means that the field is a field on the fly.
+  /// Original name: qIsDefinitionOnly
   bool isDefinitionOnly;
   /// Lists the derived fields if any.
+  /// Original name: qDerivedFieldData
   NxDerivedFieldDescriptionList derivedFieldData;
   /// Is used for Direct Discovery.
   /// If set to true, it means that the type of the field is detail.
+  /// Original name: qIsDetail
   bool isDetail;
   /// Is used for Direct Discovery.
   /// If set to true, it means that the type of the field is measure.
+  /// Original name: qIsImplicit
   bool isImplicit;
+  /// Original name: qReadableName
   String readableName;
 }
 

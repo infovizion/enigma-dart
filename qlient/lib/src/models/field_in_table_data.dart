@@ -4,29 +4,42 @@ import 'derived_fields_in_table_data.dart';
 
 class FieldInTableData {
   /// Name of the field.
+  /// Original name: qName
   String name;
   /// Is shown for fixed records.
   /// _qOriginalFieldName_ and _qName_ are identical if no field names are used in the file.
   /// _qOriginalFieldName_ differs from _qName_ if embedded file names are used in the file.
-  List<String> originalFields;
+  /// Original name: qOriginalFields
+  null originalFields;
+  /// Original name: qPresent
   bool present;
   /// This property is set to true if the field contains some Null values.
+  /// Original name: qHasNull
   bool hasNull;
+  /// Original name: qHasWild
   bool hasWild;
   /// This property is set to true if the field contains some duplicate values.
+  /// Original name: qHasDuplicates
   bool hasDuplicates;
   /// This property is set to true if the field contains a synthetic key.
+  /// Original name: qIsSynthetic
   bool isSynthetic;
   /// Number of records that have values (for example, not NULL) in the field as compared to the total number of records in the table.
+  /// Original name: qInformationDensity
   num informationDensity;
   /// Number of values that are non Null.
+  /// Original name: qnNonNulls
   int nNonNulls;
   /// Number of rows in the field.
+  /// Original name: qnRows
   int nRows;
   /// Number of distinct values in the field (in the current table) as compared to the total number of distinct values of this field (in all tables).
+  /// Original name: qSubsetRatio
   num subsetRatio;
   /// Number of distinct values in the field.
+  /// Original name: qnTotalDistinctValues
   int nTotalDistinctValues;
+  /// Original name: qnPresentDistinctValues
   int nPresentDistinctValues;
   /// Tells if the field is a key field.
   /// 
@@ -35,14 +48,20 @@ class FieldInTableData {
   /// * ANY_KEY
   /// * PRIMARY_KEY
   /// * PERFECT_KEY
+  /// Original name: qKeyType
   String keyType;
   /// Comment related to the field.
+  /// Original name: qComment
   String comment;
   /// List of tags related to the field.
-  List<String> tags;
+  /// Original name: qTags
+  null tags;
   /// List of the derived fields.
-  List<DerivedFieldsInTableData> derivedFields;
+  /// Original name: qDerivedFields
+  null derivedFields;
+  /// Original name: qIsFieldOnTheFly
   bool isFieldOnTheFly;
+  /// Original name: qReadableName
   String readableName;
 }
 

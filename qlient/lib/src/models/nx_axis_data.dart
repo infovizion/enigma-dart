@@ -4,6 +4,7 @@ import 'nx_axis_ticks.dart';
 
 class NxAxisData {
   /// List of axis data.
-  List<NxAxisTicks> axis;
+  /// Original name: qAxis
+  null axis;
 }
 

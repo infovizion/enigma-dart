@@ -4,8 +4,10 @@ import 'search_suggest_item.dart';
 
 class SearchSuggestionResult {
   /// List of suggestions.
-  List<SearchSuggestItem> suggestions;
+  /// Original name: qSuggestions
+  null suggestions;
   /// List of field names that contain search hits.
-  List<String> fieldNames;
+  /// Original name: qFieldNames
+  null fieldNames;
 }
 

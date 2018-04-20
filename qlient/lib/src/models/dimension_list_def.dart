@@ -5,8 +5,10 @@ import 'package:built_value/json_object.dart';
 /// Defines the lists of dimensions.
 class DimensionListDef {
   /// Type of the list.
+  /// Original name: qType
   String type;
   /// Data
+  /// Original name: qData
   JsonObject data;
 }
 

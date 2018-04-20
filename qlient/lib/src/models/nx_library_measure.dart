@@ -3,16 +3,22 @@ import 'package:built_value/built_value.dart';
 
 
 class NxLibraryMeasure {
+  /// Original name: qLabel
   String label;
+  /// Original name: qDef
   String def;
   /// 
   /// One of:
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
   /// * C or GRP_NX_COLLECTION
+  /// Original name: qGrouping
   String grouping;
-  List<String> expressions;
+  /// Original name: qExpressions
+  null expressions;
+  /// Original name: qActiveExpression
   int activeExpression;
+  /// Original name: qLabelExpression
   String labelExpression;
 }
 

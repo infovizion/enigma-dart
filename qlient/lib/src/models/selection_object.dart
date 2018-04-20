@@ -5,10 +5,13 @@ import 'nx_current_selection_item.dart';
 /// Indicates which selections are currently applied. It gives the current selections. Is the layout for _SelectionObjectDef_.
 class SelectionObject {
   /// Number of steps back.
+  /// Original name: qBackCount
   int backCount;
   /// Number of steps forward.
+  /// Original name: qForwardCount
   int forwardCount;
   /// Lists the fields that are selected.
-  List<NxCurrentSelectionItem> selections;
+  /// Original name: qSelections
+  null selections;
 }
 

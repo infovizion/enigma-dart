@@ -4,8 +4,10 @@ import 'package:built_value/built_value.dart';
 
 class NxMatchingFieldInfo {
   /// Name of the field.
+  /// Original name: qName
   String name;
   /// List of tags.
-  List<String> tags;
+  /// Original name: qTags
+  null tags;
 }
 

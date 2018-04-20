@@ -3,6 +3,7 @@ import 'package:built_value/built_value.dart';
 
 
 class ValueExpr {
+  /// Original name: qv
   String v;
 }
 

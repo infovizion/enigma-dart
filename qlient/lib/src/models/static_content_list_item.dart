@@ -12,6 +12,7 @@ class StaticContentListItem {
   /// In Qlik Sense Desktop, content files located:
   /// * In the _/content/default/_ folder are outside the qvf file.
   /// * In the _/media/ folder_ are embedded in the qvf file.
+  /// Original name: qUrlDef
   String urlDef;
   /// Relative path to the content file. The URL is static.
   /// In Qlik Sense Enterprise, content files located:
@@ -21,6 +22,7 @@ class StaticContentListItem {
   /// In Qlik Sense Desktop, content files located:
   /// * In the _/content/default/_ folder are outside the qvf file.
   /// * In the _/media/ folder_ are embedded in the qvf file.
+  /// Original name: qUrl
   String url;
 }
 

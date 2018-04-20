@@ -4,15 +4,19 @@ import 'package:built_value/built_value.dart';
 
 class OdbcDsn {
   /// Name of the ODBC connection.
+  /// Original name: qName
   String name;
   /// Description of the ODBC connection.
+  /// Original name: qDescription
   String description;
   /// Is set to true if the version of ODBC is 32-bit.
   /// This parameter is optional. Default is false.
+  /// Original name: qBit32
   bool bit32;
   /// Is set to true if the connection is User DSN. The connection works only for a specific user.
   /// Default is false.
   /// This parameter is optional.
+  /// Original name: qUserOnly
   bool userOnly;
 }
 

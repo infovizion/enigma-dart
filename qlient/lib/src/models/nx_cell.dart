@@ -7,9 +7,11 @@ import 'nx_attribute_dim_values.dart';
 class NxCell {
   /// Some text.
   /// This parameter is optional.
+  /// Original name: qText
   String text;
   /// A value.
   /// This parameter is optional.
+  /// Original name: qNum
   num num;
   /// Rank number of the value, starting from 0.
   /// If the element number is a negative number, it means that the returned value is not an element number.
@@ -18,6 +20,7 @@ class NxCell {
   /// * -2: the cell is collapsed. Applies to pivot tables.
   /// * -3: the cell belongs to the group _Others_ .
   /// * -4: the cell is empty. Applies to pivot tables.
+  /// Original name: qElemNumber
   int elemNumber;
   /// State of the value.
   /// The default state for a measure is L.
@@ -32,31 +35,40 @@ class NxCell {
   /// * XS or EXCL_SELECTED
   /// * XL or EXCL_LOCKED
   /// * NSTATES
+  /// Original name: qState
   String state;
   /// Is set to _true_ , if **qText** and **qNum** are empty.
   /// This parameter is optional. The default value is _false_ .
+  /// Original name: qIsEmpty
   bool isEmpty;
   /// Is set to _true_ if a total is displayed in the cell.
   /// This parameter is optional. The default value is _false_ .
   /// Not applicable to list objects.
+  /// Original name: qIsTotalCell
   bool isTotalCell;
   /// Is set to _true_ if the cell belongs to the group _Others_ .
   /// Dimension values can be set as _Others_ depending on what has been defined in **OtherTotalSpecProp** .
   /// This parameter is optional. The default value is _false_ .
   /// Not applicable to list objects.
+  /// Original name: qIsOtherCell
   bool isOtherCell;
   /// Frequency of the value.
   /// This parameter is optional.
+  /// Original name: qFrequency
   String frequency;
   /// Search hits.
   /// The search hits are highlighted.
   /// This parameter is optional.
+  /// Original name: qHighlightRanges
   NxHighlightRanges highlightRanges;
   /// Attribute expression values.
+  /// Original name: qAttrExps
   NxAttributeExpressionValues attrExps;
   /// Attribute dimensions values.
+  /// Original name: qAttrDims
   NxAttributeDimValues attrDims;
   /// Is set to _true_ if the value is Null.
+  /// Original name: qIsNull
   bool isNull;
 }
 

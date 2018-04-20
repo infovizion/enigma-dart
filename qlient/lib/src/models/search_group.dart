@@ -4,19 +4,24 @@ import 'search_group_item.dart';
 
 class SearchGroup {
   /// Identifier of the search group.
+  /// Original name: qId
   int id;
   /// Type of the search group.
   /// 
   /// One of:
   /// * DatasetType or DATASET_GROUP
   /// * GenericObjectsType or GENERIC_OBJECTS_GROUP
+  /// Original name: qGroupType
   String groupType;
   /// Indexes of the search terms that are included in the group. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ .
-  List<int> searchTermsMatched;
+  /// Original name: qSearchTermsMatched
+  null searchTermsMatched;
   /// Total number of distinct items in the search group.
+  /// Original name: qTotalNumberOfItems
   int totalNumberOfItems;
   /// List of items in the search group.
   /// The group items are numbered from the value of _SearchGroupOptions.qOffset_ to the value of _SearchGroupOptions.qOffset_ \+ _SearchGroupOptions.qCount_
-  List<SearchGroupItem> items;
+  /// Original name: qItems
+  null items;
 }
 

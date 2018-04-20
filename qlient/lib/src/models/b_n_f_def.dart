@@ -5,40 +5,52 @@ import 'package:built_value/built_value.dart';
 class BNFDef {
   /// Array of token references that all together build up the definition of the current token.
   /// Generally, if the array is not empty, the definition is a BNF rule (_qIsBnfRule_ is set to true). However, some BNF  rules do have an empty array (_qIsBnfRule_ is set to true, but _qBnf_ is empty).
-  List<int> bnf;
+  /// Original name: qBnf
+  null bnf;
   /// Number of the current token definition.
+  /// Original name: qNbr
   int nbr;
   /// Number of the parent rule definition.
+  /// Original name: qPNbr
   int pNbr;
   /// Reference identifier to a function described in the documentation. The identifier is stored in the definition of the token containing the function name.
   /// Is not used in Qlik Sense.
+  /// Original name: qHelpId
   int helpId;
   /// Token name.
   /// One of:
   /// * A rule name
   /// * An identifier
   /// * A literal value
+  /// Original name: qName
   String name;
   /// Literal string of the token.
   /// Examples: 'Round' and '('.
+  /// Original name: qStr
   String str;
   /// If set to true, a list of related rule tokens is assigned to _qBnf_ .
   /// This parameter is optional. The default value is false.
+  /// Original name: qIsBnfRule
   bool isBnfRule;
   /// If set to true, the definition specifies a script statement.
   /// This parameter is optional. The default value is false.
+  /// Original name: qScriptStatement
   bool scriptStatement;
   /// If set to true, the definition specifies a control statement.
   /// This parameter is optional. The default value is false.
+  /// Original name: qControlStatement
   bool controlStatement;
   /// If set to true, the definition specifies a literal token.
   /// This parameter is optional. The default value is false.
+  /// Original name: qBnfLiteral
   bool bnfLiteral;
   /// If set to true, the definition is related to a Qlik Sense function. It cannot be an aggregation function.
   /// This parameter is optional. The default value is false.
+  /// Original name: qQvFunc
   bool qvFunc;
   /// If set to true, the definition is related to an aggregation function.
   /// This parameter is optional. The default value is false.
+  /// Original name: qAggrFunc
   bool aggrFunc;
   /// Group of the function.
   /// 
@@ -70,9 +82,11 @@ class BNFDef {
   /// * RNK or FUNC_GROUP_RANKING
   /// * GEO or FUNC_GROUP_GEO
   /// * EXT or FUNC_GROUP_EXTERNAL
+  /// Original name: qFG
   String fG;
   /// If set to true, the definition is related to a field.
   /// This parameter is optional. The default value is false.
+  /// Original name: qFieldFlag
   bool fieldFlag;
   /// Type of the data.
   /// 
@@ -81,10 +95,12 @@ class BNFDef {
   /// * D or META_DOC_NAME
   /// * R or META_RET_TYPE
   /// * V or META_DEFAULT_VALUE
+  /// Original name: qMT
   String mT;
   /// Indicates whether a script statement, a chart or a script function is deprecated (not recommended for use).
   /// If set to true, the script statement or the function is not recommended for use in Qlik Sense.
   /// This parameter is optional. The default value is false.
+  /// Original name: qDepr
   bool depr;
 }
 

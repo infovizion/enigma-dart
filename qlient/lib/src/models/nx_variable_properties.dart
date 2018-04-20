@@ -4,18 +4,23 @@ import 'field_attributes.dart';
 
 class NxVariableProperties {
   /// Name of the variable.
+  /// Original name: qName
   String name;
   /// Defines the format of the value of a variable.
+  /// Original name: qNumberPresentation
   FieldAttributes numberPresentation;
   /// Set this property to true to update the variable when applying a bookmark.
   /// The value of a variable can affect the state of the selections.
   /// The default value is false.
+  /// Original name: qIncludeInBookmark
   bool includeInBookmark;
   /// The value of a variable can be an enumeration.
   /// Set this property to true to reflect the predefined values in an enumeration.
+  /// Original name: qUsePredefListedValues
   bool usePredefListedValues;
   /// List of enumerations.
   /// This property is used if _qUsePredefListedValues_ is set to true.
-  List<String> preDefinedList;
+  /// Original name: qPreDefinedList
+  null preDefinedList;
 }
 

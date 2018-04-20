@@ -4,8 +4,10 @@ import 'range.dart';
 
 class NxContinuousRangeSelectInfo {
   /// Range information.
+  /// Original name: qRange
   Range range;
   /// Dimension index.
+  /// Original name: qDimIx
   int dimIx;
 }
 

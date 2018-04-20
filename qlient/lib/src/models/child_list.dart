@@ -6,6 +6,7 @@ import 'nx_container_entry.dart';
 /// <div class=note>ChildList is used by the _GetLayout Method_ to list the children of a generic object. </div>
 class ChildList {
   /// Information about the items in the app object.
-  List<NxContainerEntry> items;
+  /// Original name: qItems
+  null items;
 }
 

@@ -4,6 +4,7 @@ import 'content_library_list_item.dart';
 
 class ContentLibraryList {
   /// Information about the content library.
-  List<ContentLibraryListItem> items;
+  /// Original name: qItems
+  null items;
 }
 

@@ -4,6 +4,7 @@ import 'package:built_value/built_value.dart';
 
 class FieldDefEx {
   /// Name of the field.
+  /// Original name: qName
   String name;
   /// Type of data entity.
   /// 
@@ -16,6 +17,7 @@ class FieldDefEx {
   /// * IS_EXPR
   /// * IS_IMPLICIT
   /// * IS_DETAIL
+  /// Original name: qType
   String type;
 }
 

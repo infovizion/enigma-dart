@@ -5,9 +5,11 @@ import 'package:built_value/built_value.dart';
 class NxSelectionInfo {
   /// Is set to true if the visualization is in selection mode.
   /// For more information about the selection mode, see _BeginSelections Method_.
+  /// Original name: qInSelections
   bool inSelections;
   /// Is set to true if the visualization is in selection mode and if some selections have been made while in selection mode.
   /// For more information about the selection mode, see _BeginSelections Method_.
+  /// Original name: qMadeSelections
   bool madeSelections;
 }
 

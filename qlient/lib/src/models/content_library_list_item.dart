@@ -4,10 +4,13 @@ import 'nx_meta.dart';
 
 class ContentLibraryListItem {
   /// Name of the library.
+  /// Original name: qName
   String name;
   /// Is set to true if the library is specific to the app (not a global content library).
+  /// Original name: qAppSpecific
   bool appSpecific;
   /// Information about publishing and permissions.
+  /// Original name: qMeta
   NxMeta meta;
 }
 

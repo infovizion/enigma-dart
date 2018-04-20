@@ -4,8 +4,10 @@ import 'field_value.dart';
 
 class BookmarkVariableItem {
   /// Name of the variable.
+  /// Original name: qName
   String name;
   /// Value of the variable.
+  /// Original name: qValue
   FieldValue value;
 }
 

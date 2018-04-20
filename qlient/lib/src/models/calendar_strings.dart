@@ -4,12 +4,16 @@ import 'package:built_value/built_value.dart';
 
 class CalendarStrings {
   /// List of short day names.
-  List<String> dayNames;
+  /// Original name: qDayNames
+  null dayNames;
   /// List of short month names.
-  List<String> monthNames;
+  /// Original name: qMonthNames
+  null monthNames;
   /// List of long day names.
-  List<String> longDayNames;
+  /// Original name: qLongDayNames
+  null longDayNames;
   /// List of long month names.
-  List<String> longMonthNames;
+  /// Original name: qLongMonthNames
+  null longMonthNames;
 }
 

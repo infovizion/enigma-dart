@@ -3,26 +3,32 @@ import 'package:built_value/built_value.dart';
 import 'field_def_ex.dart';
 import 'select_info.dart';
 import 'field_value.dart';
-import 'field_value.dart';
 
 class BookmarkFieldItem {
   /// Name and type of the field.
+  /// Original name: qDef
   FieldDefEx def;
   /// Indicates if the field is locked.
   /// Default is false.
+  /// Original name: qLocked
   bool locked;
   /// Information on the selections criteria.
+  /// Original name: qSelectInfo
   SelectInfo selectInfo;
-  List<FieldValue> values;
+  /// Original name: qValues
+  null values;
   /// List of excluded values.
   /// Either the list of selected values or the list of excluded values is displayed.
-  List<FieldValue> excludedValues;
+  /// Original name: qExcludedValues
+  null excludedValues;
   /// If set to true, selections within a list object are made in AND mode; If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in and-mode, all records that are associated with Customer 1 **and** Customer 2 are selected.
   /// The default value is false; selections within a list object are made in OR mode. If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in or-mode, all records that are associated with either Customer 1 **or** Customer 2 are selected.
   /// This parameter is not returned if set to false.
+  /// Original name: qAndMode
   bool andMode;
   /// If set to true, the field has always one selection (not 0 and not more than 1). If another value is selected, the previous one is unselected.
   /// The default value is false. This parameter is not returned if set to false.
+  /// Original name: qOneAndOnlyOne
   bool oneAndOnlyOne;
 }
 

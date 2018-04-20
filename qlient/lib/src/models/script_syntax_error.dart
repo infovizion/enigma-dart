@@ -4,16 +4,22 @@ import 'package:built_value/built_value.dart';
 
 class ScriptSyntaxError {
   /// Length of the word where the error is located.
+  /// Original name: qErrLen
   int errLen;
   /// Number of the faulty section.
+  /// Original name: qTabIx
   int tabIx;
   /// Line number in the section where the error is located.
+  /// Original name: qLineInTab
   int lineInTab;
   /// Position of the erroneous text from the beginning of the line.
+  /// Original name: qColInLine
   int colInLine;
   /// Position of the erroneous text from the beginning of the script.
+  /// Original name: qTextPos
   int textPos;
   /// The default value is false.
+  /// Original name: qSecondaryFailure
   bool secondaryFailure;
 }
 

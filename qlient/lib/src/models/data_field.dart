@@ -4,12 +4,15 @@ import 'package:built_value/built_value.dart';
 
 class DataField {
   /// Name of the field.
+  /// Original name: qName
   String name;
   /// Is set to true if the field is a primary key.
+  /// Original name: qIsKey
   bool isKey;
   /// Is shown for fixed records.
   /// _qOriginalFieldName_ and _qName_ are identical if no field names are used in the file.
   /// _qOriginalFieldName_ differs from _qName_ if embedded file names are used in the file.
+  /// Original name: qOriginalFieldName
   String originalFieldName;
 }
 

@@ -5,11 +5,14 @@ import 'package:built_value/built_value.dart';
 class NxAttrExprDef {
   /// Definition of the attribute expression.
   /// Example: _"Max(OrderID)"_
+  /// Original name: qExpression
   String expression;
   /// Definition of the attribute expression stored in the library.
   /// Example: _"MyGenericMeasure"_
+  /// Original name: qLibraryId
   String libraryId;
   /// If set to true, this measure will not affect the number of rows in the cube.
+  /// Original name: qAttribute
   bool attribute;
 }
 

@@ -4,6 +4,7 @@ import 'nx_tree_range_select_info.dart';
 
 class NxTreeMultiRangeSelectInfo {
   /// An array of Ranges.
-  List<NxTreeRangeSelectInfo> ranges;
+  /// Original name: qRanges
+  null ranges;
 }
 

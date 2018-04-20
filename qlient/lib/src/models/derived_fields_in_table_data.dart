@@ -4,10 +4,13 @@ import 'package:built_value/built_value.dart';
 
 class DerivedFieldsInTableData {
   /// Name of the derived definition.
+  /// Original name: qDefinitionName
   String definitionName;
   /// List of tags.
-  List<String> tags;
+  /// Original name: qTags
+  null tags;
   /// Is set to true is the derived field is in use.
+  /// Original name: qActive
   bool active;
 }
 

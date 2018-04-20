@@ -13,38 +13,49 @@ class InteractDef {
   /// * IT_END
   /// * IT_PASSWD
   /// * IT_USERNAME
+  /// Original name: qType
   String type;
   /// Title used in the message box dialog.
   /// This property is relevant if _qType_ is *IT_MSGBOX*.
+  /// Original name: qTitle
   String title;
   /// Message used in the message box dialog.
   /// This property is relevant if _qType_ is *IT_MSGBOX*.
+  /// Original name: qMsg
   String msg;
   /// Buttons displayed in the message box dialog.
   /// This property is relevant if _qType_ is *IT_MSGBOX*.
   /// One of:
   /// * 0 means that the _qButtons_ property is not relevant.
   /// * 17 means that the message box contains the **OK** and **Cancel** buttons or the **stop** -sign icon.
+  /// Original name: qButtons
   int buttons;
   /// Next script statement to be executed.
   /// This property is used if the type of interaction is *IT_SCRIPTLINE*.
+  /// Original name: qLine
   String line;
   /// First line number of the previously executed statement.
   /// This property is used if the type of interaction is *IT_SCRIPTLINE*.
+  /// Original name: qOldLineNr
   int oldLineNr;
   /// First line number of the next statement to be executed.
   /// This property is used if the type of interaction is *IT_SCRIPTLINE*.
+  /// Original name: qNewLineNr
   int newLineNr;
   /// Path specified by the **Include** script variable.
   /// This property is used if the type of interaction is *IT_SCRIPTLINE*.
   /// Example of an **Include** variable:
   /// _$(Include=lib:\\\MyDataFiles\abc.txt);_
+  /// Original name: qPath
   String path;
   /// This property is set to true if the returned statement is an hidden script statement.
+  /// Original name: qHidden
   bool hidden;
   /// Not relevant for describing the requested user interaction.
+  /// Original name: qResult
   int result;
   /// Is not used in Qlik Sense.
+  /// Original name: qInput
   String input;
 }
 

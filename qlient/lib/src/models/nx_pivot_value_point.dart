@@ -6,10 +6,13 @@ import 'nx_attribute_dim_values.dart';
 class NxPivotValuePoint {
   /// Label of the cell.
   /// This parameter is optional.
+  /// Original name: qLabel
   String label;
   /// Some text related to the cell.
+  /// Original name: qText
   String text;
   /// Value of the cell.
+  /// Original name: qNum
   num num;
   /// Type of the cell.
   /// 
@@ -24,9 +27,12 @@ class NxPivotValuePoint {
   /// * R or NX_DIM_CELL_ROOT
   /// * U or NX_DIM_CELL_NULL
   /// * G or NX_DIM_CELL_GENERATED
+  /// Original name: qType
   String type;
   /// Attribute expressions values.
+  /// Original name: qAttrExps
   NxAttributeExpressionValues attrExps;
+  /// Original name: qAttrDims
   NxAttributeDimValues attrDims;
 }
 

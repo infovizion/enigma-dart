@@ -4,6 +4,7 @@ import 'package:built_value/built_value.dart';
 
 class NxEngineVersion {
   /// Version number of the Qlik engine component.
+  /// Original name: qComponentVersion
   String componentVersion;
 }
 
