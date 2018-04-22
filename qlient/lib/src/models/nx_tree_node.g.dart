@@ -1,0 +1,366 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+part of nx_tree_node;
+
+// **************************************************************************
+// Generator: BuiltValueGenerator
+// **************************************************************************
+
+// ignore_for_file: always_put_control_body_on_new_line
+// ignore_for_file: annotate_overrides
+// ignore_for_file: avoid_annotating_with_dynamic
+// ignore_for_file: avoid_returning_this
+// ignore_for_file: omit_local_variable_types
+// ignore_for_file: prefer_expression_function_bodies
+// ignore_for_file: sort_constructors_first
+
+Serializer<NxTreeNode> _$nxTreeNodeSerializer = new _$NxTreeNodeSerializer();
+
+class _$NxTreeNodeSerializer implements StructuredSerializer<NxTreeNode> {
+  @override
+  final Iterable<Type> types = const [NxTreeNode, _$NxTreeNode];
+  @override
+  final String wireName = 'NxTreeNode';
+
+  @override
+  Iterable serialize(Serializers serializers, NxTreeNode object,
+      {FullType specifiedType: FullType.unspecified}) {
+    final result = <Object>[];
+    if (object.text != null) {
+      result
+        ..add('text')
+        ..add(serializers.serialize(object.text,
+            specifiedType: const FullType(String)));
+    }
+    if (object.elemNo != null) {
+      result
+        ..add('elemNo')
+        ..add(serializers.serialize(object.elemNo,
+            specifiedType: const FullType(int)));
+    }
+    if (object.nodeNr != null) {
+      result
+        ..add('nodeNr')
+        ..add(serializers.serialize(object.nodeNr,
+            specifiedType: const FullType(int)));
+    }
+    if (object.parentNode != null) {
+      result
+        ..add('parentNode')
+        ..add(serializers.serialize(object.parentNode,
+            specifiedType: const FullType(int)));
+    }
+    if (object.row != null) {
+      result
+        ..add('row')
+        ..add(serializers.serialize(object.row,
+            specifiedType: const FullType(int)));
+    }
+    if (object.type != null) {
+      result
+        ..add('type')
+        ..add(serializers.serialize(object.type,
+            specifiedType: const FullType(String)));
+    }
+    if (object.values != null) {
+      result
+        ..add('values')
+        ..add(serializers.serialize(object.values,
+            specifiedType:
+                const FullType(List, const [const FullType(NxCell)])));
+    }
+    if (object.nodes != null) {
+      result
+        ..add('nodes')
+        ..add(serializers.serialize(object.nodes,
+            specifiedType:
+                const FullType(List, const [const FullType(NxCell)])));
+    }
+    if (object.attrExps != null) {
+      result
+        ..add('attrExps')
+        ..add(serializers.serialize(object.attrExps,
+            specifiedType: const FullType(NxAttributeExpressionValues)));
+    }
+    if (object.attrDims != null) {
+      result
+        ..add('attrDims')
+        ..add(serializers.serialize(object.attrDims,
+            specifiedType: const FullType(NxAttributeDimValues)));
+    }
+
+    return result;
+  }
+
+  @override
+  NxTreeNode deserialize(Serializers serializers, Iterable serialized,
+      {FullType specifiedType: FullType.unspecified}) {
+    final result = new NxTreeNodeBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'text':
+          result.text = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'elemNo':
+          result.elemNo = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'nodeNr':
+          result.nodeNr = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'parentNode':
+          result.parentNode = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'row':
+          result.row = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'type':
+          result.type = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'values':
+          result.values = serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(List, const [const FullType(NxCell)]))
+              as List<NxCell>;
+          break;
+        case 'nodes':
+          result.nodes = serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(List, const [const FullType(NxCell)]))
+              as List<NxCell>;
+          break;
+        case 'attrExps':
+          result.attrExps.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(NxAttributeExpressionValues))
+              as NxAttributeExpressionValues);
+          break;
+        case 'attrDims':
+          result.attrDims.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(NxAttributeDimValues))
+              as NxAttributeDimValues);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$NxTreeNode extends NxTreeNode {
+  @override
+  final String text;
+  @override
+  final int elemNo;
+  @override
+  final int nodeNr;
+  @override
+  final int parentNode;
+  @override
+  final int row;
+  @override
+  final String type;
+  @override
+  final List<NxCell> values;
+  @override
+  final List<NxCell> nodes;
+  @override
+  final NxAttributeExpressionValues attrExps;
+  @override
+  final NxAttributeDimValues attrDims;
+
+  factory _$NxTreeNode([void updates(NxTreeNodeBuilder b)]) =>
+      (new NxTreeNodeBuilder()..update(updates)).build();
+
+  _$NxTreeNode._(
+      {this.text,
+      this.elemNo,
+      this.nodeNr,
+      this.parentNode,
+      this.row,
+      this.type,
+      this.values,
+      this.nodes,
+      this.attrExps,
+      this.attrDims})
+      : super._();
+
+  @override
+  NxTreeNode rebuild(void updates(NxTreeNodeBuilder b)) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  NxTreeNodeBuilder toBuilder() => new NxTreeNodeBuilder()..replace(this);
+
+  @override
+  bool operator ==(dynamic other) {
+    if (identical(other, this)) return true;
+    if (other is! NxTreeNode) return false;
+    return text == other.text &&
+        elemNo == other.elemNo &&
+        nodeNr == other.nodeNr &&
+        parentNode == other.parentNode &&
+        row == other.row &&
+        type == other.type &&
+        values == other.values &&
+        nodes == other.nodes &&
+        attrExps == other.attrExps &&
+        attrDims == other.attrDims;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc($jc($jc(0, text.hashCode), elemNo.hashCode),
+                                    nodeNr.hashCode),
+                                parentNode.hashCode),
+                            row.hashCode),
+                        type.hashCode),
+                    values.hashCode),
+                nodes.hashCode),
+            attrExps.hashCode),
+        attrDims.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('NxTreeNode')
+          ..add('text', text)
+          ..add('elemNo', elemNo)
+          ..add('nodeNr', nodeNr)
+          ..add('parentNode', parentNode)
+          ..add('row', row)
+          ..add('type', type)
+          ..add('values', values)
+          ..add('nodes', nodes)
+          ..add('attrExps', attrExps)
+          ..add('attrDims', attrDims))
+        .toString();
+  }
+}
+
+class NxTreeNodeBuilder implements Builder<NxTreeNode, NxTreeNodeBuilder> {
+  _$NxTreeNode _$v;
+
+  String _text;
+  String get text => _$this._text;
+  set text(String text) => _$this._text = text;
+
+  int _elemNo;
+  int get elemNo => _$this._elemNo;
+  set elemNo(int elemNo) => _$this._elemNo = elemNo;
+
+  int _nodeNr;
+  int get nodeNr => _$this._nodeNr;
+  set nodeNr(int nodeNr) => _$this._nodeNr = nodeNr;
+
+  int _parentNode;
+  int get parentNode => _$this._parentNode;
+  set parentNode(int parentNode) => _$this._parentNode = parentNode;
+
+  int _row;
+  int get row => _$this._row;
+  set row(int row) => _$this._row = row;
+
+  String _type;
+  String get type => _$this._type;
+  set type(String type) => _$this._type = type;
+
+  List<NxCell> _values;
+  List<NxCell> get values => _$this._values;
+  set values(List<NxCell> values) => _$this._values = values;
+
+  List<NxCell> _nodes;
+  List<NxCell> get nodes => _$this._nodes;
+  set nodes(List<NxCell> nodes) => _$this._nodes = nodes;
+
+  NxAttributeExpressionValuesBuilder _attrExps;
+  NxAttributeExpressionValuesBuilder get attrExps =>
+      _$this._attrExps ??= new NxAttributeExpressionValuesBuilder();
+  set attrExps(NxAttributeExpressionValuesBuilder attrExps) =>
+      _$this._attrExps = attrExps;
+
+  NxAttributeDimValuesBuilder _attrDims;
+  NxAttributeDimValuesBuilder get attrDims =>
+      _$this._attrDims ??= new NxAttributeDimValuesBuilder();
+  set attrDims(NxAttributeDimValuesBuilder attrDims) =>
+      _$this._attrDims = attrDims;
+
+  NxTreeNodeBuilder();
+
+  NxTreeNodeBuilder get _$this {
+    if (_$v != null) {
+      _text = _$v.text;
+      _elemNo = _$v.elemNo;
+      _nodeNr = _$v.nodeNr;
+      _parentNode = _$v.parentNode;
+      _row = _$v.row;
+      _type = _$v.type;
+      _values = _$v.values;
+      _nodes = _$v.nodes;
+      _attrExps = _$v.attrExps?.toBuilder();
+      _attrDims = _$v.attrDims?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(NxTreeNode other) {
+    if (other == null) throw new ArgumentError.notNull('other');
+    _$v = other as _$NxTreeNode;
+  }
+
+  @override
+  void update(void updates(NxTreeNodeBuilder b)) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$NxTreeNode build() {
+    _$NxTreeNode _$result;
+    try {
+      _$result = _$v ??
+          new _$NxTreeNode._(
+              text: text,
+              elemNo: elemNo,
+              nodeNr: nodeNr,
+              parentNode: parentNode,
+              row: row,
+              type: type,
+              values: values,
+              nodes: nodes,
+              attrExps: _attrExps?.build(),
+              attrDims: _attrDims?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'attrExps';
+        _attrExps?.build();
+        _$failedField = 'attrDims';
+        _attrDims?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxTreeNode', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}

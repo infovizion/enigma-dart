@@ -7,9 +7,10 @@ environment:
   sdk: '>=1.20.1 <2.0.0'
 dependencies:
   path: ^1.5.1
-  built_value: ^1.2.1
+  built_collection: '>=2.0.0 <4.0.0'
+  built_value: ^5.4.3
 dev_dependencies:
   test: ^0.12.34
-  build_runner: ^0.3.4
   recase: ^1.0.0
-  built_value_generator: ^1.2.1
+  build_runner: ^0.7.9
+  built_value_generator: ^5.4.3
