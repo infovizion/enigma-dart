@@ -6,7 +6,15 @@
         {
             "label": "echo",
             "type": "shell",
-            "command": "echo Hello"
+   "command": "echo Hello"
+        },
+        {
+            "label": "Watch qlient",
+            "type": "process",
+            "command": "pub",
+            "args":  [
+                "run","build_runner","watch"],
+            "group": "build"
         }
     ]
 }
