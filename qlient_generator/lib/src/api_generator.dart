@@ -34,9 +34,9 @@ class ApiGenerator {
       generateStruct(key, value);
     });
     generateModelExport();
+    return;
     schema.services.forEach((key, value) {
       generateService(key, value);
-      // throw 'asdfasdf';
     });
   }
 
