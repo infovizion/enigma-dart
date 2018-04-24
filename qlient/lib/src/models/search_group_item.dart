@@ -38,12 +38,12 @@ abstract class SearchGroupItem implements Built<SearchGroupItem, SearchGroupItem
   /// The group item matches are numbered from the value of _SearchGroupItemOptions.qOffset_ to the value of _SearchGroupItemOptions.qOffset_ \+ _SearchGroupItemOptions.qCount_ .
   /// Original name: qItemMatches
   @nullable
-  List<NxCell> get itemMatches;
+  BuiltList<NxCell> get itemMatches;
 
   /// Indexes of the search terms that are included in the group item. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ .
   /// Original name: qSearchTermsMatched
   @nullable
-  List<NxCell> get searchTermsMatched;
+  BuiltList<NxCell> get searchTermsMatched;
 
   factory SearchGroupItem([updates(SearchGroupItemBuilder b)]) = _$SearchGroupItem;
 

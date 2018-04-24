@@ -50,7 +50,7 @@ class _$TableViewBroomPointSaveInfoSerializer
         ..add('fields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -77,10 +77,10 @@ class _$TableViewBroomPointSaveInfoSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'fields':
-          result.fields = serializers.deserialize(value,
+          result.fields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -95,7 +95,7 @@ class _$TableViewBroomPointSaveInfo extends TableViewBroomPointSaveInfo {
   @override
   final String table;
   @override
-  final List<NxCell> fields;
+  final BuiltList<NxCell> fields;
 
   factory _$TableViewBroomPointSaveInfo(
           [void updates(TableViewBroomPointSaveInfoBuilder b)]) =>
@@ -149,9 +149,10 @@ class TableViewBroomPointSaveInfoBuilder
   String get table => _$this._table;
   set table(String table) => _$this._table = table;
 
-  List<NxCell> _fields;
-  List<NxCell> get fields => _$this._fields;
-  set fields(List<NxCell> fields) => _$this._fields = fields;
+  ListBuilder<NxCell> _fields;
+  ListBuilder<NxCell> get fields =>
+      _$this._fields ??= new ListBuilder<NxCell>();
+  set fields(ListBuilder<NxCell> fields) => _$this._fields = fields;
 
   TableViewBroomPointSaveInfoBuilder();
 
@@ -159,7 +160,7 @@ class TableViewBroomPointSaveInfoBuilder
     if (_$v != null) {
       _pos = _$v.pos?.toBuilder();
       _table = _$v.table;
-      _fields = _$v.fields;
+      _fields = _$v.fields?.toBuilder();
       _$v = null;
     }
     return this;
@@ -182,12 +183,15 @@ class TableViewBroomPointSaveInfoBuilder
     try {
       _$result = _$v ??
           new _$TableViewBroomPointSaveInfo._(
-              pos: _pos?.build(), table: table, fields: fields);
+              pos: _pos?.build(), table: table, fields: _fields?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'pos';
         _pos?.build();
+
+        _$failedField = 'fields';
+        _fields?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'TableViewBroomPointSaveInfo', _$failedField, e.toString());

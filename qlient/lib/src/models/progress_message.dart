@@ -20,7 +20,7 @@ abstract class ProgressMessage implements Built<ProgressMessage, ProgressMessage
   /// Parameters to be inserted in the localized message string.
   /// Original name: qMessageParameters
   @nullable
-  List<NxCell> get messageParameters;
+  BuiltList<NxCell> get messageParameters;
 
   factory ProgressMessage([updates(ProgressMessageBuilder b)]) = _$ProgressMessage;
 

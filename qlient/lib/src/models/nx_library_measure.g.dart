@@ -51,7 +51,7 @@ class _$NxLibraryMeasureSerializer
         ..add('expressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.activeExpression != null) {
       result
@@ -93,10 +93,10 @@ class _$NxLibraryMeasureSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'expressions':
-          result.expressions = serializers.deserialize(value,
+          result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'activeExpression':
           result.activeExpression = serializers.deserialize(value,
@@ -121,7 +121,7 @@ class _$NxLibraryMeasure extends NxLibraryMeasure {
   @override
   final String grouping;
   @override
-  final List<NxCell> expressions;
+  final BuiltList<NxCell> expressions;
   @override
   final int activeExpression;
   @override
@@ -200,9 +200,10 @@ class NxLibraryMeasureBuilder
   String get grouping => _$this._grouping;
   set grouping(String grouping) => _$this._grouping = grouping;
 
-  List<NxCell> _expressions;
-  List<NxCell> get expressions => _$this._expressions;
-  set expressions(List<NxCell> expressions) =>
+  ListBuilder<NxCell> _expressions;
+  ListBuilder<NxCell> get expressions =>
+      _$this._expressions ??= new ListBuilder<NxCell>();
+  set expressions(ListBuilder<NxCell> expressions) =>
       _$this._expressions = expressions;
 
   int _activeExpression;
@@ -222,7 +223,7 @@ class NxLibraryMeasureBuilder
       _label = _$v.label;
       _def = _$v.def;
       _grouping = _$v.grouping;
-      _expressions = _$v.expressions;
+      _expressions = _$v.expressions?.toBuilder();
       _activeExpression = _$v.activeExpression;
       _labelExpression = _$v.labelExpression;
       _$v = null;
@@ -243,14 +244,27 @@ class NxLibraryMeasureBuilder
 
   @override
   _$NxLibraryMeasure build() {
-    final _$result = _$v ??
-        new _$NxLibraryMeasure._(
-            label: label,
-            def: def,
-            grouping: grouping,
-            expressions: expressions,
-            activeExpression: activeExpression,
-            labelExpression: labelExpression);
+    _$NxLibraryMeasure _$result;
+    try {
+      _$result = _$v ??
+          new _$NxLibraryMeasure._(
+              label: label,
+              def: def,
+              grouping: grouping,
+              expressions: _expressions?.build(),
+              activeExpression: activeExpression,
+              labelExpression: labelExpression);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'expressions';
+        _expressions?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxLibraryMeasure', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

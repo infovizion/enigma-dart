@@ -15,7 +15,7 @@ abstract class SearchResult implements Built<SearchResult, SearchResultBuilder> 
   /// List of the search terms.
   /// Original name: qSearchTerms
   @nullable
-  List<NxCell> get searchTerms;
+  BuiltList<NxCell> get searchTerms;
 
   /// Total number of groups.
   /// Original name: qTotalNumberOfGroups
@@ -26,7 +26,7 @@ abstract class SearchResult implements Built<SearchResult, SearchResultBuilder> 
   /// The groups are numbered from the value of _SearchPage.qOffset_ to the value of _SearchPage.qOffset + SearchPage.qCount_ .
   /// Original name: qSearchGroupArray
   @nullable
-  List<NxCell> get searchGroupArray;
+  BuiltList<NxCell> get searchGroupArray;
 
   factory SearchResult([updates(SearchResultBuilder b)]) = _$SearchResult;
 

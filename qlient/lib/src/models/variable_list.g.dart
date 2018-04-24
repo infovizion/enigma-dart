@@ -32,7 +32,7 @@ class _$VariableListSerializer implements StructuredSerializer<VariableList> {
         ..add('items')
         ..add(serializers.serialize(object.items,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -50,10 +50,10 @@ class _$VariableListSerializer implements StructuredSerializer<VariableList> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'items':
-          result.items = serializers.deserialize(value,
+          result.items.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -64,7 +64,7 @@ class _$VariableListSerializer implements StructuredSerializer<VariableList> {
 
 class _$VariableList extends VariableList {
   @override
-  final List<NxCell> items;
+  final BuiltList<NxCell> items;
 
   factory _$VariableList([void updates(VariableListBuilder b)]) =>
       (new VariableListBuilder()..update(updates)).build();
@@ -101,15 +101,15 @@ class VariableListBuilder
     implements Builder<VariableList, VariableListBuilder> {
   _$VariableList _$v;
 
-  List<NxCell> _items;
-  List<NxCell> get items => _$this._items;
-  set items(List<NxCell> items) => _$this._items = items;
+  ListBuilder<NxCell> _items;
+  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
+  set items(ListBuilder<NxCell> items) => _$this._items = items;
 
   VariableListBuilder();
 
   VariableListBuilder get _$this {
     if (_$v != null) {
-      _items = _$v.items;
+      _items = _$v.items?.toBuilder();
       _$v = null;
     }
     return this;
@@ -128,7 +128,20 @@ class VariableListBuilder
 
   @override
   _$VariableList build() {
-    final _$result = _$v ?? new _$VariableList._(items: items);
+    _$VariableList _$result;
+    try {
+      _$result = _$v ?? new _$VariableList._(items: _items?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'items';
+        _items?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'VariableList', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

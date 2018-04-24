@@ -42,7 +42,7 @@ class _$NxMatchingFieldInfoSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -64,10 +64,10 @@ class _$NxMatchingFieldInfoSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -80,7 +80,7 @@ class _$NxMatchingFieldInfo extends NxMatchingFieldInfo {
   @override
   final String name;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
 
   factory _$NxMatchingFieldInfo([void updates(NxMatchingFieldInfoBuilder b)]) =>
       (new NxMatchingFieldInfoBuilder()..update(updates)).build();
@@ -124,16 +124,16 @@ class NxMatchingFieldInfoBuilder
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   NxMatchingFieldInfoBuilder();
 
   NxMatchingFieldInfoBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _$v = null;
     }
     return this;
@@ -152,7 +152,21 @@ class NxMatchingFieldInfoBuilder
 
   @override
   _$NxMatchingFieldInfo build() {
-    final _$result = _$v ?? new _$NxMatchingFieldInfo._(name: name, tags: tags);
+    _$NxMatchingFieldInfo _$result;
+    try {
+      _$result =
+          _$v ?? new _$NxMatchingFieldInfo._(name: name, tags: _tags?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'tags';
+        _tags?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxMatchingFieldInfo', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

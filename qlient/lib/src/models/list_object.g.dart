@@ -55,14 +55,14 @@ class _$ListObjectSerializer implements StructuredSerializer<ListObject> {
         ..add('expressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.dataPages != null) {
       result
         ..add('dataPages')
         ..add(serializers.serialize(object.dataPages,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -98,16 +98,16 @@ class _$ListObjectSerializer implements StructuredSerializer<ListObject> {
               as NxDimensionInfo);
           break;
         case 'expressions':
-          result.expressions = serializers.deserialize(value,
+          result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'dataPages':
-          result.dataPages = serializers.deserialize(value,
+          result.dataPages.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -126,9 +126,9 @@ class _$ListObject extends ListObject {
   @override
   final NxDimensionInfo dimensionInfo;
   @override
-  final List<NxCell> expressions;
+  final BuiltList<NxCell> expressions;
   @override
-  final List<NxCell> dataPages;
+  final BuiltList<NxCell> dataPages;
 
   factory _$ListObject([void updates(ListObjectBuilder b)]) =>
       (new ListObjectBuilder()..update(updates)).build();
@@ -208,14 +208,16 @@ class ListObjectBuilder implements Builder<ListObject, ListObjectBuilder> {
   set dimensionInfo(NxDimensionInfoBuilder dimensionInfo) =>
       _$this._dimensionInfo = dimensionInfo;
 
-  List<NxCell> _expressions;
-  List<NxCell> get expressions => _$this._expressions;
-  set expressions(List<NxCell> expressions) =>
+  ListBuilder<NxCell> _expressions;
+  ListBuilder<NxCell> get expressions =>
+      _$this._expressions ??= new ListBuilder<NxCell>();
+  set expressions(ListBuilder<NxCell> expressions) =>
       _$this._expressions = expressions;
 
-  List<NxCell> _dataPages;
-  List<NxCell> get dataPages => _$this._dataPages;
-  set dataPages(List<NxCell> dataPages) => _$this._dataPages = dataPages;
+  ListBuilder<NxCell> _dataPages;
+  ListBuilder<NxCell> get dataPages =>
+      _$this._dataPages ??= new ListBuilder<NxCell>();
+  set dataPages(ListBuilder<NxCell> dataPages) => _$this._dataPages = dataPages;
 
   ListObjectBuilder();
 
@@ -225,8 +227,8 @@ class ListObjectBuilder implements Builder<ListObject, ListObjectBuilder> {
       _size = _$v.size?.toBuilder();
       _error = _$v.error?.toBuilder();
       _dimensionInfo = _$v.dimensionInfo?.toBuilder();
-      _expressions = _$v.expressions;
-      _dataPages = _$v.dataPages;
+      _expressions = _$v.expressions?.toBuilder();
+      _dataPages = _$v.dataPages?.toBuilder();
       _$v = null;
     }
     return this;
@@ -253,8 +255,8 @@ class ListObjectBuilder implements Builder<ListObject, ListObjectBuilder> {
               size: _size?.build(),
               error: _error?.build(),
               dimensionInfo: _dimensionInfo?.build(),
-              expressions: expressions,
-              dataPages: dataPages);
+              expressions: _expressions?.build(),
+              dataPages: _dataPages?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -264,6 +266,10 @@ class ListObjectBuilder implements Builder<ListObject, ListObjectBuilder> {
         _error?.build();
         _$failedField = 'dimensionInfo';
         _dimensionInfo?.build();
+        _$failedField = 'expressions';
+        _expressions?.build();
+        _$failedField = 'dataPages';
+        _dataPages?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'ListObject', _$failedField, e.toString());

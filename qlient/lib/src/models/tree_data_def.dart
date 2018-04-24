@@ -25,7 +25,7 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
   /// Array of dimensions.
   /// Original name: qDimensions
   @nullable
-  List<NxCell> get dimensions;
+  BuiltList<NxCell> get dimensions;
 
   /// Defines the order of the dimension levels/columns in the TreeData object.
   /// Column numbers are separated by a comma.
@@ -33,7 +33,7 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
   /// The default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef.
   /// Original name: qInterColumnSortOrder
   @nullable
-  List<NxCell> get interColumnSortOrder;
+  BuiltList<NxCell> get interColumnSortOrder;
 
   /// Removes zero values.
   /// Original name: qSuppressZero

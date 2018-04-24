@@ -55,7 +55,7 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
         ..add('rangeInfo')
         ..add(serializers.serialize(object.rangeInfo,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.softLock != null) {
       result
@@ -68,7 +68,7 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
         ..add('continuousRangeInfo')
         ..add(serializers.serialize(object.continuousRangeInfo,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -103,20 +103,20 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
               as FieldAttributes);
           break;
         case 'rangeInfo':
-          result.rangeInfo = serializers.deserialize(value,
+          result.rangeInfo.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'softLock':
           result.softLock = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
         case 'continuousRangeInfo':
-          result.continuousRangeInfo = serializers.deserialize(value,
+          result.continuousRangeInfo.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -135,11 +135,11 @@ class _$SelectInfo extends SelectInfo {
   @override
   final FieldAttributes numberFormat;
   @override
-  final List<NxCell> rangeInfo;
+  final BuiltList<NxCell> rangeInfo;
   @override
   final bool softLock;
   @override
-  final List<NxCell> continuousRangeInfo;
+  final BuiltList<NxCell> continuousRangeInfo;
 
   factory _$SelectInfo([void updates(SelectInfoBuilder b)]) =>
       (new SelectInfoBuilder()..update(updates)).build();
@@ -223,17 +223,19 @@ class SelectInfoBuilder implements Builder<SelectInfo, SelectInfoBuilder> {
   set numberFormat(FieldAttributesBuilder numberFormat) =>
       _$this._numberFormat = numberFormat;
 
-  List<NxCell> _rangeInfo;
-  List<NxCell> get rangeInfo => _$this._rangeInfo;
-  set rangeInfo(List<NxCell> rangeInfo) => _$this._rangeInfo = rangeInfo;
+  ListBuilder<NxCell> _rangeInfo;
+  ListBuilder<NxCell> get rangeInfo =>
+      _$this._rangeInfo ??= new ListBuilder<NxCell>();
+  set rangeInfo(ListBuilder<NxCell> rangeInfo) => _$this._rangeInfo = rangeInfo;
 
   bool _softLock;
   bool get softLock => _$this._softLock;
   set softLock(bool softLock) => _$this._softLock = softLock;
 
-  List<NxCell> _continuousRangeInfo;
-  List<NxCell> get continuousRangeInfo => _$this._continuousRangeInfo;
-  set continuousRangeInfo(List<NxCell> continuousRangeInfo) =>
+  ListBuilder<NxCell> _continuousRangeInfo;
+  ListBuilder<NxCell> get continuousRangeInfo =>
+      _$this._continuousRangeInfo ??= new ListBuilder<NxCell>();
+  set continuousRangeInfo(ListBuilder<NxCell> continuousRangeInfo) =>
       _$this._continuousRangeInfo = continuousRangeInfo;
 
   SelectInfoBuilder();
@@ -244,9 +246,9 @@ class SelectInfoBuilder implements Builder<SelectInfo, SelectInfoBuilder> {
       _rangeLo = _$v.rangeLo;
       _rangeHi = _$v.rangeHi;
       _numberFormat = _$v.numberFormat?.toBuilder();
-      _rangeInfo = _$v.rangeInfo;
+      _rangeInfo = _$v.rangeInfo?.toBuilder();
       _softLock = _$v.softLock;
-      _continuousRangeInfo = _$v.continuousRangeInfo;
+      _continuousRangeInfo = _$v.continuousRangeInfo?.toBuilder();
       _$v = null;
     }
     return this;
@@ -273,14 +275,19 @@ class SelectInfoBuilder implements Builder<SelectInfo, SelectInfoBuilder> {
               rangeLo: rangeLo,
               rangeHi: rangeHi,
               numberFormat: _numberFormat?.build(),
-              rangeInfo: rangeInfo,
+              rangeInfo: _rangeInfo?.build(),
               softLock: softLock,
-              continuousRangeInfo: continuousRangeInfo);
+              continuousRangeInfo: _continuousRangeInfo?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'numberFormat';
         _numberFormat?.build();
+        _$failedField = 'rangeInfo';
+        _rangeInfo?.build();
+
+        _$failedField = 'continuousRangeInfo';
+        _continuousRangeInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'SelectInfo', _$failedField, e.toString());

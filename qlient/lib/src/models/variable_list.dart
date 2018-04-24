@@ -16,7 +16,7 @@ abstract class VariableList implements Built<VariableList, VariableListBuilder> 
   /// List of the variables.
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory VariableList([updates(VariableListBuilder b)]) = _$VariableList;
 

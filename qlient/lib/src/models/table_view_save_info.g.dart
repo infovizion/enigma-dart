@@ -33,21 +33,21 @@ class _$TableViewSaveInfoSerializer
         ..add('tables')
         ..add(serializers.serialize(object.tables,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.broomPoints != null) {
       result
         ..add('broomPoints')
         ..add(serializers.serialize(object.broomPoints,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.connectionPoints != null) {
       result
         ..add('connectionPoints')
         ..add(serializers.serialize(object.connectionPoints,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.zoomFactor != null) {
       result
@@ -71,22 +71,22 @@ class _$TableViewSaveInfoSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'tables':
-          result.tables = serializers.deserialize(value,
+          result.tables.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'broomPoints':
-          result.broomPoints = serializers.deserialize(value,
+          result.broomPoints.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'connectionPoints':
-          result.connectionPoints = serializers.deserialize(value,
+          result.connectionPoints.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'zoomFactor':
           result.zoomFactor = serializers.deserialize(value,
@@ -101,11 +101,11 @@ class _$TableViewSaveInfoSerializer
 
 class _$TableViewSaveInfo extends TableViewSaveInfo {
   @override
-  final List<NxCell> tables;
+  final BuiltList<NxCell> tables;
   @override
-  final List<NxCell> broomPoints;
+  final BuiltList<NxCell> broomPoints;
   @override
-  final List<NxCell> connectionPoints;
+  final BuiltList<NxCell> connectionPoints;
   @override
   final num zoomFactor;
 
@@ -157,18 +157,21 @@ class TableViewSaveInfoBuilder
     implements Builder<TableViewSaveInfo, TableViewSaveInfoBuilder> {
   _$TableViewSaveInfo _$v;
 
-  List<NxCell> _tables;
-  List<NxCell> get tables => _$this._tables;
-  set tables(List<NxCell> tables) => _$this._tables = tables;
+  ListBuilder<NxCell> _tables;
+  ListBuilder<NxCell> get tables =>
+      _$this._tables ??= new ListBuilder<NxCell>();
+  set tables(ListBuilder<NxCell> tables) => _$this._tables = tables;
 
-  List<NxCell> _broomPoints;
-  List<NxCell> get broomPoints => _$this._broomPoints;
-  set broomPoints(List<NxCell> broomPoints) =>
+  ListBuilder<NxCell> _broomPoints;
+  ListBuilder<NxCell> get broomPoints =>
+      _$this._broomPoints ??= new ListBuilder<NxCell>();
+  set broomPoints(ListBuilder<NxCell> broomPoints) =>
       _$this._broomPoints = broomPoints;
 
-  List<NxCell> _connectionPoints;
-  List<NxCell> get connectionPoints => _$this._connectionPoints;
-  set connectionPoints(List<NxCell> connectionPoints) =>
+  ListBuilder<NxCell> _connectionPoints;
+  ListBuilder<NxCell> get connectionPoints =>
+      _$this._connectionPoints ??= new ListBuilder<NxCell>();
+  set connectionPoints(ListBuilder<NxCell> connectionPoints) =>
       _$this._connectionPoints = connectionPoints;
 
   num _zoomFactor;
@@ -179,9 +182,9 @@ class TableViewSaveInfoBuilder
 
   TableViewSaveInfoBuilder get _$this {
     if (_$v != null) {
-      _tables = _$v.tables;
-      _broomPoints = _$v.broomPoints;
-      _connectionPoints = _$v.connectionPoints;
+      _tables = _$v.tables?.toBuilder();
+      _broomPoints = _$v.broomPoints?.toBuilder();
+      _connectionPoints = _$v.connectionPoints?.toBuilder();
       _zoomFactor = _$v.zoomFactor;
       _$v = null;
     }
@@ -201,12 +204,29 @@ class TableViewSaveInfoBuilder
 
   @override
   _$TableViewSaveInfo build() {
-    final _$result = _$v ??
-        new _$TableViewSaveInfo._(
-            tables: tables,
-            broomPoints: broomPoints,
-            connectionPoints: connectionPoints,
-            zoomFactor: zoomFactor);
+    _$TableViewSaveInfo _$result;
+    try {
+      _$result = _$v ??
+          new _$TableViewSaveInfo._(
+              tables: _tables?.build(),
+              broomPoints: _broomPoints?.build(),
+              connectionPoints: _connectionPoints?.build(),
+              zoomFactor: zoomFactor);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'tables';
+        _tables?.build();
+        _$failedField = 'broomPoints';
+        _broomPoints?.build();
+        _$failedField = 'connectionPoints';
+        _connectionPoints?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'TableViewSaveInfo', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

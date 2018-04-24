@@ -32,7 +32,7 @@ class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
         ..add('searchTerms')
         ..add(serializers.serialize(object.searchTerms,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.totalNumberOfGroups != null) {
       result
@@ -45,7 +45,7 @@ class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
         ..add('searchGroupArray')
         ..add(serializers.serialize(object.searchGroupArray,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -63,20 +63,20 @@ class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'searchTerms':
-          result.searchTerms = serializers.deserialize(value,
+          result.searchTerms.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'totalNumberOfGroups':
           result.totalNumberOfGroups = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
         case 'searchGroupArray':
-          result.searchGroupArray = serializers.deserialize(value,
+          result.searchGroupArray.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -87,11 +87,11 @@ class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
 
 class _$SearchResult extends SearchResult {
   @override
-  final List<NxCell> searchTerms;
+  final BuiltList<NxCell> searchTerms;
   @override
   final int totalNumberOfGroups;
   @override
-  final List<NxCell> searchGroupArray;
+  final BuiltList<NxCell> searchGroupArray;
 
   factory _$SearchResult([void updates(SearchResultBuilder b)]) =>
       (new SearchResultBuilder()..update(updates)).build();
@@ -137,9 +137,10 @@ class SearchResultBuilder
     implements Builder<SearchResult, SearchResultBuilder> {
   _$SearchResult _$v;
 
-  List<NxCell> _searchTerms;
-  List<NxCell> get searchTerms => _$this._searchTerms;
-  set searchTerms(List<NxCell> searchTerms) =>
+  ListBuilder<NxCell> _searchTerms;
+  ListBuilder<NxCell> get searchTerms =>
+      _$this._searchTerms ??= new ListBuilder<NxCell>();
+  set searchTerms(ListBuilder<NxCell> searchTerms) =>
       _$this._searchTerms = searchTerms;
 
   int _totalNumberOfGroups;
@@ -147,18 +148,19 @@ class SearchResultBuilder
   set totalNumberOfGroups(int totalNumberOfGroups) =>
       _$this._totalNumberOfGroups = totalNumberOfGroups;
 
-  List<NxCell> _searchGroupArray;
-  List<NxCell> get searchGroupArray => _$this._searchGroupArray;
-  set searchGroupArray(List<NxCell> searchGroupArray) =>
+  ListBuilder<NxCell> _searchGroupArray;
+  ListBuilder<NxCell> get searchGroupArray =>
+      _$this._searchGroupArray ??= new ListBuilder<NxCell>();
+  set searchGroupArray(ListBuilder<NxCell> searchGroupArray) =>
       _$this._searchGroupArray = searchGroupArray;
 
   SearchResultBuilder();
 
   SearchResultBuilder get _$this {
     if (_$v != null) {
-      _searchTerms = _$v.searchTerms;
+      _searchTerms = _$v.searchTerms?.toBuilder();
       _totalNumberOfGroups = _$v.totalNumberOfGroups;
-      _searchGroupArray = _$v.searchGroupArray;
+      _searchGroupArray = _$v.searchGroupArray?.toBuilder();
       _$v = null;
     }
     return this;
@@ -177,11 +179,27 @@ class SearchResultBuilder
 
   @override
   _$SearchResult build() {
-    final _$result = _$v ??
-        new _$SearchResult._(
-            searchTerms: searchTerms,
-            totalNumberOfGroups: totalNumberOfGroups,
-            searchGroupArray: searchGroupArray);
+    _$SearchResult _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchResult._(
+              searchTerms: _searchTerms?.build(),
+              totalNumberOfGroups: totalNumberOfGroups,
+              searchGroupArray: _searchGroupArray?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'searchTerms';
+        _searchTerms?.build();
+
+        _$failedField = 'searchGroupArray';
+        _searchGroupArray?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchResult', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

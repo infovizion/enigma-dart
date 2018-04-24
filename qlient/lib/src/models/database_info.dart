@@ -77,7 +77,7 @@ abstract class DatabaseInfo implements Built<DatabaseInfo, DatabaseInfoBuilder> 
   /// List of the script keywords.
   /// Original name: qKeywords
   @nullable
-  List<NxCell> get keywords;
+  BuiltList<NxCell> get keywords;
 
   factory DatabaseInfo([updates(DatabaseInfoBuilder b)]) = _$DatabaseInfo;
 

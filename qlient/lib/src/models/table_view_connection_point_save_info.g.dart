@@ -44,7 +44,7 @@ class _$TableViewConnectionPointSaveInfoSerializer
         ..add('fields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -67,10 +67,10 @@ class _$TableViewConnectionPointSaveInfoSerializer
               specifiedType: const FullType(Point)) as Point);
           break;
         case 'fields':
-          result.fields = serializers.deserialize(value,
+          result.fields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -84,7 +84,7 @@ class _$TableViewConnectionPointSaveInfo
   @override
   final Point pos;
   @override
-  final List<NxCell> fields;
+  final BuiltList<NxCell> fields;
 
   factory _$TableViewConnectionPointSaveInfo(
           [void updates(TableViewConnectionPointSaveInfoBuilder b)]) =>
@@ -132,16 +132,17 @@ class TableViewConnectionPointSaveInfoBuilder
   PointBuilder get pos => _$this._pos ??= new PointBuilder();
   set pos(PointBuilder pos) => _$this._pos = pos;
 
-  List<NxCell> _fields;
-  List<NxCell> get fields => _$this._fields;
-  set fields(List<NxCell> fields) => _$this._fields = fields;
+  ListBuilder<NxCell> _fields;
+  ListBuilder<NxCell> get fields =>
+      _$this._fields ??= new ListBuilder<NxCell>();
+  set fields(ListBuilder<NxCell> fields) => _$this._fields = fields;
 
   TableViewConnectionPointSaveInfoBuilder();
 
   TableViewConnectionPointSaveInfoBuilder get _$this {
     if (_$v != null) {
       _pos = _$v.pos?.toBuilder();
-      _fields = _$v.fields;
+      _fields = _$v.fields?.toBuilder();
       _$v = null;
     }
     return this;
@@ -164,12 +165,14 @@ class TableViewConnectionPointSaveInfoBuilder
     try {
       _$result = _$v ??
           new _$TableViewConnectionPointSaveInfo._(
-              pos: _pos?.build(), fields: fields);
+              pos: _pos?.build(), fields: _fields?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'pos';
         _pos?.build();
+        _$failedField = 'fields';
+        _fields?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'TableViewConnectionPointSaveInfo', _$failedField, e.toString());

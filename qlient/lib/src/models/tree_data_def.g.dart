@@ -37,14 +37,14 @@ class _$TreeDataDefSerializer implements StructuredSerializer<TreeDataDef> {
         ..add('dimensions')
         ..add(serializers.serialize(object.dimensions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.interColumnSortOrder != null) {
       result
         ..add('interColumnSortOrder')
         ..add(serializers.serialize(object.interColumnSortOrder,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.suppressZero != null) {
       result
@@ -102,16 +102,16 @@ class _$TreeDataDefSerializer implements StructuredSerializer<TreeDataDef> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'dimensions':
-          result.dimensions = serializers.deserialize(value,
+          result.dimensions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'interColumnSortOrder':
-          result.interColumnSortOrder = serializers.deserialize(value,
+          result.interColumnSortOrder.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'suppressZero':
           result.suppressZero = serializers.deserialize(value,
@@ -148,9 +148,9 @@ class _$TreeDataDef extends TreeDataDef {
   @override
   final String stateName;
   @override
-  final List<NxCell> dimensions;
+  final BuiltList<NxCell> dimensions;
   @override
-  final List<NxCell> interColumnSortOrder;
+  final BuiltList<NxCell> interColumnSortOrder;
   @override
   final bool suppressZero;
   @override
@@ -244,13 +244,16 @@ class TreeDataDefBuilder implements Builder<TreeDataDef, TreeDataDefBuilder> {
   String get stateName => _$this._stateName;
   set stateName(String stateName) => _$this._stateName = stateName;
 
-  List<NxCell> _dimensions;
-  List<NxCell> get dimensions => _$this._dimensions;
-  set dimensions(List<NxCell> dimensions) => _$this._dimensions = dimensions;
+  ListBuilder<NxCell> _dimensions;
+  ListBuilder<NxCell> get dimensions =>
+      _$this._dimensions ??= new ListBuilder<NxCell>();
+  set dimensions(ListBuilder<NxCell> dimensions) =>
+      _$this._dimensions = dimensions;
 
-  List<NxCell> _interColumnSortOrder;
-  List<NxCell> get interColumnSortOrder => _$this._interColumnSortOrder;
-  set interColumnSortOrder(List<NxCell> interColumnSortOrder) =>
+  ListBuilder<NxCell> _interColumnSortOrder;
+  ListBuilder<NxCell> get interColumnSortOrder =>
+      _$this._interColumnSortOrder ??= new ListBuilder<NxCell>();
+  set interColumnSortOrder(ListBuilder<NxCell> interColumnSortOrder) =>
       _$this._interColumnSortOrder = interColumnSortOrder;
 
   bool _suppressZero;
@@ -287,8 +290,8 @@ class TreeDataDefBuilder implements Builder<TreeDataDef, TreeDataDefBuilder> {
   TreeDataDefBuilder get _$this {
     if (_$v != null) {
       _stateName = _$v.stateName;
-      _dimensions = _$v.dimensions;
-      _interColumnSortOrder = _$v.interColumnSortOrder;
+      _dimensions = _$v.dimensions?.toBuilder();
+      _interColumnSortOrder = _$v.interColumnSortOrder?.toBuilder();
       _suppressZero = _$v.suppressZero;
       _suppressMissing = _$v.suppressMissing;
       _openFullyExpanded = _$v.openFullyExpanded;
@@ -318,8 +321,8 @@ class TreeDataDefBuilder implements Builder<TreeDataDef, TreeDataDefBuilder> {
       _$result = _$v ??
           new _$TreeDataDef._(
               stateName: stateName,
-              dimensions: dimensions,
-              interColumnSortOrder: interColumnSortOrder,
+              dimensions: _dimensions?.build(),
+              interColumnSortOrder: _interColumnSortOrder?.build(),
               suppressZero: suppressZero,
               suppressMissing: suppressMissing,
               openFullyExpanded: openFullyExpanded,
@@ -329,6 +332,11 @@ class TreeDataDefBuilder implements Builder<TreeDataDef, TreeDataDefBuilder> {
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'dimensions';
+        _dimensions?.build();
+        _$failedField = 'interColumnSortOrder';
+        _interColumnSortOrder?.build();
+
         _$failedField = 'calcCondition';
         _calcCondition?.build();
         _$failedField = 'title';

@@ -15,7 +15,7 @@ abstract class NxDerivedFieldDescriptionList implements Built<NxDerivedFieldDesc
   /// Information about the derived fields.
   /// Original name: qDerivedFieldLists
   @nullable
-  List<NxCell> get derivedFieldLists;
+  BuiltList<NxCell> get derivedFieldLists;
 
   factory NxDerivedFieldDescriptionList([updates(NxDerivedFieldDescriptionListBuilder b)]) = _$NxDerivedFieldDescriptionList;
 

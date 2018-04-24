@@ -31,21 +31,21 @@ class _$NxPivotPageSerializer implements StructuredSerializer<NxPivotPage> {
         ..add('left')
         ..add(serializers.serialize(object.left,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.top != null) {
       result
         ..add('top')
         ..add(serializers.serialize(object.top,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.data != null) {
       result
         ..add('data')
         ..add(serializers.serialize(object.data,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.area != null) {
       result
@@ -69,22 +69,22 @@ class _$NxPivotPageSerializer implements StructuredSerializer<NxPivotPage> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'left':
-          result.left = serializers.deserialize(value,
+          result.left.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'top':
-          result.top = serializers.deserialize(value,
+          result.top.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'data':
-          result.data = serializers.deserialize(value,
+          result.data.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'area':
           result.area.replace(serializers.deserialize(value,
@@ -99,11 +99,11 @@ class _$NxPivotPageSerializer implements StructuredSerializer<NxPivotPage> {
 
 class _$NxPivotPage extends NxPivotPage {
   @override
-  final List<NxCell> left;
+  final BuiltList<NxCell> left;
   @override
-  final List<NxCell> top;
+  final BuiltList<NxCell> top;
   @override
-  final List<NxCell> data;
+  final BuiltList<NxCell> data;
   @override
   final Rect area;
 
@@ -149,17 +149,17 @@ class _$NxPivotPage extends NxPivotPage {
 class NxPivotPageBuilder implements Builder<NxPivotPage, NxPivotPageBuilder> {
   _$NxPivotPage _$v;
 
-  List<NxCell> _left;
-  List<NxCell> get left => _$this._left;
-  set left(List<NxCell> left) => _$this._left = left;
+  ListBuilder<NxCell> _left;
+  ListBuilder<NxCell> get left => _$this._left ??= new ListBuilder<NxCell>();
+  set left(ListBuilder<NxCell> left) => _$this._left = left;
 
-  List<NxCell> _top;
-  List<NxCell> get top => _$this._top;
-  set top(List<NxCell> top) => _$this._top = top;
+  ListBuilder<NxCell> _top;
+  ListBuilder<NxCell> get top => _$this._top ??= new ListBuilder<NxCell>();
+  set top(ListBuilder<NxCell> top) => _$this._top = top;
 
-  List<NxCell> _data;
-  List<NxCell> get data => _$this._data;
-  set data(List<NxCell> data) => _$this._data = data;
+  ListBuilder<NxCell> _data;
+  ListBuilder<NxCell> get data => _$this._data ??= new ListBuilder<NxCell>();
+  set data(ListBuilder<NxCell> data) => _$this._data = data;
 
   RectBuilder _area;
   RectBuilder get area => _$this._area ??= new RectBuilder();
@@ -169,9 +169,9 @@ class NxPivotPageBuilder implements Builder<NxPivotPage, NxPivotPageBuilder> {
 
   NxPivotPageBuilder get _$this {
     if (_$v != null) {
-      _left = _$v.left;
-      _top = _$v.top;
-      _data = _$v.data;
+      _left = _$v.left?.toBuilder();
+      _top = _$v.top?.toBuilder();
+      _data = _$v.data?.toBuilder();
       _area = _$v.area?.toBuilder();
       _$v = null;
     }
@@ -195,10 +195,19 @@ class NxPivotPageBuilder implements Builder<NxPivotPage, NxPivotPageBuilder> {
     try {
       _$result = _$v ??
           new _$NxPivotPage._(
-              left: left, top: top, data: data, area: _area?.build());
+              left: _left?.build(),
+              top: _top?.build(),
+              data: _data?.build(),
+              area: _area?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'left';
+        _left?.build();
+        _$failedField = 'top';
+        _top?.build();
+        _$failedField = 'data';
+        _data?.build();
         _$failedField = 'area';
         _area?.build();
       } catch (e) {

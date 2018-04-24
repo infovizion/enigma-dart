@@ -20,7 +20,7 @@ abstract class NxMatchingFieldInfo implements Built<NxMatchingFieldInfo, NxMatch
   /// List of tags.
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   factory NxMatchingFieldInfo([updates(NxMatchingFieldInfoBuilder b)]) = _$NxMatchingFieldInfo;
 

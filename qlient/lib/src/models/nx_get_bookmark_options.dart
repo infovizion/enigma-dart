@@ -16,7 +16,7 @@ abstract class NxGetBookmarkOptions implements Built<NxGetBookmarkOptions, NxGet
   /// List of object types.
   /// Original name: qTypes
   @nullable
-  List<NxCell> get types;
+  BuiltList<NxCell> get types;
 
   /// Set of data.
   /// Original name: qData

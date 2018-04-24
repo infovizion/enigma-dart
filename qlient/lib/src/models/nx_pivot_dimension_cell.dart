@@ -76,7 +76,7 @@ abstract class NxPivotDimensionCell implements Built<NxPivotDimensionCell, NxPiv
   /// The array is empty _[ ]_ when there is no sub nodes.
   /// Original name: qSubNodes
   @nullable
-  List<NxCell> get subNodes;
+  BuiltList<NxCell> get subNodes;
 
   /// Information about attribute expressions.
   /// The array is empty _[ ]_ when there is no attribute expressions.

@@ -16,7 +16,7 @@ abstract class NxStackPage implements Built<NxStackPage, NxStackPageBuilder> {
   /// Array of data.
   /// Original name: qData
   @nullable
-  List<NxCell> get data;
+  BuiltList<NxCell> get data;
 
   /// Size and offset of the data in the matrix.
   /// Original name: qArea

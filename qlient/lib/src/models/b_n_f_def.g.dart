@@ -31,7 +31,7 @@ class _$BNFDefSerializer implements StructuredSerializer<BNFDef> {
         ..add('bnf')
         ..add(serializers.serialize(object.bnf,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.nbr != null) {
       result
@@ -139,10 +139,10 @@ class _$BNFDefSerializer implements StructuredSerializer<BNFDef> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'bnf':
-          result.bnf = serializers.deserialize(value,
+          result.bnf.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'nbr':
           result.nbr = serializers.deserialize(value,
@@ -213,7 +213,7 @@ class _$BNFDefSerializer implements StructuredSerializer<BNFDef> {
 
 class _$BNFDef extends BNFDef {
   @override
-  final List<NxCell> bnf;
+  final BuiltList<NxCell> bnf;
   @override
   final int nbr;
   @override
@@ -358,9 +358,9 @@ class _$BNFDef extends BNFDef {
 class BNFDefBuilder implements Builder<BNFDef, BNFDefBuilder> {
   _$BNFDef _$v;
 
-  List<NxCell> _bnf;
-  List<NxCell> get bnf => _$this._bnf;
-  set bnf(List<NxCell> bnf) => _$this._bnf = bnf;
+  ListBuilder<NxCell> _bnf;
+  ListBuilder<NxCell> get bnf => _$this._bnf ??= new ListBuilder<NxCell>();
+  set bnf(ListBuilder<NxCell> bnf) => _$this._bnf = bnf;
 
   int _nbr;
   int get nbr => _$this._nbr;
@@ -428,7 +428,7 @@ class BNFDefBuilder implements Builder<BNFDef, BNFDefBuilder> {
 
   BNFDefBuilder get _$this {
     if (_$v != null) {
-      _bnf = _$v.bnf;
+      _bnf = _$v.bnf?.toBuilder();
       _nbr = _$v.nbr;
       _pNbr = _$v.pNbr;
       _helpId = _$v.helpId;
@@ -462,24 +462,37 @@ class BNFDefBuilder implements Builder<BNFDef, BNFDefBuilder> {
 
   @override
   _$BNFDef build() {
-    final _$result = _$v ??
-        new _$BNFDef._(
-            bnf: bnf,
-            nbr: nbr,
-            pNbr: pNbr,
-            helpId: helpId,
-            name: name,
-            str: str,
-            isBnfRule: isBnfRule,
-            scriptStatement: scriptStatement,
-            controlStatement: controlStatement,
-            bnfLiteral: bnfLiteral,
-            qvFunc: qvFunc,
-            aggrFunc: aggrFunc,
-            fG: fG,
-            fieldFlag: fieldFlag,
-            mT: mT,
-            depr: depr);
+    _$BNFDef _$result;
+    try {
+      _$result = _$v ??
+          new _$BNFDef._(
+              bnf: _bnf?.build(),
+              nbr: nbr,
+              pNbr: pNbr,
+              helpId: helpId,
+              name: name,
+              str: str,
+              isBnfRule: isBnfRule,
+              scriptStatement: scriptStatement,
+              controlStatement: controlStatement,
+              bnfLiteral: bnfLiteral,
+              qvFunc: qvFunc,
+              aggrFunc: aggrFunc,
+              fG: fG,
+              fieldFlag: fieldFlag,
+              mT: mT,
+              depr: depr);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'bnf';
+        _bnf?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'BNFDef', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

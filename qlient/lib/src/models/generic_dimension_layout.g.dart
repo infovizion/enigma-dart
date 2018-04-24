@@ -54,7 +54,7 @@ class _$GenericDimensionLayoutSerializer
         ..add('dimInfos')
         ..add(serializers.serialize(object.dimInfos,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -86,10 +86,10 @@ class _$GenericDimensionLayoutSerializer
               as NxLibraryDimension);
           break;
         case 'dimInfos':
-          result.dimInfos = serializers.deserialize(value,
+          result.dimInfos.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -106,7 +106,7 @@ class _$GenericDimensionLayout extends GenericDimensionLayout {
   @override
   final NxLibraryDimension dim;
   @override
-  final List<NxCell> dimInfos;
+  final BuiltList<NxCell> dimInfos;
 
   factory _$GenericDimensionLayout(
           [void updates(GenericDimensionLayoutBuilder b)]) =>
@@ -168,9 +168,10 @@ class GenericDimensionLayoutBuilder
       _$this._dim ??= new NxLibraryDimensionBuilder();
   set dim(NxLibraryDimensionBuilder dim) => _$this._dim = dim;
 
-  List<NxCell> _dimInfos;
-  List<NxCell> get dimInfos => _$this._dimInfos;
-  set dimInfos(List<NxCell> dimInfos) => _$this._dimInfos = dimInfos;
+  ListBuilder<NxCell> _dimInfos;
+  ListBuilder<NxCell> get dimInfos =>
+      _$this._dimInfos ??= new ListBuilder<NxCell>();
+  set dimInfos(ListBuilder<NxCell> dimInfos) => _$this._dimInfos = dimInfos;
 
   GenericDimensionLayoutBuilder();
 
@@ -179,7 +180,7 @@ class GenericDimensionLayoutBuilder
       _info = _$v.info?.toBuilder();
       _meta = _$v.meta?.toBuilder();
       _dim = _$v.dim?.toBuilder();
-      _dimInfos = _$v.dimInfos;
+      _dimInfos = _$v.dimInfos?.toBuilder();
       _$v = null;
     }
     return this;
@@ -205,7 +206,7 @@ class GenericDimensionLayoutBuilder
               info: _info?.build(),
               meta: _meta?.build(),
               dim: _dim?.build(),
-              dimInfos: dimInfos);
+              dimInfos: _dimInfos?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -215,6 +216,8 @@ class GenericDimensionLayoutBuilder
         _meta?.build();
         _$failedField = 'dim';
         _dim?.build();
+        _$failedField = 'dimInfos';
+        _dimInfos?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'GenericDimensionLayout', _$failedField, e.toString());

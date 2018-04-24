@@ -21,7 +21,7 @@ abstract class TableViewConnectionPointSaveInfo implements Built<TableViewConnec
   /// List of the fields in the table.
   /// Original name: qFields
   @nullable
-  List<NxCell> get fields;
+  BuiltList<NxCell> get fields;
 
   factory TableViewConnectionPointSaveInfo([updates(TableViewConnectionPointSaveInfoBuilder b)]) = _$TableViewConnectionPointSaveInfo;
 

@@ -20,7 +20,7 @@ abstract class DataTableEx implements Built<DataTableEx, DataTableExBuilder> {
   /// List of the fields in the table.
   /// Original name: qFields
   @nullable
-  List<NxCell> get fields;
+  BuiltList<NxCell> get fields;
 
   /// List of format specification items, within brackets.
   /// Examples of specification items:

@@ -26,7 +26,7 @@ abstract class TableViewBroomPointSaveInfo implements Built<TableViewBroomPointS
   /// List of fields in the table.
   /// Original name: qFields
   @nullable
-  List<NxCell> get fields;
+  BuiltList<NxCell> get fields;
 
   factory TableViewBroomPointSaveInfo([updates(TableViewBroomPointSaveInfoBuilder b)]) = _$TableViewBroomPointSaveInfo;
 

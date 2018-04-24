@@ -33,7 +33,7 @@ class _$NxGetObjectOptionsSerializer
         ..add('types')
         ..add(serializers.serialize(object.types,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.includeSessionObjects != null) {
       result
@@ -63,10 +63,10 @@ class _$NxGetObjectOptionsSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'types':
-          result.types = serializers.deserialize(value,
+          result.types.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'includeSessionObjects':
           result.includeSessionObjects = serializers.deserialize(value,
@@ -85,7 +85,7 @@ class _$NxGetObjectOptionsSerializer
 
 class _$NxGetObjectOptions extends NxGetObjectOptions {
   @override
-  final List<NxCell> types;
+  final BuiltList<NxCell> types;
   @override
   final bool includeSessionObjects;
   @override
@@ -134,9 +134,9 @@ class NxGetObjectOptionsBuilder
     implements Builder<NxGetObjectOptions, NxGetObjectOptionsBuilder> {
   _$NxGetObjectOptions _$v;
 
-  List<NxCell> _types;
-  List<NxCell> get types => _$this._types;
-  set types(List<NxCell> types) => _$this._types = types;
+  ListBuilder<NxCell> _types;
+  ListBuilder<NxCell> get types => _$this._types ??= new ListBuilder<NxCell>();
+  set types(ListBuilder<NxCell> types) => _$this._types = types;
 
   bool _includeSessionObjects;
   bool get includeSessionObjects => _$this._includeSessionObjects;
@@ -151,7 +151,7 @@ class NxGetObjectOptionsBuilder
 
   NxGetObjectOptionsBuilder get _$this {
     if (_$v != null) {
-      _types = _$v.types;
+      _types = _$v.types?.toBuilder();
       _includeSessionObjects = _$v.includeSessionObjects;
       _data = _$v.data;
       _$v = null;
@@ -172,11 +172,24 @@ class NxGetObjectOptionsBuilder
 
   @override
   _$NxGetObjectOptions build() {
-    final _$result = _$v ??
-        new _$NxGetObjectOptions._(
-            types: types,
-            includeSessionObjects: includeSessionObjects,
-            data: data);
+    _$NxGetObjectOptions _$result;
+    try {
+      _$result = _$v ??
+          new _$NxGetObjectOptions._(
+              types: _types?.build(),
+              includeSessionObjects: includeSessionObjects,
+              data: data);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'types';
+        _types?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxGetObjectOptions', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

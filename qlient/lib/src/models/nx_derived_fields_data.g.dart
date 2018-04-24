@@ -42,21 +42,21 @@ class _$NxDerivedFieldsDataSerializer
         ..add('fieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.groupDefs != null) {
       result
         ..add('groupDefs')
         ..add(serializers.serialize(object.groupDefs,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.tags != null) {
       result
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -78,22 +78,22 @@ class _$NxDerivedFieldsDataSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'fieldDefs':
-          result.fieldDefs = serializers.deserialize(value,
+          result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'groupDefs':
-          result.groupDefs = serializers.deserialize(value,
+          result.groupDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -106,11 +106,11 @@ class _$NxDerivedFieldsData extends NxDerivedFieldsData {
   @override
   final String derivedDefinitionName;
   @override
-  final List<NxCell> fieldDefs;
+  final BuiltList<NxCell> fieldDefs;
   @override
-  final List<NxCell> groupDefs;
+  final BuiltList<NxCell> groupDefs;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
 
   factory _$NxDerivedFieldsData([void updates(NxDerivedFieldsDataBuilder b)]) =>
       (new NxDerivedFieldsDataBuilder()..update(updates)).build();
@@ -165,26 +165,28 @@ class NxDerivedFieldsDataBuilder
   set derivedDefinitionName(String derivedDefinitionName) =>
       _$this._derivedDefinitionName = derivedDefinitionName;
 
-  List<NxCell> _fieldDefs;
-  List<NxCell> get fieldDefs => _$this._fieldDefs;
-  set fieldDefs(List<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
+  ListBuilder<NxCell> _fieldDefs;
+  ListBuilder<NxCell> get fieldDefs =>
+      _$this._fieldDefs ??= new ListBuilder<NxCell>();
+  set fieldDefs(ListBuilder<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
 
-  List<NxCell> _groupDefs;
-  List<NxCell> get groupDefs => _$this._groupDefs;
-  set groupDefs(List<NxCell> groupDefs) => _$this._groupDefs = groupDefs;
+  ListBuilder<NxCell> _groupDefs;
+  ListBuilder<NxCell> get groupDefs =>
+      _$this._groupDefs ??= new ListBuilder<NxCell>();
+  set groupDefs(ListBuilder<NxCell> groupDefs) => _$this._groupDefs = groupDefs;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   NxDerivedFieldsDataBuilder();
 
   NxDerivedFieldsDataBuilder get _$this {
     if (_$v != null) {
       _derivedDefinitionName = _$v.derivedDefinitionName;
-      _fieldDefs = _$v.fieldDefs;
-      _groupDefs = _$v.groupDefs;
-      _tags = _$v.tags;
+      _fieldDefs = _$v.fieldDefs?.toBuilder();
+      _groupDefs = _$v.groupDefs?.toBuilder();
+      _tags = _$v.tags?.toBuilder();
       _$v = null;
     }
     return this;
@@ -203,12 +205,29 @@ class NxDerivedFieldsDataBuilder
 
   @override
   _$NxDerivedFieldsData build() {
-    final _$result = _$v ??
-        new _$NxDerivedFieldsData._(
-            derivedDefinitionName: derivedDefinitionName,
-            fieldDefs: fieldDefs,
-            groupDefs: groupDefs,
-            tags: tags);
+    _$NxDerivedFieldsData _$result;
+    try {
+      _$result = _$v ??
+          new _$NxDerivedFieldsData._(
+              derivedDefinitionName: derivedDefinitionName,
+              fieldDefs: _fieldDefs?.build(),
+              groupDefs: _groupDefs?.build(),
+              tags: _tags?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'fieldDefs';
+        _fieldDefs?.build();
+        _$failedField = 'groupDefs';
+        _groupDefs?.build();
+        _$failedField = 'tags';
+        _tags?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxDerivedFieldsData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

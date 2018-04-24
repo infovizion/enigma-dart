@@ -15,12 +15,12 @@ abstract class SourceKeyRecord implements Built<SourceKeyRecord, SourceKeyRecord
   /// Name of the key field.
   /// Original name: qKeyFields
   @nullable
-  List<NxCell> get keyFields;
+  BuiltList<NxCell> get keyFields;
 
   /// Table the key belongs to.
   /// Original name: qTables
   @nullable
-  List<NxCell> get tables;
+  BuiltList<NxCell> get tables;
 
   factory SourceKeyRecord([updates(SourceKeyRecordBuilder b)]) = _$SourceKeyRecord;
 

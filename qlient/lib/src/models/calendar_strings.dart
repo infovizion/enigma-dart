@@ -15,22 +15,22 @@ abstract class CalendarStrings implements Built<CalendarStrings, CalendarStrings
   /// List of short day names.
   /// Original name: qDayNames
   @nullable
-  List<NxCell> get dayNames;
+  BuiltList<NxCell> get dayNames;
 
   /// List of short month names.
   /// Original name: qMonthNames
   @nullable
-  List<NxCell> get monthNames;
+  BuiltList<NxCell> get monthNames;
 
   /// List of long day names.
   /// Original name: qLongDayNames
   @nullable
-  List<NxCell> get longDayNames;
+  BuiltList<NxCell> get longDayNames;
 
   /// List of long month names.
   /// Original name: qLongMonthNames
   @nullable
-  List<NxCell> get longMonthNames;
+  BuiltList<NxCell> get longMonthNames;
 
   factory CalendarStrings([updates(CalendarStringsBuilder b)]) = _$CalendarStrings;
 

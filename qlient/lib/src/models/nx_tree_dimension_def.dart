@@ -29,7 +29,7 @@ abstract class NxTreeDimensionDef implements Built<NxTreeDimensionDef, NxTreeDim
   /// List of measures.
   /// Original name: qValueExprs
   @nullable
-  List<NxCell> get valueExprs;
+  BuiltList<NxCell> get valueExprs;
 
   /// If set to true, no null values are returned.
   /// Original name: qNullSuppression
@@ -83,12 +83,12 @@ abstract class NxTreeDimensionDef implements Built<NxTreeDimensionDef, NxTreeDim
   /// List of attribute expressions.
   /// Original name: qAttributeExpressions
   @nullable
-  List<NxCell> get attributeExpressions;
+  BuiltList<NxCell> get attributeExpressions;
 
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
   @nullable
-  List<NxCell> get attributeDimensions;
+  BuiltList<NxCell> get attributeDimensions;
 
   factory NxTreeDimensionDef([updates(NxTreeDimensionDefBuilder b)]) = _$NxTreeDimensionDef;
 

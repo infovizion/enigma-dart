@@ -51,14 +51,14 @@ class _$BookmarkFieldItemSerializer
         ..add('values')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.excludedValues != null) {
       result
         ..add('excludedValues')
         ..add(serializers.serialize(object.excludedValues,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.andMode != null) {
       result
@@ -100,16 +100,16 @@ class _$BookmarkFieldItemSerializer
               specifiedType: const FullType(SelectInfo)) as SelectInfo);
           break;
         case 'values':
-          result.values = serializers.deserialize(value,
+          result.values.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'excludedValues':
-          result.excludedValues = serializers.deserialize(value,
+          result.excludedValues.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'andMode':
           result.andMode = serializers.deserialize(value,
@@ -134,9 +134,9 @@ class _$BookmarkFieldItem extends BookmarkFieldItem {
   @override
   final SelectInfo selectInfo;
   @override
-  final List<NxCell> values;
+  final BuiltList<NxCell> values;
   @override
-  final List<NxCell> excludedValues;
+  final BuiltList<NxCell> excludedValues;
   @override
   final bool andMode;
   @override
@@ -222,13 +222,15 @@ class BookmarkFieldItemBuilder
   set selectInfo(SelectInfoBuilder selectInfo) =>
       _$this._selectInfo = selectInfo;
 
-  List<NxCell> _values;
-  List<NxCell> get values => _$this._values;
-  set values(List<NxCell> values) => _$this._values = values;
+  ListBuilder<NxCell> _values;
+  ListBuilder<NxCell> get values =>
+      _$this._values ??= new ListBuilder<NxCell>();
+  set values(ListBuilder<NxCell> values) => _$this._values = values;
 
-  List<NxCell> _excludedValues;
-  List<NxCell> get excludedValues => _$this._excludedValues;
-  set excludedValues(List<NxCell> excludedValues) =>
+  ListBuilder<NxCell> _excludedValues;
+  ListBuilder<NxCell> get excludedValues =>
+      _$this._excludedValues ??= new ListBuilder<NxCell>();
+  set excludedValues(ListBuilder<NxCell> excludedValues) =>
       _$this._excludedValues = excludedValues;
 
   bool _andMode;
@@ -247,8 +249,8 @@ class BookmarkFieldItemBuilder
       _def = _$v.def?.toBuilder();
       _locked = _$v.locked;
       _selectInfo = _$v.selectInfo?.toBuilder();
-      _values = _$v.values;
-      _excludedValues = _$v.excludedValues;
+      _values = _$v.values?.toBuilder();
+      _excludedValues = _$v.excludedValues?.toBuilder();
       _andMode = _$v.andMode;
       _oneAndOnlyOne = _$v.oneAndOnlyOne;
       _$v = null;
@@ -276,8 +278,8 @@ class BookmarkFieldItemBuilder
               def: _def?.build(),
               locked: locked,
               selectInfo: _selectInfo?.build(),
-              values: values,
-              excludedValues: excludedValues,
+              values: _values?.build(),
+              excludedValues: _excludedValues?.build(),
               andMode: andMode,
               oneAndOnlyOne: oneAndOnlyOne);
     } catch (_) {
@@ -288,6 +290,10 @@ class BookmarkFieldItemBuilder
 
         _$failedField = 'selectInfo';
         _selectInfo?.build();
+        _$failedField = 'values';
+        _values?.build();
+        _$failedField = 'excludedValues';
+        _excludedValues?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'BookmarkFieldItem', _$failedField, e.toString());

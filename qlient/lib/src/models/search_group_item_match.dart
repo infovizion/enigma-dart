@@ -24,7 +24,7 @@ abstract class SearchGroupItemMatch implements Built<SearchGroupItemMatch, Searc
   /// For example, if the search terms are Price and Make, and the search group item value is Make by Price vs Mileage, then there are two ranges: one for Price and one for Make.
   /// Original name: qRanges
   @nullable
-  List<NxCell> get ranges;
+  BuiltList<NxCell> get ranges;
 
   /// Provides detail of the match as requested by the user in _SearchObjectsOptions.qAttributes_ or _SearchCombinationOptions.qAttributes_
   /// If the user requests _SearchObjects_ or _SearchResults_ with an empty _qAttributes_ option, the outputted _qAttributes_ is returned empty.
@@ -33,7 +33,7 @@ abstract class SearchGroupItemMatch implements Built<SearchGroupItemMatch, Searc
   /// For _SearchResults_ requested with _qElemNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qElemNum", N]_ where _N_ is the value index of the element.
   /// Original name: qAttributes
   @nullable
-  List<NxCell> get attributes;
+  BuiltList<NxCell> get attributes;
 
   factory SearchGroupItemMatch([updates(SearchGroupItemMatchBuilder b)]) = _$SearchGroupItemMatch;
 

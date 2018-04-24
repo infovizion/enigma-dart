@@ -16,7 +16,7 @@ abstract class NxGetObjectOptions implements Built<NxGetObjectOptions, NxGetObje
   /// List of object types.
   /// Original name: qTypes
   @nullable
-  List<NxCell> get types;
+  BuiltList<NxCell> get types;
 
   /// Set to true to include session objects.
   /// The default value is false.

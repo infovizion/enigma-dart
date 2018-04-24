@@ -31,7 +31,7 @@ abstract class TableRecord implements Built<TableRecord, TableRecordBuilder> {
   /// Information about the fields in the table.
   /// Original name: qFields
   @nullable
-  List<NxCell> get fields;
+  BuiltList<NxCell> get fields;
 
   /// Information about the position of the table.
   /// Original name: qPos

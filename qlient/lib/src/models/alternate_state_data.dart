@@ -21,7 +21,7 @@ abstract class AlternateStateData implements Built<AlternateStateData, Alternate
   /// List of the selections.
   /// Original name: qFieldItems
   @nullable
-  List<NxCell> get fieldItems;
+  BuiltList<NxCell> get fieldItems;
 
   factory AlternateStateData([updates(AlternateStateDataBuilder b)]) = _$AlternateStateData;
 

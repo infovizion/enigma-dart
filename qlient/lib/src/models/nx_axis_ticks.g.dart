@@ -37,14 +37,14 @@ class _$NxAxisTicksSerializer implements StructuredSerializer<NxAxisTicks> {
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.ticks != null) {
       result
         ..add('ticks')
         ..add(serializers.serialize(object.ticks,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -66,16 +66,16 @@ class _$NxAxisTicksSerializer implements StructuredSerializer<NxAxisTicks> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'ticks':
-          result.ticks = serializers.deserialize(value,
+          result.ticks.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -88,9 +88,9 @@ class _$NxAxisTicks extends NxAxisTicks {
   @override
   final String name;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
   @override
-  final List<NxCell> ticks;
+  final BuiltList<NxCell> ticks;
 
   factory _$NxAxisTicks([void updates(NxAxisTicksBuilder b)]) =>
       (new NxAxisTicksBuilder()..update(updates)).build();
@@ -133,21 +133,21 @@ class NxAxisTicksBuilder implements Builder<NxAxisTicks, NxAxisTicksBuilder> {
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
-  List<NxCell> _ticks;
-  List<NxCell> get ticks => _$this._ticks;
-  set ticks(List<NxCell> ticks) => _$this._ticks = ticks;
+  ListBuilder<NxCell> _ticks;
+  ListBuilder<NxCell> get ticks => _$this._ticks ??= new ListBuilder<NxCell>();
+  set ticks(ListBuilder<NxCell> ticks) => _$this._ticks = ticks;
 
   NxAxisTicksBuilder();
 
   NxAxisTicksBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
-      _tags = _$v.tags;
-      _ticks = _$v.ticks;
+      _tags = _$v.tags?.toBuilder();
+      _ticks = _$v.ticks?.toBuilder();
       _$v = null;
     }
     return this;
@@ -166,8 +166,24 @@ class NxAxisTicksBuilder implements Builder<NxAxisTicks, NxAxisTicksBuilder> {
 
   @override
   _$NxAxisTicks build() {
-    final _$result =
-        _$v ?? new _$NxAxisTicks._(name: name, tags: tags, ticks: ticks);
+    _$NxAxisTicks _$result;
+    try {
+      _$result = _$v ??
+          new _$NxAxisTicks._(
+              name: name, tags: _tags?.build(), ticks: _ticks?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'tags';
+        _tags?.build();
+        _$failedField = 'ticks';
+        _ticks?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxAxisTicks', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

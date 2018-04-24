@@ -39,7 +39,7 @@ class _$FieldInTableDataSerializer
         ..add('originalFields')
         ..add(serializers.serialize(object.originalFields,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.present != null) {
       result
@@ -124,14 +124,14 @@ class _$FieldInTableDataSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.derivedFields != null) {
       result
         ..add('derivedFields')
         ..add(serializers.serialize(object.derivedFields,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isFieldOnTheFly != null) {
       result
@@ -165,10 +165,10 @@ class _$FieldInTableDataSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'originalFields':
-          result.originalFields = serializers.deserialize(value,
+          result.originalFields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'present':
           result.present = serializers.deserialize(value,
@@ -223,16 +223,16 @@ class _$FieldInTableDataSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'derivedFields':
-          result.derivedFields = serializers.deserialize(value,
+          result.derivedFields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'isFieldOnTheFly':
           result.isFieldOnTheFly = serializers.deserialize(value,
@@ -253,7 +253,7 @@ class _$FieldInTableData extends FieldInTableData {
   @override
   final String name;
   @override
-  final List<NxCell> originalFields;
+  final BuiltList<NxCell> originalFields;
   @override
   final bool present;
   @override
@@ -281,9 +281,9 @@ class _$FieldInTableData extends FieldInTableData {
   @override
   final String comment;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
   @override
-  final List<NxCell> derivedFields;
+  final BuiltList<NxCell> derivedFields;
   @override
   final bool isFieldOnTheFly;
   @override
@@ -431,9 +431,10 @@ class FieldInTableDataBuilder
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  List<NxCell> _originalFields;
-  List<NxCell> get originalFields => _$this._originalFields;
-  set originalFields(List<NxCell> originalFields) =>
+  ListBuilder<NxCell> _originalFields;
+  ListBuilder<NxCell> get originalFields =>
+      _$this._originalFields ??= new ListBuilder<NxCell>();
+  set originalFields(ListBuilder<NxCell> originalFields) =>
       _$this._originalFields = originalFields;
 
   bool _present;
@@ -492,13 +493,14 @@ class FieldInTableDataBuilder
   String get comment => _$this._comment;
   set comment(String comment) => _$this._comment = comment;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
-  List<NxCell> _derivedFields;
-  List<NxCell> get derivedFields => _$this._derivedFields;
-  set derivedFields(List<NxCell> derivedFields) =>
+  ListBuilder<NxCell> _derivedFields;
+  ListBuilder<NxCell> get derivedFields =>
+      _$this._derivedFields ??= new ListBuilder<NxCell>();
+  set derivedFields(ListBuilder<NxCell> derivedFields) =>
       _$this._derivedFields = derivedFields;
 
   bool _isFieldOnTheFly;
@@ -515,7 +517,7 @@ class FieldInTableDataBuilder
   FieldInTableDataBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
-      _originalFields = _$v.originalFields;
+      _originalFields = _$v.originalFields?.toBuilder();
       _present = _$v.present;
       _hasNull = _$v.hasNull;
       _hasWild = _$v.hasWild;
@@ -529,8 +531,8 @@ class FieldInTableDataBuilder
       _nPresentDistinctValues = _$v.nPresentDistinctValues;
       _keyType = _$v.keyType;
       _comment = _$v.comment;
-      _tags = _$v.tags;
-      _derivedFields = _$v.derivedFields;
+      _tags = _$v.tags?.toBuilder();
+      _derivedFields = _$v.derivedFields?.toBuilder();
       _isFieldOnTheFly = _$v.isFieldOnTheFly;
       _readableName = _$v.readableName;
       _$v = null;
@@ -551,27 +553,45 @@ class FieldInTableDataBuilder
 
   @override
   _$FieldInTableData build() {
-    final _$result = _$v ??
-        new _$FieldInTableData._(
-            name: name,
-            originalFields: originalFields,
-            present: present,
-            hasNull: hasNull,
-            hasWild: hasWild,
-            hasDuplicates: hasDuplicates,
-            isSynthetic: isSynthetic,
-            informationDensity: informationDensity,
-            nNonNulls: nNonNulls,
-            nRows: nRows,
-            subsetRatio: subsetRatio,
-            nTotalDistinctValues: nTotalDistinctValues,
-            nPresentDistinctValues: nPresentDistinctValues,
-            keyType: keyType,
-            comment: comment,
-            tags: tags,
-            derivedFields: derivedFields,
-            isFieldOnTheFly: isFieldOnTheFly,
-            readableName: readableName);
+    _$FieldInTableData _$result;
+    try {
+      _$result = _$v ??
+          new _$FieldInTableData._(
+              name: name,
+              originalFields: _originalFields?.build(),
+              present: present,
+              hasNull: hasNull,
+              hasWild: hasWild,
+              hasDuplicates: hasDuplicates,
+              isSynthetic: isSynthetic,
+              informationDensity: informationDensity,
+              nNonNulls: nNonNulls,
+              nRows: nRows,
+              subsetRatio: subsetRatio,
+              nTotalDistinctValues: nTotalDistinctValues,
+              nPresentDistinctValues: nPresentDistinctValues,
+              keyType: keyType,
+              comment: comment,
+              tags: _tags?.build(),
+              derivedFields: _derivedFields?.build(),
+              isFieldOnTheFly: isFieldOnTheFly,
+              readableName: readableName);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'originalFields';
+        _originalFields?.build();
+
+        _$failedField = 'tags';
+        _tags?.build();
+        _$failedField = 'derivedFields';
+        _derivedFields?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'FieldInTableData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

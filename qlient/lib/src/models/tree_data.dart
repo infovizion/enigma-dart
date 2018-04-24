@@ -26,7 +26,7 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
   /// The total number of nodes on each dimension.
   /// Original name: qNodesOnDim
   @nullable
-  List<NxCell> get nodesOnDim;
+  BuiltList<NxCell> get nodesOnDim;
 
   /// This parameter is optional and is displayed in case of error.
   /// Original name: qError
@@ -36,14 +36,14 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
   /// Information on the dimension.
   /// Original name: qDimensionInfo
   @nullable
-  List<NxCell> get dimensionInfo;
+  BuiltList<NxCell> get dimensionInfo;
 
   /// Defines the order of the dimenion levels/columns in the TreeData object.
   /// Column numbers are separated by a comma.
   /// Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.
   /// Original name: qEffectiveInterColumnSortOrder
   @nullable
-  List<NxCell> get effectiveInterColumnSortOrder;
+  BuiltList<NxCell> get effectiveInterColumnSortOrder;
 
   /// True if other row exists.
   /// Original name: qHasOtherValues

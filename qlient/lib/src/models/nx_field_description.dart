@@ -76,7 +76,7 @@ abstract class NxFieldDescription implements Built<NxFieldDescription, NxFieldDe
   /// Examples: key, text, ASCII
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   /// If set to true, it means that the field is a field on the fly.
   /// Original name: qIsDefinitionOnly

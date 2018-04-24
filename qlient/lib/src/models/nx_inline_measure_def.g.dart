@@ -45,7 +45,7 @@ class _$NxInlineMeasureDefSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.grouping != null) {
       result
@@ -106,7 +106,7 @@ class _$NxInlineMeasureDefSerializer
         ..add('expressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.labelExpression != null) {
       result
@@ -138,10 +138,10 @@ class _$NxInlineMeasureDefSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'grouping':
           result.grouping = serializers.deserialize(value,
@@ -181,10 +181,10 @@ class _$NxInlineMeasureDefSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'expressions':
-          result.expressions = serializers.deserialize(value,
+          result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'labelExpression':
           result.labelExpression = serializers.deserialize(value,
@@ -203,7 +203,7 @@ class _$NxInlineMeasureDef extends NxInlineMeasureDef {
   @override
   final String description;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
   @override
   final String grouping;
   @override
@@ -223,7 +223,7 @@ class _$NxInlineMeasureDef extends NxInlineMeasureDef {
   @override
   final int activeExpression;
   @override
-  final List<NxCell> expressions;
+  final BuiltList<NxCell> expressions;
   @override
   final String labelExpression;
 
@@ -338,9 +338,9 @@ class NxInlineMeasureDefBuilder
   String get description => _$this._description;
   set description(String description) => _$this._description = description;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   String _grouping;
   String get grouping => _$this._grouping;
@@ -381,9 +381,10 @@ class NxInlineMeasureDefBuilder
   set activeExpression(int activeExpression) =>
       _$this._activeExpression = activeExpression;
 
-  List<NxCell> _expressions;
-  List<NxCell> get expressions => _$this._expressions;
-  set expressions(List<NxCell> expressions) =>
+  ListBuilder<NxCell> _expressions;
+  ListBuilder<NxCell> get expressions =>
+      _$this._expressions ??= new ListBuilder<NxCell>();
+  set expressions(ListBuilder<NxCell> expressions) =>
       _$this._expressions = expressions;
 
   String _labelExpression;
@@ -397,7 +398,7 @@ class NxInlineMeasureDefBuilder
     if (_$v != null) {
       _label = _$v.label;
       _description = _$v.description;
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _grouping = _$v.grouping;
       _def = _$v.def;
       _numFormat = _$v.numFormat?.toBuilder();
@@ -407,7 +408,7 @@ class NxInlineMeasureDefBuilder
       _accumulate = _$v.accumulate;
       _reverseSort = _$v.reverseSort;
       _activeExpression = _$v.activeExpression;
-      _expressions = _$v.expressions;
+      _expressions = _$v.expressions?.toBuilder();
       _labelExpression = _$v.labelExpression;
       _$v = null;
     }
@@ -433,7 +434,7 @@ class NxInlineMeasureDefBuilder
           new _$NxInlineMeasureDef._(
               label: label,
               description: description,
-              tags: tags,
+              tags: _tags?.build(),
               grouping: grouping,
               def: def,
               numFormat: _numFormat?.build(),
@@ -443,13 +444,19 @@ class NxInlineMeasureDefBuilder
               accumulate: accumulate,
               reverseSort: reverseSort,
               activeExpression: activeExpression,
-              expressions: expressions,
+              expressions: _expressions?.build(),
               labelExpression: labelExpression);
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'tags';
+        _tags?.build();
+
         _$failedField = 'numFormat';
         _numFormat?.build();
+
+        _$failedField = 'expressions';
+        _expressions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'NxInlineMeasureDef', _$failedField, e.toString());

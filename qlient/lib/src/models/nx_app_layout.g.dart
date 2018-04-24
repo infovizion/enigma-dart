@@ -61,7 +61,7 @@ class _$NxAppLayoutSerializer implements StructuredSerializer<NxAppLayout> {
         ..add('stateNames')
         ..add(serializers.serialize(object.stateNames,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.meta != null) {
       result
@@ -135,10 +135,10 @@ class _$NxAppLayoutSerializer implements StructuredSerializer<NxAppLayout> {
               specifiedType: const FullType(bool)) as bool;
           break;
         case 'stateNames':
-          result.stateNames = serializers.deserialize(value,
+          result.stateNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'meta':
           result.meta.replace(serializers.deserialize(value,
@@ -184,7 +184,7 @@ class _$NxAppLayout extends NxAppLayout {
   @override
   final bool hasScript;
   @override
-  final List<NxCell> stateNames;
+  final BuiltList<NxCell> stateNames;
   @override
   final NxMeta meta;
   @override
@@ -310,9 +310,11 @@ class NxAppLayoutBuilder implements Builder<NxAppLayout, NxAppLayoutBuilder> {
   bool get hasScript => _$this._hasScript;
   set hasScript(bool hasScript) => _$this._hasScript = hasScript;
 
-  List<NxCell> _stateNames;
-  List<NxCell> get stateNames => _$this._stateNames;
-  set stateNames(List<NxCell> stateNames) => _$this._stateNames = stateNames;
+  ListBuilder<NxCell> _stateNames;
+  ListBuilder<NxCell> get stateNames =>
+      _$this._stateNames ??= new ListBuilder<NxCell>();
+  set stateNames(ListBuilder<NxCell> stateNames) =>
+      _$this._stateNames = stateNames;
 
   NxMetaBuilder _meta;
   NxMetaBuilder get meta => _$this._meta ??= new NxMetaBuilder();
@@ -352,7 +354,7 @@ class NxAppLayoutBuilder implements Builder<NxAppLayout, NxAppLayoutBuilder> {
       _lastReloadTime = _$v.lastReloadTime;
       _modified = _$v.modified;
       _hasScript = _$v.hasScript;
-      _stateNames = _$v.stateNames;
+      _stateNames = _$v.stateNames?.toBuilder();
       _meta = _$v.meta?.toBuilder();
       _localeInfo = _$v.localeInfo?.toBuilder();
       _hasData = _$v.hasData;
@@ -386,7 +388,7 @@ class NxAppLayoutBuilder implements Builder<NxAppLayout, NxAppLayoutBuilder> {
               lastReloadTime: lastReloadTime,
               modified: modified,
               hasScript: hasScript,
-              stateNames: stateNames,
+              stateNames: _stateNames?.build(),
               meta: _meta?.build(),
               localeInfo: _localeInfo?.build(),
               hasData: hasData,
@@ -396,6 +398,8 @@ class NxAppLayoutBuilder implements Builder<NxAppLayout, NxAppLayoutBuilder> {
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'stateNames';
+        _stateNames?.build();
         _$failedField = 'meta';
         _meta?.build();
         _$failedField = 'localeInfo';

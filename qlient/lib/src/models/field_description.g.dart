@@ -45,7 +45,7 @@ class _$FieldDescriptionSerializer
         ..add('srcTables')
         ..add(serializers.serialize(object.srcTables,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isSystem != null) {
       result
@@ -130,7 +130,7 @@ class _$FieldDescriptionSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isDefinitionOnly != null) {
       result
@@ -168,10 +168,10 @@ class _$FieldDescriptionSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'srcTables':
-          result.srcTables = serializers.deserialize(value,
+          result.srcTables.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'isSystem':
           result.isSystem = serializers.deserialize(value,
@@ -226,10 +226,10 @@ class _$FieldDescriptionSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'isDefinitionOnly':
           result.isDefinitionOnly = serializers.deserialize(value,
@@ -252,7 +252,7 @@ class _$FieldDescription extends FieldDescription {
   @override
   final String name;
   @override
-  final List<NxCell> srcTables;
+  final BuiltList<NxCell> srcTables;
   @override
   final bool isSystem;
   @override
@@ -280,7 +280,7 @@ class _$FieldDescription extends FieldDescription {
   @override
   final String comment;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
   @override
   final bool isDefinitionOnly;
   @override
@@ -432,9 +432,10 @@ class FieldDescriptionBuilder
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  List<NxCell> _srcTables;
-  List<NxCell> get srcTables => _$this._srcTables;
-  set srcTables(List<NxCell> srcTables) => _$this._srcTables = srcTables;
+  ListBuilder<NxCell> _srcTables;
+  ListBuilder<NxCell> get srcTables =>
+      _$this._srcTables ??= new ListBuilder<NxCell>();
+  set srcTables(ListBuilder<NxCell> srcTables) => _$this._srcTables = srcTables;
 
   bool _isSystem;
   bool get isSystem => _$this._isSystem;
@@ -491,9 +492,9 @@ class FieldDescriptionBuilder
   String get comment => _$this._comment;
   set comment(String comment) => _$this._comment = comment;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   bool _isDefinitionOnly;
   bool get isDefinitionOnly => _$this._isDefinitionOnly;
@@ -510,7 +511,7 @@ class FieldDescriptionBuilder
     if (_$v != null) {
       _internalNumber = _$v.internalNumber;
       _name = _$v.name;
-      _srcTables = _$v.srcTables;
+      _srcTables = _$v.srcTables?.toBuilder();
       _isSystem = _$v.isSystem;
       _isHidden = _$v.isHidden;
       _isSemantic = _$v.isSemantic;
@@ -524,7 +525,7 @@ class FieldDescriptionBuilder
       _andMode = _$v.andMode;
       _isNumeric = _$v.isNumeric;
       _comment = _$v.comment;
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _isDefinitionOnly = _$v.isDefinitionOnly;
       _byteSize = _$v.byteSize;
       _$v = null;
@@ -545,27 +546,43 @@ class FieldDescriptionBuilder
 
   @override
   _$FieldDescription build() {
-    final _$result = _$v ??
-        new _$FieldDescription._(
-            internalNumber: internalNumber,
-            name: name,
-            srcTables: srcTables,
-            isSystem: isSystem,
-            isHidden: isHidden,
-            isSemantic: isSemantic,
-            distinctOnly: distinctOnly,
-            cardinal: cardinal,
-            totalCount: totalCount,
-            possibleCountOBSOLETE: possibleCountOBSOLETE,
-            hasInfoOBSOLETE: hasInfoOBSOLETE,
-            isLocked: isLocked,
-            alwaysOneSelected: alwaysOneSelected,
-            andMode: andMode,
-            isNumeric: isNumeric,
-            comment: comment,
-            tags: tags,
-            isDefinitionOnly: isDefinitionOnly,
-            byteSize: byteSize);
+    _$FieldDescription _$result;
+    try {
+      _$result = _$v ??
+          new _$FieldDescription._(
+              internalNumber: internalNumber,
+              name: name,
+              srcTables: _srcTables?.build(),
+              isSystem: isSystem,
+              isHidden: isHidden,
+              isSemantic: isSemantic,
+              distinctOnly: distinctOnly,
+              cardinal: cardinal,
+              totalCount: totalCount,
+              possibleCountOBSOLETE: possibleCountOBSOLETE,
+              hasInfoOBSOLETE: hasInfoOBSOLETE,
+              isLocked: isLocked,
+              alwaysOneSelected: alwaysOneSelected,
+              andMode: andMode,
+              isNumeric: isNumeric,
+              comment: comment,
+              tags: _tags?.build(),
+              isDefinitionOnly: isDefinitionOnly,
+              byteSize: byteSize);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'srcTables';
+        _srcTables?.build();
+
+        _$failedField = 'tags';
+        _tags?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'FieldDescription', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

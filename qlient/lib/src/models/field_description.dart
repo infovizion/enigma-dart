@@ -25,7 +25,7 @@ abstract class FieldDescription implements Built<FieldDescription, FieldDescript
   /// List of table names.
   /// Original name: qSrcTables
   @nullable
-  List<NxCell> get srcTables;
+  BuiltList<NxCell> get srcTables;
 
   /// If set to true, it means that the field is a system field.
   /// The default value is false.
@@ -103,7 +103,7 @@ abstract class FieldDescription implements Built<FieldDescription, FieldDescript
   /// Examples: key, text, ASCII.
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   /// If set to true, it means that the field is a field on the fly.
   /// The default value is false.

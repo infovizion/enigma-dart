@@ -49,7 +49,7 @@ class _$TableRecordSerializer implements StructuredSerializer<TableRecord> {
         ..add('fields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.pos != null) {
       result
@@ -103,10 +103,10 @@ class _$TableRecordSerializer implements StructuredSerializer<TableRecord> {
               specifiedType: const FullType(int)) as int;
           break;
         case 'fields':
-          result.fields = serializers.deserialize(value,
+          result.fields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'pos':
           result.pos.replace(serializers.deserialize(value,
@@ -139,7 +139,7 @@ class _$TableRecord extends TableRecord {
   @override
   final int noOfRows;
   @override
-  final List<NxCell> fields;
+  final BuiltList<NxCell> fields;
   @override
   final Point pos;
   @override
@@ -230,9 +230,10 @@ class TableRecordBuilder implements Builder<TableRecord, TableRecordBuilder> {
   int get noOfRows => _$this._noOfRows;
   set noOfRows(int noOfRows) => _$this._noOfRows = noOfRows;
 
-  List<NxCell> _fields;
-  List<NxCell> get fields => _$this._fields;
-  set fields(List<NxCell> fields) => _$this._fields = fields;
+  ListBuilder<NxCell> _fields;
+  ListBuilder<NxCell> get fields =>
+      _$this._fields ??= new ListBuilder<NxCell>();
+  set fields(ListBuilder<NxCell> fields) => _$this._fields = fields;
 
   PointBuilder _pos;
   PointBuilder get pos => _$this._pos ??= new PointBuilder();
@@ -258,7 +259,7 @@ class TableRecordBuilder implements Builder<TableRecord, TableRecordBuilder> {
       _name = _$v.name;
       _loose = _$v.loose;
       _noOfRows = _$v.noOfRows;
-      _fields = _$v.fields;
+      _fields = _$v.fields?.toBuilder();
       _pos = _$v.pos?.toBuilder();
       _comment = _$v.comment;
       _isDirectDiscovery = _$v.isDirectDiscovery;
@@ -288,7 +289,7 @@ class TableRecordBuilder implements Builder<TableRecord, TableRecordBuilder> {
               name: name,
               loose: loose,
               noOfRows: noOfRows,
-              fields: fields,
+              fields: _fields?.build(),
               pos: _pos?.build(),
               comment: comment,
               isDirectDiscovery: isDirectDiscovery,
@@ -296,6 +297,8 @@ class TableRecordBuilder implements Builder<TableRecord, TableRecordBuilder> {
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'fields';
+        _fields?.build();
         _$failedField = 'pos';
         _pos?.build();
       } catch (e) {

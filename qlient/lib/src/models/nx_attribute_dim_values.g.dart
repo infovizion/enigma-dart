@@ -36,7 +36,7 @@ class _$NxAttributeDimValuesSerializer
         ..add('values')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -54,10 +54,10 @@ class _$NxAttributeDimValuesSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'values':
-          result.values = serializers.deserialize(value,
+          result.values.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -68,7 +68,7 @@ class _$NxAttributeDimValuesSerializer
 
 class _$NxAttributeDimValues extends NxAttributeDimValues {
   @override
-  final List<NxCell> values;
+  final BuiltList<NxCell> values;
 
   factory _$NxAttributeDimValues(
           [void updates(NxAttributeDimValuesBuilder b)]) =>
@@ -108,15 +108,16 @@ class NxAttributeDimValuesBuilder
     implements Builder<NxAttributeDimValues, NxAttributeDimValuesBuilder> {
   _$NxAttributeDimValues _$v;
 
-  List<NxCell> _values;
-  List<NxCell> get values => _$this._values;
-  set values(List<NxCell> values) => _$this._values = values;
+  ListBuilder<NxCell> _values;
+  ListBuilder<NxCell> get values =>
+      _$this._values ??= new ListBuilder<NxCell>();
+  set values(ListBuilder<NxCell> values) => _$this._values = values;
 
   NxAttributeDimValuesBuilder();
 
   NxAttributeDimValuesBuilder get _$this {
     if (_$v != null) {
-      _values = _$v.values;
+      _values = _$v.values?.toBuilder();
       _$v = null;
     }
     return this;
@@ -135,7 +136,20 @@ class NxAttributeDimValuesBuilder
 
   @override
   _$NxAttributeDimValues build() {
-    final _$result = _$v ?? new _$NxAttributeDimValues._(values: values);
+    _$NxAttributeDimValues _$result;
+    try {
+      _$result = _$v ?? new _$NxAttributeDimValues._(values: _values?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'values';
+        _values?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxAttributeDimValues', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

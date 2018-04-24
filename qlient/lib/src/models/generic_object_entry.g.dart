@@ -39,7 +39,7 @@ class _$GenericObjectEntrySerializer
         ..add('children')
         ..add(serializers.serialize(object.children,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.embeddedSnapshotRef != null) {
       result
@@ -68,10 +68,10 @@ class _$GenericObjectEntrySerializer
               as GenericObjectProperties);
           break;
         case 'children':
-          result.children = serializers.deserialize(value,
+          result.children.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'embeddedSnapshotRef':
           result.embeddedSnapshotRef.replace(serializers.deserialize(value,
@@ -89,7 +89,7 @@ class _$GenericObjectEntry extends GenericObjectEntry {
   @override
   final GenericObjectProperties property;
   @override
-  final List<NxCell> children;
+  final BuiltList<NxCell> children;
   @override
   final GenericBookmarkEntry embeddedSnapshotRef;
 
@@ -143,9 +143,10 @@ class GenericObjectEntryBuilder
   set property(GenericObjectPropertiesBuilder property) =>
       _$this._property = property;
 
-  List<NxCell> _children;
-  List<NxCell> get children => _$this._children;
-  set children(List<NxCell> children) => _$this._children = children;
+  ListBuilder<NxCell> _children;
+  ListBuilder<NxCell> get children =>
+      _$this._children ??= new ListBuilder<NxCell>();
+  set children(ListBuilder<NxCell> children) => _$this._children = children;
 
   GenericBookmarkEntryBuilder _embeddedSnapshotRef;
   GenericBookmarkEntryBuilder get embeddedSnapshotRef =>
@@ -158,7 +159,7 @@ class GenericObjectEntryBuilder
   GenericObjectEntryBuilder get _$this {
     if (_$v != null) {
       _property = _$v.property?.toBuilder();
-      _children = _$v.children;
+      _children = _$v.children?.toBuilder();
       _embeddedSnapshotRef = _$v.embeddedSnapshotRef?.toBuilder();
       _$v = null;
     }
@@ -183,14 +184,15 @@ class GenericObjectEntryBuilder
       _$result = _$v ??
           new _$GenericObjectEntry._(
               property: _property?.build(),
-              children: children,
+              children: _children?.build(),
               embeddedSnapshotRef: _embeddedSnapshotRef?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'property';
         _property?.build();
-
+        _$failedField = 'children';
+        _children?.build();
         _$failedField = 'embeddedSnapshotRef';
         _embeddedSnapshotRef?.build();
       } catch (e) {

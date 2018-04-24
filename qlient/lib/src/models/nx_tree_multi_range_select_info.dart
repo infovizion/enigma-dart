@@ -15,7 +15,7 @@ abstract class NxTreeMultiRangeSelectInfo implements Built<NxTreeMultiRangeSelec
   /// An array of Ranges.
   /// Original name: qRanges
   @nullable
-  List<NxCell> get ranges;
+  BuiltList<NxCell> get ranges;
 
   factory NxTreeMultiRangeSelectInfo([updates(NxTreeMultiRangeSelectInfoBuilder b)]) = _$NxTreeMultiRangeSelectInfo;
 

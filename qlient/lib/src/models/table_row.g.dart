@@ -31,7 +31,7 @@ class _$TableRowSerializer implements StructuredSerializer<TableRow> {
         ..add('value')
         ..add(serializers.serialize(object.value,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -49,10 +49,10 @@ class _$TableRowSerializer implements StructuredSerializer<TableRow> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'value':
-          result.value = serializers.deserialize(value,
+          result.value.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -63,7 +63,7 @@ class _$TableRowSerializer implements StructuredSerializer<TableRow> {
 
 class _$TableRow extends TableRow {
   @override
-  final List<NxCell> value;
+  final BuiltList<NxCell> value;
 
   factory _$TableRow([void updates(TableRowBuilder b)]) =>
       (new TableRowBuilder()..update(updates)).build();
@@ -99,15 +99,15 @@ class _$TableRow extends TableRow {
 class TableRowBuilder implements Builder<TableRow, TableRowBuilder> {
   _$TableRow _$v;
 
-  List<NxCell> _value;
-  List<NxCell> get value => _$this._value;
-  set value(List<NxCell> value) => _$this._value = value;
+  ListBuilder<NxCell> _value;
+  ListBuilder<NxCell> get value => _$this._value ??= new ListBuilder<NxCell>();
+  set value(ListBuilder<NxCell> value) => _$this._value = value;
 
   TableRowBuilder();
 
   TableRowBuilder get _$this {
     if (_$v != null) {
-      _value = _$v.value;
+      _value = _$v.value?.toBuilder();
       _$v = null;
     }
     return this;
@@ -126,7 +126,20 @@ class TableRowBuilder implements Builder<TableRow, TableRowBuilder> {
 
   @override
   _$TableRow build() {
-    final _$result = _$v ?? new _$TableRow._(value: value);
+    _$TableRow _$result;
+    try {
+      _$result = _$v ?? new _$TableRow._(value: _value?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'value';
+        _value?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'TableRow', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

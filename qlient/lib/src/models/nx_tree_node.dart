@@ -61,12 +61,12 @@ abstract class NxTreeNode implements Built<NxTreeNode, NxTreeNodeBuilder> {
   /// The measures for this node.
   /// Original name: qValues
   @nullable
-  List<NxCell> get values;
+  BuiltList<NxCell> get values;
 
   /// The children of this node in the tree structure.
   /// Original name: qNodes
   @nullable
-  List<NxCell> get nodes;
+  BuiltList<NxCell> get nodes;
 
   /// Attribute expression values.
   /// Original name: qAttrExps

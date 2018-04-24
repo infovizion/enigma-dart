@@ -29,7 +29,7 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
   /// Indexes of the search terms that are included in the group. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ .
   /// Original name: qSearchTermsMatched
   @nullable
-  List<NxCell> get searchTermsMatched;
+  BuiltList<NxCell> get searchTermsMatched;
 
   /// Total number of distinct items in the search group.
   /// Original name: qTotalNumberOfItems
@@ -40,7 +40,7 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
   /// The group items are numbered from the value of _SearchGroupOptions.qOffset_ to the value of _SearchGroupOptions.qOffset_ \+ _SearchGroupOptions.qCount_
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory SearchGroup([updates(SearchGroupBuilder b)]) = _$SearchGroup;
 

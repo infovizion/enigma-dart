@@ -51,14 +51,14 @@ class _$SearchGroupItemSerializer
         ..add('itemMatches')
         ..add(serializers.serialize(object.itemMatches,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.searchTermsMatched != null) {
       result
         ..add('searchTermsMatched')
         ..add(serializers.serialize(object.searchTermsMatched,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -88,16 +88,16 @@ class _$SearchGroupItemSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'itemMatches':
-          result.itemMatches = serializers.deserialize(value,
+          result.itemMatches.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'searchTermsMatched':
-          result.searchTermsMatched = serializers.deserialize(value,
+          result.searchTermsMatched.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -114,9 +114,9 @@ class _$SearchGroupItem extends SearchGroupItem {
   @override
   final String identifier;
   @override
-  final List<NxCell> itemMatches;
+  final BuiltList<NxCell> itemMatches;
   @override
-  final List<NxCell> searchTermsMatched;
+  final BuiltList<NxCell> searchTermsMatched;
 
   factory _$SearchGroupItem([void updates(SearchGroupItemBuilder b)]) =>
       (new SearchGroupItemBuilder()..update(updates)).build();
@@ -187,14 +187,16 @@ class SearchGroupItemBuilder
   String get identifier => _$this._identifier;
   set identifier(String identifier) => _$this._identifier = identifier;
 
-  List<NxCell> _itemMatches;
-  List<NxCell> get itemMatches => _$this._itemMatches;
-  set itemMatches(List<NxCell> itemMatches) =>
+  ListBuilder<NxCell> _itemMatches;
+  ListBuilder<NxCell> get itemMatches =>
+      _$this._itemMatches ??= new ListBuilder<NxCell>();
+  set itemMatches(ListBuilder<NxCell> itemMatches) =>
       _$this._itemMatches = itemMatches;
 
-  List<NxCell> _searchTermsMatched;
-  List<NxCell> get searchTermsMatched => _$this._searchTermsMatched;
-  set searchTermsMatched(List<NxCell> searchTermsMatched) =>
+  ListBuilder<NxCell> _searchTermsMatched;
+  ListBuilder<NxCell> get searchTermsMatched =>
+      _$this._searchTermsMatched ??= new ListBuilder<NxCell>();
+  set searchTermsMatched(ListBuilder<NxCell> searchTermsMatched) =>
       _$this._searchTermsMatched = searchTermsMatched;
 
   SearchGroupItemBuilder();
@@ -204,8 +206,8 @@ class SearchGroupItemBuilder
       _itemType = _$v.itemType;
       _totalNumberOfMatches = _$v.totalNumberOfMatches;
       _identifier = _$v.identifier;
-      _itemMatches = _$v.itemMatches;
-      _searchTermsMatched = _$v.searchTermsMatched;
+      _itemMatches = _$v.itemMatches?.toBuilder();
+      _searchTermsMatched = _$v.searchTermsMatched?.toBuilder();
       _$v = null;
     }
     return this;
@@ -224,13 +226,28 @@ class SearchGroupItemBuilder
 
   @override
   _$SearchGroupItem build() {
-    final _$result = _$v ??
-        new _$SearchGroupItem._(
-            itemType: itemType,
-            totalNumberOfMatches: totalNumberOfMatches,
-            identifier: identifier,
-            itemMatches: itemMatches,
-            searchTermsMatched: searchTermsMatched);
+    _$SearchGroupItem _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchGroupItem._(
+              itemType: itemType,
+              totalNumberOfMatches: totalNumberOfMatches,
+              identifier: identifier,
+              itemMatches: _itemMatches?.build(),
+              searchTermsMatched: _searchTermsMatched?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'itemMatches';
+        _itemMatches?.build();
+        _$failedField = 'searchTermsMatched';
+        _searchTermsMatched?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchGroupItem', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

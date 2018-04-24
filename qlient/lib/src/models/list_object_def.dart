@@ -62,13 +62,13 @@ abstract class ListObjectDef implements Built<ListObjectDef, ListObjectDefBuilde
   /// Fetches an initial data set.
   /// Original name: qInitialDataFetch
   @nullable
-  List<NxCell> get initialDataFetch;
+  BuiltList<NxCell> get initialDataFetch;
 
   /// Lists the expressions in the list object.
   /// This parameter is optional.
   /// Original name: qExpressions
   @nullable
-  List<NxCell> get expressions;
+  BuiltList<NxCell> get expressions;
 
   factory ListObjectDef([updates(ListObjectDefBuilder b)]) = _$ListObjectDef;
 

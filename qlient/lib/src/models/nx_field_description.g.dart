@@ -69,7 +69,7 @@ class _$NxFieldDescriptionSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isDefinitionOnly != null) {
       result
@@ -141,10 +141,10 @@ class _$NxFieldDescriptionSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'isDefinitionOnly':
           result.isDefinitionOnly = serializers.deserialize(value,
@@ -188,7 +188,7 @@ class _$NxFieldDescription extends NxFieldDescription {
   @override
   final int cardinal;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
   @override
   final bool isDefinitionOnly;
   @override
@@ -317,9 +317,9 @@ class NxFieldDescriptionBuilder
   int get cardinal => _$this._cardinal;
   set cardinal(int cardinal) => _$this._cardinal = cardinal;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   bool _isDefinitionOnly;
   bool get isDefinitionOnly => _$this._isDefinitionOnly;
@@ -354,7 +354,7 @@ class NxFieldDescriptionBuilder
       _andMode = _$v.andMode;
       _name = _$v.name;
       _cardinal = _$v.cardinal;
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _isDefinitionOnly = _$v.isDefinitionOnly;
       _derivedFieldData = _$v.derivedFieldData?.toBuilder();
       _isDetail = _$v.isDetail;
@@ -388,7 +388,7 @@ class NxFieldDescriptionBuilder
               andMode: andMode,
               name: name,
               cardinal: cardinal,
-              tags: tags,
+              tags: _tags?.build(),
               isDefinitionOnly: isDefinitionOnly,
               derivedFieldData: _derivedFieldData?.build(),
               isDetail: isDetail,
@@ -397,6 +397,9 @@ class NxFieldDescriptionBuilder
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'tags';
+        _tags?.build();
+
         _$failedField = 'derivedFieldData';
         _derivedFieldData?.build();
       } catch (e) {

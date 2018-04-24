@@ -31,7 +31,7 @@ class _$MeasureListSerializer implements StructuredSerializer<MeasureList> {
         ..add('items')
         ..add(serializers.serialize(object.items,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -49,10 +49,10 @@ class _$MeasureListSerializer implements StructuredSerializer<MeasureList> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'items':
-          result.items = serializers.deserialize(value,
+          result.items.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -63,7 +63,7 @@ class _$MeasureListSerializer implements StructuredSerializer<MeasureList> {
 
 class _$MeasureList extends MeasureList {
   @override
-  final List<NxCell> items;
+  final BuiltList<NxCell> items;
 
   factory _$MeasureList([void updates(MeasureListBuilder b)]) =>
       (new MeasureListBuilder()..update(updates)).build();
@@ -99,15 +99,15 @@ class _$MeasureList extends MeasureList {
 class MeasureListBuilder implements Builder<MeasureList, MeasureListBuilder> {
   _$MeasureList _$v;
 
-  List<NxCell> _items;
-  List<NxCell> get items => _$this._items;
-  set items(List<NxCell> items) => _$this._items = items;
+  ListBuilder<NxCell> _items;
+  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
+  set items(ListBuilder<NxCell> items) => _$this._items = items;
 
   MeasureListBuilder();
 
   MeasureListBuilder get _$this {
     if (_$v != null) {
-      _items = _$v.items;
+      _items = _$v.items?.toBuilder();
       _$v = null;
     }
     return this;
@@ -126,7 +126,20 @@ class MeasureListBuilder implements Builder<MeasureList, MeasureListBuilder> {
 
   @override
   _$MeasureList build() {
-    final _$result = _$v ?? new _$MeasureList._(items: items);
+    _$MeasureList _$result;
+    try {
+      _$result = _$v ?? new _$MeasureList._(items: _items?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'items';
+        _items?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'MeasureList', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

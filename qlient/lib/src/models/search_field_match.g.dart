@@ -39,14 +39,14 @@ class _$SearchFieldMatchSerializer
         ..add('values')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.terms != null) {
       result
         ..add('terms')
         ..add(serializers.serialize(object.terms,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.noOfMatches != null) {
       result
@@ -74,16 +74,16 @@ class _$SearchFieldMatchSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'values':
-          result.values = serializers.deserialize(value,
+          result.values.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'terms':
-          result.terms = serializers.deserialize(value,
+          result.terms.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'noOfMatches':
           result.noOfMatches = serializers.deserialize(value,
@@ -100,9 +100,9 @@ class _$SearchFieldMatch extends SearchFieldMatch {
   @override
   final int field;
   @override
-  final List<NxCell> values;
+  final BuiltList<NxCell> values;
   @override
-  final List<NxCell> terms;
+  final BuiltList<NxCell> terms;
   @override
   final int noOfMatches;
 
@@ -156,13 +156,14 @@ class SearchFieldMatchBuilder
   int get field => _$this._field;
   set field(int field) => _$this._field = field;
 
-  List<NxCell> _values;
-  List<NxCell> get values => _$this._values;
-  set values(List<NxCell> values) => _$this._values = values;
+  ListBuilder<NxCell> _values;
+  ListBuilder<NxCell> get values =>
+      _$this._values ??= new ListBuilder<NxCell>();
+  set values(ListBuilder<NxCell> values) => _$this._values = values;
 
-  List<NxCell> _terms;
-  List<NxCell> get terms => _$this._terms;
-  set terms(List<NxCell> terms) => _$this._terms = terms;
+  ListBuilder<NxCell> _terms;
+  ListBuilder<NxCell> get terms => _$this._terms ??= new ListBuilder<NxCell>();
+  set terms(ListBuilder<NxCell> terms) => _$this._terms = terms;
 
   int _noOfMatches;
   int get noOfMatches => _$this._noOfMatches;
@@ -173,8 +174,8 @@ class SearchFieldMatchBuilder
   SearchFieldMatchBuilder get _$this {
     if (_$v != null) {
       _field = _$v.field;
-      _values = _$v.values;
-      _terms = _$v.terms;
+      _values = _$v.values?.toBuilder();
+      _terms = _$v.terms?.toBuilder();
       _noOfMatches = _$v.noOfMatches;
       _$v = null;
     }
@@ -194,12 +195,27 @@ class SearchFieldMatchBuilder
 
   @override
   _$SearchFieldMatch build() {
-    final _$result = _$v ??
-        new _$SearchFieldMatch._(
-            field: field,
-            values: values,
-            terms: terms,
-            noOfMatches: noOfMatches);
+    _$SearchFieldMatch _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchFieldMatch._(
+              field: field,
+              values: _values?.build(),
+              terms: _terms?.build(),
+              noOfMatches: noOfMatches);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'values';
+        _values?.build();
+        _$failedField = 'terms';
+        _terms?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchFieldMatch', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

@@ -16,14 +16,14 @@ abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
   /// Array of data.
   /// Original name: qMatrix
   @nullable
-  List<NxCell> get matrix;
+  BuiltList<NxCell> get matrix;
 
   /// Array of tails.
   /// Is used for hypercube objects with multiple dimensions. It might happen that due to the window size some elements in a group cannot be displayed in the same page as the other elements of the group. Elements of a group of dimensions can be part of the previous or the next tail.
   /// If there is no tail, the array is empty _[ ]_ .
   /// Original name: qTails
   @nullable
-  List<NxCell> get tails;
+  BuiltList<NxCell> get tails;
 
   /// Size and offset of the data in the matrix.
   /// Original name: qArea

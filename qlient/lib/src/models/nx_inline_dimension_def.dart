@@ -29,26 +29,26 @@ abstract class NxInlineDimensionDef implements Built<NxInlineDimensionDef, NxInl
   /// This parameter is optional.
   /// Original name: qFieldDefs
   @nullable
-  List<NxCell> get fieldDefs;
+  BuiltList<NxCell> get fieldDefs;
 
   /// Array of field labels.
   /// This parameter is optional.
   /// Original name: qFieldLabels
   @nullable
-  List<NxCell> get fieldLabels;
+  BuiltList<NxCell> get fieldLabels;
 
   /// Defines the sorting criteria in the field.
   /// Default is to sort by alphabetical order, ascending.
   /// This parameter is optional.
   /// Original name: qSortCriterias
   @nullable
-  List<NxCell> get sortCriterias;
+  BuiltList<NxCell> get sortCriterias;
 
   /// Defines the format of the value.
   /// This parameter is optional.
   /// Original name: qNumberPresentations
   @nullable
-  List<NxCell> get numberPresentations;
+  BuiltList<NxCell> get numberPresentations;
 
   /// If set to true, it inverts the sort criteria in the field.
   /// Original name: qReverseSort

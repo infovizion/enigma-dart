@@ -16,7 +16,7 @@ abstract class DimensionList implements Built<DimensionList, DimensionListBuilde
   /// Information about the list of dimensions.
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory DimensionList([updates(DimensionListBuilder b)]) = _$DimensionList;
 

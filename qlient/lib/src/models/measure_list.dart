@@ -16,7 +16,7 @@ abstract class MeasureList implements Built<MeasureList, MeasureListBuilder> {
   /// Information about the list of measures.
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory MeasureList([updates(MeasureListBuilder b)]) = _$MeasureList;
 

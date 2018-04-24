@@ -33,28 +33,28 @@ class _$CalendarStringsSerializer
         ..add('dayNames')
         ..add(serializers.serialize(object.dayNames,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.monthNames != null) {
       result
         ..add('monthNames')
         ..add(serializers.serialize(object.monthNames,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.longDayNames != null) {
       result
         ..add('longDayNames')
         ..add(serializers.serialize(object.longDayNames,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.longMonthNames != null) {
       result
         ..add('longMonthNames')
         ..add(serializers.serialize(object.longMonthNames,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -72,28 +72,28 @@ class _$CalendarStringsSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'dayNames':
-          result.dayNames = serializers.deserialize(value,
+          result.dayNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'monthNames':
-          result.monthNames = serializers.deserialize(value,
+          result.monthNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'longDayNames':
-          result.longDayNames = serializers.deserialize(value,
+          result.longDayNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'longMonthNames':
-          result.longMonthNames = serializers.deserialize(value,
+          result.longMonthNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -104,13 +104,13 @@ class _$CalendarStringsSerializer
 
 class _$CalendarStrings extends CalendarStrings {
   @override
-  final List<NxCell> dayNames;
+  final BuiltList<NxCell> dayNames;
   @override
-  final List<NxCell> monthNames;
+  final BuiltList<NxCell> monthNames;
   @override
-  final List<NxCell> longDayNames;
+  final BuiltList<NxCell> longDayNames;
   @override
-  final List<NxCell> longMonthNames;
+  final BuiltList<NxCell> longMonthNames;
 
   factory _$CalendarStrings([void updates(CalendarStringsBuilder b)]) =>
       (new CalendarStringsBuilder()..update(updates)).build();
@@ -160,32 +160,37 @@ class CalendarStringsBuilder
     implements Builder<CalendarStrings, CalendarStringsBuilder> {
   _$CalendarStrings _$v;
 
-  List<NxCell> _dayNames;
-  List<NxCell> get dayNames => _$this._dayNames;
-  set dayNames(List<NxCell> dayNames) => _$this._dayNames = dayNames;
+  ListBuilder<NxCell> _dayNames;
+  ListBuilder<NxCell> get dayNames =>
+      _$this._dayNames ??= new ListBuilder<NxCell>();
+  set dayNames(ListBuilder<NxCell> dayNames) => _$this._dayNames = dayNames;
 
-  List<NxCell> _monthNames;
-  List<NxCell> get monthNames => _$this._monthNames;
-  set monthNames(List<NxCell> monthNames) => _$this._monthNames = monthNames;
+  ListBuilder<NxCell> _monthNames;
+  ListBuilder<NxCell> get monthNames =>
+      _$this._monthNames ??= new ListBuilder<NxCell>();
+  set monthNames(ListBuilder<NxCell> monthNames) =>
+      _$this._monthNames = monthNames;
 
-  List<NxCell> _longDayNames;
-  List<NxCell> get longDayNames => _$this._longDayNames;
-  set longDayNames(List<NxCell> longDayNames) =>
+  ListBuilder<NxCell> _longDayNames;
+  ListBuilder<NxCell> get longDayNames =>
+      _$this._longDayNames ??= new ListBuilder<NxCell>();
+  set longDayNames(ListBuilder<NxCell> longDayNames) =>
       _$this._longDayNames = longDayNames;
 
-  List<NxCell> _longMonthNames;
-  List<NxCell> get longMonthNames => _$this._longMonthNames;
-  set longMonthNames(List<NxCell> longMonthNames) =>
+  ListBuilder<NxCell> _longMonthNames;
+  ListBuilder<NxCell> get longMonthNames =>
+      _$this._longMonthNames ??= new ListBuilder<NxCell>();
+  set longMonthNames(ListBuilder<NxCell> longMonthNames) =>
       _$this._longMonthNames = longMonthNames;
 
   CalendarStringsBuilder();
 
   CalendarStringsBuilder get _$this {
     if (_$v != null) {
-      _dayNames = _$v.dayNames;
-      _monthNames = _$v.monthNames;
-      _longDayNames = _$v.longDayNames;
-      _longMonthNames = _$v.longMonthNames;
+      _dayNames = _$v.dayNames?.toBuilder();
+      _monthNames = _$v.monthNames?.toBuilder();
+      _longDayNames = _$v.longDayNames?.toBuilder();
+      _longMonthNames = _$v.longMonthNames?.toBuilder();
       _$v = null;
     }
     return this;
@@ -204,12 +209,31 @@ class CalendarStringsBuilder
 
   @override
   _$CalendarStrings build() {
-    final _$result = _$v ??
-        new _$CalendarStrings._(
-            dayNames: dayNames,
-            monthNames: monthNames,
-            longDayNames: longDayNames,
-            longMonthNames: longMonthNames);
+    _$CalendarStrings _$result;
+    try {
+      _$result = _$v ??
+          new _$CalendarStrings._(
+              dayNames: _dayNames?.build(),
+              monthNames: _monthNames?.build(),
+              longDayNames: _longDayNames?.build(),
+              longMonthNames: _longMonthNames?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'dayNames';
+        _dayNames?.build();
+        _$failedField = 'monthNames';
+        _monthNames?.build();
+        _$failedField = 'longDayNames';
+        _longDayNames?.build();
+        _$failedField = 'longMonthNames';
+        _longMonthNames?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'CalendarStrings', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

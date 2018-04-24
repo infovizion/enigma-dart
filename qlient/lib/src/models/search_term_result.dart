@@ -26,7 +26,7 @@ abstract class SearchTermResult implements Built<SearchTermResult, SearchTermRes
   /// For example, if the user searches the term _read_ and the associative value is _Reading_ , then the corresponding range would be _Read_ in _Reading_ .
   /// Original name: qRanges
   @nullable
-  List<NxCell> get ranges;
+  BuiltList<NxCell> get ranges;
 
   factory SearchTermResult([updates(SearchTermResultBuilder b)]) = _$SearchTermResult;
 

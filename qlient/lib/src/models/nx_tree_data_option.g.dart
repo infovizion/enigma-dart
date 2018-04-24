@@ -39,7 +39,7 @@ class _$NxTreeDataOptionSerializer
         ..add('treeNodes')
         ..add(serializers.serialize(object.treeNodes,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.treeLevels != null) {
       result
@@ -67,10 +67,10 @@ class _$NxTreeDataOptionSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'treeNodes':
-          result.treeNodes = serializers.deserialize(value,
+          result.treeNodes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'treeLevels':
           result.treeLevels.replace(serializers.deserialize(value,
@@ -88,7 +88,7 @@ class _$NxTreeDataOption extends NxTreeDataOption {
   @override
   final int maxNbrOfNodes;
   @override
-  final List<NxCell> treeNodes;
+  final BuiltList<NxCell> treeNodes;
   @override
   final NxPageTreeLevel treeLevels;
 
@@ -139,9 +139,10 @@ class NxTreeDataOptionBuilder
   int get maxNbrOfNodes => _$this._maxNbrOfNodes;
   set maxNbrOfNodes(int maxNbrOfNodes) => _$this._maxNbrOfNodes = maxNbrOfNodes;
 
-  List<NxCell> _treeNodes;
-  List<NxCell> get treeNodes => _$this._treeNodes;
-  set treeNodes(List<NxCell> treeNodes) => _$this._treeNodes = treeNodes;
+  ListBuilder<NxCell> _treeNodes;
+  ListBuilder<NxCell> get treeNodes =>
+      _$this._treeNodes ??= new ListBuilder<NxCell>();
+  set treeNodes(ListBuilder<NxCell> treeNodes) => _$this._treeNodes = treeNodes;
 
   NxPageTreeLevelBuilder _treeLevels;
   NxPageTreeLevelBuilder get treeLevels =>
@@ -154,7 +155,7 @@ class NxTreeDataOptionBuilder
   NxTreeDataOptionBuilder get _$this {
     if (_$v != null) {
       _maxNbrOfNodes = _$v.maxNbrOfNodes;
-      _treeNodes = _$v.treeNodes;
+      _treeNodes = _$v.treeNodes?.toBuilder();
       _treeLevels = _$v.treeLevels?.toBuilder();
       _$v = null;
     }
@@ -179,11 +180,13 @@ class NxTreeDataOptionBuilder
       _$result = _$v ??
           new _$NxTreeDataOption._(
               maxNbrOfNodes: maxNbrOfNodes,
-              treeNodes: treeNodes,
+              treeNodes: _treeNodes?.build(),
               treeLevels: _treeLevels?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'treeNodes';
+        _treeNodes?.build();
         _$failedField = 'treeLevels';
         _treeLevels?.build();
       } catch (e) {

@@ -88,12 +88,12 @@ abstract class NxDimension implements Built<NxDimension, NxDimensionBuilder> {
   /// List of attribute expressions.
   /// Original name: qAttributeExpressions
   @nullable
-  List<NxCell> get attributeExpressions;
+  BuiltList<NxCell> get attributeExpressions;
 
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
   @nullable
-  List<NxCell> get attributeDimensions;
+  BuiltList<NxCell> get attributeDimensions;
 
   /// Specifies a calculation condition object.
   /// If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.

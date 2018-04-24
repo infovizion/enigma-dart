@@ -63,7 +63,7 @@ class _$NxDimensionInfoSerializer
         ..add('groupFallbackTitles')
         ..add(serializers.serialize(object.groupFallbackTitles,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.groupPos != null) {
       result
@@ -82,7 +82,7 @@ class _$NxDimensionInfoSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.error != null) {
       result
@@ -137,7 +137,7 @@ class _$NxDimensionInfoSerializer
         ..add('groupFieldDefs')
         ..add(serializers.serialize(object.groupFieldDefs,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.min != null) {
       result
@@ -174,14 +174,14 @@ class _$NxDimensionInfoSerializer
         ..add('attrExprInfo')
         ..add(serializers.serialize(object.attrExprInfo,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attrDimInfo != null) {
       result
         ..add('attrDimInfo')
         ..add(serializers.serialize(object.attrDimInfo,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.calcCondMsg != null) {
       result
@@ -231,10 +231,10 @@ class _$NxDimensionInfoSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'groupFallbackTitles':
-          result.groupFallbackTitles = serializers.deserialize(value,
+          result.groupFallbackTitles.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'groupPos':
           result.groupPos = serializers.deserialize(value,
@@ -245,10 +245,10 @@ class _$NxDimensionInfoSerializer
               specifiedType: const FullType(NxStateCounts)) as NxStateCounts);
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'error':
           result.error.replace(serializers.deserialize(value,
@@ -285,10 +285,10 @@ class _$NxDimensionInfoSerializer
               specifiedType: const FullType(bool)) as bool;
           break;
         case 'groupFieldDefs':
-          result.groupFieldDefs = serializers.deserialize(value,
+          result.groupFieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'min':
           result.min = serializers.deserialize(value,
@@ -311,16 +311,16 @@ class _$NxDimensionInfoSerializer
               specifiedType: const FullType(bool)) as bool;
           break;
         case 'attrExprInfo':
-          result.attrExprInfo = serializers.deserialize(value,
+          result.attrExprInfo.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'attrDimInfo':
-          result.attrDimInfo = serializers.deserialize(value,
+          result.attrDimInfo.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'calcCondMsg':
           result.calcCondMsg = serializers.deserialize(value,
@@ -349,13 +349,13 @@ class _$NxDimensionInfo extends NxDimensionInfo {
   @override
   final String sortIndicator;
   @override
-  final List<NxCell> groupFallbackTitles;
+  final BuiltList<NxCell> groupFallbackTitles;
   @override
   final int groupPos;
   @override
   final NxStateCounts stateCounts;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
   @override
   final NxValidationError error;
   @override
@@ -373,7 +373,7 @@ class _$NxDimensionInfo extends NxDimensionInfo {
   @override
   final bool isAutoFormat;
   @override
-  final List<NxCell> groupFieldDefs;
+  final BuiltList<NxCell> groupFieldDefs;
   @override
   final num min;
   @override
@@ -385,9 +385,9 @@ class _$NxDimensionInfo extends NxDimensionInfo {
   @override
   final bool derivedField;
   @override
-  final List<NxCell> attrExprInfo;
+  final BuiltList<NxCell> attrExprInfo;
   @override
-  final List<NxCell> attrDimInfo;
+  final BuiltList<NxCell> attrDimInfo;
   @override
   final String calcCondMsg;
   @override
@@ -570,9 +570,10 @@ class NxDimensionInfoBuilder
   set sortIndicator(String sortIndicator) =>
       _$this._sortIndicator = sortIndicator;
 
-  List<NxCell> _groupFallbackTitles;
-  List<NxCell> get groupFallbackTitles => _$this._groupFallbackTitles;
-  set groupFallbackTitles(List<NxCell> groupFallbackTitles) =>
+  ListBuilder<NxCell> _groupFallbackTitles;
+  ListBuilder<NxCell> get groupFallbackTitles =>
+      _$this._groupFallbackTitles ??= new ListBuilder<NxCell>();
+  set groupFallbackTitles(ListBuilder<NxCell> groupFallbackTitles) =>
       _$this._groupFallbackTitles = groupFallbackTitles;
 
   int _groupPos;
@@ -585,9 +586,9 @@ class NxDimensionInfoBuilder
   set stateCounts(NxStateCountsBuilder stateCounts) =>
       _$this._stateCounts = stateCounts;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   NxValidationErrorBuilder _error;
   NxValidationErrorBuilder get error =>
@@ -626,9 +627,10 @@ class NxDimensionInfoBuilder
   bool get isAutoFormat => _$this._isAutoFormat;
   set isAutoFormat(bool isAutoFormat) => _$this._isAutoFormat = isAutoFormat;
 
-  List<NxCell> _groupFieldDefs;
-  List<NxCell> get groupFieldDefs => _$this._groupFieldDefs;
-  set groupFieldDefs(List<NxCell> groupFieldDefs) =>
+  ListBuilder<NxCell> _groupFieldDefs;
+  ListBuilder<NxCell> get groupFieldDefs =>
+      _$this._groupFieldDefs ??= new ListBuilder<NxCell>();
+  set groupFieldDefs(ListBuilder<NxCell> groupFieldDefs) =>
       _$this._groupFieldDefs = groupFieldDefs;
 
   num _min;
@@ -652,14 +654,16 @@ class NxDimensionInfoBuilder
   bool get derivedField => _$this._derivedField;
   set derivedField(bool derivedField) => _$this._derivedField = derivedField;
 
-  List<NxCell> _attrExprInfo;
-  List<NxCell> get attrExprInfo => _$this._attrExprInfo;
-  set attrExprInfo(List<NxCell> attrExprInfo) =>
+  ListBuilder<NxCell> _attrExprInfo;
+  ListBuilder<NxCell> get attrExprInfo =>
+      _$this._attrExprInfo ??= new ListBuilder<NxCell>();
+  set attrExprInfo(ListBuilder<NxCell> attrExprInfo) =>
       _$this._attrExprInfo = attrExprInfo;
 
-  List<NxCell> _attrDimInfo;
-  List<NxCell> get attrDimInfo => _$this._attrDimInfo;
-  set attrDimInfo(List<NxCell> attrDimInfo) =>
+  ListBuilder<NxCell> _attrDimInfo;
+  ListBuilder<NxCell> get attrDimInfo =>
+      _$this._attrDimInfo ??= new ListBuilder<NxCell>();
+  set attrDimInfo(ListBuilder<NxCell> attrDimInfo) =>
       _$this._attrDimInfo = attrDimInfo;
 
   String _calcCondMsg;
@@ -679,10 +683,10 @@ class NxDimensionInfoBuilder
       _cardinal = _$v.cardinal;
       _locked = _$v.locked;
       _sortIndicator = _$v.sortIndicator;
-      _groupFallbackTitles = _$v.groupFallbackTitles;
+      _groupFallbackTitles = _$v.groupFallbackTitles?.toBuilder();
       _groupPos = _$v.groupPos;
       _stateCounts = _$v.stateCounts?.toBuilder();
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _error = _$v.error?.toBuilder();
       _dimensionType = _$v.dimensionType;
       _reverseSort = _$v.reverseSort;
@@ -691,14 +695,14 @@ class NxDimensionInfoBuilder
       _isOneAndOnlyOne = _$v.isOneAndOnlyOne;
       _numFormat = _$v.numFormat?.toBuilder();
       _isAutoFormat = _$v.isAutoFormat;
-      _groupFieldDefs = _$v.groupFieldDefs;
+      _groupFieldDefs = _$v.groupFieldDefs?.toBuilder();
       _min = _$v.min;
       _max = _$v.max;
       _continuousAxes = _$v.continuousAxes;
       _isCyclic = _$v.isCyclic;
       _derivedField = _$v.derivedField;
-      _attrExprInfo = _$v.attrExprInfo;
-      _attrDimInfo = _$v.attrDimInfo;
+      _attrExprInfo = _$v.attrExprInfo?.toBuilder();
+      _attrDimInfo = _$v.attrDimInfo?.toBuilder();
       _calcCondMsg = _$v.calcCondMsg;
       _isCalculated = _$v.isCalculated;
       _$v = null;
@@ -728,10 +732,10 @@ class NxDimensionInfoBuilder
               cardinal: cardinal,
               locked: locked,
               sortIndicator: sortIndicator,
-              groupFallbackTitles: groupFallbackTitles,
+              groupFallbackTitles: _groupFallbackTitles?.build(),
               groupPos: groupPos,
               stateCounts: _stateCounts?.build(),
-              tags: tags,
+              tags: _tags?.build(),
               error: _error?.build(),
               dimensionType: dimensionType,
               reverseSort: reverseSort,
@@ -740,27 +744,39 @@ class NxDimensionInfoBuilder
               isOneAndOnlyOne: isOneAndOnlyOne,
               numFormat: _numFormat?.build(),
               isAutoFormat: isAutoFormat,
-              groupFieldDefs: groupFieldDefs,
+              groupFieldDefs: _groupFieldDefs?.build(),
               min: min,
               max: max,
               continuousAxes: continuousAxes,
               isCyclic: isCyclic,
               derivedField: derivedField,
-              attrExprInfo: attrExprInfo,
-              attrDimInfo: attrDimInfo,
+              attrExprInfo: _attrExprInfo?.build(),
+              attrDimInfo: _attrDimInfo?.build(),
               calcCondMsg: calcCondMsg,
               isCalculated: isCalculated);
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'groupFallbackTitles';
+        _groupFallbackTitles?.build();
+
         _$failedField = 'stateCounts';
         _stateCounts?.build();
-
+        _$failedField = 'tags';
+        _tags?.build();
         _$failedField = 'error';
         _error?.build();
 
         _$failedField = 'numFormat';
         _numFormat?.build();
+
+        _$failedField = 'groupFieldDefs';
+        _groupFieldDefs?.build();
+
+        _$failedField = 'attrExprInfo';
+        _attrExprInfo?.build();
+        _$failedField = 'attrDimInfo';
+        _attrDimInfo?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'NxDimensionInfo', _$failedField, e.toString());

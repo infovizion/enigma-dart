@@ -20,7 +20,7 @@ abstract class DerivedFieldsInTableData implements Built<DerivedFieldsInTableDat
   /// List of tags.
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   /// Is set to true is the derived field is in use.
   /// Original name: qActive

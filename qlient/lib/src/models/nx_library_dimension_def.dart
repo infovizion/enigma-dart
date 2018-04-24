@@ -25,12 +25,12 @@ abstract class NxLibraryDimensionDef implements Built<NxLibraryDimensionDef, NxL
   /// Array of dimension names.
   /// Original name: qFieldDefs
   @nullable
-  List<NxCell> get fieldDefs;
+  BuiltList<NxCell> get fieldDefs;
 
   /// Array of dimension labels.
   /// Original name: qFieldLabels
   @nullable
-  List<NxCell> get fieldLabels;
+  BuiltList<NxCell> get fieldLabels;
 
   /// Original name: qLabelExpression
   @nullable

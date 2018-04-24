@@ -37,7 +37,7 @@ abstract class NxLibraryMeasureDef implements Built<NxLibraryMeasureDef, NxLibra
   /// Array of expressions.
   /// Original name: qExpressions
   @nullable
-  List<NxCell> get expressions;
+  BuiltList<NxCell> get expressions;
 
   /// Index to the active expression in a measure.
   /// Original name: qActiveExpression

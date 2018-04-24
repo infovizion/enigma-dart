@@ -22,7 +22,7 @@ abstract class NxTreeDataOption implements Built<NxTreeDataOption, NxTreeDataOpt
   /// Defines areas of the tree to be fetched. Areas must be defined left to right.
   /// Original name: qTreeNodes
   @nullable
-  List<NxCell> get treeNodes;
+  BuiltList<NxCell> get treeNodes;
 
   /// Filters out complete dimensions from the fetched tree.
   /// Original name: qTreeLevels

@@ -20,17 +20,17 @@ abstract class NxDerivedFieldsData implements Built<NxDerivedFieldsData, NxDeriv
   /// List of the derived fields.
   /// Original name: qFieldDefs
   @nullable
-  List<NxCell> get fieldDefs;
+  BuiltList<NxCell> get fieldDefs;
 
   /// List of the derived groups.
   /// Original name: qGroupDefs
   @nullable
-  List<NxCell> get groupDefs;
+  BuiltList<NxCell> get groupDefs;
 
   /// List of tags on the derived fields.
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   factory NxDerivedFieldsData([updates(NxDerivedFieldsDataBuilder b)]) = _$NxDerivedFieldsData;
 

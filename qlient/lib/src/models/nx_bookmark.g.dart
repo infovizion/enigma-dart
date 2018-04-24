@@ -31,7 +31,7 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
         ..add('stateData')
         ..add(serializers.serialize(object.stateData,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.utcModifyTime != null) {
       result
@@ -44,7 +44,7 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
         ..add('variableItems')
         ..add(serializers.serialize(object.variableItems,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -62,20 +62,20 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'stateData':
-          result.stateData = serializers.deserialize(value,
+          result.stateData.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'utcModifyTime':
           result.utcModifyTime = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
         case 'variableItems':
-          result.variableItems = serializers.deserialize(value,
+          result.variableItems.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -86,11 +86,11 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
 
 class _$NxBookmark extends NxBookmark {
   @override
-  final List<NxCell> stateData;
+  final BuiltList<NxCell> stateData;
   @override
   final num utcModifyTime;
   @override
-  final List<NxCell> variableItems;
+  final BuiltList<NxCell> variableItems;
 
   factory _$NxBookmark([void updates(NxBookmarkBuilder b)]) =>
       (new NxBookmarkBuilder()..update(updates)).build();
@@ -133,26 +133,28 @@ class _$NxBookmark extends NxBookmark {
 class NxBookmarkBuilder implements Builder<NxBookmark, NxBookmarkBuilder> {
   _$NxBookmark _$v;
 
-  List<NxCell> _stateData;
-  List<NxCell> get stateData => _$this._stateData;
-  set stateData(List<NxCell> stateData) => _$this._stateData = stateData;
+  ListBuilder<NxCell> _stateData;
+  ListBuilder<NxCell> get stateData =>
+      _$this._stateData ??= new ListBuilder<NxCell>();
+  set stateData(ListBuilder<NxCell> stateData) => _$this._stateData = stateData;
 
   num _utcModifyTime;
   num get utcModifyTime => _$this._utcModifyTime;
   set utcModifyTime(num utcModifyTime) => _$this._utcModifyTime = utcModifyTime;
 
-  List<NxCell> _variableItems;
-  List<NxCell> get variableItems => _$this._variableItems;
-  set variableItems(List<NxCell> variableItems) =>
+  ListBuilder<NxCell> _variableItems;
+  ListBuilder<NxCell> get variableItems =>
+      _$this._variableItems ??= new ListBuilder<NxCell>();
+  set variableItems(ListBuilder<NxCell> variableItems) =>
       _$this._variableItems = variableItems;
 
   NxBookmarkBuilder();
 
   NxBookmarkBuilder get _$this {
     if (_$v != null) {
-      _stateData = _$v.stateData;
+      _stateData = _$v.stateData?.toBuilder();
       _utcModifyTime = _$v.utcModifyTime;
-      _variableItems = _$v.variableItems;
+      _variableItems = _$v.variableItems?.toBuilder();
       _$v = null;
     }
     return this;
@@ -171,11 +173,27 @@ class NxBookmarkBuilder implements Builder<NxBookmark, NxBookmarkBuilder> {
 
   @override
   _$NxBookmark build() {
-    final _$result = _$v ??
-        new _$NxBookmark._(
-            stateData: stateData,
-            utcModifyTime: utcModifyTime,
-            variableItems: variableItems);
+    _$NxBookmark _$result;
+    try {
+      _$result = _$v ??
+          new _$NxBookmark._(
+              stateData: _stateData?.build(),
+              utcModifyTime: utcModifyTime,
+              variableItems: _variableItems?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'stateData';
+        _stateData?.build();
+
+        _$failedField = 'variableItems';
+        _variableItems?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxBookmark', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

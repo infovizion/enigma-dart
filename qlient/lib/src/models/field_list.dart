@@ -16,7 +16,7 @@ abstract class FieldList implements Built<FieldList, FieldListBuilder> {
   /// Array of items.
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory FieldList([updates(FieldListBuilder b)]) = _$FieldList;
 

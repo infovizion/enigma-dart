@@ -45,7 +45,7 @@ class _$SelectionObjectSerializer
         ..add('selections')
         ..add(serializers.serialize(object.selections,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -71,10 +71,10 @@ class _$SelectionObjectSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'selections':
-          result.selections = serializers.deserialize(value,
+          result.selections.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -89,7 +89,7 @@ class _$SelectionObject extends SelectionObject {
   @override
   final int forwardCount;
   @override
-  final List<NxCell> selections;
+  final BuiltList<NxCell> selections;
 
   factory _$SelectionObject([void updates(SelectionObjectBuilder b)]) =>
       (new SelectionObjectBuilder()..update(updates)).build();
@@ -142,9 +142,11 @@ class SelectionObjectBuilder
   int get forwardCount => _$this._forwardCount;
   set forwardCount(int forwardCount) => _$this._forwardCount = forwardCount;
 
-  List<NxCell> _selections;
-  List<NxCell> get selections => _$this._selections;
-  set selections(List<NxCell> selections) => _$this._selections = selections;
+  ListBuilder<NxCell> _selections;
+  ListBuilder<NxCell> get selections =>
+      _$this._selections ??= new ListBuilder<NxCell>();
+  set selections(ListBuilder<NxCell> selections) =>
+      _$this._selections = selections;
 
   SelectionObjectBuilder();
 
@@ -152,7 +154,7 @@ class SelectionObjectBuilder
     if (_$v != null) {
       _backCount = _$v.backCount;
       _forwardCount = _$v.forwardCount;
-      _selections = _$v.selections;
+      _selections = _$v.selections?.toBuilder();
       _$v = null;
     }
     return this;
@@ -171,11 +173,24 @@ class SelectionObjectBuilder
 
   @override
   _$SelectionObject build() {
-    final _$result = _$v ??
-        new _$SelectionObject._(
-            backCount: backCount,
-            forwardCount: forwardCount,
-            selections: selections);
+    _$SelectionObject _$result;
+    try {
+      _$result = _$v ??
+          new _$SelectionObject._(
+              backCount: backCount,
+              forwardCount: forwardCount,
+              selections: _selections?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'selections';
+        _selections?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SelectionObject', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

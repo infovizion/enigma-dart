@@ -15,12 +15,12 @@ abstract class SearchSuggestionResult implements Built<SearchSuggestionResult, S
   /// List of suggestions.
   /// Original name: qSuggestions
   @nullable
-  List<NxCell> get suggestions;
+  BuiltList<NxCell> get suggestions;
 
   /// List of field names that contain search hits.
   /// Original name: qFieldNames
   @nullable
-  List<NxCell> get fieldNames;
+  BuiltList<NxCell> get fieldNames;
 
   factory SearchSuggestionResult([updates(SearchSuggestionResultBuilder b)]) = _$SearchSuggestionResult;
 

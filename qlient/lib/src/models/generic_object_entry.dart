@@ -22,7 +22,7 @@ abstract class GenericObjectEntry implements Built<GenericObjectEntry, GenericOb
   /// Information about the children of the generic object.
   /// Original name: qChildren
   @nullable
-  List<NxCell> get children;
+  BuiltList<NxCell> get children;
 
   /// Reference to a bookmark/snapshot that is embedded in the generic object.
   /// Original name: qEmbeddedSnapshotRef

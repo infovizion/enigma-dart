@@ -39,7 +39,7 @@ class _$ProgressMessageSerializer
         ..add('messageParameters')
         ..add(serializers.serialize(object.messageParameters,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -61,10 +61,10 @@ class _$ProgressMessageSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'messageParameters':
-          result.messageParameters = serializers.deserialize(value,
+          result.messageParameters.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -77,7 +77,7 @@ class _$ProgressMessage extends ProgressMessage {
   @override
   final int messageCode;
   @override
-  final List<NxCell> messageParameters;
+  final BuiltList<NxCell> messageParameters;
 
   factory _$ProgressMessage([void updates(ProgressMessageBuilder b)]) =>
       (new ProgressMessageBuilder()..update(updates)).build();
@@ -122,9 +122,10 @@ class ProgressMessageBuilder
   int get messageCode => _$this._messageCode;
   set messageCode(int messageCode) => _$this._messageCode = messageCode;
 
-  List<NxCell> _messageParameters;
-  List<NxCell> get messageParameters => _$this._messageParameters;
-  set messageParameters(List<NxCell> messageParameters) =>
+  ListBuilder<NxCell> _messageParameters;
+  ListBuilder<NxCell> get messageParameters =>
+      _$this._messageParameters ??= new ListBuilder<NxCell>();
+  set messageParameters(ListBuilder<NxCell> messageParameters) =>
       _$this._messageParameters = messageParameters;
 
   ProgressMessageBuilder();
@@ -132,7 +133,7 @@ class ProgressMessageBuilder
   ProgressMessageBuilder get _$this {
     if (_$v != null) {
       _messageCode = _$v.messageCode;
-      _messageParameters = _$v.messageParameters;
+      _messageParameters = _$v.messageParameters?.toBuilder();
       _$v = null;
     }
     return this;
@@ -151,9 +152,23 @@ class ProgressMessageBuilder
 
   @override
   _$ProgressMessage build() {
-    final _$result = _$v ??
-        new _$ProgressMessage._(
-            messageCode: messageCode, messageParameters: messageParameters);
+    _$ProgressMessage _$result;
+    try {
+      _$result = _$v ??
+          new _$ProgressMessage._(
+              messageCode: messageCode,
+              messageParameters: _messageParameters?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'messageParameters';
+        _messageParameters?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'ProgressMessage', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

@@ -15,7 +15,7 @@ abstract class SearchObjectOptions implements Built<SearchObjectOptions, SearchO
   /// This array is either empty or contains _qProperty_ .
   /// Original name: qAttributes
   @nullable
-  List<NxCell> get attributes;
+  BuiltList<NxCell> get attributes;
 
   /// Encoding used to compute qRanges of type SearchCharRange.
   /// <div class=note>Only affects the computation of the ranges. It does not impact the encoding of the text.</div>

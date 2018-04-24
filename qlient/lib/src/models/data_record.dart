@@ -17,7 +17,7 @@ abstract class DataRecord implements Built<DataRecord, DataRecordBuilder> {
   /// The following values (from _result/qPreview/1/qValues_ ) are the values of the fields in the table.
   /// Original name: qValues
   @nullable
-  List<NxCell> get values;
+  BuiltList<NxCell> get values;
 
   factory DataRecord([updates(DataRecordBuilder b)]) = _$DataRecord;
 

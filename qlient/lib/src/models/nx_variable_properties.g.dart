@@ -60,7 +60,7 @@ class _$NxVariablePropertiesSerializer
         ..add('preDefinedList')
         ..add(serializers.serialize(object.preDefinedList,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -95,10 +95,10 @@ class _$NxVariablePropertiesSerializer
               specifiedType: const FullType(bool)) as bool;
           break;
         case 'preDefinedList':
-          result.preDefinedList = serializers.deserialize(value,
+          result.preDefinedList.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -117,7 +117,7 @@ class _$NxVariableProperties extends NxVariableProperties {
   @override
   final bool usePredefListedValues;
   @override
-  final List<NxCell> preDefinedList;
+  final BuiltList<NxCell> preDefinedList;
 
   factory _$NxVariableProperties(
           [void updates(NxVariablePropertiesBuilder b)]) =>
@@ -196,9 +196,10 @@ class NxVariablePropertiesBuilder
   set usePredefListedValues(bool usePredefListedValues) =>
       _$this._usePredefListedValues = usePredefListedValues;
 
-  List<NxCell> _preDefinedList;
-  List<NxCell> get preDefinedList => _$this._preDefinedList;
-  set preDefinedList(List<NxCell> preDefinedList) =>
+  ListBuilder<NxCell> _preDefinedList;
+  ListBuilder<NxCell> get preDefinedList =>
+      _$this._preDefinedList ??= new ListBuilder<NxCell>();
+  set preDefinedList(ListBuilder<NxCell> preDefinedList) =>
       _$this._preDefinedList = preDefinedList;
 
   NxVariablePropertiesBuilder();
@@ -209,7 +210,7 @@ class NxVariablePropertiesBuilder
       _numberPresentation = _$v.numberPresentation?.toBuilder();
       _includeInBookmark = _$v.includeInBookmark;
       _usePredefListedValues = _$v.usePredefListedValues;
-      _preDefinedList = _$v.preDefinedList;
+      _preDefinedList = _$v.preDefinedList?.toBuilder();
       _$v = null;
     }
     return this;
@@ -236,12 +237,15 @@ class NxVariablePropertiesBuilder
               numberPresentation: _numberPresentation?.build(),
               includeInBookmark: includeInBookmark,
               usePredefListedValues: usePredefListedValues,
-              preDefinedList: preDefinedList);
+              preDefinedList: _preDefinedList?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'numberPresentation';
         _numberPresentation?.build();
+
+        _$failedField = 'preDefinedList';
+        _preDefinedList?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'NxVariableProperties', _$failedField, e.toString());

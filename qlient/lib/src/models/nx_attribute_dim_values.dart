@@ -15,7 +15,7 @@ abstract class NxAttributeDimValues implements Built<NxAttributeDimValues, NxAtt
   /// List of values.
   /// Original name: qValues
   @nullable
-  List<NxCell> get values;
+  BuiltList<NxCell> get values;
 
   factory NxAttributeDimValues([updates(NxAttributeDimValuesBuilder b)]) = _$NxAttributeDimValues;
 

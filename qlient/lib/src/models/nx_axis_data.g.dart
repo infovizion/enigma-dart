@@ -31,7 +31,7 @@ class _$NxAxisDataSerializer implements StructuredSerializer<NxAxisData> {
         ..add('axis')
         ..add(serializers.serialize(object.axis,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -49,10 +49,10 @@ class _$NxAxisDataSerializer implements StructuredSerializer<NxAxisData> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'axis':
-          result.axis = serializers.deserialize(value,
+          result.axis.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -63,7 +63,7 @@ class _$NxAxisDataSerializer implements StructuredSerializer<NxAxisData> {
 
 class _$NxAxisData extends NxAxisData {
   @override
-  final List<NxCell> axis;
+  final BuiltList<NxCell> axis;
 
   factory _$NxAxisData([void updates(NxAxisDataBuilder b)]) =>
       (new NxAxisDataBuilder()..update(updates)).build();
@@ -99,15 +99,15 @@ class _$NxAxisData extends NxAxisData {
 class NxAxisDataBuilder implements Builder<NxAxisData, NxAxisDataBuilder> {
   _$NxAxisData _$v;
 
-  List<NxCell> _axis;
-  List<NxCell> get axis => _$this._axis;
-  set axis(List<NxCell> axis) => _$this._axis = axis;
+  ListBuilder<NxCell> _axis;
+  ListBuilder<NxCell> get axis => _$this._axis ??= new ListBuilder<NxCell>();
+  set axis(ListBuilder<NxCell> axis) => _$this._axis = axis;
 
   NxAxisDataBuilder();
 
   NxAxisDataBuilder get _$this {
     if (_$v != null) {
-      _axis = _$v.axis;
+      _axis = _$v.axis?.toBuilder();
       _$v = null;
     }
     return this;
@@ -126,7 +126,20 @@ class NxAxisDataBuilder implements Builder<NxAxisData, NxAxisDataBuilder> {
 
   @override
   _$NxAxisData build() {
-    final _$result = _$v ?? new _$NxAxisData._(axis: axis);
+    _$NxAxisData _$result;
+    try {
+      _$result = _$v ?? new _$NxAxisData._(axis: _axis?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'axis';
+        _axis?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxAxisData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
