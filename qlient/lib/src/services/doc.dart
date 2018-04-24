@@ -1,11 +1,11 @@
 import '../models.dart';
 class Doc {
   /// Returns a handle to a field.
-  getField(String qFieldName, String qStateName) {}
+   getField(String qFieldName, String qStateName) {}
   /// Returns the description of a field.
-  getFieldDescription(String qFieldName) {}
+  FieldDescription getFieldDescription(String qFieldName) {}
   /// Returns a handle to a variable.
-  getVariable(String qName) {}
+   getVariable(String qName) {}
   /// Returns a list of table states.
   /// 
   /// The following states apply:
@@ -15,7 +15,7 @@ class Doc {
   /// 
   /// <div class=note>The last three values in the vector are for internal use.</div>
   /// <div class=note>In case of circular references, the engine automatically sets the table state to loosely coupled to avoid creating loops.</div>
-  getLooselyCoupledVector() {}
+  BuiltList<NxCell> getLooselyCoupledVector() {}
   /// Sets a list of table states, one for each table.
   /// 
   /// The following states apply:
@@ -24,7 +24,7 @@ class Doc {
   /// * 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.
   /// 
   /// <div class=note>The last three values in the vector are for internal use.</div>
-  setLooselyCoupledVector(List<NxCell> qv) {}
+  bool setLooselyCoupledVector(BuiltList<NxCell> qv) {}
   /// Evaluates an expression and returns the result as a string.
   /// 
   /// ### Example
@@ -50,7 +50,7 @@ class Doc {
   ///     }
   /// }
   /// ```
-  evaluate(String qExpression) {}
+  String evaluate(String qExpression) {}
   /// Evaluates an expression and returns the result as a dual.
   /// 
   /// ### Example
@@ -76,28 +76,28 @@ class Doc {
   ///     }
   /// }
   /// ```
-  evaluateEx(String qExpression) {}
+  FieldValue evaluateEx(String qExpression) {}
   /// Clear selections in fields for current state. Locked fields are not cleared by default.
-  clearAll(bool qLockedAlso, String qStateName) {}
+   clearAll(bool qLockedAlso, String qStateName) {}
   /// Locks all selections in fields for current state.
-  lockAll(String qStateName) {}
+   lockAll(String qStateName) {}
   /// Unlocks all selections in fields for current state.
-  unlockAll(String qStateName) {}
+   unlockAll(String qStateName) {}
   /// Loads the last logical operation (if any).
-  back() {}
+   back() {}
   /// Loads the next logical operation (if any).
-  forward() {}
+   forward() {}
   /// Creates a variable.
-  createVariable(String qName) {}
+  bool createVariable(String qName) {}
   /// Removes a variable.
-  removeVariable(String qName) {}
+  bool removeVariable(String qName) {}
   /// Returns locale information.
-  getLocaleInfo() {}
+  LocaleInfo getLocaleInfo() {}
   /// Returns:
   /// * The list of tables in an app and the fields inside each table.
   /// * The list of derived fields.
   /// * The list of key fields.
-  getTablesAndKeys(Size qWindowSize, Size qNullSize, int qCellHeight, bool qSyntheticMode, bool qIncludeSysVars) {}
+  BuiltList<NxCell> getTablesAndKeys(Size qWindowSize, Size qNullSize, int qCellHeight, bool qSyntheticMode, bool qIncludeSysVars) {}
   /// Returns information about the position of the tables in the data model viewer.
   /// <div class=note>The position of the broom points and the position of the connection points cannot be retrieved in Qlik Sense.</div>
   /// 
@@ -105,7 +105,7 @@ class Doc {
   /// ![](images/ui_gen_BroomConnectionPoints_dmv.png)<br>
   /// The green circles represent the broom points.
   /// The red circle represents a connection point.
-  getViewDlgSaveInfo() {}
+  TableViewDlgSaveInfo getViewDlgSaveInfo() {}
   /// Sets the positions of the tables in the data model viewer.
   /// <div class=note>The position of the broom points and the position of the connection points cannot be set in Qlik Sense.</div>
   /// 
@@ -113,10 +113,10 @@ class Doc {
   /// ![](images/ui_gen_BroomConnectionPoints_dmv.png)<br>
   /// The green circles represent the broom points.
   /// The red circle represents a connection point.
-  setViewDlgSaveInfo(TableViewDlgSaveInfo qInfo) {}
+   setViewDlgSaveInfo(TableViewDlgSaveInfo qInfo) {}
   /// Creates a script that contains one section. This section contains **SET** statements that give localized information from the regional settings of the computer.
   /// <div class=note>The computer regional settings are retrieved when the engine starts.</div>
-  getEmptyScript(String qLocalizedMainSection) {}
+  String getEmptyScript(String qLocalizedMainSection) {}
   /// Reloads the script that is set in an app.
   /// 
   /// ### Logs
@@ -146,118 +146,118 @@ class Doc {
   /// <td><i>%UserProfile%/Documents/Qlik/Sense/Log</i></td>
   /// </tr>
   /// </table>
-  doReload(int qMode, bool qPartial, bool qDebug) {}
+  bool doReload(int qMode, bool qPartial, bool qDebug) {}
   /// Lists the breakpoints in the script of an app.
-  getScriptBreakpoints() {}
+  BuiltList<NxCell> getScriptBreakpoints() {}
   /// Set some breakpoints in the script of an app.
-  setScriptBreakpoints(List<NxCell> qBreakpoints) {}
+   setScriptBreakpoints(BuiltList<NxCell> qBreakpoints) {}
   /// Gets values in script.
-  getScript() {}
+  String getScript() {}
   /// Fetches updated variables after a statement execution.
   /// 
   /// <div class=note>If qRefSeqNo and qSetSeqNo are set to 0, it means that the variables were not updated.</div>
-  getTextMacros() {}
+  BuiltList<NxCell> getTextMacros() {}
   /// Limits the number of rows of data to load from a data source.
   /// This method works when reloading in debug mode.
-  setFetchLimit(int qLimit) {}
+   setFetchLimit(int qLimit) {}
   /// Saves an app. All objects and data in the data model are saved.
-  doSave(String qFileName) {}
+   doSave(String qFileName) {}
   /// Retrieves the data of a specific table.
-  getTableData(int qOffset, int qRows, bool qSyntheticMode, String qTableName) {}
+  BuiltList<NxCell> getTableData(int qOffset, int qRows, bool qSyntheticMode, String qTableName) {}
   /// Evaluates an app.
   /// Returns dynamic properties (if any) in addition to the engine (fixed) properties.
   /// A data set is returned.
-  getAppLayout() {}
+  NxAppLayout getAppLayout() {}
   /// Sets properties to an app.
-  setAppProperties(NxAppProperties qProp) {}
+   setAppProperties(NxAppProperties qProp) {}
   /// Gets the properties of an app.
-  getAppProperties() {}
+  NxAppProperties getAppProperties() {}
   /// Gets the lineage information of the app. The lineage information includes the LOAD and STORE statements from the data load script associated with this app.
   /// An array of lineage information.
-  getLineage() {}
+  BuiltList<NxCell> getLineage() {}
   /// Creates a transient object. For example, you can use a transient object to create an app overview or a story overview.
   /// It is possible to create a transient object that is linked to another object.
   /// A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).
   /// The linked object has the same properties as the linking object.
   /// <div class=note>The linking object cannot be a transient object.</div>
-  createSessionObject(GenericObjectProperties qProp) {}
+   createSessionObject(GenericObjectProperties qProp) {}
   /// Removes a transient object.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroySessionObject(String qId) {}
+  bool destroySessionObject(String qId) {}
   /// Creates a generic object at app level. For more information on generic objects, see _Generic object_.
   /// It is possible to create a generic object that is linked to another object.
   /// A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).
   /// The linked object has the same properties as the linking object.
   /// <div class=note>The linking object cannot be a transient object.</div>
-  createObject(GenericObjectProperties qProp) {}
+  NxInfo createObject(GenericObjectProperties qProp) {}
   /// Removes an app object.
   /// The children of the object (if any) are removed as well.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroyObject(String qId) {}
+  bool destroyObject(String qId) {}
   /// Returns the type of the app object and the corresponding handle.
-  getObject(String qId) {}
-  getObjects(NxGetObjectOptions qOptions) {}
-  getBookmarks(NxGetBookmarkOptions qOptions) {}
+   getObject(String qId) {}
+  BuiltList<NxCell> getObjects(NxGetObjectOptions qOptions) {}
+  BuiltList<NxCell> getBookmarks(NxGetBookmarkOptions qOptions) {}
   /// Clones root level objects, such as sheets and stories. The CloneObject method works for both app objects and child objects.
   /// When you clone an object that contains children, the children are cloned as well.
   /// If you for example want to clone a visualization, you must provide the qID of the root object, in this case the sheet since CloneObject clones root level objects.
   /// <div class=note>It is not possible to clone a session object.</div>
   /// 
   /// <div class=note>The identifier is set by the engine.</div>
-  cloneObject(String qId) {}
+  String cloneObject(String qId) {}
   /// Creates a draft of an object.
   /// This method can be used to create a draft of a sheet or a story that is published. This is a way to continue working on a sheet or a story that is published.
   /// Replace the published object by the content of the draft by invoking the _CommitDraft method_.
   /// 
   /// <div class=note>The identifier is set by the engine.</div>
-  createDraft(String qId) {}
+  String createDraft(String qId) {}
   /// Commits the draft of an object that was previously created by invoking the _CreateDraft method_.
   /// Committing a draft replaces the corresponding published object.
-  commitDraft(String qId) {}
+   commitDraft(String qId) {}
   /// Removes the draft of an object.
   /// The children of the draft object (if any) are removed as well.
   /// This method can be used to cancel the work on the draft of an object. For example, if you had created a draft of a sheet that is published, you might not want anymore to replace the published sheet.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroyDraft(String qId, String qSourceId) {}
+  bool destroyDraft(String qId, String qSourceId) {}
   /// Undoes the previous operation.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  undo() {}
+  bool undo() {}
   /// Redoes the previous operation.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  redo() {}
+  bool redo() {}
   /// Clears entirely the undo and redo buffer.
-  clearUndoBuffer() {}
+   clearUndoBuffer() {}
   /// Creates a master dimension.
   /// A master dimension is stored in the library of an app and can be used in many objects. Several generic objects can contain the same dimension.
-  createDimension(GenericDimensionProperties qProp) {}
+  NxInfo createDimension(GenericDimensionProperties qProp) {}
   /// Removes a dimension.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroyDimension(String qId) {}
+  bool destroyDimension(String qId) {}
   /// Returns the handle of a dimension.
-  getDimension(String qId) {}
+   getDimension(String qId) {}
   /// Clones a dimension.
   /// 
   /// <div class=note>The identifier is set by the engine.</div>
-  cloneDimension(String qId) {}
+  String cloneDimension(String qId) {}
   /// Creates a master measure.
   /// A master measure is stored in the library of an app and can be used in many objects. Several generic objects can contain the same measure.
-  createMeasure(GenericMeasureProperties qProp) {}
+  NxInfo createMeasure(GenericMeasureProperties qProp) {}
   /// Removes a generic measure.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroyMeasure(String qId) {}
+  bool destroyMeasure(String qId) {}
   /// Returns the handle of a measure.
-  getMeasure(String qId) {}
+   getMeasure(String qId) {}
   /// Clones a measure.
   /// 
   /// <div class=note>The identifier is set by the engine.</div>
-  cloneMeasure(String qId) {}
+  String cloneMeasure(String qId) {}
   /// Creates a transient variable.
   /// <div class=note>To set some properties to the variable, use the _SetProperties method_. </div>
   /// 
@@ -269,11 +269,11 @@ class Doc {
   /// The variable _x_ contains the text string _Sum(Sales)_ .
   /// In a chart, you define the expression _$(x)/12_ . The effect is exactly the same as having the chart expression _Sum(Sales)/12_ .
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
-  createSessionVariable(GenericVariableProperties qProp) {}
+   createSessionVariable(GenericVariableProperties qProp) {}
   /// Removes a transient variable.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroySessionVariable(String qId) {}
+  bool destroySessionVariable(String qId) {}
   /// Creates a variable.
   /// To create a variable via a script, you need to use the _SetScript method_. For more information, see _Create a variable_.
   /// <div class=note>To set some properties to the variable, use the _SetProperties method_. </div> <div class=note>In a published app, only transient variables can be created. See _CreateSessionVariable method_. </div>
@@ -286,79 +286,79 @@ class Doc {
   /// The variable _x_ contains the text string _Sum(Sales)_ .
   /// In a chart, you define the expression _$(x)/12_ . The effect is exactly the same as having the chart expression _Sum(Sales)/12_ .
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
-  createVariableEx(GenericVariableProperties qProp) {}
+  NxInfo createVariableEx(GenericVariableProperties qProp) {}
   /// Removes a variable.
   /// Script-defined variables cannot be removed using the _DestroyVariableById method_ or the _DestroyVariableByName method_. For more information, see _Remove a variable_.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroyVariableById(String qId) {}
+  bool destroyVariableById(String qId) {}
   /// Removes a variable.
   /// Script-defined variables cannot be removed using the _DestroyVariableById method_ or the _DestroyVariableByName method_. For more information, see _Remove a variable_.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroyVariableByName(String qName) {}
+  bool destroyVariableByName(String qName) {}
   /// Gets the handle of a variable.
-  getVariableById(String qId) {}
+   getVariableById(String qId) {}
   /// Gets the handle of a variable.
-  getVariableByName(String qName) {}
+   getVariableByName(String qName) {}
   /// Checks if a given expression is valid.
   /// <div class=note>The expression is correct if the parameters _qErrorMsg_ , _qBadFieldNames_ and _qDangerousFieldNames_ are empty. </div>
-  checkExpression(String qExpr, List<NxCell> qLabels) {}
+  String checkExpression(String qExpr, BuiltList<NxCell> qLabels) {}
   /// Checks if:
   /// * A given expression is valid.
   /// * A number is correct according to the locale.
-  checkNumberOrExpression(String qExpr) {}
+  String checkNumberOrExpression(String qExpr) {}
   /// Adds an alternate state in the app.
   /// You can create multiple states within a Qlik Sense app and apply these states to specific objects within the app. Objects in a given state are not affected by user selections in the other states.
-  addAlternateState(String qStateName) {}
+   addAlternateState(String qStateName) {}
   /// Removes an alternate state in the app.
-  removeAlternateState(String qStateName) {}
+   removeAlternateState(String qStateName) {}
   /// Creates a bookmark.
-  createBookmark(GenericBookmarkProperties qProp) {}
+  NxInfo createBookmark(GenericBookmarkProperties qProp) {}
   /// Removes a bookmark.
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  destroyBookmark(String qId) {}
+  bool destroyBookmark(String qId) {}
   /// Returns the handle of a bookmark.
-  getBookmark(String qId) {}
+   getBookmark(String qId) {}
   /// Applies a bookmark.
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  applyBookmark(String qId) {}
+  bool applyBookmark(String qId) {}
   /// Clones a bookmark.
   /// <div class=note>The identifier is set by the engine.</div>
-  cloneBookmark(String qId) {}
+  String cloneBookmark(String qId) {}
   /// Adds a field on the fly.
   /// <div class=note>The expression of a field on the fly is persisted but not its values. </div>
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  addFieldFromExpression(String qName, String qExpr) {}
+  bool addFieldFromExpression(String qName, String qExpr) {}
   /// Find the field-on-the-fly by passing its readable name.
-  getFieldOnTheFlyByName(String qReadableName) {}
+  String getFieldOnTheFlyByName(String qReadableName) {}
   /// Returns the identifier and the type of any generic object in the app.
-  getAllInfos() {}
+  BuiltList<NxCell> getAllInfos() {}
   /// Resumes the app as the user left it.
-  resume() {}
+   resume() {}
   /// Aborts any selection mode in an app. For more information about selection mode, see _BeginSelections method_.
-  abortModal(bool qAccept) {}
+   abortModal(bool qAccept) {}
   /// Publishes an app.
   /// All app objects are published. Generic objects, bookmarks, dimensions and measures inside the app are published.
   /// <div class=note>An app can only be published once and cannot be published to more than one stream.</div>
-  publish(String qStreamId, String qName) {}
+   publish(String qStreamId, String qName) {}
   /// Retrieves any fields that match all of the specified tags or just one of them in the data model of an app.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
-  getMatchingFields(List<NxCell> qTags, String qMatchingFieldMode) {}
+  BuiltList<NxCell> getMatchingFields(BuiltList<NxCell> qTags, String qMatchingFieldMode) {}
   /// Retrieves any fields that belong to the same archipelago as the specified field and that match at least one of the specified tags.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
-  findMatchingFields(String qFieldName, List<NxCell> qTags) {}
+  BuiltList<NxCell> findMatchingFields(String qFieldName, BuiltList<NxCell> qTags) {}
   /// Scrambles a field so the data is not recognizable. Some properties are retained to help debugging. For example, special characters are not changed, and small numbers are scrambled to another small number.
   /// <div class=note>Update access is required to use the function in Qlik Sense Enterprise.</div>
-  scramble(String qFieldName) {}
+   scramble(String qFieldName) {}
   /// Saves all objects that were modified in the app.
   /// <div class=note>Data from the data model are not saved.</div> <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
-  saveObjects() {}
+   saveObjects() {}
   /// Computes a set of association scores for each pair of fields between two given tables that have been loaded in an app.
   /// When a table contains some synthetic keys, all fields in the synthetic key tables are analyzed against fields in other tables. To denote that a field is a synthetic key, the field name is prefixed by _[Synthetic Key]:_ .
-  getAssociationScores(String qTable1, String qTable2) {}
+  BuiltList<NxCell> getAssociationScores(String qTable1, String qTable2) {}
   /// Lists the media files.
-  getMediaList() {}
+  MediaList getMediaList() {}
   /// Lists the content libraries.
   /// To differentiate a global content library from an app specific content library, you can check the property _qAppSpecific_ . If this property is set to true, it means that the content library is app specific.
   /// <div class=note>There is always one specific content library per app.</div>
@@ -370,7 +370,7 @@ class Doc {
   /// 
   /// ### Qlik Sense Desktop
   /// Returns the global content library and the app specific content library from the disk.
-  getContentLibraries() {}
+  ContentLibraryList getContentLibraries() {}
   /// Returns the content of a library.
   /// 
   /// ### Global content library
@@ -380,7 +380,7 @@ class Doc {
   /// 
   /// ### App specific content library
   /// The embedded files are returned.
-  getLibraryContent(String qName) {}
+  StaticContentList getLibraryContent(String qName) {}
   /// Reloads the script that is set in an app and returns the path to the script log file.
   /// <div class=note>A log file is created per reload.</div>
   /// 
@@ -462,13 +462,13 @@ class Doc {
   /// </table>
   /// 
   /// If the data load has successfully finished, no matter how the indexing behaves, _true_ is returned. This happens even if there is a timeout, a memory limit is reached or any other error occurs during the indexing.
-  doReloadEx(DoReloadExParams qParams) {}
+  DoReloadExResult doReloadEx(DoReloadExParams qParams) {}
   /// Returns the number of entries on the back stack.
-  backCount() {}
+  int backCount() {}
   /// Returns the number of entries on the Forward stack.
-  forwardCount() {}
+  int forwardCount() {}
   /// Sets values in script.
-  setScript(String qScript) {}
+   setScript(String qScript) {}
   /// Checks the syntax of a script.
   /// 
   /// ### Example
@@ -514,46 +514,46 @@ class Doc {
   /// <td>Boolean</td>
   /// </tr>
   /// </table>
-  checkScriptSyntax() {}
+  BuiltList<NxCell> checkScriptSyntax() {}
   /// Retrieves the variables that are tagged as favorite.
-  getFavoriteVariables() {}
+  BuiltList<NxCell> getFavoriteVariables() {}
   /// Set some variables as favorite.
-  setFavoriteVariables(List<NxCell> qNames) {}
+   setFavoriteVariables(BuiltList<NxCell> qNames) {}
   /// Gets the content of a file.
-  getIncludeFileContent(String qPath) {}
+  String getIncludeFileContent(String qPath) {}
   /// Creates a connection.
   /// A connection indicates from which data source the data should be taken.
-  createConnection(Connection qConnection) {}
+  String createConnection(Connection qConnection) {}
   /// Updates a connection.
   /// <div class=note>The identifier of a connection cannot be updated. qType cannot be modified with the ModifyConnection method.</div>
-  modifyConnection(String qConnectionId, Connection qConnection, bool qOverrideCredentials) {}
+   modifyConnection(String qConnectionId, Connection qConnection, bool qOverrideCredentials) {}
   /// Deletes a connection.
   /// <div class=note>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . The AttachedFiles connection can only be removed by the administrator of the system. </div>
-  deleteConnection(String qConnectionId) {}
+   deleteConnection(String qConnectionId) {}
   /// Retrieves a connection and returns:
   /// * The creation time of the connection.
   /// * The identifier of the connection.
   /// * The type of the connection.
   /// * The name of the connection.
   /// * The connection string.
-  getConnection(String qConnectionId) {}
+  Connection getConnection(String qConnectionId) {}
   /// Lists the connections in an app.
   /// <div class=note>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . This connection is stored in the Qlik Sense repository. </div>
-  getConnections() {}
+  BuiltList<NxCell> getConnections() {}
   /// Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for more details.
-  getDatabaseInfo(String qConnectionId) {}
+  DatabaseInfo getDatabaseInfo(String qConnectionId) {}
   /// Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
-  getDatabases(String qConnectionId) {}
+  BuiltList<NxCell> getDatabases(String qConnectionId) {}
   /// Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
-  getDatabaseOwners(String qConnectionId, String qDatabase) {}
+  BuiltList<NxCell> getDatabaseOwners(String qConnectionId, String qDatabase) {}
   /// Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
-  getDatabaseTables(String qConnectionId, String qDatabase, String qOwner) {}
+  BuiltList<NxCell> getDatabaseTables(String qConnectionId, String qDatabase, String qOwner) {}
   /// Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM connection.
-  getDatabaseTableFields(String qConnectionId, String qDatabase, String qOwner, String qTable) {}
+  BuiltList<NxCell> getDatabaseTableFields(String qConnectionId, String qDatabase, String qOwner, String qTable) {}
   /// Retrieves the values of the specified table of a database for a ODBC, OLEDB or CUSTOM connection.
-  getDatabaseTablePreview(String qConnectionId, String qDatabase, String qOwner, String qTable, FilterInfo qConditions) {}
+  BuiltList<NxCell> getDatabaseTablePreview(String qConnectionId, String qDatabase, String qOwner, String qTable, FilterInfo qConditions) {}
   /// Lists the items for a folder connection.
-  getFolderItemsForConnection(String qConnectionId, String qRelativePath) {}
+  BuiltList<NxCell> getFolderItemsForConnection(String qConnectionId, String qRelativePath) {}
   /// Guesses the data format for a given file.
   /// Recognized file formats are:
   /// * _CSV_ for Delimited
@@ -581,7 +581,7 @@ class Doc {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  guessFileType(String qConnectionId, String qRelativePath) {}
+  FileDataFormat guessFileType(String qConnectionId, String qRelativePath) {}
   /// Lists the tables for a folder connection.
   /// 
   /// ### FileType
@@ -597,7 +597,7 @@ class Doc {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  getFileTables(String qConnectionId, String qRelativePath, FileDataFormat qDataFormat) {}
+  BuiltList<NxCell> getFileTables(String qConnectionId, String qRelativePath, FileDataFormat qDataFormat) {}
   /// Lists the fields of a table for a folder connection.
   /// 
   /// ### FileType
@@ -613,7 +613,7 @@ class Doc {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  getFileTableFields(String qConnectionId, String qRelativePath, FileDataFormat qDataFormat, String qTable) {}
+  BuiltList<NxCell> getFileTableFields(String qConnectionId, String qRelativePath, FileDataFormat qDataFormat, String qTable) {}
   /// Lists the values in a table for a folder connection.
   /// 
   /// ### FileType
@@ -629,14 +629,14 @@ class Doc {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  getFileTablePreview(String qConnectionId, String qRelativePath, FileDataFormat qDataFormat, String qTable) {}
+  BuiltList<NxCell> getFileTablePreview(String qConnectionId, String qRelativePath, FileDataFormat qDataFormat, String qTable) {}
   /// Lists the tables and fields of a JSON or XML file for a folder connection.
-  getFileTablesEx(String qConnectionId, String qRelativePath, FileDataFormat qDataFormat) {}
+  BuiltList<NxCell> getFileTablesEx(String qConnectionId, String qRelativePath, FileDataFormat qDataFormat) {}
   /// Sends a generic command to a custom connector.
   /// For more information on the commands that can be sent to a custom connector, see the QVX SDK help.
-  sendGenericCommandToCustomConnector(String qProvider, String qCommand, String qMethod, List<NxCell> qParameters, String qAppendConnection) {}
+  String sendGenericCommandToCustomConnector(String qProvider, String qCommand, String qMethod, BuiltList<NxCell> qParameters, String qAppendConnection) {}
   /// Returns search terms suggestions.
-  searchSuggest(SearchCombinationOptions qOptions, List<NxCell> qTerms) {}
+  SearchSuggestionResult searchSuggest(SearchCombinationOptions qOptions, BuiltList<NxCell> qTerms) {}
   /// Returns the search matches for one or more search terms.
   /// The search results depend on the search context.
   /// _SearchCombinationOptions_
@@ -654,11 +654,11 @@ class Doc {
   /// <td>Array of <i>SearchMatchCombination</i> </td>
   /// </tr>
   /// </table>
-  searchAssociations(SearchCombinationOptions qOptions, List<NxCell> qTerms, SearchPage qPage) {}
+  SearchAssociationResult searchAssociations(SearchCombinationOptions qOptions, BuiltList<NxCell> qTerms, SearchPage qPage) {}
   /// Selects all search hits for a specified group.
   /// The results depend on the search context.
   /// _SearchCombinationOptions_.
-  selectAssociations(SearchCombinationOptions qOptions, List<NxCell> qTerms, int qMatchIx, bool qSoftLock) {}
+   selectAssociations(SearchCombinationOptions qOptions, BuiltList<NxCell> qTerms, int qMatchIx, bool qSoftLock) {}
   /// Returns the search matches for one or more search terms.
   /// Search results are organized in search groups. The type of search group indicates where the search matches come from (from data for example).
   /// Each search group contains search results that correspond to a combination of search terms.
@@ -673,9 +673,9 @@ class Doc {
   /// 
   /// For every search group, there are one or more search group items. Each subgroup item contains results that correspond to an item type (for example a field).
   /// For every search group item, there are one or several search matches. The position of the match in each search result is given.
-  searchResults(SearchCombinationOptions qOptions, List<NxCell> qTerms, SearchPage qPage) {}
+  SearchResult searchResults(SearchCombinationOptions qOptions, BuiltList<NxCell> qTerms, SearchPage qPage) {}
   /// Returns the generic objects corresponding to one or more search terms. The search is performed within the title, subtitle, footnote and type. In addition, associated dimension values are also searched in. For example, if the country “Japan” is selected and the object contains the dimension City, the object will appear in the results for “Osaka” but not for “Johannesburg”. The generic objects with the following types will never appear in the results: _slideitem_ , _sheet_ , _story_ , _slide_ , _masterobject_ , _snapshot_ , _LoadModel_ , _appprops_ and _searchhistory_ .
-  searchObjects(SearchObjectOptions qOptions, List<NxCell> qTerms, SearchPage qPage) {}
+  SearchResult searchObjects(SearchObjectOptions qOptions, BuiltList<NxCell> qTerms, SearchPage qPage) {}
   /// Gets script and script meta-data.
-  getScriptEx() {}
+  AppScript getScriptEx() {}
 }

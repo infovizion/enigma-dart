@@ -22,7 +22,7 @@ abstract class SearchFieldDictionary implements Built<SearchFieldDictionary, Sea
   /// The maximum number of values in this list is set by _qMaxNbrFieldMatches_ .
   /// Original name: qResult
   @nullable
-  List<NxCell> get result;
+  BuiltList<NxCell> get result;
 
   factory SearchFieldDictionary([updates(SearchFieldDictionaryBuilder b)]) = _$SearchFieldDictionary;
 

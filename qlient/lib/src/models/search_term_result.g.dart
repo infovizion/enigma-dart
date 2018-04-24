@@ -45,7 +45,7 @@ class _$SearchTermResultSerializer
         ..add('ranges')
         ..add(serializers.serialize(object.ranges,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -71,10 +71,10 @@ class _$SearchTermResultSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'ranges':
-          result.ranges = serializers.deserialize(value,
+          result.ranges.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -89,7 +89,7 @@ class _$SearchTermResult extends SearchTermResult {
   @override
   final int elemNumber;
   @override
-  final List<NxCell> ranges;
+  final BuiltList<NxCell> ranges;
 
   factory _$SearchTermResult([void updates(SearchTermResultBuilder b)]) =>
       (new SearchTermResultBuilder()..update(updates)).build();
@@ -141,9 +141,10 @@ class SearchTermResultBuilder
   int get elemNumber => _$this._elemNumber;
   set elemNumber(int elemNumber) => _$this._elemNumber = elemNumber;
 
-  List<NxCell> _ranges;
-  List<NxCell> get ranges => _$this._ranges;
-  set ranges(List<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<NxCell> _ranges;
+  ListBuilder<NxCell> get ranges =>
+      _$this._ranges ??= new ListBuilder<NxCell>();
+  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
 
   SearchTermResultBuilder();
 
@@ -151,7 +152,7 @@ class SearchTermResultBuilder
     if (_$v != null) {
       _text = _$v.text;
       _elemNumber = _$v.elemNumber;
-      _ranges = _$v.ranges;
+      _ranges = _$v.ranges?.toBuilder();
       _$v = null;
     }
     return this;
@@ -170,9 +171,22 @@ class SearchTermResultBuilder
 
   @override
   _$SearchTermResult build() {
-    final _$result = _$v ??
-        new _$SearchTermResult._(
-            text: text, elemNumber: elemNumber, ranges: ranges);
+    _$SearchTermResult _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchTermResult._(
+              text: text, elemNumber: elemNumber, ranges: _ranges?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'ranges';
+        _ranges?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchTermResult', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

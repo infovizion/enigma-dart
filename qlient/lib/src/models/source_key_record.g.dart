@@ -33,14 +33,14 @@ class _$SourceKeyRecordSerializer
         ..add('keyFields')
         ..add(serializers.serialize(object.keyFields,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.tables != null) {
       result
         ..add('tables')
         ..add(serializers.serialize(object.tables,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -58,16 +58,16 @@ class _$SourceKeyRecordSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'keyFields':
-          result.keyFields = serializers.deserialize(value,
+          result.keyFields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'tables':
-          result.tables = serializers.deserialize(value,
+          result.tables.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -78,9 +78,9 @@ class _$SourceKeyRecordSerializer
 
 class _$SourceKeyRecord extends SourceKeyRecord {
   @override
-  final List<NxCell> keyFields;
+  final BuiltList<NxCell> keyFields;
   @override
-  final List<NxCell> tables;
+  final BuiltList<NxCell> tables;
 
   factory _$SourceKeyRecord([void updates(SourceKeyRecordBuilder b)]) =>
       (new SourceKeyRecordBuilder()..update(updates)).build();
@@ -120,20 +120,22 @@ class SourceKeyRecordBuilder
     implements Builder<SourceKeyRecord, SourceKeyRecordBuilder> {
   _$SourceKeyRecord _$v;
 
-  List<NxCell> _keyFields;
-  List<NxCell> get keyFields => _$this._keyFields;
-  set keyFields(List<NxCell> keyFields) => _$this._keyFields = keyFields;
+  ListBuilder<NxCell> _keyFields;
+  ListBuilder<NxCell> get keyFields =>
+      _$this._keyFields ??= new ListBuilder<NxCell>();
+  set keyFields(ListBuilder<NxCell> keyFields) => _$this._keyFields = keyFields;
 
-  List<NxCell> _tables;
-  List<NxCell> get tables => _$this._tables;
-  set tables(List<NxCell> tables) => _$this._tables = tables;
+  ListBuilder<NxCell> _tables;
+  ListBuilder<NxCell> get tables =>
+      _$this._tables ??= new ListBuilder<NxCell>();
+  set tables(ListBuilder<NxCell> tables) => _$this._tables = tables;
 
   SourceKeyRecordBuilder();
 
   SourceKeyRecordBuilder get _$this {
     if (_$v != null) {
-      _keyFields = _$v.keyFields;
-      _tables = _$v.tables;
+      _keyFields = _$v.keyFields?.toBuilder();
+      _tables = _$v.tables?.toBuilder();
       _$v = null;
     }
     return this;
@@ -152,8 +154,24 @@ class SourceKeyRecordBuilder
 
   @override
   _$SourceKeyRecord build() {
-    final _$result =
-        _$v ?? new _$SourceKeyRecord._(keyFields: keyFields, tables: tables);
+    _$SourceKeyRecord _$result;
+    try {
+      _$result = _$v ??
+          new _$SourceKeyRecord._(
+              keyFields: _keyFields?.build(), tables: _tables?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'keyFields';
+        _keyFields?.build();
+        _$failedField = 'tables';
+        _tables?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SourceKeyRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

@@ -49,14 +49,14 @@ class _$SearchPageSerializer implements StructuredSerializer<SearchPage> {
         ..add('groupOptions')
         ..add(serializers.serialize(object.groupOptions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.groupItemOptions != null) {
       result
         ..add('groupItemOptions')
         ..add(serializers.serialize(object.groupItemOptions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -86,16 +86,16 @@ class _$SearchPageSerializer implements StructuredSerializer<SearchPage> {
               specifiedType: const FullType(int)) as int;
           break;
         case 'groupOptions':
-          result.groupOptions = serializers.deserialize(value,
+          result.groupOptions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'groupItemOptions':
-          result.groupItemOptions = serializers.deserialize(value,
+          result.groupItemOptions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -112,9 +112,9 @@ class _$SearchPage extends SearchPage {
   @override
   final int maxNbrFieldMatches;
   @override
-  final List<NxCell> groupOptions;
+  final BuiltList<NxCell> groupOptions;
   @override
-  final List<NxCell> groupItemOptions;
+  final BuiltList<NxCell> groupItemOptions;
 
   factory _$SearchPage([void updates(SearchPageBuilder b)]) =>
       (new SearchPageBuilder()..update(updates)).build();
@@ -183,14 +183,16 @@ class SearchPageBuilder implements Builder<SearchPage, SearchPageBuilder> {
   set maxNbrFieldMatches(int maxNbrFieldMatches) =>
       _$this._maxNbrFieldMatches = maxNbrFieldMatches;
 
-  List<NxCell> _groupOptions;
-  List<NxCell> get groupOptions => _$this._groupOptions;
-  set groupOptions(List<NxCell> groupOptions) =>
+  ListBuilder<NxCell> _groupOptions;
+  ListBuilder<NxCell> get groupOptions =>
+      _$this._groupOptions ??= new ListBuilder<NxCell>();
+  set groupOptions(ListBuilder<NxCell> groupOptions) =>
       _$this._groupOptions = groupOptions;
 
-  List<NxCell> _groupItemOptions;
-  List<NxCell> get groupItemOptions => _$this._groupItemOptions;
-  set groupItemOptions(List<NxCell> groupItemOptions) =>
+  ListBuilder<NxCell> _groupItemOptions;
+  ListBuilder<NxCell> get groupItemOptions =>
+      _$this._groupItemOptions ??= new ListBuilder<NxCell>();
+  set groupItemOptions(ListBuilder<NxCell> groupItemOptions) =>
       _$this._groupItemOptions = groupItemOptions;
 
   SearchPageBuilder();
@@ -200,8 +202,8 @@ class SearchPageBuilder implements Builder<SearchPage, SearchPageBuilder> {
       _offset = _$v.offset;
       _count = _$v.count;
       _maxNbrFieldMatches = _$v.maxNbrFieldMatches;
-      _groupOptions = _$v.groupOptions;
-      _groupItemOptions = _$v.groupItemOptions;
+      _groupOptions = _$v.groupOptions?.toBuilder();
+      _groupItemOptions = _$v.groupItemOptions?.toBuilder();
       _$v = null;
     }
     return this;
@@ -220,13 +222,28 @@ class SearchPageBuilder implements Builder<SearchPage, SearchPageBuilder> {
 
   @override
   _$SearchPage build() {
-    final _$result = _$v ??
-        new _$SearchPage._(
-            offset: offset,
-            count: count,
-            maxNbrFieldMatches: maxNbrFieldMatches,
-            groupOptions: groupOptions,
-            groupItemOptions: groupItemOptions);
+    _$SearchPage _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchPage._(
+              offset: offset,
+              count: count,
+              maxNbrFieldMatches: maxNbrFieldMatches,
+              groupOptions: _groupOptions?.build(),
+              groupItemOptions: _groupItemOptions?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'groupOptions';
+        _groupOptions?.build();
+        _$failedField = 'groupItemOptions';
+        _groupItemOptions?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchPage', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

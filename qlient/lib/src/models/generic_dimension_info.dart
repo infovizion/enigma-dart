@@ -26,7 +26,7 @@ abstract class GenericDimensionInfo implements Built<GenericDimensionInfo, Gener
   /// Examples: key, text, ASCII
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   /// If set to true, it means that the field is a semantic.
   /// Original name: qIsSemantic

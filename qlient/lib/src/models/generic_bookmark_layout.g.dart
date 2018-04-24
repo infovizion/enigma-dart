@@ -54,7 +54,7 @@ class _$GenericBookmarkLayoutSerializer
         ..add('fieldInfos')
         ..add(serializers.serialize(object.fieldInfos,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -85,10 +85,10 @@ class _$GenericBookmarkLayoutSerializer
               specifiedType: const FullType(NxBookmark)) as NxBookmark);
           break;
         case 'fieldInfos':
-          result.fieldInfos = serializers.deserialize(value,
+          result.fieldInfos.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -105,7 +105,7 @@ class _$GenericBookmarkLayout extends GenericBookmarkLayout {
   @override
   final NxBookmark bookmark;
   @override
-  final List<NxCell> fieldInfos;
+  final BuiltList<NxCell> fieldInfos;
 
   factory _$GenericBookmarkLayout(
           [void updates(GenericBookmarkLayoutBuilder b)]) =>
@@ -168,9 +168,11 @@ class GenericBookmarkLayoutBuilder
       _$this._bookmark ??= new NxBookmarkBuilder();
   set bookmark(NxBookmarkBuilder bookmark) => _$this._bookmark = bookmark;
 
-  List<NxCell> _fieldInfos;
-  List<NxCell> get fieldInfos => _$this._fieldInfos;
-  set fieldInfos(List<NxCell> fieldInfos) => _$this._fieldInfos = fieldInfos;
+  ListBuilder<NxCell> _fieldInfos;
+  ListBuilder<NxCell> get fieldInfos =>
+      _$this._fieldInfos ??= new ListBuilder<NxCell>();
+  set fieldInfos(ListBuilder<NxCell> fieldInfos) =>
+      _$this._fieldInfos = fieldInfos;
 
   GenericBookmarkLayoutBuilder();
 
@@ -179,7 +181,7 @@ class GenericBookmarkLayoutBuilder
       _info = _$v.info?.toBuilder();
       _meta = _$v.meta?.toBuilder();
       _bookmark = _$v.bookmark?.toBuilder();
-      _fieldInfos = _$v.fieldInfos;
+      _fieldInfos = _$v.fieldInfos?.toBuilder();
       _$v = null;
     }
     return this;
@@ -205,7 +207,7 @@ class GenericBookmarkLayoutBuilder
               info: _info?.build(),
               meta: _meta?.build(),
               bookmark: _bookmark?.build(),
-              fieldInfos: fieldInfos);
+              fieldInfos: _fieldInfos?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -215,6 +217,8 @@ class GenericBookmarkLayoutBuilder
         _meta?.build();
         _$failedField = 'bookmark';
         _bookmark?.build();
+        _$failedField = 'fieldInfos';
+        _fieldInfos?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'GenericBookmarkLayout', _$failedField, e.toString());

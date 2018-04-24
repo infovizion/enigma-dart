@@ -67,14 +67,14 @@ class _$NxTreeNodeSerializer implements StructuredSerializer<NxTreeNode> {
         ..add('values')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.nodes != null) {
       result
         ..add('nodes')
         ..add(serializers.serialize(object.nodes,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attrExps != null) {
       result
@@ -128,16 +128,16 @@ class _$NxTreeNodeSerializer implements StructuredSerializer<NxTreeNode> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'values':
-          result.values = serializers.deserialize(value,
+          result.values.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'nodes':
-          result.nodes = serializers.deserialize(value,
+          result.nodes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'attrExps':
           result.attrExps.replace(serializers.deserialize(value,
@@ -170,9 +170,9 @@ class _$NxTreeNode extends NxTreeNode {
   @override
   final String type;
   @override
-  final List<NxCell> values;
+  final BuiltList<NxCell> values;
   @override
-  final List<NxCell> nodes;
+  final BuiltList<NxCell> nodes;
   @override
   final NxAttributeExpressionValues attrExps;
   @override
@@ -281,13 +281,14 @@ class NxTreeNodeBuilder implements Builder<NxTreeNode, NxTreeNodeBuilder> {
   String get type => _$this._type;
   set type(String type) => _$this._type = type;
 
-  List<NxCell> _values;
-  List<NxCell> get values => _$this._values;
-  set values(List<NxCell> values) => _$this._values = values;
+  ListBuilder<NxCell> _values;
+  ListBuilder<NxCell> get values =>
+      _$this._values ??= new ListBuilder<NxCell>();
+  set values(ListBuilder<NxCell> values) => _$this._values = values;
 
-  List<NxCell> _nodes;
-  List<NxCell> get nodes => _$this._nodes;
-  set nodes(List<NxCell> nodes) => _$this._nodes = nodes;
+  ListBuilder<NxCell> _nodes;
+  ListBuilder<NxCell> get nodes => _$this._nodes ??= new ListBuilder<NxCell>();
+  set nodes(ListBuilder<NxCell> nodes) => _$this._nodes = nodes;
 
   NxAttributeExpressionValuesBuilder _attrExps;
   NxAttributeExpressionValuesBuilder get attrExps =>
@@ -311,8 +312,8 @@ class NxTreeNodeBuilder implements Builder<NxTreeNode, NxTreeNodeBuilder> {
       _parentNode = _$v.parentNode;
       _row = _$v.row;
       _type = _$v.type;
-      _values = _$v.values;
-      _nodes = _$v.nodes;
+      _values = _$v.values?.toBuilder();
+      _nodes = _$v.nodes?.toBuilder();
       _attrExps = _$v.attrExps?.toBuilder();
       _attrDims = _$v.attrDims?.toBuilder();
       _$v = null;
@@ -343,13 +344,17 @@ class NxTreeNodeBuilder implements Builder<NxTreeNode, NxTreeNodeBuilder> {
               parentNode: parentNode,
               row: row,
               type: type,
-              values: values,
-              nodes: nodes,
+              values: _values?.build(),
+              nodes: _nodes?.build(),
               attrExps: _attrExps?.build(),
               attrDims: _attrDims?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'values';
+        _values?.build();
+        _$failedField = 'nodes';
+        _nodes?.build();
         _$failedField = 'attrExps';
         _attrExps?.build();
         _$failedField = 'attrDims';

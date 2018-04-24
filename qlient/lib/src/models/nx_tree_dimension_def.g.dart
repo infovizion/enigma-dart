@@ -45,7 +45,7 @@ class _$NxTreeDimensionDefSerializer
         ..add('valueExprs')
         ..add(serializers.serialize(object.valueExprs,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.nullSuppression != null) {
       result
@@ -88,14 +88,14 @@ class _$NxTreeDimensionDefSerializer
         ..add('attributeExpressions')
         ..add(serializers.serialize(object.attributeExpressions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attributeDimensions != null) {
       result
         ..add('attributeDimensions')
         ..add(serializers.serialize(object.attributeDimensions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -122,10 +122,10 @@ class _$NxTreeDimensionDefSerializer
               as NxInlineDimensionDef);
           break;
         case 'valueExprs':
-          result.valueExprs = serializers.deserialize(value,
+          result.valueExprs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'nullSuppression':
           result.nullSuppression = serializers.deserialize(value,
@@ -153,16 +153,16 @@ class _$NxTreeDimensionDefSerializer
               specifiedType: const FullType(NxCalcCond)) as NxCalcCond);
           break;
         case 'attributeExpressions':
-          result.attributeExpressions = serializers.deserialize(value,
+          result.attributeExpressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'attributeDimensions':
-          result.attributeDimensions = serializers.deserialize(value,
+          result.attributeDimensions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -177,7 +177,7 @@ class _$NxTreeDimensionDef extends NxTreeDimensionDef {
   @override
   final NxInlineDimensionDef def;
   @override
-  final List<NxCell> valueExprs;
+  final BuiltList<NxCell> valueExprs;
   @override
   final bool nullSuppression;
   @override
@@ -191,9 +191,9 @@ class _$NxTreeDimensionDef extends NxTreeDimensionDef {
   @override
   final NxCalcCond calcCondition;
   @override
-  final List<NxCell> attributeExpressions;
+  final BuiltList<NxCell> attributeExpressions;
   @override
-  final List<NxCell> attributeDimensions;
+  final BuiltList<NxCell> attributeDimensions;
 
   factory _$NxTreeDimensionDef([void updates(NxTreeDimensionDefBuilder b)]) =>
       (new NxTreeDimensionDefBuilder()..update(updates)).build();
@@ -292,9 +292,11 @@ class NxTreeDimensionDefBuilder
       _$this._def ??= new NxInlineDimensionDefBuilder();
   set def(NxInlineDimensionDefBuilder def) => _$this._def = def;
 
-  List<NxCell> _valueExprs;
-  List<NxCell> get valueExprs => _$this._valueExprs;
-  set valueExprs(List<NxCell> valueExprs) => _$this._valueExprs = valueExprs;
+  ListBuilder<NxCell> _valueExprs;
+  ListBuilder<NxCell> get valueExprs =>
+      _$this._valueExprs ??= new ListBuilder<NxCell>();
+  set valueExprs(ListBuilder<NxCell> valueExprs) =>
+      _$this._valueExprs = valueExprs;
 
   bool _nullSuppression;
   bool get nullSuppression => _$this._nullSuppression;
@@ -329,14 +331,16 @@ class NxTreeDimensionDefBuilder
   set calcCondition(NxCalcCondBuilder calcCondition) =>
       _$this._calcCondition = calcCondition;
 
-  List<NxCell> _attributeExpressions;
-  List<NxCell> get attributeExpressions => _$this._attributeExpressions;
-  set attributeExpressions(List<NxCell> attributeExpressions) =>
+  ListBuilder<NxCell> _attributeExpressions;
+  ListBuilder<NxCell> get attributeExpressions =>
+      _$this._attributeExpressions ??= new ListBuilder<NxCell>();
+  set attributeExpressions(ListBuilder<NxCell> attributeExpressions) =>
       _$this._attributeExpressions = attributeExpressions;
 
-  List<NxCell> _attributeDimensions;
-  List<NxCell> get attributeDimensions => _$this._attributeDimensions;
-  set attributeDimensions(List<NxCell> attributeDimensions) =>
+  ListBuilder<NxCell> _attributeDimensions;
+  ListBuilder<NxCell> get attributeDimensions =>
+      _$this._attributeDimensions ??= new ListBuilder<NxCell>();
+  set attributeDimensions(ListBuilder<NxCell> attributeDimensions) =>
       _$this._attributeDimensions = attributeDimensions;
 
   NxTreeDimensionDefBuilder();
@@ -345,15 +349,15 @@ class NxTreeDimensionDefBuilder
     if (_$v != null) {
       _libraryId = _$v.libraryId;
       _def = _$v.def?.toBuilder();
-      _valueExprs = _$v.valueExprs;
+      _valueExprs = _$v.valueExprs?.toBuilder();
       _nullSuppression = _$v.nullSuppression;
       _otherTotalSpec = _$v.otherTotalSpec?.toBuilder();
       _showAll = _$v.showAll;
       _otherLabel = _$v.otherLabel?.toBuilder();
       _totalLabel = _$v.totalLabel?.toBuilder();
       _calcCondition = _$v.calcCondition?.toBuilder();
-      _attributeExpressions = _$v.attributeExpressions;
-      _attributeDimensions = _$v.attributeDimensions;
+      _attributeExpressions = _$v.attributeExpressions?.toBuilder();
+      _attributeDimensions = _$v.attributeDimensions?.toBuilder();
       _$v = null;
     }
     return this;
@@ -378,20 +382,22 @@ class NxTreeDimensionDefBuilder
           new _$NxTreeDimensionDef._(
               libraryId: libraryId,
               def: _def?.build(),
-              valueExprs: valueExprs,
+              valueExprs: _valueExprs?.build(),
               nullSuppression: nullSuppression,
               otherTotalSpec: _otherTotalSpec?.build(),
               showAll: showAll,
               otherLabel: _otherLabel?.build(),
               totalLabel: _totalLabel?.build(),
               calcCondition: _calcCondition?.build(),
-              attributeExpressions: attributeExpressions,
-              attributeDimensions: attributeDimensions);
+              attributeExpressions: _attributeExpressions?.build(),
+              attributeDimensions: _attributeDimensions?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'def';
         _def?.build();
+        _$failedField = 'valueExprs';
+        _valueExprs?.build();
 
         _$failedField = 'otherTotalSpec';
         _otherTotalSpec?.build();
@@ -402,6 +408,10 @@ class NxTreeDimensionDefBuilder
         _totalLabel?.build();
         _$failedField = 'calcCondition';
         _calcCondition?.build();
+        _$failedField = 'attributeExpressions';
+        _attributeExpressions?.build();
+        _$failedField = 'attributeDimensions';
+        _attributeDimensions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'NxTreeDimensionDef', _$failedField, e.toString());

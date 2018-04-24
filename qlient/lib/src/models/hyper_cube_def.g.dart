@@ -38,21 +38,21 @@ class _$HyperCubeDefSerializer implements StructuredSerializer<HyperCubeDef> {
         ..add('dimensions')
         ..add(serializers.serialize(object.dimensions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.measures != null) {
       result
         ..add('measures')
         ..add(serializers.serialize(object.measures,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.interColumnSortOrder != null) {
       result
         ..add('interColumnSortOrder')
         ..add(serializers.serialize(object.interColumnSortOrder,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.suppressZero != null) {
       result
@@ -71,7 +71,7 @@ class _$HyperCubeDefSerializer implements StructuredSerializer<HyperCubeDef> {
         ..add('initialDataFetch')
         ..add(serializers.serialize(object.initialDataFetch,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.reductionMode != null) {
       result
@@ -156,7 +156,7 @@ class _$HyperCubeDefSerializer implements StructuredSerializer<HyperCubeDef> {
         ..add('columnOrder')
         ..add(serializers.serialize(object.columnOrder,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -178,22 +178,22 @@ class _$HyperCubeDefSerializer implements StructuredSerializer<HyperCubeDef> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'dimensions':
-          result.dimensions = serializers.deserialize(value,
+          result.dimensions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'measures':
-          result.measures = serializers.deserialize(value,
+          result.measures.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'interColumnSortOrder':
-          result.interColumnSortOrder = serializers.deserialize(value,
+          result.interColumnSortOrder.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'suppressZero':
           result.suppressZero = serializers.deserialize(value,
@@ -204,10 +204,10 @@ class _$HyperCubeDefSerializer implements StructuredSerializer<HyperCubeDef> {
               specifiedType: const FullType(bool)) as bool;
           break;
         case 'initialDataFetch':
-          result.initialDataFetch = serializers.deserialize(value,
+          result.initialDataFetch.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'reductionMode':
           result.reductionMode = serializers.deserialize(value,
@@ -262,10 +262,10 @@ class _$HyperCubeDefSerializer implements StructuredSerializer<HyperCubeDef> {
               specifiedType: const FullType(NxCalcCond)) as NxCalcCond);
           break;
         case 'columnOrder':
-          result.columnOrder = serializers.deserialize(value,
+          result.columnOrder.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -278,17 +278,17 @@ class _$HyperCubeDef extends HyperCubeDef {
   @override
   final String stateName;
   @override
-  final List<NxCell> dimensions;
+  final BuiltList<NxCell> dimensions;
   @override
-  final List<NxCell> measures;
+  final BuiltList<NxCell> measures;
   @override
-  final List<NxCell> interColumnSortOrder;
+  final BuiltList<NxCell> interColumnSortOrder;
   @override
   final bool suppressZero;
   @override
   final bool suppressMissing;
   @override
-  final List<NxCell> initialDataFetch;
+  final BuiltList<NxCell> initialDataFetch;
   @override
   final String reductionMode;
   @override
@@ -316,7 +316,7 @@ class _$HyperCubeDef extends HyperCubeDef {
   @override
   final NxCalcCond calcCondition;
   @override
-  final List<NxCell> columnOrder;
+  final BuiltList<NxCell> columnOrder;
 
   factory _$HyperCubeDef([void updates(HyperCubeDefBuilder b)]) =>
       (new HyperCubeDefBuilder()..update(updates)).build();
@@ -457,17 +457,21 @@ class HyperCubeDefBuilder
   String get stateName => _$this._stateName;
   set stateName(String stateName) => _$this._stateName = stateName;
 
-  List<NxCell> _dimensions;
-  List<NxCell> get dimensions => _$this._dimensions;
-  set dimensions(List<NxCell> dimensions) => _$this._dimensions = dimensions;
+  ListBuilder<NxCell> _dimensions;
+  ListBuilder<NxCell> get dimensions =>
+      _$this._dimensions ??= new ListBuilder<NxCell>();
+  set dimensions(ListBuilder<NxCell> dimensions) =>
+      _$this._dimensions = dimensions;
 
-  List<NxCell> _measures;
-  List<NxCell> get measures => _$this._measures;
-  set measures(List<NxCell> measures) => _$this._measures = measures;
+  ListBuilder<NxCell> _measures;
+  ListBuilder<NxCell> get measures =>
+      _$this._measures ??= new ListBuilder<NxCell>();
+  set measures(ListBuilder<NxCell> measures) => _$this._measures = measures;
 
-  List<NxCell> _interColumnSortOrder;
-  List<NxCell> get interColumnSortOrder => _$this._interColumnSortOrder;
-  set interColumnSortOrder(List<NxCell> interColumnSortOrder) =>
+  ListBuilder<NxCell> _interColumnSortOrder;
+  ListBuilder<NxCell> get interColumnSortOrder =>
+      _$this._interColumnSortOrder ??= new ListBuilder<NxCell>();
+  set interColumnSortOrder(ListBuilder<NxCell> interColumnSortOrder) =>
       _$this._interColumnSortOrder = interColumnSortOrder;
 
   bool _suppressZero;
@@ -479,9 +483,10 @@ class HyperCubeDefBuilder
   set suppressMissing(bool suppressMissing) =>
       _$this._suppressMissing = suppressMissing;
 
-  List<NxCell> _initialDataFetch;
-  List<NxCell> get initialDataFetch => _$this._initialDataFetch;
-  set initialDataFetch(List<NxCell> initialDataFetch) =>
+  ListBuilder<NxCell> _initialDataFetch;
+  ListBuilder<NxCell> get initialDataFetch =>
+      _$this._initialDataFetch ??= new ListBuilder<NxCell>();
+  set initialDataFetch(ListBuilder<NxCell> initialDataFetch) =>
       _$this._initialDataFetch = initialDataFetch;
 
   String _reductionMode;
@@ -543,9 +548,10 @@ class HyperCubeDefBuilder
   set calcCondition(NxCalcCondBuilder calcCondition) =>
       _$this._calcCondition = calcCondition;
 
-  List<NxCell> _columnOrder;
-  List<NxCell> get columnOrder => _$this._columnOrder;
-  set columnOrder(List<NxCell> columnOrder) =>
+  ListBuilder<NxCell> _columnOrder;
+  ListBuilder<NxCell> get columnOrder =>
+      _$this._columnOrder ??= new ListBuilder<NxCell>();
+  set columnOrder(ListBuilder<NxCell> columnOrder) =>
       _$this._columnOrder = columnOrder;
 
   HyperCubeDefBuilder();
@@ -553,12 +559,12 @@ class HyperCubeDefBuilder
   HyperCubeDefBuilder get _$this {
     if (_$v != null) {
       _stateName = _$v.stateName;
-      _dimensions = _$v.dimensions;
-      _measures = _$v.measures;
-      _interColumnSortOrder = _$v.interColumnSortOrder;
+      _dimensions = _$v.dimensions?.toBuilder();
+      _measures = _$v.measures?.toBuilder();
+      _interColumnSortOrder = _$v.interColumnSortOrder?.toBuilder();
       _suppressZero = _$v.suppressZero;
       _suppressMissing = _$v.suppressMissing;
-      _initialDataFetch = _$v.initialDataFetch;
+      _initialDataFetch = _$v.initialDataFetch?.toBuilder();
       _reductionMode = _$v.reductionMode;
       _mode = _$v.mode;
       _pseudoDimPos = _$v.pseudoDimPos;
@@ -572,7 +578,7 @@ class HyperCubeDefBuilder
       _sortbyYValue = _$v.sortbyYValue;
       _title = _$v.title?.toBuilder();
       _calcCondition = _$v.calcCondition?.toBuilder();
-      _columnOrder = _$v.columnOrder;
+      _columnOrder = _$v.columnOrder?.toBuilder();
       _$v = null;
     }
     return this;
@@ -596,12 +602,12 @@ class HyperCubeDefBuilder
       _$result = _$v ??
           new _$HyperCubeDef._(
               stateName: stateName,
-              dimensions: dimensions,
-              measures: measures,
-              interColumnSortOrder: interColumnSortOrder,
+              dimensions: _dimensions?.build(),
+              measures: _measures?.build(),
+              interColumnSortOrder: _interColumnSortOrder?.build(),
               suppressZero: suppressZero,
               suppressMissing: suppressMissing,
-              initialDataFetch: initialDataFetch,
+              initialDataFetch: _initialDataFetch?.build(),
               reductionMode: reductionMode,
               mode: mode,
               pseudoDimPos: pseudoDimPos,
@@ -615,10 +621,20 @@ class HyperCubeDefBuilder
               sortbyYValue: sortbyYValue,
               title: _title?.build(),
               calcCondition: _calcCondition?.build(),
-              columnOrder: columnOrder);
+              columnOrder: _columnOrder?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'dimensions';
+        _dimensions?.build();
+        _$failedField = 'measures';
+        _measures?.build();
+        _$failedField = 'interColumnSortOrder';
+        _interColumnSortOrder?.build();
+
+        _$failedField = 'initialDataFetch';
+        _initialDataFetch?.build();
+
         _$failedField = 'calcCond';
         _calcCond?.build();
 
@@ -626,6 +642,8 @@ class HyperCubeDefBuilder
         _title?.build();
         _$failedField = 'calcCondition';
         _calcCondition?.build();
+        _$failedField = 'columnOrder';
+        _columnOrder?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'HyperCubeDef', _$failedField, e.toString());

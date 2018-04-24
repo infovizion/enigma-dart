@@ -42,7 +42,7 @@ class _$SearchFieldDictionarySerializer
         ..add('result')
         ..add(serializers.serialize(object.result,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -65,10 +65,10 @@ class _$SearchFieldDictionarySerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'result':
-          result.result = serializers.deserialize(value,
+          result.result.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -81,7 +81,7 @@ class _$SearchFieldDictionary extends SearchFieldDictionary {
   @override
   final int field;
   @override
-  final List<NxCell> result;
+  final BuiltList<NxCell> result;
 
   factory _$SearchFieldDictionary(
           [void updates(SearchFieldDictionaryBuilder b)]) =>
@@ -126,16 +126,17 @@ class SearchFieldDictionaryBuilder
   int get field => _$this._field;
   set field(int field) => _$this._field = field;
 
-  List<NxCell> _result;
-  List<NxCell> get result => _$this._result;
-  set result(List<NxCell> result) => _$this._result = result;
+  ListBuilder<NxCell> _result;
+  ListBuilder<NxCell> get result =>
+      _$this._result ??= new ListBuilder<NxCell>();
+  set result(ListBuilder<NxCell> result) => _$this._result = result;
 
   SearchFieldDictionaryBuilder();
 
   SearchFieldDictionaryBuilder get _$this {
     if (_$v != null) {
       _field = _$v.field;
-      _result = _$v.result;
+      _result = _$v.result?.toBuilder();
       _$v = null;
     }
     return this;
@@ -154,8 +155,21 @@ class SearchFieldDictionaryBuilder
 
   @override
   _$SearchFieldDictionary build() {
-    final _$result =
-        _$v ?? new _$SearchFieldDictionary._(field: field, result: result);
+    _$SearchFieldDictionary _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchFieldDictionary._(field: field, result: _result?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'result';
+        _result?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchFieldDictionary', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

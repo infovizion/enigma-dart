@@ -64,7 +64,7 @@ abstract class NxCurrentSelectionItem implements Built<NxCurrentSelectionItem, N
   /// Is empty if there is no range of selected values.
   /// Original name: qRangeInfo
   @nullable
-  List<NxCell> get rangeInfo;
+  BuiltList<NxCell> get rangeInfo;
 
   /// Sort index of the field. Indexing starts from 0.
   /// Original name: qSortIndex
@@ -79,12 +79,12 @@ abstract class NxCurrentSelectionItem implements Built<NxCurrentSelectionItem, N
   /// Information about the fields that are selected.
   /// Original name: qSelectedFieldSelectionInfo
   @nullable
-  List<NxCell> get selectedFieldSelectionInfo;
+  BuiltList<NxCell> get selectedFieldSelectionInfo;
 
   /// Information about the fields that are not selected.
   /// Original name: qNotSelectedFieldSelectionInfo
   @nullable
-  List<NxCell> get notSelectedFieldSelectionInfo;
+  BuiltList<NxCell> get notSelectedFieldSelectionInfo;
 
   /// Maximum values to show in the current selections.
   /// The default value is 6.

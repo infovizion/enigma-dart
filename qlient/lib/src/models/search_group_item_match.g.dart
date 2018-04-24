@@ -42,14 +42,14 @@ class _$SearchGroupItemMatchSerializer
         ..add('ranges')
         ..add(serializers.serialize(object.ranges,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attributes != null) {
       result
         ..add('attributes')
         ..add(serializers.serialize(object.attributes,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -71,16 +71,16 @@ class _$SearchGroupItemMatchSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'ranges':
-          result.ranges = serializers.deserialize(value,
+          result.ranges.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'attributes':
-          result.attributes = serializers.deserialize(value,
+          result.attributes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -93,9 +93,9 @@ class _$SearchGroupItemMatch extends SearchGroupItemMatch {
   @override
   final String text;
   @override
-  final List<NxCell> ranges;
+  final BuiltList<NxCell> ranges;
   @override
-  final List<NxCell> attributes;
+  final BuiltList<NxCell> attributes;
 
   factory _$SearchGroupItemMatch(
           [void updates(SearchGroupItemMatchBuilder b)]) =>
@@ -145,21 +145,24 @@ class SearchGroupItemMatchBuilder
   String get text => _$this._text;
   set text(String text) => _$this._text = text;
 
-  List<NxCell> _ranges;
-  List<NxCell> get ranges => _$this._ranges;
-  set ranges(List<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<NxCell> _ranges;
+  ListBuilder<NxCell> get ranges =>
+      _$this._ranges ??= new ListBuilder<NxCell>();
+  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
 
-  List<NxCell> _attributes;
-  List<NxCell> get attributes => _$this._attributes;
-  set attributes(List<NxCell> attributes) => _$this._attributes = attributes;
+  ListBuilder<NxCell> _attributes;
+  ListBuilder<NxCell> get attributes =>
+      _$this._attributes ??= new ListBuilder<NxCell>();
+  set attributes(ListBuilder<NxCell> attributes) =>
+      _$this._attributes = attributes;
 
   SearchGroupItemMatchBuilder();
 
   SearchGroupItemMatchBuilder get _$this {
     if (_$v != null) {
       _text = _$v.text;
-      _ranges = _$v.ranges;
-      _attributes = _$v.attributes;
+      _ranges = _$v.ranges?.toBuilder();
+      _attributes = _$v.attributes?.toBuilder();
       _$v = null;
     }
     return this;
@@ -178,9 +181,26 @@ class SearchGroupItemMatchBuilder
 
   @override
   _$SearchGroupItemMatch build() {
-    final _$result = _$v ??
-        new _$SearchGroupItemMatch._(
-            text: text, ranges: ranges, attributes: attributes);
+    _$SearchGroupItemMatch _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchGroupItemMatch._(
+              text: text,
+              ranges: _ranges?.build(),
+              attributes: _attributes?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'ranges';
+        _ranges?.build();
+        _$failedField = 'attributes';
+        _attributes?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchGroupItemMatch', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

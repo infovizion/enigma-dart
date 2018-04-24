@@ -99,7 +99,7 @@ class _$NxStackedPivotCellSerializer
         ..add('subNodes')
         ..add(serializers.serialize(object.subNodes,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attrExps != null) {
       result
@@ -173,10 +173,10 @@ class _$NxStackedPivotCellSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'subNodes':
-          result.subNodes = serializers.deserialize(value,
+          result.subNodes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'attrExps':
           result.attrExps.replace(serializers.deserialize(value,
@@ -219,7 +219,7 @@ class _$NxStackedPivotCell extends NxStackedPivotCell {
   @override
   final int row;
   @override
-  final List<NxCell> subNodes;
+  final BuiltList<NxCell> subNodes;
   @override
   final NxAttributeExpressionValues attrExps;
   @override
@@ -372,9 +372,10 @@ class NxStackedPivotCellBuilder
   int get row => _$this._row;
   set row(int row) => _$this._row = row;
 
-  List<NxCell> _subNodes;
-  List<NxCell> get subNodes => _$this._subNodes;
-  set subNodes(List<NxCell> subNodes) => _$this._subNodes = subNodes;
+  ListBuilder<NxCell> _subNodes;
+  ListBuilder<NxCell> get subNodes =>
+      _$this._subNodes ??= new ListBuilder<NxCell>();
+  set subNodes(ListBuilder<NxCell> subNodes) => _$this._subNodes = subNodes;
 
   NxAttributeExpressionValuesBuilder _attrExps;
   NxAttributeExpressionValuesBuilder get attrExps =>
@@ -403,7 +404,7 @@ class NxStackedPivotCellBuilder
       _up = _$v.up;
       _down = _$v.down;
       _row = _$v.row;
-      _subNodes = _$v.subNodes;
+      _subNodes = _$v.subNodes?.toBuilder();
       _attrExps = _$v.attrExps?.toBuilder();
       _attrDims = _$v.attrDims?.toBuilder();
       _$v = null;
@@ -439,12 +440,14 @@ class NxStackedPivotCellBuilder
               up: up,
               down: down,
               row: row,
-              subNodes: subNodes,
+              subNodes: _subNodes?.build(),
               attrExps: _attrExps?.build(),
               attrDims: _attrDims?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'subNodes';
+        _subNodes?.build();
         _$failedField = 'attrExps';
         _attrExps?.build();
         _$failedField = 'attrDims';

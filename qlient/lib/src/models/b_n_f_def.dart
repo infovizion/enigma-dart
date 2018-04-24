@@ -16,7 +16,7 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   /// Generally, if the array is not empty, the definition is a BNF rule (_qIsBnfRule_ is set to true). However, some BNF  rules do have an empty array (_qIsBnfRule_ is set to true, but _qBnf_ is empty).
   /// Original name: qBnf
   @nullable
-  List<NxCell> get bnf;
+  BuiltList<NxCell> get bnf;
 
   /// Number of the current token definition.
   /// Original name: qNbr

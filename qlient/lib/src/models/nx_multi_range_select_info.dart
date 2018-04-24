@@ -14,11 +14,11 @@ abstract class NxMultiRangeSelectInfo implements Built<NxMultiRangeSelectInfo, N
 
   /// Original name: qRanges
   @nullable
-  List<NxCell> get ranges;
+  BuiltList<NxCell> get ranges;
 
   /// Original name: qColumnsToSelect
   @nullable
-  List<NxCell> get columnsToSelect;
+  BuiltList<NxCell> get columnsToSelect;
 
   factory NxMultiRangeSelectInfo([updates(NxMultiRangeSelectInfoBuilder b)]) = _$NxMultiRangeSelectInfo;
 

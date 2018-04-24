@@ -75,7 +75,7 @@ class _$SchemaTypeSerializer implements StructuredSerializer<SchemaType> {
     }
     if (object.ref != null) {
       result
-        ..add('\$ref')
+        ..add('$ref')
         ..add(serializers.serialize(object.ref,
             specifiedType: const FullType(String)));
     }
@@ -135,7 +135,7 @@ class _$SchemaTypeSerializer implements StructuredSerializer<SchemaType> {
           result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case '\$ref':
+        case '$ref':
           result.ref = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

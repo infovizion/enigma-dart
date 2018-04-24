@@ -15,7 +15,7 @@ abstract class NxHighlightRanges implements Built<NxHighlightRanges, NxHighlight
   /// Ranges of highlighted values.
   /// Original name: qRanges
   @nullable
-  List<NxCell> get ranges;
+  BuiltList<NxCell> get ranges;
 
   factory NxHighlightRanges([updates(NxHighlightRangesBuilder b)]) = _$NxHighlightRanges;
 

@@ -48,7 +48,7 @@ class _$GenericDimensionInfoSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isSemantic != null) {
       result
@@ -86,10 +86,10 @@ class _$GenericDimensionInfoSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'isSemantic':
           result.isSemantic = serializers.deserialize(value,
@@ -112,7 +112,7 @@ class _$GenericDimensionInfo extends GenericDimensionInfo {
   @override
   final int cardinal;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
   @override
   final bool isSemantic;
   @override
@@ -184,9 +184,9 @@ class GenericDimensionInfoBuilder
   int get cardinal => _$this._cardinal;
   set cardinal(int cardinal) => _$this._cardinal = cardinal;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   bool _isSemantic;
   bool get isSemantic => _$this._isSemantic;
@@ -202,7 +202,7 @@ class GenericDimensionInfoBuilder
     if (_$v != null) {
       _apprMaxGlyphCount = _$v.apprMaxGlyphCount;
       _cardinal = _$v.cardinal;
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _isSemantic = _$v.isSemantic;
       _andMode = _$v.andMode;
       _$v = null;
@@ -223,13 +223,26 @@ class GenericDimensionInfoBuilder
 
   @override
   _$GenericDimensionInfo build() {
-    final _$result = _$v ??
-        new _$GenericDimensionInfo._(
-            apprMaxGlyphCount: apprMaxGlyphCount,
-            cardinal: cardinal,
-            tags: tags,
-            isSemantic: isSemantic,
-            andMode: andMode);
+    _$GenericDimensionInfo _$result;
+    try {
+      _$result = _$v ??
+          new _$GenericDimensionInfo._(
+              apprMaxGlyphCount: apprMaxGlyphCount,
+              cardinal: cardinal,
+              tags: _tags?.build(),
+              isSemantic: isSemantic,
+              andMode: andMode);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'tags';
+        _tags?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'GenericDimensionInfo', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

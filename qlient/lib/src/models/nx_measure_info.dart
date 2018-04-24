@@ -78,12 +78,12 @@ abstract class NxMeasureInfo implements Built<NxMeasureInfo, NxMeasureInfoBuilde
   /// List of attribute expressions.
   /// Original name: qAttrExprInfo
   @nullable
-  List<NxCell> get attrExprInfo;
+  BuiltList<NxCell> get attrExprInfo;
 
   /// List of attribute dimensions.
   /// Original name: qAttrDimInfo
   @nullable
-  List<NxCell> get attrDimInfo;
+  BuiltList<NxCell> get attrDimInfo;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg

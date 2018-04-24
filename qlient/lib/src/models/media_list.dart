@@ -22,7 +22,7 @@ abstract class MediaList implements Built<MediaList, MediaListBuilder> {
   /// The default installation directory is _ProgramData_ .
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory MediaList([updates(MediaListBuilder b)]) = _$MediaList;
 

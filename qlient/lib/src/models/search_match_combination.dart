@@ -20,7 +20,7 @@ abstract class SearchMatchCombination implements Built<SearchMatchCombination, S
   /// Information about the search matches.
   /// Original name: qFieldMatches
   @nullable
-  List<NxCell> get fieldMatches;
+  BuiltList<NxCell> get fieldMatches;
 
   factory SearchMatchCombination([updates(SearchMatchCombinationBuilder b)]) = _$SearchMatchCombination;
 

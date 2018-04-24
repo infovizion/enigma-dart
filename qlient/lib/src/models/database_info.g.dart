@@ -92,7 +92,7 @@ class _$DatabaseInfoSerializer implements StructuredSerializer<DatabaseInfo> {
         ..add('keywords')
         ..add(serializers.serialize(object.keywords,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -150,10 +150,10 @@ class _$DatabaseInfoSerializer implements StructuredSerializer<DatabaseInfo> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'keywords':
-          result.keywords = serializers.deserialize(value,
+          result.keywords.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -184,7 +184,7 @@ class _$DatabaseInfo extends DatabaseInfo {
   @override
   final String defaultDatabase;
   @override
-  final List<NxCell> keywords;
+  final BuiltList<NxCell> keywords;
 
   factory _$DatabaseInfo([void updates(DatabaseInfoBuilder b)]) =>
       (new DatabaseInfoBuilder()..update(updates)).build();
@@ -315,9 +315,10 @@ class DatabaseInfoBuilder
   set defaultDatabase(String defaultDatabase) =>
       _$this._defaultDatabase = defaultDatabase;
 
-  List<NxCell> _keywords;
-  List<NxCell> get keywords => _$this._keywords;
-  set keywords(List<NxCell> keywords) => _$this._keywords = keywords;
+  ListBuilder<NxCell> _keywords;
+  ListBuilder<NxCell> get keywords =>
+      _$this._keywords ??= new ListBuilder<NxCell>();
+  set keywords(ListBuilder<NxCell> keywords) => _$this._keywords = keywords;
 
   DatabaseInfoBuilder();
 
@@ -333,7 +334,7 @@ class DatabaseInfoBuilder
       _quoteSuffix = _$v.quoteSuffix;
       _specialChars = _$v.specialChars;
       _defaultDatabase = _$v.defaultDatabase;
-      _keywords = _$v.keywords;
+      _keywords = _$v.keywords?.toBuilder();
       _$v = null;
     }
     return this;
@@ -352,19 +353,32 @@ class DatabaseInfoBuilder
 
   @override
   _$DatabaseInfo build() {
-    final _$result = _$v ??
-        new _$DatabaseInfo._(
-            dBMSName: dBMSName,
-            dBUsage: dBUsage,
-            ownerUsage: ownerUsage,
-            dBSeparator: dBSeparator,
-            ownerSeparator: ownerSeparator,
-            dBFirst: dBFirst,
-            quotePreffix: quotePreffix,
-            quoteSuffix: quoteSuffix,
-            specialChars: specialChars,
-            defaultDatabase: defaultDatabase,
-            keywords: keywords);
+    _$DatabaseInfo _$result;
+    try {
+      _$result = _$v ??
+          new _$DatabaseInfo._(
+              dBMSName: dBMSName,
+              dBUsage: dBUsage,
+              ownerUsage: ownerUsage,
+              dBSeparator: dBSeparator,
+              ownerSeparator: ownerSeparator,
+              dBFirst: dBFirst,
+              quotePreffix: quotePreffix,
+              quoteSuffix: quoteSuffix,
+              specialChars: specialChars,
+              defaultDatabase: defaultDatabase,
+              keywords: _keywords?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'keywords';
+        _keywords?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'DatabaseInfo', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

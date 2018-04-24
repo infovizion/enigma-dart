@@ -51,7 +51,7 @@ class _$NxDerivedGroupSerializer
         ..add('fieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -81,10 +81,10 @@ class _$NxDerivedGroupSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'fieldDefs':
-          result.fieldDefs = serializers.deserialize(value,
+          result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -101,7 +101,7 @@ class _$NxDerivedGroup extends NxDerivedGroup {
   @override
   final String grouping;
   @override
-  final List<NxCell> fieldDefs;
+  final BuiltList<NxCell> fieldDefs;
 
   factory _$NxDerivedGroup([void updates(NxDerivedGroupBuilder b)]) =>
       (new NxDerivedGroupBuilder()..update(updates)).build();
@@ -161,9 +161,10 @@ class NxDerivedGroupBuilder
   String get grouping => _$this._grouping;
   set grouping(String grouping) => _$this._grouping = grouping;
 
-  List<NxCell> _fieldDefs;
-  List<NxCell> get fieldDefs => _$this._fieldDefs;
-  set fieldDefs(List<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
+  ListBuilder<NxCell> _fieldDefs;
+  ListBuilder<NxCell> get fieldDefs =>
+      _$this._fieldDefs ??= new ListBuilder<NxCell>();
+  set fieldDefs(ListBuilder<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
 
   NxDerivedGroupBuilder();
 
@@ -172,7 +173,7 @@ class NxDerivedGroupBuilder
       _id = _$v.id;
       _name = _$v.name;
       _grouping = _$v.grouping;
-      _fieldDefs = _$v.fieldDefs;
+      _fieldDefs = _$v.fieldDefs?.toBuilder();
       _$v = null;
     }
     return this;
@@ -191,9 +192,25 @@ class NxDerivedGroupBuilder
 
   @override
   _$NxDerivedGroup build() {
-    final _$result = _$v ??
-        new _$NxDerivedGroup._(
-            id: id, name: name, grouping: grouping, fieldDefs: fieldDefs);
+    _$NxDerivedGroup _$result;
+    try {
+      _$result = _$v ??
+          new _$NxDerivedGroup._(
+              id: id,
+              name: name,
+              grouping: grouping,
+              fieldDefs: _fieldDefs?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'fieldDefs';
+        _fieldDefs?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxDerivedGroup', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

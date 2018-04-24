@@ -36,7 +36,7 @@ class _$SearchObjectOptionsSerializer
         ..add('attributes')
         ..add(serializers.serialize(object.attributes,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.charEncoding != null) {
       result
@@ -60,10 +60,10 @@ class _$SearchObjectOptionsSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'attributes':
-          result.attributes = serializers.deserialize(value,
+          result.attributes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'charEncoding':
           result.charEncoding = serializers.deserialize(value,
@@ -78,7 +78,7 @@ class _$SearchObjectOptionsSerializer
 
 class _$SearchObjectOptions extends SearchObjectOptions {
   @override
-  final List<NxCell> attributes;
+  final BuiltList<NxCell> attributes;
   @override
   final String charEncoding;
 
@@ -120,9 +120,11 @@ class SearchObjectOptionsBuilder
     implements Builder<SearchObjectOptions, SearchObjectOptionsBuilder> {
   _$SearchObjectOptions _$v;
 
-  List<NxCell> _attributes;
-  List<NxCell> get attributes => _$this._attributes;
-  set attributes(List<NxCell> attributes) => _$this._attributes = attributes;
+  ListBuilder<NxCell> _attributes;
+  ListBuilder<NxCell> get attributes =>
+      _$this._attributes ??= new ListBuilder<NxCell>();
+  set attributes(ListBuilder<NxCell> attributes) =>
+      _$this._attributes = attributes;
 
   String _charEncoding;
   String get charEncoding => _$this._charEncoding;
@@ -132,7 +134,7 @@ class SearchObjectOptionsBuilder
 
   SearchObjectOptionsBuilder get _$this {
     if (_$v != null) {
-      _attributes = _$v.attributes;
+      _attributes = _$v.attributes?.toBuilder();
       _charEncoding = _$v.charEncoding;
       _$v = null;
     }
@@ -152,9 +154,22 @@ class SearchObjectOptionsBuilder
 
   @override
   _$SearchObjectOptions build() {
-    final _$result = _$v ??
-        new _$SearchObjectOptions._(
-            attributes: attributes, charEncoding: charEncoding);
+    _$SearchObjectOptions _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchObjectOptions._(
+              attributes: _attributes?.build(), charEncoding: charEncoding);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'attributes';
+        _attributes?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchObjectOptions', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

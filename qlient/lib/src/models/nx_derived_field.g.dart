@@ -57,7 +57,7 @@ class _$NxDerivedFieldSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -91,10 +91,10 @@ class _$NxDerivedFieldSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -113,7 +113,7 @@ class _$NxDerivedField extends NxDerivedField {
   @override
   final String expr;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
 
   factory _$NxDerivedField([void updates(NxDerivedFieldBuilder b)]) =>
       (new NxDerivedFieldBuilder()..update(updates)).build();
@@ -180,9 +180,9 @@ class NxDerivedFieldBuilder
   String get expr => _$this._expr;
   set expr(String expr) => _$this._expr = expr;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   NxDerivedFieldBuilder();
 
@@ -192,7 +192,7 @@ class NxDerivedFieldBuilder
       _name = _$v.name;
       _method = _$v.method;
       _expr = _$v.expr;
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _$v = null;
     }
     return this;
@@ -211,9 +211,26 @@ class NxDerivedFieldBuilder
 
   @override
   _$NxDerivedField build() {
-    final _$result = _$v ??
-        new _$NxDerivedField._(
-            id: id, name: name, method: method, expr: expr, tags: tags);
+    _$NxDerivedField _$result;
+    try {
+      _$result = _$v ??
+          new _$NxDerivedField._(
+              id: id,
+              name: name,
+              method: method,
+              expr: expr,
+              tags: _tags?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'tags';
+        _tags?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxDerivedField', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

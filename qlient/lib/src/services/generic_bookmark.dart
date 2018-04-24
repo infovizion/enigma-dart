@@ -27,29 +27,29 @@ class GenericBookmark {
   /// <td>Double</td>
   /// </tr>
   /// </table>
-  getFieldValues(String qField, bool qGetExcludedValues, BookmarkFieldPage qDataPage) {}
+  BuiltList<NxCell> getFieldValues(String qField, bool qGetExcludedValues, BookmarkFieldPage qDataPage) {}
   /// Evaluates an object and displays its properties including the dynamic properties.
   /// If the member _delta_ is set to true in the request object, only the delta is evaluated.
-  getLayout() {}
+  GenericBookmarkLayout getLayout() {}
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
-  applyPatches(List<NxCell> qPatches) {}
+   applyPatches(BuiltList<NxCell> qPatches) {}
   /// Sets some properties for a bookmark.
-  setProperties(GenericBookmarkProperties qProp) {}
+   setProperties(GenericBookmarkProperties qProp) {}
   /// Shows the properties of an object.
   /// <div class=note>If the member delta is set to true in the request object, only the delta is retrieved.</div>
   /// The following is always returned in the output:
-  getProperties() {}
+  GenericBookmarkProperties getProperties() {}
   /// Returns:
   /// * The type of the object.
   /// * The identifier of the object.
-  getInfo() {}
+  NxInfo getInfo() {}
   /// Applies a bookmark.
   /// 
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  apply() {}
+  bool apply() {}
   /// Publishes a bookmark.
-  publish() {}
+   publish() {}
   /// Unpublishes a bookmark.
-  unPublish() {}
+   unPublish() {}
 }

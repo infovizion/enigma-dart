@@ -36,7 +36,7 @@ class _$SearchCombinationOptionsSerializer
         ..add('searchFields')
         ..add(serializers.serialize(object.searchFields,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.context != null) {
       result
@@ -55,7 +55,7 @@ class _$SearchCombinationOptionsSerializer
         ..add('attributes')
         ..add(serializers.serialize(object.attributes,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -74,10 +74,10 @@ class _$SearchCombinationOptionsSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'searchFields':
-          result.searchFields = serializers.deserialize(value,
+          result.searchFields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'context':
           result.context = serializers.deserialize(value,
@@ -88,10 +88,10 @@ class _$SearchCombinationOptionsSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'attributes':
-          result.attributes = serializers.deserialize(value,
+          result.attributes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -102,13 +102,13 @@ class _$SearchCombinationOptionsSerializer
 
 class _$SearchCombinationOptions extends SearchCombinationOptions {
   @override
-  final List<NxCell> searchFields;
+  final BuiltList<NxCell> searchFields;
   @override
   final String context;
   @override
   final String charEncoding;
   @override
-  final List<NxCell> attributes;
+  final BuiltList<NxCell> attributes;
 
   factory _$SearchCombinationOptions(
           [void updates(SearchCombinationOptionsBuilder b)]) =>
@@ -161,9 +161,10 @@ class SearchCombinationOptionsBuilder
         Builder<SearchCombinationOptions, SearchCombinationOptionsBuilder> {
   _$SearchCombinationOptions _$v;
 
-  List<NxCell> _searchFields;
-  List<NxCell> get searchFields => _$this._searchFields;
-  set searchFields(List<NxCell> searchFields) =>
+  ListBuilder<NxCell> _searchFields;
+  ListBuilder<NxCell> get searchFields =>
+      _$this._searchFields ??= new ListBuilder<NxCell>();
+  set searchFields(ListBuilder<NxCell> searchFields) =>
       _$this._searchFields = searchFields;
 
   String _context;
@@ -174,18 +175,20 @@ class SearchCombinationOptionsBuilder
   String get charEncoding => _$this._charEncoding;
   set charEncoding(String charEncoding) => _$this._charEncoding = charEncoding;
 
-  List<NxCell> _attributes;
-  List<NxCell> get attributes => _$this._attributes;
-  set attributes(List<NxCell> attributes) => _$this._attributes = attributes;
+  ListBuilder<NxCell> _attributes;
+  ListBuilder<NxCell> get attributes =>
+      _$this._attributes ??= new ListBuilder<NxCell>();
+  set attributes(ListBuilder<NxCell> attributes) =>
+      _$this._attributes = attributes;
 
   SearchCombinationOptionsBuilder();
 
   SearchCombinationOptionsBuilder get _$this {
     if (_$v != null) {
-      _searchFields = _$v.searchFields;
+      _searchFields = _$v.searchFields?.toBuilder();
       _context = _$v.context;
       _charEncoding = _$v.charEncoding;
-      _attributes = _$v.attributes;
+      _attributes = _$v.attributes?.toBuilder();
       _$v = null;
     }
     return this;
@@ -204,12 +207,28 @@ class SearchCombinationOptionsBuilder
 
   @override
   _$SearchCombinationOptions build() {
-    final _$result = _$v ??
-        new _$SearchCombinationOptions._(
-            searchFields: searchFields,
-            context: context,
-            charEncoding: charEncoding,
-            attributes: attributes);
+    _$SearchCombinationOptions _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchCombinationOptions._(
+              searchFields: _searchFields?.build(),
+              context: context,
+              charEncoding: charEncoding,
+              attributes: _attributes?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'searchFields';
+        _searchFields?.build();
+
+        _$failedField = 'attributes';
+        _attributes?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchCombinationOptions', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

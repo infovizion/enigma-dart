@@ -14,7 +14,7 @@ abstract class ExtensionList implements Built<ExtensionList, ExtensionListBuilde
 
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory ExtensionList([updates(ExtensionListBuilder b)]) = _$ExtensionList;
 

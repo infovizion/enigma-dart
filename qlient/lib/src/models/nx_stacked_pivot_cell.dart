@@ -90,7 +90,7 @@ abstract class NxStackedPivotCell implements Built<NxStackedPivotCell, NxStacked
   /// The array is empty _[ ]_ when there are no sub nodes.
   /// Original name: qSubNodes
   @nullable
-  List<NxCell> get subNodes;
+  BuiltList<NxCell> get subNodes;
 
   /// Attribute expressions values.
   /// Original name: qAttrExps

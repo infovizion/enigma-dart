@@ -31,7 +31,7 @@ class _$FieldListSerializer implements StructuredSerializer<FieldList> {
         ..add('items')
         ..add(serializers.serialize(object.items,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -49,10 +49,10 @@ class _$FieldListSerializer implements StructuredSerializer<FieldList> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'items':
-          result.items = serializers.deserialize(value,
+          result.items.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -63,7 +63,7 @@ class _$FieldListSerializer implements StructuredSerializer<FieldList> {
 
 class _$FieldList extends FieldList {
   @override
-  final List<NxCell> items;
+  final BuiltList<NxCell> items;
 
   factory _$FieldList([void updates(FieldListBuilder b)]) =>
       (new FieldListBuilder()..update(updates)).build();
@@ -99,15 +99,15 @@ class _$FieldList extends FieldList {
 class FieldListBuilder implements Builder<FieldList, FieldListBuilder> {
   _$FieldList _$v;
 
-  List<NxCell> _items;
-  List<NxCell> get items => _$this._items;
-  set items(List<NxCell> items) => _$this._items = items;
+  ListBuilder<NxCell> _items;
+  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
+  set items(ListBuilder<NxCell> items) => _$this._items = items;
 
   FieldListBuilder();
 
   FieldListBuilder get _$this {
     if (_$v != null) {
-      _items = _$v.items;
+      _items = _$v.items?.toBuilder();
       _$v = null;
     }
     return this;
@@ -126,7 +126,20 @@ class FieldListBuilder implements Builder<FieldList, FieldListBuilder> {
 
   @override
   _$FieldList build() {
-    final _$result = _$v ?? new _$FieldList._(items: items);
+    _$FieldList _$result;
+    try {
+      _$result = _$v ?? new _$FieldList._(items: _items?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'items';
+        _items?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'FieldList', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

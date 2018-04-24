@@ -31,7 +31,7 @@ class _$NxStackPageSerializer implements StructuredSerializer<NxStackPage> {
         ..add('data')
         ..add(serializers.serialize(object.data,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.area != null) {
       result
@@ -55,10 +55,10 @@ class _$NxStackPageSerializer implements StructuredSerializer<NxStackPage> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'data':
-          result.data = serializers.deserialize(value,
+          result.data.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'area':
           result.area.replace(serializers.deserialize(value,
@@ -73,7 +73,7 @@ class _$NxStackPageSerializer implements StructuredSerializer<NxStackPage> {
 
 class _$NxStackPage extends NxStackPage {
   @override
-  final List<NxCell> data;
+  final BuiltList<NxCell> data;
   @override
   final Rect area;
 
@@ -113,9 +113,9 @@ class _$NxStackPage extends NxStackPage {
 class NxStackPageBuilder implements Builder<NxStackPage, NxStackPageBuilder> {
   _$NxStackPage _$v;
 
-  List<NxCell> _data;
-  List<NxCell> get data => _$this._data;
-  set data(List<NxCell> data) => _$this._data = data;
+  ListBuilder<NxCell> _data;
+  ListBuilder<NxCell> get data => _$this._data ??= new ListBuilder<NxCell>();
+  set data(ListBuilder<NxCell> data) => _$this._data = data;
 
   RectBuilder _area;
   RectBuilder get area => _$this._area ??= new RectBuilder();
@@ -125,7 +125,7 @@ class NxStackPageBuilder implements Builder<NxStackPage, NxStackPageBuilder> {
 
   NxStackPageBuilder get _$this {
     if (_$v != null) {
-      _data = _$v.data;
+      _data = _$v.data?.toBuilder();
       _area = _$v.area?.toBuilder();
       _$v = null;
     }
@@ -147,10 +147,13 @@ class NxStackPageBuilder implements Builder<NxStackPage, NxStackPageBuilder> {
   _$NxStackPage build() {
     _$NxStackPage _$result;
     try {
-      _$result = _$v ?? new _$NxStackPage._(data: data, area: _area?.build());
+      _$result = _$v ??
+          new _$NxStackPage._(data: _data?.build(), area: _area?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'data';
+        _data?.build();
         _$failedField = 'area';
         _area?.build();
       } catch (e) {

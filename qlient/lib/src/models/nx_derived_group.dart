@@ -37,7 +37,7 @@ abstract class NxDerivedGroup implements Built<NxDerivedGroup, NxDerivedGroupBui
   /// List of the derived fields in the group.
   /// Original name: qFieldDefs
   @nullable
-  List<NxCell> get fieldDefs;
+  BuiltList<NxCell> get fieldDefs;
 
   factory NxDerivedGroup([updates(NxDerivedGroupBuilder b)]) = _$NxDerivedGroup;
 

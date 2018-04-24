@@ -91,14 +91,14 @@ class _$NxDimensionSerializer implements StructuredSerializer<NxDimension> {
         ..add('attributeExpressions')
         ..add(serializers.serialize(object.attributeExpressions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attributeDimensions != null) {
       result
         ..add('attributeDimensions')
         ..add(serializers.serialize(object.attributeDimensions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.calcCondition != null) {
       result
@@ -164,16 +164,16 @@ class _$NxDimensionSerializer implements StructuredSerializer<NxDimension> {
               specifiedType: const FullType(ValueExpr)) as ValueExpr);
           break;
         case 'attributeExpressions':
-          result.attributeExpressions = serializers.deserialize(value,
+          result.attributeExpressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'attributeDimensions':
-          result.attributeDimensions = serializers.deserialize(value,
+          result.attributeDimensions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'calcCondition':
           result.calcCondition.replace(serializers.deserialize(value,
@@ -208,9 +208,9 @@ class _$NxDimension extends NxDimension {
   @override
   final ValueExpr calcCond;
   @override
-  final List<NxCell> attributeExpressions;
+  final BuiltList<NxCell> attributeExpressions;
   @override
-  final List<NxCell> attributeDimensions;
+  final BuiltList<NxCell> attributeDimensions;
   @override
   final NxCalcCond calcCondition;
 
@@ -359,14 +359,16 @@ class NxDimensionBuilder implements Builder<NxDimension, NxDimensionBuilder> {
   ValueExprBuilder get calcCond => _$this._calcCond ??= new ValueExprBuilder();
   set calcCond(ValueExprBuilder calcCond) => _$this._calcCond = calcCond;
 
-  List<NxCell> _attributeExpressions;
-  List<NxCell> get attributeExpressions => _$this._attributeExpressions;
-  set attributeExpressions(List<NxCell> attributeExpressions) =>
+  ListBuilder<NxCell> _attributeExpressions;
+  ListBuilder<NxCell> get attributeExpressions =>
+      _$this._attributeExpressions ??= new ListBuilder<NxCell>();
+  set attributeExpressions(ListBuilder<NxCell> attributeExpressions) =>
       _$this._attributeExpressions = attributeExpressions;
 
-  List<NxCell> _attributeDimensions;
-  List<NxCell> get attributeDimensions => _$this._attributeDimensions;
-  set attributeDimensions(List<NxCell> attributeDimensions) =>
+  ListBuilder<NxCell> _attributeDimensions;
+  ListBuilder<NxCell> get attributeDimensions =>
+      _$this._attributeDimensions ??= new ListBuilder<NxCell>();
+  set attributeDimensions(ListBuilder<NxCell> attributeDimensions) =>
       _$this._attributeDimensions = attributeDimensions;
 
   NxCalcCondBuilder _calcCondition;
@@ -389,8 +391,8 @@ class NxDimensionBuilder implements Builder<NxDimension, NxDimensionBuilder> {
       _otherLabel = _$v.otherLabel?.toBuilder();
       _totalLabel = _$v.totalLabel?.toBuilder();
       _calcCond = _$v.calcCond?.toBuilder();
-      _attributeExpressions = _$v.attributeExpressions;
-      _attributeDimensions = _$v.attributeDimensions;
+      _attributeExpressions = _$v.attributeExpressions?.toBuilder();
+      _attributeDimensions = _$v.attributeDimensions?.toBuilder();
       _calcCondition = _$v.calcCondition?.toBuilder();
       _$v = null;
     }
@@ -424,8 +426,8 @@ class NxDimensionBuilder implements Builder<NxDimension, NxDimensionBuilder> {
               otherLabel: _otherLabel?.build(),
               totalLabel: _totalLabel?.build(),
               calcCond: _calcCond?.build(),
-              attributeExpressions: attributeExpressions,
-              attributeDimensions: attributeDimensions,
+              attributeExpressions: _attributeExpressions?.build(),
+              attributeDimensions: _attributeDimensions?.build(),
               calcCondition: _calcCondition?.build());
     } catch (_) {
       String _$failedField;
@@ -442,7 +444,10 @@ class NxDimensionBuilder implements Builder<NxDimension, NxDimensionBuilder> {
         _totalLabel?.build();
         _$failedField = 'calcCond';
         _calcCond?.build();
-
+        _$failedField = 'attributeExpressions';
+        _attributeExpressions?.build();
+        _$failedField = 'attributeDimensions';
+        _attributeDimensions?.build();
         _$failedField = 'calcCondition';
         _calcCondition?.build();
       } catch (e) {

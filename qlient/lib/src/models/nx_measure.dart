@@ -40,12 +40,12 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
   /// List of attribute expressions.
   /// Original name: qAttributeExpressions
   @nullable
-  List<NxCell> get attributeExpressions;
+  BuiltList<NxCell> get attributeExpressions;
 
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
   @nullable
-  List<NxCell> get attributeDimensions;
+  BuiltList<NxCell> get attributeDimensions;
 
   /// Specifies a calculation condition, which must be fulfilled for the measure to be calculated.
   /// If the calculation condition is not met, the measure is excluded from the calculation.

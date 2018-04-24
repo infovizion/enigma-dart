@@ -36,7 +36,7 @@ class _$NxTreeMultiRangeSelectInfoSerializer
         ..add('ranges')
         ..add(serializers.serialize(object.ranges,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -55,10 +55,10 @@ class _$NxTreeMultiRangeSelectInfoSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'ranges':
-          result.ranges = serializers.deserialize(value,
+          result.ranges.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -69,7 +69,7 @@ class _$NxTreeMultiRangeSelectInfoSerializer
 
 class _$NxTreeMultiRangeSelectInfo extends NxTreeMultiRangeSelectInfo {
   @override
-  final List<NxCell> ranges;
+  final BuiltList<NxCell> ranges;
 
   factory _$NxTreeMultiRangeSelectInfo(
           [void updates(NxTreeMultiRangeSelectInfoBuilder b)]) =>
@@ -111,15 +111,16 @@ class NxTreeMultiRangeSelectInfoBuilder
         Builder<NxTreeMultiRangeSelectInfo, NxTreeMultiRangeSelectInfoBuilder> {
   _$NxTreeMultiRangeSelectInfo _$v;
 
-  List<NxCell> _ranges;
-  List<NxCell> get ranges => _$this._ranges;
-  set ranges(List<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<NxCell> _ranges;
+  ListBuilder<NxCell> get ranges =>
+      _$this._ranges ??= new ListBuilder<NxCell>();
+  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
 
   NxTreeMultiRangeSelectInfoBuilder();
 
   NxTreeMultiRangeSelectInfoBuilder get _$this {
     if (_$v != null) {
-      _ranges = _$v.ranges;
+      _ranges = _$v.ranges?.toBuilder();
       _$v = null;
     }
     return this;
@@ -138,7 +139,21 @@ class NxTreeMultiRangeSelectInfoBuilder
 
   @override
   _$NxTreeMultiRangeSelectInfo build() {
-    final _$result = _$v ?? new _$NxTreeMultiRangeSelectInfo._(ranges: ranges);
+    _$NxTreeMultiRangeSelectInfo _$result;
+    try {
+      _$result =
+          _$v ?? new _$NxTreeMultiRangeSelectInfo._(ranges: _ranges?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'ranges';
+        _ranges?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxTreeMultiRangeSelectInfo', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

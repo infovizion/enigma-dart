@@ -32,13 +32,13 @@ abstract class BookmarkFieldItem implements Built<BookmarkFieldItem, BookmarkFie
 
   /// Original name: qValues
   @nullable
-  List<NxCell> get values;
+  BuiltList<NxCell> get values;
 
   /// List of excluded values.
   /// Either the list of selected values or the list of excluded values is displayed.
   /// Original name: qExcludedValues
   @nullable
-  List<NxCell> get excludedValues;
+  BuiltList<NxCell> get excludedValues;
 
   /// If set to true, selections within a list object are made in AND mode; If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in and-mode, all records that are associated with Customer 1 **and** Customer 2 are selected.
   /// The default value is false; selections within a list object are made in OR mode. If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in or-mode, all records that are associated with either Customer 1 **or** Customer 2 are selected.

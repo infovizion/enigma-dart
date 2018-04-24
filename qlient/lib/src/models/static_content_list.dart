@@ -15,7 +15,7 @@ abstract class StaticContentList implements Built<StaticContentList, StaticConte
   /// Information about the list of content files.
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory StaticContentList([updates(StaticContentListBuilder b)]) = _$StaticContentList;
 

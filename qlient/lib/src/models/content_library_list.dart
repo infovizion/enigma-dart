@@ -15,7 +15,7 @@ abstract class ContentLibraryList implements Built<ContentLibraryList, ContentLi
   /// Information about the content library.
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory ContentLibraryList([updates(ContentLibraryListBuilder b)]) = _$ContentLibraryList;
 

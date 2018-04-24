@@ -38,7 +38,7 @@ class _$NxAttributeExpressionValuesSerializer
         ..add('values')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -57,10 +57,10 @@ class _$NxAttributeExpressionValuesSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'values':
-          result.values = serializers.deserialize(value,
+          result.values.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -71,7 +71,7 @@ class _$NxAttributeExpressionValuesSerializer
 
 class _$NxAttributeExpressionValues extends NxAttributeExpressionValues {
   @override
-  final List<NxCell> values;
+  final BuiltList<NxCell> values;
 
   factory _$NxAttributeExpressionValues(
           [void updates(NxAttributeExpressionValuesBuilder b)]) =>
@@ -114,15 +114,16 @@ class NxAttributeExpressionValuesBuilder
             NxAttributeExpressionValuesBuilder> {
   _$NxAttributeExpressionValues _$v;
 
-  List<NxCell> _values;
-  List<NxCell> get values => _$this._values;
-  set values(List<NxCell> values) => _$this._values = values;
+  ListBuilder<NxCell> _values;
+  ListBuilder<NxCell> get values =>
+      _$this._values ??= new ListBuilder<NxCell>();
+  set values(ListBuilder<NxCell> values) => _$this._values = values;
 
   NxAttributeExpressionValuesBuilder();
 
   NxAttributeExpressionValuesBuilder get _$this {
     if (_$v != null) {
-      _values = _$v.values;
+      _values = _$v.values?.toBuilder();
       _$v = null;
     }
     return this;
@@ -141,7 +142,21 @@ class NxAttributeExpressionValuesBuilder
 
   @override
   _$NxAttributeExpressionValues build() {
-    final _$result = _$v ?? new _$NxAttributeExpressionValues._(values: values);
+    _$NxAttributeExpressionValues _$result;
+    try {
+      _$result =
+          _$v ?? new _$NxAttributeExpressionValues._(values: _values?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'values';
+        _values?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxAttributeExpressionValues', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

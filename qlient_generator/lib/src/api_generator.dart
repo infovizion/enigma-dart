@@ -35,7 +35,6 @@ class ApiGenerator {
       generateStruct(key, value);
     });
     generateModelExport();
-    return;
     schema.services.forEach((key, value) {
       generateService(key, value);
     });
@@ -113,7 +112,7 @@ class ApiGenerator {
         print('Error: $jsonType $schemaType');
         return null;
       }
-      result.dartType = 'List<${dataType.dartType}>';
+      result.dartType = 'BuiltList<${dataType.dartType}>';
       result.importDirectives.addAll(dataType.importDirectives);
       result.importDirectives
           .add("import 'package:built_collection/built_collection.dart';");
@@ -233,7 +232,16 @@ class ApiGenerator {
       var typeData = getTypeData(schemaType);
       return '${typeData?.dartType} ${schemaType.name}';
     });
-    buffer.writeln('  $dartMethodName(${params.join(', ')}) {}');
+    var returnType = '';
+    if (method.responses.isNotEmpty) {
+      var typeData = getTypeData(method.responses.first);
+      if (typeData != null) {
+        returnType = typeData.dartType;
+      } else {
+        print('Not found ${method.responses.first}');
+      }
+    }
+    buffer.writeln('  $returnType $dartMethodName(${params.join(', ')}) {}');
   }
 
   generateService(String className, Service service) {

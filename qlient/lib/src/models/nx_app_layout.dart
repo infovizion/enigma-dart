@@ -56,7 +56,7 @@ abstract class NxAppLayout implements Built<NxAppLayout, NxAppLayoutBuilder> {
   /// Array of alternate states.
   /// Original name: qStateNames
   @nullable
-  List<NxCell> get stateNames;
+  BuiltList<NxCell> get stateNames;
 
   /// Information on publishing and permissions.
   /// Original name: qMeta

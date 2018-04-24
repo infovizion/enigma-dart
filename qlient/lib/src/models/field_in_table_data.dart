@@ -22,7 +22,7 @@ abstract class FieldInTableData implements Built<FieldInTableData, FieldInTableD
   /// _qOriginalFieldName_ differs from _qName_ if embedded file names are used in the file.
   /// Original name: qOriginalFields
   @nullable
-  List<NxCell> get originalFields;
+  BuiltList<NxCell> get originalFields;
 
   /// Original name: qPresent
   @nullable
@@ -95,12 +95,12 @@ abstract class FieldInTableData implements Built<FieldInTableData, FieldInTableD
   /// List of tags related to the field.
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   /// List of the derived fields.
   /// Original name: qDerivedFields
   @nullable
-  List<NxCell> get derivedFields;
+  BuiltList<NxCell> get derivedFields;
 
   /// Original name: qIsFieldOnTheFly
   @nullable

@@ -31,7 +31,7 @@ class _$DataRecordSerializer implements StructuredSerializer<DataRecord> {
         ..add('values')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -49,10 +49,10 @@ class _$DataRecordSerializer implements StructuredSerializer<DataRecord> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'values':
-          result.values = serializers.deserialize(value,
+          result.values.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -63,7 +63,7 @@ class _$DataRecordSerializer implements StructuredSerializer<DataRecord> {
 
 class _$DataRecord extends DataRecord {
   @override
-  final List<NxCell> values;
+  final BuiltList<NxCell> values;
 
   factory _$DataRecord([void updates(DataRecordBuilder b)]) =>
       (new DataRecordBuilder()..update(updates)).build();
@@ -99,15 +99,16 @@ class _$DataRecord extends DataRecord {
 class DataRecordBuilder implements Builder<DataRecord, DataRecordBuilder> {
   _$DataRecord _$v;
 
-  List<NxCell> _values;
-  List<NxCell> get values => _$this._values;
-  set values(List<NxCell> values) => _$this._values = values;
+  ListBuilder<NxCell> _values;
+  ListBuilder<NxCell> get values =>
+      _$this._values ??= new ListBuilder<NxCell>();
+  set values(ListBuilder<NxCell> values) => _$this._values = values;
 
   DataRecordBuilder();
 
   DataRecordBuilder get _$this {
     if (_$v != null) {
-      _values = _$v.values;
+      _values = _$v.values?.toBuilder();
       _$v = null;
     }
     return this;
@@ -126,7 +127,20 @@ class DataRecordBuilder implements Builder<DataRecord, DataRecordBuilder> {
 
   @override
   _$DataRecord build() {
-    final _$result = _$v ?? new _$DataRecord._(values: values);
+    _$DataRecord _$result;
+    try {
+      _$result = _$v ?? new _$DataRecord._(values: _values?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'values';
+        _values?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'DataRecord', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

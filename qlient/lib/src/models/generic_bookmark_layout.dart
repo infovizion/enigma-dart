@@ -33,7 +33,7 @@ abstract class GenericBookmarkLayout implements Built<GenericBookmarkLayout, Gen
 
   /// Original name: qFieldInfos
   @nullable
-  List<NxCell> get fieldInfos;
+  BuiltList<NxCell> get fieldInfos;
 
   factory GenericBookmarkLayout([updates(GenericBookmarkLayoutBuilder b)]) = _$GenericBookmarkLayout;
 

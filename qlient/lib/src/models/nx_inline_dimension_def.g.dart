@@ -42,28 +42,28 @@ class _$NxInlineDimensionDefSerializer
         ..add('fieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.fieldLabels != null) {
       result
         ..add('fieldLabels')
         ..add(serializers.serialize(object.fieldLabels,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.sortCriterias != null) {
       result
         ..add('sortCriterias')
         ..add(serializers.serialize(object.sortCriterias,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.numberPresentations != null) {
       result
         ..add('numberPresentations')
         ..add(serializers.serialize(object.numberPresentations,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.reverseSort != null) {
       result
@@ -103,28 +103,28 @@ class _$NxInlineDimensionDefSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'fieldDefs':
-          result.fieldDefs = serializers.deserialize(value,
+          result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'fieldLabels':
-          result.fieldLabels = serializers.deserialize(value,
+          result.fieldLabels.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'sortCriterias':
-          result.sortCriterias = serializers.deserialize(value,
+          result.sortCriterias.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'numberPresentations':
-          result.numberPresentations = serializers.deserialize(value,
+          result.numberPresentations.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'reverseSort':
           result.reverseSort = serializers.deserialize(value,
@@ -149,13 +149,13 @@ class _$NxInlineDimensionDef extends NxInlineDimensionDef {
   @override
   final String grouping;
   @override
-  final List<NxCell> fieldDefs;
+  final BuiltList<NxCell> fieldDefs;
   @override
-  final List<NxCell> fieldLabels;
+  final BuiltList<NxCell> fieldLabels;
   @override
-  final List<NxCell> sortCriterias;
+  final BuiltList<NxCell> sortCriterias;
   @override
-  final List<NxCell> numberPresentations;
+  final BuiltList<NxCell> numberPresentations;
   @override
   final bool reverseSort;
   @override
@@ -239,23 +239,27 @@ class NxInlineDimensionDefBuilder
   String get grouping => _$this._grouping;
   set grouping(String grouping) => _$this._grouping = grouping;
 
-  List<NxCell> _fieldDefs;
-  List<NxCell> get fieldDefs => _$this._fieldDefs;
-  set fieldDefs(List<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
+  ListBuilder<NxCell> _fieldDefs;
+  ListBuilder<NxCell> get fieldDefs =>
+      _$this._fieldDefs ??= new ListBuilder<NxCell>();
+  set fieldDefs(ListBuilder<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
 
-  List<NxCell> _fieldLabels;
-  List<NxCell> get fieldLabels => _$this._fieldLabels;
-  set fieldLabels(List<NxCell> fieldLabels) =>
+  ListBuilder<NxCell> _fieldLabels;
+  ListBuilder<NxCell> get fieldLabels =>
+      _$this._fieldLabels ??= new ListBuilder<NxCell>();
+  set fieldLabels(ListBuilder<NxCell> fieldLabels) =>
       _$this._fieldLabels = fieldLabels;
 
-  List<NxCell> _sortCriterias;
-  List<NxCell> get sortCriterias => _$this._sortCriterias;
-  set sortCriterias(List<NxCell> sortCriterias) =>
+  ListBuilder<NxCell> _sortCriterias;
+  ListBuilder<NxCell> get sortCriterias =>
+      _$this._sortCriterias ??= new ListBuilder<NxCell>();
+  set sortCriterias(ListBuilder<NxCell> sortCriterias) =>
       _$this._sortCriterias = sortCriterias;
 
-  List<NxCell> _numberPresentations;
-  List<NxCell> get numberPresentations => _$this._numberPresentations;
-  set numberPresentations(List<NxCell> numberPresentations) =>
+  ListBuilder<NxCell> _numberPresentations;
+  ListBuilder<NxCell> get numberPresentations =>
+      _$this._numberPresentations ??= new ListBuilder<NxCell>();
+  set numberPresentations(ListBuilder<NxCell> numberPresentations) =>
       _$this._numberPresentations = numberPresentations;
 
   bool _reverseSort;
@@ -276,10 +280,10 @@ class NxInlineDimensionDefBuilder
   NxInlineDimensionDefBuilder get _$this {
     if (_$v != null) {
       _grouping = _$v.grouping;
-      _fieldDefs = _$v.fieldDefs;
-      _fieldLabels = _$v.fieldLabels;
-      _sortCriterias = _$v.sortCriterias;
-      _numberPresentations = _$v.numberPresentations;
+      _fieldDefs = _$v.fieldDefs?.toBuilder();
+      _fieldLabels = _$v.fieldLabels?.toBuilder();
+      _sortCriterias = _$v.sortCriterias?.toBuilder();
+      _numberPresentations = _$v.numberPresentations?.toBuilder();
       _reverseSort = _$v.reverseSort;
       _activeField = _$v.activeField;
       _labelExpression = _$v.labelExpression;
@@ -301,16 +305,35 @@ class NxInlineDimensionDefBuilder
 
   @override
   _$NxInlineDimensionDef build() {
-    final _$result = _$v ??
-        new _$NxInlineDimensionDef._(
-            grouping: grouping,
-            fieldDefs: fieldDefs,
-            fieldLabels: fieldLabels,
-            sortCriterias: sortCriterias,
-            numberPresentations: numberPresentations,
-            reverseSort: reverseSort,
-            activeField: activeField,
-            labelExpression: labelExpression);
+    _$NxInlineDimensionDef _$result;
+    try {
+      _$result = _$v ??
+          new _$NxInlineDimensionDef._(
+              grouping: grouping,
+              fieldDefs: _fieldDefs?.build(),
+              fieldLabels: _fieldLabels?.build(),
+              sortCriterias: _sortCriterias?.build(),
+              numberPresentations: _numberPresentations?.build(),
+              reverseSort: reverseSort,
+              activeField: activeField,
+              labelExpression: labelExpression);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'fieldDefs';
+        _fieldDefs?.build();
+        _$failedField = 'fieldLabels';
+        _fieldLabels?.build();
+        _$failedField = 'sortCriterias';
+        _sortCriterias?.build();
+        _$failedField = 'numberPresentations';
+        _numberPresentations?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxInlineDimensionDef', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

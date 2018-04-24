@@ -39,7 +39,7 @@ class _$AlternateStateDataSerializer
         ..add('fieldItems')
         ..add(serializers.serialize(object.fieldItems,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -61,10 +61,10 @@ class _$AlternateStateDataSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'fieldItems':
-          result.fieldItems = serializers.deserialize(value,
+          result.fieldItems.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -77,7 +77,7 @@ class _$AlternateStateData extends AlternateStateData {
   @override
   final String stateName;
   @override
-  final List<NxCell> fieldItems;
+  final BuiltList<NxCell> fieldItems;
 
   factory _$AlternateStateData([void updates(AlternateStateDataBuilder b)]) =>
       (new AlternateStateDataBuilder()..update(updates)).build();
@@ -121,16 +121,18 @@ class AlternateStateDataBuilder
   String get stateName => _$this._stateName;
   set stateName(String stateName) => _$this._stateName = stateName;
 
-  List<NxCell> _fieldItems;
-  List<NxCell> get fieldItems => _$this._fieldItems;
-  set fieldItems(List<NxCell> fieldItems) => _$this._fieldItems = fieldItems;
+  ListBuilder<NxCell> _fieldItems;
+  ListBuilder<NxCell> get fieldItems =>
+      _$this._fieldItems ??= new ListBuilder<NxCell>();
+  set fieldItems(ListBuilder<NxCell> fieldItems) =>
+      _$this._fieldItems = fieldItems;
 
   AlternateStateDataBuilder();
 
   AlternateStateDataBuilder get _$this {
     if (_$v != null) {
       _stateName = _$v.stateName;
-      _fieldItems = _$v.fieldItems;
+      _fieldItems = _$v.fieldItems?.toBuilder();
       _$v = null;
     }
     return this;
@@ -149,9 +151,22 @@ class AlternateStateDataBuilder
 
   @override
   _$AlternateStateData build() {
-    final _$result = _$v ??
-        new _$AlternateStateData._(
-            stateName: stateName, fieldItems: fieldItems);
+    _$AlternateStateData _$result;
+    try {
+      _$result = _$v ??
+          new _$AlternateStateData._(
+              stateName: stateName, fieldItems: _fieldItems?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'fieldItems';
+        _fieldItems?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'AlternateStateData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

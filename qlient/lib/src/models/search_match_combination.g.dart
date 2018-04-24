@@ -42,7 +42,7 @@ class _$SearchMatchCombinationSerializer
         ..add('fieldMatches')
         ..add(serializers.serialize(object.fieldMatches,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -65,10 +65,10 @@ class _$SearchMatchCombinationSerializer
               specifiedType: const FullType(int)) as int;
           break;
         case 'fieldMatches':
-          result.fieldMatches = serializers.deserialize(value,
+          result.fieldMatches.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -81,7 +81,7 @@ class _$SearchMatchCombination extends SearchMatchCombination {
   @override
   final int id;
   @override
-  final List<NxCell> fieldMatches;
+  final BuiltList<NxCell> fieldMatches;
 
   factory _$SearchMatchCombination(
           [void updates(SearchMatchCombinationBuilder b)]) =>
@@ -127,9 +127,10 @@ class SearchMatchCombinationBuilder
   int get id => _$this._id;
   set id(int id) => _$this._id = id;
 
-  List<NxCell> _fieldMatches;
-  List<NxCell> get fieldMatches => _$this._fieldMatches;
-  set fieldMatches(List<NxCell> fieldMatches) =>
+  ListBuilder<NxCell> _fieldMatches;
+  ListBuilder<NxCell> get fieldMatches =>
+      _$this._fieldMatches ??= new ListBuilder<NxCell>();
+  set fieldMatches(ListBuilder<NxCell> fieldMatches) =>
       _$this._fieldMatches = fieldMatches;
 
   SearchMatchCombinationBuilder();
@@ -137,7 +138,7 @@ class SearchMatchCombinationBuilder
   SearchMatchCombinationBuilder get _$this {
     if (_$v != null) {
       _id = _$v.id;
-      _fieldMatches = _$v.fieldMatches;
+      _fieldMatches = _$v.fieldMatches?.toBuilder();
       _$v = null;
     }
     return this;
@@ -156,8 +157,22 @@ class SearchMatchCombinationBuilder
 
   @override
   _$SearchMatchCombination build() {
-    final _$result = _$v ??
-        new _$SearchMatchCombination._(id: id, fieldMatches: fieldMatches);
+    _$SearchMatchCombination _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchMatchCombination._(
+              id: id, fieldMatches: _fieldMatches?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'fieldMatches';
+        _fieldMatches?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchMatchCombination', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

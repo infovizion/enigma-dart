@@ -41,7 +41,7 @@ abstract class NxDerivedField implements Built<NxDerivedField, NxDerivedFieldBui
   /// List of tags.
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   factory NxDerivedField([updates(NxDerivedFieldBuilder b)]) = _$NxDerivedField;
 

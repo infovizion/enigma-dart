@@ -40,7 +40,7 @@ abstract class NxVariableProperties implements Built<NxVariableProperties, NxVar
   /// This property is used if _qUsePredefListedValues_ is set to true.
   /// Original name: qPreDefinedList
   @nullable
-  List<NxCell> get preDefinedList;
+  BuiltList<NxCell> get preDefinedList;
 
   factory NxVariableProperties([updates(NxVariablePropertiesBuilder b)]) = _$NxVariableProperties;
 

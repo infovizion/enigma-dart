@@ -45,7 +45,7 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
   /// bool SoftLock = false;
   /// Original name: qRangeInfo
   @nullable
-  List<NxCell> get rangeInfo;
+  BuiltList<NxCell> get rangeInfo;
 
   /// Original name: qSoftLock
   @nullable
@@ -54,7 +54,7 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
   /// List of information about ranges for selections.
   /// Original name: qContinuousRangeInfo
   @nullable
-  List<NxCell> get continuousRangeInfo;
+  BuiltList<NxCell> get continuousRangeInfo;
 
   factory SelectInfo([updates(SelectInfoBuilder b)]) = _$SelectInfo;
 

@@ -32,7 +32,7 @@ abstract class NxInlineMeasureDef implements Built<NxInlineMeasureDef, NxInlineM
   /// This parameter is optional.
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   /// Default value is no grouping.
   /// This parameter is optional.
@@ -105,7 +105,7 @@ abstract class NxInlineMeasureDef implements Built<NxInlineMeasureDef, NxInlineM
   /// Array of expressions. This parameter is used in case of cyclic measures ( _qGrouping_ is C). List of the expressions in the cyclic group.
   /// Original name: qExpressions
   @nullable
-  List<NxCell> get expressions;
+  BuiltList<NxCell> get expressions;
 
   /// Label expression.
   /// This parameter is optional.

@@ -36,28 +36,28 @@ class _$SearchAssociationResultSerializer
         ..add('fieldNames')
         ..add(serializers.serialize(object.fieldNames,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.searchTerms != null) {
       result
         ..add('searchTerms')
         ..add(serializers.serialize(object.searchTerms,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.fieldDictionaries != null) {
       result
         ..add('fieldDictionaries')
         ..add(serializers.serialize(object.fieldDictionaries,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.searchTermsMatched != null) {
       result
         ..add('searchTermsMatched')
         ..add(serializers.serialize(object.searchTermsMatched,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.totalSearchResults != null) {
       result
@@ -82,28 +82,28 @@ class _$SearchAssociationResultSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'fieldNames':
-          result.fieldNames = serializers.deserialize(value,
+          result.fieldNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'searchTerms':
-          result.searchTerms = serializers.deserialize(value,
+          result.searchTerms.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'fieldDictionaries':
-          result.fieldDictionaries = serializers.deserialize(value,
+          result.fieldDictionaries.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'searchTermsMatched':
-          result.searchTermsMatched = serializers.deserialize(value,
+          result.searchTermsMatched.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'totalSearchResults':
           result.totalSearchResults = serializers.deserialize(value,
@@ -118,13 +118,13 @@ class _$SearchAssociationResultSerializer
 
 class _$SearchAssociationResult extends SearchAssociationResult {
   @override
-  final List<NxCell> fieldNames;
+  final BuiltList<NxCell> fieldNames;
   @override
-  final List<NxCell> searchTerms;
+  final BuiltList<NxCell> searchTerms;
   @override
-  final List<NxCell> fieldDictionaries;
+  final BuiltList<NxCell> fieldDictionaries;
   @override
-  final List<NxCell> searchTermsMatched;
+  final BuiltList<NxCell> searchTermsMatched;
   @override
   final int totalSearchResults;
 
@@ -187,23 +187,28 @@ class SearchAssociationResultBuilder
         Builder<SearchAssociationResult, SearchAssociationResultBuilder> {
   _$SearchAssociationResult _$v;
 
-  List<NxCell> _fieldNames;
-  List<NxCell> get fieldNames => _$this._fieldNames;
-  set fieldNames(List<NxCell> fieldNames) => _$this._fieldNames = fieldNames;
+  ListBuilder<NxCell> _fieldNames;
+  ListBuilder<NxCell> get fieldNames =>
+      _$this._fieldNames ??= new ListBuilder<NxCell>();
+  set fieldNames(ListBuilder<NxCell> fieldNames) =>
+      _$this._fieldNames = fieldNames;
 
-  List<NxCell> _searchTerms;
-  List<NxCell> get searchTerms => _$this._searchTerms;
-  set searchTerms(List<NxCell> searchTerms) =>
+  ListBuilder<NxCell> _searchTerms;
+  ListBuilder<NxCell> get searchTerms =>
+      _$this._searchTerms ??= new ListBuilder<NxCell>();
+  set searchTerms(ListBuilder<NxCell> searchTerms) =>
       _$this._searchTerms = searchTerms;
 
-  List<NxCell> _fieldDictionaries;
-  List<NxCell> get fieldDictionaries => _$this._fieldDictionaries;
-  set fieldDictionaries(List<NxCell> fieldDictionaries) =>
+  ListBuilder<NxCell> _fieldDictionaries;
+  ListBuilder<NxCell> get fieldDictionaries =>
+      _$this._fieldDictionaries ??= new ListBuilder<NxCell>();
+  set fieldDictionaries(ListBuilder<NxCell> fieldDictionaries) =>
       _$this._fieldDictionaries = fieldDictionaries;
 
-  List<NxCell> _searchTermsMatched;
-  List<NxCell> get searchTermsMatched => _$this._searchTermsMatched;
-  set searchTermsMatched(List<NxCell> searchTermsMatched) =>
+  ListBuilder<NxCell> _searchTermsMatched;
+  ListBuilder<NxCell> get searchTermsMatched =>
+      _$this._searchTermsMatched ??= new ListBuilder<NxCell>();
+  set searchTermsMatched(ListBuilder<NxCell> searchTermsMatched) =>
       _$this._searchTermsMatched = searchTermsMatched;
 
   int _totalSearchResults;
@@ -215,10 +220,10 @@ class SearchAssociationResultBuilder
 
   SearchAssociationResultBuilder get _$this {
     if (_$v != null) {
-      _fieldNames = _$v.fieldNames;
-      _searchTerms = _$v.searchTerms;
-      _fieldDictionaries = _$v.fieldDictionaries;
-      _searchTermsMatched = _$v.searchTermsMatched;
+      _fieldNames = _$v.fieldNames?.toBuilder();
+      _searchTerms = _$v.searchTerms?.toBuilder();
+      _fieldDictionaries = _$v.fieldDictionaries?.toBuilder();
+      _searchTermsMatched = _$v.searchTermsMatched?.toBuilder();
       _totalSearchResults = _$v.totalSearchResults;
       _$v = null;
     }
@@ -238,13 +243,32 @@ class SearchAssociationResultBuilder
 
   @override
   _$SearchAssociationResult build() {
-    final _$result = _$v ??
-        new _$SearchAssociationResult._(
-            fieldNames: fieldNames,
-            searchTerms: searchTerms,
-            fieldDictionaries: fieldDictionaries,
-            searchTermsMatched: searchTermsMatched,
-            totalSearchResults: totalSearchResults);
+    _$SearchAssociationResult _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchAssociationResult._(
+              fieldNames: _fieldNames?.build(),
+              searchTerms: _searchTerms?.build(),
+              fieldDictionaries: _fieldDictionaries?.build(),
+              searchTermsMatched: _searchTermsMatched?.build(),
+              totalSearchResults: totalSearchResults);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'fieldNames';
+        _fieldNames?.build();
+        _$failedField = 'searchTerms';
+        _searchTerms?.build();
+        _$failedField = 'fieldDictionaries';
+        _fieldDictionaries?.build();
+        _$failedField = 'searchTermsMatched';
+        _searchTermsMatched?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchAssociationResult', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

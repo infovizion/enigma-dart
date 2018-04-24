@@ -36,14 +36,14 @@ class _$NxMultiRangeSelectInfoSerializer
         ..add('ranges')
         ..add(serializers.serialize(object.ranges,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.columnsToSelect != null) {
       result
         ..add('columnsToSelect')
         ..add(serializers.serialize(object.columnsToSelect,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -62,16 +62,16 @@ class _$NxMultiRangeSelectInfoSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'ranges':
-          result.ranges = serializers.deserialize(value,
+          result.ranges.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'columnsToSelect':
-          result.columnsToSelect = serializers.deserialize(value,
+          result.columnsToSelect.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -82,9 +82,9 @@ class _$NxMultiRangeSelectInfoSerializer
 
 class _$NxMultiRangeSelectInfo extends NxMultiRangeSelectInfo {
   @override
-  final List<NxCell> ranges;
+  final BuiltList<NxCell> ranges;
   @override
-  final List<NxCell> columnsToSelect;
+  final BuiltList<NxCell> columnsToSelect;
 
   factory _$NxMultiRangeSelectInfo(
           [void updates(NxMultiRangeSelectInfoBuilder b)]) =>
@@ -126,21 +126,23 @@ class NxMultiRangeSelectInfoBuilder
     implements Builder<NxMultiRangeSelectInfo, NxMultiRangeSelectInfoBuilder> {
   _$NxMultiRangeSelectInfo _$v;
 
-  List<NxCell> _ranges;
-  List<NxCell> get ranges => _$this._ranges;
-  set ranges(List<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<NxCell> _ranges;
+  ListBuilder<NxCell> get ranges =>
+      _$this._ranges ??= new ListBuilder<NxCell>();
+  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
 
-  List<NxCell> _columnsToSelect;
-  List<NxCell> get columnsToSelect => _$this._columnsToSelect;
-  set columnsToSelect(List<NxCell> columnsToSelect) =>
+  ListBuilder<NxCell> _columnsToSelect;
+  ListBuilder<NxCell> get columnsToSelect =>
+      _$this._columnsToSelect ??= new ListBuilder<NxCell>();
+  set columnsToSelect(ListBuilder<NxCell> columnsToSelect) =>
       _$this._columnsToSelect = columnsToSelect;
 
   NxMultiRangeSelectInfoBuilder();
 
   NxMultiRangeSelectInfoBuilder get _$this {
     if (_$v != null) {
-      _ranges = _$v.ranges;
-      _columnsToSelect = _$v.columnsToSelect;
+      _ranges = _$v.ranges?.toBuilder();
+      _columnsToSelect = _$v.columnsToSelect?.toBuilder();
       _$v = null;
     }
     return this;
@@ -159,9 +161,25 @@ class NxMultiRangeSelectInfoBuilder
 
   @override
   _$NxMultiRangeSelectInfo build() {
-    final _$result = _$v ??
-        new _$NxMultiRangeSelectInfo._(
-            ranges: ranges, columnsToSelect: columnsToSelect);
+    _$NxMultiRangeSelectInfo _$result;
+    try {
+      _$result = _$v ??
+          new _$NxMultiRangeSelectInfo._(
+              ranges: _ranges?.build(),
+              columnsToSelect: _columnsToSelect?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'ranges';
+        _ranges?.build();
+        _$failedField = 'columnsToSelect';
+        _columnsToSelect?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxMultiRangeSelectInfo', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

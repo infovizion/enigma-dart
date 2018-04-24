@@ -26,12 +26,12 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
   /// Array of dimensions.
   /// Original name: qDimensions
   @nullable
-  List<NxCell> get dimensions;
+  BuiltList<NxCell> get dimensions;
 
   /// Array of measures.
   /// Original name: qMeasures
   @nullable
-  List<NxCell> get measures;
+  BuiltList<NxCell> get measures;
 
   /// Defines the sort order of the columns in the hypercube.
   /// Column numbers are separated by a comma.
@@ -43,7 +43,7 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
   /// Stacked pivot tables can only contain one measure.
   /// Original name: qInterColumnSortOrder
   @nullable
-  List<NxCell> get interColumnSortOrder;
+  BuiltList<NxCell> get interColumnSortOrder;
 
   /// Removes zero values.
   /// Original name: qSuppressZero
@@ -58,7 +58,7 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
   /// Initial data set.
   /// Original name: qInitialDataFetch
   @nullable
-  List<NxCell> get initialDataFetch;
+  BuiltList<NxCell> get initialDataFetch;
 
   /// 
   /// One of:
@@ -180,7 +180,7 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
   /// The order of the columns.
   /// Original name: qColumnOrder
   @nullable
-  List<NxCell> get columnOrder;
+  BuiltList<NxCell> get columnOrder;
 
   factory HyperCubeDef([updates(HyperCubeDefBuilder b)]) = _$HyperCubeDef;
 

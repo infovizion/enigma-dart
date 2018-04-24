@@ -15,7 +15,7 @@ abstract class NxAttributeExpressionValues implements Built<NxAttributeExpressio
   /// List of attribute expressions values.
   /// Original name: qValues
   @nullable
-  List<NxCell> get values;
+  BuiltList<NxCell> get values;
 
   factory NxAttributeExpressionValues([updates(NxAttributeExpressionValuesBuilder b)]) = _$NxAttributeExpressionValues;
 

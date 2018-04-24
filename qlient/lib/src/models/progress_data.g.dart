@@ -86,14 +86,14 @@ class _$ProgressDataSerializer implements StructuredSerializer<ProgressData> {
         ..add('errorData')
         ..add(serializers.serialize(object.errorData,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.persistentProgressMessages != null) {
       result
         ..add('persistentProgressMessages')
         ..add(serializers.serialize(object.persistentProgressMessages,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.transientProgressMessage != null) {
       result
@@ -153,16 +153,17 @@ class _$ProgressDataSerializer implements StructuredSerializer<ProgressData> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'errorData':
-          result.errorData = serializers.deserialize(value,
+          result.errorData.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'persistentProgressMessages':
-          result.persistentProgressMessages = serializers.deserialize(value,
+          result.persistentProgressMessages.replace(serializers.deserialize(
+                  value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'transientProgressMessage':
           result.transientProgressMessage.replace(serializers.deserialize(value,
@@ -196,9 +197,9 @@ class _$ProgressData extends ProgressData {
   @override
   final String transientProgress;
   @override
-  final List<NxCell> errorData;
+  final BuiltList<NxCell> errorData;
   @override
-  final List<NxCell> persistentProgressMessages;
+  final BuiltList<NxCell> persistentProgressMessages;
   @override
   final ProgressMessage transientProgressMessage;
 
@@ -333,14 +334,16 @@ class ProgressDataBuilder
   set transientProgress(String transientProgress) =>
       _$this._transientProgress = transientProgress;
 
-  List<NxCell> _errorData;
-  List<NxCell> get errorData => _$this._errorData;
-  set errorData(List<NxCell> errorData) => _$this._errorData = errorData;
+  ListBuilder<NxCell> _errorData;
+  ListBuilder<NxCell> get errorData =>
+      _$this._errorData ??= new ListBuilder<NxCell>();
+  set errorData(ListBuilder<NxCell> errorData) => _$this._errorData = errorData;
 
-  List<NxCell> _persistentProgressMessages;
-  List<NxCell> get persistentProgressMessages =>
-      _$this._persistentProgressMessages;
-  set persistentProgressMessages(List<NxCell> persistentProgressMessages) =>
+  ListBuilder<NxCell> _persistentProgressMessages;
+  ListBuilder<NxCell> get persistentProgressMessages =>
+      _$this._persistentProgressMessages ??= new ListBuilder<NxCell>();
+  set persistentProgressMessages(
+          ListBuilder<NxCell> persistentProgressMessages) =>
       _$this._persistentProgressMessages = persistentProgressMessages;
 
   ProgressMessageBuilder _transientProgressMessage;
@@ -363,8 +366,8 @@ class ProgressDataBuilder
       _userInteractionWanted = _$v.userInteractionWanted;
       _persistentProgress = _$v.persistentProgress;
       _transientProgress = _$v.transientProgress;
-      _errorData = _$v.errorData;
-      _persistentProgressMessages = _$v.persistentProgressMessages;
+      _errorData = _$v.errorData?.toBuilder();
+      _persistentProgressMessages = _$v.persistentProgressMessages?.toBuilder();
       _transientProgressMessage = _$v.transientProgressMessage?.toBuilder();
       _$v = null;
     }
@@ -397,12 +400,16 @@ class ProgressDataBuilder
               userInteractionWanted: userInteractionWanted,
               persistentProgress: persistentProgress,
               transientProgress: transientProgress,
-              errorData: errorData,
-              persistentProgressMessages: persistentProgressMessages,
+              errorData: _errorData?.build(),
+              persistentProgressMessages: _persistentProgressMessages?.build(),
               transientProgressMessage: _transientProgressMessage?.build());
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'errorData';
+        _errorData?.build();
+        _$failedField = 'persistentProgressMessages';
+        _persistentProgressMessages?.build();
         _$failedField = 'transientProgressMessage';
         _transientProgressMessage?.build();
       } catch (e) {

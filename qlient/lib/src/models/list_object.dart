@@ -42,13 +42,13 @@ abstract class ListObject implements Built<ListObject, ListObjectBuilder> {
   /// Lists the expressions in the list object.
   /// Original name: qExpressions
   @nullable
-  List<NxCell> get expressions;
+  BuiltList<NxCell> get expressions;
 
   /// Set of data.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _ListObjectDef_.
   /// Original name: qDataPages
   @nullable
-  List<NxCell> get dataPages;
+  BuiltList<NxCell> get dataPages;
 
   factory ListObject([updates(ListObjectBuilder b)]) = _$ListObject;
 

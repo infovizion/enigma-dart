@@ -35,7 +35,7 @@ abstract class GenericDimensionLayout implements Built<GenericDimensionLayout, G
   /// Length of the longest value in the field.
   /// Original name: qDimInfos
   @nullable
-  List<NxCell> get dimInfos;
+  BuiltList<NxCell> get dimInfos;
 
   factory GenericDimensionLayout([updates(GenericDimensionLayoutBuilder b)]) = _$GenericDimensionLayout;
 

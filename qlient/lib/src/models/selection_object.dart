@@ -26,7 +26,7 @@ abstract class SelectionObject implements Built<SelectionObject, SelectionObject
   /// Lists the fields that are selected.
   /// Original name: qSelections
   @nullable
-  List<NxCell> get selections;
+  BuiltList<NxCell> get selections;
 
   factory SelectionObject([updates(SelectionObjectBuilder b)]) = _$SelectionObject;
 

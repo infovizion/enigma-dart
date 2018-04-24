@@ -38,7 +38,7 @@ class _$NxDerivedFieldDescriptionListSerializer
         ..add('derivedFieldLists')
         ..add(serializers.serialize(object.derivedFieldLists,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -57,10 +57,10 @@ class _$NxDerivedFieldDescriptionListSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'derivedFieldLists':
-          result.derivedFieldLists = serializers.deserialize(value,
+          result.derivedFieldLists.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -71,7 +71,7 @@ class _$NxDerivedFieldDescriptionListSerializer
 
 class _$NxDerivedFieldDescriptionList extends NxDerivedFieldDescriptionList {
   @override
-  final List<NxCell> derivedFieldLists;
+  final BuiltList<NxCell> derivedFieldLists;
 
   factory _$NxDerivedFieldDescriptionList(
           [void updates(NxDerivedFieldDescriptionListBuilder b)]) =>
@@ -114,16 +114,17 @@ class NxDerivedFieldDescriptionListBuilder
             NxDerivedFieldDescriptionListBuilder> {
   _$NxDerivedFieldDescriptionList _$v;
 
-  List<NxCell> _derivedFieldLists;
-  List<NxCell> get derivedFieldLists => _$this._derivedFieldLists;
-  set derivedFieldLists(List<NxCell> derivedFieldLists) =>
+  ListBuilder<NxCell> _derivedFieldLists;
+  ListBuilder<NxCell> get derivedFieldLists =>
+      _$this._derivedFieldLists ??= new ListBuilder<NxCell>();
+  set derivedFieldLists(ListBuilder<NxCell> derivedFieldLists) =>
       _$this._derivedFieldLists = derivedFieldLists;
 
   NxDerivedFieldDescriptionListBuilder();
 
   NxDerivedFieldDescriptionListBuilder get _$this {
     if (_$v != null) {
-      _derivedFieldLists = _$v.derivedFieldLists;
+      _derivedFieldLists = _$v.derivedFieldLists?.toBuilder();
       _$v = null;
     }
     return this;
@@ -142,9 +143,22 @@ class NxDerivedFieldDescriptionListBuilder
 
   @override
   _$NxDerivedFieldDescriptionList build() {
-    final _$result = _$v ??
-        new _$NxDerivedFieldDescriptionList._(
-            derivedFieldLists: derivedFieldLists);
+    _$NxDerivedFieldDescriptionList _$result;
+    try {
+      _$result = _$v ??
+          new _$NxDerivedFieldDescriptionList._(
+              derivedFieldLists: _derivedFieldLists?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'derivedFieldLists';
+        _derivedFieldLists?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxDerivedFieldDescriptionList', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

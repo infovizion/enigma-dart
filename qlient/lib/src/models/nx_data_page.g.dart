@@ -31,14 +31,14 @@ class _$NxDataPageSerializer implements StructuredSerializer<NxDataPage> {
         ..add('matrix')
         ..add(serializers.serialize(object.matrix,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.tails != null) {
       result
         ..add('tails')
         ..add(serializers.serialize(object.tails,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.area != null) {
       result
@@ -68,16 +68,16 @@ class _$NxDataPageSerializer implements StructuredSerializer<NxDataPage> {
       final dynamic value = iterator.current;
       switch (key) {
         case 'matrix':
-          result.matrix = serializers.deserialize(value,
+          result.matrix.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'tails':
-          result.tails = serializers.deserialize(value,
+          result.tails.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'area':
           result.area.replace(serializers.deserialize(value,
@@ -96,9 +96,9 @@ class _$NxDataPageSerializer implements StructuredSerializer<NxDataPage> {
 
 class _$NxDataPage extends NxDataPage {
   @override
-  final List<NxCell> matrix;
+  final BuiltList<NxCell> matrix;
   @override
-  final List<NxCell> tails;
+  final BuiltList<NxCell> tails;
   @override
   final Rect area;
   @override
@@ -148,13 +148,14 @@ class _$NxDataPage extends NxDataPage {
 class NxDataPageBuilder implements Builder<NxDataPage, NxDataPageBuilder> {
   _$NxDataPage _$v;
 
-  List<NxCell> _matrix;
-  List<NxCell> get matrix => _$this._matrix;
-  set matrix(List<NxCell> matrix) => _$this._matrix = matrix;
+  ListBuilder<NxCell> _matrix;
+  ListBuilder<NxCell> get matrix =>
+      _$this._matrix ??= new ListBuilder<NxCell>();
+  set matrix(ListBuilder<NxCell> matrix) => _$this._matrix = matrix;
 
-  List<NxCell> _tails;
-  List<NxCell> get tails => _$this._tails;
-  set tails(List<NxCell> tails) => _$this._tails = tails;
+  ListBuilder<NxCell> _tails;
+  ListBuilder<NxCell> get tails => _$this._tails ??= new ListBuilder<NxCell>();
+  set tails(ListBuilder<NxCell> tails) => _$this._tails = tails;
 
   RectBuilder _area;
   RectBuilder get area => _$this._area ??= new RectBuilder();
@@ -168,8 +169,8 @@ class NxDataPageBuilder implements Builder<NxDataPage, NxDataPageBuilder> {
 
   NxDataPageBuilder get _$this {
     if (_$v != null) {
-      _matrix = _$v.matrix;
-      _tails = _$v.tails;
+      _matrix = _$v.matrix?.toBuilder();
+      _tails = _$v.tails?.toBuilder();
       _area = _$v.area?.toBuilder();
       _isReduced = _$v.isReduced;
       _$v = null;
@@ -194,13 +195,17 @@ class NxDataPageBuilder implements Builder<NxDataPage, NxDataPageBuilder> {
     try {
       _$result = _$v ??
           new _$NxDataPage._(
-              matrix: matrix,
-              tails: tails,
+              matrix: _matrix?.build(),
+              tails: _tails?.build(),
               area: _area?.build(),
               isReduced: isReduced);
     } catch (_) {
       String _$failedField;
       try {
+        _$failedField = 'matrix';
+        _matrix?.build();
+        _$failedField = 'tails';
+        _tails?.build();
         _$failedField = 'area';
         _area?.build();
       } catch (e) {

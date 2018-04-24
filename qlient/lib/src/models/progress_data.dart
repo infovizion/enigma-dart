@@ -61,12 +61,12 @@ abstract class ProgressData implements Built<ProgressData, ProgressDataBuilder> 
   /// Information about the error messages that occur during the script execution.
   /// Original name: qErrorData
   @nullable
-  List<NxCell> get errorData;
+  BuiltList<NxCell> get errorData;
 
   /// List of persistent progress messages.
   /// Original name: qPersistentProgressMessages
   @nullable
-  List<NxCell> get persistentProgressMessages;
+  BuiltList<NxCell> get persistentProgressMessages;
 
   /// Transient progress message.
   /// Original name: qTransientProgressMessage

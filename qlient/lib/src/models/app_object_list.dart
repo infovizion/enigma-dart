@@ -17,7 +17,7 @@ abstract class AppObjectList implements Built<AppObjectList, AppObjectListBuilde
   /// Information about the list of dimensions.
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory AppObjectList([updates(AppObjectListBuilder b)]) = _$AppObjectList;
 

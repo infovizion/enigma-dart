@@ -49,14 +49,14 @@ class _$NxMeasureSerializer implements StructuredSerializer<NxMeasure> {
         ..add('attributeExpressions')
         ..add(serializers.serialize(object.attributeExpressions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attributeDimensions != null) {
       result
         ..add('attributeDimensions')
         ..add(serializers.serialize(object.attributeDimensions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.calcCond != null) {
       result
@@ -99,16 +99,16 @@ class _$NxMeasureSerializer implements StructuredSerializer<NxMeasure> {
               specifiedType: const FullType(SortCriteria)) as SortCriteria);
           break;
         case 'attributeExpressions':
-          result.attributeExpressions = serializers.deserialize(value,
+          result.attributeExpressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'attributeDimensions':
-          result.attributeDimensions = serializers.deserialize(value,
+          result.attributeDimensions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'calcCond':
           result.calcCond.replace(serializers.deserialize(value,
@@ -133,9 +133,9 @@ class _$NxMeasure extends NxMeasure {
   @override
   final SortCriteria sortBy;
   @override
-  final List<NxCell> attributeExpressions;
+  final BuiltList<NxCell> attributeExpressions;
   @override
-  final List<NxCell> attributeDimensions;
+  final BuiltList<NxCell> attributeDimensions;
   @override
   final ValueExpr calcCond;
   @override
@@ -219,14 +219,16 @@ class NxMeasureBuilder implements Builder<NxMeasure, NxMeasureBuilder> {
       _$this._sortBy ??= new SortCriteriaBuilder();
   set sortBy(SortCriteriaBuilder sortBy) => _$this._sortBy = sortBy;
 
-  List<NxCell> _attributeExpressions;
-  List<NxCell> get attributeExpressions => _$this._attributeExpressions;
-  set attributeExpressions(List<NxCell> attributeExpressions) =>
+  ListBuilder<NxCell> _attributeExpressions;
+  ListBuilder<NxCell> get attributeExpressions =>
+      _$this._attributeExpressions ??= new ListBuilder<NxCell>();
+  set attributeExpressions(ListBuilder<NxCell> attributeExpressions) =>
       _$this._attributeExpressions = attributeExpressions;
 
-  List<NxCell> _attributeDimensions;
-  List<NxCell> get attributeDimensions => _$this._attributeDimensions;
-  set attributeDimensions(List<NxCell> attributeDimensions) =>
+  ListBuilder<NxCell> _attributeDimensions;
+  ListBuilder<NxCell> get attributeDimensions =>
+      _$this._attributeDimensions ??= new ListBuilder<NxCell>();
+  set attributeDimensions(ListBuilder<NxCell> attributeDimensions) =>
       _$this._attributeDimensions = attributeDimensions;
 
   ValueExprBuilder _calcCond;
@@ -246,8 +248,8 @@ class NxMeasureBuilder implements Builder<NxMeasure, NxMeasureBuilder> {
       _libraryId = _$v.libraryId;
       _def = _$v.def?.toBuilder();
       _sortBy = _$v.sortBy?.toBuilder();
-      _attributeExpressions = _$v.attributeExpressions;
-      _attributeDimensions = _$v.attributeDimensions;
+      _attributeExpressions = _$v.attributeExpressions?.toBuilder();
+      _attributeDimensions = _$v.attributeDimensions?.toBuilder();
       _calcCond = _$v.calcCond?.toBuilder();
       _calcCondition = _$v.calcCondition?.toBuilder();
       _$v = null;
@@ -275,8 +277,8 @@ class NxMeasureBuilder implements Builder<NxMeasure, NxMeasureBuilder> {
               libraryId: libraryId,
               def: _def?.build(),
               sortBy: _sortBy?.build(),
-              attributeExpressions: attributeExpressions,
-              attributeDimensions: attributeDimensions,
+              attributeExpressions: _attributeExpressions?.build(),
+              attributeDimensions: _attributeDimensions?.build(),
               calcCond: _calcCond?.build(),
               calcCondition: _calcCondition?.build());
     } catch (_) {
@@ -286,7 +288,10 @@ class NxMeasureBuilder implements Builder<NxMeasure, NxMeasureBuilder> {
         _def?.build();
         _$failedField = 'sortBy';
         _sortBy?.build();
-
+        _$failedField = 'attributeExpressions';
+        _attributeExpressions?.build();
+        _$failedField = 'attributeDimensions';
+        _attributeDimensions?.build();
         _$failedField = 'calcCond';
         _calcCond?.build();
         _$failedField = 'calcCondition';

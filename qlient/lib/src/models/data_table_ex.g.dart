@@ -37,7 +37,7 @@ class _$DataTableExSerializer implements StructuredSerializer<DataTableEx> {
         ..add('fields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.formatSpec != null) {
       result
@@ -65,10 +65,10 @@ class _$DataTableExSerializer implements StructuredSerializer<DataTableEx> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'fields':
-          result.fields = serializers.deserialize(value,
+          result.fields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'formatSpec':
           result.formatSpec = serializers.deserialize(value,
@@ -85,7 +85,7 @@ class _$DataTableEx extends DataTableEx {
   @override
   final String name;
   @override
-  final List<NxCell> fields;
+  final BuiltList<NxCell> fields;
   @override
   final String formatSpec;
 
@@ -133,9 +133,10 @@ class DataTableExBuilder implements Builder<DataTableEx, DataTableExBuilder> {
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  List<NxCell> _fields;
-  List<NxCell> get fields => _$this._fields;
-  set fields(List<NxCell> fields) => _$this._fields = fields;
+  ListBuilder<NxCell> _fields;
+  ListBuilder<NxCell> get fields =>
+      _$this._fields ??= new ListBuilder<NxCell>();
+  set fields(ListBuilder<NxCell> fields) => _$this._fields = fields;
 
   String _formatSpec;
   String get formatSpec => _$this._formatSpec;
@@ -146,7 +147,7 @@ class DataTableExBuilder implements Builder<DataTableEx, DataTableExBuilder> {
   DataTableExBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
-      _fields = _$v.fields;
+      _fields = _$v.fields?.toBuilder();
       _formatSpec = _$v.formatSpec;
       _$v = null;
     }
@@ -166,8 +167,22 @@ class DataTableExBuilder implements Builder<DataTableEx, DataTableExBuilder> {
 
   @override
   _$DataTableEx build() {
-    final _$result = _$v ??
-        new _$DataTableEx._(name: name, fields: fields, formatSpec: formatSpec);
+    _$DataTableEx _$result;
+    try {
+      _$result = _$v ??
+          new _$DataTableEx._(
+              name: name, fields: _fields?.build(), formatSpec: formatSpec);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'fields';
+        _fields?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'DataTableEx', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

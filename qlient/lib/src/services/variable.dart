@@ -4,15 +4,15 @@ import '../models.dart';
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the variable.
 class Variable {
   /// Returns the calculated value of a variable.
-  getContent() {}
+  AlfaNumString getContent() {}
   /// Returns the raw value of a variable.
-  getRawContent() {}
+  String getRawContent() {}
   /// Sets a value to a variable.
-  setContent(String qContent, bool qUpdateMRU) {}
+  bool setContent(String qContent, bool qUpdateMRU) {}
   /// Sets the value of a dual variable overriding any input constraints.
-  forceContent(String qs, num qd) {}
+   forceContent(String qs, num qd) {}
   /// Gets the properties of a variable.
-  getNxProperties() {}
+  NxVariableProperties getNxProperties() {}
   /// Sets some properties to a variable.
-  setNxProperties(NxVariableProperties qProperties) {}
+   setNxProperties(NxVariableProperties qProperties) {}
 }

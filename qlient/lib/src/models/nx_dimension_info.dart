@@ -52,7 +52,7 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
   /// Contains the labels of all dimensions in a hierarchy group (for example the labels of all dimensions in a drill down group).
   /// Original name: qGroupFallbackTitles
   @nullable
-  List<NxCell> get groupFallbackTitles;
+  BuiltList<NxCell> get groupFallbackTitles;
 
   /// Index of the dimension that is currently in use.
   /// _qGroupPos_ is set to 0 if there are no hierarchical groups (drill-down groups) or cycle groups.
@@ -69,7 +69,7 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
   /// Examples: key, text, ASCII
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   /// This parameter is optional.
   /// Gives information on the error.
@@ -126,7 +126,7 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
   /// Array of field names.
   /// Original name: qGroupFieldDefs
   @nullable
-  List<NxCell> get groupFieldDefs;
+  BuiltList<NxCell> get groupFieldDefs;
 
   /// Minimum value.
   /// Original name: qMin
@@ -156,12 +156,12 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
   /// Array of attribute expressions.
   /// Original name: qAttrExprInfo
   @nullable
-  List<NxCell> get attrExprInfo;
+  BuiltList<NxCell> get attrExprInfo;
 
   /// Array of attribute dimensions.
   /// Original name: qAttrDimInfo
   @nullable
-  List<NxCell> get attrDimInfo;
+  BuiltList<NxCell> get attrDimInfo;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg

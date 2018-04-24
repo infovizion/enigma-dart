@@ -37,43 +37,43 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// Information on the dimension.
   /// Original name: qDimensionInfo
   @nullable
-  List<NxCell> get dimensionInfo;
+  BuiltList<NxCell> get dimensionInfo;
 
   /// Information on the measure.
   /// Original name: qMeasureInfo
   @nullable
-  List<NxCell> get measureInfo;
+  BuiltList<NxCell> get measureInfo;
 
   /// Sort order of the columns in the hypercube.
   /// Column numbers are separated by a comma.
   /// Example: [1,0,2] means that the first column to be sorted was the column 1, followed by the column 0 and the column 2.
   /// Original name: qEffectiveInterColumnSortOrder
   @nullable
-  List<NxCell> get effectiveInterColumnSortOrder;
+  BuiltList<NxCell> get effectiveInterColumnSortOrder;
 
   /// Aggregate for measures of all values in the field.
   /// The result value depends on the _qAggrFunc_ defined in _HyperCubeDef_.
   /// Original name: qGrandTotalRow
   @nullable
-  List<NxCell> get grandTotalRow;
+  BuiltList<NxCell> get grandTotalRow;
 
   /// Set of data.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qDataPages
   @nullable
-  List<NxCell> get dataPages;
+  BuiltList<NxCell> get dataPages;
 
   /// Set of data for pivot tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qPivotDataPages
   @nullable
-  List<NxCell> get pivotDataPages;
+  BuiltList<NxCell> get pivotDataPages;
 
   /// Set of data for stacked tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qStackedDataPages
   @nullable
-  List<NxCell> get stackedDataPages;
+  BuiltList<NxCell> get stackedDataPages;
 
   /// Information about the mode of the visualization.
   /// 
@@ -142,7 +142,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// The total number of nodes on each dimension (only applicable when _qMode = T_ ).
   /// Original name: qTreeNodesOnDim
   @nullable
-  List<NxCell> get treeNodesOnDim;
+  BuiltList<NxCell> get treeNodesOnDim;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
@@ -152,7 +152,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// The order of the columns.
   /// Original name: qColumnOrder
   @nullable
-  List<NxCell> get columnOrder;
+  BuiltList<NxCell> get columnOrder;
 
   factory HyperCube([updates(HyperCubeBuilder b)]) = _$HyperCube;
 

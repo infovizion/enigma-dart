@@ -31,7 +31,7 @@ abstract class NxLibraryMeasure implements Built<NxLibraryMeasure, NxLibraryMeas
 
   /// Original name: qExpressions
   @nullable
-  List<NxCell> get expressions;
+  BuiltList<NxCell> get expressions;
 
   /// Original name: qActiveExpression
   @nullable

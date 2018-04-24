@@ -36,14 +36,14 @@ class _$SearchSuggestionResultSerializer
         ..add('suggestions')
         ..add(serializers.serialize(object.suggestions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.fieldNames != null) {
       result
         ..add('fieldNames')
         ..add(serializers.serialize(object.fieldNames,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -62,16 +62,16 @@ class _$SearchSuggestionResultSerializer
       final dynamic value = iterator.current;
       switch (key) {
         case 'suggestions':
-          result.suggestions = serializers.deserialize(value,
+          result.suggestions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'fieldNames':
-          result.fieldNames = serializers.deserialize(value,
+          result.fieldNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -82,9 +82,9 @@ class _$SearchSuggestionResultSerializer
 
 class _$SearchSuggestionResult extends SearchSuggestionResult {
   @override
-  final List<NxCell> suggestions;
+  final BuiltList<NxCell> suggestions;
   @override
-  final List<NxCell> fieldNames;
+  final BuiltList<NxCell> fieldNames;
 
   factory _$SearchSuggestionResult(
           [void updates(SearchSuggestionResultBuilder b)]) =>
@@ -126,21 +126,24 @@ class SearchSuggestionResultBuilder
     implements Builder<SearchSuggestionResult, SearchSuggestionResultBuilder> {
   _$SearchSuggestionResult _$v;
 
-  List<NxCell> _suggestions;
-  List<NxCell> get suggestions => _$this._suggestions;
-  set suggestions(List<NxCell> suggestions) =>
+  ListBuilder<NxCell> _suggestions;
+  ListBuilder<NxCell> get suggestions =>
+      _$this._suggestions ??= new ListBuilder<NxCell>();
+  set suggestions(ListBuilder<NxCell> suggestions) =>
       _$this._suggestions = suggestions;
 
-  List<NxCell> _fieldNames;
-  List<NxCell> get fieldNames => _$this._fieldNames;
-  set fieldNames(List<NxCell> fieldNames) => _$this._fieldNames = fieldNames;
+  ListBuilder<NxCell> _fieldNames;
+  ListBuilder<NxCell> get fieldNames =>
+      _$this._fieldNames ??= new ListBuilder<NxCell>();
+  set fieldNames(ListBuilder<NxCell> fieldNames) =>
+      _$this._fieldNames = fieldNames;
 
   SearchSuggestionResultBuilder();
 
   SearchSuggestionResultBuilder get _$this {
     if (_$v != null) {
-      _suggestions = _$v.suggestions;
-      _fieldNames = _$v.fieldNames;
+      _suggestions = _$v.suggestions?.toBuilder();
+      _fieldNames = _$v.fieldNames?.toBuilder();
       _$v = null;
     }
     return this;
@@ -159,9 +162,25 @@ class SearchSuggestionResultBuilder
 
   @override
   _$SearchSuggestionResult build() {
-    final _$result = _$v ??
-        new _$SearchSuggestionResult._(
-            suggestions: suggestions, fieldNames: fieldNames);
+    _$SearchSuggestionResult _$result;
+    try {
+      _$result = _$v ??
+          new _$SearchSuggestionResult._(
+              suggestions: _suggestions?.build(),
+              fieldNames: _fieldNames?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'suggestions';
+        _suggestions?.build();
+        _$failedField = 'fieldNames';
+        _fieldNames?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'SearchSuggestionResult', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

@@ -20,12 +20,12 @@ abstract class NxAxisTicks implements Built<NxAxisTicks, NxAxisTicksBuilder> {
   /// List of tags.
   /// Original name: qTags
   @nullable
-  List<NxCell> get tags;
+  BuiltList<NxCell> get tags;
 
   /// List of ticks.
   /// Original name: qTicks
   @nullable
-  List<NxCell> get ticks;
+  BuiltList<NxCell> get ticks;
 
   factory NxAxisTicks([updates(NxAxisTicksBuilder b)]) = _$NxAxisTicks;
 

@@ -42,14 +42,14 @@ class _$NxLibraryDimensionDefSerializer
         ..add('fieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.fieldLabels != null) {
       result
         ..add('fieldLabels')
         ..add(serializers.serialize(object.fieldLabels,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.labelExpression != null) {
       result
@@ -78,16 +78,16 @@ class _$NxLibraryDimensionDefSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'fieldDefs':
-          result.fieldDefs = serializers.deserialize(value,
+          result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'fieldLabels':
-          result.fieldLabels = serializers.deserialize(value,
+          result.fieldLabels.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'labelExpression':
           result.labelExpression = serializers.deserialize(value,
@@ -104,9 +104,9 @@ class _$NxLibraryDimensionDef extends NxLibraryDimensionDef {
   @override
   final String grouping;
   @override
-  final List<NxCell> fieldDefs;
+  final BuiltList<NxCell> fieldDefs;
   @override
-  final List<NxCell> fieldLabels;
+  final BuiltList<NxCell> fieldLabels;
   @override
   final String labelExpression;
 
@@ -163,13 +163,15 @@ class NxLibraryDimensionDefBuilder
   String get grouping => _$this._grouping;
   set grouping(String grouping) => _$this._grouping = grouping;
 
-  List<NxCell> _fieldDefs;
-  List<NxCell> get fieldDefs => _$this._fieldDefs;
-  set fieldDefs(List<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
+  ListBuilder<NxCell> _fieldDefs;
+  ListBuilder<NxCell> get fieldDefs =>
+      _$this._fieldDefs ??= new ListBuilder<NxCell>();
+  set fieldDefs(ListBuilder<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
 
-  List<NxCell> _fieldLabels;
-  List<NxCell> get fieldLabels => _$this._fieldLabels;
-  set fieldLabels(List<NxCell> fieldLabels) =>
+  ListBuilder<NxCell> _fieldLabels;
+  ListBuilder<NxCell> get fieldLabels =>
+      _$this._fieldLabels ??= new ListBuilder<NxCell>();
+  set fieldLabels(ListBuilder<NxCell> fieldLabels) =>
       _$this._fieldLabels = fieldLabels;
 
   String _labelExpression;
@@ -182,8 +184,8 @@ class NxLibraryDimensionDefBuilder
   NxLibraryDimensionDefBuilder get _$this {
     if (_$v != null) {
       _grouping = _$v.grouping;
-      _fieldDefs = _$v.fieldDefs;
-      _fieldLabels = _$v.fieldLabels;
+      _fieldDefs = _$v.fieldDefs?.toBuilder();
+      _fieldLabels = _$v.fieldLabels?.toBuilder();
       _labelExpression = _$v.labelExpression;
       _$v = null;
     }
@@ -203,12 +205,27 @@ class NxLibraryDimensionDefBuilder
 
   @override
   _$NxLibraryDimensionDef build() {
-    final _$result = _$v ??
-        new _$NxLibraryDimensionDef._(
-            grouping: grouping,
-            fieldDefs: fieldDefs,
-            fieldLabels: fieldLabels,
-            labelExpression: labelExpression);
+    _$NxLibraryDimensionDef _$result;
+    try {
+      _$result = _$v ??
+          new _$NxLibraryDimensionDef._(
+              grouping: grouping,
+              fieldDefs: _fieldDefs?.build(),
+              fieldLabels: _fieldLabels?.build(),
+              labelExpression: labelExpression);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'fieldDefs';
+        _fieldDefs?.build();
+        _$failedField = 'fieldLabels';
+        _fieldLabels?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'NxLibraryDimensionDef', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

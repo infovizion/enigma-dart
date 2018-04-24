@@ -68,14 +68,14 @@ class _$ListObjectDefSerializer implements StructuredSerializer<ListObjectDef> {
         ..add('initialDataFetch')
         ..add(serializers.serialize(object.initialDataFetch,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.expressions != null) {
       result
         ..add('expressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
 
     return result;
@@ -119,16 +119,16 @@ class _$ListObjectDefSerializer implements StructuredSerializer<ListObjectDef> {
               specifiedType: const FullType(bool)) as bool;
           break;
         case 'initialDataFetch':
-          result.initialDataFetch = serializers.deserialize(value,
+          result.initialDataFetch.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'expressions':
-          result.expressions = serializers.deserialize(value,
+          result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
       }
     }
@@ -151,9 +151,9 @@ class _$ListObjectDef extends ListObjectDef {
   @override
   final bool showAlternatives;
   @override
-  final List<NxCell> initialDataFetch;
+  final BuiltList<NxCell> initialDataFetch;
   @override
-  final List<NxCell> expressions;
+  final BuiltList<NxCell> expressions;
 
   factory _$ListObjectDef([void updates(ListObjectDefBuilder b)]) =>
       (new ListObjectDefBuilder()..update(updates)).build();
@@ -254,14 +254,16 @@ class ListObjectDefBuilder
   set showAlternatives(bool showAlternatives) =>
       _$this._showAlternatives = showAlternatives;
 
-  List<NxCell> _initialDataFetch;
-  List<NxCell> get initialDataFetch => _$this._initialDataFetch;
-  set initialDataFetch(List<NxCell> initialDataFetch) =>
+  ListBuilder<NxCell> _initialDataFetch;
+  ListBuilder<NxCell> get initialDataFetch =>
+      _$this._initialDataFetch ??= new ListBuilder<NxCell>();
+  set initialDataFetch(ListBuilder<NxCell> initialDataFetch) =>
       _$this._initialDataFetch = initialDataFetch;
 
-  List<NxCell> _expressions;
-  List<NxCell> get expressions => _$this._expressions;
-  set expressions(List<NxCell> expressions) =>
+  ListBuilder<NxCell> _expressions;
+  ListBuilder<NxCell> get expressions =>
+      _$this._expressions ??= new ListBuilder<NxCell>();
+  set expressions(ListBuilder<NxCell> expressions) =>
       _$this._expressions = expressions;
 
   ListObjectDefBuilder();
@@ -274,8 +276,8 @@ class ListObjectDefBuilder
       _autoSortByState = _$v.autoSortByState?.toBuilder();
       _frequencyMode = _$v.frequencyMode;
       _showAlternatives = _$v.showAlternatives;
-      _initialDataFetch = _$v.initialDataFetch;
-      _expressions = _$v.expressions;
+      _initialDataFetch = _$v.initialDataFetch?.toBuilder();
+      _expressions = _$v.expressions?.toBuilder();
       _$v = null;
     }
     return this;
@@ -304,8 +306,8 @@ class ListObjectDefBuilder
               autoSortByState: _autoSortByState?.build(),
               frequencyMode: frequencyMode,
               showAlternatives: showAlternatives,
-              initialDataFetch: initialDataFetch,
-              expressions: expressions);
+              initialDataFetch: _initialDataFetch?.build(),
+              expressions: _expressions?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -313,6 +315,11 @@ class ListObjectDefBuilder
         _def?.build();
         _$failedField = 'autoSortByState';
         _autoSortByState?.build();
+
+        _$failedField = 'initialDataFetch';
+        _initialDataFetch?.build();
+        _$failedField = 'expressions';
+        _expressions?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'ListObjectDef', _$failedField, e.toString());

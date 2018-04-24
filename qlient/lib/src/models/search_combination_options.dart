@@ -16,7 +16,7 @@ abstract class SearchCombinationOptions implements Built<SearchCombinationOption
   /// If empty, the search is performed in all fields of the app.
   /// Original name: qSearchFields
   @nullable
-  List<NxCell> get searchFields;
+  BuiltList<NxCell> get searchFields;
 
   /// Search context.
   /// The default value is _LockedFieldsOnly_ .
@@ -45,7 +45,7 @@ abstract class SearchCombinationOptions implements Built<SearchCombinationOption
   /// * For SearchResults method, this array is empty, or contains _qNum_ and/or _qElemNum_ . It allows the user to request details in the outputted _SearchGroupItemMatch_ . For more information, see _SearchGroupItemMatch_.
   /// Original name: qAttributes
   @nullable
-  List<NxCell> get attributes;
+  BuiltList<NxCell> get attributes;
 
   factory SearchCombinationOptions([updates(SearchCombinationOptionsBuilder b)]) = _$SearchCombinationOptions;
 

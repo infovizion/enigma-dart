@@ -35,14 +35,14 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
   /// This property is to be used with the _SearchResults method_ or the _SearchObjects method_.
   /// Original name: qGroupOptions
   @nullable
-  List<NxCell> get groupOptions;
+  BuiltList<NxCell> get groupOptions;
 
   /// Options of the search group items.
   /// If this property is not set, all values are returned.
   /// This property is to be used with the _SearchResults method_ or the _SearchObjects method_.
   /// Original name: qGroupItemOptions
   @nullable
-  List<NxCell> get groupItemOptions;
+  BuiltList<NxCell> get groupItemOptions;
 
   factory SearchPage([updates(SearchPageBuilder b)]) = _$SearchPage;
 

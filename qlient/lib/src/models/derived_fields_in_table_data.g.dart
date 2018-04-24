@@ -42,7 +42,7 @@ class _$DerivedFieldsInTableDataSerializer
         ..add('tags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(List, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.active != null) {
       result
@@ -71,10 +71,10 @@ class _$DerivedFieldsInTableDataSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'tags':
-          result.tags = serializers.deserialize(value,
+          result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(List, const [const FullType(NxCell)]))
-              as List<NxCell>;
+                      const FullType(BuiltList, const [const FullType(NxCell)]))
+              as BuiltList);
           break;
         case 'active':
           result.active = serializers.deserialize(value,
@@ -91,7 +91,7 @@ class _$DerivedFieldsInTableData extends DerivedFieldsInTableData {
   @override
   final String definitionName;
   @override
-  final List<NxCell> tags;
+  final BuiltList<NxCell> tags;
   @override
   final bool active;
 
@@ -146,9 +146,9 @@ class DerivedFieldsInTableDataBuilder
   set definitionName(String definitionName) =>
       _$this._definitionName = definitionName;
 
-  List<NxCell> _tags;
-  List<NxCell> get tags => _$this._tags;
-  set tags(List<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<NxCell> _tags;
+  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
+  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
 
   bool _active;
   bool get active => _$this._active;
@@ -159,7 +159,7 @@ class DerivedFieldsInTableDataBuilder
   DerivedFieldsInTableDataBuilder get _$this {
     if (_$v != null) {
       _definitionName = _$v.definitionName;
-      _tags = _$v.tags;
+      _tags = _$v.tags?.toBuilder();
       _active = _$v.active;
       _$v = null;
     }
@@ -179,9 +179,24 @@ class DerivedFieldsInTableDataBuilder
 
   @override
   _$DerivedFieldsInTableData build() {
-    final _$result = _$v ??
-        new _$DerivedFieldsInTableData._(
-            definitionName: definitionName, tags: tags, active: active);
+    _$DerivedFieldsInTableData _$result;
+    try {
+      _$result = _$v ??
+          new _$DerivedFieldsInTableData._(
+              definitionName: definitionName,
+              tags: _tags?.build(),
+              active: active);
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'tags';
+        _tags?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'DerivedFieldsInTableData', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }

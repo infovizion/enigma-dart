@@ -16,7 +16,7 @@ abstract class BookmarkList implements Built<BookmarkList, BookmarkListBuilder> 
   /// Information about the list of bookmarks.
   /// Original name: qItems
   @nullable
-  List<NxCell> get items;
+  BuiltList<NxCell> get items;
 
   factory BookmarkList([updates(BookmarkListBuilder b)]) = _$BookmarkList;
 
