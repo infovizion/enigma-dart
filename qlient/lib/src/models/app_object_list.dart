@@ -10,9 +10,9 @@ part 'app_object_list.g.dart';
 
 /// Lists the app objects. Is the layout for _AppObjectListDef_.
 /// <div class=note>An app object is a generic object created at app level.</div>
-abstract class AppObjectList implements Built<AppObjectList, AppObjectListBuilder> {
-
- static Serializer<AppObjectList> get serializer => _$appObjectListSerializer;
+abstract class AppObjectList
+    implements Built<AppObjectList, AppObjectListBuilder> {
+  static Serializer<AppObjectList> get serializer => _$appObjectListSerializer;
 
   /// Information about the list of dimensions.
   /// Original name: qItems

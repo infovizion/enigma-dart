@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 import 'field_scores.dart';
 part 'association_score.g.dart';
 
-abstract class AssociationScore implements Built<AssociationScore, AssociationScoreBuilder> {
-
- static Serializer<AssociationScore> get serializer => _$associationScoreSerializer;
+abstract class AssociationScore
+    implements Built<AssociationScore, AssociationScoreBuilder> {
+  static Serializer<AssociationScore> get serializer =>
+      _$associationScoreSerializer;
 
   /// Pair of fields.
   /// _&lt; FieldName1&gt;_ / _&lt; FieldName2&gt;_
@@ -29,7 +30,7 @@ abstract class AssociationScore implements Built<AssociationScore, AssociationSc
   /// * -4: The number of distinct values of the field _FieldName1_ is zero.
   /// * -8: The number of rows of the field _FieldName2_ is zero.
   /// * -16: The number of distinct values of the field _FieldName2_ is zero.
-  /// 
+  ///
   /// Example:
   /// The number of rows of the field _FieldName1_ is zero, and the number of distinct values of the field _FieldName2_ is zero, then _qScoreSummary_ is -18.
   /// Original name: qScoreSummary
@@ -46,9 +47,14 @@ abstract class AssociationScore implements Built<AssociationScore, AssociationSc
   @nullable
   FieldScores get field2Scores;
 
-  factory AssociationScore([updates(AssociationScoreBuilder b)]) = _$AssociationScore;
+  factory AssociationScore([updates(AssociationScoreBuilder b)]) =
+      _$AssociationScore;
 
-  factory AssociationScore.init({String fieldPairName, int scoreSummary, FieldScores field1Scores, FieldScores field2Scores}) = _$AssociationScore._;
+  factory AssociationScore.init(
+      {String fieldPairName,
+      int scoreSummary,
+      FieldScores field1Scores,
+      FieldScores field2Scores}) = _$AssociationScore._;
 
   AssociationScore._();
 }

@@ -12,9 +12,9 @@ part 'list_object_def.g.dart';
 
 /// Defines the properties of a list object.
 /// For more information about the definition of a list object, see _Generic object_.
-abstract class ListObjectDef implements Built<ListObjectDef, ListObjectDefBuilder> {
-
- static Serializer<ListObjectDef> get serializer => _$listObjectDefSerializer;
+abstract class ListObjectDef
+    implements Built<ListObjectDef, ListObjectDefBuilder> {
+  static Serializer<ListObjectDef> get serializer => _$listObjectDefSerializer;
 
   /// Name of the alternate state.
   /// Default is current selections _$_ .
@@ -40,7 +40,7 @@ abstract class ListObjectDef implements Built<ListObjectDef, ListObjectDefBuilde
   /// Defines the frequency mode. The frequency mode is used to calculate the frequency of a value in a list object.
   /// Default is _NX_FREQUENCY_NONE_ .
   /// This parameter is optional.
-  /// 
+  ///
   /// One of:
   /// * N or NX_FREQUENCY_NONE
   /// * V or NX_FREQUENCY_VALUE
@@ -72,7 +72,15 @@ abstract class ListObjectDef implements Built<ListObjectDef, ListObjectDefBuilde
 
   factory ListObjectDef([updates(ListObjectDefBuilder b)]) = _$ListObjectDef;
 
-  factory ListObjectDef.init({String stateName, String libraryId, NxInlineDimensionDef def, NxAutoSortByStateDef autoSortByState, String frequencyMode, bool showAlternatives, BuiltList<NxCell> initialDataFetch, BuiltList<NxCell> expressions}) = _$ListObjectDef._;
+  factory ListObjectDef.init(
+      {String stateName,
+      String libraryId,
+      NxInlineDimensionDef def,
+      NxAutoSortByStateDef autoSortByState,
+      String frequencyMode,
+      bool showAlternatives,
+      BuiltList<NxCell> initialDataFetch,
+      BuiltList<NxCell> expressions}) = _$ListObjectDef._;
 
   ListObjectDef._();
 }

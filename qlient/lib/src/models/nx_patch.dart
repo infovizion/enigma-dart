@@ -7,11 +7,10 @@ import 'package:built_value/built_value.dart';
 part 'nx_patch.g.dart';
 
 abstract class NxPatch implements Built<NxPatch, NxPatchBuilder> {
-
- static Serializer<NxPatch> get serializer => _$nxPatchSerializer;
+  static Serializer<NxPatch> get serializer => _$nxPatchSerializer;
 
   /// Operation to perform.
-  /// 
+  ///
   /// One of:
   /// * add or Add
   /// * remove or Remove

@@ -10,9 +10,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'bookmark_field_item.g.dart';
 
-abstract class BookmarkFieldItem implements Built<BookmarkFieldItem, BookmarkFieldItemBuilder> {
-
- static Serializer<BookmarkFieldItem> get serializer => _$bookmarkFieldItemSerializer;
+abstract class BookmarkFieldItem
+    implements Built<BookmarkFieldItem, BookmarkFieldItemBuilder> {
+  static Serializer<BookmarkFieldItem> get serializer =>
+      _$bookmarkFieldItemSerializer;
 
   /// Name and type of the field.
   /// Original name: qDef
@@ -53,9 +54,17 @@ abstract class BookmarkFieldItem implements Built<BookmarkFieldItem, BookmarkFie
   @nullable
   bool get oneAndOnlyOne;
 
-  factory BookmarkFieldItem([updates(BookmarkFieldItemBuilder b)]) = _$BookmarkFieldItem;
+  factory BookmarkFieldItem([updates(BookmarkFieldItemBuilder b)]) =
+      _$BookmarkFieldItem;
 
-  factory BookmarkFieldItem.init({FieldDefEx def, bool locked, SelectInfo selectInfo, BuiltList<NxCell> values, BuiltList<NxCell> excludedValues, bool andMode, bool oneAndOnlyOne}) = _$BookmarkFieldItem._;
+  factory BookmarkFieldItem.init(
+      {FieldDefEx def,
+      bool locked,
+      SelectInfo selectInfo,
+      BuiltList<NxCell> values,
+      BuiltList<NxCell> excludedValues,
+      bool andMode,
+      bool oneAndOnlyOne}) = _$BookmarkFieldItem._;
 
   BookmarkFieldItem._();
 }

@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_derived_field.g.dart';
 
-abstract class NxDerivedField implements Built<NxDerivedField, NxDerivedFieldBuilder> {
-
- static Serializer<NxDerivedField> get serializer => _$nxDerivedFieldSerializer;
+abstract class NxDerivedField
+    implements Built<NxDerivedField, NxDerivedFieldBuilder> {
+  static Serializer<NxDerivedField> get serializer =>
+      _$nxDerivedFieldSerializer;
 
   /// Identifier of the derived field.
   /// The identifier is unique.
@@ -45,7 +46,12 @@ abstract class NxDerivedField implements Built<NxDerivedField, NxDerivedFieldBui
 
   factory NxDerivedField([updates(NxDerivedFieldBuilder b)]) = _$NxDerivedField;
 
-  factory NxDerivedField.init({String id, String name, String method, String expr, BuiltList<NxCell> tags}) = _$NxDerivedField._;
+  factory NxDerivedField.init(
+      {String id,
+      String name,
+      String method,
+      String expr,
+      BuiltList<NxCell> tags}) = _$NxDerivedField._;
 
   NxDerivedField._();
 }

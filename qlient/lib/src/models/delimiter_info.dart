@@ -6,9 +6,9 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'delimiter_info.g.dart';
 
-abstract class DelimiterInfo implements Built<DelimiterInfo, DelimiterInfoBuilder> {
-
- static Serializer<DelimiterInfo> get serializer => _$delimiterInfoSerializer;
+abstract class DelimiterInfo
+    implements Built<DelimiterInfo, DelimiterInfoBuilder> {
+  static Serializer<DelimiterInfo> get serializer => _$delimiterInfoSerializer;
 
   /// Name of the delimiter.
   /// Example:
@@ -36,7 +36,11 @@ abstract class DelimiterInfo implements Built<DelimiterInfo, DelimiterInfoBuilde
 
   factory DelimiterInfo([updates(DelimiterInfoBuilder b)]) = _$DelimiterInfo;
 
-  factory DelimiterInfo.init({String name, String scriptCode, int number, bool isMultiple}) = _$DelimiterInfo._;
+  factory DelimiterInfo.init(
+      {String name,
+      String scriptCode,
+      int number,
+      bool isMultiple}) = _$DelimiterInfo._;
 
   DelimiterInfo._();
 }

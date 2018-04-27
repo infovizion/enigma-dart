@@ -9,9 +9,10 @@ import 'package:built_collection/built_collection.dart';
 part 'selection_object.g.dart';
 
 /// Indicates which selections are currently applied. It gives the current selections. Is the layout for _SelectionObjectDef_.
-abstract class SelectionObject implements Built<SelectionObject, SelectionObjectBuilder> {
-
- static Serializer<SelectionObject> get serializer => _$selectionObjectSerializer;
+abstract class SelectionObject
+    implements Built<SelectionObject, SelectionObjectBuilder> {
+  static Serializer<SelectionObject> get serializer =>
+      _$selectionObjectSerializer;
 
   /// Number of steps back.
   /// Original name: qBackCount
@@ -28,9 +29,13 @@ abstract class SelectionObject implements Built<SelectionObject, SelectionObject
   @nullable
   BuiltList<NxCell> get selections;
 
-  factory SelectionObject([updates(SelectionObjectBuilder b)]) = _$SelectionObject;
+  factory SelectionObject([updates(SelectionObjectBuilder b)]) =
+      _$SelectionObject;
 
-  factory SelectionObject.init({int backCount, int forwardCount, BuiltList<NxCell> selections}) = _$SelectionObject._;
+  factory SelectionObject.init(
+      {int backCount,
+      int forwardCount,
+      BuiltList<NxCell> selections}) = _$SelectionObject._;
 
   SelectionObject._();
 }

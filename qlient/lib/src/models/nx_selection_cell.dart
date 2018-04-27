@@ -6,12 +6,13 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_selection_cell.g.dart';
 
-abstract class NxSelectionCell implements Built<NxSelectionCell, NxSelectionCellBuilder> {
-
- static Serializer<NxSelectionCell> get serializer => _$nxSelectionCellSerializer;
+abstract class NxSelectionCell
+    implements Built<NxSelectionCell, NxSelectionCellBuilder> {
+  static Serializer<NxSelectionCell> get serializer =>
+      _$nxSelectionCellSerializer;
 
   /// Type of cells to select.
-  /// 
+  ///
   /// One of:
   /// * D or NX_CELL_DATA
   /// * T or NX_CELL_TOP
@@ -40,9 +41,11 @@ abstract class NxSelectionCell implements Built<NxSelectionCell, NxSelectionCell
   @nullable
   int get row;
 
-  factory NxSelectionCell([updates(NxSelectionCellBuilder b)]) = _$NxSelectionCell;
+  factory NxSelectionCell([updates(NxSelectionCellBuilder b)]) =
+      _$NxSelectionCell;
 
-  factory NxSelectionCell.init({String type, int col, int row}) = _$NxSelectionCell._;
+  factory NxSelectionCell.init({String type, int col, int row}) =
+      _$NxSelectionCell._;
 
   NxSelectionCell._();
 }

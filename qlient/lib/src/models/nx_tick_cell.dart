@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'nx_tick_cell.g.dart';
 
 abstract class NxTickCell implements Built<NxTickCell, NxTickCellBuilder> {
-
- static Serializer<NxTickCell> get serializer => _$nxTickCellSerializer;
+  static Serializer<NxTickCell> get serializer => _$nxTickCellSerializer;
 
   /// Tick's label.
   /// Original name: qText

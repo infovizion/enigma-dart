@@ -11,9 +11,9 @@ import 'package:built_collection/built_collection.dart';
 part 'nx_measure_info.g.dart';
 
 /// Layout for _NxInlineMeasureDef_.
-abstract class NxMeasureInfo implements Built<NxMeasureInfo, NxMeasureInfoBuilder> {
-
- static Serializer<NxMeasureInfo> get serializer => _$nxMeasureInfoSerializer;
+abstract class NxMeasureInfo
+    implements Built<NxMeasureInfo, NxMeasureInfoBuilder> {
+  static Serializer<NxMeasureInfo> get serializer => _$nxMeasureInfoSerializer;
 
   /// Corresponds to the label of the measure.
   /// If the label is not defined then the measure name is used.
@@ -34,7 +34,7 @@ abstract class NxMeasureInfo implements Built<NxMeasureInfo, NxMeasureInfoBuilde
   /// Sort indicator.
   /// The default value is no sorting.
   /// This parameter is optional.
-  /// 
+  ///
   /// One of:
   /// * N or NX_SORT_INDICATE_NONE
   /// * A or NX_SORT_INDICATE_ASC
@@ -92,7 +92,20 @@ abstract class NxMeasureInfo implements Built<NxMeasureInfo, NxMeasureInfoBuilde
 
   factory NxMeasureInfo([updates(NxMeasureInfoBuilder b)]) = _$NxMeasureInfo;
 
-  factory NxMeasureInfo.init({String fallbackTitle, int apprMaxGlyphCount, int cardinal, String sortIndicator, FieldAttributes numFormat, num min, num max, NxValidationError error, bool reverseSort, bool isAutoFormat, BuiltList<NxCell> attrExprInfo, BuiltList<NxCell> attrDimInfo, String calcCondMsg}) = _$NxMeasureInfo._;
+  factory NxMeasureInfo.init(
+      {String fallbackTitle,
+      int apprMaxGlyphCount,
+      int cardinal,
+      String sortIndicator,
+      FieldAttributes numFormat,
+      num min,
+      num max,
+      NxValidationError error,
+      bool reverseSort,
+      bool isAutoFormat,
+      BuiltList<NxCell> attrExprInfo,
+      BuiltList<NxCell> attrDimInfo,
+      String calcCondMsg}) = _$NxMeasureInfo._;
 
   NxMeasureInfo._();
 }

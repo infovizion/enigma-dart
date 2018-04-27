@@ -12,8 +12,7 @@ part 'nx_tree_node.g.dart';
 
 /// Represents a dimension in the tree.
 abstract class NxTreeNode implements Built<NxTreeNode, NxTreeNodeBuilder> {
-
- static Serializer<NxTreeNode> get serializer => _$nxTreeNodeSerializer;
+  static Serializer<NxTreeNode> get serializer => _$nxTreeNodeSerializer;
 
   /// The text version of the value, if available.
   /// Original name: qText
@@ -42,7 +41,7 @@ abstract class NxTreeNode implements Built<NxTreeNode, NxTreeNodeBuilder> {
   int get row;
 
   /// Type of the cell.
-  /// 
+  ///
   /// One of:
   /// * V or NX_DIM_CELL_VALUE
   /// * E or NX_DIM_CELL_EMPTY
@@ -80,7 +79,17 @@ abstract class NxTreeNode implements Built<NxTreeNode, NxTreeNodeBuilder> {
 
   factory NxTreeNode([updates(NxTreeNodeBuilder b)]) = _$NxTreeNode;
 
-  factory NxTreeNode.init({String text, int elemNo, int nodeNr, int parentNode, int row, String type, BuiltList<NxCell> values, BuiltList<NxCell> nodes, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxTreeNode._;
+  factory NxTreeNode.init(
+      {String text,
+      int elemNo,
+      int nodeNr,
+      int parentNode,
+      int row,
+      String type,
+      BuiltList<NxCell> values,
+      BuiltList<NxCell> nodes,
+      NxAttributeExpressionValues attrExps,
+      NxAttributeDimValues attrDims}) = _$NxTreeNode._;
 
   NxTreeNode._();
 }

@@ -7,9 +7,9 @@ import 'package:built_value/built_value.dart';
 part 'media_list_item.g.dart';
 
 /// <div class=note>In addition, this structure can return dynamic properties.</div>
-abstract class MediaListItem implements Built<MediaListItem, MediaListItemBuilder> {
-
- static Serializer<MediaListItem> get serializer => _$mediaListItemSerializer;
+abstract class MediaListItem
+    implements Built<MediaListItem, MediaListItemBuilder> {
+  static Serializer<MediaListItem> get serializer => _$mediaListItemSerializer;
 
   /// Relative path to the media file. The URL is static.
   /// Media files located:

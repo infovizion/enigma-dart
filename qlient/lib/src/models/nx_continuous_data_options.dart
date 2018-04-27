@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_continuous_data_options.g.dart';
 
-abstract class NxContinuousDataOptions implements Built<NxContinuousDataOptions, NxContinuousDataOptionsBuilder> {
-
- static Serializer<NxContinuousDataOptions> get serializer => _$nxContinuousDataOptionsSerializer;
+abstract class NxContinuousDataOptions
+    implements Built<NxContinuousDataOptions, NxContinuousDataOptionsBuilder> {
+  static Serializer<NxContinuousDataOptions> get serializer =>
+      _$nxContinuousDataOptionsSerializer;
 
   /// Start value.
   /// Original name: qStart
@@ -35,9 +36,15 @@ abstract class NxContinuousDataOptions implements Built<NxContinuousDataOptions,
   @nullable
   int get maxNumberLines;
 
-  factory NxContinuousDataOptions([updates(NxContinuousDataOptionsBuilder b)]) = _$NxContinuousDataOptions;
+  factory NxContinuousDataOptions([updates(NxContinuousDataOptionsBuilder b)]) =
+      _$NxContinuousDataOptions;
 
-  factory NxContinuousDataOptions.init({num start, num end, int nbrPoints, int maxNbrTicks, int maxNumberLines}) = _$NxContinuousDataOptions._;
+  factory NxContinuousDataOptions.init(
+      {num start,
+      num end,
+      int nbrPoints,
+      int maxNbrTicks,
+      int maxNumberLines}) = _$NxContinuousDataOptions._;
 
   NxContinuousDataOptions._();
 }

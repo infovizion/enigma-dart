@@ -9,8 +9,7 @@ import 'string_expr.dart';
 part 'nx_calc_cond.g.dart';
 
 abstract class NxCalcCond implements Built<NxCalcCond, NxCalcCondBuilder> {
-
- static Serializer<NxCalcCond> get serializer => _$nxCalcCondSerializer;
+  static Serializer<NxCalcCond> get serializer => _$nxCalcCondSerializer;
 
   /// Condition for calculating an hypercube, dimension or measure.
   /// Original name: qCond

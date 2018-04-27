@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_suggestion_result.g.dart';
 
-abstract class SearchSuggestionResult implements Built<SearchSuggestionResult, SearchSuggestionResultBuilder> {
-
- static Serializer<SearchSuggestionResult> get serializer => _$searchSuggestionResultSerializer;
+abstract class SearchSuggestionResult
+    implements Built<SearchSuggestionResult, SearchSuggestionResultBuilder> {
+  static Serializer<SearchSuggestionResult> get serializer =>
+      _$searchSuggestionResultSerializer;
 
   /// List of suggestions.
   /// Original name: qSuggestions
@@ -22,9 +23,12 @@ abstract class SearchSuggestionResult implements Built<SearchSuggestionResult, S
   @nullable
   BuiltList<NxCell> get fieldNames;
 
-  factory SearchSuggestionResult([updates(SearchSuggestionResultBuilder b)]) = _$SearchSuggestionResult;
+  factory SearchSuggestionResult([updates(SearchSuggestionResultBuilder b)]) =
+      _$SearchSuggestionResult;
 
-  factory SearchSuggestionResult.init({BuiltList<NxCell> suggestions, BuiltList<NxCell> fieldNames}) = _$SearchSuggestionResult._;
+  factory SearchSuggestionResult.init(
+      {BuiltList<NxCell> suggestions,
+      BuiltList<NxCell> fieldNames}) = _$SearchSuggestionResult._;
 
   SearchSuggestionResult._();
 }

@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_library_measure_def.g.dart';
 
-abstract class NxLibraryMeasureDef implements Built<NxLibraryMeasureDef, NxLibraryMeasureDefBuilder> {
-
- static Serializer<NxLibraryMeasureDef> get serializer => _$nxLibraryMeasureDefSerializer;
+abstract class NxLibraryMeasureDef
+    implements Built<NxLibraryMeasureDef, NxLibraryMeasureDefBuilder> {
+  static Serializer<NxLibraryMeasureDef> get serializer =>
+      _$nxLibraryMeasureDefSerializer;
 
   /// Label of the measure.
   /// Original name: qLabel
@@ -25,7 +26,7 @@ abstract class NxLibraryMeasureDef implements Built<NxLibraryMeasureDef, NxLibra
   /// Used to define a cyclic group or drill-down group.
   /// Default value is no grouping.
   /// This parameter is optional.
-  /// 
+  ///
   /// One of:
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
@@ -48,9 +49,16 @@ abstract class NxLibraryMeasureDef implements Built<NxLibraryMeasureDef, NxLibra
   @nullable
   String get labelExpression;
 
-  factory NxLibraryMeasureDef([updates(NxLibraryMeasureDefBuilder b)]) = _$NxLibraryMeasureDef;
+  factory NxLibraryMeasureDef([updates(NxLibraryMeasureDefBuilder b)]) =
+      _$NxLibraryMeasureDef;
 
-  factory NxLibraryMeasureDef.init({String label, String def, String grouping, BuiltList<NxCell> expressions, int activeExpression, String labelExpression}) = _$NxLibraryMeasureDef._;
+  factory NxLibraryMeasureDef.init(
+      {String label,
+      String def,
+      String grouping,
+      BuiltList<NxCell> expressions,
+      int activeExpression,
+      String labelExpression}) = _$NxLibraryMeasureDef._;
 
   NxLibraryMeasureDef._();
 }

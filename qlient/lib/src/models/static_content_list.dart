@@ -8,18 +8,21 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'static_content_list.g.dart';
 
-abstract class StaticContentList implements Built<StaticContentList, StaticContentListBuilder> {
-
- static Serializer<StaticContentList> get serializer => _$staticContentListSerializer;
+abstract class StaticContentList
+    implements Built<StaticContentList, StaticContentListBuilder> {
+  static Serializer<StaticContentList> get serializer =>
+      _$staticContentListSerializer;
 
   /// Information about the list of content files.
   /// Original name: qItems
   @nullable
   BuiltList<NxCell> get items;
 
-  factory StaticContentList([updates(StaticContentListBuilder b)]) = _$StaticContentList;
+  factory StaticContentList([updates(StaticContentListBuilder b)]) =
+      _$StaticContentList;
 
-  factory StaticContentList.init({BuiltList<NxCell> items}) = _$StaticContentList._;
+  factory StaticContentList.init({BuiltList<NxCell> items}) =
+      _$StaticContentList._;
 
   StaticContentList._();
 }

@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'b_n_f_def.g.dart';
 
 abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
-
- static Serializer<BNFDef> get serializer => _$bNFDefSerializer;
+  static Serializer<BNFDef> get serializer => _$bNFDefSerializer;
 
   /// Array of token references that all together build up the definition of the current token.
   /// Generally, if the array is not empty, the definition is a BNF rule (_qIsBnfRule_ is set to true). However, some BNF  rules do have an empty array (_qIsBnfRule_ is set to true, but _qBnf_ is empty).
@@ -86,7 +85,7 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   bool get aggrFunc;
 
   /// Group of the function.
-  /// 
+  ///
   /// One of:
   /// * ALL or FUNC_GROUP_ALL
   /// * U or FUNC_GROUP_UNKNOWN
@@ -126,7 +125,7 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   bool get fieldFlag;
 
   /// Type of the data.
-  /// 
+  ///
   /// One of:
   /// * N or NOT_META
   /// * D or META_DOC_NAME
@@ -145,7 +144,23 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
 
   factory BNFDef([updates(BNFDefBuilder b)]) = _$BNFDef;
 
-  factory BNFDef.init({BuiltList<NxCell> bnf, int nbr, int pNbr, int helpId, String name, String str, bool isBnfRule, bool scriptStatement, bool controlStatement, bool bnfLiteral, bool qvFunc, bool aggrFunc, String fG, bool fieldFlag, String mT, bool depr}) = _$BNFDef._;
+  factory BNFDef.init(
+      {BuiltList<NxCell> bnf,
+      int nbr,
+      int pNbr,
+      int helpId,
+      String name,
+      String str,
+      bool isBnfRule,
+      bool scriptStatement,
+      bool controlStatement,
+      bool bnfLiteral,
+      bool qvFunc,
+      bool aggrFunc,
+      String fG,
+      bool fieldFlag,
+      String mT,
+      bool depr}) = _$BNFDef._;
 
   BNFDef._();
 }

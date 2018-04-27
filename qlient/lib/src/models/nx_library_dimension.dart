@@ -8,12 +8,13 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_library_dimension.g.dart';
 
-abstract class NxLibraryDimension implements Built<NxLibraryDimension, NxLibraryDimensionBuilder> {
-
- static Serializer<NxLibraryDimension> get serializer => _$nxLibraryDimensionSerializer;
+abstract class NxLibraryDimension
+    implements Built<NxLibraryDimension, NxLibraryDimensionBuilder> {
+  static Serializer<NxLibraryDimension> get serializer =>
+      _$nxLibraryDimensionSerializer;
 
   /// Information about the grouping.
-  /// 
+  ///
   /// One of:
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
@@ -36,9 +37,14 @@ abstract class NxLibraryDimension implements Built<NxLibraryDimension, NxLibrary
   @nullable
   String get labelExpression;
 
-  factory NxLibraryDimension([updates(NxLibraryDimensionBuilder b)]) = _$NxLibraryDimension;
+  factory NxLibraryDimension([updates(NxLibraryDimensionBuilder b)]) =
+      _$NxLibraryDimension;
 
-  factory NxLibraryDimension.init({String grouping, BuiltList<NxCell> fieldDefs, BuiltList<NxCell> fieldLabels, String labelExpression}) = _$NxLibraryDimension._;
+  factory NxLibraryDimension.init(
+      {String grouping,
+      BuiltList<NxCell> fieldDefs,
+      BuiltList<NxCell> fieldLabels,
+      String labelExpression}) = _$NxLibraryDimension._;
 
   NxLibraryDimension._();
 }

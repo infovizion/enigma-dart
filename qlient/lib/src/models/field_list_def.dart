@@ -7,9 +7,9 @@ import 'package:built_value/built_value.dart';
 part 'field_list_def.g.dart';
 
 /// Defines the fields to show.
-abstract class FieldListDef implements Built<FieldListDef, FieldListDefBuilder> {
-
- static Serializer<FieldListDef> get serializer => _$fieldListDefSerializer;
+abstract class FieldListDef
+    implements Built<FieldListDef, FieldListDefBuilder> {
+  static Serializer<FieldListDef> get serializer => _$fieldListDefSerializer;
 
   /// Shows the system tables if set to true.
   /// Default is false.
@@ -55,7 +55,14 @@ abstract class FieldListDef implements Built<FieldListDef, FieldListDefBuilder> 
 
   factory FieldListDef([updates(FieldListDefBuilder b)]) = _$FieldListDef;
 
-  factory FieldListDef.init({bool showSystem, bool showHidden, bool showSemantic, bool showSrcTables, bool showDefinitionOnly, bool showDerivedFields, bool showImplicit}) = _$FieldListDef._;
+  factory FieldListDef.init(
+      {bool showSystem,
+      bool showHidden,
+      bool showSemantic,
+      bool showSrcTables,
+      bool showDefinitionOnly,
+      bool showDerivedFields,
+      bool showImplicit}) = _$FieldListDef._;
 
   FieldListDef._();
 }

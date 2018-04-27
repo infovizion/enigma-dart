@@ -13,7 +13,7 @@ part 'nx_app_layout.g.dart';
 
 /// ### Qlik Sense Desktop
 /// In Qlik Sense Desktop, this structure can contain dynamic properties.
-/// 
+///
 /// ### Qlik Sense Enterprise
 /// In Qlik Sense Enterprise, only a few dynamic properties at the app level are persisted.
 /// The persisted dynamic properties are the following:
@@ -24,8 +24,7 @@ part 'nx_app_layout.g.dart';
 /// * description
 /// * dynamicColor
 abstract class NxAppLayout implements Built<NxAppLayout, NxAppLayoutBuilder> {
-
- static Serializer<NxAppLayout> get serializer => _$nxAppLayoutSerializer;
+  static Serializer<NxAppLayout> get serializer => _$nxAppLayoutSerializer;
 
   /// Title of the app.
   /// Original name: qTitle
@@ -90,7 +89,19 @@ abstract class NxAppLayout implements Built<NxAppLayout, NxAppLayoutBuilder> {
 
   factory NxAppLayout([updates(NxAppLayoutBuilder b)]) = _$NxAppLayout;
 
-  factory NxAppLayout.init({String title, String fileName, String lastReloadTime, bool modified, bool hasScript, BuiltList<NxCell> stateNames, NxMeta meta, LocaleInfo localeInfo, bool hasData, bool readOnly, bool isOpenedWithoutData, StaticContentUrl thumbnail}) = _$NxAppLayout._;
+  factory NxAppLayout.init(
+      {String title,
+      String fileName,
+      String lastReloadTime,
+      bool modified,
+      bool hasScript,
+      BuiltList<NxCell> stateNames,
+      NxMeta meta,
+      LocaleInfo localeInfo,
+      bool hasData,
+      bool readOnly,
+      bool isOpenedWithoutData,
+      StaticContentUrl thumbnail}) = _$NxAppLayout._;
 
   NxAppLayout._();
 }

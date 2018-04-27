@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 import 'nx_info.dart';
 part 'nx_linked_object_info.g.dart';
 
-abstract class NxLinkedObjectInfo implements Built<NxLinkedObjectInfo, NxLinkedObjectInfoBuilder> {
-
- static Serializer<NxLinkedObjectInfo> get serializer => _$nxLinkedObjectInfoSerializer;
+abstract class NxLinkedObjectInfo
+    implements Built<NxLinkedObjectInfo, NxLinkedObjectInfoBuilder> {
+  static Serializer<NxLinkedObjectInfo> get serializer =>
+      _$nxLinkedObjectInfoSerializer;
 
   /// Identifier of the root object.
   /// If the linked object is a child, the root identifier is the identifier of the parent.
@@ -23,9 +24,11 @@ abstract class NxLinkedObjectInfo implements Built<NxLinkedObjectInfo, NxLinkedO
   @nullable
   NxInfo get info;
 
-  factory NxLinkedObjectInfo([updates(NxLinkedObjectInfoBuilder b)]) = _$NxLinkedObjectInfo;
+  factory NxLinkedObjectInfo([updates(NxLinkedObjectInfoBuilder b)]) =
+      _$NxLinkedObjectInfo;
 
-  factory NxLinkedObjectInfo.init({String rootId, NxInfo info}) = _$NxLinkedObjectInfo._;
+  factory NxLinkedObjectInfo.init({String rootId, NxInfo info}) =
+      _$NxLinkedObjectInfo._;
 
   NxLinkedObjectInfo._();
 }

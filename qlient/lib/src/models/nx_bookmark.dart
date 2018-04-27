@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'nx_bookmark.g.dart';
 
 abstract class NxBookmark implements Built<NxBookmark, NxBookmarkBuilder> {
-
- static Serializer<NxBookmark> get serializer => _$nxBookmarkSerializer;
+  static Serializer<NxBookmark> get serializer => _$nxBookmarkSerializer;
 
   /// List of selections for each state.
   /// Original name: qStateData
@@ -29,7 +28,10 @@ abstract class NxBookmark implements Built<NxBookmark, NxBookmarkBuilder> {
 
   factory NxBookmark([updates(NxBookmarkBuilder b)]) = _$NxBookmark;
 
-  factory NxBookmark.init({BuiltList<NxCell> stateData, num utcModifyTime, BuiltList<NxCell> variableItems}) = _$NxBookmark._;
+  factory NxBookmark.init(
+      {BuiltList<NxCell> stateData,
+      num utcModifyTime,
+      BuiltList<NxCell> variableItems}) = _$NxBookmark._;
 
   NxBookmark._();
 }

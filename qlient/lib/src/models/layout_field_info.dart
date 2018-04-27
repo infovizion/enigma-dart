@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'layout_field_info.g.dart';
 
-abstract class LayoutFieldInfo implements Built<LayoutFieldInfo, LayoutFieldInfoBuilder> {
-
- static Serializer<LayoutFieldInfo> get serializer => _$layoutFieldInfoSerializer;
+abstract class LayoutFieldInfo
+    implements Built<LayoutFieldInfo, LayoutFieldInfoBuilder> {
+  static Serializer<LayoutFieldInfo> get serializer =>
+      _$layoutFieldInfoSerializer;
 
   /// Original name: qFieldName
   @nullable
@@ -22,9 +23,13 @@ abstract class LayoutFieldInfo implements Built<LayoutFieldInfo, LayoutFieldInfo
   @nullable
   int get excludedValuesCount;
 
-  factory LayoutFieldInfo([updates(LayoutFieldInfoBuilder b)]) = _$LayoutFieldInfo;
+  factory LayoutFieldInfo([updates(LayoutFieldInfoBuilder b)]) =
+      _$LayoutFieldInfo;
 
-  factory LayoutFieldInfo.init({String fieldName, int valuesCount, int excludedValuesCount}) = _$LayoutFieldInfo._;
+  factory LayoutFieldInfo.init(
+      {String fieldName,
+      int valuesCount,
+      int excludedValuesCount}) = _$LayoutFieldInfo._;
 
   LayoutFieldInfo._();
 }

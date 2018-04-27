@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'string_expr.g.dart';
 
 abstract class StringExpr implements Built<StringExpr, StringExprBuilder> {
-
- static Serializer<StringExpr> get serializer => _$stringExprSerializer;
+  static Serializer<StringExpr> get serializer => _$stringExprSerializer;
 
   /// Original name: qv
   @nullable

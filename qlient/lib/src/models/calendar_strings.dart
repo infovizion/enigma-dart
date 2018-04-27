@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'calendar_strings.g.dart';
 
-abstract class CalendarStrings implements Built<CalendarStrings, CalendarStringsBuilder> {
-
- static Serializer<CalendarStrings> get serializer => _$calendarStringsSerializer;
+abstract class CalendarStrings
+    implements Built<CalendarStrings, CalendarStringsBuilder> {
+  static Serializer<CalendarStrings> get serializer =>
+      _$calendarStringsSerializer;
 
   /// List of short day names.
   /// Original name: qDayNames
@@ -32,9 +33,14 @@ abstract class CalendarStrings implements Built<CalendarStrings, CalendarStrings
   @nullable
   BuiltList<NxCell> get longMonthNames;
 
-  factory CalendarStrings([updates(CalendarStringsBuilder b)]) = _$CalendarStrings;
+  factory CalendarStrings([updates(CalendarStringsBuilder b)]) =
+      _$CalendarStrings;
 
-  factory CalendarStrings.init({BuiltList<NxCell> dayNames, BuiltList<NxCell> monthNames, BuiltList<NxCell> longDayNames, BuiltList<NxCell> longMonthNames}) = _$CalendarStrings._;
+  factory CalendarStrings.init(
+      {BuiltList<NxCell> dayNames,
+      BuiltList<NxCell> monthNames,
+      BuiltList<NxCell> longDayNames,
+      BuiltList<NxCell> longMonthNames}) = _$CalendarStrings._;
 
   CalendarStrings._();
 }

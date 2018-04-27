@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'char_range.g.dart';
 
 abstract class CharRange implements Built<CharRange, CharRangeBuilder> {
-
- static Serializer<CharRange> get serializer => _$charRangeSerializer;
+  static Serializer<CharRange> get serializer => _$charRangeSerializer;
 
   /// Position of the first search occurrence.
   /// Original name: qCharPos

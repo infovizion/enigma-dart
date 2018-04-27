@@ -10,8 +10,7 @@ import 'rect.dart';
 part 'nx_stack_page.g.dart';
 
 abstract class NxStackPage implements Built<NxStackPage, NxStackPageBuilder> {
-
- static Serializer<NxStackPage> get serializer => _$nxStackPageSerializer;
+  static Serializer<NxStackPage> get serializer => _$nxStackPageSerializer;
 
   /// Array of data.
   /// Original name: qData
@@ -25,7 +24,8 @@ abstract class NxStackPage implements Built<NxStackPage, NxStackPageBuilder> {
 
   factory NxStackPage([updates(NxStackPageBuilder b)]) = _$NxStackPage;
 
-  factory NxStackPage.init({BuiltList<NxCell> data, Rect area}) = _$NxStackPage._;
+  factory NxStackPage.init({BuiltList<NxCell> data, Rect area}) =
+      _$NxStackPage._;
 
   NxStackPage._();
 }

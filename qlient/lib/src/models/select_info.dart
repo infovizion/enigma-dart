@@ -10,8 +10,7 @@ import 'package:built_collection/built_collection.dart';
 part 'select_info.g.dart';
 
 abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
-
- static Serializer<SelectInfo> get serializer => _$selectInfoSerializer;
+  static Serializer<SelectInfo> get serializer => _$selectInfoSerializer;
 
   /// Text search string.
   /// Everything that matches the text is selected.
@@ -58,7 +57,14 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
 
   factory SelectInfo([updates(SelectInfoBuilder b)]) = _$SelectInfo;
 
-  factory SelectInfo.init({String textSearch, num rangeLo, num rangeHi, FieldAttributes numberFormat, BuiltList<NxCell> rangeInfo, bool softLock, BuiltList<NxCell> continuousRangeInfo}) = _$SelectInfo._;
+  factory SelectInfo.init(
+      {String textSearch,
+      num rangeLo,
+      num rangeHi,
+      FieldAttributes numberFormat,
+      BuiltList<NxCell> rangeInfo,
+      bool softLock,
+      BuiltList<NxCell> continuousRangeInfo}) = _$SelectInfo._;
 
   SelectInfo._();
 }

@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_simple_dim_value.g.dart';
 
-abstract class NxSimpleDimValue implements Built<NxSimpleDimValue, NxSimpleDimValueBuilder> {
-
- static Serializer<NxSimpleDimValue> get serializer => _$nxSimpleDimValueSerializer;
+abstract class NxSimpleDimValue
+    implements Built<NxSimpleDimValue, NxSimpleDimValueBuilder> {
+  static Serializer<NxSimpleDimValue> get serializer =>
+      _$nxSimpleDimValueSerializer;
 
   /// Text related to the attribute expression value.
   /// This property is optional. No text is returned if the attribute expression value is a numeric.
@@ -21,9 +22,11 @@ abstract class NxSimpleDimValue implements Built<NxSimpleDimValue, NxSimpleDimVa
   @nullable
   int get elemNo;
 
-  factory NxSimpleDimValue([updates(NxSimpleDimValueBuilder b)]) = _$NxSimpleDimValue;
+  factory NxSimpleDimValue([updates(NxSimpleDimValueBuilder b)]) =
+      _$NxSimpleDimValue;
 
-  factory NxSimpleDimValue.init({String text, int elemNo}) = _$NxSimpleDimValue._;
+  factory NxSimpleDimValue.init({String text, int elemNo}) =
+      _$NxSimpleDimValue._;
 
   NxSimpleDimValue._();
 }

@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'lineage_info.g.dart';
 
 abstract class LineageInfo implements Built<LineageInfo, LineageInfoBuilder> {
-
- static Serializer<LineageInfo> get serializer => _$lineageInfoSerializer;
+  static Serializer<LineageInfo> get serializer => _$lineageInfoSerializer;
 
   /// A string indicating the origin of the data:
   /// * [filename]: the data comes from a local file.
@@ -30,7 +29,8 @@ abstract class LineageInfo implements Built<LineageInfo, LineageInfoBuilder> {
 
   factory LineageInfo([updates(LineageInfoBuilder b)]) = _$LineageInfo;
 
-  factory LineageInfo.init({String discriminator, String statement}) = _$LineageInfo._;
+  factory LineageInfo.init({String discriminator, String statement}) =
+      _$LineageInfo._;
 
   LineageInfo._();
 }

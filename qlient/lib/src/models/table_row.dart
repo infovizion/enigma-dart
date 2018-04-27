@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'table_row.g.dart';
 
 abstract class TableRow implements Built<TableRow, TableRowBuilder> {
-
- static Serializer<TableRow> get serializer => _$tableRowSerializer;
+  static Serializer<TableRow> get serializer => _$tableRowSerializer;
 
   /// Array of field values.
   /// Original name: qValue

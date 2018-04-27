@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'nx_page.g.dart';
 
 abstract class NxPage implements Built<NxPage, NxPageBuilder> {
-
- static Serializer<NxPage> get serializer => _$nxPageSerializer;
+  static Serializer<NxPage> get serializer => _$nxPageSerializer;
 
   /// Position from the left.
   /// Corresponds to the first column.

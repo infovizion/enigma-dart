@@ -13,9 +13,9 @@ part 'hyper_cube_def.g.dart';
 
 /// Defines the properties of a hypercube.
 /// For more information about the definition of a hypercube, see _Generic object_.
-abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> {
-
- static Serializer<HyperCubeDef> get serializer => _$hyperCubeDefSerializer;
+abstract class HyperCubeDef
+    implements Built<HyperCubeDef, HyperCubeDefBuilder> {
+  static Serializer<HyperCubeDef> get serializer => _$hyperCubeDefSerializer;
 
   /// Name of the alternate state.
   /// Default is current selections _$_ .
@@ -60,7 +60,7 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
   @nullable
   BuiltList<NxCell> get initialDataFetch;
 
-  /// 
+  ///
   /// One of:
   /// * N or DATA_REDUCTION_NONE
   /// * D1 or DATA_REDUCTION_ONEDIM
@@ -74,7 +74,7 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
   /// Defines the way the data are handled internally by the engine.
   /// Default value is _DATA_MODE_STRAIGHT_ .
   /// A pivot table can contain several dimensions and measures whereas a stacked pivot table can contain several dimensions but only one measure.
-  /// 
+  ///
   /// One of:
   /// * S or DATA_MODE_STRAIGHT
   /// * P or DATA_MODE_PIVOT
@@ -97,19 +97,19 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
   /// * One pseudo dimension in position 1 (the position is defined in _qInterColumnSortOrder_ )
   /// _qInterColumnSortOrder_ is (0,-1,1,2,3).
   /// * Three left dimensions ( _qNoOfLeftDims_ is set to 3).
-  /// 
+  ///
   /// implies that:
   /// * The index 0 corresponds to the left dimension Country.
   /// * The index 1 corresponds to the pseudo dimension.
   /// * The index 2 corresponds to the left dimension City.
   /// * Product and Category are top dimensions.
-  /// 
+  ///
   /// Another example:
   /// * Four dimensions in the following order: Country, City, Product and Category.
   /// * Three left dimensions ( _qNoOfLeftDims_ is set to 3).
   /// * One pseudo dimension.
   /// * The property _qInterColumnSortOrder_ is left empty.
-  /// 
+  ///
   /// Implies that:
   /// * The index 0 corresponds to the left dimension Country.
   /// * The index 1 corresponds to the left dimension City.
@@ -184,7 +184,28 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
 
   factory HyperCubeDef([updates(HyperCubeDefBuilder b)]) = _$HyperCubeDef;
 
-  factory HyperCubeDef.init({String stateName, BuiltList<NxCell> dimensions, BuiltList<NxCell> measures, BuiltList<NxCell> interColumnSortOrder, bool suppressZero, bool suppressMissing, BuiltList<NxCell> initialDataFetch, String reductionMode, String mode, int pseudoDimPos, int noOfLeftDims, bool alwaysFullyExpanded, int maxStackedCells, bool populateMissing, bool showTotalsAbove, bool indentMode, ValueExpr calcCond, int sortbyYValue, StringExpr title, NxCalcCond calcCondition, BuiltList<NxCell> columnOrder}) = _$HyperCubeDef._;
+  factory HyperCubeDef.init(
+      {String stateName,
+      BuiltList<NxCell> dimensions,
+      BuiltList<NxCell> measures,
+      BuiltList<NxCell> interColumnSortOrder,
+      bool suppressZero,
+      bool suppressMissing,
+      BuiltList<NxCell> initialDataFetch,
+      String reductionMode,
+      String mode,
+      int pseudoDimPos,
+      int noOfLeftDims,
+      bool alwaysFullyExpanded,
+      int maxStackedCells,
+      bool populateMissing,
+      bool showTotalsAbove,
+      bool indentMode,
+      ValueExpr calcCond,
+      int sortbyYValue,
+      StringExpr title,
+      NxCalcCond calcCondition,
+      BuiltList<NxCell> columnOrder}) = _$HyperCubeDef._;
 
   HyperCubeDef._();
 }

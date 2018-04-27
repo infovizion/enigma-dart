@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_field_properties.g.dart';
 
-abstract class NxFieldProperties implements Built<NxFieldProperties, NxFieldPropertiesBuilder> {
-
- static Serializer<NxFieldProperties> get serializer => _$nxFieldPropertiesSerializer;
+abstract class NxFieldProperties
+    implements Built<NxFieldProperties, NxFieldPropertiesBuilder> {
+  static Serializer<NxFieldProperties> get serializer =>
+      _$nxFieldPropertiesSerializer;
 
   /// This parameter is set to true, if the field has one and only one selection (not 0 and not more than 1).
   /// If this property is set to true, the field cannot be cleared anymore and no more selections can be performed in that field.
@@ -17,7 +18,8 @@ abstract class NxFieldProperties implements Built<NxFieldProperties, NxFieldProp
   @nullable
   bool get oneAndOnlyOne;
 
-  factory NxFieldProperties([updates(NxFieldPropertiesBuilder b)]) = _$NxFieldProperties;
+  factory NxFieldProperties([updates(NxFieldPropertiesBuilder b)]) =
+      _$NxFieldProperties;
 
   factory NxFieldProperties.init({bool oneAndOnlyOne}) = _$NxFieldProperties._;
 

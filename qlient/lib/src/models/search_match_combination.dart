@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_match_combination.g.dart';
 
-abstract class SearchMatchCombination implements Built<SearchMatchCombination, SearchMatchCombinationBuilder> {
-
- static Serializer<SearchMatchCombination> get serializer => _$searchMatchCombinationSerializer;
+abstract class SearchMatchCombination
+    implements Built<SearchMatchCombination, SearchMatchCombinationBuilder> {
+  static Serializer<SearchMatchCombination> get serializer =>
+      _$searchMatchCombinationSerializer;
 
   /// Index of the search result, starting from 0.
   /// Original name: qId
@@ -22,9 +23,11 @@ abstract class SearchMatchCombination implements Built<SearchMatchCombination, S
   @nullable
   BuiltList<NxCell> get fieldMatches;
 
-  factory SearchMatchCombination([updates(SearchMatchCombinationBuilder b)]) = _$SearchMatchCombination;
+  factory SearchMatchCombination([updates(SearchMatchCombinationBuilder b)]) =
+      _$SearchMatchCombination;
 
-  factory SearchMatchCombination.init({int id, BuiltList<NxCell> fieldMatches}) = _$SearchMatchCombination._;
+  factory SearchMatchCombination.init(
+      {int id, BuiltList<NxCell> fieldMatches}) = _$SearchMatchCombination._;
 
   SearchMatchCombination._();
 }

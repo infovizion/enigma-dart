@@ -8,18 +8,25 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_derived_field_description_list.g.dart';
 
-abstract class NxDerivedFieldDescriptionList implements Built<NxDerivedFieldDescriptionList, NxDerivedFieldDescriptionListBuilder> {
-
- static Serializer<NxDerivedFieldDescriptionList> get serializer => _$nxDerivedFieldDescriptionListSerializer;
+abstract class NxDerivedFieldDescriptionList
+    implements
+        Built<NxDerivedFieldDescriptionList,
+            NxDerivedFieldDescriptionListBuilder> {
+  static Serializer<NxDerivedFieldDescriptionList> get serializer =>
+      _$nxDerivedFieldDescriptionListSerializer;
 
   /// Information about the derived fields.
   /// Original name: qDerivedFieldLists
   @nullable
   BuiltList<NxCell> get derivedFieldLists;
 
-  factory NxDerivedFieldDescriptionList([updates(NxDerivedFieldDescriptionListBuilder b)]) = _$NxDerivedFieldDescriptionList;
+  factory NxDerivedFieldDescriptionList(
+          [updates(NxDerivedFieldDescriptionListBuilder b)]) =
+      _$NxDerivedFieldDescriptionList;
 
-  factory NxDerivedFieldDescriptionList.init({BuiltList<NxCell> derivedFieldLists}) = _$NxDerivedFieldDescriptionList._;
+  factory NxDerivedFieldDescriptionList.init(
+          {BuiltList<NxCell> derivedFieldLists}) =
+      _$NxDerivedFieldDescriptionList._;
 
   NxDerivedFieldDescriptionList._();
 }

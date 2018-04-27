@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'nx_axis_data.g.dart';
 
 abstract class NxAxisData implements Built<NxAxisData, NxAxisDataBuilder> {
-
- static Serializer<NxAxisData> get serializer => _$nxAxisDataSerializer;
+  static Serializer<NxAxisData> get serializer => _$nxAxisDataSerializer;
 
   /// List of axis data.
   /// Original name: qAxis

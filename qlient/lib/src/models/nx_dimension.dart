@@ -15,8 +15,7 @@ part 'nx_dimension.g.dart';
 
 /// <div class=note>Either **qDef** or **qLibraryId** must be set, but not both. </div> <div class=note>If the dimension is set in the hypercube and not in the library, this dimension cannot be shared with other objects.</div> <div class=note>A dimension that is set in the library can be used by many objects.</div>
 abstract class NxDimension implements Built<NxDimension, NxDimensionBuilder> {
-
- static Serializer<NxDimension> get serializer => _$nxDimensionSerializer;
+  static Serializer<NxDimension> get serializer => _$nxDimensionSerializer;
 
   /// Refers to a dimension stored in the library.
   /// Original name: qLibraryId
@@ -105,7 +104,20 @@ abstract class NxDimension implements Built<NxDimension, NxDimensionBuilder> {
 
   factory NxDimension([updates(NxDimensionBuilder b)]) = _$NxDimension;
 
-  factory NxDimension.init({String libraryId, NxInlineDimensionDef def, bool nullSuppression, bool includeElemValue, OtherTotalSpecProp otherTotalSpec, bool showTotal, bool showAll, StringExpr otherLabel, StringExpr totalLabel, ValueExpr calcCond, BuiltList<NxCell> attributeExpressions, BuiltList<NxCell> attributeDimensions, NxCalcCond calcCondition}) = _$NxDimension._;
+  factory NxDimension.init(
+      {String libraryId,
+      NxInlineDimensionDef def,
+      bool nullSuppression,
+      bool includeElemValue,
+      OtherTotalSpecProp otherTotalSpec,
+      bool showTotal,
+      bool showAll,
+      StringExpr otherLabel,
+      StringExpr totalLabel,
+      ValueExpr calcCond,
+      BuiltList<NxCell> attributeExpressions,
+      BuiltList<NxCell> attributeDimensions,
+      NxCalcCond calcCondition}) = _$NxDimension._;
 
   NxDimension._();
 }

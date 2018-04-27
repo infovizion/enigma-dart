@@ -6,9 +6,11 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_list_object_expression_def.g.dart';
 
-abstract class NxListObjectExpressionDef implements Built<NxListObjectExpressionDef, NxListObjectExpressionDefBuilder> {
-
- static Serializer<NxListObjectExpressionDef> get serializer => _$nxListObjectExpressionDefSerializer;
+abstract class NxListObjectExpressionDef
+    implements
+        Built<NxListObjectExpressionDef, NxListObjectExpressionDefBuilder> {
+  static Serializer<NxListObjectExpressionDef> get serializer =>
+      _$nxListObjectExpressionDefSerializer;
 
   /// Value of the expression.
   /// Original name: qExpr
@@ -20,9 +22,12 @@ abstract class NxListObjectExpressionDef implements Built<NxListObjectExpression
   @nullable
   String get libraryId;
 
-  factory NxListObjectExpressionDef([updates(NxListObjectExpressionDefBuilder b)]) = _$NxListObjectExpressionDef;
+  factory NxListObjectExpressionDef(
+          [updates(NxListObjectExpressionDefBuilder b)]) =
+      _$NxListObjectExpressionDef;
 
-  factory NxListObjectExpressionDef.init({String expr, String libraryId}) = _$NxListObjectExpressionDef._;
+  factory NxListObjectExpressionDef.init({String expr, String libraryId}) =
+      _$NxListObjectExpressionDef._;
 
   NxListObjectExpressionDef._();
 }

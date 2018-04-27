@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_term_result.g.dart';
 
-abstract class SearchTermResult implements Built<SearchTermResult, SearchTermResultBuilder> {
-
- static Serializer<SearchTermResult> get serializer => _$searchTermResultSerializer;
+abstract class SearchTermResult
+    implements Built<SearchTermResult, SearchTermResultBuilder> {
+  static Serializer<SearchTermResult> get serializer =>
+      _$searchTermResultSerializer;
 
   /// Text of the associated value.
   /// Original name: qText
@@ -28,9 +29,13 @@ abstract class SearchTermResult implements Built<SearchTermResult, SearchTermRes
   @nullable
   BuiltList<NxCell> get ranges;
 
-  factory SearchTermResult([updates(SearchTermResultBuilder b)]) = _$SearchTermResult;
+  factory SearchTermResult([updates(SearchTermResultBuilder b)]) =
+      _$SearchTermResult;
 
-  factory SearchTermResult.init({String text, int elemNumber, BuiltList<NxCell> ranges}) = _$SearchTermResult._;
+  factory SearchTermResult.init(
+      {String text,
+      int elemNumber,
+      BuiltList<NxCell> ranges}) = _$SearchTermResult._;
 
   SearchTermResult._();
 }

@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_selection_info.g.dart';
 
-abstract class NxSelectionInfo implements Built<NxSelectionInfo, NxSelectionInfoBuilder> {
-
- static Serializer<NxSelectionInfo> get serializer => _$nxSelectionInfoSerializer;
+abstract class NxSelectionInfo
+    implements Built<NxSelectionInfo, NxSelectionInfoBuilder> {
+  static Serializer<NxSelectionInfo> get serializer =>
+      _$nxSelectionInfoSerializer;
 
   /// Is set to true if the visualization is in selection mode.
   /// For more information about the selection mode, see _BeginSelections Method_.
@@ -22,9 +23,11 @@ abstract class NxSelectionInfo implements Built<NxSelectionInfo, NxSelectionInfo
   @nullable
   bool get madeSelections;
 
-  factory NxSelectionInfo([updates(NxSelectionInfoBuilder b)]) = _$NxSelectionInfo;
+  factory NxSelectionInfo([updates(NxSelectionInfoBuilder b)]) =
+      _$NxSelectionInfo;
 
-  factory NxSelectionInfo.init({bool inSelections, bool madeSelections}) = _$NxSelectionInfo._;
+  factory NxSelectionInfo.init({bool inSelections, bool madeSelections}) =
+      _$NxSelectionInfo._;
 
   NxSelectionInfo._();
 }

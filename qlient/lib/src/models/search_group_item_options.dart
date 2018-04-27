@@ -6,14 +6,15 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'search_group_item_options.g.dart';
 
-abstract class SearchGroupItemOptions implements Built<SearchGroupItemOptions, SearchGroupItemOptionsBuilder> {
-
- static Serializer<SearchGroupItemOptions> get serializer => _$searchGroupItemOptionsSerializer;
+abstract class SearchGroupItemOptions
+    implements Built<SearchGroupItemOptions, SearchGroupItemOptionsBuilder> {
+  static Serializer<SearchGroupItemOptions> get serializer =>
+      _$searchGroupItemOptionsSerializer;
 
   /// Type of the group item. Can be:
   /// * GenericObject: the type of the search group item is a generic object. Group items have this type when you are calling _SearchObjects_ .
   /// * Field: the type of the search group item is a field. Group items have this type when you are calling _SearchResults_ .
-  /// 
+  ///
   /// One of:
   /// * Field or FIELD
   /// * GenericObject or GENERIC_OBJECT
@@ -33,9 +34,13 @@ abstract class SearchGroupItemOptions implements Built<SearchGroupItemOptions, S
   @nullable
   int get count;
 
-  factory SearchGroupItemOptions([updates(SearchGroupItemOptionsBuilder b)]) = _$SearchGroupItemOptions;
+  factory SearchGroupItemOptions([updates(SearchGroupItemOptionsBuilder b)]) =
+      _$SearchGroupItemOptions;
 
-  factory SearchGroupItemOptions.init({String groupItemType, int offset, int count}) = _$SearchGroupItemOptions._;
+  factory SearchGroupItemOptions.init(
+      {String groupItemType,
+      int offset,
+      int count}) = _$SearchGroupItemOptions._;
 
   SearchGroupItemOptions._();
 }

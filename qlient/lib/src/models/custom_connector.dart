@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'custom_connector.g.dart';
 
-abstract class CustomConnector implements Built<CustomConnector, CustomConnectorBuilder> {
-
- static Serializer<CustomConnector> get serializer => _$customConnectorSerializer;
+abstract class CustomConnector
+    implements Built<CustomConnector, CustomConnectorBuilder> {
+  static Serializer<CustomConnector> get serializer =>
+      _$customConnectorSerializer;
 
   /// Name of the custom connector file.
   /// Original name: qProvider
@@ -26,7 +27,7 @@ abstract class CustomConnector implements Built<CustomConnector, CustomConnector
   String get displayName;
 
   /// Mode of the machine (64 or 32 bits).
-  /// 
+  ///
   /// One of:
   /// * CONNECT_DEFAULT
   /// * CONNECT_64
@@ -39,9 +40,15 @@ abstract class CustomConnector implements Built<CustomConnector, CustomConnector
   @nullable
   bool get supportFileStreaming;
 
-  factory CustomConnector([updates(CustomConnectorBuilder b)]) = _$CustomConnector;
+  factory CustomConnector([updates(CustomConnectorBuilder b)]) =
+      _$CustomConnector;
 
-  factory CustomConnector.init({String provider, String parent, String displayName, String machineMode, bool supportFileStreaming}) = _$CustomConnector._;
+  factory CustomConnector.init(
+      {String provider,
+      String parent,
+      String displayName,
+      String machineMode,
+      bool supportFileStreaming}) = _$CustomConnector._;
 
   CustomConnector._();
 }

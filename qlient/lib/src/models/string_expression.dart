@@ -13,18 +13,20 @@ part 'string_expression.g.dart';
 /// "qStringExpression":{"qExpr":"=&lt;expression&gt;"}
 /// Where:
 /// * &lt; **expression** &gt; is a string
-/// 
+///
 /// <div class=note>The "=" sign in the string expression is not mandatory. Even if the "=" sign is not given, the expression is evaluated.</div> <div class=note>A string expression is not evaluated, if the expression is surrounded by simple quotes.</div>
 /// The result of the evaluation of the expression can be of any type, as it is returned as a JSON (quoted) string.
-abstract class StringExpression implements Built<StringExpression, StringExpressionBuilder> {
-
- static Serializer<StringExpression> get serializer => _$stringExpressionSerializer;
+abstract class StringExpression
+    implements Built<StringExpression, StringExpressionBuilder> {
+  static Serializer<StringExpression> get serializer =>
+      _$stringExpressionSerializer;
 
   /// Original name: qExpr
   @nullable
   String get expr;
 
-  factory StringExpression([updates(StringExpressionBuilder b)]) = _$StringExpression;
+  factory StringExpression([updates(StringExpressionBuilder b)]) =
+      _$StringExpression;
 
   factory StringExpression.init({String expr}) = _$StringExpression._;
 

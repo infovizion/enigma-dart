@@ -6,9 +6,9 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_attr_expr_def.g.dart';
 
-abstract class NxAttrExprDef implements Built<NxAttrExprDef, NxAttrExprDefBuilder> {
-
- static Serializer<NxAttrExprDef> get serializer => _$nxAttrExprDefSerializer;
+abstract class NxAttrExprDef
+    implements Built<NxAttrExprDef, NxAttrExprDefBuilder> {
+  static Serializer<NxAttrExprDef> get serializer => _$nxAttrExprDefSerializer;
 
   /// Definition of the attribute expression.
   /// Example: _"Max(OrderID)"_
@@ -29,7 +29,10 @@ abstract class NxAttrExprDef implements Built<NxAttrExprDef, NxAttrExprDefBuilde
 
   factory NxAttrExprDef([updates(NxAttrExprDefBuilder b)]) = _$NxAttrExprDef;
 
-  factory NxAttrExprDef.init({String expression, String libraryId, bool attribute}) = _$NxAttrExprDef._;
+  factory NxAttrExprDef.init(
+      {String expression,
+      String libraryId,
+      bool attribute}) = _$NxAttrExprDef._;
 
   NxAttrExprDef._();
 }

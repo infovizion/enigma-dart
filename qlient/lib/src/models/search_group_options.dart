@@ -6,14 +6,15 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'search_group_options.g.dart';
 
-abstract class SearchGroupOptions implements Built<SearchGroupOptions, SearchGroupOptionsBuilder> {
-
- static Serializer<SearchGroupOptions> get serializer => _$searchGroupOptionsSerializer;
+abstract class SearchGroupOptions
+    implements Built<SearchGroupOptions, SearchGroupOptionsBuilder> {
+  static Serializer<SearchGroupOptions> get serializer =>
+      _$searchGroupOptionsSerializer;
 
   /// Type of the group. Can be:
   /// * GenericObjectType: the type of the search group item is a generic object. Groups have this type when you are calling _SearchObjects_ .
   /// * DatasetType: type of the search group item is a dataset association. Groups have this type when you are calling _SearchResults_ .
-  /// 
+  ///
   /// One of:
   /// * DatasetType or DATASET_GROUP
   /// * GenericObjectsType or GENERIC_OBJECTS_GROUP
@@ -33,9 +34,11 @@ abstract class SearchGroupOptions implements Built<SearchGroupOptions, SearchGro
   @nullable
   int get count;
 
-  factory SearchGroupOptions([updates(SearchGroupOptionsBuilder b)]) = _$SearchGroupOptions;
+  factory SearchGroupOptions([updates(SearchGroupOptionsBuilder b)]) =
+      _$SearchGroupOptions;
 
-  factory SearchGroupOptions.init({String groupType, int offset, int count}) = _$SearchGroupOptions._;
+  factory SearchGroupOptions.init({String groupType, int offset, int count}) =
+      _$SearchGroupOptions._;
 
   SearchGroupOptions._();
 }

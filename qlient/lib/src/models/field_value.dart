@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'field_value.g.dart';
 
 abstract class FieldValue implements Built<FieldValue, FieldValueBuilder> {
-
- static Serializer<FieldValue> get serializer => _$fieldValueSerializer;
+  static Serializer<FieldValue> get serializer => _$fieldValueSerializer;
 
   /// Text related to the field value.
   /// This parameter is optional.
@@ -31,7 +30,8 @@ abstract class FieldValue implements Built<FieldValue, FieldValueBuilder> {
 
   factory FieldValue([updates(FieldValueBuilder b)]) = _$FieldValue;
 
-  factory FieldValue.init({String text, bool isNumeric, num number}) = _$FieldValue._;
+  factory FieldValue.init({String text, bool isNumeric, num number}) =
+      _$FieldValue._;
 
   FieldValue._();
 }

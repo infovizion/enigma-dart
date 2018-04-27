@@ -9,9 +9,10 @@ import 'package:built_collection/built_collection.dart';
 import 'nx_state_counts.dart';
 part 'nx_current_selection_item.g.dart';
 
-abstract class NxCurrentSelectionItem implements Built<NxCurrentSelectionItem, NxCurrentSelectionItemBuilder> {
-
- static Serializer<NxCurrentSelectionItem> get serializer => _$nxCurrentSelectionItemSerializer;
+abstract class NxCurrentSelectionItem
+    implements Built<NxCurrentSelectionItem, NxCurrentSelectionItemBuilder> {
+  static Serializer<NxCurrentSelectionItem> get serializer =>
+      _$nxCurrentSelectionItemSerializer;
 
   /// Number of values in the field.
   /// Original name: qTotal
@@ -103,9 +104,26 @@ abstract class NxCurrentSelectionItem implements Built<NxCurrentSelectionItem, N
   @nullable
   bool get isHidden;
 
-  factory NxCurrentSelectionItem([updates(NxCurrentSelectionItemBuilder b)]) = _$NxCurrentSelectionItem;
+  factory NxCurrentSelectionItem([updates(NxCurrentSelectionItemBuilder b)]) =
+      _$NxCurrentSelectionItem;
 
-  factory NxCurrentSelectionItem.init({int total, bool isNum, String field, bool locked, bool oneAndOnlyOne, String textSearch, int selectedCount, String selected, BuiltList<NxCell> rangeInfo, int sortIndex, NxStateCounts stateCounts, BuiltList<NxCell> selectedFieldSelectionInfo, BuiltList<NxCell> notSelectedFieldSelectionInfo, int selectionThreshold, String readableName, bool isHidden}) = _$NxCurrentSelectionItem._;
+  factory NxCurrentSelectionItem.init(
+      {int total,
+      bool isNum,
+      String field,
+      bool locked,
+      bool oneAndOnlyOne,
+      String textSearch,
+      int selectedCount,
+      String selected,
+      BuiltList<NxCell> rangeInfo,
+      int sortIndex,
+      NxStateCounts stateCounts,
+      BuiltList<NxCell> selectedFieldSelectionInfo,
+      BuiltList<NxCell> notSelectedFieldSelectionInfo,
+      int selectionThreshold,
+      String readableName,
+      bool isHidden}) = _$NxCurrentSelectionItem._;
 
   NxCurrentSelectionItem._();
 }

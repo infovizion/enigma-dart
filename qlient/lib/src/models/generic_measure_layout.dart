@@ -10,9 +10,10 @@ import 'nx_meta.dart';
 part 'generic_measure_layout.g.dart';
 
 /// Is the layout for _GenericMeasureProperties_.
-abstract class GenericMeasureLayout implements Built<GenericMeasureLayout, GenericMeasureLayoutBuilder> {
-
- static Serializer<GenericMeasureLayout> get serializer => _$genericMeasureLayoutSerializer;
+abstract class GenericMeasureLayout
+    implements Built<GenericMeasureLayout, GenericMeasureLayoutBuilder> {
+  static Serializer<GenericMeasureLayout> get serializer =>
+      _$genericMeasureLayoutSerializer;
 
   /// Information about the object.
   /// Original name: qInfo
@@ -29,9 +30,13 @@ abstract class GenericMeasureLayout implements Built<GenericMeasureLayout, Gener
   @nullable
   NxMeta get meta;
 
-  factory GenericMeasureLayout([updates(GenericMeasureLayoutBuilder b)]) = _$GenericMeasureLayout;
+  factory GenericMeasureLayout([updates(GenericMeasureLayoutBuilder b)]) =
+      _$GenericMeasureLayout;
 
-  factory GenericMeasureLayout.init({NxInfo info, NxLibraryMeasure measure, NxMeta meta}) = _$GenericMeasureLayout._;
+  factory GenericMeasureLayout.init(
+      {NxInfo info,
+      NxLibraryMeasure measure,
+      NxMeta meta}) = _$GenericMeasureLayout._;
 
   GenericMeasureLayout._();
 }

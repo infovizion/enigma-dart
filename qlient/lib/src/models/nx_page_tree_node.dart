@@ -8,9 +8,10 @@ import 'rect.dart';
 part 'nx_page_tree_node.g.dart';
 
 /// Defines an area of the tree to be fetched.
-abstract class NxPageTreeNode implements Built<NxPageTreeNode, NxPageTreeNodeBuilder> {
-
- static Serializer<NxPageTreeNode> get serializer => _$nxPageTreeNodeSerializer;
+abstract class NxPageTreeNode
+    implements Built<NxPageTreeNode, NxPageTreeNodeBuilder> {
+  static Serializer<NxPageTreeNode> get serializer =>
+      _$nxPageTreeNodeSerializer;
 
   /// The area of the tree to be fetched. If no area is defined on a dimension, all existing nodes are included.
   /// Original name: qArea

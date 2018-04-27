@@ -9,9 +9,10 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 part 'nx_get_object_options.g.dart';
 
-abstract class NxGetObjectOptions implements Built<NxGetObjectOptions, NxGetObjectOptionsBuilder> {
-
- static Serializer<NxGetObjectOptions> get serializer => _$nxGetObjectOptionsSerializer;
+abstract class NxGetObjectOptions
+    implements Built<NxGetObjectOptions, NxGetObjectOptionsBuilder> {
+  static Serializer<NxGetObjectOptions> get serializer =>
+      _$nxGetObjectOptionsSerializer;
 
   /// List of object types.
   /// Original name: qTypes
@@ -29,9 +30,13 @@ abstract class NxGetObjectOptions implements Built<NxGetObjectOptions, NxGetObje
   @nullable
   JsonObject get data;
 
-  factory NxGetObjectOptions([updates(NxGetObjectOptionsBuilder b)]) = _$NxGetObjectOptions;
+  factory NxGetObjectOptions([updates(NxGetObjectOptionsBuilder b)]) =
+      _$NxGetObjectOptions;
 
-  factory NxGetObjectOptions.init({BuiltList<NxCell> types, bool includeSessionObjects, JsonObject data}) = _$NxGetObjectOptions._;
+  factory NxGetObjectOptions.init(
+      {BuiltList<NxCell> types,
+      bool includeSessionObjects,
+      JsonObject data}) = _$NxGetObjectOptions._;
 
   NxGetObjectOptions._();
 }

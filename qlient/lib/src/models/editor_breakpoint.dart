@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'editor_breakpoint.g.dart';
 
-abstract class EditorBreakpoint implements Built<EditorBreakpoint, EditorBreakpointBuilder> {
-
- static Serializer<EditorBreakpoint> get serializer => _$editorBreakpointSerializer;
+abstract class EditorBreakpoint
+    implements Built<EditorBreakpoint, EditorBreakpointBuilder> {
+  static Serializer<EditorBreakpoint> get serializer =>
+      _$editorBreakpointSerializer;
 
   /// Name of the breakpoint.
   /// Original name: qbufferName
@@ -25,9 +26,11 @@ abstract class EditorBreakpoint implements Built<EditorBreakpoint, EditorBreakpo
   @nullable
   bool get enabled;
 
-  factory EditorBreakpoint([updates(EditorBreakpointBuilder b)]) = _$EditorBreakpoint;
+  factory EditorBreakpoint([updates(EditorBreakpointBuilder b)]) =
+      _$EditorBreakpoint;
 
-  factory EditorBreakpoint.init({String bufferName, int lineIx, bool enabled}) = _$EditorBreakpoint._;
+  factory EditorBreakpoint.init({String bufferName, int lineIx, bool enabled}) =
+      _$EditorBreakpoint._;
 
   EditorBreakpoint._();
 }

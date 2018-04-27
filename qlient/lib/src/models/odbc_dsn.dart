@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'odbc_dsn.g.dart';
 
 abstract class OdbcDsn implements Built<OdbcDsn, OdbcDsnBuilder> {
-
- static Serializer<OdbcDsn> get serializer => _$odbcDsnSerializer;
+  static Serializer<OdbcDsn> get serializer => _$odbcDsnSerializer;
 
   /// Name of the ODBC connection.
   /// Original name: qName
@@ -35,7 +34,11 @@ abstract class OdbcDsn implements Built<OdbcDsn, OdbcDsnBuilder> {
 
   factory OdbcDsn([updates(OdbcDsnBuilder b)]) = _$OdbcDsn;
 
-  factory OdbcDsn.init({String name, String description, bool bit32, bool userOnly}) = _$OdbcDsn._;
+  factory OdbcDsn.init(
+      {String name,
+      String description,
+      bool bit32,
+      bool userOnly}) = _$OdbcDsn._;
 
   OdbcDsn._();
 }

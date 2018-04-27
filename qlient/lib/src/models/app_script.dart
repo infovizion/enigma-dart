@@ -8,8 +8,7 @@ import 'nx_meta.dart';
 part 'app_script.g.dart';
 
 abstract class AppScript implements Built<AppScript, AppScriptBuilder> {
-
- static Serializer<AppScript> get serializer => _$appScriptSerializer;
+  static Serializer<AppScript> get serializer => _$appScriptSerializer;
 
   /// Script text.
   /// Original name: qScript

@@ -8,9 +8,10 @@ import 'rect.dart';
 import 'table_view_ctl_save_info.dart';
 part 'table_view_dlg_save_info.g.dart';
 
-abstract class TableViewDlgSaveInfo implements Built<TableViewDlgSaveInfo, TableViewDlgSaveInfoBuilder> {
-
- static Serializer<TableViewDlgSaveInfo> get serializer => _$tableViewDlgSaveInfoSerializer;
+abstract class TableViewDlgSaveInfo
+    implements Built<TableViewDlgSaveInfo, TableViewDlgSaveInfoBuilder> {
+  static Serializer<TableViewDlgSaveInfo> get serializer =>
+      _$tableViewDlgSaveInfoSerializer;
 
   /// Information about the position of the dialog window.
   /// Not used in Qlik Sense.
@@ -31,9 +32,13 @@ abstract class TableViewDlgSaveInfo implements Built<TableViewDlgSaveInfo, Table
   @nullable
   int get mode;
 
-  factory TableViewDlgSaveInfo([updates(TableViewDlgSaveInfoBuilder b)]) = _$TableViewDlgSaveInfo;
+  factory TableViewDlgSaveInfo([updates(TableViewDlgSaveInfoBuilder b)]) =
+      _$TableViewDlgSaveInfo;
 
-  factory TableViewDlgSaveInfo.init({Rect pos, TableViewCtlSaveInfo ctlInfo, int mode}) = _$TableViewDlgSaveInfo._;
+  factory TableViewDlgSaveInfo.init(
+      {Rect pos,
+      TableViewCtlSaveInfo ctlInfo,
+      int mode}) = _$TableViewDlgSaveInfo._;
 
   TableViewDlgSaveInfo._();
 }

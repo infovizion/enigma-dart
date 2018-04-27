@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_field_selection_info.g.dart';
 
-abstract class NxFieldSelectionInfo implements Built<NxFieldSelectionInfo, NxFieldSelectionInfoBuilder> {
-
- static Serializer<NxFieldSelectionInfo> get serializer => _$nxFieldSelectionInfoSerializer;
+abstract class NxFieldSelectionInfo
+    implements Built<NxFieldSelectionInfo, NxFieldSelectionInfoBuilder> {
+  static Serializer<NxFieldSelectionInfo> get serializer =>
+      _$nxFieldSelectionInfoSerializer;
 
   /// Name of the field.
   /// Original name: qName
@@ -29,9 +30,11 @@ abstract class NxFieldSelectionInfo implements Built<NxFieldSelectionInfo, NxFie
   @nullable
   String get fieldSelectionMode;
 
-  factory NxFieldSelectionInfo([updates(NxFieldSelectionInfoBuilder b)]) = _$NxFieldSelectionInfo;
+  factory NxFieldSelectionInfo([updates(NxFieldSelectionInfoBuilder b)]) =
+      _$NxFieldSelectionInfo;
 
-  factory NxFieldSelectionInfo.init({String name, String fieldSelectionMode}) = _$NxFieldSelectionInfo._;
+  factory NxFieldSelectionInfo.init({String name, String fieldSelectionMode}) =
+      _$NxFieldSelectionInfo._;
 
   NxFieldSelectionInfo._();
 }

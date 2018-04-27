@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 import 'range.dart';
 part 'nx_range_select_info.g.dart';
 
-abstract class NxRangeSelectInfo implements Built<NxRangeSelectInfo, NxRangeSelectInfoBuilder> {
-
- static Serializer<NxRangeSelectInfo> get serializer => _$nxRangeSelectInfoSerializer;
+abstract class NxRangeSelectInfo
+    implements Built<NxRangeSelectInfo, NxRangeSelectInfoBuilder> {
+  static Serializer<NxRangeSelectInfo> get serializer =>
+      _$nxRangeSelectInfoSerializer;
 
   /// Range of values.
   /// Original name: qRange
@@ -22,9 +23,11 @@ abstract class NxRangeSelectInfo implements Built<NxRangeSelectInfo, NxRangeSele
   @nullable
   int get measureIx;
 
-  factory NxRangeSelectInfo([updates(NxRangeSelectInfoBuilder b)]) = _$NxRangeSelectInfo;
+  factory NxRangeSelectInfo([updates(NxRangeSelectInfoBuilder b)]) =
+      _$NxRangeSelectInfo;
 
-  factory NxRangeSelectInfo.init({Range range, int measureIx}) = _$NxRangeSelectInfo._;
+  factory NxRangeSelectInfo.init({Range range, int measureIx}) =
+      _$NxRangeSelectInfo._;
 
   NxRangeSelectInfo._();
 }

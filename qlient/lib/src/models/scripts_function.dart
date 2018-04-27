@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'scripts_function.g.dart';
 
-abstract class ScriptsFunction implements Built<ScriptsFunction, ScriptsFunctionBuilder> {
-
- static Serializer<ScriptsFunction> get serializer => _$scriptsFunctionSerializer;
+abstract class ScriptsFunction
+    implements Built<ScriptsFunction, ScriptsFunctionBuilder> {
+  static Serializer<ScriptsFunction> get serializer =>
+      _$scriptsFunctionSerializer;
 
   /// Name of the script function.
   /// Original name: qName
@@ -16,7 +17,7 @@ abstract class ScriptsFunction implements Built<ScriptsFunction, ScriptsFunction
   String get name;
 
   /// Group of the script function.
-  /// 
+  ///
   /// One of:
   /// * ALL or FUNC_GROUP_ALL
   /// * U or FUNC_GROUP_UNKNOWN
@@ -55,9 +56,11 @@ abstract class ScriptsFunction implements Built<ScriptsFunction, ScriptsFunction
   @nullable
   String get signature;
 
-  factory ScriptsFunction([updates(ScriptsFunctionBuilder b)]) = _$ScriptsFunction;
+  factory ScriptsFunction([updates(ScriptsFunctionBuilder b)]) =
+      _$ScriptsFunction;
 
-  factory ScriptsFunction.init({String name, String group, String signature}) = _$ScriptsFunction._;
+  factory ScriptsFunction.init({String name, String group, String signature}) =
+      _$ScriptsFunction._;
 
   ScriptsFunction._();
 }

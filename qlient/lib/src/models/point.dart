@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'point.g.dart';
 
 abstract class Point implements Built<Point, PointBuilder> {
-
- static Serializer<Point> get serializer => _$pointSerializer;
+  static Serializer<Point> get serializer => _$pointSerializer;
 
   /// x-coordinate in pixels.
   /// The origin is the top left of the screen.

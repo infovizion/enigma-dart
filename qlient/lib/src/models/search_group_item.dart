@@ -8,12 +8,13 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_group_item.g.dart';
 
-abstract class SearchGroupItem implements Built<SearchGroupItem, SearchGroupItemBuilder> {
-
- static Serializer<SearchGroupItem> get serializer => _$searchGroupItemSerializer;
+abstract class SearchGroupItem
+    implements Built<SearchGroupItem, SearchGroupItemBuilder> {
+  static Serializer<SearchGroupItem> get serializer =>
+      _$searchGroupItemSerializer;
 
   /// Type of the group item.
-  /// 
+  ///
   /// One of:
   /// * Field or FIELD
   /// * GenericObject or GENERIC_OBJECT
@@ -45,9 +46,15 @@ abstract class SearchGroupItem implements Built<SearchGroupItem, SearchGroupItem
   @nullable
   BuiltList<NxCell> get searchTermsMatched;
 
-  factory SearchGroupItem([updates(SearchGroupItemBuilder b)]) = _$SearchGroupItem;
+  factory SearchGroupItem([updates(SearchGroupItemBuilder b)]) =
+      _$SearchGroupItem;
 
-  factory SearchGroupItem.init({String itemType, int totalNumberOfMatches, String identifier, BuiltList<NxCell> itemMatches, BuiltList<NxCell> searchTermsMatched}) = _$SearchGroupItem._;
+  factory SearchGroupItem.init(
+      {String itemType,
+      int totalNumberOfMatches,
+      String identifier,
+      BuiltList<NxCell> itemMatches,
+      BuiltList<NxCell> searchTermsMatched}) = _$SearchGroupItem._;
 
   SearchGroupItem._();
 }

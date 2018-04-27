@@ -9,9 +9,9 @@ import 'package:built_collection/built_collection.dart';
 part 'dimension_list.g.dart';
 
 /// Lists the dimensions. Is the layout for _DimensionListDef_.
-abstract class DimensionList implements Built<DimensionList, DimensionListBuilder> {
-
- static Serializer<DimensionList> get serializer => _$dimensionListSerializer;
+abstract class DimensionList
+    implements Built<DimensionList, DimensionListBuilder> {
+  static Serializer<DimensionList> get serializer => _$dimensionListSerializer;
 
   /// Information about the list of dimensions.
   /// Original name: qItems

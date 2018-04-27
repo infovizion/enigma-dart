@@ -9,9 +9,9 @@ import 'package:built_collection/built_collection.dart';
 import 'progress_message.dart';
 part 'progress_data.g.dart';
 
-abstract class ProgressData implements Built<ProgressData, ProgressDataBuilder> {
-
- static Serializer<ProgressData> get serializer => _$progressDataSerializer;
+abstract class ProgressData
+    implements Built<ProgressData, ProgressDataBuilder> {
+  static Serializer<ProgressData> get serializer => _$progressDataSerializer;
 
   /// True if the request is started.
   /// Original name: qStarted
@@ -75,7 +75,19 @@ abstract class ProgressData implements Built<ProgressData, ProgressDataBuilder> 
 
   factory ProgressData([updates(ProgressDataBuilder b)]) = _$ProgressData;
 
-  factory ProgressData.init({bool started, bool finished, int completed, int total, int kB, int millisecs, bool userInteractionWanted, String persistentProgress, String transientProgress, BuiltList<NxCell> errorData, BuiltList<NxCell> persistentProgressMessages, ProgressMessage transientProgressMessage}) = _$ProgressData._;
+  factory ProgressData.init(
+      {bool started,
+      bool finished,
+      int completed,
+      int total,
+      int kB,
+      int millisecs,
+      bool userInteractionWanted,
+      String persistentProgress,
+      String transientProgress,
+      BuiltList<NxCell> errorData,
+      BuiltList<NxCell> persistentProgressMessages,
+      ProgressMessage transientProgressMessage}) = _$ProgressData._;
 
   ProgressData._();
 }

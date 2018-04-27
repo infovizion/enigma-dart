@@ -7,9 +7,11 @@ import 'package:built_value/built_value.dart';
 import 'range.dart';
 part 'nx_continuous_range_select_info.g.dart';
 
-abstract class NxContinuousRangeSelectInfo implements Built<NxContinuousRangeSelectInfo, NxContinuousRangeSelectInfoBuilder> {
-
- static Serializer<NxContinuousRangeSelectInfo> get serializer => _$nxContinuousRangeSelectInfoSerializer;
+abstract class NxContinuousRangeSelectInfo
+    implements
+        Built<NxContinuousRangeSelectInfo, NxContinuousRangeSelectInfoBuilder> {
+  static Serializer<NxContinuousRangeSelectInfo> get serializer =>
+      _$nxContinuousRangeSelectInfoSerializer;
 
   /// Range information.
   /// Original name: qRange
@@ -21,9 +23,12 @@ abstract class NxContinuousRangeSelectInfo implements Built<NxContinuousRangeSel
   @nullable
   int get dimIx;
 
-  factory NxContinuousRangeSelectInfo([updates(NxContinuousRangeSelectInfoBuilder b)]) = _$NxContinuousRangeSelectInfo;
+  factory NxContinuousRangeSelectInfo(
+          [updates(NxContinuousRangeSelectInfoBuilder b)]) =
+      _$NxContinuousRangeSelectInfo;
 
-  factory NxContinuousRangeSelectInfo.init({Range range, int dimIx}) = _$NxContinuousRangeSelectInfo._;
+  factory NxContinuousRangeSelectInfo.init({Range range, int dimIx}) =
+      _$NxContinuousRangeSelectInfo._;
 
   NxContinuousRangeSelectInfo._();
 }

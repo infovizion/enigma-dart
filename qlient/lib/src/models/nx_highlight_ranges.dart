@@ -8,18 +8,21 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_highlight_ranges.g.dart';
 
-abstract class NxHighlightRanges implements Built<NxHighlightRanges, NxHighlightRangesBuilder> {
-
- static Serializer<NxHighlightRanges> get serializer => _$nxHighlightRangesSerializer;
+abstract class NxHighlightRanges
+    implements Built<NxHighlightRanges, NxHighlightRangesBuilder> {
+  static Serializer<NxHighlightRanges> get serializer =>
+      _$nxHighlightRangesSerializer;
 
   /// Ranges of highlighted values.
   /// Original name: qRanges
   @nullable
   BuiltList<NxCell> get ranges;
 
-  factory NxHighlightRanges([updates(NxHighlightRangesBuilder b)]) = _$NxHighlightRanges;
+  factory NxHighlightRanges([updates(NxHighlightRangesBuilder b)]) =
+      _$NxHighlightRanges;
 
-  factory NxHighlightRanges.init({BuiltList<NxCell> ranges}) = _$NxHighlightRanges._;
+  factory NxHighlightRanges.init({BuiltList<NxCell> ranges}) =
+      _$NxHighlightRanges._;
 
   NxHighlightRanges._();
 }

@@ -9,9 +9,11 @@ import 'package:built_value/json_object.dart';
 import 'field_attributes.dart';
 part 'generic_variable_properties.g.dart';
 
-abstract class GenericVariableProperties implements Built<GenericVariableProperties, GenericVariablePropertiesBuilder> {
-
- static Serializer<GenericVariableProperties> get serializer => _$genericVariablePropertiesSerializer;
+abstract class GenericVariableProperties
+    implements
+        Built<GenericVariableProperties, GenericVariablePropertiesBuilder> {
+  static Serializer<GenericVariableProperties> get serializer =>
+      _$genericVariablePropertiesSerializer;
 
   /// Identifier and type of the object.
   /// This parameter is mandatory.
@@ -56,9 +58,18 @@ abstract class GenericVariableProperties implements Built<GenericVariablePropert
   @nullable
   String get definition;
 
-  factory GenericVariableProperties([updates(GenericVariablePropertiesBuilder b)]) = _$GenericVariableProperties;
+  factory GenericVariableProperties(
+          [updates(GenericVariablePropertiesBuilder b)]) =
+      _$GenericVariableProperties;
 
-  factory GenericVariableProperties.init({NxInfo info, JsonObject metaDef, String name, String comment, FieldAttributes numberPresentation, bool includeInBookmark, String definition}) = _$GenericVariableProperties._;
+  factory GenericVariableProperties.init(
+      {NxInfo info,
+      JsonObject metaDef,
+      String name,
+      String comment,
+      FieldAttributes numberPresentation,
+      bool includeInBookmark,
+      String definition}) = _$GenericVariableProperties._;
 
   GenericVariableProperties._();
 }

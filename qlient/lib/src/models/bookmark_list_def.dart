@@ -8,9 +8,10 @@ import 'package:built_value/json_object.dart';
 part 'bookmark_list_def.g.dart';
 
 /// Defines the list of bookmarks.
-abstract class BookmarkListDef implements Built<BookmarkListDef, BookmarkListDefBuilder> {
-
- static Serializer<BookmarkListDef> get serializer => _$bookmarkListDefSerializer;
+abstract class BookmarkListDef
+    implements Built<BookmarkListDef, BookmarkListDefBuilder> {
+  static Serializer<BookmarkListDef> get serializer =>
+      _$bookmarkListDefSerializer;
 
   /// Type of the list.
   /// Original name: qType
@@ -22,9 +23,11 @@ abstract class BookmarkListDef implements Built<BookmarkListDef, BookmarkListDef
   @nullable
   JsonObject get data;
 
-  factory BookmarkListDef([updates(BookmarkListDefBuilder b)]) = _$BookmarkListDef;
+  factory BookmarkListDef([updates(BookmarkListDefBuilder b)]) =
+      _$BookmarkListDef;
 
-  factory BookmarkListDef.init({String type, JsonObject data}) = _$BookmarkListDef._;
+  factory BookmarkListDef.init({String type, JsonObject data}) =
+      _$BookmarkListDef._;
 
   BookmarkListDef._();
 }

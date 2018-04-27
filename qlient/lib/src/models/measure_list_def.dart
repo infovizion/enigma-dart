@@ -8,9 +8,10 @@ import 'package:built_value/json_object.dart';
 part 'measure_list_def.g.dart';
 
 /// Defines the list of measures.
-abstract class MeasureListDef implements Built<MeasureListDef, MeasureListDefBuilder> {
-
- static Serializer<MeasureListDef> get serializer => _$measureListDefSerializer;
+abstract class MeasureListDef
+    implements Built<MeasureListDef, MeasureListDefBuilder> {
+  static Serializer<MeasureListDef> get serializer =>
+      _$measureListDefSerializer;
 
   /// Type of the list.
   /// Original name: qType
@@ -24,7 +25,8 @@ abstract class MeasureListDef implements Built<MeasureListDef, MeasureListDefBui
 
   factory MeasureListDef([updates(MeasureListDefBuilder b)]) = _$MeasureListDef;
 
-  factory MeasureListDef.init({String type, JsonObject data}) = _$MeasureListDef._;
+  factory MeasureListDef.init({String type, JsonObject data}) =
+      _$MeasureListDef._;
 
   MeasureListDef._();
 }

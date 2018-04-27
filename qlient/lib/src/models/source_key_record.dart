@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'source_key_record.g.dart';
 
-abstract class SourceKeyRecord implements Built<SourceKeyRecord, SourceKeyRecordBuilder> {
-
- static Serializer<SourceKeyRecord> get serializer => _$sourceKeyRecordSerializer;
+abstract class SourceKeyRecord
+    implements Built<SourceKeyRecord, SourceKeyRecordBuilder> {
+  static Serializer<SourceKeyRecord> get serializer =>
+      _$sourceKeyRecordSerializer;
 
   /// Name of the key field.
   /// Original name: qKeyFields
@@ -22,9 +23,12 @@ abstract class SourceKeyRecord implements Built<SourceKeyRecord, SourceKeyRecord
   @nullable
   BuiltList<NxCell> get tables;
 
-  factory SourceKeyRecord([updates(SourceKeyRecordBuilder b)]) = _$SourceKeyRecord;
+  factory SourceKeyRecord([updates(SourceKeyRecordBuilder b)]) =
+      _$SourceKeyRecord;
 
-  factory SourceKeyRecord.init({BuiltList<NxCell> keyFields, BuiltList<NxCell> tables}) = _$SourceKeyRecord._;
+  factory SourceKeyRecord.init(
+      {BuiltList<NxCell> keyFields,
+      BuiltList<NxCell> tables}) = _$SourceKeyRecord._;
 
   SourceKeyRecord._();
 }

@@ -10,9 +10,10 @@ import 'nx_attribute_expression_values.dart';
 import 'nx_attribute_dim_values.dart';
 part 'nx_stacked_pivot_cell.g.dart';
 
-abstract class NxStackedPivotCell implements Built<NxStackedPivotCell, NxStackedPivotCellBuilder> {
-
- static Serializer<NxStackedPivotCell> get serializer => _$nxStackedPivotCellSerializer;
+abstract class NxStackedPivotCell
+    implements Built<NxStackedPivotCell, NxStackedPivotCellBuilder> {
+  static Serializer<NxStackedPivotCell> get serializer =>
+      _$nxStackedPivotCellSerializer;
 
   /// Some text.
   /// Original name: qText
@@ -44,7 +45,7 @@ abstract class NxStackedPivotCell implements Built<NxStackedPivotCell, NxStacked
   bool get canCollapse;
 
   /// Type of the cell.
-  /// 
+  ///
   /// One of:
   /// * V or NX_DIM_CELL_VALUE
   /// * E or NX_DIM_CELL_EMPTY
@@ -102,9 +103,24 @@ abstract class NxStackedPivotCell implements Built<NxStackedPivotCell, NxStacked
   @nullable
   NxAttributeDimValues get attrDims;
 
-  factory NxStackedPivotCell([updates(NxStackedPivotCellBuilder b)]) = _$NxStackedPivotCell;
+  factory NxStackedPivotCell([updates(NxStackedPivotCellBuilder b)]) =
+      _$NxStackedPivotCell;
 
-  factory NxStackedPivotCell.init({String text, int elemNo, num value, bool canExpand, bool canCollapse, String type, num maxPos, num minNeg, int up, int down, int row, BuiltList<NxCell> subNodes, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxStackedPivotCell._;
+  factory NxStackedPivotCell.init(
+      {String text,
+      int elemNo,
+      num value,
+      bool canExpand,
+      bool canCollapse,
+      String type,
+      num maxPos,
+      num minNeg,
+      int up,
+      int down,
+      int row,
+      BuiltList<NxCell> subNodes,
+      NxAttributeExpressionValues attrExps,
+      NxAttributeDimValues attrDims}) = _$NxStackedPivotCell._;
 
   NxStackedPivotCell._();
 }

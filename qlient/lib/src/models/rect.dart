@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'rect.g.dart';
 
 abstract class Rect implements Built<Rect, RectBuilder> {
-
- static Serializer<Rect> get serializer => _$rectSerializer;
+  static Serializer<Rect> get serializer => _$rectSerializer;
 
   /// Position from the left.
   /// Corresponds to the first column.

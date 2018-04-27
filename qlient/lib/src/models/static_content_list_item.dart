@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 part 'static_content_list_item.g.dart';
 
 /// <div class=note>In addition, this structure can return dynamic properties.</div>
-abstract class StaticContentListItem implements Built<StaticContentListItem, StaticContentListItemBuilder> {
-
- static Serializer<StaticContentListItem> get serializer => _$staticContentListItemSerializer;
+abstract class StaticContentListItem
+    implements Built<StaticContentListItem, StaticContentListItemBuilder> {
+  static Serializer<StaticContentListItem> get serializer =>
+      _$staticContentListItemSerializer;
 
   /// Relative path to the content file. The URL is static.
   /// In Qlik Sense Enterprise, content files located:
@@ -35,9 +36,11 @@ abstract class StaticContentListItem implements Built<StaticContentListItem, Sta
   @nullable
   String get url;
 
-  factory StaticContentListItem([updates(StaticContentListItemBuilder b)]) = _$StaticContentListItem;
+  factory StaticContentListItem([updates(StaticContentListItemBuilder b)]) =
+      _$StaticContentListItem;
 
-  factory StaticContentListItem.init({String urlDef, String url}) = _$StaticContentListItem._;
+  factory StaticContentListItem.init({String urlDef, String url}) =
+      _$StaticContentListItem._;
 
   StaticContentListItem._();
 }

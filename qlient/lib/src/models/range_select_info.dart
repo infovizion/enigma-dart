@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'range_select_info.g.dart';
 
-abstract class RangeSelectInfo implements Built<RangeSelectInfo, RangeSelectInfoBuilder> {
-
- static Serializer<RangeSelectInfo> get serializer => _$rangeSelectInfoSerializer;
+abstract class RangeSelectInfo
+    implements Built<RangeSelectInfo, RangeSelectInfoBuilder> {
+  static Serializer<RangeSelectInfo> get serializer =>
+      _$rangeSelectInfoSerializer;
 
   /// Lowest value in the range.
   /// Original name: qRangeLo
@@ -25,9 +26,11 @@ abstract class RangeSelectInfo implements Built<RangeSelectInfo, RangeSelectInfo
   @nullable
   String get measure;
 
-  factory RangeSelectInfo([updates(RangeSelectInfoBuilder b)]) = _$RangeSelectInfo;
+  factory RangeSelectInfo([updates(RangeSelectInfoBuilder b)]) =
+      _$RangeSelectInfo;
 
-  factory RangeSelectInfo.init({num rangeLo, num rangeHi, String measure}) = _$RangeSelectInfo._;
+  factory RangeSelectInfo.init({num rangeLo, num rangeHi, String measure}) =
+      _$RangeSelectInfo._;
 
   RangeSelectInfo._();
 }

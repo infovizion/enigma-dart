@@ -12,9 +12,10 @@ import 'package:built_collection/built_collection.dart';
 part 'generic_bookmark_layout.g.dart';
 
 /// Is the layout for _GenericBookmarkProperties_.
-abstract class GenericBookmarkLayout implements Built<GenericBookmarkLayout, GenericBookmarkLayoutBuilder> {
-
- static Serializer<GenericBookmarkLayout> get serializer => _$genericBookmarkLayoutSerializer;
+abstract class GenericBookmarkLayout
+    implements Built<GenericBookmarkLayout, GenericBookmarkLayoutBuilder> {
+  static Serializer<GenericBookmarkLayout> get serializer =>
+      _$genericBookmarkLayoutSerializer;
 
   /// Information about the object.
   /// Original name: qInfo
@@ -35,9 +36,14 @@ abstract class GenericBookmarkLayout implements Built<GenericBookmarkLayout, Gen
   @nullable
   BuiltList<NxCell> get fieldInfos;
 
-  factory GenericBookmarkLayout([updates(GenericBookmarkLayoutBuilder b)]) = _$GenericBookmarkLayout;
+  factory GenericBookmarkLayout([updates(GenericBookmarkLayoutBuilder b)]) =
+      _$GenericBookmarkLayout;
 
-  factory GenericBookmarkLayout.init({NxInfo info, NxMeta meta, NxBookmark bookmark, BuiltList<NxCell> fieldInfos}) = _$GenericBookmarkLayout._;
+  factory GenericBookmarkLayout.init(
+      {NxInfo info,
+      NxMeta meta,
+      NxBookmark bookmark,
+      BuiltList<NxCell> fieldInfos}) = _$GenericBookmarkLayout._;
 
   GenericBookmarkLayout._();
 }

@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 import 'nx_meta.dart';
 part 'content_library_list_item.g.dart';
 
-abstract class ContentLibraryListItem implements Built<ContentLibraryListItem, ContentLibraryListItemBuilder> {
-
- static Serializer<ContentLibraryListItem> get serializer => _$contentLibraryListItemSerializer;
+abstract class ContentLibraryListItem
+    implements Built<ContentLibraryListItem, ContentLibraryListItemBuilder> {
+  static Serializer<ContentLibraryListItem> get serializer =>
+      _$contentLibraryListItemSerializer;
 
   /// Name of the library.
   /// Original name: qName
@@ -26,9 +27,13 @@ abstract class ContentLibraryListItem implements Built<ContentLibraryListItem, C
   @nullable
   NxMeta get meta;
 
-  factory ContentLibraryListItem([updates(ContentLibraryListItemBuilder b)]) = _$ContentLibraryListItem;
+  factory ContentLibraryListItem([updates(ContentLibraryListItemBuilder b)]) =
+      _$ContentLibraryListItem;
 
-  factory ContentLibraryListItem.init({String name, bool appSpecific, NxMeta meta}) = _$ContentLibraryListItem._;
+  factory ContentLibraryListItem.init(
+      {String name,
+      bool appSpecific,
+      NxMeta meta}) = _$ContentLibraryListItem._;
 
   ContentLibraryListItem._();
 }

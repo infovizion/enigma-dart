@@ -10,8 +10,7 @@ part 'measure_list.g.dart';
 
 /// Lists the measures. Is the layout for _MeasureListDef_.
 abstract class MeasureList implements Built<MeasureList, MeasureListBuilder> {
-
- static Serializer<MeasureList> get serializer => _$measureListSerializer;
+  static Serializer<MeasureList> get serializer => _$measureListSerializer;
 
   /// Information about the list of measures.
   /// Original name: qItems

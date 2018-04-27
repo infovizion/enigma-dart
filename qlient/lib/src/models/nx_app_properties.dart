@@ -9,7 +9,7 @@ part 'nx_app_properties.g.dart';
 
 /// ### Qlik Sense Desktop
 /// In Qlik Sense Desktop, this structure can contain dynamic properties.
-/// 
+///
 /// ### Qlik Sense Enterprise
 /// In Qlik Sense Enterprise, only a few dynamic properties at the app level are persisted.
 /// The persisted dynamic properties are the following:
@@ -19,9 +19,10 @@ part 'nx_app_properties.g.dart';
 /// * privileges
 /// * description
 /// * dynamicColor
-abstract class NxAppProperties implements Built<NxAppProperties, NxAppPropertiesBuilder> {
-
- static Serializer<NxAppProperties> get serializer => _$nxAppPropertiesSerializer;
+abstract class NxAppProperties
+    implements Built<NxAppProperties, NxAppPropertiesBuilder> {
+  static Serializer<NxAppProperties> get serializer =>
+      _$nxAppPropertiesSerializer;
 
   /// App title.
   /// Original name: qTitle
@@ -52,9 +53,15 @@ abstract class NxAppProperties implements Built<NxAppProperties, NxAppProperties
   @nullable
   StaticContentUrlDef get thumbnail;
 
-  factory NxAppProperties([updates(NxAppPropertiesBuilder b)]) = _$NxAppProperties;
+  factory NxAppProperties([updates(NxAppPropertiesBuilder b)]) =
+      _$NxAppProperties;
 
-  factory NxAppProperties.init({String title, String lastReloadTime, String migrationHash, String savedInProductVersion, StaticContentUrlDef thumbnail}) = _$NxAppProperties._;
+  factory NxAppProperties.init(
+      {String title,
+      String lastReloadTime,
+      String migrationHash,
+      String savedInProductVersion,
+      StaticContentUrlDef thumbnail}) = _$NxAppProperties._;
 
   NxAppProperties._();
 }

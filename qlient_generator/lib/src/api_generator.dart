@@ -4,6 +4,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:recase/recase.dart';
 import 'json_serializer.dart';
+import 'package:dart_style/dart_style.dart';
 
 class ApiGenerator {
   var typeMap = <String, TypeData>{};
@@ -83,7 +84,7 @@ class ApiGenerator {
     for (var each in exportList) {
       buffer.writeln("export 'models/${getModelFileName(each)}';");
     }
-    outFile.writeAsStringSync(buffer.toString());
+    outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
   }
 
   TypeData getTypeData(SchemaType schemaType) {
@@ -147,18 +148,26 @@ class ApiGenerator {
     buffer.writeln('  $dartType get $fieldName;\n');
     return '$dartType $fieldName';
   }
+
+  _replaceProperty(
+      Map<String, SchemaType> properties, String fieldName, String newRef) {
+    var schemaType = properties[fieldName];
+    properties[fieldName] =
+        schemaType.rebuild((b) => b..ref = '#/definitions/$newRef');
+  }
+
   SchemaType preprocessClass(String className, SchemaType schemaType) {
     if (className == 'NxCell') {
       var properties = schemaType.properties.toMap();
-      properties.remove('qHighlightRanges');
-      properties.remove('qAttrExps');
-      properties.remove('qAttrDims');
-      var result = schemaType.rebuild((b) => b
-      ..properties.replace(properties));
+      _replaceProperty(properties, 'qHighlightRanges', 'JsonObject');
+      _replaceProperty(properties, 'qAttrExps', 'JsonObject');
+      _replaceProperty(properties, 'qAttrDims', 'JsonObject');
+      var result = schemaType.rebuild((b) => b..properties.replace(properties));
       return result;
     }
     return schemaType;
   }
+
   generateStruct(String className, SchemaType schemaType) {
     if (schemaType.jsonType != 'object') {
       /// Probably we should generate EnumLike classes here ?
@@ -239,7 +248,7 @@ class ApiGenerator {
 
 // $buffer
 // ''';
-    outFile.writeAsStringSync(buffer.toString());
+    outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
   }
 
   generateMethod(String methodName, Method method, StringBuffer buffer) {
@@ -268,7 +277,7 @@ class ApiGenerator {
       if (typeData != null) {
         returnType = typeData.dartType;
       } else {
-        print('Not found ${method.responses.first}');
+        // print('Not found ${method.responses.first}');
       }
     }
     buffer.writeln('  $returnType $dartMethodName(${params.join(', ')}) {}');
@@ -295,28 +304,40 @@ class ApiGenerator {
 
 // $buffer
 // ''';
-    outFile.writeAsStringSync(buffer.toString());
+    outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
   }
 
   generateSerializers() {
-   var  toSerialize = exportList.join(',\n');
+    var toSerialize = exportList.join(',\n');
     var content = '''
-library serializers;
+      library serializers;
 
-import 'package:built_value/serializer.dart';
-import 'package:built_collection/built_collection.dart';
-import '../models.dart';
+      import 'package:built_value/serializer.dart';
+      import 'package:built_collection/built_collection.dart';
+      import '../models.dart';
 
-part 'serializers.g.dart';
+      part 'serializers.g.dart';
 
-@SerializersFor(const [
-  $toSerialize
-])
-final Serializers serializers = _\$serializers;
-''';
+      @SerializersFor(const [
+        $toSerialize
+      ])
+      final Serializers serializers = _\$serializers;
+      ''';
 
- var outFile = new File('../qlient/lib/src/serializers/serializers.dart');
+    var outFile = new File('../qlient/lib/src/serializers/serializers.dart');
     outFile.createSync();
-    outFile.writeAsStringSync(content);
+    outFile.writeAsStringSync(_formatDartContent(content));
+  }
+
+  _formatDartContent(String content) {
+    var formatter = new DartFormatter();
+
+    try {
+      var result = formatter.format(content);
+      return result;
+    } on FormatterException catch (ex) {
+      print(ex);
+      return content;
+    }
   }
 }

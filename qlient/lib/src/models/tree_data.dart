@@ -14,8 +14,7 @@ part 'tree_data.g.dart';
 /// For more information about the definition of TreeData, see _Generic object_.
 /// <div class=note>To retrieve data from the TreeData object, use the method called GetHyperCubeTreeData.</div>
 abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
-
- static Serializer<TreeData> get serializer => _$treeDataSerializer;
+  static Serializer<TreeData> get serializer => _$treeDataSerializer;
 
   /// Name of the alternate state.
   /// Default is current selections _$_ .
@@ -68,7 +67,16 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
 
   factory TreeData([updates(TreeDataBuilder b)]) = _$TreeData;
 
-  factory TreeData.init({String stateName, BuiltList<NxCell> nodesOnDim, NxValidationError error, BuiltList<NxCell> dimensionInfo, BuiltList<NxCell> effectiveInterColumnSortOrder, bool hasOtherValues, String title, NxCellPosition lastExpandedPos, String calcCondMsg}) = _$TreeData._;
+  factory TreeData.init(
+      {String stateName,
+      BuiltList<NxCell> nodesOnDim,
+      NxValidationError error,
+      BuiltList<NxCell> dimensionInfo,
+      BuiltList<NxCell> effectiveInterColumnSortOrder,
+      bool hasOtherValues,
+      String title,
+      NxCellPosition lastExpandedPos,
+      String calcCondMsg}) = _$TreeData._;
 
   TreeData._();
 }

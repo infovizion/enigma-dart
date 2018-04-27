@@ -8,8 +8,7 @@ part 'undo_info.g.dart';
 
 /// Displays information about the number of possible undos and redos. Is the layout for _UndoInfoDef_.
 abstract class UndoInfo implements Built<UndoInfo, UndoInfoBuilder> {
-
- static Serializer<UndoInfo> get serializer => _$undoInfoSerializer;
+  static Serializer<UndoInfo> get serializer => _$undoInfoSerializer;
 
   /// Number of possible undos.
   /// Original name: qUndoCount

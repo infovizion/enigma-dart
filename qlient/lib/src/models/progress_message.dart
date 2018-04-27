@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'progress_message.g.dart';
 
-abstract class ProgressMessage implements Built<ProgressMessage, ProgressMessageBuilder> {
-
- static Serializer<ProgressMessage> get serializer => _$progressMessageSerializer;
+abstract class ProgressMessage
+    implements Built<ProgressMessage, ProgressMessageBuilder> {
+  static Serializer<ProgressMessage> get serializer =>
+      _$progressMessageSerializer;
 
   /// Code number to the corresponding localized message string.
   /// Original name: qMessageCode
@@ -22,9 +23,12 @@ abstract class ProgressMessage implements Built<ProgressMessage, ProgressMessage
   @nullable
   BuiltList<NxCell> get messageParameters;
 
-  factory ProgressMessage([updates(ProgressMessageBuilder b)]) = _$ProgressMessage;
+  factory ProgressMessage([updates(ProgressMessageBuilder b)]) =
+      _$ProgressMessage;
 
-  factory ProgressMessage.init({int messageCode, BuiltList<NxCell> messageParameters}) = _$ProgressMessage._;
+  factory ProgressMessage.init(
+      {int messageCode,
+      BuiltList<NxCell> messageParameters}) = _$ProgressMessage._;
 
   ProgressMessage._();
 }

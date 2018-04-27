@@ -6,9 +6,9 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_simple_value.g.dart';
 
-abstract class NxSimpleValue implements Built<NxSimpleValue, NxSimpleValueBuilder> {
-
- static Serializer<NxSimpleValue> get serializer => _$nxSimpleValueSerializer;
+abstract class NxSimpleValue
+    implements Built<NxSimpleValue, NxSimpleValueBuilder> {
+  static Serializer<NxSimpleValue> get serializer => _$nxSimpleValueSerializer;
 
   /// Text related to the attribute expression value.
   /// Original name: qText

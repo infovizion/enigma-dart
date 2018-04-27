@@ -8,9 +8,9 @@ import 'sort_criteria.dart';
 part 'nx_attr_dim_def.g.dart';
 
 /// Layout for _NxAttrDimDef_.
-abstract class NxAttrDimDef implements Built<NxAttrDimDef, NxAttrDimDefBuilder> {
-
- static Serializer<NxAttrDimDef> get serializer => _$nxAttrDimDefSerializer;
+abstract class NxAttrDimDef
+    implements Built<NxAttrDimDef, NxAttrDimDefBuilder> {
+  static Serializer<NxAttrDimDef> get serializer => _$nxAttrDimDefSerializer;
 
   /// Expression or field name.
   /// Original name: qDef
@@ -34,7 +34,11 @@ abstract class NxAttrDimDef implements Built<NxAttrDimDef, NxAttrDimDefBuilder> 
 
   factory NxAttrDimDef([updates(NxAttrDimDefBuilder b)]) = _$NxAttrDimDef;
 
-  factory NxAttrDimDef.init({String def, String libraryId, SortCriteria sortBy, bool attribute}) = _$NxAttrDimDef._;
+  factory NxAttrDimDef.init(
+      {String def,
+      String libraryId,
+      SortCriteria sortBy,
+      bool attribute}) = _$NxAttrDimDef._;
 
   NxAttrDimDef._();
 }

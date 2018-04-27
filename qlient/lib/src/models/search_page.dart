@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'search_page.g.dart';
 
 abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
-
- static Serializer<SearchPage> get serializer => _$searchPageSerializer;
+  static Serializer<SearchPage> get serializer => _$searchPageSerializer;
 
   /// Position from the top, starting from 0.
   /// If the offset is set to 0, the first search result to be returned is at position 0.
@@ -46,7 +45,12 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
 
   factory SearchPage([updates(SearchPageBuilder b)]) = _$SearchPage;
 
-  factory SearchPage.init({int offset, int count, int maxNbrFieldMatches, BuiltList<NxCell> groupOptions, BuiltList<NxCell> groupItemOptions}) = _$SearchPage._;
+  factory SearchPage.init(
+      {int offset,
+      int count,
+      int maxNbrFieldMatches,
+      BuiltList<NxCell> groupOptions,
+      BuiltList<NxCell> groupItemOptions}) = _$SearchPage._;
 
   SearchPage._();
 }

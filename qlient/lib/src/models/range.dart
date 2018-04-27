@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'range.g.dart';
 
 abstract class Range implements Built<Range, RangeBuilder> {
-
- static Serializer<Range> get serializer => _$rangeSerializer;
+  static Serializer<Range> get serializer => _$rangeSerializer;
 
   /// Lowest value in the range
   /// Original name: qMin
@@ -36,7 +35,8 @@ abstract class Range implements Built<Range, RangeBuilder> {
 
   factory Range([updates(RangeBuilder b)]) = _$Range;
 
-  factory Range.init({num min, num max, bool minInclEq, bool maxInclEq}) = _$Range._;
+  factory Range.init({num min, num max, bool minInclEq, bool maxInclEq}) =
+      _$Range._;
 
   Range._();
 }

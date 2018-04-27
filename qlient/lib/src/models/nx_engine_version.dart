@@ -6,16 +6,18 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_engine_version.g.dart';
 
-abstract class NxEngineVersion implements Built<NxEngineVersion, NxEngineVersionBuilder> {
-
- static Serializer<NxEngineVersion> get serializer => _$nxEngineVersionSerializer;
+abstract class NxEngineVersion
+    implements Built<NxEngineVersion, NxEngineVersionBuilder> {
+  static Serializer<NxEngineVersion> get serializer =>
+      _$nxEngineVersionSerializer;
 
   /// Version number of the Qlik engine component.
   /// Original name: qComponentVersion
   @nullable
   String get componentVersion;
 
-  factory NxEngineVersion([updates(NxEngineVersionBuilder b)]) = _$NxEngineVersion;
+  factory NxEngineVersion([updates(NxEngineVersionBuilder b)]) =
+      _$NxEngineVersion;
 
   factory NxEngineVersion.init({String componentVersion}) = _$NxEngineVersion._;
 

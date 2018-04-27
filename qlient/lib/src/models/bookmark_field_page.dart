@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 part 'bookmark_field_page.g.dart';
 
 /// Defines the range of the bookmark fields that are returned.
-abstract class BookmarkFieldPage implements Built<BookmarkFieldPage, BookmarkFieldPageBuilder> {
-
- static Serializer<BookmarkFieldPage> get serializer => _$bookmarkFieldPageSerializer;
+abstract class BookmarkFieldPage
+    implements Built<BookmarkFieldPage, BookmarkFieldPageBuilder> {
+  static Serializer<BookmarkFieldPage> get serializer =>
+      _$bookmarkFieldPageSerializer;
 
   /// The start value of the range.
   /// Original name: qStartIndex
@@ -21,9 +22,11 @@ abstract class BookmarkFieldPage implements Built<BookmarkFieldPage, BookmarkFie
   @nullable
   int get endIndex;
 
-  factory BookmarkFieldPage([updates(BookmarkFieldPageBuilder b)]) = _$BookmarkFieldPage;
+  factory BookmarkFieldPage([updates(BookmarkFieldPageBuilder b)]) =
+      _$BookmarkFieldPage;
 
-  factory BookmarkFieldPage.init({int startIndex, int endIndex}) = _$BookmarkFieldPage._;
+  factory BookmarkFieldPage.init({int startIndex, int endIndex}) =
+      _$BookmarkFieldPage._;
 
   BookmarkFieldPage._();
 }

@@ -9,9 +9,11 @@ import 'nx_library_dimension_def.dart';
 import 'package:built_value/json_object.dart';
 part 'generic_dimension_properties.g.dart';
 
-abstract class GenericDimensionProperties implements Built<GenericDimensionProperties, GenericDimensionPropertiesBuilder> {
-
- static Serializer<GenericDimensionProperties> get serializer => _$genericDimensionPropertiesSerializer;
+abstract class GenericDimensionProperties
+    implements
+        Built<GenericDimensionProperties, GenericDimensionPropertiesBuilder> {
+  static Serializer<GenericDimensionProperties> get serializer =>
+      _$genericDimensionPropertiesSerializer;
 
   /// Identifier and type of the dimension.
   /// This parameter is mandatory.
@@ -30,9 +32,14 @@ abstract class GenericDimensionProperties implements Built<GenericDimensionPrope
   @nullable
   JsonObject get metaDef;
 
-  factory GenericDimensionProperties([updates(GenericDimensionPropertiesBuilder b)]) = _$GenericDimensionProperties;
+  factory GenericDimensionProperties(
+          [updates(GenericDimensionPropertiesBuilder b)]) =
+      _$GenericDimensionProperties;
 
-  factory GenericDimensionProperties.init({NxInfo info, NxLibraryDimensionDef dim, JsonObject metaDef}) = _$GenericDimensionProperties._;
+  factory GenericDimensionProperties.init(
+      {NxInfo info,
+      NxLibraryDimensionDef dim,
+      JsonObject metaDef}) = _$GenericDimensionProperties._;
 
   GenericDimensionProperties._();
 }

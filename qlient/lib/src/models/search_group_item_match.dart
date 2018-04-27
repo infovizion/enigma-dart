@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_group_item_match.g.dart';
 
-abstract class SearchGroupItemMatch implements Built<SearchGroupItemMatch, SearchGroupItemMatchBuilder> {
-
- static Serializer<SearchGroupItemMatch> get serializer => _$searchGroupItemMatchSerializer;
+abstract class SearchGroupItemMatch
+    implements Built<SearchGroupItemMatch, SearchGroupItemMatchBuilder> {
+  static Serializer<SearchGroupItemMatch> get serializer =>
+      _$searchGroupItemMatchSerializer;
 
   /// Search match value.
   /// Value of the search group item.
@@ -35,9 +36,13 @@ abstract class SearchGroupItemMatch implements Built<SearchGroupItemMatch, Searc
   @nullable
   BuiltList<NxCell> get attributes;
 
-  factory SearchGroupItemMatch([updates(SearchGroupItemMatchBuilder b)]) = _$SearchGroupItemMatch;
+  factory SearchGroupItemMatch([updates(SearchGroupItemMatchBuilder b)]) =
+      _$SearchGroupItemMatch;
 
-  factory SearchGroupItemMatch.init({String text, BuiltList<NxCell> ranges, BuiltList<NxCell> attributes}) = _$SearchGroupItemMatch._;
+  factory SearchGroupItemMatch.init(
+      {String text,
+      BuiltList<NxCell> ranges,
+      BuiltList<NxCell> attributes}) = _$SearchGroupItemMatch._;
 
   SearchGroupItemMatch._();
 }

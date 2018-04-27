@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'nx_view_port.g.dart';
 
 abstract class NxViewPort implements Built<NxViewPort, NxViewPortBuilder> {
-
- static Serializer<NxViewPort> get serializer => _$nxViewPortSerializer;
+  static Serializer<NxViewPort> get serializer => _$nxViewPortSerializer;
 
   /// Width of the canvas in pixels.
   /// Original name: qWidth
@@ -27,7 +26,8 @@ abstract class NxViewPort implements Built<NxViewPort, NxViewPortBuilder> {
 
   factory NxViewPort([updates(NxViewPortBuilder b)]) = _$NxViewPort;
 
-  factory NxViewPort.init({int width, int height, int zoomLevel}) = _$NxViewPort._;
+  factory NxViewPort.init({int width, int height, int zoomLevel}) =
+      _$NxViewPort._;
 
   NxViewPort._();
 }

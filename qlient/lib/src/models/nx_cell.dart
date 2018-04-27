@@ -4,11 +4,11 @@ library nx_cell;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value/json_object.dart';
 part 'nx_cell.g.dart';
 
 abstract class NxCell implements Built<NxCell, NxCellBuilder> {
-
- static Serializer<NxCell> get serializer => _$nxCellSerializer;
+  static Serializer<NxCell> get serializer => _$nxCellSerializer;
 
   /// Some text.
   /// This parameter is optional.
@@ -35,7 +35,7 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
 
   /// State of the value.
   /// The default state for a measure is L.
-  /// 
+  ///
   /// One of:
   /// * L or LOCKED
   /// * S or SELECTED
@@ -77,6 +77,23 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
   @nullable
   String get frequency;
 
+  /// Search hits.
+  /// The search hits are highlighted.
+  /// This parameter is optional.
+  /// Original name: qHighlightRanges
+  @nullable
+  JsonObject get highlightRanges;
+
+  /// Attribute expression values.
+  /// Original name: qAttrExps
+  @nullable
+  JsonObject get attrExps;
+
+  /// Attribute dimensions values.
+  /// Original name: qAttrDims
+  @nullable
+  JsonObject get attrDims;
+
   /// Is set to _true_ if the value is Null.
   /// Original name: qIsNull
   @nullable
@@ -84,7 +101,19 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
 
   factory NxCell([updates(NxCellBuilder b)]) = _$NxCell;
 
-  factory NxCell.init({String text, num qNum, int elemNumber, String state, bool isEmpty, bool isTotalCell, bool isOtherCell, String frequency, bool isNull}) = _$NxCell._;
+  factory NxCell.init(
+      {String text,
+      num qNum,
+      int elemNumber,
+      String state,
+      bool isEmpty,
+      bool isTotalCell,
+      bool isOtherCell,
+      String frequency,
+      JsonObject highlightRanges,
+      JsonObject attrExps,
+      JsonObject attrDims,
+      bool isNull}) = _$NxCell._;
 
   NxCell._();
 }

@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'field_in_table_data.g.dart';
 
-abstract class FieldInTableData implements Built<FieldInTableData, FieldInTableDataBuilder> {
-
- static Serializer<FieldInTableData> get serializer => _$fieldInTableDataSerializer;
+abstract class FieldInTableData
+    implements Built<FieldInTableData, FieldInTableDataBuilder> {
+  static Serializer<FieldInTableData> get serializer =>
+      _$fieldInTableDataSerializer;
 
   /// Name of the field.
   /// Original name: qName
@@ -77,7 +78,7 @@ abstract class FieldInTableData implements Built<FieldInTableData, FieldInTableD
   int get nPresentDistinctValues;
 
   /// Tells if the field is a key field.
-  /// 
+  ///
   /// One of:
   /// * NOT_KEY
   /// * ANY_KEY
@@ -110,9 +111,29 @@ abstract class FieldInTableData implements Built<FieldInTableData, FieldInTableD
   @nullable
   String get readableName;
 
-  factory FieldInTableData([updates(FieldInTableDataBuilder b)]) = _$FieldInTableData;
+  factory FieldInTableData([updates(FieldInTableDataBuilder b)]) =
+      _$FieldInTableData;
 
-  factory FieldInTableData.init({String name, BuiltList<NxCell> originalFields, bool present, bool hasNull, bool hasWild, bool hasDuplicates, bool isSynthetic, num informationDensity, int nNonNulls, int nRows, num subsetRatio, int nTotalDistinctValues, int nPresentDistinctValues, String keyType, String comment, BuiltList<NxCell> tags, BuiltList<NxCell> derivedFields, bool isFieldOnTheFly, String readableName}) = _$FieldInTableData._;
+  factory FieldInTableData.init(
+      {String name,
+      BuiltList<NxCell> originalFields,
+      bool present,
+      bool hasNull,
+      bool hasWild,
+      bool hasDuplicates,
+      bool isSynthetic,
+      num informationDensity,
+      int nNonNulls,
+      int nRows,
+      num subsetRatio,
+      int nTotalDistinctValues,
+      int nPresentDistinctValues,
+      String keyType,
+      String comment,
+      BuiltList<NxCell> tags,
+      BuiltList<NxCell> derivedFields,
+      bool isFieldOnTheFly,
+      String readableName}) = _$FieldInTableData._;
 
   FieldInTableData._();
 }
