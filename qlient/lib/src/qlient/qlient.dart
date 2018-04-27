@@ -20,7 +20,7 @@ class Qlient {
   onMessage(String message) {
     print('<<<<<');
     print(message);
-    Map reply = JSON.decode(message);
+    Map reply = json.decode(message);
     if (reply['method'] == 'OnLicenseAccessDenied') {
       throw new Exception('OnLicenseAccessDenied ${reply["params"]}');
     }
@@ -65,7 +65,7 @@ class Qlient {
     if (!closed) {
       assert(queryMessage['id'] != null);
       replyCompleters[queryMessage['id']] = completer;
-      var message = JSON.encode(queryMessage);
+      var message = json.encode(queryMessage);
       channel.sink.add(message);
     } else {
       completer.completeError(

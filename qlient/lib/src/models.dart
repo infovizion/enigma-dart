@@ -54,6 +54,7 @@ export 'models/nx_multi_range_select_info.dart';
 export 'models/nx_tree_multi_range_select_info.dart';
 export 'models/nx_tree_range_select_info.dart';
 export 'models/nx_continuous_range_select_info.dart';
+export 'models/object_interface.dart';
 export 'models/nx_linked_object_info.dart';
 export 'models/app_object_list_def.dart';
 export 'models/app_object_list.dart';

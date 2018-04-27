@@ -58,7 +58,7 @@ class Global {
       String qSerial, String qLocalizedScriptMainSection) {}
 
   /// Returns the handle of the current app.
-  getActiveDoc() {}
+  ObjectInterface getActiveDoc() {}
 
   /// Indicates whether or not a user is able to create an app.
   bool allowCreateApp() {}
@@ -212,8 +212,8 @@ class Global {
   /// In Qlik Sense Desktop, apps are automatically backed up before a migration.
   /// The backup files are located in _%userprofile%\Documents\Qlik\Sense\AppsBackup\&lt;Qlik Sense Desktop version&gt;_.
   /// In Qlik Sense Enterprise, no automatic back up is run. The back up should be done manually.
-  openDoc(String qDocName, String qUserName, String qPassword, String qSerial,
-      bool qNoData) {}
+  ObjectInterface openDoc(String qDocName, String qUserName, String qPassword,
+      String qSerial, bool qNoData) {}
 
   /// Creates an empty session app.
   /// The following applies:
