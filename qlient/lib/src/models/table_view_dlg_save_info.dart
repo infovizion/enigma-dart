@@ -33,5 +33,7 @@ abstract class TableViewDlgSaveInfo implements Built<TableViewDlgSaveInfo, Table
 
   factory TableViewDlgSaveInfo([updates(TableViewDlgSaveInfoBuilder b)]) = _$TableViewDlgSaveInfo;
 
+  factory TableViewDlgSaveInfo.init({Rect pos, TableViewCtlSaveInfo ctlInfo, int mode}) = _$TableViewDlgSaveInfo._;
+
   TableViewDlgSaveInfo._();
 }

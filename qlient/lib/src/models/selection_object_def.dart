@@ -21,5 +21,7 @@ abstract class SelectionObjectDef implements Built<SelectionObjectDef, Selection
 
   factory SelectionObjectDef([updates(SelectionObjectDefBuilder b)]) = _$SelectionObjectDef;
 
+  factory SelectionObjectDef.init({String stateName}) = _$SelectionObjectDef._;
+
   SelectionObjectDef._();
 }

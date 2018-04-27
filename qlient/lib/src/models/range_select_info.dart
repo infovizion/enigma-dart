@@ -27,5 +27,7 @@ abstract class RangeSelectInfo implements Built<RangeSelectInfo, RangeSelectInfo
 
   factory RangeSelectInfo([updates(RangeSelectInfoBuilder b)]) = _$RangeSelectInfo;
 
+  factory RangeSelectInfo.init({num rangeLo, num rangeHi, String measure}) = _$RangeSelectInfo._;
+
   RangeSelectInfo._();
 }

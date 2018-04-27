@@ -34,5 +34,7 @@ abstract class NxPage implements Built<NxPage, NxPageBuilder> {
 
   factory NxPage([updates(NxPageBuilder b)]) = _$NxPage;
 
+  factory NxPage.init({int left, int top, int width, int height}) = _$NxPage._;
+
   NxPage._();
 }

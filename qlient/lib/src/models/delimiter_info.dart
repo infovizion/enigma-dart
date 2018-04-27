@@ -36,5 +36,7 @@ abstract class DelimiterInfo implements Built<DelimiterInfo, DelimiterInfoBuilde
 
   factory DelimiterInfo([updates(DelimiterInfoBuilder b)]) = _$DelimiterInfo;
 
+  factory DelimiterInfo.init({String name, String scriptCode, int number, bool isMultiple}) = _$DelimiterInfo._;
+
   DelimiterInfo._();
 }

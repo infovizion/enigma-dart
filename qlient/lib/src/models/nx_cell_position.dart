@@ -22,5 +22,7 @@ abstract class NxCellPosition implements Built<NxCellPosition, NxCellPositionBui
 
   factory NxCellPosition([updates(NxCellPositionBuilder b)]) = _$NxCellPosition;
 
+  factory NxCellPosition.init({int x, int y}) = _$NxCellPosition._;
+
   NxCellPosition._();
 }

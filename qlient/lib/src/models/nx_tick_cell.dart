@@ -27,5 +27,7 @@ abstract class NxTickCell implements Built<NxTickCell, NxTickCellBuilder> {
 
   factory NxTickCell([updates(NxTickCellBuilder b)]) = _$NxTickCell;
 
+  factory NxTickCell.init({String text, num start, num end}) = _$NxTickCell._;
+
   NxTickCell._();
 }

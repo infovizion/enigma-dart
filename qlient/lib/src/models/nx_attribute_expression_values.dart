@@ -19,5 +19,7 @@ abstract class NxAttributeExpressionValues implements Built<NxAttributeExpressio
 
   factory NxAttributeExpressionValues([updates(NxAttributeExpressionValuesBuilder b)]) = _$NxAttributeExpressionValues;
 
+  factory NxAttributeExpressionValues.init({BuiltList<NxCell> values}) = _$NxAttributeExpressionValues._;
+
   NxAttributeExpressionValues._();
 }

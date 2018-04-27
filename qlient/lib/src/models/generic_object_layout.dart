@@ -50,5 +50,7 @@ abstract class GenericObjectLayout implements Built<GenericObjectLayout, Generic
 
   factory GenericObjectLayout([updates(GenericObjectLayoutBuilder b)]) = _$GenericObjectLayout;
 
+  factory GenericObjectLayout.init({NxInfo info, NxMeta meta, String extendsId, bool hasSoftPatches, NxLayoutErrors error, NxSelectionInfo selectionInfo}) = _$GenericObjectLayout._;
+
   GenericObjectLayout._();
 }

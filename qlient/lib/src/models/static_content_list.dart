@@ -19,5 +19,7 @@ abstract class StaticContentList implements Built<StaticContentList, StaticConte
 
   factory StaticContentList([updates(StaticContentListBuilder b)]) = _$StaticContentList;
 
+  factory StaticContentList.init({BuiltList<NxCell> items}) = _$StaticContentList._;
+
   StaticContentList._();
 }

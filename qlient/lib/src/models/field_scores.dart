@@ -40,5 +40,7 @@ abstract class FieldScores implements Built<FieldScores, FieldScoresBuilder> {
 
   factory FieldScores([updates(FieldScoresBuilder b)]) = _$FieldScores;
 
+  factory FieldScores.init({String fieldName, String readableName, num cardinalRatio, num symbolScore, num rowScore}) = _$FieldScores._;
+
   FieldScores._();
 }

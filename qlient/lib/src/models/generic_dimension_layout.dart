@@ -39,5 +39,7 @@ abstract class GenericDimensionLayout implements Built<GenericDimensionLayout, G
 
   factory GenericDimensionLayout([updates(GenericDimensionLayoutBuilder b)]) = _$GenericDimensionLayout;
 
+  factory GenericDimensionLayout.init({NxInfo info, NxMeta meta, NxLibraryDimension dim, BuiltList<NxCell> dimInfos}) = _$GenericDimensionLayout._;
+
   GenericDimensionLayout._();
 }

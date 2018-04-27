@@ -105,5 +105,7 @@ abstract class NxDimension implements Built<NxDimension, NxDimensionBuilder> {
 
   factory NxDimension([updates(NxDimensionBuilder b)]) = _$NxDimension;
 
+  factory NxDimension.init({String libraryId, NxInlineDimensionDef def, bool nullSuppression, bool includeElemValue, OtherTotalSpecProp otherTotalSpec, bool showTotal, bool showAll, StringExpr otherLabel, StringExpr totalLabel, ValueExpr calcCond, BuiltList<NxCell> attributeExpressions, BuiltList<NxCell> attributeDimensions, NxCalcCond calcCondition}) = _$NxDimension._;
+
   NxDimension._();
 }

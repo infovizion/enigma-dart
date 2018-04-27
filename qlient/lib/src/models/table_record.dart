@@ -56,5 +56,7 @@ abstract class TableRecord implements Built<TableRecord, TableRecordBuilder> {
 
   factory TableRecord([updates(TableRecordBuilder b)]) = _$TableRecord;
 
+  factory TableRecord.init({String name, bool loose, int noOfRows, BuiltList<NxCell> fields, Point pos, String comment, bool isDirectDiscovery, bool isSynthetic}) = _$TableRecord._;
+
   TableRecord._();
 }

@@ -29,5 +29,7 @@ abstract class SearchObjectOptions implements Built<SearchObjectOptions, SearchO
 
   factory SearchObjectOptions([updates(SearchObjectOptionsBuilder b)]) = _$SearchObjectOptions;
 
+  factory SearchObjectOptions.init({BuiltList<NxCell> attributes, String charEncoding}) = _$SearchObjectOptions._;
+
   SearchObjectOptions._();
 }

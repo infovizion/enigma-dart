@@ -19,5 +19,7 @@ abstract class NxTreeMultiRangeSelectInfo implements Built<NxTreeMultiRangeSelec
 
   factory NxTreeMultiRangeSelectInfo([updates(NxTreeMultiRangeSelectInfoBuilder b)]) = _$NxTreeMultiRangeSelectInfo;
 
+  factory NxTreeMultiRangeSelectInfo.init({BuiltList<NxCell> ranges}) = _$NxTreeMultiRangeSelectInfo._;
+
   NxTreeMultiRangeSelectInfo._();
 }

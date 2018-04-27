@@ -18,5 +18,7 @@ abstract class StaticContentUrlDef implements Built<StaticContentUrlDef, StaticC
 
   factory StaticContentUrlDef([updates(StaticContentUrlDefBuilder b)]) = _$StaticContentUrlDef;
 
+  factory StaticContentUrlDef.init({String url}) = _$StaticContentUrlDef._;
+
   StaticContentUrlDef._();
 }

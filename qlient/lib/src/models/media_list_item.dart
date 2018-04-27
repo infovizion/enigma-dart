@@ -29,5 +29,7 @@ abstract class MediaListItem implements Built<MediaListItem, MediaListItemBuilde
 
   factory MediaListItem([updates(MediaListItemBuilder b)]) = _$MediaListItem;
 
+  factory MediaListItem.init({String urlDef, String url}) = _$MediaListItem._;
+
   MediaListItem._();
 }

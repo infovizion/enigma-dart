@@ -28,5 +28,7 @@ abstract class ContentLibraryListItem implements Built<ContentLibraryListItem, C
 
   factory ContentLibraryListItem([updates(ContentLibraryListItemBuilder b)]) = _$ContentLibraryListItem;
 
+  factory ContentLibraryListItem.init({String name, bool appSpecific, NxMeta meta}) = _$ContentLibraryListItem._;
+
   ContentLibraryListItem._();
 }

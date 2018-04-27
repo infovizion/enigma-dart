@@ -24,5 +24,7 @@ abstract class NxCalcCond implements Built<NxCalcCond, NxCalcCondBuilder> {
 
   factory NxCalcCond([updates(NxCalcCondBuilder b)]) = _$NxCalcCond;
 
+  factory NxCalcCond.init({ValueExpr cond, StringExpr msg}) = _$NxCalcCond._;
+
   NxCalcCond._();
 }

@@ -35,5 +35,7 @@ abstract class SearchGroupItemOptions implements Built<SearchGroupItemOptions, S
 
   factory SearchGroupItemOptions([updates(SearchGroupItemOptionsBuilder b)]) = _$SearchGroupItemOptions;
 
+  factory SearchGroupItemOptions.init({String groupItemType, int offset, int count}) = _$SearchGroupItemOptions._;
+
   SearchGroupItemOptions._();
 }

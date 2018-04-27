@@ -24,5 +24,7 @@ abstract class FilterInfo implements Built<FilterInfo, FilterInfoBuilder> {
 
   factory FilterInfo([updates(FilterInfoBuilder b)]) = _$FilterInfo;
 
+  factory FilterInfo.init({String type, String wherePredicate}) = _$FilterInfo._;
+
   FilterInfo._();
 }

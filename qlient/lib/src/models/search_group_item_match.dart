@@ -37,5 +37,7 @@ abstract class SearchGroupItemMatch implements Built<SearchGroupItemMatch, Searc
 
   factory SearchGroupItemMatch([updates(SearchGroupItemMatchBuilder b)]) = _$SearchGroupItemMatch;
 
+  factory SearchGroupItemMatch.init({String text, BuiltList<NxCell> ranges, BuiltList<NxCell> attributes}) = _$SearchGroupItemMatch._;
+
   SearchGroupItemMatch._();
 }

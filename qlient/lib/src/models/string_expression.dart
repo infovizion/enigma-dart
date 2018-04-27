@@ -26,5 +26,7 @@ abstract class StringExpression implements Built<StringExpression, StringExpress
 
   factory StringExpression([updates(StringExpressionBuilder b)]) = _$StringExpression;
 
+  factory StringExpression.init({String expr}) = _$StringExpression._;
+
   StringExpression._();
 }

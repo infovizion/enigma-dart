@@ -41,5 +41,7 @@ abstract class SearchAssociationResult implements Built<SearchAssociationResult,
 
   factory SearchAssociationResult([updates(SearchAssociationResultBuilder b)]) = _$SearchAssociationResult;
 
+  factory SearchAssociationResult.init({BuiltList<NxCell> fieldNames, BuiltList<NxCell> searchTerms, BuiltList<NxCell> fieldDictionaries, BuiltList<NxCell> searchTermsMatched, int totalSearchResults}) = _$SearchAssociationResult._;
+
   SearchAssociationResult._();
 }

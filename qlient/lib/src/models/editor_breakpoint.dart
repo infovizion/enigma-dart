@@ -27,5 +27,7 @@ abstract class EditorBreakpoint implements Built<EditorBreakpoint, EditorBreakpo
 
   factory EditorBreakpoint([updates(EditorBreakpointBuilder b)]) = _$EditorBreakpoint;
 
+  factory EditorBreakpoint.init({String bufferName, int lineIx, bool enabled}) = _$EditorBreakpoint._;
+
   EditorBreakpoint._();
 }

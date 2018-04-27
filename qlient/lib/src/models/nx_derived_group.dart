@@ -41,5 +41,7 @@ abstract class NxDerivedGroup implements Built<NxDerivedGroup, NxDerivedGroupBui
 
   factory NxDerivedGroup([updates(NxDerivedGroupBuilder b)]) = _$NxDerivedGroup;
 
+  factory NxDerivedGroup.init({String id, String name, String grouping, BuiltList<NxCell> fieldDefs}) = _$NxDerivedGroup._;
+
   NxDerivedGroup._();
 }

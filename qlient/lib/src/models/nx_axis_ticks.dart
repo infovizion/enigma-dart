@@ -29,5 +29,7 @@ abstract class NxAxisTicks implements Built<NxAxisTicks, NxAxisTicksBuilder> {
 
   factory NxAxisTicks([updates(NxAxisTicksBuilder b)]) = _$NxAxisTicks;
 
+  factory NxAxisTicks.init({String name, BuiltList<NxCell> tags, BuiltList<NxCell> ticks}) = _$NxAxisTicks._;
+
   NxAxisTicks._();
 }

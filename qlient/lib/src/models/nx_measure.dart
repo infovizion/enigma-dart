@@ -65,5 +65,7 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
 
   factory NxMeasure([updates(NxMeasureBuilder b)]) = _$NxMeasure;
 
+  factory NxMeasure.init({String libraryId, NxInlineMeasureDef def, SortCriteria sortBy, BuiltList<NxCell> attributeExpressions, BuiltList<NxCell> attributeDimensions, ValueExpr calcCond, NxCalcCond calcCondition}) = _$NxMeasure._;
+
   NxMeasure._();
 }

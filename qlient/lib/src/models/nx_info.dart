@@ -26,5 +26,7 @@ abstract class NxInfo implements Built<NxInfo, NxInfoBuilder> {
 
   factory NxInfo([updates(NxInfoBuilder b)]) = _$NxInfo;
 
+  factory NxInfo.init({String id, String type}) = _$NxInfo._;
+
   NxInfo._();
 }

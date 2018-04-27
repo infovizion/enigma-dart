@@ -25,5 +25,7 @@ abstract class TableViewConnectionPointSaveInfo implements Built<TableViewConnec
 
   factory TableViewConnectionPointSaveInfo([updates(TableViewConnectionPointSaveInfoBuilder b)]) = _$TableViewConnectionPointSaveInfo;
 
+  factory TableViewConnectionPointSaveInfo.init({Point pos, BuiltList<NxCell> fields}) = _$TableViewConnectionPointSaveInfo._;
+
   TableViewConnectionPointSaveInfo._();
 }

@@ -37,5 +37,7 @@ abstract class GenericBookmarkLayout implements Built<GenericBookmarkLayout, Gen
 
   factory GenericBookmarkLayout([updates(GenericBookmarkLayoutBuilder b)]) = _$GenericBookmarkLayout;
 
+  factory GenericBookmarkLayout.init({NxInfo info, NxMeta meta, NxBookmark bookmark, BuiltList<NxCell> fieldInfos}) = _$GenericBookmarkLayout._;
+
   GenericBookmarkLayout._();
 }

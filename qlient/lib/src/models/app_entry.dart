@@ -53,5 +53,7 @@ abstract class AppEntry implements Built<AppEntry, AppEntryBuilder> {
 
   factory AppEntry([updates(AppEntryBuilder b)]) = _$AppEntry;
 
+  factory AppEntry.init({String iD, String title, String path, String lastReloadTime, bool readOnly, NxMeta meta, StaticContentUrl thumbnail, int fileSize}) = _$AppEntry._;
+
   AppEntry._();
 }

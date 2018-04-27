@@ -55,5 +55,7 @@ abstract class FieldListDef implements Built<FieldListDef, FieldListDefBuilder> 
 
   factory FieldListDef([updates(FieldListDefBuilder b)]) = _$FieldListDef;
 
+  factory FieldListDef.init({bool showSystem, bool showHidden, bool showSemantic, bool showSrcTables, bool showDefinitionOnly, bool showDerivedFields, bool showImplicit}) = _$FieldListDef._;
+
   FieldListDef._();
 }

@@ -24,5 +24,7 @@ abstract class NxSelectionInfo implements Built<NxSelectionInfo, NxSelectionInfo
 
   factory NxSelectionInfo([updates(NxSelectionInfoBuilder b)]) = _$NxSelectionInfo;
 
+  factory NxSelectionInfo.init({bool inSelections, bool madeSelections}) = _$NxSelectionInfo._;
+
   NxSelectionInfo._();
 }

@@ -101,5 +101,7 @@ abstract class FieldAttributes implements Built<FieldAttributes, FieldAttributes
 
   factory FieldAttributes([updates(FieldAttributesBuilder b)]) = _$FieldAttributes;
 
+  factory FieldAttributes.init({String type, int nDec, int useThou, String fmt, String dec, String thou}) = _$FieldAttributes._;
+
   FieldAttributes._();
 }

@@ -54,5 +54,7 @@ abstract class NxAppProperties implements Built<NxAppProperties, NxAppProperties
 
   factory NxAppProperties([updates(NxAppPropertiesBuilder b)]) = _$NxAppProperties;
 
+  factory NxAppProperties.init({String title, String lastReloadTime, String migrationHash, String savedInProductVersion, StaticContentUrlDef thumbnail}) = _$NxAppProperties._;
+
   NxAppProperties._();
 }

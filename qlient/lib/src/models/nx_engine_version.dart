@@ -17,5 +17,7 @@ abstract class NxEngineVersion implements Built<NxEngineVersion, NxEngineVersion
 
   factory NxEngineVersion([updates(NxEngineVersionBuilder b)]) = _$NxEngineVersion;
 
+  factory NxEngineVersion.init({String componentVersion}) = _$NxEngineVersion._;
+
   NxEngineVersion._();
 }

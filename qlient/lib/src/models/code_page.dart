@@ -27,5 +27,7 @@ abstract class CodePage implements Built<CodePage, CodePageBuilder> {
 
   factory CodePage([updates(CodePageBuilder b)]) = _$CodePage;
 
+  factory CodePage.init({int number, String name, String description}) = _$CodePage._;
+
   CodePage._();
 }

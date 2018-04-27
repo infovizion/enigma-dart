@@ -46,5 +46,7 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
 
   factory SearchPage([updates(SearchPageBuilder b)]) = _$SearchPage;
 
+  factory SearchPage.init({int offset, int count, int maxNbrFieldMatches, BuiltList<NxCell> groupOptions, BuiltList<NxCell> groupItemOptions}) = _$SearchPage._;
+
   SearchPage._();
 }

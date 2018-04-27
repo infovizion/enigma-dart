@@ -36,5 +36,7 @@ abstract class NxDataAreaPage implements Built<NxDataAreaPage, NxDataAreaPageBui
 
   factory NxDataAreaPage([updates(NxDataAreaPageBuilder b)]) = _$NxDataAreaPage;
 
+  factory NxDataAreaPage.init({num left, num top, num width, num height}) = _$NxDataAreaPage._;
+
   NxDataAreaPage._();
 }

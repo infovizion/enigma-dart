@@ -68,5 +68,7 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
 
   factory TreeData([updates(TreeDataBuilder b)]) = _$TreeData;
 
+  factory TreeData.init({String stateName, BuiltList<NxCell> nodesOnDim, NxValidationError error, BuiltList<NxCell> dimensionInfo, BuiltList<NxCell> effectiveInterColumnSortOrder, bool hasOtherValues, String title, NxCellPosition lastExpandedPos, String calcCondMsg}) = _$TreeData._;
+
   TreeData._();
 }

@@ -112,5 +112,7 @@ abstract class FieldInTableData implements Built<FieldInTableData, FieldInTableD
 
   factory FieldInTableData([updates(FieldInTableDataBuilder b)]) = _$FieldInTableData;
 
+  factory FieldInTableData.init({String name, BuiltList<NxCell> originalFields, bool present, bool hasNull, bool hasWild, bool hasDuplicates, bool isSynthetic, num informationDensity, int nNonNulls, int nRows, num subsetRatio, int nTotalDistinctValues, int nPresentDistinctValues, String keyType, String comment, BuiltList<NxCell> tags, BuiltList<NxCell> derivedFields, bool isFieldOnTheFly, String readableName}) = _$FieldInTableData._;
+
   FieldInTableData._();
 }

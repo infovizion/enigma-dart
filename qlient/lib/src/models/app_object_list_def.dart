@@ -26,5 +26,7 @@ abstract class AppObjectListDef implements Built<AppObjectListDef, AppObjectList
 
   factory AppObjectListDef([updates(AppObjectListDefBuilder b)]) = _$AppObjectListDef;
 
+  factory AppObjectListDef.init({String type, JsonObject data}) = _$AppObjectListDef._;
+
   AppObjectListDef._();
 }

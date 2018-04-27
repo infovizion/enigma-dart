@@ -23,5 +23,7 @@ abstract class DataTable implements Built<DataTable, DataTableBuilder> {
 
   factory DataTable([updates(DataTableBuilder b)]) = _$DataTable;
 
+  factory DataTable.init({String name, String type}) = _$DataTable._;
+
   DataTable._();
 }

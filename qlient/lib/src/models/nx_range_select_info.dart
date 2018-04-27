@@ -24,5 +24,7 @@ abstract class NxRangeSelectInfo implements Built<NxRangeSelectInfo, NxRangeSele
 
   factory NxRangeSelectInfo([updates(NxRangeSelectInfoBuilder b)]) = _$NxRangeSelectInfo;
 
+  factory NxRangeSelectInfo.init({Range range, int measureIx}) = _$NxRangeSelectInfo._;
+
   NxRangeSelectInfo._();
 }

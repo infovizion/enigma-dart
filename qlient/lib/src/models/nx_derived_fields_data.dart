@@ -34,5 +34,7 @@ abstract class NxDerivedFieldsData implements Built<NxDerivedFieldsData, NxDeriv
 
   factory NxDerivedFieldsData([updates(NxDerivedFieldsDataBuilder b)]) = _$NxDerivedFieldsData;
 
+  factory NxDerivedFieldsData.init({String derivedDefinitionName, BuiltList<NxCell> fieldDefs, BuiltList<NxCell> groupDefs, BuiltList<NxCell> tags}) = _$NxDerivedFieldsData._;
+
   NxDerivedFieldsData._();
 }

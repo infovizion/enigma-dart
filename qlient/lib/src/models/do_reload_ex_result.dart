@@ -20,5 +20,7 @@ abstract class DoReloadExResult implements Built<DoReloadExResult, DoReloadExRes
 
   factory DoReloadExResult([updates(DoReloadExResultBuilder b)]) = _$DoReloadExResult;
 
+  factory DoReloadExResult.init({bool success, String scriptLogFile}) = _$DoReloadExResult._;
+
   DoReloadExResult._();
 }

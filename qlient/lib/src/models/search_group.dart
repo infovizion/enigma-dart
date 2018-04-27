@@ -44,5 +44,7 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
 
   factory SearchGroup([updates(SearchGroupBuilder b)]) = _$SearchGroup;
 
+  factory SearchGroup.init({int id, String groupType, BuiltList<NxCell> searchTermsMatched, int totalNumberOfItems, BuiltList<NxCell> items}) = _$SearchGroup._;
+
   SearchGroup._();
 }

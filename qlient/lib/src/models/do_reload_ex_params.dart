@@ -24,5 +24,7 @@ abstract class DoReloadExParams implements Built<DoReloadExParams, DoReloadExPar
 
   factory DoReloadExParams([updates(DoReloadExParamsBuilder b)]) = _$DoReloadExParams;
 
+  factory DoReloadExParams.init({int mode, bool partial, bool debug}) = _$DoReloadExParams._;
+
   DoReloadExParams._();
 }

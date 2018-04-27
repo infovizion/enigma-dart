@@ -19,5 +19,7 @@ abstract class NxFieldProperties implements Built<NxFieldProperties, NxFieldProp
 
   factory NxFieldProperties([updates(NxFieldPropertiesBuilder b)]) = _$NxFieldProperties;
 
+  factory NxFieldProperties.init({bool oneAndOnlyOne}) = _$NxFieldProperties._;
+
   NxFieldProperties._();
 }

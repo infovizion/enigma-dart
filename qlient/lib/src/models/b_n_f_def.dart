@@ -145,5 +145,7 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
 
   factory BNFDef([updates(BNFDefBuilder b)]) = _$BNFDef;
 
+  factory BNFDef.init({BuiltList<NxCell> bnf, int nbr, int pNbr, int helpId, String name, String str, bool isBnfRule, bool scriptStatement, bool controlStatement, bool bnfLiteral, bool qvFunc, bool aggrFunc, String fG, bool fieldFlag, String mT, bool depr}) = _$BNFDef._;
+
   BNFDef._();
 }

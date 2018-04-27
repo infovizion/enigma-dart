@@ -23,5 +23,7 @@ abstract class NxStreamListEntry implements Built<NxStreamListEntry, NxStreamLis
 
   factory NxStreamListEntry([updates(NxStreamListEntryBuilder b)]) = _$NxStreamListEntry;
 
+  factory NxStreamListEntry.init({String name, String id}) = _$NxStreamListEntry._;
+
   NxStreamListEntry._();
 }

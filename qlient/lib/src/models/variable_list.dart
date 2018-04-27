@@ -20,5 +20,7 @@ abstract class VariableList implements Built<VariableList, VariableListBuilder> 
 
   factory VariableList([updates(VariableListBuilder b)]) = _$VariableList;
 
+  factory VariableList.init({BuiltList<NxCell> items}) = _$VariableList._;
+
   VariableList._();
 }

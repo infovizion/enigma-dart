@@ -20,5 +20,7 @@ abstract class BookmarkList implements Built<BookmarkList, BookmarkListBuilder> 
 
   factory BookmarkList([updates(BookmarkListBuilder b)]) = _$BookmarkList;
 
+  factory BookmarkList.init({BuiltList<NxCell> items}) = _$BookmarkList._;
+
   BookmarkList._();
 }

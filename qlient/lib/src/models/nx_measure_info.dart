@@ -92,5 +92,7 @@ abstract class NxMeasureInfo implements Built<NxMeasureInfo, NxMeasureInfoBuilde
 
   factory NxMeasureInfo([updates(NxMeasureInfoBuilder b)]) = _$NxMeasureInfo;
 
+  factory NxMeasureInfo.init({String fallbackTitle, int apprMaxGlyphCount, int cardinal, String sortIndicator, FieldAttributes numFormat, num min, num max, NxValidationError error, bool reverseSort, bool isAutoFormat, BuiltList<NxCell> attrExprInfo, BuiltList<NxCell> attrDimInfo, String calcCondMsg}) = _$NxMeasureInfo._;
+
   NxMeasureInfo._();
 }

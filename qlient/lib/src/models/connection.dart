@@ -89,5 +89,7 @@ abstract class Connection implements Built<Connection, ConnectionBuilder> {
 
   factory Connection([updates(ConnectionBuilder b)]) = _$Connection;
 
+  factory Connection.init({String id, String name, String connectionString, String type, String userName, String password, String modifiedDate, NxMeta meta, String logOn}) = _$Connection._;
+
   Connection._();
 }

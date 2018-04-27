@@ -30,5 +30,7 @@ abstract class LineageInfo implements Built<LineageInfo, LineageInfoBuilder> {
 
   factory LineageInfo([updates(LineageInfoBuilder b)]) = _$LineageInfo;
 
+  factory LineageInfo.init({String discriminator, String statement}) = _$LineageInfo._;
+
   LineageInfo._();
 }

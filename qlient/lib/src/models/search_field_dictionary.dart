@@ -26,5 +26,7 @@ abstract class SearchFieldDictionary implements Built<SearchFieldDictionary, Sea
 
   factory SearchFieldDictionary([updates(SearchFieldDictionaryBuilder b)]) = _$SearchFieldDictionary;
 
+  factory SearchFieldDictionary.init({int field, BuiltList<NxCell> result}) = _$SearchFieldDictionary._;
+
   SearchFieldDictionary._();
 }

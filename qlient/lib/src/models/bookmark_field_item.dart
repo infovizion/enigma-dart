@@ -55,5 +55,7 @@ abstract class BookmarkFieldItem implements Built<BookmarkFieldItem, BookmarkFie
 
   factory BookmarkFieldItem([updates(BookmarkFieldItemBuilder b)]) = _$BookmarkFieldItem;
 
+  factory BookmarkFieldItem.init({FieldDefEx def, bool locked, SelectInfo selectInfo, BuiltList<NxCell> values, BuiltList<NxCell> excludedValues, bool andMode, bool oneAndOnlyOne}) = _$BookmarkFieldItem._;
+
   BookmarkFieldItem._();
 }

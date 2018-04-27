@@ -52,5 +52,7 @@ abstract class ListObject implements Built<ListObject, ListObjectBuilder> {
 
   factory ListObject([updates(ListObjectBuilder b)]) = _$ListObject;
 
+  factory ListObject.init({String stateName, Size size, NxValidationError error, NxDimensionInfo dimensionInfo, BuiltList<NxCell> expressions, BuiltList<NxCell> dataPages}) = _$ListObject._;
+
   ListObject._();
 }

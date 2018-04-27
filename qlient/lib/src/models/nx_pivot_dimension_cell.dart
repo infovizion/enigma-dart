@@ -91,5 +91,7 @@ abstract class NxPivotDimensionCell implements Built<NxPivotDimensionCell, NxPiv
 
   factory NxPivotDimensionCell([updates(NxPivotDimensionCellBuilder b)]) = _$NxPivotDimensionCell;
 
+  factory NxPivotDimensionCell.init({String text, int elemNo, num value, bool canExpand, bool canCollapse, String type, int up, int down, BuiltList<NxCell> subNodes, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxPivotDimensionCell._;
+
   NxPivotDimensionCell._();
 }

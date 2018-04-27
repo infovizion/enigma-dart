@@ -41,5 +41,7 @@ abstract class CustomConnector implements Built<CustomConnector, CustomConnector
 
   factory CustomConnector([updates(CustomConnectorBuilder b)]) = _$CustomConnector;
 
+  factory CustomConnector.init({String provider, String parent, String displayName, String machineMode, bool supportFileStreaming}) = _$CustomConnector._;
+
   CustomConnector._();
 }

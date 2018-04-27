@@ -90,5 +90,7 @@ abstract class NxAppLayout implements Built<NxAppLayout, NxAppLayoutBuilder> {
 
   factory NxAppLayout([updates(NxAppLayoutBuilder b)]) = _$NxAppLayout;
 
+  factory NxAppLayout.init({String title, String fileName, String lastReloadTime, bool modified, bool hasScript, BuiltList<NxCell> stateNames, NxMeta meta, LocaleInfo localeInfo, bool hasData, bool readOnly, bool isOpenedWithoutData, StaticContentUrl thumbnail}) = _$NxAppLayout._;
+
   NxAppLayout._();
 }

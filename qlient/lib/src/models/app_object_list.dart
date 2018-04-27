@@ -21,5 +21,7 @@ abstract class AppObjectList implements Built<AppObjectList, AppObjectListBuilde
 
   factory AppObjectList([updates(AppObjectListBuilder b)]) = _$AppObjectList;
 
+  factory AppObjectList.init({BuiltList<NxCell> items}) = _$AppObjectList._;
+
   AppObjectList._();
 }

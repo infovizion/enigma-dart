@@ -112,5 +112,7 @@ abstract class FileDataFormat implements Built<FileDataFormat, FileDataFormatBui
 
   factory FileDataFormat([updates(FileDataFormatBuilder b)]) = _$FileDataFormat;
 
+  factory FileDataFormat.init({String type, String label, String quote, String comment, DelimiterInfo delimiter, int codePage, int headerSize, int recordSize, int tabSize, bool ignoreEOF, String fixedWidthDelimiters}) = _$FileDataFormat._;
+
   FileDataFormat._();
 }

@@ -42,5 +42,7 @@ abstract class ErrorData implements Built<ErrorData, ErrorDataBuilder> {
 
   factory ErrorData([updates(ErrorDataBuilder b)]) = _$ErrorData;
 
+  factory ErrorData.init({String errorString, String lineEnd, String line, String errorDataCode, ProgressMessage message}) = _$ErrorData._;
+
   ErrorData._();
 }

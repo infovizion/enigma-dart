@@ -24,5 +24,7 @@ abstract class GenericBookmarkEntry implements Built<GenericBookmarkEntry, Gener
 
   factory GenericBookmarkEntry([updates(GenericBookmarkEntryBuilder b)]) = _$GenericBookmarkEntry;
 
+  factory GenericBookmarkEntry.init({GenericBookmarkProperties properties, NxBookmark bookmark}) = _$GenericBookmarkEntry._;
+
   GenericBookmarkEntry._();
 }

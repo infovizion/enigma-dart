@@ -22,5 +22,7 @@ abstract class AlfaNumString implements Built<AlfaNumString, AlfaNumStringBuilde
 
   factory AlfaNumString([updates(AlfaNumStringBuilder b)]) = _$AlfaNumString;
 
+  factory AlfaNumString.init({String string, bool isNum}) = _$AlfaNumString._;
+
   AlfaNumString._();
 }

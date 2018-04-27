@@ -24,5 +24,7 @@ abstract class AppScript implements Built<AppScript, AppScriptBuilder> {
 
   factory AppScript([updates(AppScriptBuilder b)]) = _$AppScript;
 
+  factory AppScript.init({String script, NxMeta meta}) = _$AppScript._;
+
   AppScript._();
 }

@@ -38,5 +38,7 @@ abstract class NxLibraryDimension implements Built<NxLibraryDimension, NxLibrary
 
   factory NxLibraryDimension([updates(NxLibraryDimensionBuilder b)]) = _$NxLibraryDimension;
 
+  factory NxLibraryDimension.init({String grouping, BuiltList<NxCell> fieldDefs, BuiltList<NxCell> fieldLabels, String labelExpression}) = _$NxLibraryDimension._;
+
   NxLibraryDimension._();
 }

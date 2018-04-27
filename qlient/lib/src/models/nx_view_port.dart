@@ -27,5 +27,7 @@ abstract class NxViewPort implements Built<NxViewPort, NxViewPortBuilder> {
 
   factory NxViewPort([updates(NxViewPortBuilder b)]) = _$NxViewPort;
 
+  factory NxViewPort.init({int width, int height, int zoomLevel}) = _$NxViewPort._;
+
   NxViewPort._();
 }

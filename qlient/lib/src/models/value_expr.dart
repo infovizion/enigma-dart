@@ -16,5 +16,7 @@ abstract class ValueExpr implements Built<ValueExpr, ValueExprBuilder> {
 
   factory ValueExpr([updates(ValueExprBuilder b)]) = _$ValueExpr;
 
+  factory ValueExpr.init({String v}) = _$ValueExpr._;
+
   ValueExpr._();
 }

@@ -118,5 +118,7 @@ abstract class FieldDescription implements Built<FieldDescription, FieldDescript
 
   factory FieldDescription([updates(FieldDescriptionBuilder b)]) = _$FieldDescription;
 
+  factory FieldDescription.init({int internalNumber, String name, BuiltList<NxCell> srcTables, bool isSystem, bool isHidden, bool isSemantic, bool distinctOnly, int cardinal, int totalCount, int possibleCountOBSOLETE, bool hasInfoOBSOLETE, bool isLocked, bool alwaysOneSelected, bool andMode, bool isNumeric, String comment, BuiltList<NxCell> tags, bool isDefinitionOnly, int byteSize}) = _$FieldDescription._;
+
   FieldDescription._();
 }

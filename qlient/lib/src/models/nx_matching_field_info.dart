@@ -24,5 +24,7 @@ abstract class NxMatchingFieldInfo implements Built<NxMatchingFieldInfo, NxMatch
 
   factory NxMatchingFieldInfo([updates(NxMatchingFieldInfoBuilder b)]) = _$NxMatchingFieldInfo;
 
+  factory NxMatchingFieldInfo.init({String name, BuiltList<NxCell> tags}) = _$NxMatchingFieldInfo._;
+
   NxMatchingFieldInfo._();
 }

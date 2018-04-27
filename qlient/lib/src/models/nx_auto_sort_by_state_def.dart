@@ -19,5 +19,7 @@ abstract class NxAutoSortByStateDef implements Built<NxAutoSortByStateDef, NxAut
 
   factory NxAutoSortByStateDef([updates(NxAutoSortByStateDefBuilder b)]) = _$NxAutoSortByStateDef;
 
+  factory NxAutoSortByStateDef.init({int displayNumberOfRows}) = _$NxAutoSortByStateDef._;
+
   NxAutoSortByStateDef._();
 }

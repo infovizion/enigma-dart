@@ -33,5 +33,7 @@ abstract class DataTableEx implements Built<DataTableEx, DataTableExBuilder> {
 
   factory DataTableEx([updates(DataTableExBuilder b)]) = _$DataTableEx;
 
+  factory DataTableEx.init({String name, BuiltList<NxCell> fields, String formatSpec}) = _$DataTableEx._;
+
   DataTableEx._();
 }

@@ -31,5 +31,7 @@ abstract class NxFieldSelectionInfo implements Built<NxFieldSelectionInfo, NxFie
 
   factory NxFieldSelectionInfo([updates(NxFieldSelectionInfoBuilder b)]) = _$NxFieldSelectionInfo;
 
+  factory NxFieldSelectionInfo.init({String name, String fieldSelectionMode}) = _$NxFieldSelectionInfo._;
+
   NxFieldSelectionInfo._();
 }

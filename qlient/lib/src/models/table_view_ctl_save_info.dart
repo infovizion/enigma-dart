@@ -23,5 +23,7 @@ abstract class TableViewCtlSaveInfo implements Built<TableViewCtlSaveInfo, Table
 
   factory TableViewCtlSaveInfo([updates(TableViewCtlSaveInfoBuilder b)]) = _$TableViewCtlSaveInfo;
 
+  factory TableViewCtlSaveInfo.init({TableViewSaveInfo internalView, TableViewSaveInfo sourceView}) = _$TableViewCtlSaveInfo._;
+
   TableViewCtlSaveInfo._();
 }

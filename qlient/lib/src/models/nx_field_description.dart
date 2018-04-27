@@ -106,5 +106,7 @@ abstract class NxFieldDescription implements Built<NxFieldDescription, NxFieldDe
 
   factory NxFieldDescription([updates(NxFieldDescriptionBuilder b)]) = _$NxFieldDescription;
 
+  factory NxFieldDescription.init({bool isSemantic, bool isHidden, bool isSystem, bool andMode, String name, int cardinal, BuiltList<NxCell> tags, bool isDefinitionOnly, NxDerivedFieldDescriptionList derivedFieldData, bool isDetail, bool isImplicit, String readableName}) = _$NxFieldDescription._;
+
   NxFieldDescription._();
 }

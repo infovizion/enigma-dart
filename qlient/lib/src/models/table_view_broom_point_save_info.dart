@@ -30,5 +30,7 @@ abstract class TableViewBroomPointSaveInfo implements Built<TableViewBroomPointS
 
   factory TableViewBroomPointSaveInfo([updates(TableViewBroomPointSaveInfoBuilder b)]) = _$TableViewBroomPointSaveInfo;
 
+  factory TableViewBroomPointSaveInfo.init({Point pos, String table, BuiltList<NxCell> fields}) = _$TableViewBroomPointSaveInfo._;
+
   TableViewBroomPointSaveInfo._();
 }

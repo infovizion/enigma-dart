@@ -25,5 +25,7 @@ abstract class NxLinkedObjectInfo implements Built<NxLinkedObjectInfo, NxLinkedO
 
   factory NxLinkedObjectInfo([updates(NxLinkedObjectInfoBuilder b)]) = _$NxLinkedObjectInfo;
 
+  factory NxLinkedObjectInfo.init({String rootId, NxInfo info}) = _$NxLinkedObjectInfo._;
+
   NxLinkedObjectInfo._();
 }

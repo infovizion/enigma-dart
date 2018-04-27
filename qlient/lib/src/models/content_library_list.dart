@@ -19,5 +19,7 @@ abstract class ContentLibraryList implements Built<ContentLibraryList, ContentLi
 
   factory ContentLibraryList([updates(ContentLibraryListBuilder b)]) = _$ContentLibraryList;
 
+  factory ContentLibraryList.init({BuiltList<NxCell> items}) = _$ContentLibraryList._;
+
   ContentLibraryList._();
 }

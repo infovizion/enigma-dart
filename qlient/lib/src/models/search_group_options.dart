@@ -35,5 +35,7 @@ abstract class SearchGroupOptions implements Built<SearchGroupOptions, SearchGro
 
   factory SearchGroupOptions([updates(SearchGroupOptionsBuilder b)]) = _$SearchGroupOptions;
 
+  factory SearchGroupOptions.init({String groupType, int offset, int count}) = _$SearchGroupOptions._;
+
   SearchGroupOptions._();
 }

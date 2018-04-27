@@ -20,5 +20,7 @@ abstract class MeasureList implements Built<MeasureList, MeasureListBuilder> {
 
   factory MeasureList([updates(MeasureListBuilder b)]) = _$MeasureList;
 
+  factory MeasureList.init({BuiltList<NxCell> items}) = _$MeasureList._;
+
   MeasureList._();
 }

@@ -30,5 +30,7 @@ abstract class SearchTermResult implements Built<SearchTermResult, SearchTermRes
 
   factory SearchTermResult([updates(SearchTermResultBuilder b)]) = _$SearchTermResult;
 
+  factory SearchTermResult.init({String text, int elemNumber, BuiltList<NxCell> ranges}) = _$SearchTermResult._;
+
   SearchTermResult._();
 }

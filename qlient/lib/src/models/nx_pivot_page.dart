@@ -35,5 +35,7 @@ abstract class NxPivotPage implements Built<NxPivotPage, NxPivotPageBuilder> {
 
   factory NxPivotPage([updates(NxPivotPageBuilder b)]) = _$NxPivotPage;
 
+  factory NxPivotPage.init({BuiltList<NxCell> left, BuiltList<NxCell> top, BuiltList<NxCell> data, Rect area}) = _$NxPivotPage._;
+
   NxPivotPage._();
 }

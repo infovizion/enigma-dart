@@ -104,5 +104,7 @@ abstract class NxStackedPivotCell implements Built<NxStackedPivotCell, NxStacked
 
   factory NxStackedPivotCell([updates(NxStackedPivotCellBuilder b)]) = _$NxStackedPivotCell;
 
+  factory NxStackedPivotCell.init({String text, int elemNo, num value, bool canExpand, bool canCollapse, String type, num maxPos, num minNeg, int up, int down, int row, BuiltList<NxCell> subNodes, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxStackedPivotCell._;
+
   NxStackedPivotCell._();
 }

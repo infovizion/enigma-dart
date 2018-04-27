@@ -16,5 +16,7 @@ abstract class StringExpr implements Built<StringExpr, StringExprBuilder> {
 
   factory StringExpr([updates(StringExprBuilder b)]) = _$StringExpr;
 
+  factory StringExpr.init({String v}) = _$StringExpr._;
+
   StringExpr._();
 }

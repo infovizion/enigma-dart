@@ -22,5 +22,7 @@ abstract class NxMultiRangeSelectInfo implements Built<NxMultiRangeSelectInfo, N
 
   factory NxMultiRangeSelectInfo([updates(NxMultiRangeSelectInfoBuilder b)]) = _$NxMultiRangeSelectInfo;
 
+  factory NxMultiRangeSelectInfo.init({BuiltList<NxCell> ranges, BuiltList<NxCell> columnsToSelect}) = _$NxMultiRangeSelectInfo._;
+
   NxMultiRangeSelectInfo._();
 }

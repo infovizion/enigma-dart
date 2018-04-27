@@ -34,5 +34,7 @@ abstract class VariableListDef implements Built<VariableListDef, VariableListDef
 
   factory VariableListDef([updates(VariableListDefBuilder b)]) = _$VariableListDef;
 
+  factory VariableListDef.init({String type, bool showReserved, bool showConfig, JsonObject data}) = _$VariableListDef._;
+
   VariableListDef._();
 }

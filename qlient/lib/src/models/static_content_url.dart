@@ -18,5 +18,7 @@ abstract class StaticContentUrl implements Built<StaticContentUrl, StaticContent
 
   factory StaticContentUrl([updates(StaticContentUrlBuilder b)]) = _$StaticContentUrl;
 
+  factory StaticContentUrl.init({String url}) = _$StaticContentUrl._;
+
   StaticContentUrl._();
 }

@@ -42,5 +42,7 @@ abstract class GenericVariableLayout implements Built<GenericVariableLayout, Gen
 
   factory GenericVariableLayout([updates(GenericVariableLayoutBuilder b)]) = _$GenericVariableLayout;
 
+  factory GenericVariableLayout.init({NxInfo info, NxMeta meta, String text, num qNum, bool isScriptCreated}) = _$GenericVariableLayout._;
+
   GenericVariableLayout._();
 }

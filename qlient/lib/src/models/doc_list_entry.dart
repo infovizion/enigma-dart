@@ -70,5 +70,7 @@ abstract class DocListEntry implements Built<DocListEntry, DocListEntryBuilder> 
 
   factory DocListEntry([updates(DocListEntryBuilder b)]) = _$DocListEntry;
 
+  factory DocListEntry.init({String docName, int connectedUsers, num fileTime, num fileSize, String docId, NxMeta meta, String lastReloadTime, bool readOnly, String title, StaticContentUrl thumbnail}) = _$DocListEntry._;
+
   DocListEntry._();
 }

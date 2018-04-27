@@ -22,5 +22,7 @@ abstract class SearchAttribute implements Built<SearchAttribute, SearchAttribute
 
   factory SearchAttribute([updates(SearchAttributeBuilder b)]) = _$SearchAttribute;
 
+  factory SearchAttribute.init({String key, String value}) = _$SearchAttribute._;
+
   SearchAttribute._();
 }

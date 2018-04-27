@@ -26,5 +26,7 @@ abstract class MediaList implements Built<MediaList, MediaListBuilder> {
 
   factory MediaList([updates(MediaListBuilder b)]) = _$MediaList;
 
+  factory MediaList.init({BuiltList<NxCell> items}) = _$MediaList._;
+
   MediaList._();
 }

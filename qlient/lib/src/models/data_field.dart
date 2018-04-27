@@ -29,5 +29,7 @@ abstract class DataField implements Built<DataField, DataFieldBuilder> {
 
   factory DataField([updates(DataFieldBuilder b)]) = _$DataField;
 
+  factory DataField.init({String name, bool isKey, String originalFieldName}) = _$DataField._;
+
   DataField._();
 }

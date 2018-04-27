@@ -23,5 +23,7 @@ abstract class TableViewTableWinSaveInfo implements Built<TableViewTableWinSaveI
 
   factory TableViewTableWinSaveInfo([updates(TableViewTableWinSaveInfoBuilder b)]) = _$TableViewTableWinSaveInfo;
 
+  factory TableViewTableWinSaveInfo.init({Rect pos, String caption}) = _$TableViewTableWinSaveInfo._;
+
   TableViewTableWinSaveInfo._();
 }

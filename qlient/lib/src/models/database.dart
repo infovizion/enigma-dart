@@ -22,5 +22,7 @@ abstract class Database implements Built<Database, DatabaseBuilder> {
 
   factory Database([updates(DatabaseBuilder b)]) = _$Database;
 
+  factory Database.init({String name, bool isDefault}) = _$Database._;
+
   Database._();
 }

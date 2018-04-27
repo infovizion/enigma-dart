@@ -52,5 +52,7 @@ abstract class NxStateCounts implements Built<NxStateCounts, NxStateCountsBuilde
 
   factory NxStateCounts([updates(NxStateCountsBuilder b)]) = _$NxStateCounts;
 
+  factory NxStateCounts.init({int locked, int selected, int option, int deselected, int alternative, int excluded, int selectedExcluded, int lockedExcluded}) = _$NxStateCounts._;
+
   NxStateCounts._();
 }

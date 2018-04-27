@@ -31,5 +31,7 @@ abstract class NxTreeDataOption implements Built<NxTreeDataOption, NxTreeDataOpt
 
   factory NxTreeDataOption([updates(NxTreeDataOptionBuilder b)]) = _$NxTreeDataOption;
 
+  factory NxTreeDataOption.init({int maxNbrOfNodes, BuiltList<NxCell> treeNodes, NxPageTreeLevel treeLevels}) = _$NxTreeDataOption._;
+
   NxTreeDataOption._();
 }

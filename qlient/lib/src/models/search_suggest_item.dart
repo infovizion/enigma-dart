@@ -23,5 +23,7 @@ abstract class SearchSuggestItem implements Built<SearchSuggestItem, SearchSugge
 
   factory SearchSuggestItem([updates(SearchSuggestItemBuilder b)]) = _$SearchSuggestItem;
 
+  factory SearchSuggestItem.init({String value, int term}) = _$SearchSuggestItem._;
+
   SearchSuggestItem._();
 }

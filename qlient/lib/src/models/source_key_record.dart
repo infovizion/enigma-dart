@@ -24,5 +24,7 @@ abstract class SourceKeyRecord implements Built<SourceKeyRecord, SourceKeyRecord
 
   factory SourceKeyRecord([updates(SourceKeyRecordBuilder b)]) = _$SourceKeyRecord;
 
+  factory SourceKeyRecord.init({BuiltList<NxCell> keyFields, BuiltList<NxCell> tables}) = _$SourceKeyRecord._;
+
   SourceKeyRecord._();
 }

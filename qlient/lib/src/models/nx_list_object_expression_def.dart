@@ -22,5 +22,7 @@ abstract class NxListObjectExpressionDef implements Built<NxListObjectExpression
 
   factory NxListObjectExpressionDef([updates(NxListObjectExpressionDefBuilder b)]) = _$NxListObjectExpressionDef;
 
+  factory NxListObjectExpressionDef.init({String expr, String libraryId}) = _$NxListObjectExpressionDef._;
+
   NxListObjectExpressionDef._();
 }

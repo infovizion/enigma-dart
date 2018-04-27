@@ -8,10 +8,8 @@ final _standardJsonSerializer = (serializers.toBuilder()
     .build();
 
 
-toJson(Object data, {FullType specifiedType}) {
-  if (specifiedType == null) {
-    specifiedType = new FullType(data.runtimeType);
-  }
+toJson<T>(Object data) {
+  var  specifiedType = new FullType(T);
   var result =
       _standardJsonSerializer.serialize(data, specifiedType: specifiedType);
   return result;

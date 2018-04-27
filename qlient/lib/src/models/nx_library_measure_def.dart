@@ -50,5 +50,7 @@ abstract class NxLibraryMeasureDef implements Built<NxLibraryMeasureDef, NxLibra
 
   factory NxLibraryMeasureDef([updates(NxLibraryMeasureDefBuilder b)]) = _$NxLibraryMeasureDef;
 
+  factory NxLibraryMeasureDef.init({String label, String def, String grouping, BuiltList<NxCell> expressions, int activeExpression, String labelExpression}) = _$NxLibraryMeasureDef._;
+
   NxLibraryMeasureDef._();
 }

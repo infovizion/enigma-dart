@@ -80,5 +80,7 @@ abstract class NxTreeNode implements Built<NxTreeNode, NxTreeNodeBuilder> {
 
   factory NxTreeNode([updates(NxTreeNodeBuilder b)]) = _$NxTreeNode;
 
+  factory NxTreeNode.init({String text, int elemNo, int nodeNr, int parentNode, int row, String type, BuiltList<NxCell> values, BuiltList<NxCell> nodes, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxTreeNode._;
+
   NxTreeNode._();
 }

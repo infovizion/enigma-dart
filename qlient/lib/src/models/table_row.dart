@@ -19,5 +19,7 @@ abstract class TableRow implements Built<TableRow, TableRowBuilder> {
 
   factory TableRow([updates(TableRowBuilder b)]) = _$TableRow;
 
+  factory TableRow.init({BuiltList<NxCell> value}) = _$TableRow._;
+
   TableRow._();
 }

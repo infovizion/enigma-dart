@@ -29,5 +29,7 @@ abstract class OleDbProvider implements Built<OleDbProvider, OleDbProviderBuilde
 
   factory OleDbProvider([updates(OleDbProviderBuilder b)]) = _$OleDbProvider;
 
+  factory OleDbProvider.init({String name, String description, bool bit32}) = _$OleDbProvider._;
+
   OleDbProvider._();
 }

@@ -130,5 +130,7 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
 
   factory LocaleInfo([updates(LocaleInfoBuilder b)]) = _$LocaleInfo;
 
+  factory LocaleInfo.init({String decimalSep, String thousandSep, String listSep, String moneyDecimalSep, String moneyThousandSep, int currentYear, String moneyFmt, String timeFmt, String dateFmt, String timestampFmt, CalendarStrings calendarStrings, int firstWeekDay, bool brokenWeeks, int referenceDay, int firstMonthOfYear, String collation, String numericalAbbreviation}) = _$LocaleInfo._;
+
   LocaleInfo._();
 }
