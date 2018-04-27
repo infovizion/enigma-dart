@@ -38,5 +38,7 @@ abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
 
   factory NxDataPage([updates(NxDataPageBuilder b)]) = _$NxDataPage;
 
+  factory NxDataPage.init({BuiltList<NxCell> matrix, BuiltList<NxCell> tails, Rect area, bool isReduced}) = _$NxDataPage._;
+
   NxDataPage._();
 }

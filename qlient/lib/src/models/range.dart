@@ -36,5 +36,7 @@ abstract class Range implements Built<Range, RangeBuilder> {
 
   factory Range([updates(RangeBuilder b)]) = _$Range;
 
+  factory Range.init({num min, num max, bool minInclEq, bool maxInclEq}) = _$Range._;
+
   Range._();
 }

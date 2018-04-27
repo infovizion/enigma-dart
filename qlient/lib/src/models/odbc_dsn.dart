@@ -35,5 +35,7 @@ abstract class OdbcDsn implements Built<OdbcDsn, OdbcDsnBuilder> {
 
   factory OdbcDsn([updates(OdbcDsnBuilder b)]) = _$OdbcDsn;
 
+  factory OdbcDsn.init({String name, String description, bool bit32, bool userOnly}) = _$OdbcDsn._;
+
   OdbcDsn._();
 }

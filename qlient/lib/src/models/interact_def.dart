@@ -88,5 +88,7 @@ abstract class InteractDef implements Built<InteractDef, InteractDefBuilder> {
 
   factory InteractDef([updates(InteractDefBuilder b)]) = _$InteractDef;
 
+  factory InteractDef.init({String type, String title, String msg, int buttons, String line, int oldLineNr, int newLineNr, String path, bool hidden, int result, String input}) = _$InteractDef._;
+
   InteractDef._();
 }

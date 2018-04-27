@@ -1,4 +1,5 @@
 import '../models.dart';
+import 'package:built_collection/built_collection.dart';
 /// This class describes all the methods that apply at variable level.
 /// <div class=note>Methods in this class are deprecated. Use methods in the _GenericVariableClass_ instead. </div>
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the variable.

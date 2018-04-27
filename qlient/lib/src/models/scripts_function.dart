@@ -57,5 +57,7 @@ abstract class ScriptsFunction implements Built<ScriptsFunction, ScriptsFunction
 
   factory ScriptsFunction([updates(ScriptsFunctionBuilder b)]) = _$ScriptsFunction;
 
+  factory ScriptsFunction.init({String name, String group, String signature}) = _$ScriptsFunction._;
+
   ScriptsFunction._();
 }

@@ -24,5 +24,7 @@ abstract class NxPageTreeNode implements Built<NxPageTreeNode, NxPageTreeNodeBui
 
   factory NxPageTreeNode([updates(NxPageTreeNodeBuilder b)]) = _$NxPageTreeNode;
 
+  factory NxPageTreeNode.init({Rect area, bool allValues}) = _$NxPageTreeNode._;
+
   NxPageTreeNode._();
 }

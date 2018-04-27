@@ -30,5 +30,7 @@ abstract class SearchResult implements Built<SearchResult, SearchResultBuilder> 
 
   factory SearchResult([updates(SearchResultBuilder b)]) = _$SearchResult;
 
+  factory SearchResult.init({BuiltList<NxCell> searchTerms, int totalNumberOfGroups, BuiltList<NxCell> searchGroupArray}) = _$SearchResult._;
+
   SearchResult._();
 }

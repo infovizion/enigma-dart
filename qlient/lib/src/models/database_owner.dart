@@ -17,5 +17,7 @@ abstract class DatabaseOwner implements Built<DatabaseOwner, DatabaseOwnerBuilde
 
   factory DatabaseOwner([updates(DatabaseOwnerBuilder b)]) = _$DatabaseOwner;
 
+  factory DatabaseOwner.init({String name}) = _$DatabaseOwner._;
+
   DatabaseOwner._();
 }

@@ -104,5 +104,7 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
 
   factory NxCell([updates(NxCellBuilder b)]) = _$NxCell;
 
+  factory NxCell.init({String text, num qNum, int elemNumber, String state, bool isEmpty, bool isTotalCell, bool isOtherCell, String frequency, NxHighlightRanges highlightRanges, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims, bool isNull}) = _$NxCell._;
+
   NxCell._();
 }

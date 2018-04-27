@@ -23,5 +23,7 @@ abstract class NxContinuousRangeSelectInfo implements Built<NxContinuousRangeSel
 
   factory NxContinuousRangeSelectInfo([updates(NxContinuousRangeSelectInfoBuilder b)]) = _$NxContinuousRangeSelectInfo;
 
+  factory NxContinuousRangeSelectInfo.init({Range range, int dimIx}) = _$NxContinuousRangeSelectInfo._;
+
   NxContinuousRangeSelectInfo._();
 }

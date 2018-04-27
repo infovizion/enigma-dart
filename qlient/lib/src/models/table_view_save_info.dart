@@ -37,5 +37,7 @@ abstract class TableViewSaveInfo implements Built<TableViewSaveInfo, TableViewSa
 
   factory TableViewSaveInfo([updates(TableViewSaveInfoBuilder b)]) = _$TableViewSaveInfo;
 
+  factory TableViewSaveInfo.init({BuiltList<NxCell> tables, BuiltList<NxCell> broomPoints, BuiltList<NxCell> connectionPoints, num zoomFactor}) = _$TableViewSaveInfo._;
+
   TableViewSaveInfo._();
 }

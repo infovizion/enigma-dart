@@ -22,5 +22,7 @@ abstract class NxRange implements Built<NxRange, NxRangeBuilder> {
 
   factory NxRange([updates(NxRangeBuilder b)]) = _$NxRange;
 
+  factory NxRange.init({int from, int count}) = _$NxRange._;
+
   NxRange._();
 }

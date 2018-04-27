@@ -25,5 +25,7 @@ abstract class AlternateStateData implements Built<AlternateStateData, Alternate
 
   factory AlternateStateData([updates(AlternateStateDataBuilder b)]) = _$AlternateStateData;
 
+  factory AlternateStateData.init({String stateName, BuiltList<NxCell> fieldItems}) = _$AlternateStateData._;
+
   AlternateStateData._();
 }

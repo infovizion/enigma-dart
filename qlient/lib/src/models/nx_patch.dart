@@ -35,5 +35,7 @@ abstract class NxPatch implements Built<NxPatch, NxPatchBuilder> {
 
   factory NxPatch([updates(NxPatchBuilder b)]) = _$NxPatch;
 
+  factory NxPatch.init({String op, String path, String value}) = _$NxPatch._;
+
   NxPatch._();
 }

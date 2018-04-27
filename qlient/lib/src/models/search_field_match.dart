@@ -37,5 +37,7 @@ abstract class SearchFieldMatch implements Built<SearchFieldMatch, SearchFieldMa
 
   factory SearchFieldMatch([updates(SearchFieldMatchBuilder b)]) = _$SearchFieldMatch;
 
+  factory SearchFieldMatch.init({int field, BuiltList<NxCell> values, BuiltList<NxCell> terms, int noOfMatches}) = _$SearchFieldMatch._;
+
   SearchFieldMatch._();
 }

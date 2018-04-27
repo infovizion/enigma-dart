@@ -22,5 +22,7 @@ abstract class Size implements Built<Size, SizeBuilder> {
 
   factory Size([updates(SizeBuilder b)]) = _$Size;
 
+  factory Size.init({int cx, int cy}) = _$Size._;
+
   Size._();
 }

@@ -31,5 +31,7 @@ abstract class GenericObjectEntry implements Built<GenericObjectEntry, GenericOb
 
   factory GenericObjectEntry([updates(GenericObjectEntryBuilder b)]) = _$GenericObjectEntry;
 
+  factory GenericObjectEntry.init({GenericObjectProperties property, BuiltList<NxCell> children, GenericBookmarkEntry embeddedSnapshotRef}) = _$GenericObjectEntry._;
+
   GenericObjectEntry._();
 }

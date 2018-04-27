@@ -1,4 +1,5 @@
 import '../models.dart';
+import 'package:built_collection/built_collection.dart';
 class Global {
    abortRequest(int qRequestId) {}
   /// Sets an abort flag on all pending and ongoing requests in the current engine session.

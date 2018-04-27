@@ -34,5 +34,7 @@ abstract class CalendarStrings implements Built<CalendarStrings, CalendarStrings
 
   factory CalendarStrings([updates(CalendarStringsBuilder b)]) = _$CalendarStrings;
 
+  factory CalendarStrings.init({BuiltList<NxCell> dayNames, BuiltList<NxCell> monthNames, BuiltList<NxCell> longDayNames, BuiltList<NxCell> longMonthNames}) = _$CalendarStrings._;
+
   CalendarStrings._();
 }

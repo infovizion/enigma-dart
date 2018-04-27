@@ -30,5 +30,7 @@ abstract class NxContainerEntry implements Built<NxContainerEntry, NxContainerEn
 
   factory NxContainerEntry([updates(NxContainerEntryBuilder b)]) = _$NxContainerEntry;
 
+  factory NxContainerEntry.init({NxInfo info, NxMeta meta, JsonObject data}) = _$NxContainerEntry._;
+
   NxContainerEntry._();
 }

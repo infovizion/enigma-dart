@@ -23,5 +23,7 @@ abstract class NxSimpleValue implements Built<NxSimpleValue, NxSimpleValueBuilde
 
   factory NxSimpleValue([updates(NxSimpleValueBuilder b)]) = _$NxSimpleValue;
 
+  factory NxSimpleValue.init({String text, num qNum}) = _$NxSimpleValue._;
+
   NxSimpleValue._();
 }

@@ -22,5 +22,7 @@ abstract class CharRange implements Built<CharRange, CharRangeBuilder> {
 
   factory CharRange([updates(CharRangeBuilder b)]) = _$CharRange;
 
+  factory CharRange.init({int charPos, int charCount}) = _$CharRange._;
+
   CharRange._();
 }

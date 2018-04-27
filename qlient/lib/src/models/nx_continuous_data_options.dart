@@ -37,5 +37,7 @@ abstract class NxContinuousDataOptions implements Built<NxContinuousDataOptions,
 
   factory NxContinuousDataOptions([updates(NxContinuousDataOptionsBuilder b)]) = _$NxContinuousDataOptions;
 
+  factory NxContinuousDataOptions.init({num start, num end, int nbrPoints, int maxNbrTicks, int maxNumberLines}) = _$NxContinuousDataOptions._;
+
   NxContinuousDataOptions._();
 }

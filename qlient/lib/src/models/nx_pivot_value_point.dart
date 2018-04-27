@@ -56,5 +56,7 @@ abstract class NxPivotValuePoint implements Built<NxPivotValuePoint, NxPivotValu
 
   factory NxPivotValuePoint([updates(NxPivotValuePointBuilder b)]) = _$NxPivotValuePoint;
 
+  factory NxPivotValuePoint.init({String label, String text, num qNum, String type, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxPivotValuePoint._;
+
   NxPivotValuePoint._();
 }

@@ -31,5 +31,7 @@ abstract class NxValidationError implements Built<NxValidationError, NxValidatio
 
   factory NxValidationError([updates(NxValidationErrorBuilder b)]) = _$NxValidationError;
 
+  factory NxValidationError.init({int errorCode, String context, String extendedMessage}) = _$NxValidationError._;
+
   NxValidationError._();
 }

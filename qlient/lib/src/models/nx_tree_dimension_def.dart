@@ -92,5 +92,7 @@ abstract class NxTreeDimensionDef implements Built<NxTreeDimensionDef, NxTreeDim
 
   factory NxTreeDimensionDef([updates(NxTreeDimensionDefBuilder b)]) = _$NxTreeDimensionDef;
 
+  factory NxTreeDimensionDef.init({String libraryId, NxInlineDimensionDef def, BuiltList<NxCell> valueExprs, bool nullSuppression, OtherTotalSpecProp otherTotalSpec, bool showAll, StringExpr otherLabel, StringExpr totalLabel, NxCalcCond calcCondition, BuiltList<NxCell> attributeExpressions, BuiltList<NxCell> attributeDimensions}) = _$NxTreeDimensionDef._;
+
   NxTreeDimensionDef._();
 }

@@ -24,5 +24,7 @@ abstract class ProgressMessage implements Built<ProgressMessage, ProgressMessage
 
   factory ProgressMessage([updates(ProgressMessageBuilder b)]) = _$ProgressMessage;
 
+  factory ProgressMessage.init({int messageCode, BuiltList<NxCell> messageParameters}) = _$ProgressMessage._;
+
   ProgressMessage._();
 }

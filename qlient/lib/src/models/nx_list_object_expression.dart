@@ -24,5 +24,7 @@ abstract class NxListObjectExpression implements Built<NxListObjectExpression, N
 
   factory NxListObjectExpression([updates(NxListObjectExpressionBuilder b)]) = _$NxListObjectExpression;
 
+  factory NxListObjectExpression.init({String expr, NxLayoutErrors error}) = _$NxListObjectExpression._;
+
   NxListObjectExpression._();
 }

@@ -81,5 +81,7 @@ abstract class DatabaseInfo implements Built<DatabaseInfo, DatabaseInfoBuilder> 
 
   factory DatabaseInfo([updates(DatabaseInfoBuilder b)]) = _$DatabaseInfo;
 
+  factory DatabaseInfo.init({String dBMSName, bool dBUsage, bool ownerUsage, String dBSeparator, String ownerSeparator, bool dBFirst, String quotePreffix, String quoteSuffix, String specialChars, String defaultDatabase, BuiltList<NxCell> keywords}) = _$DatabaseInfo._;
+
   DatabaseInfo._();
 }

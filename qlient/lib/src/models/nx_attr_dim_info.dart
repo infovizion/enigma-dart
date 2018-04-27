@@ -45,5 +45,7 @@ abstract class NxAttrDimInfo implements Built<NxAttrDimInfo, NxAttrDimInfoBuilde
 
   factory NxAttrDimInfo([updates(NxAttrDimInfoBuilder b)]) = _$NxAttrDimInfo;
 
+  factory NxAttrDimInfo.init({int cardinal, Size size, String fallbackTitle, bool locked, NxValidationError error, bool isCalculated}) = _$NxAttrDimInfo._;
+
   NxAttrDimInfo._();
 }

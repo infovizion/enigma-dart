@@ -34,5 +34,7 @@ abstract class NxAttrDimDef implements Built<NxAttrDimDef, NxAttrDimDefBuilder> 
 
   factory NxAttrDimDef([updates(NxAttrDimDefBuilder b)]) = _$NxAttrDimDef;
 
+  factory NxAttrDimDef.init({String def, String libraryId, SortCriteria sortBy, bool attribute}) = _$NxAttrDimDef._;
+
   NxAttrDimDef._();
 }

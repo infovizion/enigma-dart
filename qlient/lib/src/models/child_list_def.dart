@@ -21,5 +21,7 @@ abstract class ChildListDef implements Built<ChildListDef, ChildListDefBuilder> 
 
   factory ChildListDef([updates(ChildListDefBuilder b)]) = _$ChildListDef;
 
+  factory ChildListDef.init({JsonObject data}) = _$ChildListDef._;
+
   ChildListDef._();
 }

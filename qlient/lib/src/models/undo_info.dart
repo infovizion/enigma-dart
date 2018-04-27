@@ -23,5 +23,7 @@ abstract class UndoInfo implements Built<UndoInfo, UndoInfoBuilder> {
 
   factory UndoInfo([updates(UndoInfoBuilder b)]) = _$UndoInfo;
 
+  factory UndoInfo.init({int undoCount, int redoCount}) = _$UndoInfo._;
+
   UndoInfo._();
 }

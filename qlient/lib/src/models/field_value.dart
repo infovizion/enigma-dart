@@ -31,5 +31,7 @@ abstract class FieldValue implements Built<FieldValue, FieldValueBuilder> {
 
   factory FieldValue([updates(FieldValueBuilder b)]) = _$FieldValue;
 
+  factory FieldValue.init({String text, bool isNumeric, num number}) = _$FieldValue._;
+
   FieldValue._();
 }

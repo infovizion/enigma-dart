@@ -29,5 +29,7 @@ abstract class NxBookmark implements Built<NxBookmark, NxBookmarkBuilder> {
 
   factory NxBookmark([updates(NxBookmarkBuilder b)]) = _$NxBookmark;
 
+  factory NxBookmark.init({BuiltList<NxCell> stateData, num utcModifyTime, BuiltList<NxCell> variableItems}) = _$NxBookmark._;
+
   NxBookmark._();
 }

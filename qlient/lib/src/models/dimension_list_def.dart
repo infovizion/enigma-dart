@@ -24,5 +24,7 @@ abstract class DimensionListDef implements Built<DimensionListDef, DimensionList
 
   factory DimensionListDef([updates(DimensionListDefBuilder b)]) = _$DimensionListDef;
 
+  factory DimensionListDef.init({String type, JsonObject data}) = _$DimensionListDef._;
+
   DimensionListDef._();
 }

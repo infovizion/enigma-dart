@@ -47,5 +47,7 @@ abstract class DriveInfo implements Built<DriveInfo, DriveInfoBuilder> {
 
   factory DriveInfo([updates(DriveInfoBuilder b)]) = _$DriveInfo;
 
+  factory DriveInfo.init({String drive, String type, String name, String typeIdentifier, bool unnamedDrive}) = _$DriveInfo._;
+
   DriveInfo._();
 }

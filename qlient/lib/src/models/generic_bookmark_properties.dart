@@ -25,5 +25,7 @@ abstract class GenericBookmarkProperties implements Built<GenericBookmarkPropert
 
   factory GenericBookmarkProperties([updates(GenericBookmarkPropertiesBuilder b)]) = _$GenericBookmarkProperties;
 
+  factory GenericBookmarkProperties.init({NxInfo info, JsonObject metaDef}) = _$GenericBookmarkProperties._;
+
   GenericBookmarkProperties._();
 }

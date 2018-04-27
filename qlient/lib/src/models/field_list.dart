@@ -20,5 +20,7 @@ abstract class FieldList implements Built<FieldList, FieldListBuilder> {
 
   factory FieldList([updates(FieldListBuilder b)]) = _$FieldList;
 
+  factory FieldList.init({BuiltList<NxCell> items}) = _$FieldList._;
+
   FieldList._();
 }

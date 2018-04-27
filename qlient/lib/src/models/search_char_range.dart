@@ -27,5 +27,7 @@ abstract class SearchCharRange implements Built<SearchCharRange, SearchCharRange
 
   factory SearchCharRange([updates(SearchCharRangeBuilder b)]) = _$SearchCharRange;
 
+  factory SearchCharRange.init({int charPos, int charCount, int term}) = _$SearchCharRange._;
+
   SearchCharRange._();
 }

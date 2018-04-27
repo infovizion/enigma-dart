@@ -19,5 +19,7 @@ abstract class NxAttributeDimValues implements Built<NxAttributeDimValues, NxAtt
 
   factory NxAttributeDimValues([updates(NxAttributeDimValuesBuilder b)]) = _$NxAttributeDimValues;
 
+  factory NxAttributeDimValues.init({BuiltList<NxCell> values}) = _$NxAttributeDimValues._;
+
   NxAttributeDimValues._();
 }

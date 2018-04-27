@@ -42,5 +42,7 @@ abstract class NxSelectionCell implements Built<NxSelectionCell, NxSelectionCell
 
   factory NxSelectionCell([updates(NxSelectionCellBuilder b)]) = _$NxSelectionCell;
 
+  factory NxSelectionCell.init({String type, int col, int row}) = _$NxSelectionCell._;
+
   NxSelectionCell._();
 }

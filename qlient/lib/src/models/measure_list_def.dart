@@ -24,5 +24,7 @@ abstract class MeasureListDef implements Built<MeasureListDef, MeasureListDefBui
 
   factory MeasureListDef([updates(MeasureListDefBuilder b)]) = _$MeasureListDef;
 
+  factory MeasureListDef.init({String type, JsonObject data}) = _$MeasureListDef._;
+
   MeasureListDef._();
 }

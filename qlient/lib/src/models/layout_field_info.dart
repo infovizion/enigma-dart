@@ -24,5 +24,7 @@ abstract class LayoutFieldInfo implements Built<LayoutFieldInfo, LayoutFieldInfo
 
   factory LayoutFieldInfo([updates(LayoutFieldInfoBuilder b)]) = _$LayoutFieldInfo;
 
+  factory LayoutFieldInfo.init({String fieldName, int valuesCount, int excludedValuesCount}) = _$LayoutFieldInfo._;
+
   LayoutFieldInfo._();
 }

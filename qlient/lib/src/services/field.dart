@@ -1,4 +1,5 @@
 import '../models.dart';
+import 'package:built_collection/built_collection.dart';
 /// This class describes all the methods that apply at field level.
 /// The handle member in the JSON request for all methods listed in this section is the handle of the field.
 class Field {

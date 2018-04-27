@@ -29,5 +29,7 @@ abstract class NxAttrExprDef implements Built<NxAttrExprDef, NxAttrExprDefBuilde
 
   factory NxAttrExprDef([updates(NxAttrExprDefBuilder b)]) = _$NxAttrExprDef;
 
+  factory NxAttrExprDef.init({String expression, String libraryId, bool attribute}) = _$NxAttrExprDef._;
+
   NxAttrExprDef._();
 }

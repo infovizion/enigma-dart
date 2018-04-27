@@ -25,5 +25,7 @@ abstract class NxGetBookmarkOptions implements Built<NxGetBookmarkOptions, NxGet
 
   factory NxGetBookmarkOptions([updates(NxGetBookmarkOptionsBuilder b)]) = _$NxGetBookmarkOptions;
 
+  factory NxGetBookmarkOptions.init({BuiltList<NxCell> types, JsonObject data}) = _$NxGetBookmarkOptions._;
+
   NxGetBookmarkOptions._();
 }

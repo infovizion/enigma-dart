@@ -23,5 +23,7 @@ abstract class NxSimpleDimValue implements Built<NxSimpleDimValue, NxSimpleDimVa
 
   factory NxSimpleDimValue([updates(NxSimpleDimValueBuilder b)]) = _$NxSimpleDimValue;
 
+  factory NxSimpleDimValue.init({String text, int elemNo}) = _$NxSimpleDimValue._;
+
   NxSimpleDimValue._();
 }

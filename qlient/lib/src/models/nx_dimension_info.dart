@@ -175,5 +175,7 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
 
   factory NxDimensionInfo([updates(NxDimensionInfoBuilder b)]) = _$NxDimensionInfo;
 
+  factory NxDimensionInfo.init({String fallbackTitle, int apprMaxGlyphCount, int cardinal, bool locked, String sortIndicator, BuiltList<NxCell> groupFallbackTitles, int groupPos, NxStateCounts stateCounts, BuiltList<NxCell> tags, NxValidationError error, String dimensionType, bool reverseSort, String grouping, bool isSemantic, bool isOneAndOnlyOne, FieldAttributes numFormat, bool isAutoFormat, BuiltList<NxCell> groupFieldDefs, num min, num max, bool continuousAxes, bool isCyclic, bool derivedField, BuiltList<NxCell> attrExprInfo, BuiltList<NxCell> attrDimInfo, String calcCondMsg, bool isCalculated}) = _$NxDimensionInfo._;
+
   NxDimensionInfo._();
 }

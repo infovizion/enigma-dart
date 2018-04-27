@@ -30,5 +30,7 @@ abstract class NxTreeRangeSelectInfo implements Built<NxTreeRangeSelectInfo, NxT
 
   factory NxTreeRangeSelectInfo([updates(NxTreeRangeSelectInfoBuilder b)]) = _$NxTreeRangeSelectInfo;
 
+  factory NxTreeRangeSelectInfo.init({Range range, int measureIx, int dimensionIx}) = _$NxTreeRangeSelectInfo._;
+
   NxTreeRangeSelectInfo._();
 }

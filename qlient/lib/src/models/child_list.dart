@@ -21,5 +21,7 @@ abstract class ChildList implements Built<ChildList, ChildListBuilder> {
 
   factory ChildList([updates(ChildListBuilder b)]) = _$ChildList;
 
+  factory ChildList.init({BuiltList<NxCell> items}) = _$ChildList._;
+
   ChildList._();
 }

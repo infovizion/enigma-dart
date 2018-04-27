@@ -71,5 +71,7 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
 
   factory TreeDataDef([updates(TreeDataDefBuilder b)]) = _$TreeDataDef;
 
+  factory TreeDataDef.init({String stateName, BuiltList<NxCell> dimensions, BuiltList<NxCell> interColumnSortOrder, bool suppressZero, bool suppressMissing, bool openFullyExpanded, bool populateMissing, NxCalcCond calcCondition, StringExpr title}) = _$TreeDataDef._;
+
   TreeDataDef._();
 }

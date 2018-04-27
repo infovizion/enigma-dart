@@ -58,5 +58,7 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
 
   factory SelectInfo([updates(SelectInfoBuilder b)]) = _$SelectInfo;
 
+  factory SelectInfo.init({String textSearch, num rangeLo, num rangeHi, FieldAttributes numberFormat, BuiltList<NxCell> rangeInfo, bool softLock, BuiltList<NxCell> continuousRangeInfo}) = _$SelectInfo._;
+
   SelectInfo._();
 }

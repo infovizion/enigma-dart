@@ -72,5 +72,7 @@ abstract class ListObjectDef implements Built<ListObjectDef, ListObjectDefBuilde
 
   factory ListObjectDef([updates(ListObjectDefBuilder b)]) = _$ListObjectDef;
 
+  factory ListObjectDef.init({String stateName, String libraryId, NxInlineDimensionDef def, NxAutoSortByStateDef autoSortByState, String frequencyMode, bool showAlternatives, BuiltList<NxCell> initialDataFetch, BuiltList<NxCell> expressions}) = _$ListObjectDef._;
+
   ListObjectDef._();
 }

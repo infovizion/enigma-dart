@@ -27,5 +27,7 @@ abstract class FolderItem implements Built<FolderItem, FolderItemBuilder> {
 
   factory FolderItem([updates(FolderItemBuilder b)]) = _$FolderItem;
 
+  factory FolderItem.init({String name, String type}) = _$FolderItem._;
+
   FolderItem._();
 }

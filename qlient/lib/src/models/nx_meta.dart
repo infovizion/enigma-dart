@@ -19,5 +19,7 @@ abstract class NxMeta implements Built<NxMeta, NxMetaBuilder> {
 
   factory NxMeta([updates(NxMetaBuilder b)]) = _$NxMeta;
 
+  factory NxMeta.init({String name}) = _$NxMeta._;
+
   NxMeta._();
 }

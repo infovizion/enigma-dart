@@ -75,5 +75,7 @@ abstract class ProgressData implements Built<ProgressData, ProgressDataBuilder> 
 
   factory ProgressData([updates(ProgressDataBuilder b)]) = _$ProgressData;
 
+  factory ProgressData.init({bool started, bool finished, int completed, int total, int kB, int millisecs, bool userInteractionWanted, String persistentProgress, String transientProgress, BuiltList<NxCell> errorData, BuiltList<NxCell> persistentProgressMessages, ProgressMessage transientProgressMessage}) = _$ProgressData._;
+
   ProgressData._();
 }

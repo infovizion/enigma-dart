@@ -41,5 +41,7 @@ abstract class GenericDimensionInfo implements Built<GenericDimensionInfo, Gener
 
   factory GenericDimensionInfo([updates(GenericDimensionInfoBuilder b)]) = _$GenericDimensionInfo;
 
+  factory GenericDimensionInfo.init({int apprMaxGlyphCount, int cardinal, BuiltList<NxCell> tags, bool isSemantic, bool andMode}) = _$GenericDimensionInfo._;
+
   GenericDimensionInfo._();
 }

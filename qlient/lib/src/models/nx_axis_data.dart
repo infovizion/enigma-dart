@@ -19,5 +19,7 @@ abstract class NxAxisData implements Built<NxAxisData, NxAxisDataBuilder> {
 
   factory NxAxisData([updates(NxAxisDataBuilder b)]) = _$NxAxisData;
 
+  factory NxAxisData.init({BuiltList<NxCell> axis}) = _$NxAxisData._;
+
   NxAxisData._();
 }

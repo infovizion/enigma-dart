@@ -184,5 +184,7 @@ abstract class HyperCubeDef implements Built<HyperCubeDef, HyperCubeDefBuilder> 
 
   factory HyperCubeDef([updates(HyperCubeDefBuilder b)]) = _$HyperCubeDef;
 
+  factory HyperCubeDef.init({String stateName, BuiltList<NxCell> dimensions, BuiltList<NxCell> measures, BuiltList<NxCell> interColumnSortOrder, bool suppressZero, bool suppressMissing, BuiltList<NxCell> initialDataFetch, String reductionMode, String mode, int pseudoDimPos, int noOfLeftDims, bool alwaysFullyExpanded, int maxStackedCells, bool populateMissing, bool showTotalsAbove, bool indentMode, ValueExpr calcCond, int sortbyYValue, StringExpr title, NxCalcCond calcCondition, BuiltList<NxCell> columnOrder}) = _$HyperCubeDef._;
+
   HyperCubeDef._();
 }

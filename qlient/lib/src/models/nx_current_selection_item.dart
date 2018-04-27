@@ -105,5 +105,7 @@ abstract class NxCurrentSelectionItem implements Built<NxCurrentSelectionItem, N
 
   factory NxCurrentSelectionItem([updates(NxCurrentSelectionItemBuilder b)]) = _$NxCurrentSelectionItem;
 
+  factory NxCurrentSelectionItem.init({int total, bool isNum, String field, bool locked, bool oneAndOnlyOne, String textSearch, int selectedCount, String selected, BuiltList<NxCell> rangeInfo, int sortIndex, NxStateCounts stateCounts, BuiltList<NxCell> selectedFieldSelectionInfo, BuiltList<NxCell> notSelectedFieldSelectionInfo, int selectionThreshold, String readableName, bool isHidden}) = _$NxCurrentSelectionItem._;
+
   NxCurrentSelectionItem._();
 }

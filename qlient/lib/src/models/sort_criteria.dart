@@ -52,5 +52,7 @@ abstract class SortCriteria implements Built<SortCriteria, SortCriteriaBuilder> 
 
   factory SortCriteria([updates(SortCriteriaBuilder b)]) = _$SortCriteria;
 
+  factory SortCriteria.init({int sortByState, int sortByFrequency, int sortByNumeric, int sortByAscii, int sortByLoadOrder, int sortByExpression, ValueExpr expression, int sortByGreyness}) = _$SortCriteria._;
+
   SortCriteria._();
 }

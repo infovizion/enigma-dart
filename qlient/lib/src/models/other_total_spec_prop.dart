@@ -126,5 +126,7 @@ abstract class OtherTotalSpecProp implements Built<OtherTotalSpecProp, OtherTota
 
   factory OtherTotalSpecProp([updates(OtherTotalSpecPropBuilder b)]) = _$OtherTotalSpecProp;
 
+  factory OtherTotalSpecProp.init({String otherMode, ValueExpr otherCounted, ValueExpr otherLimit, String otherLimitMode, bool suppressOther, bool forceBadValueKeeping, bool applyEvenWhenPossiblyWrongResult, bool globalOtherGrouping, bool otherCollapseInnerDimensions, String otherSortMode, String totalMode, StringExpr referencedExpression}) = _$OtherTotalSpecProp._;
+
   OtherTotalSpecProp._();
 }

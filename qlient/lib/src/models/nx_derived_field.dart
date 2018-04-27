@@ -45,5 +45,7 @@ abstract class NxDerivedField implements Built<NxDerivedField, NxDerivedFieldBui
 
   factory NxDerivedField([updates(NxDerivedFieldBuilder b)]) = _$NxDerivedField;
 
+  factory NxDerivedField.init({String id, String name, String method, String expr, BuiltList<NxCell> tags}) = _$NxDerivedField._;
+
   NxDerivedField._();
 }

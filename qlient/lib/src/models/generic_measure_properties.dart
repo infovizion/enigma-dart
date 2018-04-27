@@ -32,5 +32,7 @@ abstract class GenericMeasureProperties implements Built<GenericMeasurePropertie
 
   factory GenericMeasureProperties([updates(GenericMeasurePropertiesBuilder b)]) = _$GenericMeasureProperties;
 
+  factory GenericMeasureProperties.init({NxInfo info, NxLibraryMeasureDef measure, JsonObject metaDef}) = _$GenericMeasureProperties._;
+
   GenericMeasureProperties._();
 }

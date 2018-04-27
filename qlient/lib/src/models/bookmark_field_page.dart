@@ -23,5 +23,7 @@ abstract class BookmarkFieldPage implements Built<BookmarkFieldPage, BookmarkFie
 
   factory BookmarkFieldPage([updates(BookmarkFieldPageBuilder b)]) = _$BookmarkFieldPage;
 
+  factory BookmarkFieldPage.init({int startIndex, int endIndex}) = _$BookmarkFieldPage._;
+
   BookmarkFieldPage._();
 }

@@ -49,5 +49,7 @@ abstract class SearchCombinationOptions implements Built<SearchCombinationOption
 
   factory SearchCombinationOptions([updates(SearchCombinationOptionsBuilder b)]) = _$SearchCombinationOptions;
 
+  factory SearchCombinationOptions.init({BuiltList<NxCell> searchFields, String context, String charEncoding, BuiltList<NxCell> attributes}) = _$SearchCombinationOptions._;
+
   SearchCombinationOptions._();
 }

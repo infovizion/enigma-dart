@@ -37,5 +37,7 @@ abstract class NxAttrExprInfo implements Built<NxAttrExprInfo, NxAttrExprInfoBui
 
   factory NxAttrExprInfo([updates(NxAttrExprInfoBuilder b)]) = _$NxAttrExprInfo;
 
+  factory NxAttrExprInfo.init({num min, num max, String fallbackTitle, String minText, String maxText}) = _$NxAttrExprInfo._;
+
   NxAttrExprInfo._();
 }

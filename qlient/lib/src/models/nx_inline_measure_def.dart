@@ -115,5 +115,7 @@ abstract class NxInlineMeasureDef implements Built<NxInlineMeasureDef, NxInlineM
 
   factory NxInlineMeasureDef([updates(NxInlineMeasureDefBuilder b)]) = _$NxInlineMeasureDef;
 
+  factory NxInlineMeasureDef.init({String label, String description, BuiltList<NxCell> tags, String grouping, String def, FieldAttributes numFormat, bool relative, bool brutalSum, String aggrFunc, int accumulate, bool reverseSort, int activeExpression, BuiltList<NxCell> expressions, String labelExpression}) = _$NxInlineMeasureDef._;
+
   NxInlineMeasureDef._();
 }

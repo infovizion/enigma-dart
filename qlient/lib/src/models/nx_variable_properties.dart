@@ -44,5 +44,7 @@ abstract class NxVariableProperties implements Built<NxVariableProperties, NxVar
 
   factory NxVariableProperties([updates(NxVariablePropertiesBuilder b)]) = _$NxVariableProperties;
 
+  factory NxVariableProperties.init({String name, FieldAttributes numberPresentation, bool includeInBookmark, bool usePredefListedValues, BuiltList<NxCell> preDefinedList}) = _$NxVariableProperties._;
+
   NxVariableProperties._();
 }

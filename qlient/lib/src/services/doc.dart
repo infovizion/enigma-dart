@@ -1,4 +1,5 @@
 import '../models.dart';
+import 'package:built_collection/built_collection.dart';
 class Doc {
   /// Returns a handle to a field.
    getField(String qFieldName, String qStateName) {}

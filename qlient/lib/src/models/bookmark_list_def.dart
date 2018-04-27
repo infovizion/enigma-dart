@@ -24,5 +24,7 @@ abstract class BookmarkListDef implements Built<BookmarkListDef, BookmarkListDef
 
   factory BookmarkListDef([updates(BookmarkListDefBuilder b)]) = _$BookmarkListDef;
 
+  factory BookmarkListDef.init({String type, JsonObject data}) = _$BookmarkListDef._;
+
   BookmarkListDef._();
 }

@@ -23,5 +23,7 @@ abstract class BookmarkVariableItem implements Built<BookmarkVariableItem, Bookm
 
   factory BookmarkVariableItem([updates(BookmarkVariableItemBuilder b)]) = _$BookmarkVariableItem;
 
+  factory BookmarkVariableItem.init({String name, FieldValue value}) = _$BookmarkVariableItem._;
+
   BookmarkVariableItem._();
 }

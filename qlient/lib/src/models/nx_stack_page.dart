@@ -25,5 +25,7 @@ abstract class NxStackPage implements Built<NxStackPage, NxStackPageBuilder> {
 
   factory NxStackPage([updates(NxStackPageBuilder b)]) = _$NxStackPage;
 
+  factory NxStackPage.init({BuiltList<NxCell> data, Rect area}) = _$NxStackPage._;
+
   NxStackPage._();
 }

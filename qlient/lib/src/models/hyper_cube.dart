@@ -156,5 +156,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
 
   factory HyperCube([updates(HyperCubeBuilder b)]) = _$HyperCube;
 
+  factory HyperCube.init({String stateName, Size size, NxValidationError error, BuiltList<NxCell> dimensionInfo, BuiltList<NxCell> measureInfo, BuiltList<NxCell> effectiveInterColumnSortOrder, BuiltList<NxCell> grandTotalRow, BuiltList<NxCell> dataPages, BuiltList<NxCell> pivotDataPages, BuiltList<NxCell> stackedDataPages, String mode, int noOfLeftDims, bool indentMode, NxCellPosition lastExpandedPos, bool hasOtherValues, String title, BuiltList<NxCell> treeNodesOnDim, String calcCondMsg, BuiltList<NxCell> columnOrder}) = _$HyperCube._;
+
   HyperCube._();
 }

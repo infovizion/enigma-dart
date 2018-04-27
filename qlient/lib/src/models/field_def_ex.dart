@@ -32,5 +32,7 @@ abstract class FieldDefEx implements Built<FieldDefEx, FieldDefExBuilder> {
 
   factory FieldDefEx([updates(FieldDefExBuilder b)]) = _$FieldDefEx;
 
+  factory FieldDefEx.init({String name, String type}) = _$FieldDefEx._;
+
   FieldDefEx._();
 }

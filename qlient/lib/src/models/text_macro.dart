@@ -44,5 +44,7 @@ abstract class TextMacro implements Built<TextMacro, TextMacroBuilder> {
 
   factory TextMacro([updates(TextMacroBuilder b)]) = _$TextMacro;
 
+  factory TextMacro.init({String tag, int refSeqNo, int setSeqNo, String displayString, bool isSystem, bool isReserved}) = _$TextMacro._;
+
   TextMacro._();
 }

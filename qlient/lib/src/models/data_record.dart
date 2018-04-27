@@ -21,5 +21,7 @@ abstract class DataRecord implements Built<DataRecord, DataRecordBuilder> {
 
   factory DataRecord([updates(DataRecordBuilder b)]) = _$DataRecord;
 
+  factory DataRecord.init({BuiltList<NxCell> values}) = _$DataRecord._;
+
   DataRecord._();
 }

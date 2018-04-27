@@ -32,5 +32,7 @@ abstract class GenericObjectProperties implements Built<GenericObjectProperties,
 
   factory GenericObjectProperties([updates(GenericObjectPropertiesBuilder b)]) = _$GenericObjectProperties;
 
+  factory GenericObjectProperties.init({NxInfo info, String extendsId, JsonObject metaDef}) = _$GenericObjectProperties._;
+
   GenericObjectProperties._();
 }

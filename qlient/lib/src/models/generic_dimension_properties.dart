@@ -32,5 +32,7 @@ abstract class GenericDimensionProperties implements Built<GenericDimensionPrope
 
   factory GenericDimensionProperties([updates(GenericDimensionPropertiesBuilder b)]) = _$GenericDimensionProperties;
 
+  factory GenericDimensionProperties.init({NxInfo info, NxLibraryDimensionDef dim, JsonObject metaDef}) = _$GenericDimensionProperties._;
+
   GenericDimensionProperties._();
 }

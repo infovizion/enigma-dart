@@ -58,5 +58,7 @@ abstract class GenericVariableProperties implements Built<GenericVariablePropert
 
   factory GenericVariableProperties([updates(GenericVariablePropertiesBuilder b)]) = _$GenericVariableProperties;
 
+  factory GenericVariableProperties.init({NxInfo info, JsonObject metaDef, String name, String comment, FieldAttributes numberPresentation, bool includeInBookmark, String definition}) = _$GenericVariableProperties._;
+
   GenericVariableProperties._();
 }

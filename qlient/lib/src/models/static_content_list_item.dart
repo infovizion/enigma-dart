@@ -37,5 +37,7 @@ abstract class StaticContentListItem implements Built<StaticContentListItem, Sta
 
   factory StaticContentListItem([updates(StaticContentListItemBuilder b)]) = _$StaticContentListItem;
 
+  factory StaticContentListItem.init({String urlDef, String url}) = _$StaticContentListItem._;
+
   StaticContentListItem._();
 }

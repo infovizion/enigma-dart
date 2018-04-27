@@ -31,5 +31,7 @@ abstract class GenericMeasureLayout implements Built<GenericMeasureLayout, Gener
 
   factory GenericMeasureLayout([updates(GenericMeasureLayoutBuilder b)]) = _$GenericMeasureLayout;
 
+  factory GenericMeasureLayout.init({NxInfo info, NxLibraryMeasure measure, NxMeta meta}) = _$GenericMeasureLayout._;
+
   GenericMeasureLayout._();
 }

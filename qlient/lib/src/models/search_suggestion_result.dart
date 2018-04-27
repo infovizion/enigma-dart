@@ -24,5 +24,7 @@ abstract class SearchSuggestionResult implements Built<SearchSuggestionResult, S
 
   factory SearchSuggestionResult([updates(SearchSuggestionResultBuilder b)]) = _$SearchSuggestionResult;
 
+  factory SearchSuggestionResult.init({BuiltList<NxCell> suggestions, BuiltList<NxCell> fieldNames}) = _$SearchSuggestionResult._;
+
   SearchSuggestionResult._();
 }

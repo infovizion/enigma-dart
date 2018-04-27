@@ -30,5 +30,7 @@ abstract class SelectionObject implements Built<SelectionObject, SelectionObject
 
   factory SelectionObject([updates(SelectionObjectBuilder b)]) = _$SelectionObject;
 
+  factory SelectionObject.init({int backCount, int forwardCount, BuiltList<NxCell> selections}) = _$SelectionObject._;
+
   SelectionObject._();
 }

@@ -28,5 +28,7 @@ abstract class NxGroupTail implements Built<NxGroupTail, NxGroupTailBuilder> {
 
   factory NxGroupTail([updates(NxGroupTailBuilder b)]) = _$NxGroupTail;
 
+  factory NxGroupTail.init({int up, int down}) = _$NxGroupTail._;
+
   NxGroupTail._();
 }

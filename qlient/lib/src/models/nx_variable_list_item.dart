@@ -70,5 +70,7 @@ abstract class NxVariableListItem implements Built<NxVariableListItem, NxVariabl
 
   factory NxVariableListItem([updates(NxVariableListItemBuilder b)]) = _$NxVariableListItem;
 
+  factory NxVariableListItem.init({String name, String description, String definition, bool isConfig, bool isReserved, NxMeta meta, NxInfo info, JsonObject data, bool isScriptCreated}) = _$NxVariableListItem._;
+
   NxVariableListItem._();
 }

@@ -24,5 +24,7 @@ abstract class Point implements Built<Point, PointBuilder> {
 
   factory Point([updates(PointBuilder b)]) = _$Point;
 
+  factory Point.init({int x, int y}) = _$Point._;
+
   Point._();
 }

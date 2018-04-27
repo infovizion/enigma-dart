@@ -19,5 +19,7 @@ abstract class NxDerivedFieldDescriptionList implements Built<NxDerivedFieldDesc
 
   factory NxDerivedFieldDescriptionList([updates(NxDerivedFieldDescriptionListBuilder b)]) = _$NxDerivedFieldDescriptionList;
 
+  factory NxDerivedFieldDescriptionList.init({BuiltList<NxCell> derivedFieldLists}) = _$NxDerivedFieldDescriptionList._;
+
   NxDerivedFieldDescriptionList._();
 }

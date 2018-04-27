@@ -17,5 +17,7 @@ abstract class NxLayoutErrors implements Built<NxLayoutErrors, NxLayoutErrorsBui
 
   factory NxLayoutErrors([updates(NxLayoutErrorsBuilder b)]) = _$NxLayoutErrors;
 
+  factory NxLayoutErrors.init({int errorCode}) = _$NxLayoutErrors._;
+
   NxLayoutErrors._();
 }

@@ -29,5 +29,7 @@ abstract class DerivedFieldsInTableData implements Built<DerivedFieldsInTableDat
 
   factory DerivedFieldsInTableData([updates(DerivedFieldsInTableDataBuilder b)]) = _$DerivedFieldsInTableData;
 
+  factory DerivedFieldsInTableData.init({String definitionName, BuiltList<NxCell> tags, bool active}) = _$DerivedFieldsInTableData._;
+
   DerivedFieldsInTableData._();
 }

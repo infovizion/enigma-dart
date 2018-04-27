@@ -20,5 +20,7 @@ abstract class DimensionList implements Built<DimensionList, DimensionListBuilde
 
   factory DimensionList([updates(DimensionListBuilder b)]) = _$DimensionList;
 
+  factory DimensionList.init({BuiltList<NxCell> items}) = _$DimensionList._;
+
   DimensionList._();
 }

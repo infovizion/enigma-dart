@@ -22,5 +22,7 @@ abstract class NxPageTreeLevel implements Built<NxPageTreeLevel, NxPageTreeLevel
 
   factory NxPageTreeLevel([updates(NxPageTreeLevelBuilder b)]) = _$NxPageTreeLevel;
 
+  factory NxPageTreeLevel.init({int left, int depth}) = _$NxPageTreeLevel._;
+
   NxPageTreeLevel._();
 }

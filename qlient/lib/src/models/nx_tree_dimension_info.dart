@@ -180,5 +180,7 @@ abstract class NxTreeDimensionInfo implements Built<NxTreeDimensionInfo, NxTreeD
 
   factory NxTreeDimensionInfo([updates(NxTreeDimensionInfoBuilder b)]) = _$NxTreeDimensionInfo;
 
+  factory NxTreeDimensionInfo.init({String fallbackTitle, int apprMaxGlyphCount, int cardinal, bool locked, String sortIndicator, BuiltList<NxCell> groupFallbackTitles, int groupPos, NxStateCounts stateCounts, BuiltList<NxCell> tags, NxValidationError error, String dimensionType, bool reverseSort, String grouping, bool isSemantic, FieldAttributes numFormat, bool isAutoFormat, BuiltList<NxCell> groupFieldDefs, num min, num max, bool continuousAxes, bool isCyclic, bool derivedField, BuiltList<NxCell> measureInfo, BuiltList<NxCell> attrExprInfo, BuiltList<NxCell> attrDimInfo, String calcCondMsg, bool isCalculated, bool isOneAndOnlyOne}) = _$NxTreeDimensionInfo._;
+
   NxTreeDimensionInfo._();
 }

@@ -70,5 +70,7 @@ abstract class NxInlineDimensionDef implements Built<NxInlineDimensionDef, NxInl
 
   factory NxInlineDimensionDef([updates(NxInlineDimensionDefBuilder b)]) = _$NxInlineDimensionDef;
 
+  factory NxInlineDimensionDef.init({String grouping, BuiltList<NxCell> fieldDefs, BuiltList<NxCell> fieldLabels, BuiltList<NxCell> sortCriterias, BuiltList<NxCell> numberPresentations, bool reverseSort, int activeField, String labelExpression}) = _$NxInlineDimensionDef._;
+
   NxInlineDimensionDef._();
 }

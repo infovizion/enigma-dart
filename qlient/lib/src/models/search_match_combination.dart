@@ -24,5 +24,7 @@ abstract class SearchMatchCombination implements Built<SearchMatchCombination, S
 
   factory SearchMatchCombination([updates(SearchMatchCombinationBuilder b)]) = _$SearchMatchCombination;
 
+  factory SearchMatchCombination.init({int id, BuiltList<NxCell> fieldMatches}) = _$SearchMatchCombination._;
+
   SearchMatchCombination._();
 }

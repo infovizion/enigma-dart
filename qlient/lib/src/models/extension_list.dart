@@ -18,5 +18,7 @@ abstract class ExtensionList implements Built<ExtensionList, ExtensionListBuilde
 
   factory ExtensionList([updates(ExtensionListBuilder b)]) = _$ExtensionList;
 
+  factory ExtensionList.init({BuiltList<NxCell> items}) = _$ExtensionList._;
+
   ExtensionList._();
 }

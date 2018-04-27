@@ -36,5 +36,7 @@ abstract class NxTreeValue implements Built<NxTreeValue, NxTreeValueBuilder> {
 
   factory NxTreeValue([updates(NxTreeValueBuilder b)]) = _$NxTreeValue;
 
+  factory NxTreeValue.init({String text, num value, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxTreeValue._;
+
   NxTreeValue._();
 }

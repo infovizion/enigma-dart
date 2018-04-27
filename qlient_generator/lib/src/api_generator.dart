@@ -19,8 +19,6 @@ class ApiGenerator {
     _addType(new TypeData(jsonType: 'integer', dartType: 'int'));
     _addType(new TypeData(jsonType: 'Function', dartType: 'ScriptFunction')
       ..importDirectives.add("import 'models/script_function.dart';"));
-    _addType(new TypeData(jsonType: 'NxMetaDef', dartType: 'JsonObject')
-      ..importDirectives.add("import 'package:built_value/json_object.dart';"));
     _addType(new TypeData(jsonType: 'JsonObject', dartType: 'JsonObject')
       ..importDirectives.add("import 'package:built_value/json_object.dart';"));
   }
@@ -49,6 +47,11 @@ class ApiGenerator {
         var importDirective = "import '${getModelFileName(key)}';";
         typeData.importDirectives.add(importDirective);
         typeMap[typeData.jsonType] = typeData;
+      }
+      if (value.jsonType == 'object' && value.properties.isEmpty) {
+        _addType(new TypeData(jsonType: key, dartType: 'JsonObject')
+          ..importDirectives
+              .add("import 'package:built_value/json_object.dart';"));
       }
     });
     schema.definitions.forEach((key, value) {
@@ -122,8 +125,8 @@ class ApiGenerator {
   }
 
   var _qPattern = new RegExp('^q');
-  generateField(String jsonFieldName, SchemaType fieldContent,
-      StringBuffer buffer) {
+  String generateField(
+      String jsonFieldName, SchemaType fieldContent, StringBuffer buffer) {
     addComment(fieldContent.description, buffer, '  ');
     addComment('Original name: $jsonFieldName', buffer, '  ');
     var dartType = 'NOT_FOUND';
@@ -141,11 +144,19 @@ class ApiGenerator {
     }
     buffer.writeln('  @nullable');
     buffer.writeln('  $dartType get $fieldName;\n');
+    return '$dartType $fieldName';
   }
 
-  generateStruct(String className, SchemaType content) {
-    if (content.jsonType == 'enum') {
+  generateStruct(String className, SchemaType schemaType) {
+    if (schemaType.jsonType != 'object') {
       /// Probably we should generate EnumLike classes here ?
+      return;
+    }
+    var typeData = typeMap[className];
+    if (typeData == null) {
+      int debug = 2;
+    }
+    if (typeData?.dartType == 'JsonObject') {
       return;
     }
     if (className == 'Function') {
@@ -155,13 +166,13 @@ class ApiGenerator {
     var importList = new Set<String>();
     importList.add("import 'package:built_value/serializer.dart';");
     importList.add("import 'package:built_value/built_value.dart';");
-    for (var fieldContent in content.properties.values) {
+    for (var fieldContent in schemaType.properties.values) {
       var typeData = getTypeData(fieldContent);
       if (typeData != null) {
         importList.addAll(typeData.importDirectives);
       }
     }
-    var properties = content.properties;
+    var properties = schemaType.properties;
     if (properties == null) {
       return;
     }
@@ -175,29 +186,36 @@ class ApiGenerator {
       buffer.writeln(each);
     }
     buffer.writeln("part '$snakeCaseName.g.dart';\n");
-    
-    addComment(content.description, buffer, '');
+
+    addComment(schemaType.description, buffer, '');
 // abstract class Method implements Built<Method, MethodBuilder> {
 
 //   static Serializer<Method> get serializer => _$methodSerializer;
 //   @nullable
 //   String get description;
 
-//   BuiltList<SchemaType> get parameters; 
-  
-//   BuiltList<SchemaType> get responses; 
-  
+//   BuiltList<SchemaType> get parameters;
+
+//   BuiltList<SchemaType> get responses;
+
 //   factory Method([updates(MethodBuilder b)]) = _$Method;
 //   Method._();
 // }
 
-    buffer.writeln('abstract class $className implements Built<$className, ${className}Builder> {\n');
-    buffer.writeln(' static Serializer<$className> get serializer => _\$${camelCaseName}Serializer;\n');
+    buffer.writeln(
+        'abstract class $className implements Built<$className, ${className}Builder> {\n');
+    buffer.writeln(
+        ' static Serializer<$className> get serializer => _\$${camelCaseName}Serializer;\n');
 //   @nullable
+    var paramList = <String>[];
     properties.forEach((fieldName, content) {
-      generateField(fieldName, content, buffer);
+      paramList.add(generateField(fieldName, content, buffer));
     });
-    buffer.writeln('  factory $className([updates(${className}Builder b)]) = _\$$className;\n');
+    buffer.writeln(
+        '  factory $className([updates(${className}Builder b)]) = _\$$className;\n');
+    var params = paramList.join(', ');
+    buffer
+        .writeln('  factory $className.init({$params}) = _\$$className._;\n');
     buffer.writeln('  $className._();');
     buffer.writeln('}');
     var outFile = new File('../qlient/lib/src/models/$fileName');
@@ -248,6 +266,7 @@ class ApiGenerator {
     String fileName = getModelFileName(className);
     var buffer = new StringBuffer();
     buffer.writeln("import '../models.dart';");
+    buffer.writeln("import 'package:built_collection/built_collection.dart';");
     addComment(service.description, buffer, '');
     buffer.writeln('class $className {');
     service.methods.forEach((methodName, content) {

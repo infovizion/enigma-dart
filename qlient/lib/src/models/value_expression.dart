@@ -26,5 +26,7 @@ abstract class ValueExpression implements Built<ValueExpression, ValueExpression
 
   factory ValueExpression([updates(ValueExpressionBuilder b)]) = _$ValueExpression;
 
+  factory ValueExpression.init({String expr}) = _$ValueExpression._;
+
   ValueExpression._();
 }

@@ -42,5 +42,7 @@ abstract class ScriptSyntaxError implements Built<ScriptSyntaxError, ScriptSynta
 
   factory ScriptSyntaxError([updates(ScriptSyntaxErrorBuilder b)]) = _$ScriptSyntaxError;
 
+  factory ScriptSyntaxError.init({int errLen, int tabIx, int lineInTab, int colInLine, int textPos, bool secondaryFailure}) = _$ScriptSyntaxError._;
+
   ScriptSyntaxError._();
 }

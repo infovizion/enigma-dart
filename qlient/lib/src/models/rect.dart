@@ -34,5 +34,7 @@ abstract class Rect implements Built<Rect, RectBuilder> {
 
   factory Rect([updates(RectBuilder b)]) = _$Rect;
 
+  factory Rect.init({int left, int top, int width, int height}) = _$Rect._;
+
   Rect._();
 }

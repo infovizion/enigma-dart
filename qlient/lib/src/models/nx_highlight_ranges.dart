@@ -19,5 +19,7 @@ abstract class NxHighlightRanges implements Built<NxHighlightRanges, NxHighlight
 
   factory NxHighlightRanges([updates(NxHighlightRangesBuilder b)]) = _$NxHighlightRanges;
 
+  factory NxHighlightRanges.init({BuiltList<NxCell> ranges}) = _$NxHighlightRanges._;
+
   NxHighlightRanges._();
 }

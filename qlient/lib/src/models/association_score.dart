@@ -48,5 +48,7 @@ abstract class AssociationScore implements Built<AssociationScore, AssociationSc
 
   factory AssociationScore([updates(AssociationScoreBuilder b)]) = _$AssociationScore;
 
+  factory AssociationScore.init({String fieldPairName, int scoreSummary, FieldScores field1Scores, FieldScores field2Scores}) = _$AssociationScore._;
+
   AssociationScore._();
 }

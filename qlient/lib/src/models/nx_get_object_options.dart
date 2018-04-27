@@ -31,5 +31,7 @@ abstract class NxGetObjectOptions implements Built<NxGetObjectOptions, NxGetObje
 
   factory NxGetObjectOptions([updates(NxGetObjectOptionsBuilder b)]) = _$NxGetObjectOptions;
 
+  factory NxGetObjectOptions.init({BuiltList<NxCell> types, bool includeSessionObjects, JsonObject data}) = _$NxGetObjectOptions._;
+
   NxGetObjectOptions._();
 }
