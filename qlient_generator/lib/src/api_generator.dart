@@ -36,6 +36,7 @@ class ApiGenerator {
     schema.services.forEach((key, value) {
       generateService(key, value);
     });
+    generateSerializers();
   }
 
   populateTypes(Schema schema) {
@@ -146,7 +147,18 @@ class ApiGenerator {
     buffer.writeln('  $dartType get $fieldName;\n');
     return '$dartType $fieldName';
   }
-
+  SchemaType preprocessClass(String className, SchemaType schemaType) {
+    if (className == 'NxCell') {
+      var properties = schemaType.properties.toMap();
+      properties.remove('qHighlightRanges');
+      properties.remove('qAttrExps');
+      properties.remove('qAttrDims');
+      var result = schemaType.rebuild((b) => b
+      ..properties.replace(properties));
+      return result;
+    }
+    return schemaType;
+  }
   generateStruct(String className, SchemaType schemaType) {
     if (schemaType.jsonType != 'object') {
       /// Probably we should generate EnumLike classes here ?
@@ -163,6 +175,7 @@ class ApiGenerator {
       className = 'ScriptsFunction';
     }
     exportList.add(className);
+    schemaType = preprocessClass(className, schemaType);
     var importList = new Set<String>();
     importList.add("import 'package:built_value/serializer.dart';");
     importList.add("import 'package:built_value/built_value.dart';");
@@ -214,8 +227,7 @@ class ApiGenerator {
     buffer.writeln(
         '  factory $className([updates(${className}Builder b)]) = _\$$className;\n');
     var params = paramList.join(', ');
-    buffer
-        .writeln('  factory $className.init({$params}) = _\$$className._;\n');
+    buffer.writeln('  factory $className.init({$params}) = _\$$className._;\n');
     buffer.writeln('  $className._();');
     buffer.writeln('}');
     var outFile = new File('../qlient/lib/src/models/$fileName');
@@ -284,5 +296,27 @@ class ApiGenerator {
 // $buffer
 // ''';
     outFile.writeAsStringSync(buffer.toString());
+  }
+
+  generateSerializers() {
+   var  toSerialize = exportList.join(',\n');
+    var content = '''
+library serializers;
+
+import 'package:built_value/serializer.dart';
+import 'package:built_collection/built_collection.dart';
+import '../models.dart';
+
+part 'serializers.g.dart';
+
+@SerializersFor(const [
+  $toSerialize
+])
+final Serializers serializers = _\$serializers;
+''';
+
+ var outFile = new File('../qlient/lib/src/serializers/serializers.dart');
+    outFile.createSync();
+    outFile.writeAsStringSync(content);
   }
 }
