@@ -3,13 +3,13 @@ import 'package:built_collection/built_collection.dart';
 
 class Doc {
   /// Returns a handle to a field.
-  getField(String qFieldName, String qStateName) {}
+  ObjectInterface getField(String qFieldName, String qStateName) {}
 
   /// Returns the description of a field.
   FieldDescription getFieldDescription(String qFieldName) {}
 
   /// Returns a handle to a variable.
-  getVariable(String qName) {}
+  ObjectInterface getVariable(String qName) {}
 
   /// Returns a list of table states.
   ///
@@ -215,7 +215,7 @@ class Doc {
   /// A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).
   /// The linked object has the same properties as the linking object.
   /// <div class=note>The linking object cannot be a transient object.</div>
-  createSessionObject(GenericObjectProperties qProp) {}
+  ObjectInterface createSessionObject(GenericObjectProperties qProp) {}
 
   /// Removes a transient object.
   ///
@@ -236,7 +236,7 @@ class Doc {
   bool destroyObject(String qId) {}
 
   /// Returns the type of the app object and the corresponding handle.
-  getObject(String qId) {}
+  ObjectInterface getObject(String qId) {}
   BuiltList<NxCell> getObjects(NxGetObjectOptions qOptions) {}
   BuiltList<NxCell> getBookmarks(NxGetBookmarkOptions qOptions) {}
 
@@ -289,7 +289,7 @@ class Doc {
   bool destroyDimension(String qId) {}
 
   /// Returns the handle of a dimension.
-  getDimension(String qId) {}
+  ObjectInterface getDimension(String qId) {}
 
   /// Clones a dimension.
   ///
@@ -306,7 +306,7 @@ class Doc {
   bool destroyMeasure(String qId) {}
 
   /// Returns the handle of a measure.
-  getMeasure(String qId) {}
+  ObjectInterface getMeasure(String qId) {}
 
   /// Clones a measure.
   ///
@@ -324,7 +324,7 @@ class Doc {
   /// The variable _x_ contains the text string _Sum(Sales)_ .
   /// In a chart, you define the expression _$(x)/12_ . The effect is exactly the same as having the chart expression _Sum(Sales)/12_ .
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
-  createSessionVariable(GenericVariableProperties qProp) {}
+  ObjectInterface createSessionVariable(GenericVariableProperties qProp) {}
 
   /// Removes a transient variable.
   ///
@@ -358,10 +358,10 @@ class Doc {
   bool destroyVariableByName(String qName) {}
 
   /// Gets the handle of a variable.
-  getVariableById(String qId) {}
+  ObjectInterface getVariableById(String qId) {}
 
   /// Gets the handle of a variable.
-  getVariableByName(String qName) {}
+  ObjectInterface getVariableByName(String qName) {}
 
   /// Checks if a given expression is valid.
   /// <div class=note>The expression is correct if the parameters _qErrorMsg_ , _qBadFieldNames_ and _qDangerousFieldNames_ are empty. </div>
@@ -387,7 +387,7 @@ class Doc {
   bool destroyBookmark(String qId) {}
 
   /// Returns the handle of a bookmark.
-  getBookmark(String qId) {}
+  ObjectInterface getBookmark(String qId) {}
 
   /// Applies a bookmark.
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>

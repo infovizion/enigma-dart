@@ -485,7 +485,7 @@ class GenericObject {
       String qPath, BuiltList<NxCell> qRanges, bool qSoftLock) {}
 
   /// Returns the type of the object and the corresponding handle.
-  getChild(String qId) {}
+  ObjectInterface getChild(String qId) {}
 
   /// Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.
   ///
@@ -538,7 +538,7 @@ class GenericObject {
   embedSnapshotObject(String qId) {}
 
   /// Returns the type of the object and the corresponding handle.
-  getSnapshotObject() {}
+  ObjectInterface getSnapshotObject() {}
 
   /// Publishes a generic object.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>

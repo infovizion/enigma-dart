@@ -29,6 +29,10 @@ class ApiGenerator {
     var schemaContent = new File('tool/schema.json').readAsStringSync();
     var schemaJson = json.decode(schemaContent);
     var schema = fromJson<Schema>(Schema, schemaJson);
+    // var objectInterface = schema.definitions['ObjectInterface'].rebuild((b) => b .. jsonType = 'object');
+    // var defs = schema.definitions.asMap();
+    // defs['ObjectIterface'] = objectInterface;
+    // schema = schema.rebuild((b) => b..definitions.replace(defs));
     populateTypes(schema);
     schema.definitions.forEach((key, value) {
       generateStruct(key, value);
@@ -42,7 +46,8 @@ class ApiGenerator {
 
   populateTypes(Schema schema) {
     schema.definitions.forEach((key, value) {
-      if (value.jsonType == 'object' && value.properties.isNotEmpty) {
+      if ((value.jsonType == 'object' || key == 'ObjectInterface') &&
+          value.properties.isNotEmpty) {
         var typeData = new TypeData();
         typeData.jsonType = key;
         typeData.dartType = key;
@@ -169,7 +174,9 @@ class ApiGenerator {
   }
 
   generateStruct(String className, SchemaType schemaType) {
-    if (schemaType.jsonType != 'object') {
+    if (className == 'ObjectInterface') {
+      int debug = 1;
+    } else if (schemaType.jsonType != 'object') {
       /// Probably we should generate EnumLike classes here ?
       return;
     }

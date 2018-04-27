@@ -63,6 +63,7 @@ part 'serializers.g.dart';
   NxTreeMultiRangeSelectInfo,
   NxTreeRangeSelectInfo,
   NxContinuousRangeSelectInfo,
+  ObjectInterface,
   NxLinkedObjectInfo,
   AppObjectListDef,
   AppObjectList,
