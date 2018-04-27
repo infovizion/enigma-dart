@@ -12,6 +12,38 @@ class ApiGenerator {
     typeMap[typeData.jsonType] = typeData;
   }
 
+  final Map<String, String> objectFuncToObject =
+      createObjectFunctionToObjectTypeMapping();
+
+  static Map<String, String> createObjectFunctionToObjectTypeMapping() {
+    // Register mappings that describe what remote object type is created by each method
+    var result = <String, String>{};
+    result["Global.GetActiveDoc"] = "Doc";
+    result["Global.OpenDoc"] = "Doc";
+    result["Global.CreateDocEx"] = "Doc";
+    result["Global.CreateSessionAppFromApp"] = "Doc";
+    result["Global.CreateSessionApp"] = "Doc";
+    result["GenericObject.CreateChild"] = "GenericObject";
+    result["GenericObject.GetChild"] = "GenericObject";
+    result["GenericObject.GetSnapshotObject"] = "GenericObject";
+    result["Doc.CreateSessionObject"] = "GenericObject";
+    result["Doc.CreateBookmark"] = "GenericBookmark";
+    result["Doc.GetDimension"] = "GenericDimension";
+    result["Doc.CreateMeasure"] = "GenericMeasure";
+    result["Doc.GetField"] = "Field";
+    result["Doc.CreateSessionVariable"] = "Variable";
+    result["Doc.GetVariable"] = "Variable";
+    result["Doc.GetObject"] = "GenericObject";
+    result["Doc.GetVariableById"] = "Variable";
+    result["Doc.CreateObject"] = "GenericObject";
+    result["Doc.CreateVariableEx"] = "Variable";
+    result["Doc.CreateDimension"] = "GenericDimension";
+    result["Doc.GetBookmark"] = "GenericBookmark";
+    result["Doc.GetVariableByName"] = "GenericVariable";
+    result["Doc.GetMeasure"] = "GenericMeasure";
+    return result;
+  }
+
   var exportList = <String>[];
   initBasicTypes() {
     _addType(new TypeData(jsonType: 'string', dartType: 'String'));
