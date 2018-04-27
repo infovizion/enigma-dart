@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 part 'nx_stream_list_entry.g.dart';
 
 /// <div class=warning>This struct is deprecated (not recommended to use).</div>
-abstract class NxStreamListEntry implements Built<NxStreamListEntry, NxStreamListEntryBuilder> {
-
- static Serializer<NxStreamListEntry> get serializer => _$nxStreamListEntrySerializer;
+abstract class NxStreamListEntry
+    implements Built<NxStreamListEntry, NxStreamListEntryBuilder> {
+  static Serializer<NxStreamListEntry> get serializer =>
+      _$nxStreamListEntrySerializer;
 
   /// Name of the stream.
   /// Original name: qName
@@ -21,9 +22,11 @@ abstract class NxStreamListEntry implements Built<NxStreamListEntry, NxStreamLis
   @nullable
   String get id;
 
-  factory NxStreamListEntry([updates(NxStreamListEntryBuilder b)]) = _$NxStreamListEntry;
+  factory NxStreamListEntry([updates(NxStreamListEntryBuilder b)]) =
+      _$NxStreamListEntry;
 
-  factory NxStreamListEntry.init({String name, String id}) = _$NxStreamListEntry._;
+  factory NxStreamListEntry.init({String name, String id}) =
+      _$NxStreamListEntry._;
 
   NxStreamListEntry._();
 }

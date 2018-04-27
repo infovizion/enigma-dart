@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'search_suggest_item.g.dart';
 
-abstract class SearchSuggestItem implements Built<SearchSuggestItem, SearchSuggestItemBuilder> {
-
- static Serializer<SearchSuggestItem> get serializer => _$searchSuggestItemSerializer;
+abstract class SearchSuggestItem
+    implements Built<SearchSuggestItem, SearchSuggestItemBuilder> {
+  static Serializer<SearchSuggestItem> get serializer =>
+      _$searchSuggestItemSerializer;
 
   /// Value of the suggestion.
   /// Original name: qValue
@@ -21,9 +22,11 @@ abstract class SearchSuggestItem implements Built<SearchSuggestItem, SearchSugge
   @nullable
   int get term;
 
-  factory SearchSuggestItem([updates(SearchSuggestItemBuilder b)]) = _$SearchSuggestItem;
+  factory SearchSuggestItem([updates(SearchSuggestItemBuilder b)]) =
+      _$SearchSuggestItem;
 
-  factory SearchSuggestItem.init({String value, int term}) = _$SearchSuggestItem._;
+  factory SearchSuggestItem.init({String value, int term}) =
+      _$SearchSuggestItem._;
 
   SearchSuggestItem._();
 }

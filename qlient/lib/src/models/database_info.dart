@@ -8,9 +8,9 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'database_info.g.dart';
 
-abstract class DatabaseInfo implements Built<DatabaseInfo, DatabaseInfoBuilder> {
-
- static Serializer<DatabaseInfo> get serializer => _$databaseInfoSerializer;
+abstract class DatabaseInfo
+    implements Built<DatabaseInfo, DatabaseInfoBuilder> {
+  static Serializer<DatabaseInfo> get serializer => _$databaseInfoSerializer;
 
   /// Name of the product accessed by the provider.
   /// Original name: qDBMSName
@@ -81,7 +81,18 @@ abstract class DatabaseInfo implements Built<DatabaseInfo, DatabaseInfoBuilder> 
 
   factory DatabaseInfo([updates(DatabaseInfoBuilder b)]) = _$DatabaseInfo;
 
-  factory DatabaseInfo.init({String dBMSName, bool dBUsage, bool ownerUsage, String dBSeparator, String ownerSeparator, bool dBFirst, String quotePreffix, String quoteSuffix, String specialChars, String defaultDatabase, BuiltList<NxCell> keywords}) = _$DatabaseInfo._;
+  factory DatabaseInfo.init(
+      {String dBMSName,
+      bool dBUsage,
+      bool ownerUsage,
+      String dBSeparator,
+      String ownerSeparator,
+      bool dBFirst,
+      String quotePreffix,
+      String quoteSuffix,
+      String specialChars,
+      String defaultDatabase,
+      BuiltList<NxCell> keywords}) = _$DatabaseInfo._;
 
   DatabaseInfo._();
 }

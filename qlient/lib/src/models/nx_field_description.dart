@@ -37,9 +37,10 @@ part 'nx_field_description.g.dart';
 /// <td>Array of <i>String</i> </td>
 /// </tr>
 /// </table>
-abstract class NxFieldDescription implements Built<NxFieldDescription, NxFieldDescriptionBuilder> {
-
- static Serializer<NxFieldDescription> get serializer => _$nxFieldDescriptionSerializer;
+abstract class NxFieldDescription
+    implements Built<NxFieldDescription, NxFieldDescriptionBuilder> {
+  static Serializer<NxFieldDescription> get serializer =>
+      _$nxFieldDescriptionSerializer;
 
   /// If set to true, it means that the field is a semantic.
   /// Original name: qIsSemantic
@@ -104,9 +105,22 @@ abstract class NxFieldDescription implements Built<NxFieldDescription, NxFieldDe
   @nullable
   String get readableName;
 
-  factory NxFieldDescription([updates(NxFieldDescriptionBuilder b)]) = _$NxFieldDescription;
+  factory NxFieldDescription([updates(NxFieldDescriptionBuilder b)]) =
+      _$NxFieldDescription;
 
-  factory NxFieldDescription.init({bool isSemantic, bool isHidden, bool isSystem, bool andMode, String name, int cardinal, BuiltList<NxCell> tags, bool isDefinitionOnly, NxDerivedFieldDescriptionList derivedFieldData, bool isDetail, bool isImplicit, String readableName}) = _$NxFieldDescription._;
+  factory NxFieldDescription.init(
+      {bool isSemantic,
+      bool isHidden,
+      bool isSystem,
+      bool andMode,
+      String name,
+      int cardinal,
+      BuiltList<NxCell> tags,
+      bool isDefinitionOnly,
+      NxDerivedFieldDescriptionList derivedFieldData,
+      bool isDetail,
+      bool isImplicit,
+      String readableName}) = _$NxFieldDescription._;
 
   NxFieldDescription._();
 }

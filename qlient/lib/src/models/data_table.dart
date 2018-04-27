@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'data_table.g.dart';
 
 abstract class DataTable implements Built<DataTable, DataTableBuilder> {
-
- static Serializer<DataTable> get serializer => _$dataTableSerializer;
+  static Serializer<DataTable> get serializer => _$dataTableSerializer;
 
   /// Name of the table.
   /// Original name: qName

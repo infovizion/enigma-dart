@@ -9,9 +9,9 @@ part 'child_list_def.g.dart';
 
 /// Defines the list of children of a generic object.
 /// What is defined in _ChildListDef_ has an impact on what the _GetLayout_ method returns. See _Example_ for more information.
-abstract class ChildListDef implements Built<ChildListDef, ChildListDefBuilder> {
-
- static Serializer<ChildListDef> get serializer => _$childListDefSerializer;
+abstract class ChildListDef
+    implements Built<ChildListDef, ChildListDefBuilder> {
+  static Serializer<ChildListDef> get serializer => _$childListDefSerializer;
 
   /// Data that you want to include in the child list definition.
   /// You need to enter the paths to the information you want to retrieve.

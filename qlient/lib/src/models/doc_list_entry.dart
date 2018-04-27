@@ -8,9 +8,9 @@ import 'nx_meta.dart';
 import 'static_content_url.dart';
 part 'doc_list_entry.g.dart';
 
-abstract class DocListEntry implements Built<DocListEntry, DocListEntryBuilder> {
-
- static Serializer<DocListEntry> get serializer => _$docListEntrySerializer;
+abstract class DocListEntry
+    implements Built<DocListEntry, DocListEntryBuilder> {
+  static Serializer<DocListEntry> get serializer => _$docListEntrySerializer;
 
   /// Name of the app.
   /// Original name: qDocName
@@ -70,7 +70,17 @@ abstract class DocListEntry implements Built<DocListEntry, DocListEntryBuilder> 
 
   factory DocListEntry([updates(DocListEntryBuilder b)]) = _$DocListEntry;
 
-  factory DocListEntry.init({String docName, int connectedUsers, num fileTime, num fileSize, String docId, NxMeta meta, String lastReloadTime, bool readOnly, String title, StaticContentUrl thumbnail}) = _$DocListEntry._;
+  factory DocListEntry.init(
+      {String docName,
+      int connectedUsers,
+      num fileTime,
+      num fileSize,
+      String docId,
+      NxMeta meta,
+      String lastReloadTime,
+      bool readOnly,
+      String title,
+      StaticContentUrl thumbnail}) = _$DocListEntry._;
 
   DocListEntry._();
 }

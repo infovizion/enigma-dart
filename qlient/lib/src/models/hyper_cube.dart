@@ -15,8 +15,7 @@ part 'hyper_cube.g.dart';
 /// For more information about the definition of a hypercube, see _Generic object_.
 /// <div class=note>What is returned in HyperCube depends on the type of the hypercube (straight, pivot or stacked table, or tree) and on the method called (GetLayout, GetHyperCubeData, GetHyperCubePivotData, GetHyperCubeStackData, GetHyperCubeTreeData).</div>
 abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
-
- static Serializer<HyperCube> get serializer => _$hyperCubeSerializer;
+  static Serializer<HyperCube> get serializer => _$hyperCubeSerializer;
 
   /// Name of the alternate state.
   /// Default is current selections _$_ .
@@ -76,7 +75,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   BuiltList<NxCell> get stackedDataPages;
 
   /// Information about the mode of the visualization.
-  /// 
+  ///
   /// One of:
   /// * S or DATA_MODE_STRAIGHT
   /// * P or DATA_MODE_PIVOT
@@ -93,18 +92,18 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// * Four dimensions in the following order: Country, City, Product and Category
   /// * One pseudo dimension in position 1
   /// * Three left dimensions.
-  /// 
+  ///
   /// implies that:
   /// * The index 0 corresponds to the left dimension Country.
   /// * The index 1 corresponds to the pseudo dimension.
   /// * The index 2 corresponds to the left dimension City.
   /// * Product and Category are top dimensions.
-  /// 
+  ///
   /// Another example:
   /// * Four dimensions in the following order: Country, City, Product and Category.
   /// * One pseudo dimension in position -1.
   /// * Three left dimensions.
-  /// 
+  ///
   /// implies that:
   /// * The index -1 corresponds to the pseudo dimension; the pseudo dimension is the most to the right.
   /// * The index 0 corresponds to the left dimension Country.
@@ -156,7 +155,26 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
 
   factory HyperCube([updates(HyperCubeBuilder b)]) = _$HyperCube;
 
-  factory HyperCube.init({String stateName, Size size, NxValidationError error, BuiltList<NxCell> dimensionInfo, BuiltList<NxCell> measureInfo, BuiltList<NxCell> effectiveInterColumnSortOrder, BuiltList<NxCell> grandTotalRow, BuiltList<NxCell> dataPages, BuiltList<NxCell> pivotDataPages, BuiltList<NxCell> stackedDataPages, String mode, int noOfLeftDims, bool indentMode, NxCellPosition lastExpandedPos, bool hasOtherValues, String title, BuiltList<NxCell> treeNodesOnDim, String calcCondMsg, BuiltList<NxCell> columnOrder}) = _$HyperCube._;
+  factory HyperCube.init(
+      {String stateName,
+      Size size,
+      NxValidationError error,
+      BuiltList<NxCell> dimensionInfo,
+      BuiltList<NxCell> measureInfo,
+      BuiltList<NxCell> effectiveInterColumnSortOrder,
+      BuiltList<NxCell> grandTotalRow,
+      BuiltList<NxCell> dataPages,
+      BuiltList<NxCell> pivotDataPages,
+      BuiltList<NxCell> stackedDataPages,
+      String mode,
+      int noOfLeftDims,
+      bool indentMode,
+      NxCellPosition lastExpandedPos,
+      bool hasOtherValues,
+      String title,
+      BuiltList<NxCell> treeNodesOnDim,
+      String calcCondMsg,
+      BuiltList<NxCell> columnOrder}) = _$HyperCube._;
 
   HyperCube._();
 }

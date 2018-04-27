@@ -9,9 +9,11 @@ import 'nx_library_measure_def.dart';
 import 'package:built_value/json_object.dart';
 part 'generic_measure_properties.g.dart';
 
-abstract class GenericMeasureProperties implements Built<GenericMeasureProperties, GenericMeasurePropertiesBuilder> {
-
- static Serializer<GenericMeasureProperties> get serializer => _$genericMeasurePropertiesSerializer;
+abstract class GenericMeasureProperties
+    implements
+        Built<GenericMeasureProperties, GenericMeasurePropertiesBuilder> {
+  static Serializer<GenericMeasureProperties> get serializer =>
+      _$genericMeasurePropertiesSerializer;
 
   /// Information about the measure.
   /// This parameter is mandatory.
@@ -30,9 +32,14 @@ abstract class GenericMeasureProperties implements Built<GenericMeasurePropertie
   @nullable
   JsonObject get metaDef;
 
-  factory GenericMeasureProperties([updates(GenericMeasurePropertiesBuilder b)]) = _$GenericMeasureProperties;
+  factory GenericMeasureProperties(
+          [updates(GenericMeasurePropertiesBuilder b)]) =
+      _$GenericMeasureProperties;
 
-  factory GenericMeasureProperties.init({NxInfo info, NxLibraryMeasureDef measure, JsonObject metaDef}) = _$GenericMeasureProperties._;
+  factory GenericMeasureProperties.init(
+      {NxInfo info,
+      NxLibraryMeasureDef measure,
+      JsonObject metaDef}) = _$GenericMeasureProperties._;
 
   GenericMeasureProperties._();
 }

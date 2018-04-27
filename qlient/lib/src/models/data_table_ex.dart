@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'data_table_ex.g.dart';
 
 abstract class DataTableEx implements Built<DataTableEx, DataTableExBuilder> {
-
- static Serializer<DataTableEx> get serializer => _$dataTableExSerializer;
+  static Serializer<DataTableEx> get serializer => _$dataTableExSerializer;
 
   /// Name of the table.
   /// Original name: qName
@@ -33,7 +32,10 @@ abstract class DataTableEx implements Built<DataTableEx, DataTableExBuilder> {
 
   factory DataTableEx([updates(DataTableExBuilder b)]) = _$DataTableEx;
 
-  factory DataTableEx.init({String name, BuiltList<NxCell> fields, String formatSpec}) = _$DataTableEx._;
+  factory DataTableEx.init(
+      {String name,
+      BuiltList<NxCell> fields,
+      String formatSpec}) = _$DataTableEx._;
 
   DataTableEx._();
 }

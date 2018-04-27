@@ -8,18 +8,23 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_tree_multi_range_select_info.g.dart';
 
-abstract class NxTreeMultiRangeSelectInfo implements Built<NxTreeMultiRangeSelectInfo, NxTreeMultiRangeSelectInfoBuilder> {
-
- static Serializer<NxTreeMultiRangeSelectInfo> get serializer => _$nxTreeMultiRangeSelectInfoSerializer;
+abstract class NxTreeMultiRangeSelectInfo
+    implements
+        Built<NxTreeMultiRangeSelectInfo, NxTreeMultiRangeSelectInfoBuilder> {
+  static Serializer<NxTreeMultiRangeSelectInfo> get serializer =>
+      _$nxTreeMultiRangeSelectInfoSerializer;
 
   /// An array of Ranges.
   /// Original name: qRanges
   @nullable
   BuiltList<NxCell> get ranges;
 
-  factory NxTreeMultiRangeSelectInfo([updates(NxTreeMultiRangeSelectInfoBuilder b)]) = _$NxTreeMultiRangeSelectInfo;
+  factory NxTreeMultiRangeSelectInfo(
+          [updates(NxTreeMultiRangeSelectInfoBuilder b)]) =
+      _$NxTreeMultiRangeSelectInfo;
 
-  factory NxTreeMultiRangeSelectInfo.init({BuiltList<NxCell> ranges}) = _$NxTreeMultiRangeSelectInfo._;
+  factory NxTreeMultiRangeSelectInfo.init({BuiltList<NxCell> ranges}) =
+      _$NxTreeMultiRangeSelectInfo._;
 
   NxTreeMultiRangeSelectInfo._();
 }

@@ -10,8 +10,7 @@ import 'rect.dart';
 part 'nx_data_page.g.dart';
 
 abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
-
- static Serializer<NxDataPage> get serializer => _$nxDataPageSerializer;
+  static Serializer<NxDataPage> get serializer => _$nxDataPageSerializer;
 
   /// Array of data.
   /// Original name: qMatrix
@@ -38,7 +37,11 @@ abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
 
   factory NxDataPage([updates(NxDataPageBuilder b)]) = _$NxDataPage;
 
-  factory NxDataPage.init({BuiltList<NxCell> matrix, BuiltList<NxCell> tails, Rect area, bool isReduced}) = _$NxDataPage._;
+  factory NxDataPage.init(
+      {BuiltList<NxCell> matrix,
+      BuiltList<NxCell> tails,
+      Rect area,
+      bool isReduced}) = _$NxDataPage._;
 
   NxDataPage._();
 }

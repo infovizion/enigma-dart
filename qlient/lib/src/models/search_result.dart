@@ -8,9 +8,9 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_result.g.dart';
 
-abstract class SearchResult implements Built<SearchResult, SearchResultBuilder> {
-
- static Serializer<SearchResult> get serializer => _$searchResultSerializer;
+abstract class SearchResult
+    implements Built<SearchResult, SearchResultBuilder> {
+  static Serializer<SearchResult> get serializer => _$searchResultSerializer;
 
   /// List of the search terms.
   /// Original name: qSearchTerms
@@ -30,7 +30,10 @@ abstract class SearchResult implements Built<SearchResult, SearchResultBuilder> 
 
   factory SearchResult([updates(SearchResultBuilder b)]) = _$SearchResult;
 
-  factory SearchResult.init({BuiltList<NxCell> searchTerms, int totalNumberOfGroups, BuiltList<NxCell> searchGroupArray}) = _$SearchResult._;
+  factory SearchResult.init(
+      {BuiltList<NxCell> searchTerms,
+      int totalNumberOfGroups,
+      BuiltList<NxCell> searchGroupArray}) = _$SearchResult._;
 
   SearchResult._();
 }

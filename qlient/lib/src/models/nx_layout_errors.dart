@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_layout_errors.g.dart';
 
-abstract class NxLayoutErrors implements Built<NxLayoutErrors, NxLayoutErrorsBuilder> {
-
- static Serializer<NxLayoutErrors> get serializer => _$nxLayoutErrorsSerializer;
+abstract class NxLayoutErrors
+    implements Built<NxLayoutErrors, NxLayoutErrorsBuilder> {
+  static Serializer<NxLayoutErrors> get serializer =>
+      _$nxLayoutErrorsSerializer;
 
   /// Error code.
   /// Original name: qErrorCode

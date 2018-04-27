@@ -8,18 +8,20 @@ part 'selection_object_def.g.dart';
 
 /// To display the current selections.
 /// Can be added to any generic object but is particularly meaningful when using session objects to monitor an app.
-/// 
+///
 /// ### Properties
 /// "qSelectionObjectDef": {}
-abstract class SelectionObjectDef implements Built<SelectionObjectDef, SelectionObjectDefBuilder> {
-
- static Serializer<SelectionObjectDef> get serializer => _$selectionObjectDefSerializer;
+abstract class SelectionObjectDef
+    implements Built<SelectionObjectDef, SelectionObjectDefBuilder> {
+  static Serializer<SelectionObjectDef> get serializer =>
+      _$selectionObjectDefSerializer;
 
   /// Original name: qStateName
   @nullable
   String get stateName;
 
-  factory SelectionObjectDef([updates(SelectionObjectDefBuilder b)]) = _$SelectionObjectDef;
+  factory SelectionObjectDef([updates(SelectionObjectDefBuilder b)]) =
+      _$SelectionObjectDef;
 
   factory SelectionObjectDef.init({String stateName}) = _$SelectionObjectDef._;
 

@@ -8,9 +8,9 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'extension_list.g.dart';
 
-abstract class ExtensionList implements Built<ExtensionList, ExtensionListBuilder> {
-
- static Serializer<ExtensionList> get serializer => _$extensionListSerializer;
+abstract class ExtensionList
+    implements Built<ExtensionList, ExtensionListBuilder> {
+  static Serializer<ExtensionList> get serializer => _$extensionListSerializer;
 
   /// Original name: qItems
   @nullable

@@ -8,8 +8,7 @@ import 'progress_message.dart';
 part 'error_data.g.dart';
 
 abstract class ErrorData implements Built<ErrorData, ErrorDataBuilder> {
-
- static Serializer<ErrorData> get serializer => _$errorDataSerializer;
+  static Serializer<ErrorData> get serializer => _$errorDataSerializer;
 
   /// Detailed information about the error message.
   /// Original name: qErrorString
@@ -27,7 +26,7 @@ abstract class ErrorData implements Built<ErrorData, ErrorDataBuilder> {
   String get line;
 
   /// Type of the error messages.
-  /// 
+  ///
   /// One of:
   /// * EDC_ERROR
   /// * EDC_WARNING
@@ -42,7 +41,12 @@ abstract class ErrorData implements Built<ErrorData, ErrorDataBuilder> {
 
   factory ErrorData([updates(ErrorDataBuilder b)]) = _$ErrorData;
 
-  factory ErrorData.init({String errorString, String lineEnd, String line, String errorDataCode, ProgressMessage message}) = _$ErrorData._;
+  factory ErrorData.init(
+      {String errorString,
+      String lineEnd,
+      String line,
+      String errorDataCode,
+      ProgressMessage message}) = _$ErrorData._;
 
   ErrorData._();
 }

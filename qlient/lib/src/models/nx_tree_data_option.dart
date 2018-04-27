@@ -10,9 +10,10 @@ import 'nx_page_tree_level.dart';
 part 'nx_tree_data_option.g.dart';
 
 /// Specifies all the paging filters needed to define the tree to be fetched.
-abstract class NxTreeDataOption implements Built<NxTreeDataOption, NxTreeDataOptionBuilder> {
-
- static Serializer<NxTreeDataOption> get serializer => _$nxTreeDataOptionSerializer;
+abstract class NxTreeDataOption
+    implements Built<NxTreeDataOption, NxTreeDataOptionBuilder> {
+  static Serializer<NxTreeDataOption> get serializer =>
+      _$nxTreeDataOptionSerializer;
 
   /// Maximum number of nodes in the tree. If this limit is exceeded, no nodes are returned. All nodes are counted.
   /// Original name: qMaxNbrOfNodes
@@ -29,9 +30,13 @@ abstract class NxTreeDataOption implements Built<NxTreeDataOption, NxTreeDataOpt
   @nullable
   NxPageTreeLevel get treeLevels;
 
-  factory NxTreeDataOption([updates(NxTreeDataOptionBuilder b)]) = _$NxTreeDataOption;
+  factory NxTreeDataOption([updates(NxTreeDataOptionBuilder b)]) =
+      _$NxTreeDataOption;
 
-  factory NxTreeDataOption.init({int maxNbrOfNodes, BuiltList<NxCell> treeNodes, NxPageTreeLevel treeLevels}) = _$NxTreeDataOption._;
+  factory NxTreeDataOption.init(
+      {int maxNbrOfNodes,
+      BuiltList<NxCell> treeNodes,
+      NxPageTreeLevel treeLevels}) = _$NxTreeDataOption._;
 
   NxTreeDataOption._();
 }

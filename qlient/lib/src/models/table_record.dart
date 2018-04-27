@@ -10,8 +10,7 @@ import 'point.dart';
 part 'table_record.g.dart';
 
 abstract class TableRecord implements Built<TableRecord, TableRecordBuilder> {
-
- static Serializer<TableRecord> get serializer => _$tableRecordSerializer;
+  static Serializer<TableRecord> get serializer => _$tableRecordSerializer;
 
   /// Name of the table.
   /// Original name: qName
@@ -56,7 +55,15 @@ abstract class TableRecord implements Built<TableRecord, TableRecordBuilder> {
 
   factory TableRecord([updates(TableRecordBuilder b)]) = _$TableRecord;
 
-  factory TableRecord.init({String name, bool loose, int noOfRows, BuiltList<NxCell> fields, Point pos, String comment, bool isDirectDiscovery, bool isSynthetic}) = _$TableRecord._;
+  factory TableRecord.init(
+      {String name,
+      bool loose,
+      int noOfRows,
+      BuiltList<NxCell> fields,
+      Point pos,
+      String comment,
+      bool isDirectDiscovery,
+      bool isSynthetic}) = _$TableRecord._;
 
   TableRecord._();
 }

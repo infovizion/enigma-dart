@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 import 'table_view_save_info.dart';
 part 'table_view_ctl_save_info.g.dart';
 
-abstract class TableViewCtlSaveInfo implements Built<TableViewCtlSaveInfo, TableViewCtlSaveInfoBuilder> {
-
- static Serializer<TableViewCtlSaveInfo> get serializer => _$tableViewCtlSaveInfoSerializer;
+abstract class TableViewCtlSaveInfo
+    implements Built<TableViewCtlSaveInfo, TableViewCtlSaveInfoBuilder> {
+  static Serializer<TableViewCtlSaveInfo> get serializer =>
+      _$tableViewCtlSaveInfoSerializer;
 
   /// Internal view mode.
   /// Original name: qInternalView
@@ -21,9 +22,12 @@ abstract class TableViewCtlSaveInfo implements Built<TableViewCtlSaveInfo, Table
   @nullable
   TableViewSaveInfo get sourceView;
 
-  factory TableViewCtlSaveInfo([updates(TableViewCtlSaveInfoBuilder b)]) = _$TableViewCtlSaveInfo;
+  factory TableViewCtlSaveInfo([updates(TableViewCtlSaveInfoBuilder b)]) =
+      _$TableViewCtlSaveInfo;
 
-  factory TableViewCtlSaveInfo.init({TableViewSaveInfo internalView, TableViewSaveInfo sourceView}) = _$TableViewCtlSaveInfo._;
+  factory TableViewCtlSaveInfo.init(
+      {TableViewSaveInfo internalView,
+      TableViewSaveInfo sourceView}) = _$TableViewCtlSaveInfo._;
 
   TableViewCtlSaveInfo._();
 }

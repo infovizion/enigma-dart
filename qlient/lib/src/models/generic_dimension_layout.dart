@@ -12,9 +12,10 @@ import 'package:built_collection/built_collection.dart';
 part 'generic_dimension_layout.g.dart';
 
 /// Is the layout for _GenericDimensionProperties_.
-abstract class GenericDimensionLayout implements Built<GenericDimensionLayout, GenericDimensionLayoutBuilder> {
-
- static Serializer<GenericDimensionLayout> get serializer => _$genericDimensionLayoutSerializer;
+abstract class GenericDimensionLayout
+    implements Built<GenericDimensionLayout, GenericDimensionLayoutBuilder> {
+  static Serializer<GenericDimensionLayout> get serializer =>
+      _$genericDimensionLayoutSerializer;
 
   /// Identifier and type of the dimension.
   /// Original name: qInfo
@@ -37,9 +38,14 @@ abstract class GenericDimensionLayout implements Built<GenericDimensionLayout, G
   @nullable
   BuiltList<NxCell> get dimInfos;
 
-  factory GenericDimensionLayout([updates(GenericDimensionLayoutBuilder b)]) = _$GenericDimensionLayout;
+  factory GenericDimensionLayout([updates(GenericDimensionLayoutBuilder b)]) =
+      _$GenericDimensionLayout;
 
-  factory GenericDimensionLayout.init({NxInfo info, NxMeta meta, NxLibraryDimension dim, BuiltList<NxCell> dimInfos}) = _$GenericDimensionLayout._;
+  factory GenericDimensionLayout.init(
+      {NxInfo info,
+      NxMeta meta,
+      NxLibraryDimension dim,
+      BuiltList<NxCell> dimInfos}) = _$GenericDimensionLayout._;
 
   GenericDimensionLayout._();
 }

@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 import 'field_value.dart';
 part 'bookmark_variable_item.g.dart';
 
-abstract class BookmarkVariableItem implements Built<BookmarkVariableItem, BookmarkVariableItemBuilder> {
-
- static Serializer<BookmarkVariableItem> get serializer => _$bookmarkVariableItemSerializer;
+abstract class BookmarkVariableItem
+    implements Built<BookmarkVariableItem, BookmarkVariableItemBuilder> {
+  static Serializer<BookmarkVariableItem> get serializer =>
+      _$bookmarkVariableItemSerializer;
 
   /// Name of the variable.
   /// Original name: qName
@@ -21,9 +22,11 @@ abstract class BookmarkVariableItem implements Built<BookmarkVariableItem, Bookm
   @nullable
   FieldValue get value;
 
-  factory BookmarkVariableItem([updates(BookmarkVariableItemBuilder b)]) = _$BookmarkVariableItem;
+  factory BookmarkVariableItem([updates(BookmarkVariableItemBuilder b)]) =
+      _$BookmarkVariableItem;
 
-  factory BookmarkVariableItem.init({String name, FieldValue value}) = _$BookmarkVariableItem._;
+  factory BookmarkVariableItem.init({String name, FieldValue value}) =
+      _$BookmarkVariableItem._;
 
   BookmarkVariableItem._();
 }

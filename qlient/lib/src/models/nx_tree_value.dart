@@ -10,8 +10,7 @@ part 'nx_tree_value.g.dart';
 
 /// Represents a measure.
 abstract class NxTreeValue implements Built<NxTreeValue, NxTreeValueBuilder> {
-
- static Serializer<NxTreeValue> get serializer => _$nxTreeValueSerializer;
+  static Serializer<NxTreeValue> get serializer => _$nxTreeValueSerializer;
 
   /// The text version of the value, if available.
   /// Original name: qText
@@ -36,7 +35,11 @@ abstract class NxTreeValue implements Built<NxTreeValue, NxTreeValueBuilder> {
 
   factory NxTreeValue([updates(NxTreeValueBuilder b)]) = _$NxTreeValue;
 
-  factory NxTreeValue.init({String text, num value, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxTreeValue._;
+  factory NxTreeValue.init(
+      {String text,
+      num value,
+      NxAttributeExpressionValues attrExps,
+      NxAttributeDimValues attrDims}) = _$NxTreeValue._;
 
   NxTreeValue._();
 }

@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 part 'nx_attr_expr_info.g.dart';
 
 /// Layout for _NxAttrExprDef_.
-abstract class NxAttrExprInfo implements Built<NxAttrExprInfo, NxAttrExprInfoBuilder> {
-
- static Serializer<NxAttrExprInfo> get serializer => _$nxAttrExprInfoSerializer;
+abstract class NxAttrExprInfo
+    implements Built<NxAttrExprInfo, NxAttrExprInfoBuilder> {
+  static Serializer<NxAttrExprInfo> get serializer =>
+      _$nxAttrExprInfoSerializer;
 
   /// Minimum value.
   /// Original name: qMin
@@ -37,7 +38,12 @@ abstract class NxAttrExprInfo implements Built<NxAttrExprInfo, NxAttrExprInfoBui
 
   factory NxAttrExprInfo([updates(NxAttrExprInfoBuilder b)]) = _$NxAttrExprInfo;
 
-  factory NxAttrExprInfo.init({num min, num max, String fallbackTitle, String minText, String maxText}) = _$NxAttrExprInfo._;
+  factory NxAttrExprInfo.init(
+      {num min,
+      num max,
+      String fallbackTitle,
+      String minText,
+      String maxText}) = _$NxAttrExprInfo._;
 
   NxAttrExprInfo._();
 }

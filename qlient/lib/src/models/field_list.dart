@@ -10,8 +10,7 @@ part 'field_list.g.dart';
 
 /// Lists the fields present in the data model viewer. Is the layout for _FieldListDef_.
 abstract class FieldList implements Built<FieldList, FieldListBuilder> {
-
- static Serializer<FieldList> get serializer => _$fieldListSerializer;
+  static Serializer<FieldList> get serializer => _$fieldListSerializer;
 
   /// Array of items.
   /// Original name: qItems

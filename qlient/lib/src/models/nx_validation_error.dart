@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_validation_error.g.dart';
 
-abstract class NxValidationError implements Built<NxValidationError, NxValidationErrorBuilder> {
-
- static Serializer<NxValidationError> get serializer => _$nxValidationErrorSerializer;
+abstract class NxValidationError
+    implements Built<NxValidationError, NxValidationErrorBuilder> {
+  static Serializer<NxValidationError> get serializer =>
+      _$nxValidationErrorSerializer;
 
   /// Error code.
   /// This parameter is always displayed in case of error.
@@ -29,9 +30,13 @@ abstract class NxValidationError implements Built<NxValidationError, NxValidatio
   @nullable
   String get extendedMessage;
 
-  factory NxValidationError([updates(NxValidationErrorBuilder b)]) = _$NxValidationError;
+  factory NxValidationError([updates(NxValidationErrorBuilder b)]) =
+      _$NxValidationError;
 
-  factory NxValidationError.init({int errorCode, String context, String extendedMessage}) = _$NxValidationError._;
+  factory NxValidationError.init(
+      {int errorCode,
+      String context,
+      String extendedMessage}) = _$NxValidationError._;
 
   NxValidationError._();
 }

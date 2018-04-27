@@ -10,9 +10,10 @@ import 'package:built_collection/built_collection.dart';
 import 'generic_bookmark_entry.dart';
 part 'generic_object_entry.g.dart';
 
-abstract class GenericObjectEntry implements Built<GenericObjectEntry, GenericObjectEntryBuilder> {
-
- static Serializer<GenericObjectEntry> get serializer => _$genericObjectEntrySerializer;
+abstract class GenericObjectEntry
+    implements Built<GenericObjectEntry, GenericObjectEntryBuilder> {
+  static Serializer<GenericObjectEntry> get serializer =>
+      _$genericObjectEntrySerializer;
 
   /// Information about the generic object properties.
   /// Original name: qProperty
@@ -29,9 +30,13 @@ abstract class GenericObjectEntry implements Built<GenericObjectEntry, GenericOb
   @nullable
   GenericBookmarkEntry get embeddedSnapshotRef;
 
-  factory GenericObjectEntry([updates(GenericObjectEntryBuilder b)]) = _$GenericObjectEntry;
+  factory GenericObjectEntry([updates(GenericObjectEntryBuilder b)]) =
+      _$GenericObjectEntry;
 
-  factory GenericObjectEntry.init({GenericObjectProperties property, BuiltList<NxCell> children, GenericBookmarkEntry embeddedSnapshotRef}) = _$GenericObjectEntry._;
+  factory GenericObjectEntry.init(
+      {GenericObjectProperties property,
+      BuiltList<NxCell> children,
+      GenericBookmarkEntry embeddedSnapshotRef}) = _$GenericObjectEntry._;
 
   GenericObjectEntry._();
 }

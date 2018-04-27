@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'size.g.dart';
 
 abstract class Size implements Built<Size, SizeBuilder> {
-
- static Serializer<Size> get serializer => _$sizeSerializer;
+  static Serializer<Size> get serializer => _$sizeSerializer;
 
   /// Number of pixels on the _x_ axis.
   /// Original name: qcx

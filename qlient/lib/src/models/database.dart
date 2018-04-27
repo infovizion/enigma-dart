@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'database.g.dart';
 
 abstract class Database implements Built<Database, DatabaseBuilder> {
-
- static Serializer<Database> get serializer => _$databaseSerializer;
+  static Serializer<Database> get serializer => _$databaseSerializer;
 
   /// Name of the database.
   /// Original name: qName

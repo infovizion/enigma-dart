@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'do_reload_ex_params.g.dart';
 
-abstract class DoReloadExParams implements Built<DoReloadExParams, DoReloadExParamsBuilder> {
-
- static Serializer<DoReloadExParams> get serializer => _$doReloadExParamsSerializer;
+abstract class DoReloadExParams
+    implements Built<DoReloadExParams, DoReloadExParamsBuilder> {
+  static Serializer<DoReloadExParams> get serializer =>
+      _$doReloadExParamsSerializer;
 
   /// Original name: qMode
   @nullable
@@ -22,9 +23,11 @@ abstract class DoReloadExParams implements Built<DoReloadExParams, DoReloadExPar
   @nullable
   bool get debug;
 
-  factory DoReloadExParams([updates(DoReloadExParamsBuilder b)]) = _$DoReloadExParams;
+  factory DoReloadExParams([updates(DoReloadExParamsBuilder b)]) =
+      _$DoReloadExParams;
 
-  factory DoReloadExParams.init({int mode, bool partial, bool debug}) = _$DoReloadExParams._;
+  factory DoReloadExParams.init({int mode, bool partial, bool debug}) =
+      _$DoReloadExParams._;
 
   DoReloadExParams._();
 }

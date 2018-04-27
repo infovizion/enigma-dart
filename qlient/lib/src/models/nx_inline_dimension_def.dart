@@ -8,14 +8,15 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_inline_dimension_def.g.dart';
 
-abstract class NxInlineDimensionDef implements Built<NxInlineDimensionDef, NxInlineDimensionDefBuilder> {
-
- static Serializer<NxInlineDimensionDef> get serializer => _$nxInlineDimensionDefSerializer;
+abstract class NxInlineDimensionDef
+    implements Built<NxInlineDimensionDef, NxInlineDimensionDefBuilder> {
+  static Serializer<NxInlineDimensionDef> get serializer =>
+      _$nxInlineDimensionDefSerializer;
 
   /// Used to define a cyclic group or drill-down group.
   /// Default value is no grouping.
   /// This parameter is optional.
-  /// 
+  ///
   /// One of:
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
@@ -68,9 +69,18 @@ abstract class NxInlineDimensionDef implements Built<NxInlineDimensionDef, NxInl
   @nullable
   String get labelExpression;
 
-  factory NxInlineDimensionDef([updates(NxInlineDimensionDefBuilder b)]) = _$NxInlineDimensionDef;
+  factory NxInlineDimensionDef([updates(NxInlineDimensionDefBuilder b)]) =
+      _$NxInlineDimensionDef;
 
-  factory NxInlineDimensionDef.init({String grouping, BuiltList<NxCell> fieldDefs, BuiltList<NxCell> fieldLabels, BuiltList<NxCell> sortCriterias, BuiltList<NxCell> numberPresentations, bool reverseSort, int activeField, String labelExpression}) = _$NxInlineDimensionDef._;
+  factory NxInlineDimensionDef.init(
+      {String grouping,
+      BuiltList<NxCell> fieldDefs,
+      BuiltList<NxCell> fieldLabels,
+      BuiltList<NxCell> sortCriterias,
+      BuiltList<NxCell> numberPresentations,
+      bool reverseSort,
+      int activeField,
+      String labelExpression}) = _$NxInlineDimensionDef._;
 
   NxInlineDimensionDef._();
 }

@@ -8,9 +8,10 @@ import 'nx_info.dart';
 import 'package:built_value/json_object.dart';
 part 'generic_object_properties.g.dart';
 
-abstract class GenericObjectProperties implements Built<GenericObjectProperties, GenericObjectPropertiesBuilder> {
-
- static Serializer<GenericObjectProperties> get serializer => _$genericObjectPropertiesSerializer;
+abstract class GenericObjectProperties
+    implements Built<GenericObjectProperties, GenericObjectPropertiesBuilder> {
+  static Serializer<GenericObjectProperties> get serializer =>
+      _$genericObjectPropertiesSerializer;
 
   /// Identifier and type of the object.
   /// This parameter is mandatory.
@@ -30,9 +31,13 @@ abstract class GenericObjectProperties implements Built<GenericObjectProperties,
   @nullable
   JsonObject get metaDef;
 
-  factory GenericObjectProperties([updates(GenericObjectPropertiesBuilder b)]) = _$GenericObjectProperties;
+  factory GenericObjectProperties([updates(GenericObjectPropertiesBuilder b)]) =
+      _$GenericObjectProperties;
 
-  factory GenericObjectProperties.init({NxInfo info, String extendsId, JsonObject metaDef}) = _$GenericObjectProperties._;
+  factory GenericObjectProperties.init(
+      {NxInfo info,
+      String extendsId,
+      JsonObject metaDef}) = _$GenericObjectProperties._;
 
   GenericObjectProperties._();
 }

@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'generic_dimension_info.g.dart';
 
-abstract class GenericDimensionInfo implements Built<GenericDimensionInfo, GenericDimensionInfoBuilder> {
-
- static Serializer<GenericDimensionInfo> get serializer => _$genericDimensionInfoSerializer;
+abstract class GenericDimensionInfo
+    implements Built<GenericDimensionInfo, GenericDimensionInfoBuilder> {
+  static Serializer<GenericDimensionInfo> get serializer =>
+      _$genericDimensionInfoSerializer;
 
   /// Length of the longest value in the field.
   /// Original name: qApprMaxGlyphCount
@@ -39,9 +40,15 @@ abstract class GenericDimensionInfo implements Built<GenericDimensionInfo, Gener
   @nullable
   bool get andMode;
 
-  factory GenericDimensionInfo([updates(GenericDimensionInfoBuilder b)]) = _$GenericDimensionInfo;
+  factory GenericDimensionInfo([updates(GenericDimensionInfoBuilder b)]) =
+      _$GenericDimensionInfo;
 
-  factory GenericDimensionInfo.init({int apprMaxGlyphCount, int cardinal, BuiltList<NxCell> tags, bool isSemantic, bool andMode}) = _$GenericDimensionInfo._;
+  factory GenericDimensionInfo.init(
+      {int apprMaxGlyphCount,
+      int cardinal,
+      BuiltList<NxCell> tags,
+      bool isSemantic,
+      bool andMode}) = _$GenericDimensionInfo._;
 
   GenericDimensionInfo._();
 }

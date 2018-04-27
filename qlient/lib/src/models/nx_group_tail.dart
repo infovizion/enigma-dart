@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'nx_group_tail.g.dart';
 
 abstract class NxGroupTail implements Built<NxGroupTail, NxGroupTailBuilder> {
-
- static Serializer<NxGroupTail> get serializer => _$nxGroupTailSerializer;
+  static Serializer<NxGroupTail> get serializer => _$nxGroupTailSerializer;
 
   /// Number of elements that are part of the previous tail.
   /// This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ .

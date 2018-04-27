@@ -9,9 +9,10 @@ import 'nx_meta.dart';
 import 'package:built_value/json_object.dart';
 part 'nx_container_entry.g.dart';
 
-abstract class NxContainerEntry implements Built<NxContainerEntry, NxContainerEntryBuilder> {
-
- static Serializer<NxContainerEntry> get serializer => _$nxContainerEntrySerializer;
+abstract class NxContainerEntry
+    implements Built<NxContainerEntry, NxContainerEntryBuilder> {
+  static Serializer<NxContainerEntry> get serializer =>
+      _$nxContainerEntrySerializer;
 
   /// Information about the object.
   /// Original name: qInfo
@@ -28,9 +29,11 @@ abstract class NxContainerEntry implements Built<NxContainerEntry, NxContainerEn
   @nullable
   JsonObject get data;
 
-  factory NxContainerEntry([updates(NxContainerEntryBuilder b)]) = _$NxContainerEntry;
+  factory NxContainerEntry([updates(NxContainerEntryBuilder b)]) =
+      _$NxContainerEntry;
 
-  factory NxContainerEntry.init({NxInfo info, NxMeta meta, JsonObject data}) = _$NxContainerEntry._;
+  factory NxContainerEntry.init({NxInfo info, NxMeta meta, JsonObject data}) =
+      _$NxContainerEntry._;
 
   NxContainerEntry._();
 }

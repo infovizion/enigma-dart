@@ -9,9 +9,10 @@ import 'package:built_collection/built_collection.dart';
 import 'field_attributes.dart';
 part 'nx_inline_measure_def.g.dart';
 
-abstract class NxInlineMeasureDef implements Built<NxInlineMeasureDef, NxInlineMeasureDefBuilder> {
-
- static Serializer<NxInlineMeasureDef> get serializer => _$nxInlineMeasureDefSerializer;
+abstract class NxInlineMeasureDef
+    implements Built<NxInlineMeasureDef, NxInlineMeasureDefBuilder> {
+  static Serializer<NxInlineMeasureDef> get serializer =>
+      _$nxInlineMeasureDefSerializer;
 
   /// Name of the measure.
   /// An empty string is returned as a default value.
@@ -36,7 +37,7 @@ abstract class NxInlineMeasureDef implements Built<NxInlineMeasureDef, NxInlineM
 
   /// Default value is no grouping.
   /// This parameter is optional.
-  /// 
+  ///
   /// One of:
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
@@ -113,9 +114,24 @@ abstract class NxInlineMeasureDef implements Built<NxInlineMeasureDef, NxInlineM
   @nullable
   String get labelExpression;
 
-  factory NxInlineMeasureDef([updates(NxInlineMeasureDefBuilder b)]) = _$NxInlineMeasureDef;
+  factory NxInlineMeasureDef([updates(NxInlineMeasureDefBuilder b)]) =
+      _$NxInlineMeasureDef;
 
-  factory NxInlineMeasureDef.init({String label, String description, BuiltList<NxCell> tags, String grouping, String def, FieldAttributes numFormat, bool relative, bool brutalSum, String aggrFunc, int accumulate, bool reverseSort, int activeExpression, BuiltList<NxCell> expressions, String labelExpression}) = _$NxInlineMeasureDef._;
+  factory NxInlineMeasureDef.init(
+      {String label,
+      String description,
+      BuiltList<NxCell> tags,
+      String grouping,
+      String def,
+      FieldAttributes numFormat,
+      bool relative,
+      bool brutalSum,
+      String aggrFunc,
+      int accumulate,
+      bool reverseSort,
+      int activeExpression,
+      BuiltList<NxCell> expressions,
+      String labelExpression}) = _$NxInlineMeasureDef._;
 
   NxInlineMeasureDef._();
 }

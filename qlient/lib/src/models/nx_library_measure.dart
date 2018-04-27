@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_library_measure.g.dart';
 
-abstract class NxLibraryMeasure implements Built<NxLibraryMeasure, NxLibraryMeasureBuilder> {
-
- static Serializer<NxLibraryMeasure> get serializer => _$nxLibraryMeasureSerializer;
+abstract class NxLibraryMeasure
+    implements Built<NxLibraryMeasure, NxLibraryMeasureBuilder> {
+  static Serializer<NxLibraryMeasure> get serializer =>
+      _$nxLibraryMeasureSerializer;
 
   /// Original name: qLabel
   @nullable
@@ -20,7 +21,7 @@ abstract class NxLibraryMeasure implements Built<NxLibraryMeasure, NxLibraryMeas
   @nullable
   String get def;
 
-  /// 
+  ///
   /// One of:
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
@@ -41,9 +42,16 @@ abstract class NxLibraryMeasure implements Built<NxLibraryMeasure, NxLibraryMeas
   @nullable
   String get labelExpression;
 
-  factory NxLibraryMeasure([updates(NxLibraryMeasureBuilder b)]) = _$NxLibraryMeasure;
+  factory NxLibraryMeasure([updates(NxLibraryMeasureBuilder b)]) =
+      _$NxLibraryMeasure;
 
-  factory NxLibraryMeasure.init({String label, String def, String grouping, BuiltList<NxCell> expressions, int activeExpression, String labelExpression}) = _$NxLibraryMeasure._;
+  factory NxLibraryMeasure.init(
+      {String label,
+      String def,
+      String grouping,
+      BuiltList<NxCell> expressions,
+      int activeExpression,
+      String labelExpression}) = _$NxLibraryMeasure._;
 
   NxLibraryMeasure._();
 }

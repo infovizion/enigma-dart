@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'search_attribute.g.dart';
 
-abstract class SearchAttribute implements Built<SearchAttribute, SearchAttributeBuilder> {
-
- static Serializer<SearchAttribute> get serializer => _$searchAttributeSerializer;
+abstract class SearchAttribute
+    implements Built<SearchAttribute, SearchAttributeBuilder> {
+  static Serializer<SearchAttribute> get serializer =>
+      _$searchAttributeSerializer;
 
   /// String corresponding to _SearchObjectOptions.qAttributes_. It will be _qProperty_ for _SearchObjectOptions_.
   /// Original name: qKey
@@ -20,9 +21,11 @@ abstract class SearchAttribute implements Built<SearchAttribute, SearchAttribute
   @nullable
   String get value;
 
-  factory SearchAttribute([updates(SearchAttributeBuilder b)]) = _$SearchAttribute;
+  factory SearchAttribute([updates(SearchAttributeBuilder b)]) =
+      _$SearchAttribute;
 
-  factory SearchAttribute.init({String key, String value}) = _$SearchAttribute._;
+  factory SearchAttribute.init({String key, String value}) =
+      _$SearchAttribute._;
 
   SearchAttribute._();
 }

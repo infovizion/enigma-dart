@@ -8,8 +8,7 @@ import 'calendar_strings.dart';
 part 'locale_info.g.dart';
 
 abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
-
- static Serializer<LocaleInfo> get serializer => _$localeInfoSerializer;
+  static Serializer<LocaleInfo> get serializer => _$localeInfoSerializer;
 
   /// Decimal separator.
   /// Original name: qDecimalSep
@@ -76,7 +75,7 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// * 1 = Tuesday
   /// * ...
   /// * 6 = Sunday
-  /// 
+  ///
   /// If this property has not been set in a script, the returned value comes from the Windows operating system.
   /// Original name: qFirstWeekDay
   @nullable
@@ -105,7 +104,7 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// * 1 = January
   /// * 2 = February
   /// * 12 = January
-  /// 
+  ///
   /// If this property has not been set in a script, the returned value comes from the Windows operating system.
   /// Original name: qFirstMonthOfYear
   @nullable
@@ -116,7 +115,7 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// Where:
   /// * _language_ is a lowercase ISO  639 language code
   /// * _REGION_ specifies an uppercase ISO 3166 country code.
-  /// 
+  ///
   /// If this property has not been set in a script, the returned value comes from the Windows operating system.
   /// Original name: qCollation
   @nullable
@@ -130,7 +129,24 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
 
   factory LocaleInfo([updates(LocaleInfoBuilder b)]) = _$LocaleInfo;
 
-  factory LocaleInfo.init({String decimalSep, String thousandSep, String listSep, String moneyDecimalSep, String moneyThousandSep, int currentYear, String moneyFmt, String timeFmt, String dateFmt, String timestampFmt, CalendarStrings calendarStrings, int firstWeekDay, bool brokenWeeks, int referenceDay, int firstMonthOfYear, String collation, String numericalAbbreviation}) = _$LocaleInfo._;
+  factory LocaleInfo.init(
+      {String decimalSep,
+      String thousandSep,
+      String listSep,
+      String moneyDecimalSep,
+      String moneyThousandSep,
+      int currentYear,
+      String moneyFmt,
+      String timeFmt,
+      String dateFmt,
+      String timestampFmt,
+      CalendarStrings calendarStrings,
+      int firstWeekDay,
+      bool brokenWeeks,
+      int referenceDay,
+      int firstMonthOfYear,
+      String collation,
+      String numericalAbbreviation}) = _$LocaleInfo._;
 
   LocaleInfo._();
 }

@@ -8,9 +8,11 @@ import 'nx_info.dart';
 import 'package:built_value/json_object.dart';
 part 'generic_bookmark_properties.g.dart';
 
-abstract class GenericBookmarkProperties implements Built<GenericBookmarkProperties, GenericBookmarkPropertiesBuilder> {
-
- static Serializer<GenericBookmarkProperties> get serializer => _$genericBookmarkPropertiesSerializer;
+abstract class GenericBookmarkProperties
+    implements
+        Built<GenericBookmarkProperties, GenericBookmarkPropertiesBuilder> {
+  static Serializer<GenericBookmarkProperties> get serializer =>
+      _$genericBookmarkPropertiesSerializer;
 
   /// Information about the bookmark.
   /// This parameter is mandatory.
@@ -23,9 +25,12 @@ abstract class GenericBookmarkProperties implements Built<GenericBookmarkPropert
   @nullable
   JsonObject get metaDef;
 
-  factory GenericBookmarkProperties([updates(GenericBookmarkPropertiesBuilder b)]) = _$GenericBookmarkProperties;
+  factory GenericBookmarkProperties(
+          [updates(GenericBookmarkPropertiesBuilder b)]) =
+      _$GenericBookmarkProperties;
 
-  factory GenericBookmarkProperties.init({NxInfo info, JsonObject metaDef}) = _$GenericBookmarkProperties._;
+  factory GenericBookmarkProperties.init({NxInfo info, JsonObject metaDef}) =
+      _$GenericBookmarkProperties._;
 
   GenericBookmarkProperties._();
 }

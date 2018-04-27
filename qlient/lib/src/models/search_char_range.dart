@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'search_char_range.g.dart';
 
-abstract class SearchCharRange implements Built<SearchCharRange, SearchCharRangeBuilder> {
-
- static Serializer<SearchCharRange> get serializer => _$searchCharRangeSerializer;
+abstract class SearchCharRange
+    implements Built<SearchCharRange, SearchCharRangeBuilder> {
+  static Serializer<SearchCharRange> get serializer =>
+      _$searchCharRangeSerializer;
 
   /// Starting position of the match in the search result, starting from 0.
   /// Original name: qCharPos
@@ -25,9 +26,11 @@ abstract class SearchCharRange implements Built<SearchCharRange, SearchCharRange
   @nullable
   int get term;
 
-  factory SearchCharRange([updates(SearchCharRangeBuilder b)]) = _$SearchCharRange;
+  factory SearchCharRange([updates(SearchCharRangeBuilder b)]) =
+      _$SearchCharRange;
 
-  factory SearchCharRange.init({int charPos, int charCount, int term}) = _$SearchCharRange._;
+  factory SearchCharRange.init({int charPos, int charCount, int term}) =
+      _$SearchCharRange._;
 
   SearchCharRange._();
 }

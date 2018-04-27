@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'drive_info.g.dart';
 
 abstract class DriveInfo implements Built<DriveInfo, DriveInfoBuilder> {
-
- static Serializer<DriveInfo> get serializer => _$driveInfoSerializer;
+  static Serializer<DriveInfo> get serializer => _$driveInfoSerializer;
 
   /// Value of the drive.
   /// Examples:
@@ -29,7 +28,7 @@ abstract class DriveInfo implements Built<DriveInfo, DriveInfoBuilder> {
   String get name;
 
   /// Information about the drive type.
-  /// 
+  ///
   /// One of:
   /// * REMOVABLE
   /// * FIXED
@@ -47,7 +46,12 @@ abstract class DriveInfo implements Built<DriveInfo, DriveInfoBuilder> {
 
   factory DriveInfo([updates(DriveInfoBuilder b)]) = _$DriveInfo;
 
-  factory DriveInfo.init({String drive, String type, String name, String typeIdentifier, bool unnamedDrive}) = _$DriveInfo._;
+  factory DriveInfo.init(
+      {String drive,
+      String type,
+      String name,
+      String typeIdentifier,
+      bool unnamedDrive}) = _$DriveInfo._;
 
   DriveInfo._();
 }

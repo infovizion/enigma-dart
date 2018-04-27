@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_field_match.g.dart';
 
-abstract class SearchFieldMatch implements Built<SearchFieldMatch, SearchFieldMatchBuilder> {
-
- static Serializer<SearchFieldMatch> get serializer => _$searchFieldMatchSerializer;
+abstract class SearchFieldMatch
+    implements Built<SearchFieldMatch, SearchFieldMatchBuilder> {
+  static Serializer<SearchFieldMatch> get serializer =>
+      _$searchFieldMatchSerializer;
 
   /// Position of the field in the list of fields, starting from 0.
   /// The list of fields is defined in _qResults/qFieldNames_ and contains the search associations.
@@ -35,9 +36,14 @@ abstract class SearchFieldMatch implements Built<SearchFieldMatch, SearchFieldMa
   @nullable
   int get noOfMatches;
 
-  factory SearchFieldMatch([updates(SearchFieldMatchBuilder b)]) = _$SearchFieldMatch;
+  factory SearchFieldMatch([updates(SearchFieldMatchBuilder b)]) =
+      _$SearchFieldMatch;
 
-  factory SearchFieldMatch.init({int field, BuiltList<NxCell> values, BuiltList<NxCell> terms, int noOfMatches}) = _$SearchFieldMatch._;
+  factory SearchFieldMatch.init(
+      {int field,
+      BuiltList<NxCell> values,
+      BuiltList<NxCell> terms,
+      int noOfMatches}) = _$SearchFieldMatch._;
 
   SearchFieldMatch._();
 }

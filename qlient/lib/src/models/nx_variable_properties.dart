@@ -9,9 +9,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_variable_properties.g.dart';
 
-abstract class NxVariableProperties implements Built<NxVariableProperties, NxVariablePropertiesBuilder> {
-
- static Serializer<NxVariableProperties> get serializer => _$nxVariablePropertiesSerializer;
+abstract class NxVariableProperties
+    implements Built<NxVariableProperties, NxVariablePropertiesBuilder> {
+  static Serializer<NxVariableProperties> get serializer =>
+      _$nxVariablePropertiesSerializer;
 
   /// Name of the variable.
   /// Original name: qName
@@ -42,9 +43,15 @@ abstract class NxVariableProperties implements Built<NxVariableProperties, NxVar
   @nullable
   BuiltList<NxCell> get preDefinedList;
 
-  factory NxVariableProperties([updates(NxVariablePropertiesBuilder b)]) = _$NxVariableProperties;
+  factory NxVariableProperties([updates(NxVariablePropertiesBuilder b)]) =
+      _$NxVariableProperties;
 
-  factory NxVariableProperties.init({String name, FieldAttributes numberPresentation, bool includeInBookmark, bool usePredefListedValues, BuiltList<NxCell> preDefinedList}) = _$NxVariableProperties._;
+  factory NxVariableProperties.init(
+      {String name,
+      FieldAttributes numberPresentation,
+      bool includeInBookmark,
+      bool usePredefListedValues,
+      BuiltList<NxCell> preDefinedList}) = _$NxVariableProperties._;
 
   NxVariableProperties._();
 }

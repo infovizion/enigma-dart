@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'search_group.g.dart';
 
 abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
-
- static Serializer<SearchGroup> get serializer => _$searchGroupSerializer;
+  static Serializer<SearchGroup> get serializer => _$searchGroupSerializer;
 
   /// Identifier of the search group.
   /// Original name: qId
@@ -18,7 +17,7 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
   int get id;
 
   /// Type of the search group.
-  /// 
+  ///
   /// One of:
   /// * DatasetType or DATASET_GROUP
   /// * GenericObjectsType or GENERIC_OBJECTS_GROUP
@@ -44,7 +43,12 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
 
   factory SearchGroup([updates(SearchGroupBuilder b)]) = _$SearchGroup;
 
-  factory SearchGroup.init({int id, String groupType, BuiltList<NxCell> searchTermsMatched, int totalNumberOfItems, BuiltList<NxCell> items}) = _$SearchGroup._;
+  factory SearchGroup.init(
+      {int id,
+      String groupType,
+      BuiltList<NxCell> searchTermsMatched,
+      int totalNumberOfItems,
+      BuiltList<NxCell> items}) = _$SearchGroup._;
 
   SearchGroup._();
 }

@@ -9,9 +9,9 @@ import 'package:built_collection/built_collection.dart';
 part 'bookmark_list.g.dart';
 
 /// Lists the bookmarks. Is the layout for _BookmarkListDef_.
-abstract class BookmarkList implements Built<BookmarkList, BookmarkListBuilder> {
-
- static Serializer<BookmarkList> get serializer => _$bookmarkListSerializer;
+abstract class BookmarkList
+    implements Built<BookmarkList, BookmarkListBuilder> {
+  static Serializer<BookmarkList> get serializer => _$bookmarkListSerializer;
 
   /// Information about the list of bookmarks.
   /// Original name: qItems

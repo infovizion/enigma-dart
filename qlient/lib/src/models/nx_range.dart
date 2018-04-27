@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'nx_range.g.dart';
 
 abstract class NxRange implements Built<NxRange, NxRangeBuilder> {
-
- static Serializer<NxRange> get serializer => _$nxRangeSerializer;
+  static Serializer<NxRange> get serializer => _$nxRangeSerializer;
 
   /// Position in the expression of the first character of the field name.
   /// Original name: qFrom

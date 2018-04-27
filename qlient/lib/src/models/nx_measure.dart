@@ -17,8 +17,7 @@ part 'nx_measure.g.dart';
 /// Attribute expressions do not affect the layout of an object. The sorting order is unchanged.
 /// </div>
 abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
-
- static Serializer<NxMeasure> get serializer => _$nxMeasureSerializer;
+  static Serializer<NxMeasure> get serializer => _$nxMeasureSerializer;
 
   /// Refers to a measure stored in the library.
   /// Original name: qLibraryId
@@ -65,7 +64,14 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
 
   factory NxMeasure([updates(NxMeasureBuilder b)]) = _$NxMeasure;
 
-  factory NxMeasure.init({String libraryId, NxInlineMeasureDef def, SortCriteria sortBy, BuiltList<NxCell> attributeExpressions, BuiltList<NxCell> attributeDimensions, ValueExpr calcCond, NxCalcCond calcCondition}) = _$NxMeasure._;
+  factory NxMeasure.init(
+      {String libraryId,
+      NxInlineMeasureDef def,
+      SortCriteria sortBy,
+      BuiltList<NxCell> attributeExpressions,
+      BuiltList<NxCell> attributeDimensions,
+      ValueExpr calcCond,
+      NxCalcCond calcCondition}) = _$NxMeasure._;
 
   NxMeasure._();
 }

@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_association_result.g.dart';
 
-abstract class SearchAssociationResult implements Built<SearchAssociationResult, SearchAssociationResultBuilder> {
-
- static Serializer<SearchAssociationResult> get serializer => _$searchAssociationResultSerializer;
+abstract class SearchAssociationResult
+    implements Built<SearchAssociationResult, SearchAssociationResultBuilder> {
+  static Serializer<SearchAssociationResult> get serializer =>
+      _$searchAssociationResultSerializer;
 
   /// List of the fields that contains search associations.
   /// Original name: qFieldNames
@@ -39,9 +40,15 @@ abstract class SearchAssociationResult implements Built<SearchAssociationResult,
   @nullable
   int get totalSearchResults;
 
-  factory SearchAssociationResult([updates(SearchAssociationResultBuilder b)]) = _$SearchAssociationResult;
+  factory SearchAssociationResult([updates(SearchAssociationResultBuilder b)]) =
+      _$SearchAssociationResult;
 
-  factory SearchAssociationResult.init({BuiltList<NxCell> fieldNames, BuiltList<NxCell> searchTerms, BuiltList<NxCell> fieldDictionaries, BuiltList<NxCell> searchTermsMatched, int totalSearchResults}) = _$SearchAssociationResult._;
+  factory SearchAssociationResult.init(
+      {BuiltList<NxCell> fieldNames,
+      BuiltList<NxCell> searchTerms,
+      BuiltList<NxCell> fieldDictionaries,
+      BuiltList<NxCell> searchTermsMatched,
+      int totalSearchResults}) = _$SearchAssociationResult._;
 
   SearchAssociationResult._();
 }

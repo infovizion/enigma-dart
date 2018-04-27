@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_cell_position.g.dart';
 
-abstract class NxCellPosition implements Built<NxCellPosition, NxCellPositionBuilder> {
-
- static Serializer<NxCellPosition> get serializer => _$nxCellPositionSerializer;
+abstract class NxCellPosition
+    implements Built<NxCellPosition, NxCellPositionBuilder> {
+  static Serializer<NxCellPosition> get serializer =>
+      _$nxCellPositionSerializer;
 
   /// Position of the cell on the x-axis.
   /// Original name: qx

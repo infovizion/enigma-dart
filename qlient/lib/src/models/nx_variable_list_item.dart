@@ -9,9 +9,10 @@ import 'nx_info.dart';
 import 'package:built_value/json_object.dart';
 part 'nx_variable_list_item.g.dart';
 
-abstract class NxVariableListItem implements Built<NxVariableListItem, NxVariableListItemBuilder> {
-
- static Serializer<NxVariableListItem> get serializer => _$nxVariableListItemSerializer;
+abstract class NxVariableListItem
+    implements Built<NxVariableListItem, NxVariableListItemBuilder> {
+  static Serializer<NxVariableListItem> get serializer =>
+      _$nxVariableListItemSerializer;
 
   /// Name of the variable.
   /// Original name: qName
@@ -68,9 +69,19 @@ abstract class NxVariableListItem implements Built<NxVariableListItem, NxVariabl
   @nullable
   bool get isScriptCreated;
 
-  factory NxVariableListItem([updates(NxVariableListItemBuilder b)]) = _$NxVariableListItem;
+  factory NxVariableListItem([updates(NxVariableListItemBuilder b)]) =
+      _$NxVariableListItem;
 
-  factory NxVariableListItem.init({String name, String description, String definition, bool isConfig, bool isReserved, NxMeta meta, NxInfo info, JsonObject data, bool isScriptCreated}) = _$NxVariableListItem._;
+  factory NxVariableListItem.init(
+      {String name,
+      String description,
+      String definition,
+      bool isConfig,
+      bool isReserved,
+      NxMeta meta,
+      NxInfo info,
+      JsonObject data,
+      bool isScriptCreated}) = _$NxVariableListItem._;
 
   NxVariableListItem._();
 }

@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 import 'range.dart';
 part 'nx_tree_range_select_info.g.dart';
 
-abstract class NxTreeRangeSelectInfo implements Built<NxTreeRangeSelectInfo, NxTreeRangeSelectInfoBuilder> {
-
- static Serializer<NxTreeRangeSelectInfo> get serializer => _$nxTreeRangeSelectInfoSerializer;
+abstract class NxTreeRangeSelectInfo
+    implements Built<NxTreeRangeSelectInfo, NxTreeRangeSelectInfoBuilder> {
+  static Serializer<NxTreeRangeSelectInfo> get serializer =>
+      _$nxTreeRangeSelectInfoSerializer;
 
   /// Range of values.
   /// Original name: qRange
@@ -28,9 +29,13 @@ abstract class NxTreeRangeSelectInfo implements Built<NxTreeRangeSelectInfo, NxT
   @nullable
   int get dimensionIx;
 
-  factory NxTreeRangeSelectInfo([updates(NxTreeRangeSelectInfoBuilder b)]) = _$NxTreeRangeSelectInfo;
+  factory NxTreeRangeSelectInfo([updates(NxTreeRangeSelectInfoBuilder b)]) =
+      _$NxTreeRangeSelectInfo;
 
-  factory NxTreeRangeSelectInfo.init({Range range, int measureIx, int dimensionIx}) = _$NxTreeRangeSelectInfo._;
+  factory NxTreeRangeSelectInfo.init(
+      {Range range,
+      int measureIx,
+      int dimensionIx}) = _$NxTreeRangeSelectInfo._;
 
   NxTreeRangeSelectInfo._();
 }

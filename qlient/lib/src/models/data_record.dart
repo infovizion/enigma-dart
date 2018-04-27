@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'data_record.g.dart';
 
 abstract class DataRecord implements Built<DataRecord, DataRecordBuilder> {
-
- static Serializer<DataRecord> get serializer => _$dataRecordSerializer;
+  static Serializer<DataRecord> get serializer => _$dataRecordSerializer;
 
   /// List of values inside the table.
   /// The first values (in _result/qPreview/0/qValues_ ) correspond to the field names in the table.

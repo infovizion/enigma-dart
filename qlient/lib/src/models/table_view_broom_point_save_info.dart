@@ -9,9 +9,11 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'table_view_broom_point_save_info.g.dart';
 
-abstract class TableViewBroomPointSaveInfo implements Built<TableViewBroomPointSaveInfo, TableViewBroomPointSaveInfoBuilder> {
-
- static Serializer<TableViewBroomPointSaveInfo> get serializer => _$tableViewBroomPointSaveInfoSerializer;
+abstract class TableViewBroomPointSaveInfo
+    implements
+        Built<TableViewBroomPointSaveInfo, TableViewBroomPointSaveInfoBuilder> {
+  static Serializer<TableViewBroomPointSaveInfo> get serializer =>
+      _$tableViewBroomPointSaveInfoSerializer;
 
   /// Information about the position of the broom point.
   /// Original name: qPos
@@ -28,9 +30,14 @@ abstract class TableViewBroomPointSaveInfo implements Built<TableViewBroomPointS
   @nullable
   BuiltList<NxCell> get fields;
 
-  factory TableViewBroomPointSaveInfo([updates(TableViewBroomPointSaveInfoBuilder b)]) = _$TableViewBroomPointSaveInfo;
+  factory TableViewBroomPointSaveInfo(
+          [updates(TableViewBroomPointSaveInfoBuilder b)]) =
+      _$TableViewBroomPointSaveInfo;
 
-  factory TableViewBroomPointSaveInfo.init({Point pos, String table, BuiltList<NxCell> fields}) = _$TableViewBroomPointSaveInfo._;
+  factory TableViewBroomPointSaveInfo.init(
+      {Point pos,
+      String table,
+      BuiltList<NxCell> fields}) = _$TableViewBroomPointSaveInfo._;
 
   TableViewBroomPointSaveInfo._();
 }

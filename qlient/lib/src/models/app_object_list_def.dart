@@ -9,9 +9,10 @@ part 'app_object_list_def.g.dart';
 
 /// Defines the list of objects in an app.
 /// <div class=note>An app object is a generic object created at app level.</div>
-abstract class AppObjectListDef implements Built<AppObjectListDef, AppObjectListDefBuilder> {
-
- static Serializer<AppObjectListDef> get serializer => _$appObjectListDefSerializer;
+abstract class AppObjectListDef
+    implements Built<AppObjectListDef, AppObjectListDefBuilder> {
+  static Serializer<AppObjectListDef> get serializer =>
+      _$appObjectListDefSerializer;
 
   /// Type of the app list.
   /// Original name: qType
@@ -24,9 +25,11 @@ abstract class AppObjectListDef implements Built<AppObjectListDef, AppObjectList
   @nullable
   JsonObject get data;
 
-  factory AppObjectListDef([updates(AppObjectListDefBuilder b)]) = _$AppObjectListDef;
+  factory AppObjectListDef([updates(AppObjectListDefBuilder b)]) =
+      _$AppObjectListDef;
 
-  factory AppObjectListDef.init({String type, JsonObject data}) = _$AppObjectListDef._;
+  factory AppObjectListDef.init({String type, JsonObject data}) =
+      _$AppObjectListDef._;
 
   AppObjectListDef._();
 }

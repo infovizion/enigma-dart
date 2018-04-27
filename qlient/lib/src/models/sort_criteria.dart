@@ -7,9 +7,9 @@ import 'package:built_value/built_value.dart';
 import 'value_expr.dart';
 part 'sort_criteria.g.dart';
 
-abstract class SortCriteria implements Built<SortCriteria, SortCriteriaBuilder> {
-
- static Serializer<SortCriteria> get serializer => _$sortCriteriaSerializer;
+abstract class SortCriteria
+    implements Built<SortCriteria, SortCriteriaBuilder> {
+  static Serializer<SortCriteria> get serializer => _$sortCriteriaSerializer;
 
   /// Sorts the field values according to their logical state (selected, optional, alternative or excluded).
   /// Original name: qSortByState
@@ -52,7 +52,15 @@ abstract class SortCriteria implements Built<SortCriteria, SortCriteriaBuilder> 
 
   factory SortCriteria([updates(SortCriteriaBuilder b)]) = _$SortCriteria;
 
-  factory SortCriteria.init({int sortByState, int sortByFrequency, int sortByNumeric, int sortByAscii, int sortByLoadOrder, int sortByExpression, ValueExpr expression, int sortByGreyness}) = _$SortCriteria._;
+  factory SortCriteria.init(
+      {int sortByState,
+      int sortByFrequency,
+      int sortByNumeric,
+      int sortByAscii,
+      int sortByLoadOrder,
+      int sortByExpression,
+      ValueExpr expression,
+      int sortByGreyness}) = _$SortCriteria._;
 
   SortCriteria._();
 }

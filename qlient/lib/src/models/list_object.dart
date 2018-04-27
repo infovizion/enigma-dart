@@ -15,8 +15,7 @@ part 'list_object.g.dart';
 /// For more information about the definition of a list object, see _Generic object_.
 /// <div class=note>ListObject is used by the _GetLayout Method_ to display the properties of a list object. </div>
 abstract class ListObject implements Built<ListObject, ListObjectBuilder> {
-
- static Serializer<ListObject> get serializer => _$listObjectSerializer;
+  static Serializer<ListObject> get serializer => _$listObjectSerializer;
 
   /// Name of the alternate state.
   /// Default is current selections _$_ .
@@ -52,7 +51,13 @@ abstract class ListObject implements Built<ListObject, ListObjectBuilder> {
 
   factory ListObject([updates(ListObjectBuilder b)]) = _$ListObject;
 
-  factory ListObject.init({String stateName, Size size, NxValidationError error, NxDimensionInfo dimensionInfo, BuiltList<NxCell> expressions, BuiltList<NxCell> dataPages}) = _$ListObject._;
+  factory ListObject.init(
+      {String stateName,
+      Size size,
+      NxValidationError error,
+      NxDimensionInfo dimensionInfo,
+      BuiltList<NxCell> expressions,
+      BuiltList<NxCell> dataPages}) = _$ListObject._;
 
   ListObject._();
 }

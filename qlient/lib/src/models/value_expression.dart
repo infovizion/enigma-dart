@@ -13,18 +13,20 @@ part 'value_expression.g.dart';
 /// "qValueExpression":{"qExpr":"=&lt;expression&gt;"}
 /// Where:
 /// * &lt; **expression** &gt; is a string.
-/// 
+///
 /// <div class=note>The "=" sign in the value expression is not mandatory. Even if the "=" sign is not given, the expression is evaluated.</div>
 /// The expression is evaluated as a numeric.
-abstract class ValueExpression implements Built<ValueExpression, ValueExpressionBuilder> {
-
- static Serializer<ValueExpression> get serializer => _$valueExpressionSerializer;
+abstract class ValueExpression
+    implements Built<ValueExpression, ValueExpressionBuilder> {
+  static Serializer<ValueExpression> get serializer =>
+      _$valueExpressionSerializer;
 
   /// Original name: qExpr
   @nullable
   String get expr;
 
-  factory ValueExpression([updates(ValueExpressionBuilder b)]) = _$ValueExpression;
+  factory ValueExpression([updates(ValueExpressionBuilder b)]) =
+      _$ValueExpression;
 
   factory ValueExpression.init({String expr}) = _$ValueExpression._;
 

@@ -8,9 +8,10 @@ import 'generic_bookmark_properties.dart';
 import 'nx_bookmark.dart';
 part 'generic_bookmark_entry.g.dart';
 
-abstract class GenericBookmarkEntry implements Built<GenericBookmarkEntry, GenericBookmarkEntryBuilder> {
-
- static Serializer<GenericBookmarkEntry> get serializer => _$genericBookmarkEntrySerializer;
+abstract class GenericBookmarkEntry
+    implements Built<GenericBookmarkEntry, GenericBookmarkEntryBuilder> {
+  static Serializer<GenericBookmarkEntry> get serializer =>
+      _$genericBookmarkEntrySerializer;
 
   /// Information about the properties of the bookmark.
   /// Original name: qProperties
@@ -22,9 +23,12 @@ abstract class GenericBookmarkEntry implements Built<GenericBookmarkEntry, Gener
   @nullable
   NxBookmark get bookmark;
 
-  factory GenericBookmarkEntry([updates(GenericBookmarkEntryBuilder b)]) = _$GenericBookmarkEntry;
+  factory GenericBookmarkEntry([updates(GenericBookmarkEntryBuilder b)]) =
+      _$GenericBookmarkEntry;
 
-  factory GenericBookmarkEntry.init({GenericBookmarkProperties properties, NxBookmark bookmark}) = _$GenericBookmarkEntry._;
+  factory GenericBookmarkEntry.init(
+      {GenericBookmarkProperties properties,
+      NxBookmark bookmark}) = _$GenericBookmarkEntry._;
 
   GenericBookmarkEntry._();
 }

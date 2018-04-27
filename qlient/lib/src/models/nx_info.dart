@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'nx_info.g.dart';
 
 abstract class NxInfo implements Built<NxInfo, NxInfoBuilder> {
-
- static Serializer<NxInfo> get serializer => _$nxInfoSerializer;
+  static Serializer<NxInfo> get serializer => _$nxInfoSerializer;
 
   /// Identifier of the object.
   /// If the chosen identifier is already in use, the engine automatically sets another one.

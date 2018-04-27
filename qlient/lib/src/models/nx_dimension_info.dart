@@ -11,9 +11,10 @@ import 'nx_validation_error.dart';
 import 'field_attributes.dart';
 part 'nx_dimension_info.g.dart';
 
-abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfoBuilder> {
-
- static Serializer<NxDimensionInfo> get serializer => _$nxDimensionInfoSerializer;
+abstract class NxDimensionInfo
+    implements Built<NxDimensionInfo, NxDimensionInfoBuilder> {
+  static Serializer<NxDimensionInfo> get serializer =>
+      _$nxDimensionInfoSerializer;
 
   /// Corresponds to the label of the dimension that is selected.
   /// If the label is not defined then the field name is used.
@@ -39,7 +40,7 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
   /// Sort indicator.
   /// The default value is no sorting.
   /// This parameter is optional.
-  /// 
+  ///
   /// One of:
   /// * N or NX_SORT_INDICATE_NONE
   /// * A or NX_SORT_INDICATE_ASC
@@ -78,7 +79,7 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
   NxValidationError get error;
 
   /// Binary format of the field.
-  /// 
+  ///
   /// One of:
   /// * D or NX_DIMENSION_TYPE_DISCRETE
   /// * N or NX_DIMENSION_TYPE_NUMERIC
@@ -93,7 +94,7 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
   bool get reverseSort;
 
   /// Defines the grouping.
-  /// 
+  ///
   /// One of:
   /// * N or GRP_NX_NONE
   /// * H or GRP_NX_HIEARCHY
@@ -173,9 +174,37 @@ abstract class NxDimensionInfo implements Built<NxDimensionInfo, NxDimensionInfo
   @nullable
   bool get isCalculated;
 
-  factory NxDimensionInfo([updates(NxDimensionInfoBuilder b)]) = _$NxDimensionInfo;
+  factory NxDimensionInfo([updates(NxDimensionInfoBuilder b)]) =
+      _$NxDimensionInfo;
 
-  factory NxDimensionInfo.init({String fallbackTitle, int apprMaxGlyphCount, int cardinal, bool locked, String sortIndicator, BuiltList<NxCell> groupFallbackTitles, int groupPos, NxStateCounts stateCounts, BuiltList<NxCell> tags, NxValidationError error, String dimensionType, bool reverseSort, String grouping, bool isSemantic, bool isOneAndOnlyOne, FieldAttributes numFormat, bool isAutoFormat, BuiltList<NxCell> groupFieldDefs, num min, num max, bool continuousAxes, bool isCyclic, bool derivedField, BuiltList<NxCell> attrExprInfo, BuiltList<NxCell> attrDimInfo, String calcCondMsg, bool isCalculated}) = _$NxDimensionInfo._;
+  factory NxDimensionInfo.init(
+      {String fallbackTitle,
+      int apprMaxGlyphCount,
+      int cardinal,
+      bool locked,
+      String sortIndicator,
+      BuiltList<NxCell> groupFallbackTitles,
+      int groupPos,
+      NxStateCounts stateCounts,
+      BuiltList<NxCell> tags,
+      NxValidationError error,
+      String dimensionType,
+      bool reverseSort,
+      String grouping,
+      bool isSemantic,
+      bool isOneAndOnlyOne,
+      FieldAttributes numFormat,
+      bool isAutoFormat,
+      BuiltList<NxCell> groupFieldDefs,
+      num min,
+      num max,
+      bool continuousAxes,
+      bool isCyclic,
+      bool derivedField,
+      BuiltList<NxCell> attrExprInfo,
+      BuiltList<NxCell> attrDimInfo,
+      String calcCondMsg,
+      bool isCalculated}) = _$NxDimensionInfo._;
 
   NxDimensionInfo._();
 }

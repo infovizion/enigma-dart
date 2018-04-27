@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_matching_field_info.g.dart';
 
-abstract class NxMatchingFieldInfo implements Built<NxMatchingFieldInfo, NxMatchingFieldInfoBuilder> {
-
- static Serializer<NxMatchingFieldInfo> get serializer => _$nxMatchingFieldInfoSerializer;
+abstract class NxMatchingFieldInfo
+    implements Built<NxMatchingFieldInfo, NxMatchingFieldInfoBuilder> {
+  static Serializer<NxMatchingFieldInfo> get serializer =>
+      _$nxMatchingFieldInfoSerializer;
 
   /// Name of the field.
   /// Original name: qName
@@ -22,9 +23,11 @@ abstract class NxMatchingFieldInfo implements Built<NxMatchingFieldInfo, NxMatch
   @nullable
   BuiltList<NxCell> get tags;
 
-  factory NxMatchingFieldInfo([updates(NxMatchingFieldInfoBuilder b)]) = _$NxMatchingFieldInfo;
+  factory NxMatchingFieldInfo([updates(NxMatchingFieldInfoBuilder b)]) =
+      _$NxMatchingFieldInfo;
 
-  factory NxMatchingFieldInfo.init({String name, BuiltList<NxCell> tags}) = _$NxMatchingFieldInfo._;
+  factory NxMatchingFieldInfo.init({String name, BuiltList<NxCell> tags}) =
+      _$NxMatchingFieldInfo._;
 
   NxMatchingFieldInfo._();
 }

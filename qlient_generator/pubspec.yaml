@@ -10,6 +10,7 @@ dependencies:
   meta: ^1.0.4
   built_collection: '>=2.0.0 <4.0.0'
   built_value: ^5.4.3
+  dart_style: ^1.0.11
 dev_dependencies:
   test: ^0.12.34
   recase: ^1.0.0

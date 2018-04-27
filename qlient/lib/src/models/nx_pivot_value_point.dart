@@ -8,9 +8,10 @@ import 'nx_attribute_expression_values.dart';
 import 'nx_attribute_dim_values.dart';
 part 'nx_pivot_value_point.g.dart';
 
-abstract class NxPivotValuePoint implements Built<NxPivotValuePoint, NxPivotValuePointBuilder> {
-
- static Serializer<NxPivotValuePoint> get serializer => _$nxPivotValuePointSerializer;
+abstract class NxPivotValuePoint
+    implements Built<NxPivotValuePoint, NxPivotValuePointBuilder> {
+  static Serializer<NxPivotValuePoint> get serializer =>
+      _$nxPivotValuePointSerializer;
 
   /// Label of the cell.
   /// This parameter is optional.
@@ -29,7 +30,7 @@ abstract class NxPivotValuePoint implements Built<NxPivotValuePoint, NxPivotValu
   num get qNum;
 
   /// Type of the cell.
-  /// 
+  ///
   /// One of:
   /// * V or NX_DIM_CELL_VALUE
   /// * E or NX_DIM_CELL_EMPTY
@@ -54,9 +55,16 @@ abstract class NxPivotValuePoint implements Built<NxPivotValuePoint, NxPivotValu
   @nullable
   NxAttributeDimValues get attrDims;
 
-  factory NxPivotValuePoint([updates(NxPivotValuePointBuilder b)]) = _$NxPivotValuePoint;
+  factory NxPivotValuePoint([updates(NxPivotValuePointBuilder b)]) =
+      _$NxPivotValuePoint;
 
-  factory NxPivotValuePoint.init({String label, String text, num qNum, String type, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxPivotValuePoint._;
+  factory NxPivotValuePoint.init(
+      {String label,
+      String text,
+      num qNum,
+      String type,
+      NxAttributeExpressionValues attrExps,
+      NxAttributeDimValues attrDims}) = _$NxPivotValuePoint._;
 
   NxPivotValuePoint._();
 }

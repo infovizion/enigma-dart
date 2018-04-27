@@ -8,8 +8,7 @@ part 'nx_meta.g.dart';
 
 /// Layout for _NxMetaDef_.
 abstract class NxMeta implements Built<NxMeta, NxMetaBuilder> {
-
- static Serializer<NxMeta> get serializer => _$nxMetaSerializer;
+  static Serializer<NxMeta> get serializer => _$nxMetaSerializer;
 
   /// Name.
   /// This property is optional.

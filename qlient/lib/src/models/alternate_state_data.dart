@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'alternate_state_data.g.dart';
 
-abstract class AlternateStateData implements Built<AlternateStateData, AlternateStateDataBuilder> {
-
- static Serializer<AlternateStateData> get serializer => _$alternateStateDataSerializer;
+abstract class AlternateStateData
+    implements Built<AlternateStateData, AlternateStateDataBuilder> {
+  static Serializer<AlternateStateData> get serializer =>
+      _$alternateStateDataSerializer;
 
   /// Name of the alternate state.
   /// Default is current selections: $
@@ -23,9 +24,12 @@ abstract class AlternateStateData implements Built<AlternateStateData, Alternate
   @nullable
   BuiltList<NxCell> get fieldItems;
 
-  factory AlternateStateData([updates(AlternateStateDataBuilder b)]) = _$AlternateStateData;
+  factory AlternateStateData([updates(AlternateStateDataBuilder b)]) =
+      _$AlternateStateData;
 
-  factory AlternateStateData.init({String stateName, BuiltList<NxCell> fieldItems}) = _$AlternateStateData._;
+  factory AlternateStateData.init(
+      {String stateName,
+      BuiltList<NxCell> fieldItems}) = _$AlternateStateData._;
 
   AlternateStateData._();
 }

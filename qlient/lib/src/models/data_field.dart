@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'data_field.g.dart';
 
 abstract class DataField implements Built<DataField, DataFieldBuilder> {
-
- static Serializer<DataField> get serializer => _$dataFieldSerializer;
+  static Serializer<DataField> get serializer => _$dataFieldSerializer;
 
   /// Name of the field.
   /// Original name: qName
@@ -29,7 +28,8 @@ abstract class DataField implements Built<DataField, DataFieldBuilder> {
 
   factory DataField([updates(DataFieldBuilder b)]) = _$DataField;
 
-  factory DataField.init({String name, bool isKey, String originalFieldName}) = _$DataField._;
+  factory DataField.init({String name, bool isKey, String originalFieldName}) =
+      _$DataField._;
 
   DataField._();
 }

@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'folder_item.g.dart';
 
 abstract class FolderItem implements Built<FolderItem, FolderItemBuilder> {
-
- static Serializer<FolderItem> get serializer => _$folderItemSerializer;
+  static Serializer<FolderItem> get serializer => _$folderItemSerializer;
 
   /// Name of the folder item.
   /// Original name: qName
@@ -16,7 +15,7 @@ abstract class FolderItem implements Built<FolderItem, FolderItemBuilder> {
   String get name;
 
   /// Type of the folder item.
-  /// 
+  ///
   /// One of:
   /// * FOLDER or FOLDER_ITEM_FOLDER
   /// * FILE or FOLDER_ITEM_FILE

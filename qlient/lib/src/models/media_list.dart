@@ -11,8 +11,7 @@ part 'media_list.g.dart';
 /// Lists the media files. Is the layout for _MediaListDef_.
 /// <div class=note>This struct is deprecated.</div>
 abstract class MediaList implements Built<MediaList, MediaListBuilder> {
-
- static Serializer<MediaList> get serializer => _$mediaListSerializer;
+  static Serializer<MediaList> get serializer => _$mediaListSerializer;
 
   /// Information about the list of media files.
   /// In Qlik Sense Desktop, the media files are retrieved from:

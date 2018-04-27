@@ -12,9 +12,10 @@ import 'string_expr.dart';
 import 'nx_calc_cond.dart';
 part 'nx_tree_dimension_def.g.dart';
 
-abstract class NxTreeDimensionDef implements Built<NxTreeDimensionDef, NxTreeDimensionDefBuilder> {
-
- static Serializer<NxTreeDimensionDef> get serializer => _$nxTreeDimensionDefSerializer;
+abstract class NxTreeDimensionDef
+    implements Built<NxTreeDimensionDef, NxTreeDimensionDefBuilder> {
+  static Serializer<NxTreeDimensionDef> get serializer =>
+      _$nxTreeDimensionDefSerializer;
 
   /// Refers to a dimension stored in the library.
   /// Original name: qLibraryId
@@ -90,9 +91,21 @@ abstract class NxTreeDimensionDef implements Built<NxTreeDimensionDef, NxTreeDim
   @nullable
   BuiltList<NxCell> get attributeDimensions;
 
-  factory NxTreeDimensionDef([updates(NxTreeDimensionDefBuilder b)]) = _$NxTreeDimensionDef;
+  factory NxTreeDimensionDef([updates(NxTreeDimensionDefBuilder b)]) =
+      _$NxTreeDimensionDef;
 
-  factory NxTreeDimensionDef.init({String libraryId, NxInlineDimensionDef def, BuiltList<NxCell> valueExprs, bool nullSuppression, OtherTotalSpecProp otherTotalSpec, bool showAll, StringExpr otherLabel, StringExpr totalLabel, NxCalcCond calcCondition, BuiltList<NxCell> attributeExpressions, BuiltList<NxCell> attributeDimensions}) = _$NxTreeDimensionDef._;
+  factory NxTreeDimensionDef.init(
+      {String libraryId,
+      NxInlineDimensionDef def,
+      BuiltList<NxCell> valueExprs,
+      bool nullSuppression,
+      OtherTotalSpecProp otherTotalSpec,
+      bool showAll,
+      StringExpr otherLabel,
+      StringExpr totalLabel,
+      NxCalcCond calcCondition,
+      BuiltList<NxCell> attributeExpressions,
+      BuiltList<NxCell> attributeDimensions}) = _$NxTreeDimensionDef._;
 
   NxTreeDimensionDef._();
 }

@@ -74,6 +74,24 @@ class _$NxCellSerializer implements StructuredSerializer<NxCell> {
         ..add(serializers.serialize(object.frequency,
             specifiedType: const FullType(String)));
     }
+    if (object.highlightRanges != null) {
+      result
+        ..add('highlightRanges')
+        ..add(serializers.serialize(object.highlightRanges,
+            specifiedType: const FullType(JsonObject)));
+    }
+    if (object.attrExps != null) {
+      result
+        ..add('attrExps')
+        ..add(serializers.serialize(object.attrExps,
+            specifiedType: const FullType(JsonObject)));
+    }
+    if (object.attrDims != null) {
+      result
+        ..add('attrDims')
+        ..add(serializers.serialize(object.attrDims,
+            specifiedType: const FullType(JsonObject)));
+    }
     if (object.isNull != null) {
       result
         ..add('isNull')
@@ -127,6 +145,18 @@ class _$NxCellSerializer implements StructuredSerializer<NxCell> {
           result.frequency = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'highlightRanges':
+          result.highlightRanges = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
+          break;
+        case 'attrExps':
+          result.attrExps = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
+          break;
+        case 'attrDims':
+          result.attrDims = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
+          break;
         case 'isNull':
           result.isNull = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
@@ -156,6 +186,12 @@ class _$NxCell extends NxCell {
   @override
   final String frequency;
   @override
+  final JsonObject highlightRanges;
+  @override
+  final JsonObject attrExps;
+  @override
+  final JsonObject attrDims;
+  @override
   final bool isNull;
 
   factory _$NxCell([void updates(NxCellBuilder b)]) =>
@@ -170,6 +206,9 @@ class _$NxCell extends NxCell {
       this.isTotalCell,
       this.isOtherCell,
       this.frequency,
+      this.highlightRanges,
+      this.attrExps,
+      this.attrDims,
       this.isNull})
       : super._();
 
@@ -192,6 +231,9 @@ class _$NxCell extends NxCell {
         isTotalCell == other.isTotalCell &&
         isOtherCell == other.isOtherCell &&
         frequency == other.frequency &&
+        highlightRanges == other.highlightRanges &&
+        attrExps == other.attrExps &&
+        attrDims == other.attrDims &&
         isNull == other.isNull;
   }
 
@@ -203,13 +245,21 @@ class _$NxCell extends NxCell {
                 $jc(
                     $jc(
                         $jc(
-                            $jc($jc($jc(0, text.hashCode), qNum.hashCode),
-                                elemNumber.hashCode),
-                            state.hashCode),
-                        isEmpty.hashCode),
-                    isTotalCell.hashCode),
-                isOtherCell.hashCode),
-            frequency.hashCode),
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc($jc(0, text.hashCode),
+                                                qNum.hashCode),
+                                            elemNumber.hashCode),
+                                        state.hashCode),
+                                    isEmpty.hashCode),
+                                isTotalCell.hashCode),
+                            isOtherCell.hashCode),
+                        frequency.hashCode),
+                    highlightRanges.hashCode),
+                attrExps.hashCode),
+            attrDims.hashCode),
         isNull.hashCode));
   }
 
@@ -224,6 +274,9 @@ class _$NxCell extends NxCell {
           ..add('isTotalCell', isTotalCell)
           ..add('isOtherCell', isOtherCell)
           ..add('frequency', frequency)
+          ..add('highlightRanges', highlightRanges)
+          ..add('attrExps', attrExps)
+          ..add('attrDims', attrDims)
           ..add('isNull', isNull))
         .toString();
   }
@@ -264,6 +317,19 @@ class NxCellBuilder implements Builder<NxCell, NxCellBuilder> {
   String get frequency => _$this._frequency;
   set frequency(String frequency) => _$this._frequency = frequency;
 
+  JsonObject _highlightRanges;
+  JsonObject get highlightRanges => _$this._highlightRanges;
+  set highlightRanges(JsonObject highlightRanges) =>
+      _$this._highlightRanges = highlightRanges;
+
+  JsonObject _attrExps;
+  JsonObject get attrExps => _$this._attrExps;
+  set attrExps(JsonObject attrExps) => _$this._attrExps = attrExps;
+
+  JsonObject _attrDims;
+  JsonObject get attrDims => _$this._attrDims;
+  set attrDims(JsonObject attrDims) => _$this._attrDims = attrDims;
+
   bool _isNull;
   bool get isNull => _$this._isNull;
   set isNull(bool isNull) => _$this._isNull = isNull;
@@ -280,6 +346,9 @@ class NxCellBuilder implements Builder<NxCell, NxCellBuilder> {
       _isTotalCell = _$v.isTotalCell;
       _isOtherCell = _$v.isOtherCell;
       _frequency = _$v.frequency;
+      _highlightRanges = _$v.highlightRanges;
+      _attrExps = _$v.attrExps;
+      _attrDims = _$v.attrDims;
       _isNull = _$v.isNull;
       _$v = null;
     }
@@ -309,6 +378,9 @@ class NxCellBuilder implements Builder<NxCell, NxCellBuilder> {
             isTotalCell: isTotalCell,
             isOtherCell: isOtherCell,
             frequency: frequency,
+            highlightRanges: highlightRanges,
+            attrExps: attrExps,
+            attrDims: attrDims,
             isNull: isNull);
     replace(_$result);
     return _$result;

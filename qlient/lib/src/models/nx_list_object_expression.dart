@@ -7,9 +7,10 @@ import 'package:built_value/built_value.dart';
 import 'nx_layout_errors.dart';
 part 'nx_list_object_expression.g.dart';
 
-abstract class NxListObjectExpression implements Built<NxListObjectExpression, NxListObjectExpressionBuilder> {
-
- static Serializer<NxListObjectExpression> get serializer => _$nxListObjectExpressionSerializer;
+abstract class NxListObjectExpression
+    implements Built<NxListObjectExpression, NxListObjectExpressionBuilder> {
+  static Serializer<NxListObjectExpression> get serializer =>
+      _$nxListObjectExpressionSerializer;
 
   /// Value of the expression.
   /// Original name: qExpr
@@ -22,9 +23,11 @@ abstract class NxListObjectExpression implements Built<NxListObjectExpression, N
   @nullable
   NxLayoutErrors get error;
 
-  factory NxListObjectExpression([updates(NxListObjectExpressionBuilder b)]) = _$NxListObjectExpression;
+  factory NxListObjectExpression([updates(NxListObjectExpressionBuilder b)]) =
+      _$NxListObjectExpression;
 
-  factory NxListObjectExpression.init({String expr, NxLayoutErrors error}) = _$NxListObjectExpression._;
+  factory NxListObjectExpression.init({String expr, NxLayoutErrors error}) =
+      _$NxListObjectExpression._;
 
   NxListObjectExpression._();
 }

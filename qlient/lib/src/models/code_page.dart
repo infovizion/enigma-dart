@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'code_page.g.dart';
 
 abstract class CodePage implements Built<CodePage, CodePageBuilder> {
-
- static Serializer<CodePage> get serializer => _$codePageSerializer;
+  static Serializer<CodePage> get serializer => _$codePageSerializer;
 
   /// Number of the code page.
   /// Original name: qNumber
@@ -27,7 +26,8 @@ abstract class CodePage implements Built<CodePage, CodePageBuilder> {
 
   factory CodePage([updates(CodePageBuilder b)]) = _$CodePage;
 
-  factory CodePage.init({int number, String name, String description}) = _$CodePage._;
+  factory CodePage.init({int number, String name, String description}) =
+      _$CodePage._;
 
   CodePage._();
 }

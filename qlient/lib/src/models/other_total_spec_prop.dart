@@ -8,13 +8,14 @@ import 'value_expr.dart';
 import 'string_expr.dart';
 part 'other_total_spec_prop.g.dart';
 
-abstract class OtherTotalSpecProp implements Built<OtherTotalSpecProp, OtherTotalSpecPropBuilder> {
-
- static Serializer<OtherTotalSpecProp> get serializer => _$otherTotalSpecPropSerializer;
+abstract class OtherTotalSpecProp
+    implements Built<OtherTotalSpecProp, OtherTotalSpecPropBuilder> {
+  static Serializer<OtherTotalSpecProp> get serializer =>
+      _$otherTotalSpecPropSerializer;
 
   /// Determines how many dimension values are displayed.
   /// The default value is _OTHER_OFF_ .
-  /// 
+  ///
   /// One of:
   /// * OTHER_OFF
   /// * OTHER_COUNTED
@@ -48,7 +49,7 @@ abstract class OtherTotalSpecProp implements Built<OtherTotalSpecProp, OtherTota
   /// * OTHER_REL_LIMITED
   /// * OTHER_ABS_ACC_TARGET
   /// OTHER_REL_ACC_TARGET
-  /// 
+  ///
   /// One of:
   /// * OTHER_GE_LIMIT
   /// * OTHER_LE_LIMIT
@@ -69,7 +70,7 @@ abstract class OtherTotalSpecProp implements Built<OtherTotalSpecProp, OtherTota
   /// * OTHER_REL_LIMITED
   /// * OTHER_ABS_ACC_TARGET
   /// OTHER_REL_ACC_TARGET
-  /// 
+  ///
   /// and when the dimension values include not numeric values.
   /// Set this parameter to true to include text values in the returned values.
   /// The default value is true.
@@ -99,7 +100,7 @@ abstract class OtherTotalSpecProp implements Built<OtherTotalSpecProp, OtherTota
 
   /// Defines the sort order of the dimension values.
   /// The default value is _OTHER_SORT_DESCENDING_ .
-  /// 
+  ///
   /// One of:
   /// * OTHER_SORT_DEFAULT
   /// * OTHER_SORT_DESCENDING
@@ -110,7 +111,7 @@ abstract class OtherTotalSpecProp implements Built<OtherTotalSpecProp, OtherTota
 
   /// If set to _TOTAL_EXPR_ , the total of the dimension values is returned.
   /// The default value is _TOTAL_OFF_ .
-  /// 
+  ///
   /// One of:
   /// * TOTAL_OFF
   /// * TOTAL_EXPR
@@ -124,9 +125,22 @@ abstract class OtherTotalSpecProp implements Built<OtherTotalSpecProp, OtherTota
   @nullable
   StringExpr get referencedExpression;
 
-  factory OtherTotalSpecProp([updates(OtherTotalSpecPropBuilder b)]) = _$OtherTotalSpecProp;
+  factory OtherTotalSpecProp([updates(OtherTotalSpecPropBuilder b)]) =
+      _$OtherTotalSpecProp;
 
-  factory OtherTotalSpecProp.init({String otherMode, ValueExpr otherCounted, ValueExpr otherLimit, String otherLimitMode, bool suppressOther, bool forceBadValueKeeping, bool applyEvenWhenPossiblyWrongResult, bool globalOtherGrouping, bool otherCollapseInnerDimensions, String otherSortMode, String totalMode, StringExpr referencedExpression}) = _$OtherTotalSpecProp._;
+  factory OtherTotalSpecProp.init(
+      {String otherMode,
+      ValueExpr otherCounted,
+      ValueExpr otherLimit,
+      String otherLimitMode,
+      bool suppressOther,
+      bool forceBadValueKeeping,
+      bool applyEvenWhenPossiblyWrongResult,
+      bool globalOtherGrouping,
+      bool otherCollapseInnerDimensions,
+      String otherSortMode,
+      String totalMode,
+      StringExpr referencedExpression}) = _$OtherTotalSpecProp._;
 
   OtherTotalSpecProp._();
 }

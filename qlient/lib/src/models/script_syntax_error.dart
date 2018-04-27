@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'script_syntax_error.g.dart';
 
-abstract class ScriptSyntaxError implements Built<ScriptSyntaxError, ScriptSyntaxErrorBuilder> {
-
- static Serializer<ScriptSyntaxError> get serializer => _$scriptSyntaxErrorSerializer;
+abstract class ScriptSyntaxError
+    implements Built<ScriptSyntaxError, ScriptSyntaxErrorBuilder> {
+  static Serializer<ScriptSyntaxError> get serializer =>
+      _$scriptSyntaxErrorSerializer;
 
   /// Length of the word where the error is located.
   /// Original name: qErrLen
@@ -40,9 +41,16 @@ abstract class ScriptSyntaxError implements Built<ScriptSyntaxError, ScriptSynta
   @nullable
   bool get secondaryFailure;
 
-  factory ScriptSyntaxError([updates(ScriptSyntaxErrorBuilder b)]) = _$ScriptSyntaxError;
+  factory ScriptSyntaxError([updates(ScriptSyntaxErrorBuilder b)]) =
+      _$ScriptSyntaxError;
 
-  factory ScriptSyntaxError.init({int errLen, int tabIx, int lineInTab, int colInLine, int textPos, bool secondaryFailure}) = _$ScriptSyntaxError._;
+  factory ScriptSyntaxError.init(
+      {int errLen,
+      int tabIx,
+      int lineInTab,
+      int colInLine,
+      int textPos,
+      bool secondaryFailure}) = _$ScriptSyntaxError._;
 
   ScriptSyntaxError._();
 }

@@ -8,9 +8,11 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'derived_fields_in_table_data.g.dart';
 
-abstract class DerivedFieldsInTableData implements Built<DerivedFieldsInTableData, DerivedFieldsInTableDataBuilder> {
-
- static Serializer<DerivedFieldsInTableData> get serializer => _$derivedFieldsInTableDataSerializer;
+abstract class DerivedFieldsInTableData
+    implements
+        Built<DerivedFieldsInTableData, DerivedFieldsInTableDataBuilder> {
+  static Serializer<DerivedFieldsInTableData> get serializer =>
+      _$derivedFieldsInTableDataSerializer;
 
   /// Name of the derived definition.
   /// Original name: qDefinitionName
@@ -27,9 +29,14 @@ abstract class DerivedFieldsInTableData implements Built<DerivedFieldsInTableDat
   @nullable
   bool get active;
 
-  factory DerivedFieldsInTableData([updates(DerivedFieldsInTableDataBuilder b)]) = _$DerivedFieldsInTableData;
+  factory DerivedFieldsInTableData(
+          [updates(DerivedFieldsInTableDataBuilder b)]) =
+      _$DerivedFieldsInTableData;
 
-  factory DerivedFieldsInTableData.init({String definitionName, BuiltList<NxCell> tags, bool active}) = _$DerivedFieldsInTableData._;
+  factory DerivedFieldsInTableData.init(
+      {String definitionName,
+      BuiltList<NxCell> tags,
+      bool active}) = _$DerivedFieldsInTableData._;
 
   DerivedFieldsInTableData._();
 }

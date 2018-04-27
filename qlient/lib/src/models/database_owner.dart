@@ -6,9 +6,9 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'database_owner.g.dart';
 
-abstract class DatabaseOwner implements Built<DatabaseOwner, DatabaseOwnerBuilder> {
-
- static Serializer<DatabaseOwner> get serializer => _$databaseOwnerSerializer;
+abstract class DatabaseOwner
+    implements Built<DatabaseOwner, DatabaseOwnerBuilder> {
+  static Serializer<DatabaseOwner> get serializer => _$databaseOwnerSerializer;
 
   /// Name of the owner.
   /// Original name: qName

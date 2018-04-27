@@ -8,9 +8,11 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_combination_options.g.dart';
 
-abstract class SearchCombinationOptions implements Built<SearchCombinationOptions, SearchCombinationOptionsBuilder> {
-
- static Serializer<SearchCombinationOptions> get serializer => _$searchCombinationOptionsSerializer;
+abstract class SearchCombinationOptions
+    implements
+        Built<SearchCombinationOptions, SearchCombinationOptionsBuilder> {
+  static Serializer<SearchCombinationOptions> get serializer =>
+      _$searchCombinationOptionsSerializer;
 
   /// List of the search fields.
   /// If empty, the search is performed in all fields of the app.
@@ -20,7 +22,7 @@ abstract class SearchCombinationOptions implements Built<SearchCombinationOption
 
   /// Search context.
   /// The default value is _LockedFieldsOnly_ .
-  /// 
+  ///
   /// One of:
   /// * Cleared or CONTEXT_CLEARED
   /// * LockedFieldsOnly or CONTEXT_LOCKED_FIELDS_ONLY
@@ -31,7 +33,7 @@ abstract class SearchCombinationOptions implements Built<SearchCombinationOption
 
   /// Encoding used to compute qRanges of type SearchCharRange.
   /// <div class=note>Only affects the computation of the ranges. It does not impact the encoding of the text.</div>
-  /// 
+  ///
   /// One of:
   /// * Utf8 or CHAR_ENCODING_UTF8
   /// * Utf16 or CHAR_ENCODING_UTF16
@@ -47,9 +49,15 @@ abstract class SearchCombinationOptions implements Built<SearchCombinationOption
   @nullable
   BuiltList<NxCell> get attributes;
 
-  factory SearchCombinationOptions([updates(SearchCombinationOptionsBuilder b)]) = _$SearchCombinationOptions;
+  factory SearchCombinationOptions(
+          [updates(SearchCombinationOptionsBuilder b)]) =
+      _$SearchCombinationOptions;
 
-  factory SearchCombinationOptions.init({BuiltList<NxCell> searchFields, String context, String charEncoding, BuiltList<NxCell> attributes}) = _$SearchCombinationOptions._;
+  factory SearchCombinationOptions.init(
+      {BuiltList<NxCell> searchFields,
+      String context,
+      String charEncoding,
+      BuiltList<NxCell> attributes}) = _$SearchCombinationOptions._;
 
   SearchCombinationOptions._();
 }

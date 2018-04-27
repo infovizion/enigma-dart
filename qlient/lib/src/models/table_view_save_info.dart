@@ -8,9 +8,10 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'table_view_save_info.g.dart';
 
-abstract class TableViewSaveInfo implements Built<TableViewSaveInfo, TableViewSaveInfoBuilder> {
-
- static Serializer<TableViewSaveInfo> get serializer => _$tableViewSaveInfoSerializer;
+abstract class TableViewSaveInfo
+    implements Built<TableViewSaveInfo, TableViewSaveInfoBuilder> {
+  static Serializer<TableViewSaveInfo> get serializer =>
+      _$tableViewSaveInfoSerializer;
 
   /// List of the tables in the database model viewer.
   /// Original name: qTables
@@ -35,9 +36,14 @@ abstract class TableViewSaveInfo implements Built<TableViewSaveInfo, TableViewSa
   @nullable
   num get zoomFactor;
 
-  factory TableViewSaveInfo([updates(TableViewSaveInfoBuilder b)]) = _$TableViewSaveInfo;
+  factory TableViewSaveInfo([updates(TableViewSaveInfoBuilder b)]) =
+      _$TableViewSaveInfo;
 
-  factory TableViewSaveInfo.init({BuiltList<NxCell> tables, BuiltList<NxCell> broomPoints, BuiltList<NxCell> connectionPoints, num zoomFactor}) = _$TableViewSaveInfo._;
+  factory TableViewSaveInfo.init(
+      {BuiltList<NxCell> tables,
+      BuiltList<NxCell> broomPoints,
+      BuiltList<NxCell> connectionPoints,
+      num zoomFactor}) = _$TableViewSaveInfo._;
 
   TableViewSaveInfo._();
 }

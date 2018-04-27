@@ -9,8 +9,7 @@ import 'package:built_collection/built_collection.dart';
 part 'nx_axis_ticks.g.dart';
 
 abstract class NxAxisTicks implements Built<NxAxisTicks, NxAxisTicksBuilder> {
-
- static Serializer<NxAxisTicks> get serializer => _$nxAxisTicksSerializer;
+  static Serializer<NxAxisTicks> get serializer => _$nxAxisTicksSerializer;
 
   /// Name of the derived definition.
   /// Original name: qName
@@ -29,7 +28,10 @@ abstract class NxAxisTicks implements Built<NxAxisTicks, NxAxisTicksBuilder> {
 
   factory NxAxisTicks([updates(NxAxisTicksBuilder b)]) = _$NxAxisTicks;
 
-  factory NxAxisTicks.init({String name, BuiltList<NxCell> tags, BuiltList<NxCell> ticks}) = _$NxAxisTicks._;
+  factory NxAxisTicks.init(
+      {String name,
+      BuiltList<NxCell> tags,
+      BuiltList<NxCell> ticks}) = _$NxAxisTicks._;
 
   NxAxisTicks._();
 }

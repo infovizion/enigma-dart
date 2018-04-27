@@ -10,9 +10,10 @@ import 'nx_attribute_expression_values.dart';
 import 'nx_attribute_dim_values.dart';
 part 'nx_pivot_dimension_cell.g.dart';
 
-abstract class NxPivotDimensionCell implements Built<NxPivotDimensionCell, NxPivotDimensionCellBuilder> {
-
- static Serializer<NxPivotDimensionCell> get serializer => _$nxPivotDimensionCellSerializer;
+abstract class NxPivotDimensionCell
+    implements Built<NxPivotDimensionCell, NxPivotDimensionCellBuilder> {
+  static Serializer<NxPivotDimensionCell> get serializer =>
+      _$nxPivotDimensionCellSerializer;
 
   /// Some text.
   /// Original name: qText
@@ -44,7 +45,7 @@ abstract class NxPivotDimensionCell implements Built<NxPivotDimensionCell, NxPiv
   bool get canCollapse;
 
   /// Type of the cell.
-  /// 
+  ///
   /// One of:
   /// * V or NX_DIM_CELL_VALUE
   /// * E or NX_DIM_CELL_EMPTY
@@ -89,9 +90,21 @@ abstract class NxPivotDimensionCell implements Built<NxPivotDimensionCell, NxPiv
   @nullable
   NxAttributeDimValues get attrDims;
 
-  factory NxPivotDimensionCell([updates(NxPivotDimensionCellBuilder b)]) = _$NxPivotDimensionCell;
+  factory NxPivotDimensionCell([updates(NxPivotDimensionCellBuilder b)]) =
+      _$NxPivotDimensionCell;
 
-  factory NxPivotDimensionCell.init({String text, int elemNo, num value, bool canExpand, bool canCollapse, String type, int up, int down, BuiltList<NxCell> subNodes, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims}) = _$NxPivotDimensionCell._;
+  factory NxPivotDimensionCell.init(
+      {String text,
+      int elemNo,
+      num value,
+      bool canExpand,
+      bool canCollapse,
+      String type,
+      int up,
+      int down,
+      BuiltList<NxCell> subNodes,
+      NxAttributeExpressionValues attrExps,
+      NxAttributeDimValues attrDims}) = _$NxPivotDimensionCell._;
 
   NxPivotDimensionCell._();
 }

@@ -9,9 +9,10 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 part 'nx_get_bookmark_options.g.dart';
 
-abstract class NxGetBookmarkOptions implements Built<NxGetBookmarkOptions, NxGetBookmarkOptionsBuilder> {
-
- static Serializer<NxGetBookmarkOptions> get serializer => _$nxGetBookmarkOptionsSerializer;
+abstract class NxGetBookmarkOptions
+    implements Built<NxGetBookmarkOptions, NxGetBookmarkOptionsBuilder> {
+  static Serializer<NxGetBookmarkOptions> get serializer =>
+      _$nxGetBookmarkOptionsSerializer;
 
   /// List of object types.
   /// Original name: qTypes
@@ -23,9 +24,11 @@ abstract class NxGetBookmarkOptions implements Built<NxGetBookmarkOptions, NxGet
   @nullable
   JsonObject get data;
 
-  factory NxGetBookmarkOptions([updates(NxGetBookmarkOptionsBuilder b)]) = _$NxGetBookmarkOptions;
+  factory NxGetBookmarkOptions([updates(NxGetBookmarkOptionsBuilder b)]) =
+      _$NxGetBookmarkOptions;
 
-  factory NxGetBookmarkOptions.init({BuiltList<NxCell> types, JsonObject data}) = _$NxGetBookmarkOptions._;
+  factory NxGetBookmarkOptions.init(
+      {BuiltList<NxCell> types, JsonObject data}) = _$NxGetBookmarkOptions._;
 
   NxGetBookmarkOptions._();
 }

@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_page_tree_level.g.dart';
 
-abstract class NxPageTreeLevel implements Built<NxPageTreeLevel, NxPageTreeLevelBuilder> {
-
- static Serializer<NxPageTreeLevel> get serializer => _$nxPageTreeLevelSerializer;
+abstract class NxPageTreeLevel
+    implements Built<NxPageTreeLevel, NxPageTreeLevelBuilder> {
+  static Serializer<NxPageTreeLevel> get serializer =>
+      _$nxPageTreeLevelSerializer;
 
   /// The first dimension that is to be part of the tree, counted from the left. For example, if qLeft is equal to 1, omit nodes from the first dimension in the current sort order.
   /// Original name: qLeft
@@ -20,7 +21,8 @@ abstract class NxPageTreeLevel implements Built<NxPageTreeLevel, NxPageTreeLevel
   @nullable
   int get depth;
 
-  factory NxPageTreeLevel([updates(NxPageTreeLevelBuilder b)]) = _$NxPageTreeLevel;
+  factory NxPageTreeLevel([updates(NxPageTreeLevelBuilder b)]) =
+      _$NxPageTreeLevel;
 
   factory NxPageTreeLevel.init({int left, int depth}) = _$NxPageTreeLevel._;
 

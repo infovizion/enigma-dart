@@ -9,9 +9,12 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'table_view_connection_point_save_info.g.dart';
 
-abstract class TableViewConnectionPointSaveInfo implements Built<TableViewConnectionPointSaveInfo, TableViewConnectionPointSaveInfoBuilder> {
-
- static Serializer<TableViewConnectionPointSaveInfo> get serializer => _$tableViewConnectionPointSaveInfoSerializer;
+abstract class TableViewConnectionPointSaveInfo
+    implements
+        Built<TableViewConnectionPointSaveInfo,
+            TableViewConnectionPointSaveInfoBuilder> {
+  static Serializer<TableViewConnectionPointSaveInfo> get serializer =>
+      _$tableViewConnectionPointSaveInfoSerializer;
 
   /// Information about the position of the connection point.
   /// Original name: qPos
@@ -23,9 +26,13 @@ abstract class TableViewConnectionPointSaveInfo implements Built<TableViewConnec
   @nullable
   BuiltList<NxCell> get fields;
 
-  factory TableViewConnectionPointSaveInfo([updates(TableViewConnectionPointSaveInfoBuilder b)]) = _$TableViewConnectionPointSaveInfo;
+  factory TableViewConnectionPointSaveInfo(
+          [updates(TableViewConnectionPointSaveInfoBuilder b)]) =
+      _$TableViewConnectionPointSaveInfo;
 
-  factory TableViewConnectionPointSaveInfo.init({Point pos, BuiltList<NxCell> fields}) = _$TableViewConnectionPointSaveInfo._;
+  factory TableViewConnectionPointSaveInfo.init(
+      {Point pos,
+      BuiltList<NxCell> fields}) = _$TableViewConnectionPointSaveInfo._;
 
   TableViewConnectionPointSaveInfo._();
 }

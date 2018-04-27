@@ -9,9 +9,9 @@ import 'package:built_collection/built_collection.dart';
 part 'variable_list.g.dart';
 
 /// Lists the variables in an app. Is the layout for _VariableListDef_.
-abstract class VariableList implements Built<VariableList, VariableListBuilder> {
-
- static Serializer<VariableList> get serializer => _$variableListSerializer;
+abstract class VariableList
+    implements Built<VariableList, VariableListBuilder> {
+  static Serializer<VariableList> get serializer => _$variableListSerializer;
 
   /// List of the variables.
   /// Original name: qItems

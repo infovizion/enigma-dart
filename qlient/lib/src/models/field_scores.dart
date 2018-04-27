@@ -7,8 +7,7 @@ import 'package:built_value/built_value.dart';
 part 'field_scores.g.dart';
 
 abstract class FieldScores implements Built<FieldScores, FieldScoresBuilder> {
-
- static Serializer<FieldScores> get serializer => _$fieldScoresSerializer;
+  static Serializer<FieldScores> get serializer => _$fieldScoresSerializer;
 
   /// Field name.
   /// One of the field names defined in _qFieldPairName._
@@ -40,7 +39,12 @@ abstract class FieldScores implements Built<FieldScores, FieldScoresBuilder> {
 
   factory FieldScores([updates(FieldScoresBuilder b)]) = _$FieldScores;
 
-  factory FieldScores.init({String fieldName, String readableName, num cardinalRatio, num symbolScore, num rowScore}) = _$FieldScores._;
+  factory FieldScores.init(
+      {String fieldName,
+      String readableName,
+      num cardinalRatio,
+      num symbolScore,
+      num rowScore}) = _$FieldScores._;
 
   FieldScores._();
 }

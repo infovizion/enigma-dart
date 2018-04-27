@@ -11,9 +11,10 @@ import 'nx_selection_info.dart';
 part 'generic_object_layout.g.dart';
 
 /// Is the layout for _GenericObjectProperties_.
-abstract class GenericObjectLayout implements Built<GenericObjectLayout, GenericObjectLayoutBuilder> {
-
- static Serializer<GenericObjectLayout> get serializer => _$genericObjectLayoutSerializer;
+abstract class GenericObjectLayout
+    implements Built<GenericObjectLayout, GenericObjectLayoutBuilder> {
+  static Serializer<GenericObjectLayout> get serializer =>
+      _$genericObjectLayoutSerializer;
 
   /// Identifier and type of the generic object.
   /// Original name: qInfo
@@ -48,9 +49,16 @@ abstract class GenericObjectLayout implements Built<GenericObjectLayout, Generic
   @nullable
   NxSelectionInfo get selectionInfo;
 
-  factory GenericObjectLayout([updates(GenericObjectLayoutBuilder b)]) = _$GenericObjectLayout;
+  factory GenericObjectLayout([updates(GenericObjectLayoutBuilder b)]) =
+      _$GenericObjectLayout;
 
-  factory GenericObjectLayout.init({NxInfo info, NxMeta meta, String extendsId, bool hasSoftPatches, NxLayoutErrors error, NxSelectionInfo selectionInfo}) = _$GenericObjectLayout._;
+  factory GenericObjectLayout.init(
+      {NxInfo info,
+      NxMeta meta,
+      String extendsId,
+      bool hasSoftPatches,
+      NxLayoutErrors error,
+      NxSelectionInfo selectionInfo}) = _$GenericObjectLayout._;
 
   GenericObjectLayout._();
 }

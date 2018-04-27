@@ -8,18 +8,21 @@ import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_attribute_dim_values.g.dart';
 
-abstract class NxAttributeDimValues implements Built<NxAttributeDimValues, NxAttributeDimValuesBuilder> {
-
- static Serializer<NxAttributeDimValues> get serializer => _$nxAttributeDimValuesSerializer;
+abstract class NxAttributeDimValues
+    implements Built<NxAttributeDimValues, NxAttributeDimValuesBuilder> {
+  static Serializer<NxAttributeDimValues> get serializer =>
+      _$nxAttributeDimValuesSerializer;
 
   /// List of values.
   /// Original name: qValues
   @nullable
   BuiltList<NxCell> get values;
 
-  factory NxAttributeDimValues([updates(NxAttributeDimValuesBuilder b)]) = _$NxAttributeDimValues;
+  factory NxAttributeDimValues([updates(NxAttributeDimValuesBuilder b)]) =
+      _$NxAttributeDimValues;
 
-  factory NxAttributeDimValues.init({BuiltList<NxCell> values}) = _$NxAttributeDimValues._;
+  factory NxAttributeDimValues.init({BuiltList<NxCell> values}) =
+      _$NxAttributeDimValues._;
 
   NxAttributeDimValues._();
 }

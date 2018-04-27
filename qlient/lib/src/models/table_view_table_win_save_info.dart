@@ -7,9 +7,11 @@ import 'package:built_value/built_value.dart';
 import 'rect.dart';
 part 'table_view_table_win_save_info.g.dart';
 
-abstract class TableViewTableWinSaveInfo implements Built<TableViewTableWinSaveInfo, TableViewTableWinSaveInfoBuilder> {
-
- static Serializer<TableViewTableWinSaveInfo> get serializer => _$tableViewTableWinSaveInfoSerializer;
+abstract class TableViewTableWinSaveInfo
+    implements
+        Built<TableViewTableWinSaveInfo, TableViewTableWinSaveInfoBuilder> {
+  static Serializer<TableViewTableWinSaveInfo> get serializer =>
+      _$tableViewTableWinSaveInfoSerializer;
 
   /// Information about the position of the table.
   /// Original name: qPos
@@ -21,9 +23,12 @@ abstract class TableViewTableWinSaveInfo implements Built<TableViewTableWinSaveI
   @nullable
   String get caption;
 
-  factory TableViewTableWinSaveInfo([updates(TableViewTableWinSaveInfoBuilder b)]) = _$TableViewTableWinSaveInfo;
+  factory TableViewTableWinSaveInfo(
+          [updates(TableViewTableWinSaveInfoBuilder b)]) =
+      _$TableViewTableWinSaveInfo;
 
-  factory TableViewTableWinSaveInfo.init({Rect pos, String caption}) = _$TableViewTableWinSaveInfo._;
+  factory TableViewTableWinSaveInfo.init({Rect pos, String caption}) =
+      _$TableViewTableWinSaveInfo._;
 
   TableViewTableWinSaveInfo._();
 }

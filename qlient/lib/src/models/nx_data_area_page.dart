@@ -6,9 +6,10 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'nx_data_area_page.g.dart';
 
-abstract class NxDataAreaPage implements Built<NxDataAreaPage, NxDataAreaPageBuilder> {
-
- static Serializer<NxDataAreaPage> get serializer => _$nxDataAreaPageSerializer;
+abstract class NxDataAreaPage
+    implements Built<NxDataAreaPage, NxDataAreaPageBuilder> {
+  static Serializer<NxDataAreaPage> get serializer =>
+      _$nxDataAreaPageSerializer;
 
   /// Position from the left.
   /// Corresponds to the lowest possible value of the first measure (the measure on the x-axis).
@@ -36,7 +37,8 @@ abstract class NxDataAreaPage implements Built<NxDataAreaPage, NxDataAreaPageBui
 
   factory NxDataAreaPage([updates(NxDataAreaPageBuilder b)]) = _$NxDataAreaPage;
 
-  factory NxDataAreaPage.init({num left, num top, num width, num height}) = _$NxDataAreaPage._;
+  factory NxDataAreaPage.init({num left, num top, num width, num height}) =
+      _$NxDataAreaPage._;
 
   NxDataAreaPage._();
 }

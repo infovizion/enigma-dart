@@ -20,12 +20,13 @@ part 'file_data_format.g.dart';
 /// * _QVX_ for QVX file
 /// * _JSON_ for JSON format
 /// * _KML_ for KML file
-abstract class FileDataFormat implements Built<FileDataFormat, FileDataFormatBuilder> {
-
- static Serializer<FileDataFormat> get serializer => _$fileDataFormatSerializer;
+abstract class FileDataFormat
+    implements Built<FileDataFormat, FileDataFormatBuilder> {
+  static Serializer<FileDataFormat> get serializer =>
+      _$fileDataFormatSerializer;
 
   /// Type of the file.
-  /// 
+  ///
   /// One of:
   /// * CSV or FILE_TYPE_CSV
   /// * FIX or FILE_TYPE_FIX
@@ -54,7 +55,7 @@ abstract class FileDataFormat implements Built<FileDataFormat, FileDataFormatBui
   /// * None (no quotes)
   /// * MSQ (Modern Style Quoting)
   /// * Standard (quotes " " or ' ' can be used, but only if they are the first and last non blank characters of a field value)
-  /// 
+  ///
   /// This property is used for delimited files.
   /// Original name: qQuote
   @nullable
@@ -112,7 +113,18 @@ abstract class FileDataFormat implements Built<FileDataFormat, FileDataFormatBui
 
   factory FileDataFormat([updates(FileDataFormatBuilder b)]) = _$FileDataFormat;
 
-  factory FileDataFormat.init({String type, String label, String quote, String comment, DelimiterInfo delimiter, int codePage, int headerSize, int recordSize, int tabSize, bool ignoreEOF, String fixedWidthDelimiters}) = _$FileDataFormat._;
+  factory FileDataFormat.init(
+      {String type,
+      String label,
+      String quote,
+      String comment,
+      DelimiterInfo delimiter,
+      int codePage,
+      int headerSize,
+      int recordSize,
+      int tabSize,
+      bool ignoreEOF,
+      String fixedWidthDelimiters}) = _$FileDataFormat._;
 
   FileDataFormat._();
 }

@@ -13,8 +13,7 @@ part 'tree_data_def.g.dart';
 /// Defines the properties of a TreeData object.
 /// For more information about the definition of a TreeData object, see _Generic object_.
 abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
-
- static Serializer<TreeDataDef> get serializer => _$treeDataDefSerializer;
+  static Serializer<TreeDataDef> get serializer => _$treeDataDefSerializer;
 
   /// Name of the alternate state.
   /// Default is current selections _$_ .
@@ -71,7 +70,16 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
 
   factory TreeDataDef([updates(TreeDataDefBuilder b)]) = _$TreeDataDef;
 
-  factory TreeDataDef.init({String stateName, BuiltList<NxCell> dimensions, BuiltList<NxCell> interColumnSortOrder, bool suppressZero, bool suppressMissing, bool openFullyExpanded, bool populateMissing, NxCalcCond calcCondition, StringExpr title}) = _$TreeDataDef._;
+  factory TreeDataDef.init(
+      {String stateName,
+      BuiltList<NxCell> dimensions,
+      BuiltList<NxCell> interColumnSortOrder,
+      bool suppressZero,
+      bool suppressMissing,
+      bool openFullyExpanded,
+      bool populateMissing,
+      NxCalcCond calcCondition,
+      StringExpr title}) = _$TreeDataDef._;
 
   TreeDataDef._();
 }

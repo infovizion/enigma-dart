@@ -6,9 +6,9 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 part 'alfa_num_string.g.dart';
 
-abstract class AlfaNumString implements Built<AlfaNumString, AlfaNumStringBuilder> {
-
- static Serializer<AlfaNumString> get serializer => _$alfaNumStringSerializer;
+abstract class AlfaNumString
+    implements Built<AlfaNumString, AlfaNumStringBuilder> {
+  static Serializer<AlfaNumString> get serializer => _$alfaNumStringSerializer;
 
   /// Calculated value.
   /// Original name: qString

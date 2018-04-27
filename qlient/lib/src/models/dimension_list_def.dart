@@ -8,9 +8,10 @@ import 'package:built_value/json_object.dart';
 part 'dimension_list_def.g.dart';
 
 /// Defines the lists of dimensions.
-abstract class DimensionListDef implements Built<DimensionListDef, DimensionListDefBuilder> {
-
- static Serializer<DimensionListDef> get serializer => _$dimensionListDefSerializer;
+abstract class DimensionListDef
+    implements Built<DimensionListDef, DimensionListDefBuilder> {
+  static Serializer<DimensionListDef> get serializer =>
+      _$dimensionListDefSerializer;
 
   /// Type of the list.
   /// Original name: qType
@@ -22,9 +23,11 @@ abstract class DimensionListDef implements Built<DimensionListDef, DimensionList
   @nullable
   JsonObject get data;
 
-  factory DimensionListDef([updates(DimensionListDefBuilder b)]) = _$DimensionListDef;
+  factory DimensionListDef([updates(DimensionListDefBuilder b)]) =
+      _$DimensionListDef;
 
-  factory DimensionListDef.init({String type, JsonObject data}) = _$DimensionListDef._;
+  factory DimensionListDef.init({String type, JsonObject data}) =
+      _$DimensionListDef._;
 
   DimensionListDef._();
 }
