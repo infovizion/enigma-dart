@@ -4,9 +4,6 @@ library nx_cell;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_highlight_ranges.dart';
-import 'nx_attribute_expression_values.dart';
-import 'nx_attribute_dim_values.dart';
 part 'nx_cell.g.dart';
 
 abstract class NxCell implements Built<NxCell, NxCellBuilder> {
@@ -80,23 +77,6 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
   @nullable
   String get frequency;
 
-  /// Search hits.
-  /// The search hits are highlighted.
-  /// This parameter is optional.
-  /// Original name: qHighlightRanges
-  @nullable
-  NxHighlightRanges get highlightRanges;
-
-  /// Attribute expression values.
-  /// Original name: qAttrExps
-  @nullable
-  NxAttributeExpressionValues get attrExps;
-
-  /// Attribute dimensions values.
-  /// Original name: qAttrDims
-  @nullable
-  NxAttributeDimValues get attrDims;
-
   /// Is set to _true_ if the value is Null.
   /// Original name: qIsNull
   @nullable
@@ -104,7 +84,7 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
 
   factory NxCell([updates(NxCellBuilder b)]) = _$NxCell;
 
-  factory NxCell.init({String text, num qNum, int elemNumber, String state, bool isEmpty, bool isTotalCell, bool isOtherCell, String frequency, NxHighlightRanges highlightRanges, NxAttributeExpressionValues attrExps, NxAttributeDimValues attrDims, bool isNull}) = _$NxCell._;
+  factory NxCell.init({String text, num qNum, int elemNumber, String state, bool isEmpty, bool isTotalCell, bool isOtherCell, String frequency, bool isNull}) = _$NxCell._;
 
   NxCell._();
 }
