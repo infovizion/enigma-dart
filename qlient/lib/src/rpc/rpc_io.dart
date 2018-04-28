@@ -1,10 +1,21 @@
 import 'package:web_socket_channel/io.dart';
-import 'qlient.dart';
+import 'rpc.dart';
 import 'dart:async';
 import 'package:http/http.dart';
 import 'package:crypto/crypto.dart';
 import 'dart:convert';
 import '../services/global.dart';
+
+
+Future<Global> getGlobal(String host, int port) {
+  
+  var channel = new IOWebSocketChannel.connect(
+      'ws://$host:$port/app',
+      );
+      var rpc = new Rpc(channel);
+    
+}
+
 // Future<Global> getGlobal(
 //     String host, int port, String userDir, String userId) async {
 //   String cookie =

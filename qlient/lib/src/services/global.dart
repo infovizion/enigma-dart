@@ -1,29 +1,35 @@
+import 'dart:async';
+import '../rpc/handle_object.dart';
+import '../rpc/rpc.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
-class Global {
-  abortRequest(int qRequestId) {}
+class Global extends HandleObject {
+  Global(Rpc rpc, int handle) : super(rpc, handle);
+
+  String get serviceType => 'Global';
+  Future<void> abortRequest(int qRequestId) async {}
 
   /// Sets an abort flag on all pending and ongoing requests in the current engine session.
   /// * If an abort flag is set on a pending request, the request is aborted.
   /// * If an abort flag is set on an ongoing request, the engine checks to see if it is possible to abort the request.
-  abortAll() {}
+  Future<void> abortAll() async {}
 
   /// Gives information about the progress of the _DoReload_ and _DoSave_ calls.
   /// <div class=note>For more information on DoReload and DoSave, see the _DoReload Method_ and _DoSave Method_. </div>
-  ProgressData getProgress(int qRequestId) {}
+  Future<ProgressData> getProgress(int qRequestId) async {}
 
   /// Returns the Qlik Sense version number.
-  String qvVersion() {}
+  Future<String> qvVersion() async {}
 
   /// Returns the version number of the operating system.
-  String oSVersion() {}
+  Future<String> oSVersion() async {}
 
   /// Returns the name of the operating system.
-  String oSName() {}
+  Future<String> oSName() async {}
 
   /// Returns the Qlik product name.
-  String qTProduct() {}
+  Future<String> qTProduct() async {}
 
   /// Returns the list of apps.
   ///
@@ -34,7 +40,7 @@ class Global {
   /// **In Qlik Sense Desktop:**
   ///
   /// The apps are located in _C:\Users\&lt;user name&gt;\Documents\Qlik\Sense\Apps_.
-  BuiltList<NxCell> getDocList() {}
+  Future<BuiltList<NxCell>> getDocList() async {}
 
   /// Retrieves information on the user interaction that is requested by the engine.
   /// Engine can request user interactions only during script reload and when the reload is performed in debug mode ( _qDebug_ is set to true when using the _DoReload method_ ).
@@ -44,24 +50,27 @@ class Global {
   /// * When the script execution is finished.
   ///
   /// To know if the engine is paused and waits for a response to an interaction request, the _GetProgress method_ should be used. The engine waits for a response if the property _qUserInteractionWanted_ is set to true in the response of the _GetProgress_ request.
-  InteractDef getInteract(int qRequestId) {}
+  Future<InteractDef> getInteract(int qRequestId) async {}
 
   /// Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates to the engine what to do next.
-  interactDone(int qRequestId, InteractDef qDef) {}
+  Future<void> interactDone(int qRequestId, InteractDef qDef) async {}
 
   /// Retrieves information about the authenticated user.
-  String getAuthenticatedUser() {}
+  Future<String> getAuthenticatedUser() async {}
 
   /// Creates an app and opens an engine session.
   /// <div class=note>This operation is possible only in Qlik Sense Desktop.</div>
-  String createDocEx(String qDocName, String qUserName, String qPassword,
-      String qSerial, String qLocalizedScriptMainSection) {}
+  Future<String> createDocEx(String qDocName,
+      {String qUserName,
+      String qPassword,
+      String qSerial,
+      String qLocalizedScriptMainSection}) async {}
 
   /// Returns the handle of the current app.
-  ObjectInterface getActiveDoc() {}
+  Future<ObjectInterface> getActiveDoc() async {}
 
   /// Indicates whether or not a user is able to create an app.
-  bool allowCreateApp() {}
+  Future<bool> allowCreateApp() async {}
 
   /// Creates an app.
   ///
@@ -94,7 +103,8 @@ class Global {
   /// <td>%UserProfile%/Documents/Qlik/Sense/Log</td>
   /// </tr>
   /// </table>
-  bool createApp(String qAppName, String qLocalizedScriptMainSection) {}
+  Future<bool> createApp(String qAppName,
+      {String qLocalizedScriptMainSection}) async {}
 
   /// Deletes an app from the Qlik Sense repository or from the file system.
   ///
@@ -135,33 +145,34 @@ class Global {
   /// <td>%UserProfile%/Documents/Qlik/Sense/Log</td>
   /// </tr>
   /// </table>
-  bool deleteApp(String qAppId) {}
+  Future<bool> deleteApp(String qAppId) async {}
 
   /// Indicates whether the user is working in Qlik Sense Desktop.
-  bool isDesktopMode() {}
+  Future<bool> isDesktopMode() async {}
 
   /// Cancels an ongoing request. The request is stopped.
-  cancelRequest(int qRequestId) {}
+  Future<void> cancelRequest(int qRequestId) async {}
 
   /// Shuts down the Qlik engine.
   /// <div class=note>This operation is possible only in Qlik Sense Desktop.</div>
-  shutdownProcess() {}
+  Future<void> shutdownProcess() async {}
 
   /// Reloads the list of extensions.
-  reloadExtensionList() {}
+  Future<void> reloadExtensionList() async {}
 
   /// Replaces objects of a target app with the objects from a source app.
   /// The list of objects in the app to be replaced must be defined in _qIds_.
   /// <div class=note>The data model of the app cannot be updated. </div> <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool replaceAppFromID(
-      String qTargetAppId, String qSrcAppID, BuiltList<NxCell> qIds) {}
+  Future<bool> replaceAppFromID(
+      String qTargetAppId, String qSrcAppID, BuiltList<NxCell> qIds) async {}
 
   /// Copies an app that is in the Qlik Sense repository.
   /// The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](#csh-RepositoryServiceAPI-Introduction) for more information.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
-  bool copyApp(String qTargetAppId, String qSrcAppId, BuiltList<NxCell> qIds) {}
+  Future<bool> copyApp(
+      String qTargetAppId, String qSrcAppId, BuiltList<NxCell> qIds) async {}
 
   /// Exports an app from the Qlik Sense repository to the file system.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
@@ -185,18 +196,20 @@ class Global {
   ///
   /// The log files are located in:
   /// _%ProgramData%/Qlik/Sense/Log/Engine_
-  bool exportApp(String qTargetPath, String qSrcAppId, BuiltList<NxCell> qIds,
-      bool qNoData) {}
+  Future<bool> exportApp(
+      String qTargetPath, String qSrcAppId, BuiltList<NxCell> qIds,
+      {bool qNoData}) async {}
 
   /// Publishes an app to the supplied stream.
-  publishApp(String qAppId, String qName, String qStreamId) {}
+  Future<void> publishApp(
+      String qAppId, String qName, String qStreamId) async {}
 
   /// Indicates whether or not the user is working in personal mode (Qlik Sense Desktop).
-  bool isPersonalMode() {}
+  Future<bool> isPersonalMode() async {}
 
   /// Returns the unique identifier of the endpoint for the current user in the current app.
   /// <div class=note>This unique identifier can be used for logging purposes.</div>
-  String getUniqueID() {}
+  Future<String> getUniqueID() async {}
 
   /// Opens an app and checks if the app needs to be migrated (if the app is deprecated).
   /// The _OpenDoc method_ compares the version of the app with the version of Qlik Sense and migrates the app to the current version of Qlik Sense if necessary. Once the migration is done, the app is opened.
@@ -212,14 +225,17 @@ class Global {
   /// In Qlik Sense Desktop, apps are automatically backed up before a migration.
   /// The backup files are located in _%userprofile%\Documents\Qlik\Sense\AppsBackup\&lt;Qlik Sense Desktop version&gt;_.
   /// In Qlik Sense Enterprise, no automatic back up is run. The back up should be done manually.
-  ObjectInterface openDoc(String qDocName, String qUserName, String qPassword,
-      String qSerial, bool qNoData) {}
+  Future<ObjectInterface> openDoc(String qDocName,
+      {String qUserName,
+      String qPassword,
+      String qSerial,
+      bool qNoData}) async {}
 
   /// Creates an empty session app.
   /// The following applies:
   /// * The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.
   /// * A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
-  String createSessionApp() {}
+  Future<String> createSessionApp() async {}
 
   /// Creates a session app from a source app.
   /// The following applies:
@@ -227,72 +243,73 @@ class Global {
   /// * The script of the session app can be edited and reloaded.
   /// * The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.
   /// * A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
-  String createSessionAppFromApp(String qSrcAppId) {}
+  Future<String> createSessionAppFromApp(String qSrcAppId) async {}
 
   /// Returns the Qlik Sense version number.
-  String productVersion() {}
+  Future<String> productVersion() async {}
 
   /// Retrieves the meta data of an app.
-  AppEntry getAppEntry(String qAppID) {}
+  Future<AppEntry> getAppEntry(String qAppID) async {}
 
   /// Configures the engine's behavior during a reload.
   /// <div class=note>The _ConfigureReload method_ should be run before the _DoReload method_. </div>
-  configureReload(
-      bool qCancelOnScriptError, bool qUseErrorData, bool qInteractOnError) {}
+  Future<void> configureReload(bool qCancelOnScriptError, bool qUseErrorData,
+      bool qInteractOnError) async {}
 
   /// Cancels an ongoing reload. The reload of the app is stopped. The indexation can be canceled and _true_ is still the return value of the reload task.
-  cancelReload() {}
+  Future<void> cancelReload() async {}
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. The BNF rules define the syntax for the script statements and the script or chart functions.
   /// In the Qlik engine BNF grammar, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  BuiltList<NxCell> getBNF(String qBnfType) {}
+  Future<BuiltList<NxCell>> getBNF(String qBnfType) async {}
 
   /// Gets the list of all the script functions.
-  BuiltList<NxCell> getFunctions(String qGroup) {}
+  Future<BuiltList<NxCell>> getFunctions({String qGroup}) async {}
 
   /// Returns the list of the ODBC connectors that are installed in the system.
-  BuiltList<NxCell> getOdbcDsns() {}
+  Future<BuiltList<NxCell>> getOdbcDsns() async {}
 
   /// Returns the list of the OLEDB providers installed on the system.
-  BuiltList<NxCell> getOleDbProviders() {}
+  Future<BuiltList<NxCell>> getOleDbProviders() async {}
 
   /// Lists the databases in a ODBC, OLEDB or CUSTOM data source.
-  BuiltList<NxCell> getDatabasesFromConnectionString(Connection qConnection) {}
+  Future<BuiltList<NxCell>> getDatabasesFromConnectionString(
+      Connection qConnection) async {}
 
   /// Checks if a connection string is valid.
-  bool isValidConnectionString(Connection qConnection) {}
+  Future<bool> isValidConnectionString(Connection qConnection) async {}
 
   /// Returns the folder where the apps are stored.
   /// <div class=note>This method applies only if running Qlik Sense Desktop.</div>
-  String getDefaultAppFolder() {}
+  Future<String> getDefaultAppFolder() async {}
 
   /// Lists the logical drives in the system.
   /// <div class=note>This method applies only if running Qlik Sense Desktop.</div>
-  BuiltList<NxCell> getLogicalDriveStrings() {}
+  Future<BuiltList<NxCell>> getLogicalDriveStrings() async {}
 
   /// Returns the files and folders located at a specified path.
-  BuiltList<NxCell> getFolderItemsForPath(String qPath) {}
+  Future<BuiltList<NxCell>> getFolderItemsForPath(String qPath) async {}
 
   /// Lists the supported code pages.
-  BuiltList<NxCell> getSupportedCodePages() {}
+  Future<BuiltList<NxCell>> getSupportedCodePages() async {}
 
   /// List the custom connectors available in the system.
-  BuiltList<NxCell> getCustomConnectors(bool qReloadList) {}
+  Future<BuiltList<NxCell>> getCustomConnectors({bool qReloadList}) async {}
 
   /// Lists the streams.
-  BuiltList<NxCell> getStreamList() {}
+  Future<BuiltList<NxCell>> getStreamList() async {}
 
   /// Returns the version number of the Qlik engine component.
-  NxEngineVersion engineVersion() {}
+  Future<NxEngineVersion> engineVersion() async {}
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.
   /// In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  BuiltList<NxCell> getBaseBNF(String qBnfType) {}
+  Future<BuiltList<NxCell>> getBaseBNF(String qBnfType) async {}
 
   /// Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. If the hash changes between subsequent calls to this method, this indicates that the BNF grammar has changed.
-  String getBaseBNFHash(String qBnfType) {}
+  Future<String> getBaseBNFHash(String qBnfType) async {}
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.
   /// In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  String getBaseBNFString(String qBnfType) {}
+  Future<String> getBaseBNFString(String qBnfType) async {}
 }
