@@ -1,25 +1,32 @@
+import 'dart:async';
+import '../rpc/handle_object.dart';
+import '../rpc/rpc.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at variable level.
 /// <div class=note>Methods in this class are deprecated. Use methods in the _GenericVariableClass_ instead. </div>
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the variable.
-class Variable {
+class Variable extends HandleObject {
+  Variable(Rpc rpc, int handle) : super(rpc, handle);
+
+  String get serviceType => 'Variable';
+
   /// Returns the calculated value of a variable.
-  AlfaNumString getContent() {}
+  Future<AlfaNumString> getContent() async {}
 
   /// Returns the raw value of a variable.
-  String getRawContent() {}
+  Future<String> getRawContent() async {}
 
   /// Sets a value to a variable.
-  bool setContent(String qContent, bool qUpdateMRU) {}
+  Future<bool> setContent(String qContent, bool qUpdateMRU) async {}
 
   /// Sets the value of a dual variable overriding any input constraints.
-  forceContent(String qs, num qd) {}
+  Future<void> forceContent(String qs, num qd) async {}
 
   /// Gets the properties of a variable.
-  NxVariableProperties getNxProperties() {}
+  Future<NxVariableProperties> getNxProperties() async {}
 
   /// Sets some properties to a variable.
-  setNxProperties(NxVariableProperties qProperties) {}
+  Future<void> setNxProperties(NxVariableProperties qProperties) async {}
 }

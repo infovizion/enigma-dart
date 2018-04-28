@@ -1,9 +1,16 @@
+import 'dart:async';
+import '../rpc/handle_object.dart';
+import '../rpc/rpc.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at generic object level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the generic object.
-class GenericObject {
+class GenericObject extends HandleObject {
+  GenericObject(Rpc rpc, int handle) : super(rpc, handle);
+
+  String get serviceType => 'GenericObject';
+
   /// Evaluates an object and displays its properties including the dynamic properties.
   /// If the member _delta_ is set to true in the request object, only the delta is evaluated. A _GetLayout_ call on a generic object, returns up to one level down in the hierarchy.
   ///
@@ -18,16 +25,18 @@ class GenericObject {
   /// In addition to the parameters displayed above, the **GetLayout** method can return other properties according to what is defined in the generic object.
   /// For example, if **qHyperCubeDef** is defined in the generic object, the **GetLayout** method returns the properties described in _HyperCube_.
   /// </div>
-  GenericObjectLayout getLayout() {}
+  Future<GenericObjectLayout> getLayout() async {}
 
   /// Retrieves the values of a list object.
   /// A data set is returned.
-  BuiltList<NxCell> getListObjectData(String qPath, BuiltList<NxCell> qPages) {}
+  Future<BuiltList<NxCell>> getListObjectData(
+      String qPath, BuiltList<NxCell> qPages) async {}
 
   /// Retrieves the calculated data for a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_STRAIGHT.</div>
   /// A data set is returned.
-  BuiltList<NxCell> getHyperCubeData(String qPath, BuiltList<NxCell> qPages) {}
+  Future<BuiltList<NxCell>> getHyperCubeData(
+      String qPath, BuiltList<NxCell> qPages) async {}
 
   /// Reduces the data of a bar chart, a line chart or a scatter plot chart and retrieves them.
   /// The reduction is dependent on the zoom factor (parameter _qZoomFactor_ ) and on the reduction mode.
@@ -55,28 +64,30 @@ class GenericObject {
   ///
   /// ### Example
   /// If you have a scatter plot chart and the zoom factor is set to 2, the scatter plot chart resolution is reduced by 4.
-  BuiltList<NxCell> getHyperCubeReducedData(String qPath,
-      BuiltList<NxCell> qPages, int qZoomFactor, String qReductionMode) {}
+  Future<BuiltList<NxCell>> getHyperCubeReducedData(String qPath,
+      BuiltList<NxCell> qPages, int qZoomFactor, String qReductionMode) async {}
 
   /// Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT.</div>
-  BuiltList<NxCell> getHyperCubePivotData(
-      String qPath, BuiltList<NxCell> qPages) {}
+  Future<BuiltList<NxCell>> getHyperCubePivotData(
+      String qPath, BuiltList<NxCell> qPages) async {}
 
   /// Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT_STACK.</div>
-  BuiltList<NxCell> getHyperCubeStackData(
-      String qPath, BuiltList<NxCell> qPages, int qMaxNbrCells) {}
+  Future<BuiltList<NxCell>> getHyperCubeStackData(
+      String qPath, BuiltList<NxCell> qPages,
+      {int qMaxNbrCells}) async {}
 
   /// Retrieves and packs compressed hypercube and axis data. It is possible to retrieve specific pages of data.
   /// <div class=note>Binning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.</div>
-  BuiltList<NxCell> getHyperCubeContinuousData(
-      String qPath, NxContinuousDataOptions qOptions, bool qReverseSort) {}
+  Future<BuiltList<NxCell>> getHyperCubeContinuousData(
+      String qPath, NxContinuousDataOptions qOptions,
+      {bool qReverseSort}) async {}
 
   /// Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a treedata object or a hypercube in DATA_MODE_TREE.</div>
-  BuiltList<NxCell> getHyperCubeTreeData(
-      String qPath, NxTreeDataOption qNodeOptions) {}
+  Future<BuiltList<NxCell>> getHyperCubeTreeData(String qPath,
+      {NxTreeDataOption qNodeOptions}) async {}
 
   /// This method supports data binning.
   /// When a generic object with two or three measures and one dimension contains a lot of data, groups of points (for example, cells) can be rendered instead of points.
@@ -211,29 +222,30 @@ class GenericObject {
   /// </td>
   /// </tr>
   /// </table>
-  BuiltList<NxCell> getHyperCubeBinnedData(
+  Future<BuiltList<NxCell>> getHyperCubeBinnedData(
       String qPath,
       BuiltList<NxCell> qPages,
       NxViewPort qViewport,
       BuiltList<NxCell> qDataRanges,
       int qMaxNbrCells,
       int qQueryLevel,
-      int qBinningMethod) {}
+      int qBinningMethod) async {}
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// It is possible to apply a patch to the properties of a generic object, that is not persistent. Such a patch is called a soft patch.
   /// In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing _GetProperties_ , and only a _GetLayout_ call shows the result of the operation.
   /// Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.
   /// <div class=note>Soft properties apply only to generic objects.</div>
-  applyPatches(BuiltList<NxCell> qPatches, bool qSoftPatch) {}
+  Future<void> applyPatches(BuiltList<NxCell> qPatches,
+      {bool qSoftPatch}) async {}
 
   /// Clears the soft properties of a generic object.
   /// For more information on how to add soft properties to a generic object, see _ApplyPatches Method_.
-  clearSoftPatches() {}
+  Future<void> clearSoftPatches() async {}
 
   /// Sets some properties for a generic object.
   /// <div class=note>The properties depends on the generic object type, see [properties](genericobject-property.html).</div>
-  setProperties(GenericObjectProperties qProp) {}
+  Future<void> setProperties(GenericObjectProperties qProp) async {}
 
   /// Returns the identifier, the type and the properties of the object.
   /// Because it is not mandatory to set all properties when you define an object, the _GetProperties_ method may show properties that were not set. In that case, default values are given.
@@ -241,7 +253,7 @@ class GenericObject {
   /// If the object is linked to another object, the properties of the linking object are not returned by the _GetProperties_ method. Use the _GetEffectiveProperties method_ instead.
   /// <div class=note>The properties depends on the generic object type, see [properties](genericobject-layout.html).</div>
   /// <div class=note>If the member delta is set to true in the request object, only the delta is retrieved.</div>
-  GenericObjectProperties getProperties() {}
+  Future<GenericObjectProperties> getProperties() async {}
 
   /// Returns the identifier, the type and the properties of the object.
   /// If the object contains some soft properties, the soft properties are returned.
@@ -250,7 +262,7 @@ class GenericObject {
   /// Returns the identifier, the type and the properties of the object.
   /// If the object contains some soft properties, the soft properties are returned.
   /// If the object is linked to another object, the properties of the linking object are returned.
-  GenericObjectProperties getEffectiveProperties() {}
+  Future<GenericObjectProperties> getEffectiveProperties() async {}
 
   /// Sets the properties of:
   /// * A generic object.
@@ -258,19 +270,20 @@ class GenericObject {
   /// * The bookmarks/embedded snapshots of the generic object.
   ///
   /// <div class=note>If the _SetFullPropertyTree method_ is asked to set some properties to a child that does not exist, it creates the child. </div> <div class=note>The type of an object cannot be updated.</div>
-  setFullPropertyTree(GenericObjectEntry qPropEntry) {}
+  Future<void> setFullPropertyTree(GenericObjectEntry qPropEntry) async {}
 
   /// Gets the properties of:
   /// * A generic object.
   /// * The children of the generic object.
   /// * The bookmarks/embedded snapshots of the generic object.
-  GenericObjectEntry getFullPropertyTree() {}
+  Future<GenericObjectEntry> getFullPropertyTree() async {}
 
   /// Returns the type and identifier of the object.
-  NxInfo getInfo() {}
+  Future<NxInfo> getInfo() async {}
 
   /// Clears the selections in a dimension of a visualization.
-  clearSelections(String qPath, BuiltList<NxCell> qColIndices) {}
+  Future<void> clearSelections(String qPath,
+      {BuiltList<NxCell> qColIndices}) async {}
 
   /// Exports the data of any generic object to an Excel file or a open XML file. If the object contains excluded values, those excluded values are not exported.
   /// This API has limited functionality and will not support CSV export from all types of objects. Consider using Excel export instead. Treemap and bar chart are not supported.
@@ -302,8 +315,8 @@ class GenericObject {
   /// If the exported file is larger than the maximum value, then an out-of-memory error with code 13000 is returned.
   ///
   /// <div class=note>Exported files are temporary and are available only for a certain time span and only to the user who created them.</div>
-  String exportData(
-      String qFileType, String qPath, String qFileName, String qExportState) {}
+  Future<String> exportData(String qFileType,
+      {String qPath, String qFileName, String qExportState}) async {}
 
   /// Makes single selections in dimensions.
   /// <div class=note>This method applies to list objects only.</div>
@@ -312,8 +325,9 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool selectListObjectValues(String qPath, BuiltList<NxCell> qValues,
-      bool qToggleMode, bool qSoftLock) {}
+  Future<bool> selectListObjectValues(
+      String qPath, BuiltList<NxCell> qValues, bool qToggleMode,
+      {bool qSoftLock}) async {}
 
   /// Selects all possible values of a list object.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div>
@@ -322,7 +336,7 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool selectListObjectPossible(String qPath, bool qSoftLock) {}
+  Future<bool> selectListObjectPossible(String qPath, {bool qSoftLock}) async {}
 
   /// Inverts the current selections in a specific field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div>
@@ -331,7 +345,7 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool selectListObjectExcluded(String qPath, bool qSoftLock) {}
+  Future<bool> selectListObjectExcluded(String qPath, {bool qSoftLock}) async {}
 
   /// Selects all alternative values in a specific field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note>If a field contains at least one selected value, the values that are neither selected nor excluded are alternatives values.</div>
@@ -340,7 +354,8 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool selectListObjectAlternative(String qPath, bool qSoftLock) {}
+  Future<bool> selectListObjectAlternative(String qPath,
+      {bool qSoftLock}) async {}
 
   /// Selects all values of a field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div>
@@ -349,53 +364,56 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool selectListObjectAll(String qPath, bool qSoftLock) {}
+  Future<bool> selectListObjectAll(String qPath, {bool qSoftLock}) async {}
 
   /// The following is returned in the output:
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool selectListObjectContinuousRange(
-      String qPath, BuiltList<NxCell> qRanges, bool qSoftLock) {}
+  Future<bool> selectListObjectContinuousRange(
+      String qPath, BuiltList<NxCell> qRanges,
+      {bool qSoftLock}) async {}
 
   /// Searches for a string in a list object.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note>The search results can be displayed using the _GetLayout Method_. </div>
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool searchListObjectFor(String qPath, String qMatch) {}
+  Future<bool> searchListObjectFor(String qPath, String qMatch) async {}
 
   /// Aborts the results of a search in a list object.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note> After an abort on a list object search, the _GetLayout Method_ does not return any more search results but it does return the values in the field. </div>
-  abortListObjectSearch(String qPath) {}
+  Future<void> abortListObjectSearch(String qPath) async {}
 
   /// Accept the results of a search in a list object. The search results become selected in the field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note>The search results are displayed using the _GetLayout Method_. </div>
-  acceptListObjectSearch(String qPath, bool qToggleMode, bool qSoftLock) {}
+  Future<void> acceptListObjectSearch(String qPath, bool qToggleMode,
+      {bool qSoftLock}) async {}
 
   /// Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
-  expandLeft(String qPath, int qRow, int qCol, bool qAll) {}
+  Future<void> expandLeft(String qPath, int qRow, int qCol, bool qAll) async {}
 
   /// Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
-  expandTop(String qPath, int qRow, int qCol, bool qAll) {}
+  Future<void> expandTop(String qPath, int qRow, int qCol, bool qAll) async {}
 
   /// Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
-  collapseLeft(String qPath, int qRow, int qCol, bool qAll) {}
+  Future<void> collapseLeft(
+      String qPath, int qRow, int qCol, bool qAll) async {}
 
   /// Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
-  collapseTop(String qPath, int qRow, int qCol, bool qAll) {}
+  Future<void> collapseTop(String qPath, int qRow, int qCol, bool qAll) async {}
 
   /// You can use the drillUp method with any object that contains a drill-down group as a dimension.
   /// This method allows you to move between different levels of information (from a detailed level to a less detailed level of information). You can go back to previous visualizations up to the highest level of the hierarchy.
   /// If you try to drill up more steps than there are available levels, the first level of the hierarchy is displayed.
-  drillUp(String qPath, int qDimNo, int qNbrSteps) {}
+  Future<void> drillUp(String qPath, int qDimNo, int qNbrSteps) async {}
 
   /// Locks the selected values of a generic object.
-  lock(String qPath, BuiltList<NxCell> qColIndices) {}
+  Future<void> lock(String qPath, {BuiltList<NxCell> qColIndices}) async {}
 
   /// Unlocks the selected values of a generic object if the target (or handle ) is a generic object
-  unlock(String qPath, BuiltList<NxCell> qColIndices) {}
+  Future<void> unlock(String qPath, {BuiltList<NxCell> qColIndices}) async {}
 
   /// Selects some values in one dimension.
   /// The values are identified by their element numbers.
@@ -405,8 +423,8 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool selectHyperCubeValues(
-      String qPath, int qDimNo, BuiltList<NxCell> qValues, bool qToggleMode) {}
+  Future<bool> selectHyperCubeValues(String qPath, int qDimNo,
+      BuiltList<NxCell> qValues, bool qToggleMode) async {}
 
   /// Makes selections in multiple dimensions and measures.
   /// <div class=note> This method applies to hypercubes, such as bar charts, tables and scatter plots.</div>
@@ -415,12 +433,9 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool selectHyperCubeCells(
-      String qPath,
-      BuiltList<NxCell> qRowIndices,
+  Future<bool> selectHyperCubeCells(String qPath, BuiltList<NxCell> qRowIndices,
       BuiltList<NxCell> qColIndices,
-      bool qSoftLock,
-      bool qDeselectOnlyOneSelected) {}
+      {bool qSoftLock, bool qDeselectOnlyOneSelected}) async {}
 
   /// <div class=note>This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in _HyperCubeDef_ must be set either to _P_  or _K_ . </div>
   ///
@@ -458,8 +473,8 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool selectPivotCells(String qPath, BuiltList<NxCell> qSelections,
-      bool qSoftLock, bool qDeselectOnlyOneSelected) {}
+  Future<bool> selectPivotCells(String qPath, BuiltList<NxCell> qSelections,
+      {bool qSoftLock, bool qDeselectOnlyOneSelected}) async {}
 
   /// Make range selections in measures.
   /// <div class=note> This method applies to hypercubes. For example, bar charts, tables and scatter plots.</div>
@@ -468,55 +483,59 @@ class GenericObject {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  bool rangeSelectHyperCubeValues(
-      String qPath,
-      BuiltList<NxCell> qRanges,
-      BuiltList<NxCell> qColumnsToSelect,
+  Future<bool> rangeSelectHyperCubeValues(
+      String qPath, BuiltList<NxCell> qRanges,
+      {BuiltList<NxCell> qColumnsToSelect,
       bool qOrMode,
-      bool qDeselectOnlyOneSelected) {}
-  bool multiRangeSelectHyperCubeValues(String qPath, BuiltList<NxCell> qRanges,
-      bool qOrMode, bool qDeselectOnlyOneSelected) {}
-  bool multiRangeSelectTreeDataValues(String qPath, BuiltList<NxCell> qRanges,
-      bool qOrMode, bool qDeselectOnlyOneSelected) {}
+      bool qDeselectOnlyOneSelected}) async {}
+  Future<bool> multiRangeSelectHyperCubeValues(
+      String qPath, BuiltList<NxCell> qRanges,
+      {bool qOrMode, bool qDeselectOnlyOneSelected}) async {}
+  Future<bool> multiRangeSelectTreeDataValues(
+      String qPath, BuiltList<NxCell> qRanges,
+      {bool qOrMode, bool qDeselectOnlyOneSelected}) async {}
 
   /// The following is returned in the output:
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool selectHyperCubeContinuousRange(
-      String qPath, BuiltList<NxCell> qRanges, bool qSoftLock) {}
+  Future<bool> selectHyperCubeContinuousRange(
+      String qPath, BuiltList<NxCell> qRanges,
+      {bool qSoftLock}) async {}
 
   /// Returns the type of the object and the corresponding handle.
-  ObjectInterface getChild(String qId) {}
+  Future<ObjectInterface> getChild(String qId) async {}
 
   /// Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.
   ///
   /// Full dynamic properties are optional and are returned if they exist in the definition of the object.
-  BuiltList<NxCell> getChildInfos() {}
+  Future<BuiltList<NxCell>> getChildInfos() async {}
 
   /// Creates a generic object that is a child of another generic object.
   /// <div class=note>It is possible to update the properties of the child's parent at the same time that the child is created. Both operations are performed by the same call.</div> <div class=note>It is possible to create a child that is linked to another generic object. The two objects have the same properties.</div>
-  NxInfo createChild(
-      GenericObjectProperties qProp, GenericObjectProperties qPropForThis) {}
+  Future<NxInfo> createChild(GenericObjectProperties qProp,
+      {GenericObjectProperties qPropForThis}) async {}
 
   /// Removes a child object.
   /// <div class=note>It is possible to update the properties of the child's parent at the same time that the child is removed. Both operations are performed by the same call.</div> <div class=note>Removing a linked object, invalidate the linking object. </div>
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroyChild(String qId, GenericObjectProperties qPropForThis) {}
+  Future<bool> destroyChild(String qId,
+      {GenericObjectProperties qPropForThis}) async {}
 
   /// Removes all children and all children to the children on an object.
-  destroyAllChildren(GenericObjectProperties qPropForThis) {}
+  Future<void> destroyAllChildren(
+      {GenericObjectProperties qPropForThis}) async {}
 
   /// Sets the order of the children in a generic object.
   /// <div class=note>To change the order of the children in a generic object, the identifiers of all the children must be included in the list of the identifiers (in _qIds_ ). </div>
-  setChildArrayOrder(BuiltList<NxCell> qIds) {}
+  Future<void> setChildArrayOrder(BuiltList<NxCell> qIds) async {}
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
-  BuiltList<NxCell> getLinkedObjects() {}
+  Future<BuiltList<NxCell>> getLinkedObjects() async {}
 
   /// Copies the properties of a generic object and its children.
   /// The source object is specified by the parameter _qFromId_ and the destination object is referenced by its handle.
   /// <div class=note>The identifier of the destination object is the same as before the copy takes place.</div>
-  copyFrom(String qFromId) {}
+  Future<void> copyFrom(String qFromId) async {}
 
   /// Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.
   /// When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:
@@ -525,26 +544,26 @@ class GenericObject {
   ///
   /// ### Example
   /// A sheet contains a list object and a chart. If the list object is in selection mode then the chart cannot be in selection mode. No selection on the chart can be made until the list object exits the selection mode.
-  beginSelections(BuiltList<NxCell> qPaths) {}
+  Future<void> beginSelections(BuiltList<NxCell> qPaths) async {}
 
   /// Ends the selection mode on a visualization. The selections are accepted or aborted when exiting the selection mode, depending on the _qAccept_ parameter value.
-  endSelections(bool qAccept) {}
+  Future<void> endSelections(bool qAccept) async {}
 
   /// Resets all selections made in selection mode.
-  resetMadeSelections() {}
+  Future<void> resetMadeSelections() async {}
 
   /// Adds a snapshot to a generic object.
   /// <div class=note>Only one snapshot can be embedded in a generic object.</div> <div class=note>If you embed a snapshot in an object that already contains a snapshot, the new snapshot overwrites the previous one.</div>
-  embedSnapshotObject(String qId) {}
+  Future<void> embedSnapshotObject(String qId) async {}
 
   /// Returns the type of the object and the corresponding handle.
-  ObjectInterface getSnapshotObject() {}
+  Future<ObjectInterface> getSnapshotObject() async {}
 
   /// Publishes a generic object.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
-  publish() {}
+  Future<void> publish() async {}
 
   /// Unpublishes a generic object.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
-  unPublish() {}
+  Future<void> unPublish() async {}
 }

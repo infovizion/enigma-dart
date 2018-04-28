@@ -1,9 +1,16 @@
+import 'dart:async';
+import '../rpc/handle_object.dart';
+import '../rpc/rpc.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at bookmark level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the bookmark.
-class GenericBookmark {
+class GenericBookmark extends HandleObject {
+  GenericBookmark(Rpc rpc, int handle) : super(rpc, handle);
+
+  String get serviceType => 'GenericBookmark';
+
   /// Retrieves the values of a field.
   ///
   /// ### Fieldvalue
@@ -29,38 +36,38 @@ class GenericBookmark {
   /// <td>Double</td>
   /// </tr>
   /// </table>
-  BuiltList<NxCell> getFieldValues(
-      String qField, bool qGetExcludedValues, BookmarkFieldPage qDataPage) {}
+  Future<BuiltList<NxCell>> getFieldValues(String qField,
+      bool qGetExcludedValues, BookmarkFieldPage qDataPage) async {}
 
   /// Evaluates an object and displays its properties including the dynamic properties.
   /// If the member _delta_ is set to true in the request object, only the delta is evaluated.
-  GenericBookmarkLayout getLayout() {}
+  Future<GenericBookmarkLayout> getLayout() async {}
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
-  applyPatches(BuiltList<NxCell> qPatches) {}
+  Future<void> applyPatches(BuiltList<NxCell> qPatches) async {}
 
   /// Sets some properties for a bookmark.
-  setProperties(GenericBookmarkProperties qProp) {}
+  Future<void> setProperties(GenericBookmarkProperties qProp) async {}
 
   /// Shows the properties of an object.
   /// <div class=note>If the member delta is set to true in the request object, only the delta is retrieved.</div>
   /// The following is always returned in the output:
-  GenericBookmarkProperties getProperties() {}
+  Future<GenericBookmarkProperties> getProperties() async {}
 
   /// Returns:
   /// * The type of the object.
   /// * The identifier of the object.
-  NxInfo getInfo() {}
+  Future<NxInfo> getInfo() async {}
 
   /// Applies a bookmark.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool apply() {}
+  Future<bool> apply() async {}
 
   /// Publishes a bookmark.
-  publish() {}
+  Future<void> publish() async {}
 
   /// Unpublishes a bookmark.
-  unPublish() {}
+  Future<void> unPublish() async {}
 }

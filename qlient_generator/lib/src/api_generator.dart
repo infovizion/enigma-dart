@@ -249,19 +249,6 @@ class ApiGenerator {
     buffer.writeln("part '$snakeCaseName.g.dart';\n");
 
     addComment(schemaType.description, buffer, '');
-// abstract class Method implements Built<Method, MethodBuilder> {
-
-//   static Serializer<Method> get serializer => _$methodSerializer;
-//   @nullable
-//   String get description;
-
-//   BuiltList<SchemaType> get parameters;
-
-//   BuiltList<SchemaType> get responses;
-
-//   factory Method([updates(MethodBuilder b)]) = _$Method;
-//   Method._();
-// }
 
     buffer.writeln(
         'abstract class $className implements Built<$className, ${className}Builder> {\n');
@@ -306,29 +293,65 @@ class ApiGenerator {
     // if (typeData == null) {
     //   print('Type not found for field $methodName $fieldContent');
     // }
-    var params = method.parameters.map((schemaType) {
-      var typeData = getTypeData(schemaType);
-      return '${typeData?.dartType} ${schemaType.name}';
-    });
+    // var mandatoryParams =
+    //     method.parameters.where((p) => p.required != null && p.required).map((schemaType) {
+    //   var typeData = getTypeData(schemaType);
+    //   return '${typeData?.dartType} ${schemaType.name}';
+    // });
+    var mandatoryParams = <String>[];
+    for (var p in method.parameters) {
+      if (p.required != null && p.required) {
+        var typeData = getTypeData(p);
+        mandatoryParams.add('${typeData?.dartType} ${p.name}');
+      }
+    }
+    var optionalParams = <String>[];
+    for (var p in method.parameters) {
+      if (p.required == null || !p.required) {
+        var typeData = getTypeData(p);
+        optionalParams.add('${typeData?.dartType} ${p.name}');
+      }
+    }
+    var paramParts = <String>[];
+    if (mandatoryParams.isNotEmpty) {
+      paramParts.add(mandatoryParams.join(', '));
+    }
+    if (optionalParams.isNotEmpty) {
+      paramParts.add('{${optionalParams.join(', ')}}');
+    }
     var returnType = '';
     if (method.responses.isNotEmpty) {
       var typeData = getTypeData(method.responses.first);
       if (typeData != null) {
         returnType = typeData.dartType;
       } else {
+        returnType = 'void';
         // print('Not found ${method.responses.first}');
       }
+    } else {
+      returnType = 'void';
     }
-    buffer.writeln('  $returnType $dartMethodName(${params.join(', ')}) {}');
+    buffer.writeln(
+        '  Future<$returnType> $dartMethodName(${paramParts.join(', ')}) async {}');
+        
   }
 
   generateService(String className, Service service) {
     String fileName = getModelFileName(className);
     var buffer = new StringBuffer();
+    buffer.writeln("import 'dart:async';");
+    buffer.writeln("import '../rpc/handle_object.dart';");
+    buffer.writeln("import '../rpc/rpc.dart';");
     buffer.writeln("import '../models.dart';");
     buffer.writeln("import 'package:built_collection/built_collection.dart';");
     addComment(service.description, buffer, '');
-    buffer.writeln('class $className {');
+    buffer.writeln('class $className extends HandleObject {');
+    buffer.writeln('');
+    buffer.writeln('''
+    
+    $className(Rpc rpc, int handle) : super(rpc, handle);
+
+      String get serviceType => '$className';''');
     service.methods.forEach((methodName, content) {
       generateMethod(methodName, content, buffer);
     });

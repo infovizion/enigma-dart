@@ -1,15 +1,23 @@
+import 'dart:async';
+import '../rpc/handle_object.dart';
+import '../rpc/rpc.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
-class Doc {
+class Doc extends HandleObject {
+  Doc(Rpc rpc, int handle) : super(rpc, handle);
+
+  String get serviceType => 'Doc';
+
   /// Returns a handle to a field.
-  ObjectInterface getField(String qFieldName, String qStateName) {}
+  Future<ObjectInterface> getField(String qFieldName,
+      {String qStateName}) async {}
 
   /// Returns the description of a field.
-  FieldDescription getFieldDescription(String qFieldName) {}
+  Future<FieldDescription> getFieldDescription(String qFieldName) async {}
 
   /// Returns a handle to a variable.
-  ObjectInterface getVariable(String qName) {}
+  Future<ObjectInterface> getVariable(String qName) async {}
 
   /// Returns a list of table states.
   ///
@@ -20,7 +28,7 @@ class Doc {
   ///
   /// <div class=note>The last three values in the vector are for internal use.</div>
   /// <div class=note>In case of circular references, the engine automatically sets the table state to loosely coupled to avoid creating loops.</div>
-  BuiltList<NxCell> getLooselyCoupledVector() {}
+  Future<BuiltList<NxCell>> getLooselyCoupledVector() async {}
 
   /// Sets a list of table states, one for each table.
   ///
@@ -30,7 +38,7 @@ class Doc {
   /// * 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.
   ///
   /// <div class=note>The last three values in the vector are for internal use.</div>
-  bool setLooselyCoupledVector(BuiltList<NxCell> qv) {}
+  Future<bool> setLooselyCoupledVector(BuiltList<NxCell> qv) async {}
 
   /// Evaluates an expression and returns the result as a string.
   ///
@@ -57,7 +65,7 @@ class Doc {
   ///     }
   /// }
   /// ```
-  String evaluate(String qExpression) {}
+  Future<String> evaluate(String qExpression) async {}
 
   /// Evaluates an expression and returns the result as a dual.
   ///
@@ -84,38 +92,38 @@ class Doc {
   ///     }
   /// }
   /// ```
-  FieldValue evaluateEx(String qExpression) {}
+  Future<FieldValue> evaluateEx(String qExpression) async {}
 
   /// Clear selections in fields for current state. Locked fields are not cleared by default.
-  clearAll(bool qLockedAlso, String qStateName) {}
+  Future<void> clearAll({bool qLockedAlso, String qStateName}) async {}
 
   /// Locks all selections in fields for current state.
-  lockAll(String qStateName) {}
+  Future<void> lockAll({String qStateName}) async {}
 
   /// Unlocks all selections in fields for current state.
-  unlockAll(String qStateName) {}
+  Future<void> unlockAll({String qStateName}) async {}
 
   /// Loads the last logical operation (if any).
-  back() {}
+  Future<void> back() async {}
 
   /// Loads the next logical operation (if any).
-  forward() {}
+  Future<void> forward() async {}
 
   /// Creates a variable.
-  bool createVariable(String qName) {}
+  Future<bool> createVariable(String qName) async {}
 
   /// Removes a variable.
-  bool removeVariable(String qName) {}
+  Future<bool> removeVariable(String qName) async {}
 
   /// Returns locale information.
-  LocaleInfo getLocaleInfo() {}
+  Future<LocaleInfo> getLocaleInfo() async {}
 
   /// Returns:
   /// * The list of tables in an app and the fields inside each table.
   /// * The list of derived fields.
   /// * The list of key fields.
-  BuiltList<NxCell> getTablesAndKeys(Size qWindowSize, Size qNullSize,
-      int qCellHeight, bool qSyntheticMode, bool qIncludeSysVars) {}
+  Future<BuiltList<NxCell>> getTablesAndKeys(Size qWindowSize, Size qNullSize,
+      int qCellHeight, bool qSyntheticMode, bool qIncludeSysVars) async {}
 
   /// Returns information about the position of the tables in the data model viewer.
   /// <div class=note>The position of the broom points and the position of the connection points cannot be retrieved in Qlik Sense.</div>
@@ -124,7 +132,7 @@ class Doc {
   /// ![](images/ui_gen_BroomConnectionPoints_dmv.png)<br>
   /// The green circles represent the broom points.
   /// The red circle represents a connection point.
-  TableViewDlgSaveInfo getViewDlgSaveInfo() {}
+  Future<TableViewDlgSaveInfo> getViewDlgSaveInfo() async {}
 
   /// Sets the positions of the tables in the data model viewer.
   /// <div class=note>The position of the broom points and the position of the connection points cannot be set in Qlik Sense.</div>
@@ -133,11 +141,11 @@ class Doc {
   /// ![](images/ui_gen_BroomConnectionPoints_dmv.png)<br>
   /// The green circles represent the broom points.
   /// The red circle represents a connection point.
-  setViewDlgSaveInfo(TableViewDlgSaveInfo qInfo) {}
+  Future<void> setViewDlgSaveInfo(TableViewDlgSaveInfo qInfo) async {}
 
   /// Creates a script that contains one section. This section contains **SET** statements that give localized information from the regional settings of the computer.
   /// <div class=note>The computer regional settings are retrieved when the engine starts.</div>
-  String getEmptyScript(String qLocalizedMainSection) {}
+  Future<String> getEmptyScript({String qLocalizedMainSection}) async {}
 
   /// Reloads the script that is set in an app.
   ///
@@ -168,77 +176,78 @@ class Doc {
   /// <td><i>%UserProfile%/Documents/Qlik/Sense/Log</i></td>
   /// </tr>
   /// </table>
-  bool doReload(int qMode, bool qPartial, bool qDebug) {}
+  Future<bool> doReload({int qMode, bool qPartial, bool qDebug}) async {}
 
   /// Lists the breakpoints in the script of an app.
-  BuiltList<NxCell> getScriptBreakpoints() {}
+  Future<BuiltList<NxCell>> getScriptBreakpoints() async {}
 
   /// Set some breakpoints in the script of an app.
-  setScriptBreakpoints(BuiltList<NxCell> qBreakpoints) {}
+  Future<void> setScriptBreakpoints(BuiltList<NxCell> qBreakpoints) async {}
 
   /// Gets values in script.
-  String getScript() {}
+  Future<String> getScript() async {}
 
   /// Fetches updated variables after a statement execution.
   ///
   /// <div class=note>If qRefSeqNo and qSetSeqNo are set to 0, it means that the variables were not updated.</div>
-  BuiltList<NxCell> getTextMacros() {}
+  Future<BuiltList<NxCell>> getTextMacros() async {}
 
   /// Limits the number of rows of data to load from a data source.
   /// This method works when reloading in debug mode.
-  setFetchLimit(int qLimit) {}
+  Future<void> setFetchLimit(int qLimit) async {}
 
   /// Saves an app. All objects and data in the data model are saved.
-  doSave(String qFileName) {}
+  Future<void> doSave({String qFileName}) async {}
 
   /// Retrieves the data of a specific table.
-  BuiltList<NxCell> getTableData(
-      int qOffset, int qRows, bool qSyntheticMode, String qTableName) {}
+  Future<BuiltList<NxCell>> getTableData(
+      int qOffset, int qRows, bool qSyntheticMode, String qTableName) async {}
 
   /// Evaluates an app.
   /// Returns dynamic properties (if any) in addition to the engine (fixed) properties.
   /// A data set is returned.
-  NxAppLayout getAppLayout() {}
+  Future<NxAppLayout> getAppLayout() async {}
 
   /// Sets properties to an app.
-  setAppProperties(NxAppProperties qProp) {}
+  Future<void> setAppProperties(NxAppProperties qProp) async {}
 
   /// Gets the properties of an app.
-  NxAppProperties getAppProperties() {}
+  Future<NxAppProperties> getAppProperties() async {}
 
   /// Gets the lineage information of the app. The lineage information includes the LOAD and STORE statements from the data load script associated with this app.
   /// An array of lineage information.
-  BuiltList<NxCell> getLineage() {}
+  Future<BuiltList<NxCell>> getLineage() async {}
 
   /// Creates a transient object. For example, you can use a transient object to create an app overview or a story overview.
   /// It is possible to create a transient object that is linked to another object.
   /// A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).
   /// The linked object has the same properties as the linking object.
   /// <div class=note>The linking object cannot be a transient object.</div>
-  ObjectInterface createSessionObject(GenericObjectProperties qProp) {}
+  Future<ObjectInterface> createSessionObject(
+      GenericObjectProperties qProp) async {}
 
   /// Removes a transient object.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroySessionObject(String qId) {}
+  Future<bool> destroySessionObject(String qId) async {}
 
   /// Creates a generic object at app level. For more information on generic objects, see _Generic object_.
   /// It is possible to create a generic object that is linked to another object.
   /// A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).
   /// The linked object has the same properties as the linking object.
   /// <div class=note>The linking object cannot be a transient object.</div>
-  NxInfo createObject(GenericObjectProperties qProp) {}
+  Future<NxInfo> createObject(GenericObjectProperties qProp) async {}
 
   /// Removes an app object.
   /// The children of the object (if any) are removed as well.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroyObject(String qId) {}
+  Future<bool> destroyObject(String qId) async {}
 
   /// Returns the type of the app object and the corresponding handle.
-  ObjectInterface getObject(String qId) {}
-  BuiltList<NxCell> getObjects(NxGetObjectOptions qOptions) {}
-  BuiltList<NxCell> getBookmarks(NxGetBookmarkOptions qOptions) {}
+  Future<ObjectInterface> getObject(String qId) async {}
+  Future<BuiltList<NxCell>> getObjects(NxGetObjectOptions qOptions) async {}
+  Future<BuiltList<NxCell>> getBookmarks(NxGetBookmarkOptions qOptions) async {}
 
   /// Clones root level objects, such as sheets and stories. The CloneObject method works for both app objects and child objects.
   /// When you clone an object that contains children, the children are cloned as well.
@@ -246,72 +255,72 @@ class Doc {
   /// <div class=note>It is not possible to clone a session object.</div>
   ///
   /// <div class=note>The identifier is set by the engine.</div>
-  String cloneObject(String qId) {}
+  Future<String> cloneObject(String qId) async {}
 
   /// Creates a draft of an object.
   /// This method can be used to create a draft of a sheet or a story that is published. This is a way to continue working on a sheet or a story that is published.
   /// Replace the published object by the content of the draft by invoking the _CommitDraft method_.
   ///
   /// <div class=note>The identifier is set by the engine.</div>
-  String createDraft(String qId) {}
+  Future<String> createDraft(String qId) async {}
 
   /// Commits the draft of an object that was previously created by invoking the _CreateDraft method_.
   /// Committing a draft replaces the corresponding published object.
-  commitDraft(String qId) {}
+  Future<void> commitDraft(String qId) async {}
 
   /// Removes the draft of an object.
   /// The children of the draft object (if any) are removed as well.
   /// This method can be used to cancel the work on the draft of an object. For example, if you had created a draft of a sheet that is published, you might not want anymore to replace the published sheet.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroyDraft(String qId, String qSourceId) {}
+  Future<bool> destroyDraft(String qId, String qSourceId) async {}
 
   /// Undoes the previous operation.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool undo() {}
+  Future<bool> undo() async {}
 
   /// Redoes the previous operation.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool redo() {}
+  Future<bool> redo() async {}
 
   /// Clears entirely the undo and redo buffer.
-  clearUndoBuffer() {}
+  Future<void> clearUndoBuffer() async {}
 
   /// Creates a master dimension.
   /// A master dimension is stored in the library of an app and can be used in many objects. Several generic objects can contain the same dimension.
-  NxInfo createDimension(GenericDimensionProperties qProp) {}
+  Future<NxInfo> createDimension(GenericDimensionProperties qProp) async {}
 
   /// Removes a dimension.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroyDimension(String qId) {}
+  Future<bool> destroyDimension(String qId) async {}
 
   /// Returns the handle of a dimension.
-  ObjectInterface getDimension(String qId) {}
+  Future<ObjectInterface> getDimension(String qId) async {}
 
   /// Clones a dimension.
   ///
   /// <div class=note>The identifier is set by the engine.</div>
-  String cloneDimension(String qId) {}
+  Future<String> cloneDimension(String qId) async {}
 
   /// Creates a master measure.
   /// A master measure is stored in the library of an app and can be used in many objects. Several generic objects can contain the same measure.
-  NxInfo createMeasure(GenericMeasureProperties qProp) {}
+  Future<NxInfo> createMeasure(GenericMeasureProperties qProp) async {}
 
   /// Removes a generic measure.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroyMeasure(String qId) {}
+  Future<bool> destroyMeasure(String qId) async {}
 
   /// Returns the handle of a measure.
-  ObjectInterface getMeasure(String qId) {}
+  Future<ObjectInterface> getMeasure(String qId) async {}
 
   /// Clones a measure.
   ///
   /// <div class=note>The identifier is set by the engine.</div>
-  String cloneMeasure(String qId) {}
+  Future<String> cloneMeasure(String qId) async {}
 
   /// Creates a transient variable.
   /// <div class=note>To set some properties to the variable, use the _SetProperties method_. </div>
@@ -324,12 +333,13 @@ class Doc {
   /// The variable _x_ contains the text string _Sum(Sales)_ .
   /// In a chart, you define the expression _$(x)/12_ . The effect is exactly the same as having the chart expression _Sum(Sales)/12_ .
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
-  ObjectInterface createSessionVariable(GenericVariableProperties qProp) {}
+  Future<ObjectInterface> createSessionVariable(
+      GenericVariableProperties qProp) async {}
 
   /// Removes a transient variable.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroySessionVariable(String qId) {}
+  Future<bool> destroySessionVariable(String qId) async {}
 
   /// Creates a variable.
   /// To create a variable via a script, you need to use the _SetScript method_. For more information, see _Create a variable_.
@@ -343,106 +353,108 @@ class Doc {
   /// The variable _x_ contains the text string _Sum(Sales)_ .
   /// In a chart, you define the expression _$(x)/12_ . The effect is exactly the same as having the chart expression _Sum(Sales)/12_ .
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
-  NxInfo createVariableEx(GenericVariableProperties qProp) {}
+  Future<NxInfo> createVariableEx(GenericVariableProperties qProp) async {}
 
   /// Removes a variable.
   /// Script-defined variables cannot be removed using the _DestroyVariableById method_ or the _DestroyVariableByName method_. For more information, see _Remove a variable_.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroyVariableById(String qId) {}
+  Future<bool> destroyVariableById(String qId) async {}
 
   /// Removes a variable.
   /// Script-defined variables cannot be removed using the _DestroyVariableById method_ or the _DestroyVariableByName method_. For more information, see _Remove a variable_.
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroyVariableByName(String qName) {}
+  Future<bool> destroyVariableByName(String qName) async {}
 
   /// Gets the handle of a variable.
-  ObjectInterface getVariableById(String qId) {}
+  Future<ObjectInterface> getVariableById(String qId) async {}
 
   /// Gets the handle of a variable.
-  ObjectInterface getVariableByName(String qName) {}
+  Future<ObjectInterface> getVariableByName(String qName) async {}
 
   /// Checks if a given expression is valid.
   /// <div class=note>The expression is correct if the parameters _qErrorMsg_ , _qBadFieldNames_ and _qDangerousFieldNames_ are empty. </div>
-  String checkExpression(String qExpr, BuiltList<NxCell> qLabels) {}
+  Future<String> checkExpression(String qExpr,
+      {BuiltList<NxCell> qLabels}) async {}
 
   /// Checks if:
   /// * A given expression is valid.
   /// * A number is correct according to the locale.
-  String checkNumberOrExpression(String qExpr) {}
+  Future<String> checkNumberOrExpression(String qExpr) async {}
 
   /// Adds an alternate state in the app.
   /// You can create multiple states within a Qlik Sense app and apply these states to specific objects within the app. Objects in a given state are not affected by user selections in the other states.
-  addAlternateState(String qStateName) {}
+  Future<void> addAlternateState(String qStateName) async {}
 
   /// Removes an alternate state in the app.
-  removeAlternateState(String qStateName) {}
+  Future<void> removeAlternateState(String qStateName) async {}
 
   /// Creates a bookmark.
-  NxInfo createBookmark(GenericBookmarkProperties qProp) {}
+  Future<NxInfo> createBookmark(GenericBookmarkProperties qProp) async {}
 
   /// Removes a bookmark.
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool destroyBookmark(String qId) {}
+  Future<bool> destroyBookmark(String qId) async {}
 
   /// Returns the handle of a bookmark.
-  ObjectInterface getBookmark(String qId) {}
+  Future<ObjectInterface> getBookmark(String qId) async {}
 
   /// Applies a bookmark.
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool applyBookmark(String qId) {}
+  Future<bool> applyBookmark(String qId) async {}
 
   /// Clones a bookmark.
   /// <div class=note>The identifier is set by the engine.</div>
-  String cloneBookmark(String qId) {}
+  Future<String> cloneBookmark(String qId) async {}
 
   /// Adds a field on the fly.
   /// <div class=note>The expression of a field on the fly is persisted but not its values. </div>
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  bool addFieldFromExpression(String qName, String qExpr) {}
+  Future<bool> addFieldFromExpression(String qName, String qExpr) async {}
 
   /// Find the field-on-the-fly by passing its readable name.
-  String getFieldOnTheFlyByName(String qReadableName) {}
+  Future<String> getFieldOnTheFlyByName(String qReadableName) async {}
 
   /// Returns the identifier and the type of any generic object in the app.
-  BuiltList<NxCell> getAllInfos() {}
+  Future<BuiltList<NxCell>> getAllInfos() async {}
 
   /// Resumes the app as the user left it.
-  resume() {}
+  Future<void> resume() async {}
 
   /// Aborts any selection mode in an app. For more information about selection mode, see _BeginSelections method_.
-  abortModal(bool qAccept) {}
+  Future<void> abortModal(bool qAccept) async {}
 
   /// Publishes an app.
   /// All app objects are published. Generic objects, bookmarks, dimensions and measures inside the app are published.
   /// <div class=note>An app can only be published once and cannot be published to more than one stream.</div>
-  publish(String qStreamId, String qName) {}
+  Future<void> publish(String qStreamId, {String qName}) async {}
 
   /// Retrieves any fields that match all of the specified tags or just one of them in the data model of an app.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
-  BuiltList<NxCell> getMatchingFields(
-      BuiltList<NxCell> qTags, String qMatchingFieldMode) {}
+  Future<BuiltList<NxCell>> getMatchingFields(BuiltList<NxCell> qTags,
+      {String qMatchingFieldMode}) async {}
 
   /// Retrieves any fields that belong to the same archipelago as the specified field and that match at least one of the specified tags.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
-  BuiltList<NxCell> findMatchingFields(
-      String qFieldName, BuiltList<NxCell> qTags) {}
+  Future<BuiltList<NxCell>> findMatchingFields(
+      String qFieldName, BuiltList<NxCell> qTags) async {}
 
   /// Scrambles a field so the data is not recognizable. Some properties are retained to help debugging. For example, special characters are not changed, and small numbers are scrambled to another small number.
   /// <div class=note>Update access is required to use the function in Qlik Sense Enterprise.</div>
-  scramble(String qFieldName) {}
+  Future<void> scramble(String qFieldName) async {}
 
   /// Saves all objects that were modified in the app.
   /// <div class=note>Data from the data model are not saved.</div> <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
-  saveObjects() {}
+  Future<void> saveObjects() async {}
 
   /// Computes a set of association scores for each pair of fields between two given tables that have been loaded in an app.
   /// When a table contains some synthetic keys, all fields in the synthetic key tables are analyzed against fields in other tables. To denote that a field is a synthetic key, the field name is prefixed by _[Synthetic Key]:_ .
-  BuiltList<NxCell> getAssociationScores(String qTable1, String qTable2) {}
+  Future<BuiltList<NxCell>> getAssociationScores(
+      String qTable1, String qTable2) async {}
 
   /// Lists the media files.
-  MediaList getMediaList() {}
+  Future<MediaList> getMediaList() async {}
 
   /// Lists the content libraries.
   /// To differentiate a global content library from an app specific content library, you can check the property _qAppSpecific_ . If this property is set to true, it means that the content library is app specific.
@@ -455,7 +467,7 @@ class Doc {
   ///
   /// ### Qlik Sense Desktop
   /// Returns the global content library and the app specific content library from the disk.
-  ContentLibraryList getContentLibraries() {}
+  Future<ContentLibraryList> getContentLibraries() async {}
 
   /// Returns the content of a library.
   ///
@@ -466,7 +478,7 @@ class Doc {
   ///
   /// ### App specific content library
   /// The embedded files are returned.
-  StaticContentList getLibraryContent(String qName) {}
+  Future<StaticContentList> getLibraryContent(String qName) async {}
 
   /// Reloads the script that is set in an app and returns the path to the script log file.
   /// <div class=note>A log file is created per reload.</div>
@@ -549,16 +561,16 @@ class Doc {
   /// </table>
   ///
   /// If the data load has successfully finished, no matter how the indexing behaves, _true_ is returned. This happens even if there is a timeout, a memory limit is reached or any other error occurs during the indexing.
-  DoReloadExResult doReloadEx(DoReloadExParams qParams) {}
+  Future<DoReloadExResult> doReloadEx({DoReloadExParams qParams}) async {}
 
   /// Returns the number of entries on the back stack.
-  int backCount() {}
+  Future<int> backCount() async {}
 
   /// Returns the number of entries on the Forward stack.
-  int forwardCount() {}
+  Future<int> forwardCount() async {}
 
   /// Sets values in script.
-  setScript(String qScript) {}
+  Future<void> setScript(String qScript) async {}
 
   /// Checks the syntax of a script.
   ///
@@ -605,29 +617,29 @@ class Doc {
   /// <td>Boolean</td>
   /// </tr>
   /// </table>
-  BuiltList<NxCell> checkScriptSyntax() {}
+  Future<BuiltList<NxCell>> checkScriptSyntax() async {}
 
   /// Retrieves the variables that are tagged as favorite.
-  BuiltList<NxCell> getFavoriteVariables() {}
+  Future<BuiltList<NxCell>> getFavoriteVariables() async {}
 
   /// Set some variables as favorite.
-  setFavoriteVariables(BuiltList<NxCell> qNames) {}
+  Future<void> setFavoriteVariables(BuiltList<NxCell> qNames) async {}
 
   /// Gets the content of a file.
-  String getIncludeFileContent(String qPath) {}
+  Future<String> getIncludeFileContent(String qPath) async {}
 
   /// Creates a connection.
   /// A connection indicates from which data source the data should be taken.
-  String createConnection(Connection qConnection) {}
+  Future<String> createConnection(Connection qConnection) async {}
 
   /// Updates a connection.
   /// <div class=note>The identifier of a connection cannot be updated. qType cannot be modified with the ModifyConnection method.</div>
-  modifyConnection(String qConnectionId, Connection qConnection,
-      bool qOverrideCredentials) {}
+  Future<void> modifyConnection(String qConnectionId, Connection qConnection,
+      {bool qOverrideCredentials}) async {}
 
   /// Deletes a connection.
   /// <div class=note>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . The AttachedFiles connection can only be removed by the administrator of the system. </div>
-  deleteConnection(String qConnectionId) {}
+  Future<void> deleteConnection(String qConnectionId) async {}
 
   /// Retrieves a connection and returns:
   /// * The creation time of the connection.
@@ -635,36 +647,39 @@ class Doc {
   /// * The type of the connection.
   /// * The name of the connection.
   /// * The connection string.
-  Connection getConnection(String qConnectionId) {}
+  Future<Connection> getConnection(String qConnectionId) async {}
 
   /// Lists the connections in an app.
   /// <div class=note>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . This connection is stored in the Qlik Sense repository. </div>
-  BuiltList<NxCell> getConnections() {}
+  Future<BuiltList<NxCell>> getConnections() async {}
 
   /// Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for more details.
-  DatabaseInfo getDatabaseInfo(String qConnectionId) {}
+  Future<DatabaseInfo> getDatabaseInfo(String qConnectionId) async {}
 
   /// Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
-  BuiltList<NxCell> getDatabases(String qConnectionId) {}
+  Future<BuiltList<NxCell>> getDatabases(String qConnectionId) async {}
 
   /// Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
-  BuiltList<NxCell> getDatabaseOwners(String qConnectionId, String qDatabase) {}
+  Future<BuiltList<NxCell>> getDatabaseOwners(String qConnectionId,
+      {String qDatabase}) async {}
 
   /// Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
-  BuiltList<NxCell> getDatabaseTables(
-      String qConnectionId, String qDatabase, String qOwner) {}
+  Future<BuiltList<NxCell>> getDatabaseTables(String qConnectionId,
+      {String qDatabase, String qOwner}) async {}
 
   /// Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM connection.
-  BuiltList<NxCell> getDatabaseTableFields(
-      String qConnectionId, String qDatabase, String qOwner, String qTable) {}
+  Future<BuiltList<NxCell>> getDatabaseTableFields(
+      String qConnectionId, String qTable,
+      {String qDatabase, String qOwner}) async {}
 
   /// Retrieves the values of the specified table of a database for a ODBC, OLEDB or CUSTOM connection.
-  BuiltList<NxCell> getDatabaseTablePreview(String qConnectionId,
-      String qDatabase, String qOwner, String qTable, FilterInfo qConditions) {}
+  Future<BuiltList<NxCell>> getDatabaseTablePreview(
+      String qConnectionId, String qTable,
+      {String qDatabase, String qOwner, FilterInfo qConditions}) async {}
 
   /// Lists the items for a folder connection.
-  BuiltList<NxCell> getFolderItemsForConnection(
-      String qConnectionId, String qRelativePath) {}
+  Future<BuiltList<NxCell>> getFolderItemsForConnection(String qConnectionId,
+      {String qRelativePath}) async {}
 
   /// Guesses the data format for a given file.
   /// Recognized file formats are:
@@ -693,7 +708,8 @@ class Doc {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  FileDataFormat guessFileType(String qConnectionId, String qRelativePath) {}
+  Future<FileDataFormat> guessFileType(String qConnectionId,
+      {String qRelativePath}) async {}
 
   /// Lists the tables for a folder connection.
   ///
@@ -710,8 +726,9 @@ class Doc {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  BuiltList<NxCell> getFileTables(
-      String qConnectionId, String qRelativePath, FileDataFormat qDataFormat) {}
+  Future<BuiltList<NxCell>> getFileTables(
+      String qConnectionId, FileDataFormat qDataFormat,
+      {String qRelativePath}) async {}
 
   /// Lists the fields of a table for a folder connection.
   ///
@@ -728,8 +745,9 @@ class Doc {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  BuiltList<NxCell> getFileTableFields(String qConnectionId,
-      String qRelativePath, FileDataFormat qDataFormat, String qTable) {}
+  Future<BuiltList<NxCell>> getFileTableFields(
+      String qConnectionId, FileDataFormat qDataFormat, String qTable,
+      {String qRelativePath}) async {}
 
   /// Lists the values in a table for a folder connection.
   ///
@@ -746,25 +764,27 @@ class Doc {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  BuiltList<NxCell> getFileTablePreview(String qConnectionId,
-      String qRelativePath, FileDataFormat qDataFormat, String qTable) {}
+  Future<BuiltList<NxCell>> getFileTablePreview(
+      String qConnectionId, FileDataFormat qDataFormat, String qTable,
+      {String qRelativePath}) async {}
 
   /// Lists the tables and fields of a JSON or XML file for a folder connection.
-  BuiltList<NxCell> getFileTablesEx(
-      String qConnectionId, String qRelativePath, FileDataFormat qDataFormat) {}
+  Future<BuiltList<NxCell>> getFileTablesEx(
+      String qConnectionId, FileDataFormat qDataFormat,
+      {String qRelativePath}) async {}
 
   /// Sends a generic command to a custom connector.
   /// For more information on the commands that can be sent to a custom connector, see the QVX SDK help.
-  String sendGenericCommandToCustomConnector(
+  Future<String> sendGenericCommandToCustomConnector(
       String qProvider,
       String qCommand,
       String qMethod,
       BuiltList<NxCell> qParameters,
-      String qAppendConnection) {}
+      String qAppendConnection) async {}
 
   /// Returns search terms suggestions.
-  SearchSuggestionResult searchSuggest(
-      SearchCombinationOptions qOptions, BuiltList<NxCell> qTerms) {}
+  Future<SearchSuggestionResult> searchSuggest(
+      SearchCombinationOptions qOptions, BuiltList<NxCell> qTerms) async {}
 
   /// Returns the search matches for one or more search terms.
   /// The search results depend on the search context.
@@ -783,14 +803,17 @@ class Doc {
   /// <td>Array of <i>SearchMatchCombination</i> </td>
   /// </tr>
   /// </table>
-  SearchAssociationResult searchAssociations(SearchCombinationOptions qOptions,
-      BuiltList<NxCell> qTerms, SearchPage qPage) {}
+  Future<SearchAssociationResult> searchAssociations(
+      SearchCombinationOptions qOptions,
+      BuiltList<NxCell> qTerms,
+      SearchPage qPage) async {}
 
   /// Selects all search hits for a specified group.
   /// The results depend on the search context.
   /// _SearchCombinationOptions_.
-  selectAssociations(SearchCombinationOptions qOptions,
-      BuiltList<NxCell> qTerms, int qMatchIx, bool qSoftLock) {}
+  Future<void> selectAssociations(
+      SearchCombinationOptions qOptions, BuiltList<NxCell> qTerms, int qMatchIx,
+      {bool qSoftLock}) async {}
 
   /// Returns the search matches for one or more search terms.
   /// Search results are organized in search groups. The type of search group indicates where the search matches come from (from data for example).
@@ -806,13 +829,13 @@ class Doc {
   ///
   /// For every search group, there are one or more search group items. Each subgroup item contains results that correspond to an item type (for example a field).
   /// For every search group item, there are one or several search matches. The position of the match in each search result is given.
-  SearchResult searchResults(SearchCombinationOptions qOptions,
-      BuiltList<NxCell> qTerms, SearchPage qPage) {}
+  Future<SearchResult> searchResults(SearchCombinationOptions qOptions,
+      BuiltList<NxCell> qTerms, SearchPage qPage) async {}
 
   /// Returns the generic objects corresponding to one or more search terms. The search is performed within the title, subtitle, footnote and type. In addition, associated dimension values are also searched in. For example, if the country “Japan” is selected and the object contains the dimension City, the object will appear in the results for “Osaka” but not for “Johannesburg”. The generic objects with the following types will never appear in the results: _slideitem_ , _sheet_ , _story_ , _slide_ , _masterobject_ , _snapshot_ , _LoadModel_ , _appprops_ and _searchhistory_ .
-  SearchResult searchObjects(SearchObjectOptions qOptions,
-      BuiltList<NxCell> qTerms, SearchPage qPage) {}
+  Future<SearchResult> searchObjects(SearchObjectOptions qOptions,
+      BuiltList<NxCell> qTerms, SearchPage qPage) async {}
 
   /// Gets script and script meta-data.
-  AppScript getScriptEx() {}
+  Future<AppScript> getScriptEx() async {}
 }
