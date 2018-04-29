@@ -12,34 +12,61 @@ class GenericDimension extends BaseService {
   String get serviceType => 'GenericDimension';
 
   /// Evaluates a dimension and displays its properties, including the dynamic properties.
-  Future<GenericDimensionLayout> getLayout() async {}
+  Future<GenericDimensionLayout> getLayout() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetLayout', params);
+  }
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
-  Future<void> applyPatches(BuiltList<NxCell> qPatches) async {}
+  Future<void> applyPatches(BuiltList<NxCell> patches) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('ApplyPatches', params);
+  }
 
   /// Sets some properties for a dimension.
-  Future<void> setProperties(GenericDimensionProperties qProp) async {}
+  Future<void> setProperties(GenericDimensionProperties prop) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('SetProperties', params);
+  }
 
   /// Shows the properties of an object.
   /// Returns the identifier and the definition of the dimension.
   /// <div class=note>If the member delta is set to true in the request object, only the delta is retrieved.</div>
-  Future<GenericDimensionProperties> getProperties() async {}
+  Future<GenericDimensionProperties> getProperties() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetProperties', params);
+  }
 
   /// Returns the type and identifier of the object.
-  Future<NxInfo> getInfo() async {}
+  Future<NxInfo> getInfo() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetInfo', params);
+  }
 
   /// Returns the definition of a dimension.
   ///
   /// The definition of the dimension is returned.
-  Future<NxLibraryDimensionDef> getDimension() async {}
+  Future<NxLibraryDimensionDef> getDimension() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetDimension', params);
+  }
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
-  Future<BuiltList<NxCell>> getLinkedObjects() async {}
+  Future<BuiltList<NxCell>> getLinkedObjects() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetLinkedObjects', params);
+  }
 
   /// Publishes a dimension.
-  Future<void> publish() async {}
+  Future<void> publish() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('Publish', params);
+  }
 
   /// Unpublishes a dimension.
-  Future<void> unPublish() async {}
+  Future<void> unPublish() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('UnPublish', params);
+  }
 }

@@ -6,6 +6,13 @@ import 'package:recase/recase.dart';
 import 'json_serializer.dart';
 import 'package:dart_style/dart_style.dart';
 
+class _SchemaWithTypeData {
+  SchemaType schemaType;
+  TypeData typeData;
+  String dartName;
+  _SchemaWithTypeData(this.schemaType, this.typeData, this.dartName);
+}
+
 class ApiGenerator {
   var typeMap = <String, TypeData>{};
   _addType(TypeData typeData) {
@@ -164,6 +171,15 @@ class ApiGenerator {
   }
 
   var _qPattern = new RegExp('^q');
+  String toDartVarName(String value) {
+    var result = value.replaceFirst(_qPattern, '');
+    result = new ReCase(result).camelCase;
+    if (result == 'num') {
+      result = 'qNum';
+    }
+    return result;
+  }
+
   String generateField(
       String jsonFieldName, SchemaType fieldContent, StringBuffer buffer) {
     addComment(fieldContent.description, buffer, '  ');
@@ -173,11 +189,7 @@ class ApiGenerator {
     if (typeData != null) {
       dartType = typeMap[typeData.jsonType]?.dartType;
     }
-    var fieldName = jsonFieldName.replaceFirst(_qPattern, '');
-    fieldName = new ReCase(fieldName).camelCase;
-    if (fieldName == 'num') {
-      fieldName = 'qNum';
-    }
+    var fieldName = toDartVarName(jsonFieldName);
     if (typeData == null) {
       print('Type not found for field $jsonFieldName $fieldContent');
     }
@@ -277,41 +289,30 @@ class ApiGenerator {
     outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
   }
 
-  generateMethod(String methodName, Method method, StringBuffer buffer) {
+  generateMethod(String methodName, Method method, StringBuffer buffer,
+      List<String> additionalImports) {
     addComment(method.description, buffer, '  ');
     var dartMethodName = new ReCase(methodName).camelCase;
-    // var dartType = 'NOT_FOUND';
-    // // var typeData = getTypeData(fieldContent);
-    // if (typeData != null) {
-    //   dartType = typeMap[typeData.jsonType]?.dartType;
-    // }
-    // var fieldName = methodName.replaceFirst(_qPattern, '');
-    // fieldName = new ReCase(fieldName).camelCase;
-    // if (fieldName == 'num') {
-    //   fieldName = 'qNum';
-    // }
-    // if (typeData == null) {
-    //   print('Type not found for field $methodName $fieldContent');
-    // }
-    // var mandatoryParams =
-    //     method.parameters.where((p) => p.required != null && p.required).map((schemaType) {
-    //   var typeData = getTypeData(schemaType);
-    //   return '${typeData?.dartType} ${schemaType.name}';
-    // });
+    var paramsWithDartTypes = <_SchemaWithTypeData>[];
+    for (var each in method.parameters) {
+      var typeData = getTypeData(each);
+      var dartName = toDartVarName(each.name);
+      paramsWithDartTypes
+          .add(new _SchemaWithTypeData(each, typeData, dartName));
+    }
     var mandatoryParams = <String>[];
-    for (var p in method.parameters) {
-      if (p.required != null && p.required) {
-        var typeData = getTypeData(p);
-        mandatoryParams.add('${typeData?.dartType} ${p.name}');
+    for (var p in paramsWithDartTypes) {
+      if (p.schemaType.required != null && p.schemaType.required) {
+        mandatoryParams.add('${p.typeData?.dartType} ${p.dartName}');
       }
     }
     var optionalParams = <String>[];
-    for (var p in method.parameters) {
-      if (p.required == null || !p.required) {
-        var typeData = getTypeData(p);
-        optionalParams.add('${typeData?.dartType} ${p.name}');
+    for (var p in paramsWithDartTypes) {
+      if (p.schemaType.required == null || !p.schemaType.required) {
+        mandatoryParams.add('${p.typeData?.dartType} ${p.dartName}');
       }
     }
+
     var paramParts = <String>[];
     if (mandatoryParams.isNotEmpty) {
       paramParts.add(mandatoryParams.join(', '));
@@ -320,10 +321,16 @@ class ApiGenerator {
       paramParts.add('{${optionalParams.join(', ')}}');
     }
     var returnType = '';
+    TypeData resultTypeData;
+    SchemaType mainResponse;
     if (method.responses.isNotEmpty) {
-      var typeData = getTypeData(method.responses.first);
-      if (typeData != null) {
-        returnType = typeData.dartType;
+      if (method.responses.length > 1) {
+        print('$methodName ${method.responses}');
+      }
+      mainResponse = method.responses.first;
+      resultTypeData = getTypeData(mainResponse);
+      if (resultTypeData != null) {
+        returnType = resultTypeData.dartType;
       } else {
         returnType = 'void';
         // print('Not found ${method.responses.first}');
@@ -332,18 +339,30 @@ class ApiGenerator {
       returnType = 'void';
     }
     buffer.writeln(
-        '  Future<$returnType> $dartMethodName(${paramParts.join(', ')}) async {}');
-        
+        '  Future<$returnType> $dartMethodName(${paramParts.join(', ')}) async {');
+    buffer.writeln('var params = <String, dynamic>{};');
+    for (var p in paramsWithDartTypes) {
+      if (p.typeData.isPrimitive) {
+        buffer.writeln("params['${p.schemaType.name}'] = ${p.dartName};");
+      }
+    }
+    buffer.writeln("var rawResult = await query('$methodName', params);");
+    if (mainResponse != null && resultTypeData.isPrimitive) {
+      buffer.writeln("return rawResult['${mainResponse.name}'];");
+    }
+    buffer.writeln('}');
   }
 
   generateService(String className, Service service) {
     String fileName = getModelFileName(className);
+    var headerBuffer = new StringBuffer();
+    headerBuffer.writeln("import 'dart:async';");
+    headerBuffer.writeln("import '../enigma/base_service.dart';");
+    headerBuffer.writeln("import '../enigma/enigma.dart';");
+    headerBuffer.writeln("import '../models.dart';");
+    headerBuffer
+        .writeln("import 'package:built_collection/built_collection.dart';");
     var buffer = new StringBuffer();
-    buffer.writeln("import 'dart:async';");
-    buffer.writeln("import '../enigma/base_service.dart';");
-    buffer.writeln("import '../enigma/enigma.dart';");
-    buffer.writeln("import '../models.dart';");
-    buffer.writeln("import 'package:built_collection/built_collection.dart';");
     addComment(service.description, buffer, '');
     buffer.writeln('class $className extends BaseService {');
     buffer.writeln('');
@@ -352,8 +371,9 @@ class ApiGenerator {
     $className(Enigma enigma, int handle) : super(enigma, handle);
 
       String get serviceType => '$className';''');
+    var additionalImports = <String>[];
     service.methods.forEach((methodName, content) {
-      generateMethod(methodName, content, buffer);
+      generateMethod(methodName, content, buffer, additionalImports);
     });
     buffer.writeln('}');
     var outFile = new File('../enigma/lib/src/services/$fileName');
@@ -366,7 +386,8 @@ class ApiGenerator {
 
 // $buffer
 // ''';
-    outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
+    headerBuffer.writeln(buffer.toString());
+    outFile.writeAsStringSync(_formatDartContent(headerBuffer.toString()));
   }
 
   generateSerializers() {
