@@ -1,14 +1,14 @@
 import 'dart:async';
-import '../rpc/handle_object.dart';
-import '../rpc/rpc.dart';
+import '../enigma/base_service.dart';
+import '../enigma/enigma.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at variable level.
 /// <div class=note>Methods in this class are deprecated. Use methods in the _GenericVariableClass_ instead. </div>
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the variable.
-class Variable extends HandleObject {
-  Variable(Rpc rpc, int handle) : super(rpc, handle);
+class Variable extends BaseService {
+  Variable(Enigma enigma, int handle) : super(enigma, handle);
 
   String get serviceType => 'Variable';
 

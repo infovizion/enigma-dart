@@ -1,11 +1,11 @@
 import 'dart:async';
-import '../rpc/handle_object.dart';
-import '../rpc/rpc.dart';
+import '../enigma/base_service.dart';
+import '../enigma/enigma.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
-class Global extends HandleObject {
-  Global(Rpc rpc, int handle) : super(rpc, handle);
+class Global extends BaseService {
+  Global(Enigma enigma, int handle) : super(enigma, handle);
 
   String get serviceType => 'Global';
   Future<void> abortRequest(int qRequestId) async {}

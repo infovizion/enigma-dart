@@ -1,5 +1,5 @@
 import 'package:web_socket_channel/io.dart';
-import 'rpc.dart';
+import 'enigma.dart';
 import 'dart:async';
 import 'package:http/http.dart';
 import 'package:crypto/crypto.dart';
@@ -12,7 +12,7 @@ Future<Global> getGlobal(String host, int port) {
   var channel = new IOWebSocketChannel.connect(
       'ws://$host:$port/app',
       );
-      var rpc = new Rpc(channel);
+      var enigma = new Enigma(channel);
     
 }
 

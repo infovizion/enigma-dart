@@ -1,11 +1,11 @@
 import 'dart:async';
-import '../rpc/handle_object.dart';
-import '../rpc/rpc.dart';
+import '../enigma/base_service.dart';
+import '../enigma/enigma.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
-class Doc extends HandleObject {
-  Doc(Rpc rpc, int handle) : super(rpc, handle);
+class Doc extends BaseService {
+  Doc(Enigma enigma, int handle) : super(enigma, handle);
 
   String get serviceType => 'Doc';
 

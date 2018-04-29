@@ -340,16 +340,16 @@ class ApiGenerator {
     String fileName = getModelFileName(className);
     var buffer = new StringBuffer();
     buffer.writeln("import 'dart:async';");
-    buffer.writeln("import '../rpc/handle_object.dart';");
-    buffer.writeln("import '../rpc/rpc.dart';");
+    buffer.writeln("import '../enigma/base_service.dart';");
+    buffer.writeln("import '../enigma/enigma.dart';");
     buffer.writeln("import '../models.dart';");
     buffer.writeln("import 'package:built_collection/built_collection.dart';");
     addComment(service.description, buffer, '');
-    buffer.writeln('class $className extends HandleObject {');
+    buffer.writeln('class $className extends BaseService {');
     buffer.writeln('');
     buffer.writeln('''
     
-    $className(Rpc rpc, int handle) : super(rpc, handle);
+    $className(Enigma enigma, int handle) : super(enigma, handle);
 
       String get serviceType => '$className';''');
     service.methods.forEach((methodName, content) {

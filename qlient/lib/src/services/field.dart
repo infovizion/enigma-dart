@@ -1,13 +1,13 @@
 import 'dart:async';
-import '../rpc/handle_object.dart';
-import '../rpc/rpc.dart';
+import '../enigma/base_service.dart';
+import '../enigma/enigma.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at field level.
 /// The handle member in the JSON request for all methods listed in this section is the handle of the field.
-class Field extends HandleObject {
-  Field(Rpc rpc, int handle) : super(rpc, handle);
+class Field extends BaseService {
+  Field(Enigma enigma, int handle) : super(enigma, handle);
 
   String get serviceType => 'Field';
 

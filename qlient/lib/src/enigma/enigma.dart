@@ -4,14 +4,14 @@ import 'dart:convert';
 import 'package:logging/logging.dart';
 // import '../services/global.dart';
 
-class Rpc {
+class Enigma {
   final Logger logger = new Logger('Engine');
   int seqId = 0;
   final WebSocketChannel channel;
   bool closed = false;
   Map<String, String> headers;
   final Map<int, Completer> replyCompleters = new Map<int, Completer>();
-  Rpc(this.channel);
+  Enigma(this.channel);
 
   onError(error) {
     print('ERRORL $error');
