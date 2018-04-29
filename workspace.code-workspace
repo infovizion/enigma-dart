@@ -1,10 +1,10 @@
 {
 	"folders": [
 		{
-			"path": "qlient"
+			"path": "enigma"
 		},
 		{
-			"path": "qlient_generator"
+			"path": "enigma_generator"
 		}
 	]
 }
