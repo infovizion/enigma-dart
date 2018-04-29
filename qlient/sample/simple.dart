@@ -1,4 +1,4 @@
-import 'package:qlient/qlient.dart';
+import 'package:enigma/enigma.dart';
 
 main() {
   var fieldAttributes = new FieldAttributes.init(nDec: 1, type: 'U');

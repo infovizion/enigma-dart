@@ -1,13 +1,13 @@
 import 'dart:async';
-import '../rpc/handle_object.dart';
-import '../rpc/rpc.dart';
+import '../enigma/base_service.dart';
+import '../enigma/enigma.dart';
 import '../models.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at generic object level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the generic object.
-class GenericObject extends HandleObject {
-  GenericObject(Rpc rpc, int handle) : super(rpc, handle);
+class GenericObject extends BaseService {
+  GenericObject(Enigma enigma, int handle) : super(enigma, handle);
 
   String get serviceType => 'GenericObject';
 
