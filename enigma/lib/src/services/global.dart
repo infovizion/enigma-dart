@@ -8,28 +8,55 @@ class Global extends BaseService {
   Global(Enigma enigma, int handle) : super(enigma, handle);
 
   String get serviceType => 'Global';
-  Future<void> abortRequest(int qRequestId) async {}
+  Future<void> abortRequest(int requestId) async {
+    var params = <String, dynamic>{};
+    params['qRequestId'] = requestId;
+    var rawResult = await query('AbortRequest', params);
+  }
 
   /// Sets an abort flag on all pending and ongoing requests in the current engine session.
   /// * If an abort flag is set on a pending request, the request is aborted.
   /// * If an abort flag is set on an ongoing request, the engine checks to see if it is possible to abort the request.
-  Future<void> abortAll() async {}
+  Future<void> abortAll() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('AbortAll', params);
+  }
 
   /// Gives information about the progress of the _DoReload_ and _DoSave_ calls.
   /// <div class=note>For more information on DoReload and DoSave, see the _DoReload Method_ and _DoSave Method_. </div>
-  Future<ProgressData> getProgress(int qRequestId) async {}
+  Future<ProgressData> getProgress(int requestId) async {
+    var params = <String, dynamic>{};
+    params['qRequestId'] = requestId;
+    var rawResult = await query('GetProgress', params);
+  }
 
   /// Returns the Qlik Sense version number.
-  Future<String> qvVersion() async {}
+  Future<String> qvVersion() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('QvVersion', params);
+    return rawResult['qReturn'];
+  }
 
   /// Returns the version number of the operating system.
-  Future<String> oSVersion() async {}
+  Future<String> oSVersion() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('OSVersion', params);
+    return rawResult['qReturn'];
+  }
 
   /// Returns the name of the operating system.
-  Future<String> oSName() async {}
+  Future<String> oSName() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('OSName', params);
+    return rawResult['qReturn'];
+  }
 
   /// Returns the Qlik product name.
-  Future<String> qTProduct() async {}
+  Future<String> qTProduct() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('QTProduct', params);
+    return rawResult['qReturn'];
+  }
 
   /// Returns the list of apps.
   ///
@@ -40,7 +67,10 @@ class Global extends BaseService {
   /// **In Qlik Sense Desktop:**
   ///
   /// The apps are located in _C:\Users\&lt;user name&gt;\Documents\Qlik\Sense\Apps_.
-  Future<BuiltList<NxCell>> getDocList() async {}
+  Future<BuiltList<NxCell>> getDocList() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetDocList', params);
+  }
 
   /// Retrieves information on the user interaction that is requested by the engine.
   /// Engine can request user interactions only during script reload and when the reload is performed in debug mode ( _qDebug_ is set to true when using the _DoReload method_ ).
@@ -50,27 +80,52 @@ class Global extends BaseService {
   /// * When the script execution is finished.
   ///
   /// To know if the engine is paused and waits for a response to an interaction request, the _GetProgress method_ should be used. The engine waits for a response if the property _qUserInteractionWanted_ is set to true in the response of the _GetProgress_ request.
-  Future<InteractDef> getInteract(int qRequestId) async {}
+  Future<InteractDef> getInteract(int requestId) async {
+    var params = <String, dynamic>{};
+    params['qRequestId'] = requestId;
+    var rawResult = await query('GetInteract', params);
+  }
 
   /// Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates to the engine what to do next.
-  Future<void> interactDone(int qRequestId, InteractDef qDef) async {}
+  Future<void> interactDone(int requestId, InteractDef def) async {
+    var params = <String, dynamic>{};
+    params['qRequestId'] = requestId;
+    var rawResult = await query('InteractDone', params);
+  }
 
   /// Retrieves information about the authenticated user.
-  Future<String> getAuthenticatedUser() async {}
+  Future<String> getAuthenticatedUser() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetAuthenticatedUser', params);
+    return rawResult['qReturn'];
+  }
 
   /// Creates an app and opens an engine session.
   /// <div class=note>This operation is possible only in Qlik Sense Desktop.</div>
-  Future<String> createDocEx(String qDocName,
-      {String qUserName,
-      String qPassword,
-      String qSerial,
-      String qLocalizedScriptMainSection}) async {}
+  Future<String> createDocEx(String docName, String userName, String password,
+      String serial, String localizedScriptMainSection) async {
+    var params = <String, dynamic>{};
+    params['qDocName'] = docName;
+    params['qUserName'] = userName;
+    params['qPassword'] = password;
+    params['qSerial'] = serial;
+    params['qLocalizedScriptMainSection'] = localizedScriptMainSection;
+    var rawResult = await query('CreateDocEx', params);
+    return rawResult['qDocId'];
+  }
 
   /// Returns the handle of the current app.
-  Future<ObjectInterface> getActiveDoc() async {}
+  Future<ObjectInterface> getActiveDoc() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetActiveDoc', params);
+  }
 
   /// Indicates whether or not a user is able to create an app.
-  Future<bool> allowCreateApp() async {}
+  Future<bool> allowCreateApp() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('AllowCreateApp', params);
+    return rawResult['qReturn'];
+  }
 
   /// Creates an app.
   ///
@@ -103,8 +158,14 @@ class Global extends BaseService {
   /// <td>%UserProfile%/Documents/Qlik/Sense/Log</td>
   /// </tr>
   /// </table>
-  Future<bool> createApp(String qAppName,
-      {String qLocalizedScriptMainSection}) async {}
+  Future<bool> createApp(
+      String appName, String localizedScriptMainSection) async {
+    var params = <String, dynamic>{};
+    params['qAppName'] = appName;
+    params['qLocalizedScriptMainSection'] = localizedScriptMainSection;
+    var rawResult = await query('CreateApp', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Deletes an app from the Qlik Sense repository or from the file system.
   ///
@@ -145,20 +206,39 @@ class Global extends BaseService {
   /// <td>%UserProfile%/Documents/Qlik/Sense/Log</td>
   /// </tr>
   /// </table>
-  Future<bool> deleteApp(String qAppId) async {}
+  Future<bool> deleteApp(String appId) async {
+    var params = <String, dynamic>{};
+    params['qAppId'] = appId;
+    var rawResult = await query('DeleteApp', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Indicates whether the user is working in Qlik Sense Desktop.
-  Future<bool> isDesktopMode() async {}
+  Future<bool> isDesktopMode() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('IsDesktopMode', params);
+    return rawResult['qReturn'];
+  }
 
   /// Cancels an ongoing request. The request is stopped.
-  Future<void> cancelRequest(int qRequestId) async {}
+  Future<void> cancelRequest(int requestId) async {
+    var params = <String, dynamic>{};
+    params['qRequestId'] = requestId;
+    var rawResult = await query('CancelRequest', params);
+  }
 
   /// Shuts down the Qlik engine.
   /// <div class=note>This operation is possible only in Qlik Sense Desktop.</div>
-  Future<void> shutdownProcess() async {}
+  Future<void> shutdownProcess() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('ShutdownProcess', params);
+  }
 
   /// Reloads the list of extensions.
-  Future<void> reloadExtensionList() async {}
+  Future<void> reloadExtensionList() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('ReloadExtensionList', params);
+  }
 
   /// Replaces objects of a target app with the objects from a source app.
   /// The list of objects in the app to be replaced must be defined in _qIds_.
@@ -166,13 +246,25 @@ class Global extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> replaceAppFromID(
-      String qTargetAppId, String qSrcAppID, BuiltList<NxCell> qIds) async {}
+      String targetAppId, String srcAppID, BuiltList<NxCell> ids) async {
+    var params = <String, dynamic>{};
+    params['qTargetAppId'] = targetAppId;
+    params['qSrcAppID'] = srcAppID;
+    var rawResult = await query('ReplaceAppFromID', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Copies an app that is in the Qlik Sense repository.
   /// The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](#csh-RepositoryServiceAPI-Introduction) for more information.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
   Future<bool> copyApp(
-      String qTargetAppId, String qSrcAppId, BuiltList<NxCell> qIds) async {}
+      String targetAppId, String srcAppId, BuiltList<NxCell> ids) async {
+    var params = <String, dynamic>{};
+    params['qTargetAppId'] = targetAppId;
+    params['qSrcAppId'] = srcAppId;
+    var rawResult = await query('CopyApp', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Exports an app from the Qlik Sense repository to the file system.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
@@ -196,20 +288,39 @@ class Global extends BaseService {
   ///
   /// The log files are located in:
   /// _%ProgramData%/Qlik/Sense/Log/Engine_
-  Future<bool> exportApp(
-      String qTargetPath, String qSrcAppId, BuiltList<NxCell> qIds,
-      {bool qNoData}) async {}
+  Future<bool> exportApp(String targetPath, String srcAppId,
+      BuiltList<NxCell> ids, bool noData) async {
+    var params = <String, dynamic>{};
+    params['qTargetPath'] = targetPath;
+    params['qSrcAppId'] = srcAppId;
+    params['qNoData'] = noData;
+    var rawResult = await query('ExportApp', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Publishes an app to the supplied stream.
-  Future<void> publishApp(
-      String qAppId, String qName, String qStreamId) async {}
+  Future<void> publishApp(String appId, String name, String streamId) async {
+    var params = <String, dynamic>{};
+    params['qAppId'] = appId;
+    params['qName'] = name;
+    params['qStreamId'] = streamId;
+    var rawResult = await query('PublishApp', params);
+  }
 
   /// Indicates whether or not the user is working in personal mode (Qlik Sense Desktop).
-  Future<bool> isPersonalMode() async {}
+  Future<bool> isPersonalMode() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('IsPersonalMode', params);
+    return rawResult['qReturn'];
+  }
 
   /// Returns the unique identifier of the endpoint for the current user in the current app.
   /// <div class=note>This unique identifier can be used for logging purposes.</div>
-  Future<String> getUniqueID() async {}
+  Future<String> getUniqueID() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetUniqueID', params);
+    return rawResult['qUniqueID'];
+  }
 
   /// Opens an app and checks if the app needs to be migrated (if the app is deprecated).
   /// The _OpenDoc method_ compares the version of the app with the version of Qlik Sense and migrates the app to the current version of Qlik Sense if necessary. Once the migration is done, the app is opened.
@@ -225,17 +336,26 @@ class Global extends BaseService {
   /// In Qlik Sense Desktop, apps are automatically backed up before a migration.
   /// The backup files are located in _%userprofile%\Documents\Qlik\Sense\AppsBackup\&lt;Qlik Sense Desktop version&gt;_.
   /// In Qlik Sense Enterprise, no automatic back up is run. The back up should be done manually.
-  Future<ObjectInterface> openDoc(String qDocName,
-      {String qUserName,
-      String qPassword,
-      String qSerial,
-      bool qNoData}) async {}
+  Future<ObjectInterface> openDoc(String docName, String userName,
+      String password, String serial, bool noData) async {
+    var params = <String, dynamic>{};
+    params['qDocName'] = docName;
+    params['qUserName'] = userName;
+    params['qPassword'] = password;
+    params['qSerial'] = serial;
+    params['qNoData'] = noData;
+    var rawResult = await query('OpenDoc', params);
+  }
 
   /// Creates an empty session app.
   /// The following applies:
   /// * The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.
   /// * A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
-  Future<String> createSessionApp() async {}
+  Future<String> createSessionApp() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('CreateSessionApp', params);
+    return rawResult['qSessionAppId'];
+  }
 
   /// Creates a session app from a source app.
   /// The following applies:
@@ -243,73 +363,154 @@ class Global extends BaseService {
   /// * The script of the session app can be edited and reloaded.
   /// * The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.
   /// * A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
-  Future<String> createSessionAppFromApp(String qSrcAppId) async {}
+  Future<String> createSessionAppFromApp(String srcAppId) async {
+    var params = <String, dynamic>{};
+    params['qSrcAppId'] = srcAppId;
+    var rawResult = await query('CreateSessionAppFromApp', params);
+    return rawResult['qSessionAppId'];
+  }
 
   /// Returns the Qlik Sense version number.
-  Future<String> productVersion() async {}
+  Future<String> productVersion() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('ProductVersion', params);
+    return rawResult['qReturn'];
+  }
 
   /// Retrieves the meta data of an app.
-  Future<AppEntry> getAppEntry(String qAppID) async {}
+  Future<AppEntry> getAppEntry(String appID) async {
+    var params = <String, dynamic>{};
+    params['qAppID'] = appID;
+    var rawResult = await query('GetAppEntry', params);
+  }
 
   /// Configures the engine's behavior during a reload.
   /// <div class=note>The _ConfigureReload method_ should be run before the _DoReload method_. </div>
-  Future<void> configureReload(bool qCancelOnScriptError, bool qUseErrorData,
-      bool qInteractOnError) async {}
+  Future<void> configureReload(
+      bool cancelOnScriptError, bool useErrorData, bool interactOnError) async {
+    var params = <String, dynamic>{};
+    params['qCancelOnScriptError'] = cancelOnScriptError;
+    params['qUseErrorData'] = useErrorData;
+    params['qInteractOnError'] = interactOnError;
+    var rawResult = await query('ConfigureReload', params);
+  }
 
   /// Cancels an ongoing reload. The reload of the app is stopped. The indexation can be canceled and _true_ is still the return value of the reload task.
-  Future<void> cancelReload() async {}
+  Future<void> cancelReload() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('CancelReload', params);
+  }
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. The BNF rules define the syntax for the script statements and the script or chart functions.
   /// In the Qlik engine BNF grammar, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  Future<BuiltList<NxCell>> getBNF(String qBnfType) async {}
+  Future<BuiltList<NxCell>> getBNF(String bnfType) async {
+    var params = <String, dynamic>{};
+    params['qBnfType'] = bnfType;
+    var rawResult = await query('GetBNF', params);
+  }
 
   /// Gets the list of all the script functions.
-  Future<BuiltList<NxCell>> getFunctions({String qGroup}) async {}
+  Future<BuiltList<NxCell>> getFunctions(String group) async {
+    var params = <String, dynamic>{};
+    params['qGroup'] = group;
+    var rawResult = await query('GetFunctions', params);
+  }
 
   /// Returns the list of the ODBC connectors that are installed in the system.
-  Future<BuiltList<NxCell>> getOdbcDsns() async {}
+  Future<BuiltList<NxCell>> getOdbcDsns() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetOdbcDsns', params);
+  }
 
   /// Returns the list of the OLEDB providers installed on the system.
-  Future<BuiltList<NxCell>> getOleDbProviders() async {}
+  Future<BuiltList<NxCell>> getOleDbProviders() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetOleDbProviders', params);
+  }
 
   /// Lists the databases in a ODBC, OLEDB or CUSTOM data source.
   Future<BuiltList<NxCell>> getDatabasesFromConnectionString(
-      Connection qConnection) async {}
+      Connection connection) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetDatabasesFromConnectionString', params);
+  }
 
   /// Checks if a connection string is valid.
-  Future<bool> isValidConnectionString(Connection qConnection) async {}
+  Future<bool> isValidConnectionString(Connection connection) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('IsValidConnectionString', params);
+    return rawResult['qReturn'];
+  }
 
   /// Returns the folder where the apps are stored.
   /// <div class=note>This method applies only if running Qlik Sense Desktop.</div>
-  Future<String> getDefaultAppFolder() async {}
+  Future<String> getDefaultAppFolder() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetDefaultAppFolder', params);
+    return rawResult['qPath'];
+  }
 
   /// Lists the logical drives in the system.
   /// <div class=note>This method applies only if running Qlik Sense Desktop.</div>
-  Future<BuiltList<NxCell>> getLogicalDriveStrings() async {}
+  Future<BuiltList<NxCell>> getLogicalDriveStrings() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetLogicalDriveStrings', params);
+  }
 
   /// Returns the files and folders located at a specified path.
-  Future<BuiltList<NxCell>> getFolderItemsForPath(String qPath) async {}
+  Future<BuiltList<NxCell>> getFolderItemsForPath(String path) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('GetFolderItemsForPath', params);
+  }
 
   /// Lists the supported code pages.
-  Future<BuiltList<NxCell>> getSupportedCodePages() async {}
+  Future<BuiltList<NxCell>> getSupportedCodePages() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetSupportedCodePages', params);
+  }
 
   /// List the custom connectors available in the system.
-  Future<BuiltList<NxCell>> getCustomConnectors({bool qReloadList}) async {}
+  Future<BuiltList<NxCell>> getCustomConnectors(bool reloadList) async {
+    var params = <String, dynamic>{};
+    params['qReloadList'] = reloadList;
+    var rawResult = await query('GetCustomConnectors', params);
+  }
 
   /// Lists the streams.
-  Future<BuiltList<NxCell>> getStreamList() async {}
+  Future<BuiltList<NxCell>> getStreamList() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetStreamList', params);
+  }
 
   /// Returns the version number of the Qlik engine component.
-  Future<NxEngineVersion> engineVersion() async {}
+  Future<NxEngineVersion> engineVersion() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('EngineVersion', params);
+  }
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.
   /// In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  Future<BuiltList<NxCell>> getBaseBNF(String qBnfType) async {}
+  Future<BuiltList<NxCell>> getBaseBNF(String bnfType) async {
+    var params = <String, dynamic>{};
+    params['qBnfType'] = bnfType;
+    var rawResult = await query('GetBaseBNF', params);
+  }
 
   /// Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. If the hash changes between subsequent calls to this method, this indicates that the BNF grammar has changed.
-  Future<String> getBaseBNFHash(String qBnfType) async {}
+  Future<String> getBaseBNFHash(String bnfType) async {
+    var params = <String, dynamic>{};
+    params['qBnfType'] = bnfType;
+    var rawResult = await query('GetBaseBNFHash', params);
+    return rawResult['qBnfHash'];
+  }
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.
   /// In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  Future<String> getBaseBNFString(String qBnfType) async {}
+  Future<String> getBaseBNFString(String bnfType) async {
+    var params = <String, dynamic>{};
+    params['qBnfType'] = bnfType;
+    var rawResult = await query('GetBaseBNFString', params);
+    return rawResult['qBnfStr'];
+  }
 }

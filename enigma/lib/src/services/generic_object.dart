@@ -25,18 +25,29 @@ class GenericObject extends BaseService {
   /// In addition to the parameters displayed above, the **GetLayout** method can return other properties according to what is defined in the generic object.
   /// For example, if **qHyperCubeDef** is defined in the generic object, the **GetLayout** method returns the properties described in _HyperCube_.
   /// </div>
-  Future<GenericObjectLayout> getLayout() async {}
+  Future<GenericObjectLayout> getLayout() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetLayout', params);
+  }
 
   /// Retrieves the values of a list object.
   /// A data set is returned.
   Future<BuiltList<NxCell>> getListObjectData(
-      String qPath, BuiltList<NxCell> qPages) async {}
+      String path, BuiltList<NxCell> pages) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('GetListObjectData', params);
+  }
 
   /// Retrieves the calculated data for a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_STRAIGHT.</div>
   /// A data set is returned.
   Future<BuiltList<NxCell>> getHyperCubeData(
-      String qPath, BuiltList<NxCell> qPages) async {}
+      String path, BuiltList<NxCell> pages) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('GetHyperCubeData', params);
+  }
 
   /// Reduces the data of a bar chart, a line chart or a scatter plot chart and retrieves them.
   /// The reduction is dependent on the zoom factor (parameter _qZoomFactor_ ) and on the reduction mode.
@@ -64,30 +75,52 @@ class GenericObject extends BaseService {
   ///
   /// ### Example
   /// If you have a scatter plot chart and the zoom factor is set to 2, the scatter plot chart resolution is reduced by 4.
-  Future<BuiltList<NxCell>> getHyperCubeReducedData(String qPath,
-      BuiltList<NxCell> qPages, int qZoomFactor, String qReductionMode) async {}
+  Future<BuiltList<NxCell>> getHyperCubeReducedData(String path,
+      BuiltList<NxCell> pages, int zoomFactor, String reductionMode) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qZoomFactor'] = zoomFactor;
+    params['qReductionMode'] = reductionMode;
+    var rawResult = await query('GetHyperCubeReducedData', params);
+  }
 
   /// Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT.</div>
   Future<BuiltList<NxCell>> getHyperCubePivotData(
-      String qPath, BuiltList<NxCell> qPages) async {}
+      String path, BuiltList<NxCell> pages) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('GetHyperCubePivotData', params);
+  }
 
   /// Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT_STACK.</div>
   Future<BuiltList<NxCell>> getHyperCubeStackData(
-      String qPath, BuiltList<NxCell> qPages,
-      {int qMaxNbrCells}) async {}
+      String path, BuiltList<NxCell> pages, int maxNbrCells) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qMaxNbrCells'] = maxNbrCells;
+    var rawResult = await query('GetHyperCubeStackData', params);
+  }
 
   /// Retrieves and packs compressed hypercube and axis data. It is possible to retrieve specific pages of data.
   /// <div class=note>Binning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.</div>
   Future<BuiltList<NxCell>> getHyperCubeContinuousData(
-      String qPath, NxContinuousDataOptions qOptions,
-      {bool qReverseSort}) async {}
+      String path, NxContinuousDataOptions options, bool reverseSort) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qReverseSort'] = reverseSort;
+    var rawResult = await query('GetHyperCubeContinuousData', params);
+  }
 
   /// Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a treedata object or a hypercube in DATA_MODE_TREE.</div>
-  Future<BuiltList<NxCell>> getHyperCubeTreeData(String qPath,
-      {NxTreeDataOption qNodeOptions}) async {}
+  Future<BuiltList<NxCell>> getHyperCubeTreeData(
+      String path, NxTreeDataOption nodeOptions) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('GetHyperCubeTreeData', params);
+  }
 
   /// This method supports data binning.
   /// When a generic object with two or three measures and one dimension contains a lot of data, groups of points (for example, cells) can be rendered instead of points.
@@ -223,29 +256,45 @@ class GenericObject extends BaseService {
   /// </tr>
   /// </table>
   Future<BuiltList<NxCell>> getHyperCubeBinnedData(
-      String qPath,
-      BuiltList<NxCell> qPages,
-      NxViewPort qViewport,
-      BuiltList<NxCell> qDataRanges,
-      int qMaxNbrCells,
-      int qQueryLevel,
-      int qBinningMethod) async {}
+      String path,
+      BuiltList<NxCell> pages,
+      NxViewPort viewport,
+      BuiltList<NxCell> dataRanges,
+      int maxNbrCells,
+      int queryLevel,
+      int binningMethod) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qMaxNbrCells'] = maxNbrCells;
+    params['qQueryLevel'] = queryLevel;
+    params['qBinningMethod'] = binningMethod;
+    var rawResult = await query('GetHyperCubeBinnedData', params);
+  }
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// It is possible to apply a patch to the properties of a generic object, that is not persistent. Such a patch is called a soft patch.
   /// In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing _GetProperties_ , and only a _GetLayout_ call shows the result of the operation.
   /// Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.
   /// <div class=note>Soft properties apply only to generic objects.</div>
-  Future<void> applyPatches(BuiltList<NxCell> qPatches,
-      {bool qSoftPatch}) async {}
+  Future<void> applyPatches(BuiltList<NxCell> patches, bool softPatch) async {
+    var params = <String, dynamic>{};
+    params['qSoftPatch'] = softPatch;
+    var rawResult = await query('ApplyPatches', params);
+  }
 
   /// Clears the soft properties of a generic object.
   /// For more information on how to add soft properties to a generic object, see _ApplyPatches Method_.
-  Future<void> clearSoftPatches() async {}
+  Future<void> clearSoftPatches() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('ClearSoftPatches', params);
+  }
 
   /// Sets some properties for a generic object.
   /// <div class=note>The properties depends on the generic object type, see [properties](genericobject-property.html).</div>
-  Future<void> setProperties(GenericObjectProperties qProp) async {}
+  Future<void> setProperties(GenericObjectProperties prop) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('SetProperties', params);
+  }
 
   /// Returns the identifier, the type and the properties of the object.
   /// Because it is not mandatory to set all properties when you define an object, the _GetProperties_ method may show properties that were not set. In that case, default values are given.
@@ -253,7 +302,10 @@ class GenericObject extends BaseService {
   /// If the object is linked to another object, the properties of the linking object are not returned by the _GetProperties_ method. Use the _GetEffectiveProperties method_ instead.
   /// <div class=note>The properties depends on the generic object type, see [properties](genericobject-layout.html).</div>
   /// <div class=note>If the member delta is set to true in the request object, only the delta is retrieved.</div>
-  Future<GenericObjectProperties> getProperties() async {}
+  Future<GenericObjectProperties> getProperties() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetProperties', params);
+  }
 
   /// Returns the identifier, the type and the properties of the object.
   /// If the object contains some soft properties, the soft properties are returned.
@@ -262,7 +314,10 @@ class GenericObject extends BaseService {
   /// Returns the identifier, the type and the properties of the object.
   /// If the object contains some soft properties, the soft properties are returned.
   /// If the object is linked to another object, the properties of the linking object are returned.
-  Future<GenericObjectProperties> getEffectiveProperties() async {}
+  Future<GenericObjectProperties> getEffectiveProperties() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetEffectiveProperties', params);
+  }
 
   /// Sets the properties of:
   /// * A generic object.
@@ -270,20 +325,33 @@ class GenericObject extends BaseService {
   /// * The bookmarks/embedded snapshots of the generic object.
   ///
   /// <div class=note>If the _SetFullPropertyTree method_ is asked to set some properties to a child that does not exist, it creates the child. </div> <div class=note>The type of an object cannot be updated.</div>
-  Future<void> setFullPropertyTree(GenericObjectEntry qPropEntry) async {}
+  Future<void> setFullPropertyTree(GenericObjectEntry propEntry) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('SetFullPropertyTree', params);
+  }
 
   /// Gets the properties of:
   /// * A generic object.
   /// * The children of the generic object.
   /// * The bookmarks/embedded snapshots of the generic object.
-  Future<GenericObjectEntry> getFullPropertyTree() async {}
+  Future<GenericObjectEntry> getFullPropertyTree() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetFullPropertyTree', params);
+  }
 
   /// Returns the type and identifier of the object.
-  Future<NxInfo> getInfo() async {}
+  Future<NxInfo> getInfo() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetInfo', params);
+  }
 
   /// Clears the selections in a dimension of a visualization.
-  Future<void> clearSelections(String qPath,
-      {BuiltList<NxCell> qColIndices}) async {}
+  Future<void> clearSelections(
+      String path, BuiltList<NxCell> colIndices) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('ClearSelections', params);
+  }
 
   /// Exports the data of any generic object to an Excel file or a open XML file. If the object contains excluded values, those excluded values are not exported.
   /// This API has limited functionality and will not support CSV export from all types of objects. Consider using Excel export instead. Treemap and bar chart are not supported.
@@ -315,8 +383,16 @@ class GenericObject extends BaseService {
   /// If the exported file is larger than the maximum value, then an out-of-memory error with code 13000 is returned.
   ///
   /// <div class=note>Exported files are temporary and are available only for a certain time span and only to the user who created them.</div>
-  Future<String> exportData(String qFileType,
-      {String qPath, String qFileName, String qExportState}) async {}
+  Future<String> exportData(
+      String fileType, String path, String fileName, String exportState) async {
+    var params = <String, dynamic>{};
+    params['qFileType'] = fileType;
+    params['qPath'] = path;
+    params['qFileName'] = fileName;
+    params['qExportState'] = exportState;
+    var rawResult = await query('ExportData', params);
+    return rawResult['qUrl'];
+  }
 
   /// Makes single selections in dimensions.
   /// <div class=note>This method applies to list objects only.</div>
@@ -325,9 +401,15 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectValues(
-      String qPath, BuiltList<NxCell> qValues, bool qToggleMode,
-      {bool qSoftLock}) async {}
+  Future<bool> selectListObjectValues(String path, BuiltList<NxCell> values,
+      bool toggleMode, bool softLock) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qToggleMode'] = toggleMode;
+    params['qSoftLock'] = softLock;
+    var rawResult = await query('SelectListObjectValues', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Selects all possible values of a list object.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div>
@@ -336,7 +418,13 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectPossible(String qPath, {bool qSoftLock}) async {}
+  Future<bool> selectListObjectPossible(String path, bool softLock) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qSoftLock'] = softLock;
+    var rawResult = await query('SelectListObjectPossible', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Inverts the current selections in a specific field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div>
@@ -345,7 +433,13 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectExcluded(String qPath, {bool qSoftLock}) async {}
+  Future<bool> selectListObjectExcluded(String path, bool softLock) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qSoftLock'] = softLock;
+    var rawResult = await query('SelectListObjectExcluded', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Selects all alternative values in a specific field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note>If a field contains at least one selected value, the values that are neither selected nor excluded are alternatives values.</div>
@@ -354,8 +448,13 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectAlternative(String qPath,
-      {bool qSoftLock}) async {}
+  Future<bool> selectListObjectAlternative(String path, bool softLock) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qSoftLock'] = softLock;
+    var rawResult = await query('SelectListObjectAlternative', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Selects all values of a field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div>
@@ -364,56 +463,124 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectAll(String qPath, {bool qSoftLock}) async {}
+  Future<bool> selectListObjectAll(String path, bool softLock) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qSoftLock'] = softLock;
+    var rawResult = await query('SelectListObjectAll', params);
+    return rawResult['qSuccess'];
+  }
 
   /// The following is returned in the output:
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> selectListObjectContinuousRange(
-      String qPath, BuiltList<NxCell> qRanges,
-      {bool qSoftLock}) async {}
+      String path, BuiltList<NxCell> ranges, bool softLock) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qSoftLock'] = softLock;
+    var rawResult = await query('SelectListObjectContinuousRange', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Searches for a string in a list object.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note>The search results can be displayed using the _GetLayout Method_. </div>
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  Future<bool> searchListObjectFor(String qPath, String qMatch) async {}
+  Future<bool> searchListObjectFor(String path, String match) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qMatch'] = match;
+    var rawResult = await query('SearchListObjectFor', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Aborts the results of a search in a list object.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note> After an abort on a list object search, the _GetLayout Method_ does not return any more search results but it does return the values in the field. </div>
-  Future<void> abortListObjectSearch(String qPath) async {}
+  Future<void> abortListObjectSearch(String path) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('AbortListObjectSearch', params);
+  }
 
   /// Accept the results of a search in a list object. The search results become selected in the field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note>The search results are displayed using the _GetLayout Method_. </div>
-  Future<void> acceptListObjectSearch(String qPath, bool qToggleMode,
-      {bool qSoftLock}) async {}
+  Future<void> acceptListObjectSearch(
+      String path, bool toggleMode, bool softLock) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qToggleMode'] = toggleMode;
+    params['qSoftLock'] = softLock;
+    var rawResult = await query('AcceptListObjectSearch', params);
+  }
 
   /// Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
-  Future<void> expandLeft(String qPath, int qRow, int qCol, bool qAll) async {}
+  Future<void> expandLeft(String path, int row, int col, bool all) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qRow'] = row;
+    params['qCol'] = col;
+    params['qAll'] = all;
+    var rawResult = await query('ExpandLeft', params);
+  }
 
   /// Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
-  Future<void> expandTop(String qPath, int qRow, int qCol, bool qAll) async {}
+  Future<void> expandTop(String path, int row, int col, bool all) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qRow'] = row;
+    params['qCol'] = col;
+    params['qAll'] = all;
+    var rawResult = await query('ExpandTop', params);
+  }
 
   /// Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
-  Future<void> collapseLeft(
-      String qPath, int qRow, int qCol, bool qAll) async {}
+  Future<void> collapseLeft(String path, int row, int col, bool all) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qRow'] = row;
+    params['qCol'] = col;
+    params['qAll'] = all;
+    var rawResult = await query('CollapseLeft', params);
+  }
 
   /// Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
-  Future<void> collapseTop(String qPath, int qRow, int qCol, bool qAll) async {}
+  Future<void> collapseTop(String path, int row, int col, bool all) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qRow'] = row;
+    params['qCol'] = col;
+    params['qAll'] = all;
+    var rawResult = await query('CollapseTop', params);
+  }
 
   /// You can use the drillUp method with any object that contains a drill-down group as a dimension.
   /// This method allows you to move between different levels of information (from a detailed level to a less detailed level of information). You can go back to previous visualizations up to the highest level of the hierarchy.
   /// If you try to drill up more steps than there are available levels, the first level of the hierarchy is displayed.
-  Future<void> drillUp(String qPath, int qDimNo, int qNbrSteps) async {}
+  Future<void> drillUp(String path, int dimNo, int nbrSteps) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qDimNo'] = dimNo;
+    params['qNbrSteps'] = nbrSteps;
+    var rawResult = await query('DrillUp', params);
+  }
 
   /// Locks the selected values of a generic object.
-  Future<void> lock(String qPath, {BuiltList<NxCell> qColIndices}) async {}
+  Future<void> lock(String path, BuiltList<NxCell> colIndices) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('Lock', params);
+  }
 
   /// Unlocks the selected values of a generic object if the target (or handle ) is a generic object
-  Future<void> unlock(String qPath, {BuiltList<NxCell> qColIndices}) async {}
+  Future<void> unlock(String path, BuiltList<NxCell> colIndices) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    var rawResult = await query('Unlock', params);
+  }
 
   /// Selects some values in one dimension.
   /// The values are identified by their element numbers.
@@ -423,8 +590,15 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectHyperCubeValues(String qPath, int qDimNo,
-      BuiltList<NxCell> qValues, bool qToggleMode) async {}
+  Future<bool> selectHyperCubeValues(
+      String path, int dimNo, BuiltList<NxCell> values, bool toggleMode) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qDimNo'] = dimNo;
+    params['qToggleMode'] = toggleMode;
+    var rawResult = await query('SelectHyperCubeValues', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Makes selections in multiple dimensions and measures.
   /// <div class=note> This method applies to hypercubes, such as bar charts, tables and scatter plots.</div>
@@ -433,9 +607,19 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectHyperCubeCells(String qPath, BuiltList<NxCell> qRowIndices,
-      BuiltList<NxCell> qColIndices,
-      {bool qSoftLock, bool qDeselectOnlyOneSelected}) async {}
+  Future<bool> selectHyperCubeCells(
+      String path,
+      BuiltList<NxCell> rowIndices,
+      BuiltList<NxCell> colIndices,
+      bool softLock,
+      bool deselectOnlyOneSelected) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qSoftLock'] = softLock;
+    params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+    var rawResult = await query('SelectHyperCubeCells', params);
+    return rawResult['qSuccess'];
+  }
 
   /// <div class=note>This method only applies to hypercubes that are not represented as straight tables. The parameter _qMode_ in _HyperCubeDef_ must be set either to _P_  or _K_ . </div>
   ///
@@ -473,8 +657,15 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectPivotCells(String qPath, BuiltList<NxCell> qSelections,
-      {bool qSoftLock, bool qDeselectOnlyOneSelected}) async {}
+  Future<bool> selectPivotCells(String path, BuiltList<NxCell> selections,
+      bool softLock, bool deselectOnlyOneSelected) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qSoftLock'] = softLock;
+    params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+    var rawResult = await query('SelectPivotCells', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Make range selections in measures.
   /// <div class=note> This method applies to hypercubes. For example, bar charts, tables and scatter plots.</div>
@@ -484,58 +675,118 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> rangeSelectHyperCubeValues(
-      String qPath, BuiltList<NxCell> qRanges,
-      {BuiltList<NxCell> qColumnsToSelect,
-      bool qOrMode,
-      bool qDeselectOnlyOneSelected}) async {}
+      String path,
+      BuiltList<NxCell> ranges,
+      BuiltList<NxCell> columnsToSelect,
+      bool orMode,
+      bool deselectOnlyOneSelected) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qOrMode'] = orMode;
+    params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+    var rawResult = await query('RangeSelectHyperCubeValues', params);
+    return rawResult['qSuccess'];
+  }
+
   Future<bool> multiRangeSelectHyperCubeValues(
-      String qPath, BuiltList<NxCell> qRanges,
-      {bool qOrMode, bool qDeselectOnlyOneSelected}) async {}
+      String path,
+      BuiltList<NxCell> ranges,
+      bool orMode,
+      bool deselectOnlyOneSelected) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qOrMode'] = orMode;
+    params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+    var rawResult = await query('MultiRangeSelectHyperCubeValues', params);
+    return rawResult['qSuccess'];
+  }
+
   Future<bool> multiRangeSelectTreeDataValues(
-      String qPath, BuiltList<NxCell> qRanges,
-      {bool qOrMode, bool qDeselectOnlyOneSelected}) async {}
+      String path,
+      BuiltList<NxCell> ranges,
+      bool orMode,
+      bool deselectOnlyOneSelected) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qOrMode'] = orMode;
+    params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+    var rawResult = await query('MultiRangeSelectTreeDataValues', params);
+    return rawResult['qSuccess'];
+  }
 
   /// The following is returned in the output:
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> selectHyperCubeContinuousRange(
-      String qPath, BuiltList<NxCell> qRanges,
-      {bool qSoftLock}) async {}
+      String path, BuiltList<NxCell> ranges, bool softLock) async {
+    var params = <String, dynamic>{};
+    params['qPath'] = path;
+    params['qSoftLock'] = softLock;
+    var rawResult = await query('SelectHyperCubeContinuousRange', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Returns the type of the object and the corresponding handle.
-  Future<ObjectInterface> getChild(String qId) async {}
+  Future<ObjectInterface> getChild(String id) async {
+    var params = <String, dynamic>{};
+    params['qId'] = id;
+    var rawResult = await query('GetChild', params);
+  }
 
   /// Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.
   ///
   /// Full dynamic properties are optional and are returned if they exist in the definition of the object.
-  Future<BuiltList<NxCell>> getChildInfos() async {}
+  Future<BuiltList<NxCell>> getChildInfos() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetChildInfos', params);
+  }
 
   /// Creates a generic object that is a child of another generic object.
   /// <div class=note>It is possible to update the properties of the child's parent at the same time that the child is created. Both operations are performed by the same call.</div> <div class=note>It is possible to create a child that is linked to another generic object. The two objects have the same properties.</div>
-  Future<NxInfo> createChild(GenericObjectProperties qProp,
-      {GenericObjectProperties qPropForThis}) async {}
+  Future<NxInfo> createChild(
+      GenericObjectProperties prop, GenericObjectProperties propForThis) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('CreateChild', params);
+  }
 
   /// Removes a child object.
   /// <div class=note>It is possible to update the properties of the child's parent at the same time that the child is removed. Both operations are performed by the same call.</div> <div class=note>Removing a linked object, invalidate the linking object. </div>
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  Future<bool> destroyChild(String qId,
-      {GenericObjectProperties qPropForThis}) async {}
+  Future<bool> destroyChild(
+      String id, GenericObjectProperties propForThis) async {
+    var params = <String, dynamic>{};
+    params['qId'] = id;
+    var rawResult = await query('DestroyChild', params);
+    return rawResult['qSuccess'];
+  }
 
   /// Removes all children and all children to the children on an object.
-  Future<void> destroyAllChildren(
-      {GenericObjectProperties qPropForThis}) async {}
+  Future<void> destroyAllChildren(GenericObjectProperties propForThis) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('DestroyAllChildren', params);
+  }
 
   /// Sets the order of the children in a generic object.
   /// <div class=note>To change the order of the children in a generic object, the identifiers of all the children must be included in the list of the identifiers (in _qIds_ ). </div>
-  Future<void> setChildArrayOrder(BuiltList<NxCell> qIds) async {}
+  Future<void> setChildArrayOrder(BuiltList<NxCell> ids) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('SetChildArrayOrder', params);
+  }
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
-  Future<BuiltList<NxCell>> getLinkedObjects() async {}
+  Future<BuiltList<NxCell>> getLinkedObjects() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetLinkedObjects', params);
+  }
 
   /// Copies the properties of a generic object and its children.
   /// The source object is specified by the parameter _qFromId_ and the destination object is referenced by its handle.
   /// <div class=note>The identifier of the destination object is the same as before the copy takes place.</div>
-  Future<void> copyFrom(String qFromId) async {}
+  Future<void> copyFrom(String fromId) async {
+    var params = <String, dynamic>{};
+    params['qFromId'] = fromId;
+    var rawResult = await query('CopyFrom', params);
+  }
 
   /// Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.
   /// When a visualization is in selection mode, selections can be made in this visualization. The visualization is not sorted until the selection mode is ended. Once the selection mode is ended and if the selections are accepted, the visualization is sorted according to the sort criteria. For more information about:
@@ -544,26 +795,49 @@ class GenericObject extends BaseService {
   ///
   /// ### Example
   /// A sheet contains a list object and a chart. If the list object is in selection mode then the chart cannot be in selection mode. No selection on the chart can be made until the list object exits the selection mode.
-  Future<void> beginSelections(BuiltList<NxCell> qPaths) async {}
+  Future<void> beginSelections(BuiltList<NxCell> paths) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('BeginSelections', params);
+  }
 
   /// Ends the selection mode on a visualization. The selections are accepted or aborted when exiting the selection mode, depending on the _qAccept_ parameter value.
-  Future<void> endSelections(bool qAccept) async {}
+  Future<void> endSelections(bool accept) async {
+    var params = <String, dynamic>{};
+    params['qAccept'] = accept;
+    var rawResult = await query('EndSelections', params);
+  }
 
   /// Resets all selections made in selection mode.
-  Future<void> resetMadeSelections() async {}
+  Future<void> resetMadeSelections() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('ResetMadeSelections', params);
+  }
 
   /// Adds a snapshot to a generic object.
   /// <div class=note>Only one snapshot can be embedded in a generic object.</div> <div class=note>If you embed a snapshot in an object that already contains a snapshot, the new snapshot overwrites the previous one.</div>
-  Future<void> embedSnapshotObject(String qId) async {}
+  Future<void> embedSnapshotObject(String id) async {
+    var params = <String, dynamic>{};
+    params['qId'] = id;
+    var rawResult = await query('EmbedSnapshotObject', params);
+  }
 
   /// Returns the type of the object and the corresponding handle.
-  Future<ObjectInterface> getSnapshotObject() async {}
+  Future<ObjectInterface> getSnapshotObject() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetSnapshotObject', params);
+  }
 
   /// Publishes a generic object.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
-  Future<void> publish() async {}
+  Future<void> publish() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('Publish', params);
+  }
 
   /// Unpublishes a generic object.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
-  Future<void> unPublish() async {}
+  Future<void> unPublish() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('UnPublish', params);
+  }
 }

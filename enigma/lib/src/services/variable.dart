@@ -13,20 +13,44 @@ class Variable extends BaseService {
   String get serviceType => 'Variable';
 
   /// Returns the calculated value of a variable.
-  Future<AlfaNumString> getContent() async {}
+  Future<AlfaNumString> getContent() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetContent', params);
+  }
 
   /// Returns the raw value of a variable.
-  Future<String> getRawContent() async {}
+  Future<String> getRawContent() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetRawContent', params);
+    return rawResult['qReturn'];
+  }
 
   /// Sets a value to a variable.
-  Future<bool> setContent(String qContent, bool qUpdateMRU) async {}
+  Future<bool> setContent(String content, bool updateMRU) async {
+    var params = <String, dynamic>{};
+    params['qContent'] = content;
+    params['qUpdateMRU'] = updateMRU;
+    var rawResult = await query('SetContent', params);
+    return rawResult['qReturn'];
+  }
 
   /// Sets the value of a dual variable overriding any input constraints.
-  Future<void> forceContent(String qs, num qd) async {}
+  Future<void> forceContent(String s, num d) async {
+    var params = <String, dynamic>{};
+    params['qs'] = s;
+    params['qd'] = d;
+    var rawResult = await query('ForceContent', params);
+  }
 
   /// Gets the properties of a variable.
-  Future<NxVariableProperties> getNxProperties() async {}
+  Future<NxVariableProperties> getNxProperties() async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetNxProperties', params);
+  }
 
   /// Sets some properties to a variable.
-  Future<void> setNxProperties(NxVariableProperties qProperties) async {}
+  Future<void> setNxProperties(NxVariableProperties properties) async {
+    var params = <String, dynamic>{};
+    var rawResult = await query('SetNxProperties', params);
+  }
 }
