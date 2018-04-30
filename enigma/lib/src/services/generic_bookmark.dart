@@ -3,17 +3,18 @@ import '../enigma/base_service.dart';
 import '../enigma/enigma.dart';
 import '../models.dart';
 import '../serializers/json_serializer.dart';
+import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
+
 /// This class describes all the methods that apply at bookmark level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the bookmark.
 class GenericBookmark extends BaseService {
+  GenericBookmark(Enigma enigma, int handle) : super(enigma, handle);
 
-    
-    GenericBookmark(Enigma enigma, int handle) : super(enigma, handle);
+  String get serviceType => 'GenericBookmark';
 
-      String get serviceType => 'GenericBookmark';
   /// Retrieves the values of a field.
-  /// 
+  ///
   /// ### Fieldvalue
   /// <table>
   /// <tr>
@@ -37,72 +38,83 @@ class GenericBookmark extends BaseService {
   /// <td>Double</td>
   /// </tr>
   /// </table>
-  Future<BuiltList<NxCell>> getFieldValues(String field, bool getExcludedValues, BookmarkFieldPage dataPage) async {
-var params = <String, dynamic>{};
-params['qField'] = field;
-params['qGetExcludedValues'] = getExcludedValues;
-var rawResult = await query('GetFieldValues', params);
-var jsonData = rawResult['result']['qFieldValues'];
-var dartData = fromJson<BuiltList<NxCell>>(BuiltList<NxCell>,jsonData);
-return dartData;
-}
+  Future<BuiltList<NxCell>> getFieldValues(
+      String field, bool getExcludedValues, BookmarkFieldPage dataPage) async {
+    var params = <String, dynamic>{};
+    params['qField'] = field;
+    params['qGetExcludedValues'] = getExcludedValues;
+    var rawResult = await query('GetFieldValues', params);
+    var jsonData = rawResult['result']['qFieldValues'];
+    var dartData = fromJsonFullType<BuiltList<NxCell>>(
+        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    return dartData;
+  }
+
   /// Evaluates an object and displays its properties including the dynamic properties.
   /// If the member _delta_ is set to true in the request object, only the delta is evaluated.
   Future<GenericBookmarkLayout> getLayout() async {
-var params = <String, dynamic>{};
-var rawResult = await query('GetLayout', params);
-var jsonData = rawResult['result']['qLayout'];
-var dartData = fromJson<GenericBookmarkLayout>(GenericBookmarkLayout,jsonData);
-return dartData;
-}
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetLayout', params);
+    var jsonData = rawResult['result']['qLayout'];
+    var dartData = fromJsonFullType<GenericBookmarkLayout>(
+        const FullType(GenericBookmarkLayout), jsonData);
+    return dartData;
+  }
+
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
   Future<void> applyPatches(BuiltList<NxCell> patches) async {
-var params = <String, dynamic>{};
-var rawResult = await query('ApplyPatches', params);
-}
+    var params = <String, dynamic>{};
+    var rawResult = await query('ApplyPatches', params);
+  }
+
   /// Sets some properties for a bookmark.
   Future<void> setProperties(GenericBookmarkProperties prop) async {
-var params = <String, dynamic>{};
-var rawResult = await query('SetProperties', params);
-}
+    var params = <String, dynamic>{};
+    var rawResult = await query('SetProperties', params);
+  }
+
   /// Shows the properties of an object.
   /// <div class=note>If the member delta is set to true in the request object, only the delta is retrieved.</div>
   /// The following is always returned in the output:
   Future<GenericBookmarkProperties> getProperties() async {
-var params = <String, dynamic>{};
-var rawResult = await query('GetProperties', params);
-var jsonData = rawResult['result']['qProp'];
-var dartData = fromJson<GenericBookmarkProperties>(GenericBookmarkProperties,jsonData);
-return dartData;
-}
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetProperties', params);
+    var jsonData = rawResult['result']['qProp'];
+    var dartData = fromJsonFullType<GenericBookmarkProperties>(
+        const FullType(GenericBookmarkProperties), jsonData);
+    return dartData;
+  }
+
   /// Returns:
   /// * The type of the object.
   /// * The identifier of the object.
   Future<NxInfo> getInfo() async {
-var params = <String, dynamic>{};
-var rawResult = await query('GetInfo', params);
-var jsonData = rawResult['result']['qInfo'];
-var dartData = fromJson<NxInfo>(NxInfo,jsonData);
-return dartData;
-}
+    var params = <String, dynamic>{};
+    var rawResult = await query('GetInfo', params);
+    var jsonData = rawResult['result']['qInfo'];
+    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
+    return dartData;
+  }
+
   /// Applies a bookmark.
-  /// 
+  ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> apply() async {
-var params = <String, dynamic>{};
-var rawResult = await query('Apply', params);
-return rawResult['result']['qSuccess'];
-}
+    var params = <String, dynamic>{};
+    var rawResult = await query('Apply', params);
+    return rawResult['result']['qSuccess'];
+  }
+
   /// Publishes a bookmark.
   Future<void> publish() async {
-var params = <String, dynamic>{};
-var rawResult = await query('Publish', params);
-}
+    var params = <String, dynamic>{};
+    var rawResult = await query('Publish', params);
+  }
+
   /// Unpublishes a bookmark.
   Future<void> unPublish() async {
-var params = <String, dynamic>{};
-var rawResult = await query('UnPublish', params);
+    var params = <String, dynamic>{};
+    var rawResult = await query('UnPublish', params);
+  }
 }
-}
-

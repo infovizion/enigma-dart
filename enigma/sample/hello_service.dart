@@ -11,6 +11,5 @@ main() async {
   print(engineVersion);
   var productVersion = await global.productVersion();
   print('Product version: $productVersion');
-  print('asdfasdfasdf');
   await enigma.close();
 }

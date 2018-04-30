@@ -3,6 +3,7 @@ import '../enigma/base_service.dart';
 import '../enigma/enigma.dart';
 import '../models.dart';
 import '../serializers/json_serializer.dart';
+import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at field level.
@@ -111,7 +112,8 @@ class Field extends BaseService {
     var params = <String, dynamic>{};
     var rawResult = await query('GetNxProperties', params);
     var jsonData = rawResult['result']['qProperties'];
-    var dartData = fromJson<NxFieldProperties>(NxFieldProperties, jsonData);
+    var dartData = fromJsonFullType<NxFieldProperties>(
+        const FullType(NxFieldProperties), jsonData);
     return dartData;
   }
 

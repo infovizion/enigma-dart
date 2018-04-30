@@ -2,6 +2,7 @@ class TypeData {
   Set<String> importDirectives = new Set<String>();
   String jsonType;
   String dartType;
+  String specifiedType;
   String jsonName;
   String dartName;
   bool get isPrimitive =>
