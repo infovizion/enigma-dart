@@ -3,6 +3,7 @@ import '../enigma/base_service.dart';
 import '../enigma/enigma.dart';
 import '../models.dart';
 import '../serializers/json_serializer.dart';
+import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at generic variable level.
@@ -18,8 +19,8 @@ class GenericVariable extends BaseService {
     var params = <String, dynamic>{};
     var rawResult = await query('GetLayout', params);
     var jsonData = rawResult['result']['qLayout'];
-    var dartData =
-        fromJson<GenericVariableLayout>(GenericVariableLayout, jsonData);
+    var dartData = fromJsonFullType<GenericVariableLayout>(
+        const FullType(GenericVariableLayout), jsonData);
     return dartData;
   }
 
@@ -44,8 +45,8 @@ class GenericVariable extends BaseService {
     var params = <String, dynamic>{};
     var rawResult = await query('GetProperties', params);
     var jsonData = rawResult['result']['qProp'];
-    var dartData = fromJson<GenericVariableProperties>(
-        GenericVariableProperties, jsonData);
+    var dartData = fromJsonFullType<GenericVariableProperties>(
+        const FullType(GenericVariableProperties), jsonData);
     return dartData;
   }
 
@@ -54,7 +55,7 @@ class GenericVariable extends BaseService {
     var params = <String, dynamic>{};
     var rawResult = await query('GetInfo', params);
     var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJson<NxInfo>(NxInfo, jsonData);
+    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
     return dartData;
   }
 

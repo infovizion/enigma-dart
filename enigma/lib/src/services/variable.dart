@@ -3,6 +3,7 @@ import '../enigma/base_service.dart';
 import '../enigma/enigma.dart';
 import '../models.dart';
 import '../serializers/json_serializer.dart';
+import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at variable level.
@@ -18,7 +19,8 @@ class Variable extends BaseService {
     var params = <String, dynamic>{};
     var rawResult = await query('GetContent', params);
     var jsonData = rawResult['result']['qContent'];
-    var dartData = fromJson<AlfaNumString>(AlfaNumString, jsonData);
+    var dartData = fromJsonFullType<AlfaNumString>(
+        const FullType(AlfaNumString), jsonData);
     return dartData;
   }
 
@@ -51,8 +53,8 @@ class Variable extends BaseService {
     var params = <String, dynamic>{};
     var rawResult = await query('GetNxProperties', params);
     var jsonData = rawResult['result']['qProperties'];
-    var dartData =
-        fromJson<NxVariableProperties>(NxVariableProperties, jsonData);
+    var dartData = fromJsonFullType<NxVariableProperties>(
+        const FullType(NxVariableProperties), jsonData);
     return dartData;
   }
 

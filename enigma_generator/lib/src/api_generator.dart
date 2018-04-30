@@ -90,12 +90,14 @@ class ApiGenerator {
         var typeData = new TypeData();
         typeData.jsonType = key;
         typeData.dartType = key;
+        typeData.specifiedType = 'const FullType($key)';
         var importDirective = "import '${getModelFileName(key)}';";
         typeData.importDirectives.add(importDirective);
         typeMap[typeData.jsonType] = typeData;
       }
       if (value.jsonType == 'object' && value.properties.isEmpty) {
         _addType(new TypeData(jsonType: key, dartType: 'JsonObject')
+          ..specifiedType = 'const FullType($key)'
           ..importDirectives
               .add("import 'package:built_value/json_object.dart';"));
       }
@@ -162,6 +164,7 @@ class ApiGenerator {
         return null;
       }
       result.dartType = 'BuiltList<${dataType.dartType}>';
+      result.specifiedType = 'const FullType(BuiltList, const [const FullType(${dataType.dartType})])';
       result.importDirectives.addAll(dataType.importDirectives);
       result.importDirectives
           .add("import 'package:built_collection/built_collection.dart';");
@@ -352,7 +355,7 @@ class ApiGenerator {
         buffer.writeln(
             "var jsonData = rawResult['result']['${mainResponse.name}'];");
         buffer.writeln(
-            "var dartData = fromJson<${resultTypeData.dartType}>(${resultTypeData.dartType},jsonData);");
+            "var dartData = fromJsonFullType<${resultTypeData.dartType}>(${resultTypeData.specifiedType},jsonData);");
         buffer.writeln('return dartData;');
       }
     }
@@ -367,6 +370,7 @@ class ApiGenerator {
     headerBuffer.writeln("import '../enigma/enigma.dart';");
     headerBuffer.writeln("import '../models.dart';");
     headerBuffer.writeln("import '../serializers/json_serializer.dart';");
+    headerBuffer.writeln("import 'package:built_value/serializer.dart';");
     headerBuffer
         .writeln("import 'package:built_collection/built_collection.dart';");
     var buffer = new StringBuffer();
