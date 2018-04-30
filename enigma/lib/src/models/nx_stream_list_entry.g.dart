@@ -30,13 +30,13 @@ class _$NxStreamListEntrySerializer
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.id != null) {
       result
-        ..add('id')
+        ..add('qId')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(String)));
     }
@@ -55,11 +55,11 @@ class _$NxStreamListEntrySerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'id':
+        case 'qId':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

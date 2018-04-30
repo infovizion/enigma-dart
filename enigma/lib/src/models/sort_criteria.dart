@@ -14,40 +14,48 @@ abstract class SortCriteria
   /// Sorts the field values according to their logical state (selected, optional, alternative or excluded).
   /// Original name: qSortByState
   @nullable
+  @BuiltValueField(wireName: 'qSortByState')
   int get sortByState;
 
   /// Sorts the field values by frequency (number of occurrences in the field).
   /// Original name: qSortByFrequency
   @nullable
+  @BuiltValueField(wireName: 'qSortByFrequency')
   int get sortByFrequency;
 
   /// Sorts the field values by numeric value.
   /// Original name: qSortByNumeric
   @nullable
+  @BuiltValueField(wireName: 'qSortByNumeric')
   int get sortByNumeric;
 
   /// Sorts the field by alphabetical order.
   /// Original name: qSortByAscii
   @nullable
+  @BuiltValueField(wireName: 'qSortByAscii')
   int get sortByAscii;
 
   /// Sorts the field values by the initial load order.
   /// Original name: qSortByLoadOrder
   @nullable
+  @BuiltValueField(wireName: 'qSortByLoadOrder')
   int get sortByLoadOrder;
 
   /// Sorts the field by expression.
   /// Original name: qSortByExpression
   @nullable
+  @BuiltValueField(wireName: 'qSortByExpression')
   int get sortByExpression;
 
   /// Sort by expression.
   /// Original name: qExpression
   @nullable
+  @BuiltValueField(wireName: 'qExpression')
   ValueExpr get expression;
 
   /// Original name: qSortByGreyness
   @nullable
+  @BuiltValueField(wireName: 'qSortByGreyness')
   int get sortByGreyness;
 
   factory SortCriteria([updates(SortCriteriaBuilder b)]) = _$SortCriteria;

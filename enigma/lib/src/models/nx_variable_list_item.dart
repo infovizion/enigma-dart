@@ -17,16 +17,19 @@ abstract class NxVariableListItem
   /// Name of the variable.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Description of the variable.
   /// Original name: qDescription
   @nullable
+  @BuiltValueField(wireName: 'qDescription')
   String get description;
 
   /// Definition of the variable. It can be a value or an expression.
   /// Original name: qDefinition
   @nullable
+  @BuiltValueField(wireName: 'qDefinition')
   String get definition;
 
   /// If set to true, it means that the variable is a system variable.
@@ -35,6 +38,7 @@ abstract class NxVariableListItem
   /// The default value is false.
   /// Original name: qIsConfig
   @nullable
+  @BuiltValueField(wireName: 'qIsConfig')
   bool get isConfig;
 
   /// If set to true, it means that the variable is reserved.
@@ -45,28 +49,33 @@ abstract class NxVariableListItem
   /// * _DayNames_ is a reserved variable, set by the user.
   /// Original name: qIsReserved
   @nullable
+  @BuiltValueField(wireName: 'qIsReserved')
   bool get isReserved;
 
   /// Information about publishing and permissions.
   /// This parameter is optional.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// Identifier and type of the object.
   /// This parameter is mandatory.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Data.
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   JsonObject get data;
 
   /// If set to true, it means that the variable was defined via script.
   /// Original name: qIsScriptCreated
   @nullable
+  @BuiltValueField(wireName: 'qIsScriptCreated')
   bool get isScriptCreated;
 
   factory NxVariableListItem([updates(NxVariableListItemBuilder b)]) =

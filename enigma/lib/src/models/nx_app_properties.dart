@@ -27,11 +27,13 @@ abstract class NxAppProperties
   /// App title.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   String get title;
 
   /// Last reload time of the app.
   /// Original name: qLastReloadTime
   @nullable
+  @BuiltValueField(wireName: 'qLastReloadTime')
   String get lastReloadTime;
 
   /// Internal property reserved for app migration.
@@ -39,6 +41,7 @@ abstract class NxAppProperties
   /// Do not update.
   /// Original name: qMigrationHash
   @nullable
+  @BuiltValueField(wireName: 'qMigrationHash')
   String get migrationHash;
 
   /// Internal property reserved for app migration.
@@ -46,11 +49,13 @@ abstract class NxAppProperties
   /// Do not update.
   /// Original name: qSavedInProductVersion
   @nullable
+  @BuiltValueField(wireName: 'qSavedInProductVersion')
   String get savedInProductVersion;
 
   /// App thumbnail.
   /// Original name: qThumbnail
   @nullable
+  @BuiltValueField(wireName: 'qThumbnail')
   StaticContentUrlDef get thumbnail;
 
   factory NxAppProperties([updates(NxAppPropertiesBuilder b)]) =

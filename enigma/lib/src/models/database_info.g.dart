@@ -29,67 +29,67 @@ class _$DatabaseInfoSerializer implements StructuredSerializer<DatabaseInfo> {
     final result = <Object>[];
     if (object.dBMSName != null) {
       result
-        ..add('dBMSName')
+        ..add('qDBMSName')
         ..add(serializers.serialize(object.dBMSName,
             specifiedType: const FullType(String)));
     }
     if (object.dBUsage != null) {
       result
-        ..add('dBUsage')
+        ..add('qDBUsage')
         ..add(serializers.serialize(object.dBUsage,
             specifiedType: const FullType(bool)));
     }
     if (object.ownerUsage != null) {
       result
-        ..add('ownerUsage')
+        ..add('qOwnerUsage')
         ..add(serializers.serialize(object.ownerUsage,
             specifiedType: const FullType(bool)));
     }
     if (object.dBSeparator != null) {
       result
-        ..add('dBSeparator')
+        ..add('qDBSeparator')
         ..add(serializers.serialize(object.dBSeparator,
             specifiedType: const FullType(String)));
     }
     if (object.ownerSeparator != null) {
       result
-        ..add('ownerSeparator')
+        ..add('qOwnerSeparator')
         ..add(serializers.serialize(object.ownerSeparator,
             specifiedType: const FullType(String)));
     }
     if (object.dBFirst != null) {
       result
-        ..add('dBFirst')
+        ..add('qDBFirst')
         ..add(serializers.serialize(object.dBFirst,
             specifiedType: const FullType(bool)));
     }
     if (object.quotePreffix != null) {
       result
-        ..add('quotePreffix')
+        ..add('qQuotePreffix')
         ..add(serializers.serialize(object.quotePreffix,
             specifiedType: const FullType(String)));
     }
     if (object.quoteSuffix != null) {
       result
-        ..add('quoteSuffix')
+        ..add('qQuoteSuffix')
         ..add(serializers.serialize(object.quoteSuffix,
             specifiedType: const FullType(String)));
     }
     if (object.specialChars != null) {
       result
-        ..add('specialChars')
+        ..add('qSpecialChars')
         ..add(serializers.serialize(object.specialChars,
             specifiedType: const FullType(String)));
     }
     if (object.defaultDatabase != null) {
       result
-        ..add('defaultDatabase')
+        ..add('qDefaultDatabase')
         ..add(serializers.serialize(object.defaultDatabase,
             specifiedType: const FullType(String)));
     }
     if (object.keywords != null) {
       result
-        ..add('keywords')
+        ..add('qKeywords')
         ..add(serializers.serialize(object.keywords,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -109,47 +109,47 @@ class _$DatabaseInfoSerializer implements StructuredSerializer<DatabaseInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'dBMSName':
+        case 'qDBMSName':
           result.dBMSName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'dBUsage':
+        case 'qDBUsage':
           result.dBUsage = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'ownerUsage':
+        case 'qOwnerUsage':
           result.ownerUsage = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'dBSeparator':
+        case 'qDBSeparator':
           result.dBSeparator = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'ownerSeparator':
+        case 'qOwnerSeparator':
           result.ownerSeparator = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'dBFirst':
+        case 'qDBFirst':
           result.dBFirst = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'quotePreffix':
+        case 'qQuotePreffix':
           result.quotePreffix = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'quoteSuffix':
+        case 'qQuoteSuffix':
           result.quoteSuffix = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'specialChars':
+        case 'qSpecialChars':
           result.specialChars = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'defaultDatabase':
+        case 'qDefaultDatabase':
           result.defaultDatabase = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'keywords':
+        case 'qKeywords':
           result.keywords.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

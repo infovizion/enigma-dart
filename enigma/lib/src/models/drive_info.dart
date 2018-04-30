@@ -14,17 +14,20 @@ abstract class DriveInfo implements Built<DriveInfo, DriveInfoBuilder> {
   /// C:\\\, E:\\\
   /// Original name: qDrive
   @nullable
+  @BuiltValueField(wireName: 'qDrive')
   String get drive;
 
   /// Type of the drive.
   /// _Fixed_ means physical drive.
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Name of the drive.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Information about the drive type.
@@ -38,10 +41,12 @@ abstract class DriveInfo implements Built<DriveInfo, DriveInfoBuilder> {
   /// * UNKNOWN_TYPE
   /// Original name: qTypeIdentifier
   @nullable
+  @BuiltValueField(wireName: 'qTypeIdentifier')
   String get typeIdentifier;
 
   /// Original name: qUnnamedDrive
   @nullable
+  @BuiltValueField(wireName: 'qUnnamedDrive')
   bool get unnamedDrive;
 
   factory DriveInfo([updates(DriveInfoBuilder b)]) = _$DriveInfo;

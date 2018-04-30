@@ -30,67 +30,67 @@ class _$FileDataFormatSerializer
     final result = <Object>[];
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.label != null) {
       result
-        ..add('label')
+        ..add('qLabel')
         ..add(serializers.serialize(object.label,
             specifiedType: const FullType(String)));
     }
     if (object.quote != null) {
       result
-        ..add('quote')
+        ..add('qQuote')
         ..add(serializers.serialize(object.quote,
             specifiedType: const FullType(String)));
     }
     if (object.comment != null) {
       result
-        ..add('comment')
+        ..add('qComment')
         ..add(serializers.serialize(object.comment,
             specifiedType: const FullType(String)));
     }
     if (object.delimiter != null) {
       result
-        ..add('delimiter')
+        ..add('qDelimiter')
         ..add(serializers.serialize(object.delimiter,
             specifiedType: const FullType(DelimiterInfo)));
     }
     if (object.codePage != null) {
       result
-        ..add('codePage')
+        ..add('qCodePage')
         ..add(serializers.serialize(object.codePage,
             specifiedType: const FullType(int)));
     }
     if (object.headerSize != null) {
       result
-        ..add('headerSize')
+        ..add('qHeaderSize')
         ..add(serializers.serialize(object.headerSize,
             specifiedType: const FullType(int)));
     }
     if (object.recordSize != null) {
       result
-        ..add('recordSize')
+        ..add('qRecordSize')
         ..add(serializers.serialize(object.recordSize,
             specifiedType: const FullType(int)));
     }
     if (object.tabSize != null) {
       result
-        ..add('tabSize')
+        ..add('qTabSize')
         ..add(serializers.serialize(object.tabSize,
             specifiedType: const FullType(int)));
     }
     if (object.ignoreEOF != null) {
       result
-        ..add('ignoreEOF')
+        ..add('qIgnoreEOF')
         ..add(serializers.serialize(object.ignoreEOF,
             specifiedType: const FullType(bool)));
     }
     if (object.fixedWidthDelimiters != null) {
       result
-        ..add('fixedWidthDelimiters')
+        ..add('qFixedWidthDelimiters')
         ..add(serializers.serialize(object.fixedWidthDelimiters,
             specifiedType: const FullType(String)));
     }
@@ -109,47 +109,47 @@ class _$FileDataFormatSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'label':
+        case 'qLabel':
           result.label = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'quote':
+        case 'qQuote':
           result.quote = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'comment':
+        case 'qComment':
           result.comment = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'delimiter':
+        case 'qDelimiter':
           result.delimiter.replace(serializers.deserialize(value,
               specifiedType: const FullType(DelimiterInfo)) as DelimiterInfo);
           break;
-        case 'codePage':
+        case 'qCodePage':
           result.codePage = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'headerSize':
+        case 'qHeaderSize':
           result.headerSize = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'recordSize':
+        case 'qRecordSize':
           result.recordSize = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'tabSize':
+        case 'qTabSize':
           result.tabSize = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'ignoreEOF':
+        case 'qIgnoreEOF':
           result.ignoreEOF = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'fixedWidthDelimiters':
+        case 'qFixedWidthDelimiters':
           result.fixedWidthDelimiters = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

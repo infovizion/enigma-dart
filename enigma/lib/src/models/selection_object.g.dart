@@ -30,19 +30,19 @@ class _$SelectionObjectSerializer
     final result = <Object>[];
     if (object.backCount != null) {
       result
-        ..add('backCount')
+        ..add('qBackCount')
         ..add(serializers.serialize(object.backCount,
             specifiedType: const FullType(int)));
     }
     if (object.forwardCount != null) {
       result
-        ..add('forwardCount')
+        ..add('qForwardCount')
         ..add(serializers.serialize(object.forwardCount,
             specifiedType: const FullType(int)));
     }
     if (object.selections != null) {
       result
-        ..add('selections')
+        ..add('qSelections')
         ..add(serializers.serialize(object.selections,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -62,15 +62,15 @@ class _$SelectionObjectSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'backCount':
+        case 'qBackCount':
           result.backCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'forwardCount':
+        case 'qForwardCount':
           result.forwardCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'selections':
+        case 'qSelections':
           result.selections.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

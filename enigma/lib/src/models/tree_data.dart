@@ -20,21 +20,25 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
   /// Default is current selections _$_ .
   /// Original name: qStateName
   @nullable
+  @BuiltValueField(wireName: 'qStateName')
   String get stateName;
 
   /// The total number of nodes on each dimension.
   /// Original name: qNodesOnDim
   @nullable
+  @BuiltValueField(wireName: 'qNodesOnDim')
   BuiltList<NxCell> get nodesOnDim;
 
   /// This parameter is optional and is displayed in case of error.
   /// Original name: qError
   @nullable
+  @BuiltValueField(wireName: 'qError')
   NxValidationError get error;
 
   /// Information on the dimension.
   /// Original name: qDimensionInfo
   @nullable
+  @BuiltValueField(wireName: 'qDimensionInfo')
   BuiltList<NxCell> get dimensionInfo;
 
   /// Defines the order of the dimenion levels/columns in the TreeData object.
@@ -42,27 +46,32 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
   /// Example: [1,0,2] means that the first level in the tree structure is dimension 1, followed by dimension 0 and dimension 2.
   /// Original name: qEffectiveInterColumnSortOrder
   @nullable
+  @BuiltValueField(wireName: 'qEffectiveInterColumnSortOrder')
   BuiltList<NxCell> get effectiveInterColumnSortOrder;
 
   /// True if other row exists.
   /// Original name: qHasOtherValues
   @nullable
+  @BuiltValueField(wireName: 'qHasOtherValues')
   bool get hasOtherValues;
 
   /// Title of the TreeData object, for example the title of a chart.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   String get title;
 
   /// Position of the last expended cell.
   /// This property is optional.
   /// Original name: qLastExpandedPos
   @nullable
+  @BuiltValueField(wireName: 'qLastExpandedPos')
   NxCellPosition get lastExpandedPos;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
   @nullable
+  @BuiltValueField(wireName: 'qCalcCondMsg')
   String get calcCondMsg;
 
   factory TreeData([updates(TreeDataBuilder b)]) = _$TreeData;

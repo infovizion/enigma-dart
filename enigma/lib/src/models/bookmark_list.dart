@@ -16,6 +16,7 @@ abstract class BookmarkList
   /// Information about the list of bookmarks.
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory BookmarkList([updates(BookmarkListBuilder b)]) = _$BookmarkList;

@@ -14,11 +14,13 @@ abstract class DataTableEx implements Built<DataTableEx, DataTableExBuilder> {
   /// Name of the table.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// List of the fields in the table.
   /// Original name: qFields
   @nullable
+  @BuiltValueField(wireName: 'qFields')
   BuiltList<NxCell> get fields;
 
   /// List of format specification items, within brackets.
@@ -28,6 +30,7 @@ abstract class DataTableEx implements Built<DataTableEx, DataTableExBuilder> {
   /// * table is &lt;table name&gt;
   /// Original name: qFormatSpec
   @nullable
+  @BuiltValueField(wireName: 'qFormatSpec')
   String get formatSpec;
 
   factory DataTableEx([updates(DataTableExBuilder b)]) = _$DataTableEx;

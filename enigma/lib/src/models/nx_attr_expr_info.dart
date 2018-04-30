@@ -15,25 +15,30 @@ abstract class NxAttrExprInfo
   /// Minimum value.
   /// Original name: qMin
   @nullable
+  @BuiltValueField(wireName: 'qMin')
   num get min;
 
   /// Maximum value.
   /// Original name: qMax
   @nullable
+  @BuiltValueField(wireName: 'qMax')
   num get max;
 
   /// Original name: qFallbackTitle
   @nullable
+  @BuiltValueField(wireName: 'qFallbackTitle')
   String get fallbackTitle;
 
   /// String version of the minimum Value.
   /// Original name: qMinText
   @nullable
+  @BuiltValueField(wireName: 'qMinText')
   String get minText;
 
   /// String version of the maximum Value.
   /// Original name: qMaxText
   @nullable
+  @BuiltValueField(wireName: 'qMaxText')
   String get maxText;
 
   factory NxAttrExprInfo([updates(NxAttrExprInfoBuilder b)]) = _$NxAttrExprInfo;

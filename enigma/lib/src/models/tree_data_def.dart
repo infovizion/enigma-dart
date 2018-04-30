@@ -19,11 +19,13 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
   /// Default is current selections _$_ .
   /// Original name: qStateName
   @nullable
+  @BuiltValueField(wireName: 'qStateName')
   String get stateName;
 
   /// Array of dimensions.
   /// Original name: qDimensions
   @nullable
+  @BuiltValueField(wireName: 'qDimensions')
   BuiltList<NxCell> get dimensions;
 
   /// Defines the order of the dimension levels/columns in the TreeData object.
@@ -32,27 +34,32 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
   /// The default sort order is the order in which the dimensions and measures have been defined in the TreeDataDef.
   /// Original name: qInterColumnSortOrder
   @nullable
+  @BuiltValueField(wireName: 'qInterColumnSortOrder')
   BuiltList<NxCell> get interColumnSortOrder;
 
   /// Removes zero values.
   /// Original name: qSuppressZero
   @nullable
+  @BuiltValueField(wireName: 'qSuppressZero')
   bool get suppressZero;
 
   /// Removes missing values.
   /// Original name: qSuppressMissing
   @nullable
+  @BuiltValueField(wireName: 'qSuppressMissing')
   bool get suppressMissing;
 
   /// If this property is set to true, the cells are opened expanded. The default value is false.
   /// Original name: qOpenFullyExpanded
   @nullable
+  @BuiltValueField(wireName: 'qOpenFullyExpanded')
   bool get openFullyExpanded;
 
   /// If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.
   /// The default value is false.
   /// Original name: qPopulateMissing
   @nullable
+  @BuiltValueField(wireName: 'qPopulateMissing')
   bool get populateMissing;
 
   /// Specifies a calculation condition object.
@@ -61,11 +68,13 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
   /// This property is optional.
   /// Original name: qCalcCondition
   @nullable
+  @BuiltValueField(wireName: 'qCalcCondition')
   NxCalcCond get calcCondition;
 
   /// Title of the TreeData object, for example the title of a chart.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   StringExpr get title;
 
   factory TreeDataDef([updates(TreeDataDefBuilder b)]) = _$TreeDataDef;

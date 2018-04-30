@@ -13,41 +13,49 @@ abstract class NxStateCounts
   /// Number of values in locked state.
   /// Original name: qLocked
   @nullable
+  @BuiltValueField(wireName: 'qLocked')
   int get locked;
 
   /// Number of values in selected state.
   /// Original name: qSelected
   @nullable
+  @BuiltValueField(wireName: 'qSelected')
   int get selected;
 
   /// Number of values in optional state.
   /// Original name: qOption
   @nullable
+  @BuiltValueField(wireName: 'qOption')
   int get option;
 
   /// Number of values in deselected state.
   /// Original name: qDeselected
   @nullable
+  @BuiltValueField(wireName: 'qDeselected')
   int get deselected;
 
   /// Number of values in alternative state.
   /// Original name: qAlternative
   @nullable
+  @BuiltValueField(wireName: 'qAlternative')
   int get alternative;
 
   /// Number of values in excluded state.
   /// Original name: qExcluded
   @nullable
+  @BuiltValueField(wireName: 'qExcluded')
   int get excluded;
 
   /// Number of values in selected excluded state.
   /// Original name: qSelectedExcluded
   @nullable
+  @BuiltValueField(wireName: 'qSelectedExcluded')
   int get selectedExcluded;
 
   /// Number of values in locked excluded state.
   /// Original name: qLockedExcluded
   @nullable
+  @BuiltValueField(wireName: 'qLockedExcluded')
   int get lockedExcluded;
 
   factory NxStateCounts([updates(NxStateCountsBuilder b)]) = _$NxStateCounts;

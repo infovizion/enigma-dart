@@ -33,35 +33,35 @@ class _$SearchAssociationResultSerializer
     final result = <Object>[];
     if (object.fieldNames != null) {
       result
-        ..add('fieldNames')
+        ..add('qFieldNames')
         ..add(serializers.serialize(object.fieldNames,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.searchTerms != null) {
       result
-        ..add('searchTerms')
+        ..add('qSearchTerms')
         ..add(serializers.serialize(object.searchTerms,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.fieldDictionaries != null) {
       result
-        ..add('fieldDictionaries')
+        ..add('qFieldDictionaries')
         ..add(serializers.serialize(object.fieldDictionaries,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.searchTermsMatched != null) {
       result
-        ..add('searchTermsMatched')
+        ..add('qSearchTermsMatched')
         ..add(serializers.serialize(object.searchTermsMatched,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.totalSearchResults != null) {
       result
-        ..add('totalSearchResults')
+        ..add('qTotalSearchResults')
         ..add(serializers.serialize(object.totalSearchResults,
             specifiedType: const FullType(int)));
     }
@@ -81,31 +81,31 @@ class _$SearchAssociationResultSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'fieldNames':
+        case 'qFieldNames':
           result.fieldNames.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'searchTerms':
+        case 'qSearchTerms':
           result.searchTerms.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'fieldDictionaries':
+        case 'qFieldDictionaries':
           result.fieldDictionaries.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'searchTermsMatched':
+        case 'qSearchTermsMatched':
           result.searchTermsMatched.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'totalSearchResults':
+        case 'qTotalSearchResults':
           result.totalSearchResults = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

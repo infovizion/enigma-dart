@@ -23,6 +23,7 @@ abstract class StringExpression
 
   /// Original name: qExpr
   @nullable
+  @BuiltValueField(wireName: 'qExpr')
   String get expr;
 
   factory StringExpression([updates(StringExpressionBuilder b)]) =

@@ -33,19 +33,19 @@ class _$ContentLibraryListItemSerializer
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.appSpecific != null) {
       result
-        ..add('appSpecific')
+        ..add('qAppSpecific')
         ..add(serializers.serialize(object.appSpecific,
             specifiedType: const FullType(bool)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
@@ -65,15 +65,15 @@ class _$ContentLibraryListItemSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'appSpecific':
+        case 'qAppSpecific':
           result.appSpecific = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;

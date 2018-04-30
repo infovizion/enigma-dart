@@ -30,19 +30,19 @@ class _$DoReloadExParamsSerializer
     final result = <Object>[];
     if (object.mode != null) {
       result
-        ..add('mode')
+        ..add('qMode')
         ..add(serializers.serialize(object.mode,
             specifiedType: const FullType(int)));
     }
     if (object.partial != null) {
       result
-        ..add('partial')
+        ..add('qPartial')
         ..add(serializers.serialize(object.partial,
             specifiedType: const FullType(bool)));
     }
     if (object.debug != null) {
       result
-        ..add('debug')
+        ..add('qDebug')
         ..add(serializers.serialize(object.debug,
             specifiedType: const FullType(bool)));
     }
@@ -61,15 +61,15 @@ class _$DoReloadExParamsSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'mode':
+        case 'qMode':
           result.mode = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'partial':
+        case 'qPartial':
           result.partial = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'debug':
+        case 'qDebug':
           result.debug = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

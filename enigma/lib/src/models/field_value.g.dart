@@ -28,19 +28,19 @@ class _$FieldValueSerializer implements StructuredSerializer<FieldValue> {
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
     if (object.isNumeric != null) {
       result
-        ..add('isNumeric')
+        ..add('qIsNumeric')
         ..add(serializers.serialize(object.isNumeric,
             specifiedType: const FullType(bool)));
     }
     if (object.number != null) {
       result
-        ..add('number')
+        ..add('qNumber')
         ..add(serializers.serialize(object.number,
             specifiedType: const FullType(num)));
     }
@@ -59,15 +59,15 @@ class _$FieldValueSerializer implements StructuredSerializer<FieldValue> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isNumeric':
+        case 'qIsNumeric':
           result.isNumeric = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'number':
+        case 'qNumber':
           result.number = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;

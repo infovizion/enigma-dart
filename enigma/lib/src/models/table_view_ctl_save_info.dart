@@ -15,11 +15,13 @@ abstract class TableViewCtlSaveInfo
   /// Internal view mode.
   /// Original name: qInternalView
   @nullable
+  @BuiltValueField(wireName: 'qInternalView')
   TableViewSaveInfo get internalView;
 
   /// Source view mode.
   /// Original name: qSourceView
   @nullable
+  @BuiltValueField(wireName: 'qSourceView')
   TableViewSaveInfo get sourceView;
 
   factory TableViewCtlSaveInfo([updates(TableViewCtlSaveInfoBuilder b)]) =

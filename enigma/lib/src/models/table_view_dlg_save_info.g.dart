@@ -33,19 +33,19 @@ class _$TableViewDlgSaveInfoSerializer
     final result = <Object>[];
     if (object.pos != null) {
       result
-        ..add('pos')
+        ..add('qPos')
         ..add(serializers.serialize(object.pos,
             specifiedType: const FullType(Rect)));
     }
     if (object.ctlInfo != null) {
       result
-        ..add('ctlInfo')
+        ..add('qCtlInfo')
         ..add(serializers.serialize(object.ctlInfo,
             specifiedType: const FullType(TableViewCtlSaveInfo)));
     }
     if (object.mode != null) {
       result
-        ..add('mode')
+        ..add('qMode')
         ..add(serializers.serialize(object.mode,
             specifiedType: const FullType(int)));
     }
@@ -64,16 +64,16 @@ class _$TableViewDlgSaveInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'pos':
+        case 'qPos':
           result.pos.replace(serializers.deserialize(value,
               specifiedType: const FullType(Rect)) as Rect);
           break;
-        case 'ctlInfo':
+        case 'qCtlInfo':
           result.ctlInfo.replace(serializers.deserialize(value,
                   specifiedType: const FullType(TableViewCtlSaveInfo))
               as TableViewCtlSaveInfo);
           break;
-        case 'mode':
+        case 'qMode':
           result.mode = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

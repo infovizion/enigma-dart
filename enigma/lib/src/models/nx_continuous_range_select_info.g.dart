@@ -35,13 +35,13 @@ class _$NxContinuousRangeSelectInfoSerializer
     final result = <Object>[];
     if (object.range != null) {
       result
-        ..add('range')
+        ..add('qRange')
         ..add(serializers.serialize(object.range,
             specifiedType: const FullType(Range)));
     }
     if (object.dimIx != null) {
       result
-        ..add('dimIx')
+        ..add('qDimIx')
         ..add(serializers.serialize(object.dimIx,
             specifiedType: const FullType(int)));
     }
@@ -61,11 +61,11 @@ class _$NxContinuousRangeSelectInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'range':
+        case 'qRange':
           result.range.replace(serializers.deserialize(value,
               specifiedType: const FullType(Range)) as Range);
           break;
-        case 'dimIx':
+        case 'qDimIx':
           result.dimIx = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

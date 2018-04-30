@@ -12,16 +12,19 @@ abstract class NxViewPort implements Built<NxViewPort, NxViewPortBuilder> {
   /// Width of the canvas in pixels.
   /// Original name: qWidth
   @nullable
+  @BuiltValueField(wireName: 'qWidth')
   int get width;
 
   /// Height of the canvas in pixels.
   /// Original name: qHeight
   @nullable
+  @BuiltValueField(wireName: 'qHeight')
   int get height;
 
   /// Zoom level.
   /// Original name: qZoomLevel
   @nullable
+  @BuiltValueField(wireName: 'qZoomLevel')
   int get zoomLevel;
 
   factory NxViewPort([updates(NxViewPortBuilder b)]) = _$NxViewPort;

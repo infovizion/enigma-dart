@@ -29,20 +29,20 @@ class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
     final result = <Object>[];
     if (object.searchTerms != null) {
       result
-        ..add('searchTerms')
+        ..add('qSearchTerms')
         ..add(serializers.serialize(object.searchTerms,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.totalNumberOfGroups != null) {
       result
-        ..add('totalNumberOfGroups')
+        ..add('qTotalNumberOfGroups')
         ..add(serializers.serialize(object.totalNumberOfGroups,
             specifiedType: const FullType(int)));
     }
     if (object.searchGroupArray != null) {
       result
-        ..add('searchGroupArray')
+        ..add('qSearchGroupArray')
         ..add(serializers.serialize(object.searchGroupArray,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -62,17 +62,17 @@ class _$SearchResultSerializer implements StructuredSerializer<SearchResult> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'searchTerms':
+        case 'qSearchTerms':
           result.searchTerms.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'totalNumberOfGroups':
+        case 'qTotalNumberOfGroups':
           result.totalNumberOfGroups = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'searchGroupArray':
+        case 'qSearchGroupArray':
           result.searchGroupArray.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

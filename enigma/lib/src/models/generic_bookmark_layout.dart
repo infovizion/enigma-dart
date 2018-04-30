@@ -20,20 +20,24 @@ abstract class GenericBookmarkLayout
   /// Information about the object.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Information on publishing and permissions.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// Information about the bookmark.
   /// Original name: qBookmark
   @nullable
+  @BuiltValueField(wireName: 'qBookmark')
   NxBookmark get bookmark;
 
   /// Original name: qFieldInfos
   @nullable
+  @BuiltValueField(wireName: 'qFieldInfos')
   BuiltList<NxCell> get fieldInfos;
 
   factory GenericBookmarkLayout([updates(GenericBookmarkLayoutBuilder b)]) =

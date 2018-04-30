@@ -30,27 +30,27 @@ class _$SearchFieldMatchSerializer
     final result = <Object>[];
     if (object.field != null) {
       result
-        ..add('field')
+        ..add('qField')
         ..add(serializers.serialize(object.field,
             specifiedType: const FullType(int)));
     }
     if (object.values != null) {
       result
-        ..add('values')
+        ..add('qValues')
         ..add(serializers.serialize(object.values,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.terms != null) {
       result
-        ..add('terms')
+        ..add('qTerms')
         ..add(serializers.serialize(object.terms,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.noOfMatches != null) {
       result
-        ..add('noOfMatches')
+        ..add('qNoOfMatches')
         ..add(serializers.serialize(object.noOfMatches,
             specifiedType: const FullType(int)));
     }
@@ -69,23 +69,23 @@ class _$SearchFieldMatchSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'field':
+        case 'qField':
           result.field = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'values':
+        case 'qValues':
           result.values.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'terms':
+        case 'qTerms':
           result.terms.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'noOfMatches':
+        case 'qNoOfMatches':
           result.noOfMatches = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

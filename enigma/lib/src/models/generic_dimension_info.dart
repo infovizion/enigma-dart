@@ -16,28 +16,33 @@ abstract class GenericDimensionInfo
   /// Length of the longest value in the field.
   /// Original name: qApprMaxGlyphCount
   @nullable
+  @BuiltValueField(wireName: 'qApprMaxGlyphCount')
   int get apprMaxGlyphCount;
 
   /// Number of distinct field values
   /// Original name: qCardinal
   @nullable
+  @BuiltValueField(wireName: 'qCardinal')
   int get cardinal;
 
   /// Gives information on a field. For example, it can return the type of the field.
   /// Examples: key, text, ASCII
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   /// If set to true, it means that the field is a semantic.
   /// Original name: qIsSemantic
   @nullable
+  @BuiltValueField(wireName: 'qIsSemantic')
   bool get isSemantic;
 
   /// If set to true a logical AND (instead of a logical OR) is used when making selections in a field.
   /// The default value is false.
   /// Original name: qAndMode
   @nullable
+  @BuiltValueField(wireName: 'qAndMode')
   bool get andMode;
 
   factory GenericDimensionInfo([updates(GenericDimensionInfoBuilder b)]) =

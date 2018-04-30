@@ -45,64 +45,76 @@ abstract class NxFieldDescription
   /// If set to true, it means that the field is a semantic.
   /// Original name: qIsSemantic
   @nullable
+  @BuiltValueField(wireName: 'qIsSemantic')
   bool get isSemantic;
 
   /// If set to true, it means that the field is hidden.
   /// Original name: qIsHidden
   @nullable
+  @BuiltValueField(wireName: 'qIsHidden')
   bool get isHidden;
 
   /// If set to true, it means that the field is a system field.
   /// Original name: qIsSystem
   @nullable
+  @BuiltValueField(wireName: 'qIsSystem')
   bool get isSystem;
 
   /// If set to true a logical AND (instead of a logical OR) is used when making selections in a field.
   /// The default value is false.
   /// Original name: qAndMode
   @nullable
+  @BuiltValueField(wireName: 'qAndMode')
   bool get andMode;
 
   /// Name of the field
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Number of distinct field values
   /// Original name: qCardinal
   @nullable
+  @BuiltValueField(wireName: 'qCardinal')
   int get cardinal;
 
   /// Gives information on a field. For example, it can return the type of the field.
   /// Examples: key, text, ASCII
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   /// If set to true, it means that the field is a field on the fly.
   /// Original name: qIsDefinitionOnly
   @nullable
+  @BuiltValueField(wireName: 'qIsDefinitionOnly')
   bool get isDefinitionOnly;
 
   /// Lists the derived fields if any.
   /// Original name: qDerivedFieldData
   @nullable
+  @BuiltValueField(wireName: 'qDerivedFieldData')
   NxDerivedFieldDescriptionList get derivedFieldData;
 
   /// Is used for Direct Discovery.
   /// If set to true, it means that the type of the field is detail.
   /// Original name: qIsDetail
   @nullable
+  @BuiltValueField(wireName: 'qIsDetail')
   bool get isDetail;
 
   /// Is used for Direct Discovery.
   /// If set to true, it means that the type of the field is measure.
   /// Original name: qIsImplicit
   @nullable
+  @BuiltValueField(wireName: 'qIsImplicit')
   bool get isImplicit;
 
   /// Original name: qReadableName
   @nullable
+  @BuiltValueField(wireName: 'qReadableName')
   String get readableName;
 
   factory NxFieldDescription([updates(NxFieldDescriptionBuilder b)]) =

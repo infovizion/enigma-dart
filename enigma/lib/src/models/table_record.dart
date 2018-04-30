@@ -15,42 +15,50 @@ abstract class TableRecord implements Built<TableRecord, TableRecordBuilder> {
   /// Name of the table.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// This property is set to true if the table is loose.
   /// Original name: qLoose
   @nullable
+  @BuiltValueField(wireName: 'qLoose')
   bool get loose;
 
   /// Number of rows in the table.
   /// Original name: qNoOfRows
   @nullable
+  @BuiltValueField(wireName: 'qNoOfRows')
   int get noOfRows;
 
   /// Information about the fields in the table.
   /// Original name: qFields
   @nullable
+  @BuiltValueField(wireName: 'qFields')
   BuiltList<NxCell> get fields;
 
   /// Information about the position of the table.
   /// Original name: qPos
   @nullable
+  @BuiltValueField(wireName: 'qPos')
   Point get pos;
 
   /// Comment related to the table.
   /// Original name: qComment
   @nullable
+  @BuiltValueField(wireName: 'qComment')
   String get comment;
 
   /// If set to true, Direct Discovery is used.
   /// Direct Discovery fields are not loaded into memory and remain in the external database.
   /// Original name: qIsDirectDiscovery
   @nullable
+  @BuiltValueField(wireName: 'qIsDirectDiscovery')
   bool get isDirectDiscovery;
 
   /// This property is set to true if the table contains a synthetic key.
   /// Original name: qIsSynthetic
   @nullable
+  @BuiltValueField(wireName: 'qIsSynthetic')
   bool get isSynthetic;
 
   factory TableRecord([updates(TableRecordBuilder b)]) = _$TableRecord;

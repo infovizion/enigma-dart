@@ -14,11 +14,13 @@ abstract class NxCellPosition
   /// Position of the cell on the x-axis.
   /// Original name: qx
   @nullable
+  @BuiltValueField(wireName: 'qx')
   int get x;
 
   /// Position of the cell on the y-axis.
   /// Original name: qy
   @nullable
+  @BuiltValueField(wireName: 'qy')
   int get y;
 
   factory NxCellPosition([updates(NxCellPositionBuilder b)]) = _$NxCellPosition;

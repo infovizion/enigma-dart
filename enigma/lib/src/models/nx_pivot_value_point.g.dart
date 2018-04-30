@@ -30,13 +30,13 @@ class _$NxPivotValuePointSerializer
     final result = <Object>[];
     if (object.label != null) {
       result
-        ..add('label')
+        ..add('qLabel')
         ..add(serializers.serialize(object.label,
             specifiedType: const FullType(String)));
     }
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
@@ -48,19 +48,19 @@ class _$NxPivotValuePointSerializer
     }
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.attrExps != null) {
       result
-        ..add('attrExps')
+        ..add('qAttrExps')
         ..add(serializers.serialize(object.attrExps,
             specifiedType: const FullType(NxAttributeExpressionValues)));
     }
     if (object.attrDims != null) {
       result
-        ..add('attrDims')
+        ..add('qAttrDims')
         ..add(serializers.serialize(object.attrDims,
             specifiedType: const FullType(NxAttributeDimValues)));
     }
@@ -79,11 +79,11 @@ class _$NxPivotValuePointSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'label':
+        case 'qLabel':
           result.label = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
@@ -91,16 +91,16 @@ class _$NxPivotValuePointSerializer
           result.qNum = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'attrExps':
+        case 'qAttrExps':
           result.attrExps.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAttributeExpressionValues))
               as NxAttributeExpressionValues);
           break;
-        case 'attrDims':
+        case 'qAttrDims':
           result.attrDims.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAttributeDimValues))
               as NxAttributeDimValues);

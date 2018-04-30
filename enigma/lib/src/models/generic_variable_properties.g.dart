@@ -33,43 +33,43 @@ class _$GenericVariablePropertiesSerializer
     final result = <Object>[];
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.metaDef != null) {
       result
-        ..add('metaDef')
+        ..add('qMetaDef')
         ..add(serializers.serialize(object.metaDef,
             specifiedType: const FullType(JsonObject)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.comment != null) {
       result
-        ..add('comment')
+        ..add('qComment')
         ..add(serializers.serialize(object.comment,
             specifiedType: const FullType(String)));
     }
     if (object.numberPresentation != null) {
       result
-        ..add('numberPresentation')
+        ..add('qNumberPresentation')
         ..add(serializers.serialize(object.numberPresentation,
             specifiedType: const FullType(FieldAttributes)));
     }
     if (object.includeInBookmark != null) {
       result
-        ..add('includeInBookmark')
+        ..add('qIncludeInBookmark')
         ..add(serializers.serialize(object.includeInBookmark,
             specifiedType: const FullType(bool)));
     }
     if (object.definition != null) {
       result
-        ..add('definition')
+        ..add('qDefinition')
         ..add(serializers.serialize(object.definition,
             specifiedType: const FullType(String)));
     }
@@ -89,32 +89,32 @@ class _$GenericVariablePropertiesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'metaDef':
+        case 'qMetaDef':
           result.metaDef = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'comment':
+        case 'qComment':
           result.comment = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'numberPresentation':
+        case 'qNumberPresentation':
           result.numberPresentation.replace(serializers.deserialize(value,
                   specifiedType: const FullType(FieldAttributes))
               as FieldAttributes);
           break;
-        case 'includeInBookmark':
+        case 'qIncludeInBookmark':
           result.includeInBookmark = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'definition':
+        case 'qDefinition':
           result.definition = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

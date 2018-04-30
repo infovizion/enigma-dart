@@ -28,58 +28,58 @@ class _$TreeDataSerializer implements StructuredSerializer<TreeData> {
     final result = <Object>[];
     if (object.stateName != null) {
       result
-        ..add('stateName')
+        ..add('qStateName')
         ..add(serializers.serialize(object.stateName,
             specifiedType: const FullType(String)));
     }
     if (object.nodesOnDim != null) {
       result
-        ..add('nodesOnDim')
+        ..add('qNodesOnDim')
         ..add(serializers.serialize(object.nodesOnDim,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.error != null) {
       result
-        ..add('error')
+        ..add('qError')
         ..add(serializers.serialize(object.error,
             specifiedType: const FullType(NxValidationError)));
     }
     if (object.dimensionInfo != null) {
       result
-        ..add('dimensionInfo')
+        ..add('qDimensionInfo')
         ..add(serializers.serialize(object.dimensionInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.effectiveInterColumnSortOrder != null) {
       result
-        ..add('effectiveInterColumnSortOrder')
+        ..add('qEffectiveInterColumnSortOrder')
         ..add(serializers.serialize(object.effectiveInterColumnSortOrder,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.hasOtherValues != null) {
       result
-        ..add('hasOtherValues')
+        ..add('qHasOtherValues')
         ..add(serializers.serialize(object.hasOtherValues,
             specifiedType: const FullType(bool)));
     }
     if (object.title != null) {
       result
-        ..add('title')
+        ..add('qTitle')
         ..add(serializers.serialize(object.title,
             specifiedType: const FullType(String)));
     }
     if (object.lastExpandedPos != null) {
       result
-        ..add('lastExpandedPos')
+        ..add('qLastExpandedPos')
         ..add(serializers.serialize(object.lastExpandedPos,
             specifiedType: const FullType(NxCellPosition)));
     }
     if (object.calcCondMsg != null) {
       result
-        ..add('calcCondMsg')
+        ..add('qCalcCondMsg')
         ..add(serializers.serialize(object.calcCondMsg,
             specifiedType: const FullType(String)));
     }
@@ -98,47 +98,47 @@ class _$TreeDataSerializer implements StructuredSerializer<TreeData> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'stateName':
+        case 'qStateName':
           result.stateName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'nodesOnDim':
+        case 'qNodesOnDim':
           result.nodesOnDim.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'error':
+        case 'qError':
           result.error.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxValidationError))
               as NxValidationError);
           break;
-        case 'dimensionInfo':
+        case 'qDimensionInfo':
           result.dimensionInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'effectiveInterColumnSortOrder':
+        case 'qEffectiveInterColumnSortOrder':
           result.effectiveInterColumnSortOrder.replace(serializers.deserialize(
                   value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'hasOtherValues':
+        case 'qHasOtherValues':
           result.hasOtherValues = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'title':
+        case 'qTitle':
           result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'lastExpandedPos':
+        case 'qLastExpandedPos':
           result.lastExpandedPos.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxCellPosition)) as NxCellPosition);
           break;
-        case 'calcCondMsg':
+        case 'qCalcCondMsg':
           result.calcCondMsg = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

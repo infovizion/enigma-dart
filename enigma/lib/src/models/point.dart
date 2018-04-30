@@ -13,12 +13,14 @@ abstract class Point implements Built<Point, PointBuilder> {
   /// The origin is the top left of the screen.
   /// Original name: qx
   @nullable
+  @BuiltValueField(wireName: 'qx')
   int get x;
 
   /// y-coordinate in pixels.
   /// The origin is the top left of the screen.
   /// Original name: qy
   @nullable
+  @BuiltValueField(wireName: 'qy')
   int get y;
 
   factory Point([updates(PointBuilder b)]) = _$Point;

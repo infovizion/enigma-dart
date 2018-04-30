@@ -14,16 +14,19 @@ abstract class CustomConnector
   /// Name of the custom connector file.
   /// Original name: qProvider
   @nullable
+  @BuiltValueField(wireName: 'qProvider')
   String get provider;
 
   /// Name of the parent folder that contains the custom connector file.
   /// Original name: qParent
   @nullable
+  @BuiltValueField(wireName: 'qParent')
   String get parent;
 
   /// Name of the custom connector as displayed in the Qlik interface.
   /// Original name: qDisplayName
   @nullable
+  @BuiltValueField(wireName: 'qDisplayName')
   String get displayName;
 
   /// Mode of the machine (64 or 32 bits).
@@ -34,10 +37,12 @@ abstract class CustomConnector
   /// * CONNECT_32
   /// Original name: qMachineMode
   @nullable
+  @BuiltValueField(wireName: 'qMachineMode')
   String get machineMode;
 
   /// Original name: qSupportFileStreaming
   @nullable
+  @BuiltValueField(wireName: 'qSupportFileStreaming')
   bool get supportFileStreaming;
 
   factory CustomConnector([updates(CustomConnectorBuilder b)]) =

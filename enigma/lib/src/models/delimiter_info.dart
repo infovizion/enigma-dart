@@ -15,6 +15,7 @@ abstract class DelimiterInfo
   /// "Tab_DELIMITER"
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Representation of the delimiter value that is used in the script.
@@ -22,16 +23,19 @@ abstract class DelimiterInfo
   /// "'\t'"
   /// Original name: qScriptCode
   @nullable
+  @BuiltValueField(wireName: 'qScriptCode')
   String get scriptCode;
 
   /// Delimiter character number used by the engine to determine how to separate the values.
   /// Original name: qNumber
   @nullable
+  @BuiltValueField(wireName: 'qNumber')
   int get number;
 
   /// Is set to true if multiple spaces are used to separate the values.
   /// Original name: qIsMultiple
   @nullable
+  @BuiltValueField(wireName: 'qIsMultiple')
   bool get isMultiple;
 
   factory DelimiterInfo([updates(DelimiterInfoBuilder b)]) = _$DelimiterInfo;

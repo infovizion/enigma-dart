@@ -12,11 +12,13 @@ abstract class NxRange implements Built<NxRange, NxRangeBuilder> {
   /// Position in the expression of the first character of the field name.
   /// Original name: qFrom
   @nullable
+  @BuiltValueField(wireName: 'qFrom')
   int get from;
 
   /// Number of characters in the field name.
   /// Original name: qCount
   @nullable
+  @BuiltValueField(wireName: 'qCount')
   int get count;
 
   factory NxRange([updates(NxRangeBuilder b)]) = _$NxRange;

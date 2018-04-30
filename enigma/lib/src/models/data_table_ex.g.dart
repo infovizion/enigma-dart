@@ -28,20 +28,20 @@ class _$DataTableExSerializer implements StructuredSerializer<DataTableEx> {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.fields != null) {
       result
-        ..add('fields')
+        ..add('qFields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.formatSpec != null) {
       result
-        ..add('formatSpec')
+        ..add('qFormatSpec')
         ..add(serializers.serialize(object.formatSpec,
             specifiedType: const FullType(String)));
     }
@@ -60,17 +60,17 @@ class _$DataTableExSerializer implements StructuredSerializer<DataTableEx> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fields':
+        case 'qFields':
           result.fields.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'formatSpec':
+        case 'qFormatSpec':
           result.formatSpec = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

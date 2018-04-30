@@ -15,16 +15,19 @@ abstract class ContentLibraryListItem
   /// Name of the library.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Is set to true if the library is specific to the app (not a global content library).
   /// Original name: qAppSpecific
   @nullable
+  @BuiltValueField(wireName: 'qAppSpecific')
   bool get appSpecific;
 
   /// Information about publishing and permissions.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   factory ContentLibraryListItem([updates(ContentLibraryListItemBuilder b)]) =

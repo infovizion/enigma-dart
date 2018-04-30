@@ -33,31 +33,31 @@ class _$NxVariablePropertiesSerializer
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.numberPresentation != null) {
       result
-        ..add('numberPresentation')
+        ..add('qNumberPresentation')
         ..add(serializers.serialize(object.numberPresentation,
             specifiedType: const FullType(FieldAttributes)));
     }
     if (object.includeInBookmark != null) {
       result
-        ..add('includeInBookmark')
+        ..add('qIncludeInBookmark')
         ..add(serializers.serialize(object.includeInBookmark,
             specifiedType: const FullType(bool)));
     }
     if (object.usePredefListedValues != null) {
       result
-        ..add('usePredefListedValues')
+        ..add('qUsePredefListedValues')
         ..add(serializers.serialize(object.usePredefListedValues,
             specifiedType: const FullType(bool)));
     }
     if (object.preDefinedList != null) {
       result
-        ..add('preDefinedList')
+        ..add('qPreDefinedList')
         ..add(serializers.serialize(object.preDefinedList,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -77,24 +77,24 @@ class _$NxVariablePropertiesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'numberPresentation':
+        case 'qNumberPresentation':
           result.numberPresentation.replace(serializers.deserialize(value,
                   specifiedType: const FullType(FieldAttributes))
               as FieldAttributes);
           break;
-        case 'includeInBookmark':
+        case 'qIncludeInBookmark':
           result.includeInBookmark = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'usePredefListedValues':
+        case 'qUsePredefListedValues':
           result.usePredefListedValues = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'preDefinedList':
+        case 'qPreDefinedList':
           result.preDefinedList.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

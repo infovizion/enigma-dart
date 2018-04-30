@@ -29,131 +29,131 @@ class _$HyperCubeDefSerializer implements StructuredSerializer<HyperCubeDef> {
     final result = <Object>[];
     if (object.stateName != null) {
       result
-        ..add('stateName')
+        ..add('qStateName')
         ..add(serializers.serialize(object.stateName,
             specifiedType: const FullType(String)));
     }
     if (object.dimensions != null) {
       result
-        ..add('dimensions')
+        ..add('qDimensions')
         ..add(serializers.serialize(object.dimensions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.measures != null) {
       result
-        ..add('measures')
+        ..add('qMeasures')
         ..add(serializers.serialize(object.measures,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.interColumnSortOrder != null) {
       result
-        ..add('interColumnSortOrder')
+        ..add('qInterColumnSortOrder')
         ..add(serializers.serialize(object.interColumnSortOrder,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.suppressZero != null) {
       result
-        ..add('suppressZero')
+        ..add('qSuppressZero')
         ..add(serializers.serialize(object.suppressZero,
             specifiedType: const FullType(bool)));
     }
     if (object.suppressMissing != null) {
       result
-        ..add('suppressMissing')
+        ..add('qSuppressMissing')
         ..add(serializers.serialize(object.suppressMissing,
             specifiedType: const FullType(bool)));
     }
     if (object.initialDataFetch != null) {
       result
-        ..add('initialDataFetch')
+        ..add('qInitialDataFetch')
         ..add(serializers.serialize(object.initialDataFetch,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.reductionMode != null) {
       result
-        ..add('reductionMode')
+        ..add('qReductionMode')
         ..add(serializers.serialize(object.reductionMode,
             specifiedType: const FullType(String)));
     }
     if (object.mode != null) {
       result
-        ..add('mode')
+        ..add('qMode')
         ..add(serializers.serialize(object.mode,
             specifiedType: const FullType(String)));
     }
     if (object.pseudoDimPos != null) {
       result
-        ..add('pseudoDimPos')
+        ..add('qPseudoDimPos')
         ..add(serializers.serialize(object.pseudoDimPos,
             specifiedType: const FullType(int)));
     }
     if (object.noOfLeftDims != null) {
       result
-        ..add('noOfLeftDims')
+        ..add('qNoOfLeftDims')
         ..add(serializers.serialize(object.noOfLeftDims,
             specifiedType: const FullType(int)));
     }
     if (object.alwaysFullyExpanded != null) {
       result
-        ..add('alwaysFullyExpanded')
+        ..add('qAlwaysFullyExpanded')
         ..add(serializers.serialize(object.alwaysFullyExpanded,
             specifiedType: const FullType(bool)));
     }
     if (object.maxStackedCells != null) {
       result
-        ..add('maxStackedCells')
+        ..add('qMaxStackedCells')
         ..add(serializers.serialize(object.maxStackedCells,
             specifiedType: const FullType(int)));
     }
     if (object.populateMissing != null) {
       result
-        ..add('populateMissing')
+        ..add('qPopulateMissing')
         ..add(serializers.serialize(object.populateMissing,
             specifiedType: const FullType(bool)));
     }
     if (object.showTotalsAbove != null) {
       result
-        ..add('showTotalsAbove')
+        ..add('qShowTotalsAbove')
         ..add(serializers.serialize(object.showTotalsAbove,
             specifiedType: const FullType(bool)));
     }
     if (object.indentMode != null) {
       result
-        ..add('indentMode')
+        ..add('qIndentMode')
         ..add(serializers.serialize(object.indentMode,
             specifiedType: const FullType(bool)));
     }
     if (object.calcCond != null) {
       result
-        ..add('calcCond')
+        ..add('qCalcCond')
         ..add(serializers.serialize(object.calcCond,
             specifiedType: const FullType(ValueExpr)));
     }
     if (object.sortbyYValue != null) {
       result
-        ..add('sortbyYValue')
+        ..add('qSortbyYValue')
         ..add(serializers.serialize(object.sortbyYValue,
             specifiedType: const FullType(int)));
     }
     if (object.title != null) {
       result
-        ..add('title')
+        ..add('qTitle')
         ..add(serializers.serialize(object.title,
             specifiedType: const FullType(StringExpr)));
     }
     if (object.calcCondition != null) {
       result
-        ..add('calcCondition')
+        ..add('qCalcCondition')
         ..add(serializers.serialize(object.calcCondition,
             specifiedType: const FullType(NxCalcCond)));
     }
     if (object.columnOrder != null) {
       result
-        ..add('columnOrder')
+        ..add('qColumnOrder')
         ..add(serializers.serialize(object.columnOrder,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -173,95 +173,95 @@ class _$HyperCubeDefSerializer implements StructuredSerializer<HyperCubeDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'stateName':
+        case 'qStateName':
           result.stateName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'dimensions':
+        case 'qDimensions':
           result.dimensions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'measures':
+        case 'qMeasures':
           result.measures.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'interColumnSortOrder':
+        case 'qInterColumnSortOrder':
           result.interColumnSortOrder.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'suppressZero':
+        case 'qSuppressZero':
           result.suppressZero = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'suppressMissing':
+        case 'qSuppressMissing':
           result.suppressMissing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'initialDataFetch':
+        case 'qInitialDataFetch':
           result.initialDataFetch.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'reductionMode':
+        case 'qReductionMode':
           result.reductionMode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'mode':
+        case 'qMode':
           result.mode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'pseudoDimPos':
+        case 'qPseudoDimPos':
           result.pseudoDimPos = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'noOfLeftDims':
+        case 'qNoOfLeftDims':
           result.noOfLeftDims = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'alwaysFullyExpanded':
+        case 'qAlwaysFullyExpanded':
           result.alwaysFullyExpanded = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'maxStackedCells':
+        case 'qMaxStackedCells':
           result.maxStackedCells = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'populateMissing':
+        case 'qPopulateMissing':
           result.populateMissing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'showTotalsAbove':
+        case 'qShowTotalsAbove':
           result.showTotalsAbove = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'indentMode':
+        case 'qIndentMode':
           result.indentMode = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'calcCond':
+        case 'qCalcCond':
           result.calcCond.replace(serializers.deserialize(value,
               specifiedType: const FullType(ValueExpr)) as ValueExpr);
           break;
-        case 'sortbyYValue':
+        case 'qSortbyYValue':
           result.sortbyYValue = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'title':
+        case 'qTitle':
           result.title.replace(serializers.deserialize(value,
               specifiedType: const FullType(StringExpr)) as StringExpr);
           break;
-        case 'calcCondition':
+        case 'qCalcCondition':
           result.calcCondition.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxCalcCond)) as NxCalcCond);
           break;
-        case 'columnOrder':
+        case 'qColumnOrder':
           result.columnOrder.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

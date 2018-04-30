@@ -33,53 +33,53 @@ class _$NxInlineDimensionDefSerializer
     final result = <Object>[];
     if (object.grouping != null) {
       result
-        ..add('grouping')
+        ..add('qGrouping')
         ..add(serializers.serialize(object.grouping,
             specifiedType: const FullType(String)));
     }
     if (object.fieldDefs != null) {
       result
-        ..add('fieldDefs')
+        ..add('qFieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.fieldLabels != null) {
       result
-        ..add('fieldLabels')
+        ..add('qFieldLabels')
         ..add(serializers.serialize(object.fieldLabels,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.sortCriterias != null) {
       result
-        ..add('sortCriterias')
+        ..add('qSortCriterias')
         ..add(serializers.serialize(object.sortCriterias,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.numberPresentations != null) {
       result
-        ..add('numberPresentations')
+        ..add('qNumberPresentations')
         ..add(serializers.serialize(object.numberPresentations,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.reverseSort != null) {
       result
-        ..add('reverseSort')
+        ..add('qReverseSort')
         ..add(serializers.serialize(object.reverseSort,
             specifiedType: const FullType(bool)));
     }
     if (object.activeField != null) {
       result
-        ..add('activeField')
+        ..add('qActiveField')
         ..add(serializers.serialize(object.activeField,
             specifiedType: const FullType(int)));
     }
     if (object.labelExpression != null) {
       result
-        ..add('labelExpression')
+        ..add('qLabelExpression')
         ..add(serializers.serialize(object.labelExpression,
             specifiedType: const FullType(String)));
     }
@@ -98,43 +98,43 @@ class _$NxInlineDimensionDefSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'grouping':
+        case 'qGrouping':
           result.grouping = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fieldDefs':
+        case 'qFieldDefs':
           result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'fieldLabels':
+        case 'qFieldLabels':
           result.fieldLabels.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'sortCriterias':
+        case 'qSortCriterias':
           result.sortCriterias.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'numberPresentations':
+        case 'qNumberPresentations':
           result.numberPresentations.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'reverseSort':
+        case 'qReverseSort':
           result.reverseSort = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'activeField':
+        case 'qActiveField':
           result.activeField = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'labelExpression':
+        case 'qLabelExpression':
           result.labelExpression = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

@@ -13,12 +13,14 @@ abstract class FieldValue implements Built<FieldValue, FieldValueBuilder> {
   /// This parameter is optional.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// Is set to true if the value is a numeric.
   /// This parameter is optional. Default is false.
   /// Original name: qIsNumeric
   @nullable
+  @BuiltValueField(wireName: 'qIsNumeric')
   bool get isNumeric;
 
   /// Numeric value of the field.
@@ -26,6 +28,7 @@ abstract class FieldValue implements Built<FieldValue, FieldValueBuilder> {
   /// This parameter is optional.
   /// Original name: qNumber
   @nullable
+  @BuiltValueField(wireName: 'qNumber')
   num get number;
 
   factory FieldValue([updates(FieldValueBuilder b)]) = _$FieldValue;

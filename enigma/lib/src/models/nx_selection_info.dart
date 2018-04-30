@@ -15,12 +15,14 @@ abstract class NxSelectionInfo
   /// For more information about the selection mode, see _BeginSelections Method_.
   /// Original name: qInSelections
   @nullable
+  @BuiltValueField(wireName: 'qInSelections')
   bool get inSelections;
 
   /// Is set to true if the visualization is in selection mode and if some selections have been made while in selection mode.
   /// For more information about the selection mode, see _BeginSelections Method_.
   /// Original name: qMadeSelections
   @nullable
+  @BuiltValueField(wireName: 'qMadeSelections')
   bool get madeSelections;
 
   factory NxSelectionInfo([updates(NxSelectionInfoBuilder b)]) =

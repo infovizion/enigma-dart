@@ -29,50 +29,50 @@ class _$ListObjectDefSerializer implements StructuredSerializer<ListObjectDef> {
     final result = <Object>[];
     if (object.stateName != null) {
       result
-        ..add('stateName')
+        ..add('qStateName')
         ..add(serializers.serialize(object.stateName,
             specifiedType: const FullType(String)));
     }
     if (object.libraryId != null) {
       result
-        ..add('libraryId')
+        ..add('qLibraryId')
         ..add(serializers.serialize(object.libraryId,
             specifiedType: const FullType(String)));
     }
     if (object.def != null) {
       result
-        ..add('def')
+        ..add('qDef')
         ..add(serializers.serialize(object.def,
             specifiedType: const FullType(NxInlineDimensionDef)));
     }
     if (object.autoSortByState != null) {
       result
-        ..add('autoSortByState')
+        ..add('qAutoSortByState')
         ..add(serializers.serialize(object.autoSortByState,
             specifiedType: const FullType(NxAutoSortByStateDef)));
     }
     if (object.frequencyMode != null) {
       result
-        ..add('frequencyMode')
+        ..add('qFrequencyMode')
         ..add(serializers.serialize(object.frequencyMode,
             specifiedType: const FullType(String)));
     }
     if (object.showAlternatives != null) {
       result
-        ..add('showAlternatives')
+        ..add('qShowAlternatives')
         ..add(serializers.serialize(object.showAlternatives,
             specifiedType: const FullType(bool)));
     }
     if (object.initialDataFetch != null) {
       result
-        ..add('initialDataFetch')
+        ..add('qInitialDataFetch')
         ..add(serializers.serialize(object.initialDataFetch,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.expressions != null) {
       result
-        ..add('expressions')
+        ..add('qExpressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -92,39 +92,39 @@ class _$ListObjectDefSerializer implements StructuredSerializer<ListObjectDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'stateName':
+        case 'qStateName':
           result.stateName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'libraryId':
+        case 'qLibraryId':
           result.libraryId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'def':
+        case 'qDef':
           result.def.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxInlineDimensionDef))
               as NxInlineDimensionDef);
           break;
-        case 'autoSortByState':
+        case 'qAutoSortByState':
           result.autoSortByState.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAutoSortByStateDef))
               as NxAutoSortByStateDef);
           break;
-        case 'frequencyMode':
+        case 'qFrequencyMode':
           result.frequencyMode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'showAlternatives':
+        case 'qShowAlternatives':
           result.showAlternatives = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'initialDataFetch':
+        case 'qInitialDataFetch':
           result.initialDataFetch.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'expressions':
+        case 'qExpressions':
           result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

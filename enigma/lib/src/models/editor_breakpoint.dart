@@ -14,16 +14,19 @@ abstract class EditorBreakpoint
   /// Name of the breakpoint.
   /// Original name: qbufferName
   @nullable
+  @BuiltValueField(wireName: 'qbufferName')
   String get bufferName;
 
   /// Line number in the script where the breakpoint is set.
   /// Original name: qlineIx
   @nullable
+  @BuiltValueField(wireName: 'qlineIx')
   int get lineIx;
 
   /// If set to true then the breakpoint is enabled (in use).
   /// Original name: qEnabled
   @nullable
+  @BuiltValueField(wireName: 'qEnabled')
   bool get enabled;
 
   factory EditorBreakpoint([updates(EditorBreakpointBuilder b)]) =

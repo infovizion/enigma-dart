@@ -28,13 +28,13 @@ class _$CharRangeSerializer implements StructuredSerializer<CharRange> {
     final result = <Object>[];
     if (object.charPos != null) {
       result
-        ..add('charPos')
+        ..add('qCharPos')
         ..add(serializers.serialize(object.charPos,
             specifiedType: const FullType(int)));
     }
     if (object.charCount != null) {
       result
-        ..add('charCount')
+        ..add('qCharCount')
         ..add(serializers.serialize(object.charCount,
             specifiedType: const FullType(int)));
     }
@@ -53,11 +53,11 @@ class _$CharRangeSerializer implements StructuredSerializer<CharRange> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'charPos':
+        case 'qCharPos':
           result.charPos = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'charCount':
+        case 'qCharCount':
           result.charCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

@@ -30,7 +30,7 @@ class _$NxEngineVersionSerializer
     final result = <Object>[];
     if (object.componentVersion != null) {
       result
-        ..add('componentVersion')
+        ..add('qComponentVersion')
         ..add(serializers.serialize(object.componentVersion,
             specifiedType: const FullType(String)));
     }
@@ -49,7 +49,7 @@ class _$NxEngineVersionSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'componentVersion':
+        case 'qComponentVersion':
           result.componentVersion = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

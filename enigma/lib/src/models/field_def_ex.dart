@@ -12,6 +12,7 @@ abstract class FieldDefEx implements Built<FieldDefEx, FieldDefExBuilder> {
   /// Name of the field.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Type of data entity.
@@ -27,6 +28,7 @@ abstract class FieldDefEx implements Built<FieldDefEx, FieldDefExBuilder> {
   /// * IS_DETAIL
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   factory FieldDefEx([updates(FieldDefExBuilder b)]) = _$FieldDefEx;

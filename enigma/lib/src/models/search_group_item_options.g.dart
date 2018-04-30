@@ -33,19 +33,19 @@ class _$SearchGroupItemOptionsSerializer
     final result = <Object>[];
     if (object.groupItemType != null) {
       result
-        ..add('groupItemType')
+        ..add('qGroupItemType')
         ..add(serializers.serialize(object.groupItemType,
             specifiedType: const FullType(String)));
     }
     if (object.offset != null) {
       result
-        ..add('offset')
+        ..add('qOffset')
         ..add(serializers.serialize(object.offset,
             specifiedType: const FullType(int)));
     }
     if (object.count != null) {
       result
-        ..add('count')
+        ..add('qCount')
         ..add(serializers.serialize(object.count,
             specifiedType: const FullType(int)));
     }
@@ -65,15 +65,15 @@ class _$SearchGroupItemOptionsSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'groupItemType':
+        case 'qGroupItemType':
           result.groupItemType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'offset':
+        case 'qOffset':
           result.offset = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'count':
+        case 'qCount':
           result.count = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

@@ -28,20 +28,20 @@ class _$NxAxisTicksSerializer implements StructuredSerializer<NxAxisTicks> {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.ticks != null) {
       result
-        ..add('ticks')
+        ..add('qTicks')
         ..add(serializers.serialize(object.ticks,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -61,17 +61,17 @@ class _$NxAxisTicksSerializer implements StructuredSerializer<NxAxisTicks> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'ticks':
+        case 'qTicks':
           result.ticks.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

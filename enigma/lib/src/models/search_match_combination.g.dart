@@ -33,13 +33,13 @@ class _$SearchMatchCombinationSerializer
     final result = <Object>[];
     if (object.id != null) {
       result
-        ..add('id')
+        ..add('qId')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
     }
     if (object.fieldMatches != null) {
       result
-        ..add('fieldMatches')
+        ..add('qFieldMatches')
         ..add(serializers.serialize(object.fieldMatches,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -60,11 +60,11 @@ class _$SearchMatchCombinationSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'id':
+        case 'qId':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'fieldMatches':
+        case 'qFieldMatches':
           result.fieldMatches.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

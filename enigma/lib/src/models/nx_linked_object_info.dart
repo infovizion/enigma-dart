@@ -17,11 +17,13 @@ abstract class NxLinkedObjectInfo
   /// If the linked object is an app object, the root identifier is the same than the identifier of the linked object since the linked object is a root object.
   /// Original name: qRootId
   @nullable
+  @BuiltValueField(wireName: 'qRootId')
   String get rootId;
 
   /// Information about the linked object.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   factory NxLinkedObjectInfo([updates(NxLinkedObjectInfoBuilder b)]) =

@@ -29,19 +29,19 @@ class _$NxAttrExprDefSerializer implements StructuredSerializer<NxAttrExprDef> {
     final result = <Object>[];
     if (object.expression != null) {
       result
-        ..add('expression')
+        ..add('qExpression')
         ..add(serializers.serialize(object.expression,
             specifiedType: const FullType(String)));
     }
     if (object.libraryId != null) {
       result
-        ..add('libraryId')
+        ..add('qLibraryId')
         ..add(serializers.serialize(object.libraryId,
             specifiedType: const FullType(String)));
     }
     if (object.attribute != null) {
       result
-        ..add('attribute')
+        ..add('qAttribute')
         ..add(serializers.serialize(object.attribute,
             specifiedType: const FullType(bool)));
     }
@@ -60,15 +60,15 @@ class _$NxAttrExprDefSerializer implements StructuredSerializer<NxAttrExprDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'expression':
+        case 'qExpression':
           result.expression = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'libraryId':
+        case 'qLibraryId':
           result.libraryId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'attribute':
+        case 'qAttribute':
           result.attribute = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

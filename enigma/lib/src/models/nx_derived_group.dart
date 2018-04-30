@@ -16,11 +16,13 @@ abstract class NxDerivedGroup
   /// Identifier of the group.
   /// Original name: qId
   @nullable
+  @BuiltValueField(wireName: 'qId')
   String get id;
 
   /// Name of the derived group.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Grouping type.
@@ -33,11 +35,13 @@ abstract class NxDerivedGroup
   /// * C or GRP_NX_COLLECTION
   /// Original name: qGrouping
   @nullable
+  @BuiltValueField(wireName: 'qGrouping')
   String get grouping;
 
   /// List of the derived fields in the group.
   /// Original name: qFieldDefs
   @nullable
+  @BuiltValueField(wireName: 'qFieldDefs')
   BuiltList<NxCell> get fieldDefs;
 
   factory NxDerivedGroup([updates(NxDerivedGroupBuilder b)]) = _$NxDerivedGroup;

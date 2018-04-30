@@ -19,6 +19,7 @@ abstract class NxInlineMeasureDef
   /// This parameter is optional.
   /// Original name: qLabel
   @nullable
+  @BuiltValueField(wireName: 'qLabel')
   String get label;
 
   /// Description of the measure.
@@ -26,6 +27,7 @@ abstract class NxInlineMeasureDef
   /// This parameter is optional.
   /// Original name: qDescription
   @nullable
+  @BuiltValueField(wireName: 'qDescription')
   String get description;
 
   /// Name connected to the measure that is used for search purposes.
@@ -33,6 +35,7 @@ abstract class NxInlineMeasureDef
   /// This parameter is optional.
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   /// Default value is no grouping.
@@ -44,6 +47,7 @@ abstract class NxInlineMeasureDef
   /// * C or GRP_NX_COLLECTION
   /// Original name: qGrouping
   @nullable
+  @BuiltValueField(wireName: 'qGrouping')
   String get grouping;
 
   /// Definition of the expression in the measure.
@@ -51,12 +55,14 @@ abstract class NxInlineMeasureDef
   /// This parameter is mandatory.
   /// Original name: qDef
   @nullable
+  @BuiltValueField(wireName: 'qDef')
   String get def;
 
   /// Format of the field.
   /// This parameter is optional.
   /// Original name: qNumFormat
   @nullable
+  @BuiltValueField(wireName: 'qNumFormat')
   FieldAttributes get numFormat;
 
   /// If set to true, percentage values are returned instead of absolute numbers.
@@ -64,6 +70,7 @@ abstract class NxInlineMeasureDef
   /// This parameter is optional.
   /// Original name: qRelative
   @nullable
+  @BuiltValueField(wireName: 'qRelative')
   bool get relative;
 
   /// If set to true, the sum of rows total should be used rather than real expression total.
@@ -72,6 +79,7 @@ abstract class NxInlineMeasureDef
   /// If using the Qlik Sense interface, it means that the total mode is set to **Expression Total** .
   /// Original name: qBrutalSum
   @nullable
+  @BuiltValueField(wireName: 'qBrutalSum')
   bool get brutalSum;
 
   /// Aggregate function.
@@ -80,6 +88,7 @@ abstract class NxInlineMeasureDef
   /// This parameter is optional.
   /// Original name: qAggrFunc
   @nullable
+  @BuiltValueField(wireName: 'qAggrFunc')
   String get aggrFunc;
 
   /// * 0 means no accumulation
@@ -89,11 +98,13 @@ abstract class NxInlineMeasureDef
   /// This parameter is optional.
   /// Original name: qAccumulate
   @nullable
+  @BuiltValueField(wireName: 'qAccumulate')
   int get accumulate;
 
   /// If set to true, it inverts the sort criteria in the field.
   /// Original name: qReverseSort
   @nullable
+  @BuiltValueField(wireName: 'qReverseSort')
   bool get reverseSort;
 
   /// Index of the active expression in a cyclic measure. The indexing starts from 0.
@@ -101,17 +112,20 @@ abstract class NxInlineMeasureDef
   /// This parameter is optional.
   /// Original name: qActiveExpression
   @nullable
+  @BuiltValueField(wireName: 'qActiveExpression')
   int get activeExpression;
 
   /// Array of expressions. This parameter is used in case of cyclic measures ( _qGrouping_ is C). List of the expressions in the cyclic group.
   /// Original name: qExpressions
   @nullable
+  @BuiltValueField(wireName: 'qExpressions')
   BuiltList<NxCell> get expressions;
 
   /// Label expression.
   /// This parameter is optional.
   /// Original name: qLabelExpression
   @nullable
+  @BuiltValueField(wireName: 'qLabelExpression')
   String get labelExpression;
 
   factory NxInlineMeasureDef([updates(NxInlineMeasureDefBuilder b)]) =

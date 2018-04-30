@@ -30,13 +30,13 @@ class _$NxPageTreeLevelSerializer
     final result = <Object>[];
     if (object.left != null) {
       result
-        ..add('left')
+        ..add('qLeft')
         ..add(serializers.serialize(object.left,
             specifiedType: const FullType(int)));
     }
     if (object.depth != null) {
       result
-        ..add('depth')
+        ..add('qDepth')
         ..add(serializers.serialize(object.depth,
             specifiedType: const FullType(int)));
     }
@@ -55,11 +55,11 @@ class _$NxPageTreeLevelSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'left':
+        case 'qLeft':
           result.left = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'depth':
+        case 'qDepth':
           result.depth = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

@@ -15,12 +15,14 @@ abstract class NxInfo implements Built<NxInfo, NxInfoBuilder> {
   /// This parameter is optional.
   /// Original name: qId
   @nullable
+  @BuiltValueField(wireName: 'qId')
   String get id;
 
   /// Type of the object.
   /// This parameter is mandatory.
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   factory NxInfo([updates(NxInfoBuilder b)]) = _$NxInfo;

@@ -16,6 +16,7 @@ abstract class StaticContentList
   /// Information about the list of content files.
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory StaticContentList([updates(StaticContentListBuilder b)]) =

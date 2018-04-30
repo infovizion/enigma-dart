@@ -29,37 +29,37 @@ class _$NxAttrDimInfoSerializer implements StructuredSerializer<NxAttrDimInfo> {
     final result = <Object>[];
     if (object.cardinal != null) {
       result
-        ..add('cardinal')
+        ..add('qCardinal')
         ..add(serializers.serialize(object.cardinal,
             specifiedType: const FullType(int)));
     }
     if (object.size != null) {
       result
-        ..add('size')
+        ..add('qSize')
         ..add(serializers.serialize(object.size,
             specifiedType: const FullType(Size)));
     }
     if (object.fallbackTitle != null) {
       result
-        ..add('fallbackTitle')
+        ..add('qFallbackTitle')
         ..add(serializers.serialize(object.fallbackTitle,
             specifiedType: const FullType(String)));
     }
     if (object.locked != null) {
       result
-        ..add('locked')
+        ..add('qLocked')
         ..add(serializers.serialize(object.locked,
             specifiedType: const FullType(bool)));
     }
     if (object.error != null) {
       result
-        ..add('error')
+        ..add('qError')
         ..add(serializers.serialize(object.error,
             specifiedType: const FullType(NxValidationError)));
     }
     if (object.isCalculated != null) {
       result
-        ..add('isCalculated')
+        ..add('qIsCalculated')
         ..add(serializers.serialize(object.isCalculated,
             specifiedType: const FullType(bool)));
     }
@@ -78,28 +78,28 @@ class _$NxAttrDimInfoSerializer implements StructuredSerializer<NxAttrDimInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'cardinal':
+        case 'qCardinal':
           result.cardinal = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'size':
+        case 'qSize':
           result.size.replace(serializers.deserialize(value,
               specifiedType: const FullType(Size)) as Size);
           break;
-        case 'fallbackTitle':
+        case 'qFallbackTitle':
           result.fallbackTitle = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'locked':
+        case 'qLocked':
           result.locked = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'error':
+        case 'qError':
           result.error.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxValidationError))
               as NxValidationError);
           break;
-        case 'isCalculated':
+        case 'qIsCalculated':
           result.isCalculated = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

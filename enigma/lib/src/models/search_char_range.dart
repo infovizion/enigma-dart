@@ -14,16 +14,19 @@ abstract class SearchCharRange
   /// Starting position of the match in the search result, starting from 0.
   /// Original name: qCharPos
   @nullable
+  @BuiltValueField(wireName: 'qCharPos')
   int get charPos;
 
   /// Length of the match in the search result.
   /// Original name: qCharCount
   @nullable
+  @BuiltValueField(wireName: 'qCharCount')
   int get charCount;
 
   /// Position of the term in the list of search terms, starting from 0.
   /// Original name: qTerm
   @nullable
+  @BuiltValueField(wireName: 'qTerm')
   int get term;
 
   factory SearchCharRange([updates(SearchCharRangeBuilder b)]) =

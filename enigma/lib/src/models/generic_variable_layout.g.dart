@@ -33,19 +33,19 @@ class _$GenericVariableLayoutSerializer
     final result = <Object>[];
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
@@ -57,7 +57,7 @@ class _$GenericVariableLayoutSerializer
     }
     if (object.isScriptCreated != null) {
       result
-        ..add('isScriptCreated')
+        ..add('qIsScriptCreated')
         ..add(serializers.serialize(object.isScriptCreated,
             specifiedType: const FullType(bool)));
     }
@@ -77,15 +77,15 @@ class _$GenericVariableLayoutSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
@@ -93,7 +93,7 @@ class _$GenericVariableLayoutSerializer
           result.qNum = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'isScriptCreated':
+        case 'qIsScriptCreated':
           result.isScriptCreated = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

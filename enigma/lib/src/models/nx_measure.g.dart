@@ -28,45 +28,45 @@ class _$NxMeasureSerializer implements StructuredSerializer<NxMeasure> {
     final result = <Object>[];
     if (object.libraryId != null) {
       result
-        ..add('libraryId')
+        ..add('qLibraryId')
         ..add(serializers.serialize(object.libraryId,
             specifiedType: const FullType(String)));
     }
     if (object.def != null) {
       result
-        ..add('def')
+        ..add('qDef')
         ..add(serializers.serialize(object.def,
             specifiedType: const FullType(NxInlineMeasureDef)));
     }
     if (object.sortBy != null) {
       result
-        ..add('sortBy')
+        ..add('qSortBy')
         ..add(serializers.serialize(object.sortBy,
             specifiedType: const FullType(SortCriteria)));
     }
     if (object.attributeExpressions != null) {
       result
-        ..add('attributeExpressions')
+        ..add('qAttributeExpressions')
         ..add(serializers.serialize(object.attributeExpressions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attributeDimensions != null) {
       result
-        ..add('attributeDimensions')
+        ..add('qAttributeDimensions')
         ..add(serializers.serialize(object.attributeDimensions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.calcCond != null) {
       result
-        ..add('calcCond')
+        ..add('qCalcCond')
         ..add(serializers.serialize(object.calcCond,
             specifiedType: const FullType(ValueExpr)));
     }
     if (object.calcCondition != null) {
       result
-        ..add('calcCondition')
+        ..add('qCalcCondition')
         ..add(serializers.serialize(object.calcCondition,
             specifiedType: const FullType(NxCalcCond)));
     }
@@ -85,36 +85,36 @@ class _$NxMeasureSerializer implements StructuredSerializer<NxMeasure> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'libraryId':
+        case 'qLibraryId':
           result.libraryId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'def':
+        case 'qDef':
           result.def.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxInlineMeasureDef))
               as NxInlineMeasureDef);
           break;
-        case 'sortBy':
+        case 'qSortBy':
           result.sortBy.replace(serializers.deserialize(value,
               specifiedType: const FullType(SortCriteria)) as SortCriteria);
           break;
-        case 'attributeExpressions':
+        case 'qAttributeExpressions':
           result.attributeExpressions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'attributeDimensions':
+        case 'qAttributeDimensions':
           result.attributeDimensions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'calcCond':
+        case 'qCalcCond':
           result.calcCond.replace(serializers.deserialize(value,
               specifiedType: const FullType(ValueExpr)) as ValueExpr);
           break;
-        case 'calcCondition':
+        case 'qCalcCondition':
           result.calcCondition.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxCalcCond)) as NxCalcCond);
           break;

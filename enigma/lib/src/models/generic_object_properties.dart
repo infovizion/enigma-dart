@@ -17,6 +17,7 @@ abstract class GenericObjectProperties
   /// This parameter is mandatory.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Should be set to create an object that is linked to another object. Enter the identifier of the linking object (i.e the object you want to link to).
@@ -24,11 +25,13 @@ abstract class GenericObjectProperties
   /// If you do not want to link your object, set this parameter to an empty string.
   /// Original name: qExtendsId
   @nullable
+  @BuiltValueField(wireName: 'qExtendsId')
   String get extendsId;
 
   /// Definition of the dynamic properties.
   /// Original name: qMetaDef
   @nullable
+  @BuiltValueField(wireName: 'qMetaDef')
   JsonObject get metaDef;
 
   factory GenericObjectProperties([updates(GenericObjectPropertiesBuilder b)]) =

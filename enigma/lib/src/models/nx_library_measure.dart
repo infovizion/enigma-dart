@@ -15,10 +15,12 @@ abstract class NxLibraryMeasure
 
   /// Original name: qLabel
   @nullable
+  @BuiltValueField(wireName: 'qLabel')
   String get label;
 
   /// Original name: qDef
   @nullable
+  @BuiltValueField(wireName: 'qDef')
   String get def;
 
   ///
@@ -28,18 +30,22 @@ abstract class NxLibraryMeasure
   /// * C or GRP_NX_COLLECTION
   /// Original name: qGrouping
   @nullable
+  @BuiltValueField(wireName: 'qGrouping')
   String get grouping;
 
   /// Original name: qExpressions
   @nullable
+  @BuiltValueField(wireName: 'qExpressions')
   BuiltList<NxCell> get expressions;
 
   /// Original name: qActiveExpression
   @nullable
+  @BuiltValueField(wireName: 'qActiveExpression')
   int get activeExpression;
 
   /// Original name: qLabelExpression
   @nullable
+  @BuiltValueField(wireName: 'qLabelExpression')
   String get labelExpression;
 
   factory NxLibraryMeasure([updates(NxLibraryMeasureBuilder b)]) =

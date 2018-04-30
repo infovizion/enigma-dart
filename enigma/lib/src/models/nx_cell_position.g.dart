@@ -30,13 +30,13 @@ class _$NxCellPositionSerializer
     final result = <Object>[];
     if (object.x != null) {
       result
-        ..add('x')
+        ..add('qx')
         ..add(serializers.serialize(object.x,
             specifiedType: const FullType(int)));
     }
     if (object.y != null) {
       result
-        ..add('y')
+        ..add('qy')
         ..add(serializers.serialize(object.y,
             specifiedType: const FullType(int)));
     }
@@ -55,11 +55,11 @@ class _$NxCellPositionSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'x':
+        case 'qx':
           result.x = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'y':
+        case 'qy':
           result.y = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

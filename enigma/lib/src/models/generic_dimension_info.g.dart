@@ -33,32 +33,32 @@ class _$GenericDimensionInfoSerializer
     final result = <Object>[];
     if (object.apprMaxGlyphCount != null) {
       result
-        ..add('apprMaxGlyphCount')
+        ..add('qApprMaxGlyphCount')
         ..add(serializers.serialize(object.apprMaxGlyphCount,
             specifiedType: const FullType(int)));
     }
     if (object.cardinal != null) {
       result
-        ..add('cardinal')
+        ..add('qCardinal')
         ..add(serializers.serialize(object.cardinal,
             specifiedType: const FullType(int)));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isSemantic != null) {
       result
-        ..add('isSemantic')
+        ..add('qIsSemantic')
         ..add(serializers.serialize(object.isSemantic,
             specifiedType: const FullType(bool)));
     }
     if (object.andMode != null) {
       result
-        ..add('andMode')
+        ..add('qAndMode')
         ..add(serializers.serialize(object.andMode,
             specifiedType: const FullType(bool)));
     }
@@ -77,25 +77,25 @@ class _$GenericDimensionInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'apprMaxGlyphCount':
+        case 'qApprMaxGlyphCount':
           result.apprMaxGlyphCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'cardinal':
+        case 'qCardinal':
           result.cardinal = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'isSemantic':
+        case 'qIsSemantic':
           result.isSemantic = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'andMode':
+        case 'qAndMode':
           result.andMode = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

@@ -17,6 +17,7 @@ abstract class ChildListDef
   /// You need to enter the paths to the information you want to retrieve.
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   JsonObject get data;
 
   factory ChildListDef([updates(ChildListDefBuilder b)]) = _$ChildListDef;

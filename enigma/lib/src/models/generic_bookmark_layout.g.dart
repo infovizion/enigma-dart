@@ -33,25 +33,25 @@ class _$GenericBookmarkLayoutSerializer
     final result = <Object>[];
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.bookmark != null) {
       result
-        ..add('bookmark')
+        ..add('qBookmark')
         ..add(serializers.serialize(object.bookmark,
             specifiedType: const FullType(NxBookmark)));
     }
     if (object.fieldInfos != null) {
       result
-        ..add('fieldInfos')
+        ..add('qFieldInfos')
         ..add(serializers.serialize(object.fieldInfos,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -72,19 +72,19 @@ class _$GenericBookmarkLayoutSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'bookmark':
+        case 'qBookmark':
           result.bookmark.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxBookmark)) as NxBookmark);
           break;
-        case 'fieldInfos':
+        case 'qFieldInfos':
           result.fieldInfos.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

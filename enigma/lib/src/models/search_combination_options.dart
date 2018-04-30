@@ -18,6 +18,7 @@ abstract class SearchCombinationOptions
   /// If empty, the search is performed in all fields of the app.
   /// Original name: qSearchFields
   @nullable
+  @BuiltValueField(wireName: 'qSearchFields')
   BuiltList<NxCell> get searchFields;
 
   /// Search context.
@@ -29,6 +30,7 @@ abstract class SearchCombinationOptions
   /// * CurrentSelections or CONTEXT_CURRENT_SELECTIONS
   /// Original name: qContext
   @nullable
+  @BuiltValueField(wireName: 'qContext')
   String get context;
 
   /// Encoding used to compute qRanges of type SearchCharRange.
@@ -39,6 +41,7 @@ abstract class SearchCombinationOptions
   /// * Utf16 or CHAR_ENCODING_UTF16
   /// Original name: qCharEncoding
   @nullable
+  @BuiltValueField(wireName: 'qCharEncoding')
   String get charEncoding;
 
   /// Optional.
@@ -47,6 +50,7 @@ abstract class SearchCombinationOptions
   /// * For SearchResults method, this array is empty, or contains _qNum_ and/or _qElemNum_ . It allows the user to request details in the outputted _SearchGroupItemMatch_ . For more information, see _SearchGroupItemMatch_.
   /// Original name: qAttributes
   @nullable
+  @BuiltValueField(wireName: 'qAttributes')
   BuiltList<NxCell> get attributes;
 
   factory SearchCombinationOptions(

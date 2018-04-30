@@ -30,31 +30,31 @@ class _$CustomConnectorSerializer
     final result = <Object>[];
     if (object.provider != null) {
       result
-        ..add('provider')
+        ..add('qProvider')
         ..add(serializers.serialize(object.provider,
             specifiedType: const FullType(String)));
     }
     if (object.parent != null) {
       result
-        ..add('parent')
+        ..add('qParent')
         ..add(serializers.serialize(object.parent,
             specifiedType: const FullType(String)));
     }
     if (object.displayName != null) {
       result
-        ..add('displayName')
+        ..add('qDisplayName')
         ..add(serializers.serialize(object.displayName,
             specifiedType: const FullType(String)));
     }
     if (object.machineMode != null) {
       result
-        ..add('machineMode')
+        ..add('qMachineMode')
         ..add(serializers.serialize(object.machineMode,
             specifiedType: const FullType(String)));
     }
     if (object.supportFileStreaming != null) {
       result
-        ..add('supportFileStreaming')
+        ..add('qSupportFileStreaming')
         ..add(serializers.serialize(object.supportFileStreaming,
             specifiedType: const FullType(bool)));
     }
@@ -73,23 +73,23 @@ class _$CustomConnectorSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'provider':
+        case 'qProvider':
           result.provider = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'parent':
+        case 'qParent':
           result.parent = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'displayName':
+        case 'qDisplayName':
           result.displayName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'machineMode':
+        case 'qMachineMode':
           result.machineMode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'supportFileStreaming':
+        case 'qSupportFileStreaming':
           result.supportFileStreaming = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

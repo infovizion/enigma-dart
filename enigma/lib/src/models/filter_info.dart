@@ -15,10 +15,12 @@ abstract class FilterInfo implements Built<FilterInfo, FilterInfoBuilder> {
   /// * RAW or FILTER_TYPE_RAW
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Original name: qWherePredicate
   @nullable
+  @BuiltValueField(wireName: 'qWherePredicate')
   String get wherePredicate;
 
   factory FilterInfo([updates(FilterInfoBuilder b)]) = _$FilterInfo;

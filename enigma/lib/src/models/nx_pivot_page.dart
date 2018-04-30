@@ -15,21 +15,25 @@ abstract class NxPivotPage implements Built<NxPivotPage, NxPivotPageBuilder> {
   /// Information about the left dimension values of a pivot table.
   /// Original name: qLeft
   @nullable
+  @BuiltValueField(wireName: 'qLeft')
   BuiltList<NxCell> get left;
 
   /// Information about the top dimension values of a pivot table. If there is no top dimension in the pivot table, information about the measures are given.
   /// Original name: qTop
   @nullable
+  @BuiltValueField(wireName: 'qTop')
   BuiltList<NxCell> get top;
 
   /// Array of data.
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   BuiltList<NxCell> get data;
 
   /// Size and offset of the data in the matrix.
   /// Original name: qArea
   @nullable
+  @BuiltValueField(wireName: 'qArea')
   Rect get area;
 
   factory NxPivotPage([updates(NxPivotPageBuilder b)]) = _$NxPivotPage;

@@ -15,10 +15,12 @@ abstract class NxMultiRangeSelectInfo
 
   /// Original name: qRanges
   @nullable
+  @BuiltValueField(wireName: 'qRanges')
   BuiltList<NxCell> get ranges;
 
   /// Original name: qColumnsToSelect
   @nullable
+  @BuiltValueField(wireName: 'qColumnsToSelect')
   BuiltList<NxCell> get columnsToSelect;
 
   factory NxMultiRangeSelectInfo([updates(NxMultiRangeSelectInfoBuilder b)]) =

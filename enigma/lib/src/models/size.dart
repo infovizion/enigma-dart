@@ -12,11 +12,13 @@ abstract class Size implements Built<Size, SizeBuilder> {
   /// Number of pixels on the _x_ axis.
   /// Original name: qcx
   @nullable
+  @BuiltValueField(wireName: 'qcx')
   int get cx;
 
   /// Number of pixels on the _y_ axis.
   /// Original name: qcy
   @nullable
+  @BuiltValueField(wireName: 'qcy')
   int get cy;
 
   factory Size([updates(SizeBuilder b)]) = _$Size;

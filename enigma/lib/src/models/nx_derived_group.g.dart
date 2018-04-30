@@ -30,25 +30,25 @@ class _$NxDerivedGroupSerializer
     final result = <Object>[];
     if (object.id != null) {
       result
-        ..add('id')
+        ..add('qId')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(String)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.grouping != null) {
       result
-        ..add('grouping')
+        ..add('qGrouping')
         ..add(serializers.serialize(object.grouping,
             specifiedType: const FullType(String)));
     }
     if (object.fieldDefs != null) {
       result
-        ..add('fieldDefs')
+        ..add('qFieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -68,19 +68,19 @@ class _$NxDerivedGroupSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'id':
+        case 'qId':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'grouping':
+        case 'qGrouping':
           result.grouping = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fieldDefs':
+        case 'qFieldDefs':
           result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

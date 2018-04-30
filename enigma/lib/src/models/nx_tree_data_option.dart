@@ -18,16 +18,19 @@ abstract class NxTreeDataOption
   /// Maximum number of nodes in the tree. If this limit is exceeded, no nodes are returned. All nodes are counted.
   /// Original name: qMaxNbrOfNodes
   @nullable
+  @BuiltValueField(wireName: 'qMaxNbrOfNodes')
   int get maxNbrOfNodes;
 
   /// Defines areas of the tree to be fetched. Areas must be defined left to right.
   /// Original name: qTreeNodes
   @nullable
+  @BuiltValueField(wireName: 'qTreeNodes')
   BuiltList<NxCell> get treeNodes;
 
   /// Filters out complete dimensions from the fetched tree.
   /// Original name: qTreeLevels
   @nullable
+  @BuiltValueField(wireName: 'qTreeLevels')
   NxPageTreeLevel get treeLevels;
 
   factory NxTreeDataOption([updates(NxTreeDataOptionBuilder b)]) =

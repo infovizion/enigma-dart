@@ -33,13 +33,13 @@ class _$NxFieldSelectionInfoSerializer
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.fieldSelectionMode != null) {
       result
-        ..add('fieldSelectionMode')
+        ..add('qFieldSelectionMode')
         ..add(serializers.serialize(object.fieldSelectionMode,
             specifiedType: const FullType(String)));
     }
@@ -58,11 +58,11 @@ class _$NxFieldSelectionInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fieldSelectionMode':
+        case 'qFieldSelectionMode':
           result.fieldSelectionMode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

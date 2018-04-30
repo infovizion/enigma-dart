@@ -19,11 +19,13 @@ abstract class GenericVariableProperties
   /// This parameter is mandatory.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Meta data.
   /// Original name: qMetaDef
   @nullable
+  @BuiltValueField(wireName: 'qMetaDef')
   JsonObject get metaDef;
 
   /// Name of the variable.
@@ -31,18 +33,21 @@ abstract class GenericVariableProperties
   /// This parameter is mandatory.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Comment related to the variable.
   /// This parameter is optional.
   /// Original name: qComment
   @nullable
+  @BuiltValueField(wireName: 'qComment')
   String get comment;
 
   /// Defines the format of the value.
   /// This parameter is optional.
   /// Original name: qNumberPresentation
   @nullable
+  @BuiltValueField(wireName: 'qNumberPresentation')
   FieldAttributes get numberPresentation;
 
   /// Set this property to true to update the variable when applying a bookmark. The variable value will be persisted in the bookmark.
@@ -51,11 +56,13 @@ abstract class GenericVariableProperties
   /// The default value is false.
   /// Original name: qIncludeInBookmark
   @nullable
+  @BuiltValueField(wireName: 'qIncludeInBookmark')
   bool get includeInBookmark;
 
   /// Definition of the variable.
   /// Original name: qDefinition
   @nullable
+  @BuiltValueField(wireName: 'qDefinition')
   String get definition;
 
   factory GenericVariableProperties(

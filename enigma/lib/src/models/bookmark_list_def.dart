@@ -16,11 +16,13 @@ abstract class BookmarkListDef
   /// Type of the list.
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Data
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   JsonObject get data;
 
   factory BookmarkListDef([updates(BookmarkListDefBuilder b)]) =

@@ -16,6 +16,7 @@ abstract class SearchObjectOptions
   /// This array is either empty or contains _qProperty_ .
   /// Original name: qAttributes
   @nullable
+  @BuiltValueField(wireName: 'qAttributes')
   BuiltList<NxCell> get attributes;
 
   /// Encoding used to compute qRanges of type SearchCharRange.
@@ -26,6 +27,7 @@ abstract class SearchObjectOptions
   /// * Utf16 or CHAR_ENCODING_UTF16
   /// Original name: qCharEncoding
   @nullable
+  @BuiltValueField(wireName: 'qCharEncoding')
   String get charEncoding;
 
   factory SearchObjectOptions([updates(SearchObjectOptionsBuilder b)]) =

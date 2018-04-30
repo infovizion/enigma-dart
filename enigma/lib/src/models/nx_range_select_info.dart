@@ -15,12 +15,14 @@ abstract class NxRangeSelectInfo
   /// Range of values.
   /// Original name: qRange
   @nullable
+  @BuiltValueField(wireName: 'qRange')
   Range get range;
 
   /// Number of the measure to select.
   /// Numbering starts from 0.
   /// Original name: qMeasureIx
   @nullable
+  @BuiltValueField(wireName: 'qMeasureIx')
   int get measureIx;
 
   factory NxRangeSelectInfo([updates(NxRangeSelectInfoBuilder b)]) =

@@ -28,7 +28,7 @@ class _$ValueExprSerializer implements StructuredSerializer<ValueExpr> {
     final result = <Object>[];
     if (object.v != null) {
       result
-        ..add('v')
+        ..add('qv')
         ..add(serializers.serialize(object.v,
             specifiedType: const FullType(String)));
     }
@@ -47,7 +47,7 @@ class _$ValueExprSerializer implements StructuredSerializer<ValueExpr> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'v':
+        case 'qv':
           result.v = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

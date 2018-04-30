@@ -33,7 +33,7 @@ class _$NxAttributeDimValuesSerializer
     final result = <Object>[];
     if (object.values != null) {
       result
-        ..add('values')
+        ..add('qValues')
         ..add(serializers.serialize(object.values,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -53,7 +53,7 @@ class _$NxAttributeDimValuesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'values':
+        case 'qValues':
           result.values.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

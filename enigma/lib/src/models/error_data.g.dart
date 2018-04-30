@@ -28,31 +28,31 @@ class _$ErrorDataSerializer implements StructuredSerializer<ErrorData> {
     final result = <Object>[];
     if (object.errorString != null) {
       result
-        ..add('errorString')
+        ..add('qErrorString')
         ..add(serializers.serialize(object.errorString,
             specifiedType: const FullType(String)));
     }
     if (object.lineEnd != null) {
       result
-        ..add('lineEnd')
+        ..add('qLineEnd')
         ..add(serializers.serialize(object.lineEnd,
             specifiedType: const FullType(String)));
     }
     if (object.line != null) {
       result
-        ..add('line')
+        ..add('qLine')
         ..add(serializers.serialize(object.line,
             specifiedType: const FullType(String)));
     }
     if (object.errorDataCode != null) {
       result
-        ..add('errorDataCode')
+        ..add('qErrorDataCode')
         ..add(serializers.serialize(object.errorDataCode,
             specifiedType: const FullType(String)));
     }
     if (object.message != null) {
       result
-        ..add('message')
+        ..add('qMessage')
         ..add(serializers.serialize(object.message,
             specifiedType: const FullType(ProgressMessage)));
     }
@@ -71,23 +71,23 @@ class _$ErrorDataSerializer implements StructuredSerializer<ErrorData> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'errorString':
+        case 'qErrorString':
           result.errorString = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'lineEnd':
+        case 'qLineEnd':
           result.lineEnd = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'line':
+        case 'qLine':
           result.line = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'errorDataCode':
+        case 'qErrorDataCode':
           result.errorDataCode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'message':
+        case 'qMessage':
           result.message.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ProgressMessage))
               as ProgressMessage);

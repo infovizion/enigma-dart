@@ -28,50 +28,50 @@ class _$TableRecordSerializer implements StructuredSerializer<TableRecord> {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.loose != null) {
       result
-        ..add('loose')
+        ..add('qLoose')
         ..add(serializers.serialize(object.loose,
             specifiedType: const FullType(bool)));
     }
     if (object.noOfRows != null) {
       result
-        ..add('noOfRows')
+        ..add('qNoOfRows')
         ..add(serializers.serialize(object.noOfRows,
             specifiedType: const FullType(int)));
     }
     if (object.fields != null) {
       result
-        ..add('fields')
+        ..add('qFields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.pos != null) {
       result
-        ..add('pos')
+        ..add('qPos')
         ..add(serializers.serialize(object.pos,
             specifiedType: const FullType(Point)));
     }
     if (object.comment != null) {
       result
-        ..add('comment')
+        ..add('qComment')
         ..add(serializers.serialize(object.comment,
             specifiedType: const FullType(String)));
     }
     if (object.isDirectDiscovery != null) {
       result
-        ..add('isDirectDiscovery')
+        ..add('qIsDirectDiscovery')
         ..add(serializers.serialize(object.isDirectDiscovery,
             specifiedType: const FullType(bool)));
     }
     if (object.isSynthetic != null) {
       result
-        ..add('isSynthetic')
+        ..add('qIsSynthetic')
         ..add(serializers.serialize(object.isSynthetic,
             specifiedType: const FullType(bool)));
     }
@@ -90,37 +90,37 @@ class _$TableRecordSerializer implements StructuredSerializer<TableRecord> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'loose':
+        case 'qLoose':
           result.loose = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'noOfRows':
+        case 'qNoOfRows':
           result.noOfRows = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'fields':
+        case 'qFields':
           result.fields.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'pos':
+        case 'qPos':
           result.pos.replace(serializers.deserialize(value,
               specifiedType: const FullType(Point)) as Point);
           break;
-        case 'comment':
+        case 'qComment':
           result.comment = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isDirectDiscovery':
+        case 'qIsDirectDiscovery':
           result.isDirectDiscovery = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isSynthetic':
+        case 'qIsSynthetic':
           result.isSynthetic = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

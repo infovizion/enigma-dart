@@ -30,13 +30,13 @@ class _$SearchSuggestItemSerializer
     final result = <Object>[];
     if (object.value != null) {
       result
-        ..add('value')
+        ..add('qValue')
         ..add(serializers.serialize(object.value,
             specifiedType: const FullType(String)));
     }
     if (object.term != null) {
       result
-        ..add('term')
+        ..add('qTerm')
         ..add(serializers.serialize(object.term,
             specifiedType: const FullType(int)));
     }
@@ -55,11 +55,11 @@ class _$SearchSuggestItemSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'value':
+        case 'qValue':
           result.value = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'term':
+        case 'qTerm':
           result.term = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

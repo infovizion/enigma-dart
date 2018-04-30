@@ -13,14 +13,17 @@ abstract class DoReloadExParams
 
   /// Original name: qMode
   @nullable
+  @BuiltValueField(wireName: 'qMode')
   int get mode;
 
   /// Original name: qPartial
   @nullable
+  @BuiltValueField(wireName: 'qPartial')
   bool get partial;
 
   /// Original name: qDebug
   @nullable
+  @BuiltValueField(wireName: 'qDebug')
   bool get debug;
 
   factory DoReloadExParams([updates(DoReloadExParamsBuilder b)]) =

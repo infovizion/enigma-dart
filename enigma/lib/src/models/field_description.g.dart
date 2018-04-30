@@ -30,117 +30,117 @@ class _$FieldDescriptionSerializer
     final result = <Object>[];
     if (object.internalNumber != null) {
       result
-        ..add('internalNumber')
+        ..add('qInternalNumber')
         ..add(serializers.serialize(object.internalNumber,
             specifiedType: const FullType(int)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.srcTables != null) {
       result
-        ..add('srcTables')
+        ..add('qSrcTables')
         ..add(serializers.serialize(object.srcTables,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isSystem != null) {
       result
-        ..add('isSystem')
+        ..add('qIsSystem')
         ..add(serializers.serialize(object.isSystem,
             specifiedType: const FullType(bool)));
     }
     if (object.isHidden != null) {
       result
-        ..add('isHidden')
+        ..add('qIsHidden')
         ..add(serializers.serialize(object.isHidden,
             specifiedType: const FullType(bool)));
     }
     if (object.isSemantic != null) {
       result
-        ..add('isSemantic')
+        ..add('qIsSemantic')
         ..add(serializers.serialize(object.isSemantic,
             specifiedType: const FullType(bool)));
     }
     if (object.distinctOnly != null) {
       result
-        ..add('distinctOnly')
+        ..add('qDistinctOnly')
         ..add(serializers.serialize(object.distinctOnly,
             specifiedType: const FullType(bool)));
     }
     if (object.cardinal != null) {
       result
-        ..add('cardinal')
+        ..add('qCardinal')
         ..add(serializers.serialize(object.cardinal,
             specifiedType: const FullType(int)));
     }
     if (object.totalCount != null) {
       result
-        ..add('totalCount')
+        ..add('qTotalCount')
         ..add(serializers.serialize(object.totalCount,
             specifiedType: const FullType(int)));
     }
     if (object.possibleCountOBSOLETE != null) {
       result
-        ..add('possibleCountOBSOLETE')
+        ..add('qPossibleCount_OBSOLETE')
         ..add(serializers.serialize(object.possibleCountOBSOLETE,
             specifiedType: const FullType(int)));
     }
     if (object.hasInfoOBSOLETE != null) {
       result
-        ..add('hasInfoOBSOLETE')
+        ..add('qHasInfo_OBSOLETE')
         ..add(serializers.serialize(object.hasInfoOBSOLETE,
             specifiedType: const FullType(bool)));
     }
     if (object.isLocked != null) {
       result
-        ..add('isLocked')
+        ..add('qIsLocked')
         ..add(serializers.serialize(object.isLocked,
             specifiedType: const FullType(bool)));
     }
     if (object.alwaysOneSelected != null) {
       result
-        ..add('alwaysOneSelected')
+        ..add('qAlwaysOneSelected')
         ..add(serializers.serialize(object.alwaysOneSelected,
             specifiedType: const FullType(bool)));
     }
     if (object.andMode != null) {
       result
-        ..add('andMode')
+        ..add('qAndMode')
         ..add(serializers.serialize(object.andMode,
             specifiedType: const FullType(bool)));
     }
     if (object.isNumeric != null) {
       result
-        ..add('isNumeric')
+        ..add('qIsNumeric')
         ..add(serializers.serialize(object.isNumeric,
             specifiedType: const FullType(bool)));
     }
     if (object.comment != null) {
       result
-        ..add('comment')
+        ..add('qComment')
         ..add(serializers.serialize(object.comment,
             specifiedType: const FullType(String)));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isDefinitionOnly != null) {
       result
-        ..add('isDefinitionOnly')
+        ..add('qIsDefinitionOnly')
         ..add(serializers.serialize(object.isDefinitionOnly,
             specifiedType: const FullType(bool)));
     }
     if (object.byteSize != null) {
       result
-        ..add('byteSize')
+        ..add('qByteSize')
         ..add(serializers.serialize(object.byteSize,
             specifiedType: const FullType(int)));
     }
@@ -159,83 +159,83 @@ class _$FieldDescriptionSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'internalNumber':
+        case 'qInternalNumber':
           result.internalNumber = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'srcTables':
+        case 'qSrcTables':
           result.srcTables.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'isSystem':
+        case 'qIsSystem':
           result.isSystem = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isHidden':
+        case 'qIsHidden':
           result.isHidden = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isSemantic':
+        case 'qIsSemantic':
           result.isSemantic = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'distinctOnly':
+        case 'qDistinctOnly':
           result.distinctOnly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'cardinal':
+        case 'qCardinal':
           result.cardinal = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'totalCount':
+        case 'qTotalCount':
           result.totalCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'possibleCountOBSOLETE':
+        case 'qPossibleCount_OBSOLETE':
           result.possibleCountOBSOLETE = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'hasInfoOBSOLETE':
+        case 'qHasInfo_OBSOLETE':
           result.hasInfoOBSOLETE = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isLocked':
+        case 'qIsLocked':
           result.isLocked = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'alwaysOneSelected':
+        case 'qAlwaysOneSelected':
           result.alwaysOneSelected = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'andMode':
+        case 'qAndMode':
           result.andMode = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isNumeric':
+        case 'qIsNumeric':
           result.isNumeric = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'comment':
+        case 'qComment':
           result.comment = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'isDefinitionOnly':
+        case 'qIsDefinitionOnly':
           result.isDefinitionOnly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'byteSize':
+        case 'qByteSize':
           result.byteSize = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

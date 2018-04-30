@@ -16,11 +16,13 @@ abstract class NxMatchingFieldInfo
   /// Name of the field.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// List of tags.
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   factory NxMatchingFieldInfo([updates(NxMatchingFieldInfoBuilder b)]) =

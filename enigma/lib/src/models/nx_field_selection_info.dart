@@ -14,6 +14,7 @@ abstract class NxFieldSelectionInfo
   /// Name of the field.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Selection mode.
@@ -28,6 +29,7 @@ abstract class NxFieldSelectionInfo
   /// * NOT or SELECTION_MODE_NOT
   /// Original name: qFieldSelectionMode
   @nullable
+  @BuiltValueField(wireName: 'qFieldSelectionMode')
   String get fieldSelectionMode;
 
   factory NxFieldSelectionInfo([updates(NxFieldSelectionInfoBuilder b)]) =

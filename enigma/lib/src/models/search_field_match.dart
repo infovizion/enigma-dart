@@ -17,23 +17,27 @@ abstract class SearchFieldMatch
   /// The list of fields is defined in _qResults/qFieldNames_ and contains the search associations.
   /// Original name: qField
   @nullable
+  @BuiltValueField(wireName: 'qField')
   int get field;
 
   /// Positions of the matching values in the search results.
   /// The maximum number of values in this list is defined by _qMaxNbrFieldMatches_ .
   /// Original name: qValues
   @nullable
+  @BuiltValueField(wireName: 'qValues')
   BuiltList<NxCell> get values;
 
   /// Positions of the search terms, starting from 0.
   /// Original name: qTerms
   @nullable
+  @BuiltValueField(wireName: 'qTerms')
   BuiltList<NxCell> get terms;
 
   /// Number of search hits in the field.
   /// The number of values in _qValues_ and the value of _qNoOfMatches_ are equal if _qMaxNbrFieldMatches_ is -1.
   /// Original name: qNoOfMatches
   @nullable
+  @BuiltValueField(wireName: 'qNoOfMatches')
   int get noOfMatches;
 
   factory SearchFieldMatch([updates(SearchFieldMatchBuilder b)]) =

@@ -29,75 +29,75 @@ class _$ProgressDataSerializer implements StructuredSerializer<ProgressData> {
     final result = <Object>[];
     if (object.started != null) {
       result
-        ..add('started')
+        ..add('qStarted')
         ..add(serializers.serialize(object.started,
             specifiedType: const FullType(bool)));
     }
     if (object.finished != null) {
       result
-        ..add('finished')
+        ..add('qFinished')
         ..add(serializers.serialize(object.finished,
             specifiedType: const FullType(bool)));
     }
     if (object.completed != null) {
       result
-        ..add('completed')
+        ..add('qCompleted')
         ..add(serializers.serialize(object.completed,
             specifiedType: const FullType(int)));
     }
     if (object.total != null) {
       result
-        ..add('total')
+        ..add('qTotal')
         ..add(serializers.serialize(object.total,
             specifiedType: const FullType(int)));
     }
     if (object.kB != null) {
       result
-        ..add('kB')
+        ..add('qKB')
         ..add(serializers.serialize(object.kB,
             specifiedType: const FullType(int)));
     }
     if (object.millisecs != null) {
       result
-        ..add('millisecs')
+        ..add('qMillisecs')
         ..add(serializers.serialize(object.millisecs,
             specifiedType: const FullType(int)));
     }
     if (object.userInteractionWanted != null) {
       result
-        ..add('userInteractionWanted')
+        ..add('qUserInteractionWanted')
         ..add(serializers.serialize(object.userInteractionWanted,
             specifiedType: const FullType(bool)));
     }
     if (object.persistentProgress != null) {
       result
-        ..add('persistentProgress')
+        ..add('qPersistentProgress')
         ..add(serializers.serialize(object.persistentProgress,
             specifiedType: const FullType(String)));
     }
     if (object.transientProgress != null) {
       result
-        ..add('transientProgress')
+        ..add('qTransientProgress')
         ..add(serializers.serialize(object.transientProgress,
             specifiedType: const FullType(String)));
     }
     if (object.errorData != null) {
       result
-        ..add('errorData')
+        ..add('qErrorData')
         ..add(serializers.serialize(object.errorData,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.persistentProgressMessages != null) {
       result
-        ..add('persistentProgressMessages')
+        ..add('qPersistentProgressMessages')
         ..add(serializers.serialize(object.persistentProgressMessages,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.transientProgressMessage != null) {
       result
-        ..add('transientProgressMessage')
+        ..add('qTransientProgressMessage')
         ..add(serializers.serialize(object.transientProgressMessage,
             specifiedType: const FullType(ProgressMessage)));
     }
@@ -116,56 +116,56 @@ class _$ProgressDataSerializer implements StructuredSerializer<ProgressData> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'started':
+        case 'qStarted':
           result.started = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'finished':
+        case 'qFinished':
           result.finished = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'completed':
+        case 'qCompleted':
           result.completed = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'total':
+        case 'qTotal':
           result.total = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'kB':
+        case 'qKB':
           result.kB = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'millisecs':
+        case 'qMillisecs':
           result.millisecs = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'userInteractionWanted':
+        case 'qUserInteractionWanted':
           result.userInteractionWanted = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'persistentProgress':
+        case 'qPersistentProgress':
           result.persistentProgress = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'transientProgress':
+        case 'qTransientProgress':
           result.transientProgress = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'errorData':
+        case 'qErrorData':
           result.errorData.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'persistentProgressMessages':
+        case 'qPersistentProgressMessages':
           result.persistentProgressMessages.replace(serializers.deserialize(
                   value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'transientProgressMessage':
+        case 'qTransientProgressMessage':
           result.transientProgressMessage.replace(serializers.deserialize(value,
                   specifiedType: const FullType(ProgressMessage))
               as ProgressMessage);

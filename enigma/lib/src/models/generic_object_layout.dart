@@ -19,34 +19,40 @@ abstract class GenericObjectLayout
   /// Identifier and type of the generic object.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Information about publishing and permissions.
   /// This parameter is optional.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// Should be set to create an object that is linked to another object. Enter the identifier of the object you want to link to.
   /// If you do not want to link your object, set this parameter to an empty string.
   /// Original name: qExtendsId
   @nullable
+  @BuiltValueField(wireName: 'qExtendsId')
   String get extendsId;
 
   /// Is set to true if the generic object contains some properties that are not persistent (a soft patch was applied).
   /// Original name: qHasSoftPatches
   @nullable
+  @BuiltValueField(wireName: 'qHasSoftPatches')
   bool get hasSoftPatches;
 
   /// Gives information on the error.
   /// This parameter is optional.
   /// Original name: qError
   @nullable
+  @BuiltValueField(wireName: 'qError')
   NxLayoutErrors get error;
 
   /// Information about the selections.
   /// Original name: qSelectionInfo
   @nullable
+  @BuiltValueField(wireName: 'qSelectionInfo')
   NxSelectionInfo get selectionInfo;
 
   factory GenericObjectLayout([updates(GenericObjectLayoutBuilder b)]) =

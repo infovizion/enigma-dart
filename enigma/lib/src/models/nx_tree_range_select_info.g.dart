@@ -33,19 +33,19 @@ class _$NxTreeRangeSelectInfoSerializer
     final result = <Object>[];
     if (object.range != null) {
       result
-        ..add('range')
+        ..add('qRange')
         ..add(serializers.serialize(object.range,
             specifiedType: const FullType(Range)));
     }
     if (object.measureIx != null) {
       result
-        ..add('measureIx')
+        ..add('qMeasureIx')
         ..add(serializers.serialize(object.measureIx,
             specifiedType: const FullType(int)));
     }
     if (object.dimensionIx != null) {
       result
-        ..add('dimensionIx')
+        ..add('qDimensionIx')
         ..add(serializers.serialize(object.dimensionIx,
             specifiedType: const FullType(int)));
     }
@@ -65,15 +65,15 @@ class _$NxTreeRangeSelectInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'range':
+        case 'qRange':
           result.range.replace(serializers.deserialize(value,
               specifiedType: const FullType(Range)) as Range);
           break;
-        case 'measureIx':
+        case 'qMeasureIx':
           result.measureIx = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'dimensionIx':
+        case 'qDimensionIx':
           result.dimensionIx = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

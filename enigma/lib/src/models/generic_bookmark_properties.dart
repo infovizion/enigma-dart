@@ -18,11 +18,13 @@ abstract class GenericBookmarkProperties
   /// This parameter is mandatory.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Definition of the dynamic properties.
   /// Original name: qMetaDef
   @nullable
+  @BuiltValueField(wireName: 'qMetaDef')
   JsonObject get metaDef;
 
   factory GenericBookmarkProperties(

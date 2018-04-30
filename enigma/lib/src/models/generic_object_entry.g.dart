@@ -30,20 +30,20 @@ class _$GenericObjectEntrySerializer
     final result = <Object>[];
     if (object.property != null) {
       result
-        ..add('property')
+        ..add('qProperty')
         ..add(serializers.serialize(object.property,
             specifiedType: const FullType(GenericObjectProperties)));
     }
     if (object.children != null) {
       result
-        ..add('children')
+        ..add('qChildren')
         ..add(serializers.serialize(object.children,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.embeddedSnapshotRef != null) {
       result
-        ..add('embeddedSnapshotRef')
+        ..add('qEmbeddedSnapshotRef')
         ..add(serializers.serialize(object.embeddedSnapshotRef,
             specifiedType: const FullType(GenericBookmarkEntry)));
     }
@@ -62,18 +62,18 @@ class _$GenericObjectEntrySerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'property':
+        case 'qProperty':
           result.property.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GenericObjectProperties))
               as GenericObjectProperties);
           break;
-        case 'children':
+        case 'qChildren':
           result.children.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'embeddedSnapshotRef':
+        case 'qEmbeddedSnapshotRef':
           result.embeddedSnapshotRef.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GenericBookmarkEntry))
               as GenericBookmarkEntry);

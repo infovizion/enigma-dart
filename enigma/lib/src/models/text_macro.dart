@@ -12,33 +12,39 @@ abstract class TextMacro implements Built<TextMacro, TextMacroBuilder> {
   /// Name of the variable.
   /// Original name: qTag
   @nullable
+  @BuiltValueField(wireName: 'qTag')
   String get tag;
 
   /// Order in which the variable was referenced during the script execution.
   /// The same number sequence is used for both _qRefSeqNo_ and _qSetSeqNo_ .
   /// Original name: qRefSeqNo
   @nullable
+  @BuiltValueField(wireName: 'qRefSeqNo')
   int get refSeqNo;
 
   /// Order in which the variable was updated during the script execution.
   /// The same number sequence is used for both _qRefSeqNo_ and _qSetSeqNo_ .
   /// Original name: qSetSeqNo
   @nullable
+  @BuiltValueField(wireName: 'qSetSeqNo')
   int get setSeqNo;
 
   /// Variable value.
   /// Original name: qDisplayString
   @nullable
+  @BuiltValueField(wireName: 'qDisplayString')
   String get displayString;
 
   /// Is set to true if the variable is a system variable.
   /// Original name: qIsSystem
   @nullable
+  @BuiltValueField(wireName: 'qIsSystem')
   bool get isSystem;
 
   /// Is set to true if the variable is a reserved variable.
   /// Original name: qIsReserved
   @nullable
+  @BuiltValueField(wireName: 'qIsReserved')
   bool get isReserved;
 
   factory TextMacro([updates(TextMacroBuilder b)]) = _$TextMacro;

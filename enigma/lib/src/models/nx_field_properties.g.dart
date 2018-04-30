@@ -30,7 +30,7 @@ class _$NxFieldPropertiesSerializer
     final result = <Object>[];
     if (object.oneAndOnlyOne != null) {
       result
-        ..add('oneAndOnlyOne')
+        ..add('qOneAndOnlyOne')
         ..add(serializers.serialize(object.oneAndOnlyOne,
             specifiedType: const FullType(bool)));
     }
@@ -49,7 +49,7 @@ class _$NxFieldPropertiesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'oneAndOnlyOne':
+        case 'qOneAndOnlyOne':
           result.oneAndOnlyOne = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

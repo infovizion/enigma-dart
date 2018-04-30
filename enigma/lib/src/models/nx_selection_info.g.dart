@@ -30,13 +30,13 @@ class _$NxSelectionInfoSerializer
     final result = <Object>[];
     if (object.inSelections != null) {
       result
-        ..add('inSelections')
+        ..add('qInSelections')
         ..add(serializers.serialize(object.inSelections,
             specifiedType: const FullType(bool)));
     }
     if (object.madeSelections != null) {
       result
-        ..add('madeSelections')
+        ..add('qMadeSelections')
         ..add(serializers.serialize(object.madeSelections,
             specifiedType: const FullType(bool)));
     }
@@ -55,11 +55,11 @@ class _$NxSelectionInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'inSelections':
+        case 'qInSelections':
           result.inSelections = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'madeSelections':
+        case 'qMadeSelections':
           result.madeSelections = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

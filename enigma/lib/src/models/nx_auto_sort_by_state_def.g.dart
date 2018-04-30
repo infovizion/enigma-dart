@@ -33,7 +33,7 @@ class _$NxAutoSortByStateDefSerializer
     final result = <Object>[];
     if (object.displayNumberOfRows != null) {
       result
-        ..add('displayNumberOfRows')
+        ..add('qDisplayNumberOfRows')
         ..add(serializers.serialize(object.displayNumberOfRows,
             specifiedType: const FullType(int)));
     }
@@ -52,7 +52,7 @@ class _$NxAutoSortByStateDefSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'displayNumberOfRows':
+        case 'qDisplayNumberOfRows':
           result.displayNumberOfRows = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

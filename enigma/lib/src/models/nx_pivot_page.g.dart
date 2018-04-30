@@ -28,28 +28,28 @@ class _$NxPivotPageSerializer implements StructuredSerializer<NxPivotPage> {
     final result = <Object>[];
     if (object.left != null) {
       result
-        ..add('left')
+        ..add('qLeft')
         ..add(serializers.serialize(object.left,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.top != null) {
       result
-        ..add('top')
+        ..add('qTop')
         ..add(serializers.serialize(object.top,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.data != null) {
       result
-        ..add('data')
+        ..add('qData')
         ..add(serializers.serialize(object.data,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.area != null) {
       result
-        ..add('area')
+        ..add('qArea')
         ..add(serializers.serialize(object.area,
             specifiedType: const FullType(Rect)));
     }
@@ -68,25 +68,25 @@ class _$NxPivotPageSerializer implements StructuredSerializer<NxPivotPage> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'left':
+        case 'qLeft':
           result.left.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'top':
+        case 'qTop':
           result.top.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'data':
+        case 'qData':
           result.data.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'area':
+        case 'qArea':
           result.area.replace(serializers.deserialize(value,
               specifiedType: const FullType(Rect)) as Rect);
           break;

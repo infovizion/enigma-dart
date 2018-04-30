@@ -16,11 +16,13 @@ abstract class SearchMatchCombination
   /// Index of the search result, starting from 0.
   /// Original name: qId
   @nullable
+  @BuiltValueField(wireName: 'qId')
   int get id;
 
   /// Information about the search matches.
   /// Original name: qFieldMatches
   @nullable
+  @BuiltValueField(wireName: 'qFieldMatches')
   BuiltList<NxCell> get fieldMatches;
 
   factory SearchMatchCombination([updates(SearchMatchCombinationBuilder b)]) =

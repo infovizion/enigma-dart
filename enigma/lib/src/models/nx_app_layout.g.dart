@@ -28,74 +28,74 @@ class _$NxAppLayoutSerializer implements StructuredSerializer<NxAppLayout> {
     final result = <Object>[];
     if (object.title != null) {
       result
-        ..add('title')
+        ..add('qTitle')
         ..add(serializers.serialize(object.title,
             specifiedType: const FullType(String)));
     }
     if (object.fileName != null) {
       result
-        ..add('fileName')
+        ..add('qFileName')
         ..add(serializers.serialize(object.fileName,
             specifiedType: const FullType(String)));
     }
     if (object.lastReloadTime != null) {
       result
-        ..add('lastReloadTime')
+        ..add('qLastReloadTime')
         ..add(serializers.serialize(object.lastReloadTime,
             specifiedType: const FullType(String)));
     }
     if (object.modified != null) {
       result
-        ..add('modified')
+        ..add('qModified')
         ..add(serializers.serialize(object.modified,
             specifiedType: const FullType(bool)));
     }
     if (object.hasScript != null) {
       result
-        ..add('hasScript')
+        ..add('qHasScript')
         ..add(serializers.serialize(object.hasScript,
             specifiedType: const FullType(bool)));
     }
     if (object.stateNames != null) {
       result
-        ..add('stateNames')
+        ..add('qStateNames')
         ..add(serializers.serialize(object.stateNames,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.localeInfo != null) {
       result
-        ..add('localeInfo')
+        ..add('qLocaleInfo')
         ..add(serializers.serialize(object.localeInfo,
             specifiedType: const FullType(LocaleInfo)));
     }
     if (object.hasData != null) {
       result
-        ..add('hasData')
+        ..add('qHasData')
         ..add(serializers.serialize(object.hasData,
             specifiedType: const FullType(bool)));
     }
     if (object.readOnly != null) {
       result
-        ..add('readOnly')
+        ..add('qReadOnly')
         ..add(serializers.serialize(object.readOnly,
             specifiedType: const FullType(bool)));
     }
     if (object.isOpenedWithoutData != null) {
       result
-        ..add('isOpenedWithoutData')
+        ..add('qIsOpenedWithoutData')
         ..add(serializers.serialize(object.isOpenedWithoutData,
             specifiedType: const FullType(bool)));
     }
     if (object.thumbnail != null) {
       result
-        ..add('thumbnail')
+        ..add('qThumbnail')
         ..add(serializers.serialize(object.thumbnail,
             specifiedType: const FullType(StaticContentUrl)));
     }
@@ -114,53 +114,53 @@ class _$NxAppLayoutSerializer implements StructuredSerializer<NxAppLayout> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'title':
+        case 'qTitle':
           result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fileName':
+        case 'qFileName':
           result.fileName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'lastReloadTime':
+        case 'qLastReloadTime':
           result.lastReloadTime = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'modified':
+        case 'qModified':
           result.modified = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'hasScript':
+        case 'qHasScript':
           result.hasScript = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'stateNames':
+        case 'qStateNames':
           result.stateNames.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'localeInfo':
+        case 'qLocaleInfo':
           result.localeInfo.replace(serializers.deserialize(value,
               specifiedType: const FullType(LocaleInfo)) as LocaleInfo);
           break;
-        case 'hasData':
+        case 'qHasData':
           result.hasData = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'readOnly':
+        case 'qReadOnly':
           result.readOnly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isOpenedWithoutData':
+        case 'qIsOpenedWithoutData':
           result.isOpenedWithoutData = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'thumbnail':
+        case 'qThumbnail':
           result.thumbnail.replace(serializers.deserialize(value,
                   specifiedType: const FullType(StaticContentUrl))
               as StaticContentUrl);

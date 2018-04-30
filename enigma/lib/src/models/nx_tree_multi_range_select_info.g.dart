@@ -33,7 +33,7 @@ class _$NxTreeMultiRangeSelectInfoSerializer
     final result = <Object>[];
     if (object.ranges != null) {
       result
-        ..add('ranges')
+        ..add('qRanges')
         ..add(serializers.serialize(object.ranges,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -54,7 +54,7 @@ class _$NxTreeMultiRangeSelectInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'ranges':
+        case 'qRanges':
           result.ranges.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

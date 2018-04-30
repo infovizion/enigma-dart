@@ -12,12 +12,14 @@ abstract class DataTable implements Built<DataTable, DataTableBuilder> {
   /// Name of the table.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Type of the table.
   /// For example: Table or View.
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   factory DataTable([updates(DataTableBuilder b)]) = _$DataTable;

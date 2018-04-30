@@ -15,22 +15,26 @@ abstract class NxTreeValue implements Built<NxTreeValue, NxTreeValueBuilder> {
   /// The text version of the value, if available.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// Value of the cell.
   /// Is set to _NaN_ , if the value is not a number.
   /// Original name: qValue
   @nullable
+  @BuiltValueField(wireName: 'qValue')
   num get value;
 
   /// Attribute expression values.
   /// Original name: qAttrExps
   @nullable
+  @BuiltValueField(wireName: 'qAttrExps')
   NxAttributeExpressionValues get attrExps;
 
   /// Attribute dimension values.
   /// Original name: qAttrDims
   @nullable
+  @BuiltValueField(wireName: 'qAttrDims')
   NxAttributeDimValues get attrDims;
 
   factory NxTreeValue([updates(NxTreeValueBuilder b)]) = _$NxTreeValue;

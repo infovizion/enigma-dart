@@ -20,18 +20,21 @@ abstract class SearchGroupItemOptions
   /// * GenericObject or GENERIC_OBJECT
   /// Original name: qGroupItemType
   @nullable
+  @BuiltValueField(wireName: 'qGroupItemType')
   String get groupItemType;
 
   /// Position starting from 0.
   /// The default value is 0.
   /// Original name: qOffset
   @nullable
+  @BuiltValueField(wireName: 'qOffset')
   int get offset;
 
   /// Maximum number of matches per item (in _qItemMatches[ ]_ ).
   /// The default value is -1: all values are returned.
   /// Original name: qCount
   @nullable
+  @BuiltValueField(wireName: 'qCount')
   int get count;
 
   factory SearchGroupItemOptions([updates(SearchGroupItemOptionsBuilder b)]) =

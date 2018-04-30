@@ -28,25 +28,25 @@ class _$OdbcDsnSerializer implements StructuredSerializer<OdbcDsn> {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.description != null) {
       result
-        ..add('description')
+        ..add('qDescription')
         ..add(serializers.serialize(object.description,
             specifiedType: const FullType(String)));
     }
     if (object.bit32 != null) {
       result
-        ..add('bit32')
+        ..add('qBit32')
         ..add(serializers.serialize(object.bit32,
             specifiedType: const FullType(bool)));
     }
     if (object.userOnly != null) {
       result
-        ..add('userOnly')
+        ..add('qUserOnly')
         ..add(serializers.serialize(object.userOnly,
             specifiedType: const FullType(bool)));
     }
@@ -65,19 +65,19 @@ class _$OdbcDsnSerializer implements StructuredSerializer<OdbcDsn> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'description':
+        case 'qDescription':
           result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'bit32':
+        case 'qBit32':
           result.bit32 = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'userOnly':
+        case 'qUserOnly':
           result.userOnly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

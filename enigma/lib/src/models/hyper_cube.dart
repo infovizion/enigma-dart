@@ -21,26 +21,31 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// Default is current selections _$_ .
   /// Original name: qStateName
   @nullable
+  @BuiltValueField(wireName: 'qStateName')
   String get stateName;
 
   /// Defines the size of the hypercube.
   /// Original name: qSize
   @nullable
+  @BuiltValueField(wireName: 'qSize')
   Size get size;
 
   /// This parameter is optional and is displayed in case of error.
   /// Original name: qError
   @nullable
+  @BuiltValueField(wireName: 'qError')
   NxValidationError get error;
 
   /// Information on the dimension.
   /// Original name: qDimensionInfo
   @nullable
+  @BuiltValueField(wireName: 'qDimensionInfo')
   BuiltList<NxCell> get dimensionInfo;
 
   /// Information on the measure.
   /// Original name: qMeasureInfo
   @nullable
+  @BuiltValueField(wireName: 'qMeasureInfo')
   BuiltList<NxCell> get measureInfo;
 
   /// Sort order of the columns in the hypercube.
@@ -48,30 +53,35 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// Example: [1,0,2] means that the first column to be sorted was the column 1, followed by the column 0 and the column 2.
   /// Original name: qEffectiveInterColumnSortOrder
   @nullable
+  @BuiltValueField(wireName: 'qEffectiveInterColumnSortOrder')
   BuiltList<NxCell> get effectiveInterColumnSortOrder;
 
   /// Aggregate for measures of all values in the field.
   /// The result value depends on the _qAggrFunc_ defined in _HyperCubeDef_.
   /// Original name: qGrandTotalRow
   @nullable
+  @BuiltValueField(wireName: 'qGrandTotalRow')
   BuiltList<NxCell> get grandTotalRow;
 
   /// Set of data.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qDataPages
   @nullable
+  @BuiltValueField(wireName: 'qDataPages')
   BuiltList<NxCell> get dataPages;
 
   /// Set of data for pivot tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qPivotDataPages
   @nullable
+  @BuiltValueField(wireName: 'qPivotDataPages')
   BuiltList<NxCell> get pivotDataPages;
 
   /// Set of data for stacked tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qStackedDataPages
   @nullable
+  @BuiltValueField(wireName: 'qStackedDataPages')
   BuiltList<NxCell> get stackedDataPages;
 
   /// Information about the mode of the visualization.
@@ -83,6 +93,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// * T or DATA_MODE_TREE
   /// Original name: qMode
   @nullable
+  @BuiltValueField(wireName: 'qMode')
   String get mode;
 
   /// Number of left dimensions.
@@ -112,6 +123,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// * Category is a top dimension.
   /// Original name: qNoOfLeftDims
   @nullable
+  @BuiltValueField(wireName: 'qNoOfLeftDims')
   int get noOfLeftDims;
 
   /// Is used for pivot tables only.
@@ -119,6 +131,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// This property is optional.
   /// Original name: qIndentMode
   @nullable
+  @BuiltValueField(wireName: 'qIndentMode')
   bool get indentMode;
 
   /// Is used for pivot tables only.
@@ -126,31 +139,37 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// This property is optional.
   /// Original name: qLastExpandedPos
   @nullable
+  @BuiltValueField(wireName: 'qLastExpandedPos')
   NxCellPosition get lastExpandedPos;
 
   /// True if other row exists.
   /// Original name: qHasOtherValues
   @nullable
+  @BuiltValueField(wireName: 'qHasOtherValues')
   bool get hasOtherValues;
 
   /// Title of the hypercube, for example the title of a chart.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   String get title;
 
   /// The total number of nodes on each dimension (only applicable when _qMode = T_ ).
   /// Original name: qTreeNodesOnDim
   @nullable
+  @BuiltValueField(wireName: 'qTreeNodesOnDim')
   BuiltList<NxCell> get treeNodesOnDim;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
   @nullable
+  @BuiltValueField(wireName: 'qCalcCondMsg')
   String get calcCondMsg;
 
   /// The order of the columns.
   /// Original name: qColumnOrder
   @nullable
+  @BuiltValueField(wireName: 'qColumnOrder')
   BuiltList<NxCell> get columnOrder;
 
   factory HyperCube([updates(HyperCubeBuilder b)]) = _$HyperCube;

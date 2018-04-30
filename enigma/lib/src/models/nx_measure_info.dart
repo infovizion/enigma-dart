@@ -19,16 +19,19 @@ abstract class NxMeasureInfo
   /// If the label is not defined then the measure name is used.
   /// Original name: qFallbackTitle
   @nullable
+  @BuiltValueField(wireName: 'qFallbackTitle')
   String get fallbackTitle;
 
   /// Length of the longest value in the field.
   /// Original name: qApprMaxGlyphCount
   @nullable
+  @BuiltValueField(wireName: 'qApprMaxGlyphCount')
   int get apprMaxGlyphCount;
 
   /// Number of distinct field values.
   /// Original name: qCardinal
   @nullable
+  @BuiltValueField(wireName: 'qCardinal')
   int get cardinal;
 
   /// Sort indicator.
@@ -41,53 +44,63 @@ abstract class NxMeasureInfo
   /// * D or NX_SORT_INDICATE_DESC
   /// Original name: qSortIndicator
   @nullable
+  @BuiltValueField(wireName: 'qSortIndicator')
   String get sortIndicator;
 
   /// Format of the field.
   /// This parameter is optional.
   /// Original name: qNumFormat
   @nullable
+  @BuiltValueField(wireName: 'qNumFormat')
   FieldAttributes get numFormat;
 
   /// Lowest value in the range.
   /// Original name: qMin
   @nullable
+  @BuiltValueField(wireName: 'qMin')
   num get min;
 
   /// Highest value in the range.
   /// Original name: qMax
   @nullable
+  @BuiltValueField(wireName: 'qMax')
   num get max;
 
   /// This parameter is optional.
   /// Gives information on the error.
   /// Original name: qError
   @nullable
+  @BuiltValueField(wireName: 'qError')
   NxValidationError get error;
 
   /// If set to true, it inverts the sort criteria in the field.
   /// Original name: qReverseSort
   @nullable
+  @BuiltValueField(wireName: 'qReverseSort')
   bool get reverseSort;
 
   /// This parameter is set to true if _qNumFormat_ is set to _U_ (unknown). The engine guesses the type of the field based on the field's expression.
   /// Original name: qIsAutoFormat
   @nullable
+  @BuiltValueField(wireName: 'qIsAutoFormat')
   bool get isAutoFormat;
 
   /// List of attribute expressions.
   /// Original name: qAttrExprInfo
   @nullable
+  @BuiltValueField(wireName: 'qAttrExprInfo')
   BuiltList<NxCell> get attrExprInfo;
 
   /// List of attribute dimensions.
   /// Original name: qAttrDimInfo
   @nullable
+  @BuiltValueField(wireName: 'qAttrDimInfo')
   BuiltList<NxCell> get attrDimInfo;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
   @nullable
+  @BuiltValueField(wireName: 'qCalcCondMsg')
   String get calcCondMsg;
 
   factory NxMeasureInfo([updates(NxMeasureInfoBuilder b)]) = _$NxMeasureInfo;

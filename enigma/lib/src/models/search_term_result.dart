@@ -16,17 +16,20 @@ abstract class SearchTermResult
   /// Text of the associated value.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// Element number of the associated value.
   /// Original name: qElemNumber
   @nullable
+  @BuiltValueField(wireName: 'qElemNumber')
   int get elemNumber;
 
   /// List of ranges.
   /// For example, if the user searches the term _read_ and the associative value is _Reading_ , then the corresponding range would be _Read_ in _Reading_ .
   /// Original name: qRanges
   @nullable
+  @BuiltValueField(wireName: 'qRanges')
   BuiltList<NxCell> get ranges;
 
   factory SearchTermResult([updates(SearchTermResultBuilder b)]) =

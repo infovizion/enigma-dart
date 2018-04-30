@@ -19,11 +19,13 @@ abstract class TableViewConnectionPointSaveInfo
   /// Information about the position of the connection point.
   /// Original name: qPos
   @nullable
+  @BuiltValueField(wireName: 'qPos')
   Point get pos;
 
   /// List of the fields in the table.
   /// Original name: qFields
   @nullable
+  @BuiltValueField(wireName: 'qFields')
   BuiltList<NxCell> get fields;
 
   factory TableViewConnectionPointSaveInfo(

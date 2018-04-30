@@ -21,20 +21,24 @@ abstract class NxLibraryDimensionDef
   /// * C or GRP_NX_COLLECTION
   /// Original name: qGrouping
   @nullable
+  @BuiltValueField(wireName: 'qGrouping')
   String get grouping;
 
   /// Array of dimension names.
   /// Original name: qFieldDefs
   @nullable
+  @BuiltValueField(wireName: 'qFieldDefs')
   BuiltList<NxCell> get fieldDefs;
 
   /// Array of dimension labels.
   /// Original name: qFieldLabels
   @nullable
+  @BuiltValueField(wireName: 'qFieldLabels')
   BuiltList<NxCell> get fieldLabels;
 
   /// Original name: qLabelExpression
   @nullable
+  @BuiltValueField(wireName: 'qLabelExpression')
   String get labelExpression;
 
   factory NxLibraryDimensionDef([updates(NxLibraryDimensionDefBuilder b)]) =

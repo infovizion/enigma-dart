@@ -15,11 +15,13 @@ abstract class NxStreamListEntry
   /// Name of the stream.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Identifier of the stream.
   /// Original name: qId
   @nullable
+  @BuiltValueField(wireName: 'qId')
   String get id;
 
   factory NxStreamListEntry([updates(NxStreamListEntryBuilder b)]) =

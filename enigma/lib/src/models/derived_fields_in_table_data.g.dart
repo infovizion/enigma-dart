@@ -33,20 +33,20 @@ class _$DerivedFieldsInTableDataSerializer
     final result = <Object>[];
     if (object.definitionName != null) {
       result
-        ..add('definitionName')
+        ..add('qDefinitionName')
         ..add(serializers.serialize(object.definitionName,
             specifiedType: const FullType(String)));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.active != null) {
       result
-        ..add('active')
+        ..add('qActive')
         ..add(serializers.serialize(object.active,
             specifiedType: const FullType(bool)));
     }
@@ -66,17 +66,17 @@ class _$DerivedFieldsInTableDataSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'definitionName':
+        case 'qDefinitionName':
           result.definitionName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'active':
+        case 'qActive':
           result.active = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

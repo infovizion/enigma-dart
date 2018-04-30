@@ -30,37 +30,37 @@ class _$FieldAttributesSerializer
     final result = <Object>[];
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.nDec != null) {
       result
-        ..add('nDec')
+        ..add('qnDec')
         ..add(serializers.serialize(object.nDec,
             specifiedType: const FullType(int)));
     }
     if (object.useThou != null) {
       result
-        ..add('useThou')
+        ..add('qUseThou')
         ..add(serializers.serialize(object.useThou,
             specifiedType: const FullType(int)));
     }
     if (object.fmt != null) {
       result
-        ..add('fmt')
+        ..add('qFmt')
         ..add(serializers.serialize(object.fmt,
             specifiedType: const FullType(String)));
     }
     if (object.dec != null) {
       result
-        ..add('dec')
+        ..add('qDec')
         ..add(serializers.serialize(object.dec,
             specifiedType: const FullType(String)));
     }
     if (object.thou != null) {
       result
-        ..add('thou')
+        ..add('qThou')
         ..add(serializers.serialize(object.thou,
             specifiedType: const FullType(String)));
     }
@@ -79,27 +79,27 @@ class _$FieldAttributesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'nDec':
+        case 'qnDec':
           result.nDec = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'useThou':
+        case 'qUseThou':
           result.useThou = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'fmt':
+        case 'qFmt':
           result.fmt = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'dec':
+        case 'qDec':
           result.dec = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'thou':
+        case 'qThou':
           result.thou = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

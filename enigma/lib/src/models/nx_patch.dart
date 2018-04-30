@@ -17,11 +17,13 @@ abstract class NxPatch implements Built<NxPatch, NxPatchBuilder> {
   /// * replace or Replace
   /// Original name: qOp
   @nullable
+  @BuiltValueField(wireName: 'qOp')
   String get op;
 
   /// Path to the property to add, remove or replace.
   /// Original name: qPath
   @nullable
+  @BuiltValueField(wireName: 'qPath')
   String get path;
 
   /// This parameter is not used in a remove operation.
@@ -30,6 +32,7 @@ abstract class NxPatch implements Built<NxPatch, NxPatchBuilder> {
   /// "false", "2", "\"New title\""
   /// Original name: qValue
   @nullable
+  @BuiltValueField(wireName: 'qValue')
   String get value;
 
   factory NxPatch([updates(NxPatchBuilder b)]) = _$NxPatch;

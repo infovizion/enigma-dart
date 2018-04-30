@@ -12,11 +12,13 @@ abstract class CharRange implements Built<CharRange, CharRangeBuilder> {
   /// Position of the first search occurrence.
   /// Original name: qCharPos
   @nullable
+  @BuiltValueField(wireName: 'qCharPos')
   int get charPos;
 
   /// Number of occurrences found.
   /// Original name: qCharCount
   @nullable
+  @BuiltValueField(wireName: 'qCharCount')
   int get charCount;
 
   factory CharRange([updates(CharRangeBuilder b)]) = _$CharRange;

@@ -14,6 +14,7 @@ abstract class NxMeta implements Built<NxMeta, NxMetaBuilder> {
   /// This property is optional.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   factory NxMeta([updates(NxMetaBuilder b)]) = _$NxMeta;

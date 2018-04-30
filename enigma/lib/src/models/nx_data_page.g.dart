@@ -28,27 +28,27 @@ class _$NxDataPageSerializer implements StructuredSerializer<NxDataPage> {
     final result = <Object>[];
     if (object.matrix != null) {
       result
-        ..add('matrix')
+        ..add('qMatrix')
         ..add(serializers.serialize(object.matrix,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.tails != null) {
       result
-        ..add('tails')
+        ..add('qTails')
         ..add(serializers.serialize(object.tails,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.area != null) {
       result
-        ..add('area')
+        ..add('qArea')
         ..add(serializers.serialize(object.area,
             specifiedType: const FullType(Rect)));
     }
     if (object.isReduced != null) {
       result
-        ..add('isReduced')
+        ..add('qIsReduced')
         ..add(serializers.serialize(object.isReduced,
             specifiedType: const FullType(bool)));
     }
@@ -67,23 +67,23 @@ class _$NxDataPageSerializer implements StructuredSerializer<NxDataPage> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'matrix':
+        case 'qMatrix':
           result.matrix.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'tails':
+        case 'qTails':
           result.tails.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'area':
+        case 'qArea':
           result.area.replace(serializers.deserialize(value,
               specifiedType: const FullType(Rect)) as Rect);
           break;
-        case 'isReduced':
+        case 'qIsReduced':
           result.isReduced = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

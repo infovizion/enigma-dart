@@ -18,27 +18,32 @@ abstract class GenericVariableLayout
   /// This parameter is mandatory.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Information about publishing and permissions.
   /// This parameter is optional.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// Some text.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// A value.
   /// Original name: qNum
   @nullable
+  @BuiltValueField(wireName: 'qNum')
   num get qNum;
 
   /// If set to true, it means that the variable was defined via script.
   /// Original name: qIsScriptCreated
   @nullable
+  @BuiltValueField(wireName: 'qIsScriptCreated')
   bool get isScriptCreated;
 
   factory GenericVariableLayout([updates(GenericVariableLayoutBuilder b)]) =

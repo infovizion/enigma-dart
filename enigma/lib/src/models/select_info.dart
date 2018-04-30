@@ -17,6 +17,7 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
   /// This parameter is optional.
   /// Original name: qTextSearch
   @nullable
+  @BuiltValueField(wireName: 'qTextSearch')
   String get textSearch;
 
   /// Lower value of the search range.
@@ -24,6 +25,7 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
   /// Default is Null.
   /// Original name: qRangeLo
   @nullable
+  @BuiltValueField(wireName: 'qRangeLo')
   num get rangeLo;
 
   /// Highest value of the search range.
@@ -31,12 +33,14 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
   /// Default is Null.
   /// Original name: qRangeHi
   @nullable
+  @BuiltValueField(wireName: 'qRangeHi')
   num get rangeHi;
 
   /// Gives information about the formatting of the range.
   /// This parameter is used when performing range selections or text searches in dimensions.
   /// Original name: qNumberFormat
   @nullable
+  @BuiltValueField(wireName: 'qNumberFormat')
   FieldAttributes get numberFormat;
 
   /// This parameter is used when performing range selections or text searches in measures.
@@ -44,15 +48,18 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
   /// bool SoftLock = false;
   /// Original name: qRangeInfo
   @nullable
+  @BuiltValueField(wireName: 'qRangeInfo')
   BuiltList<NxCell> get rangeInfo;
 
   /// Original name: qSoftLock
   @nullable
+  @BuiltValueField(wireName: 'qSoftLock')
   bool get softLock;
 
   /// List of information about ranges for selections.
   /// Original name: qContinuousRangeInfo
   @nullable
+  @BuiltValueField(wireName: 'qContinuousRangeInfo')
   BuiltList<NxCell> get continuousRangeInfo;
 
   factory SelectInfo([updates(SelectInfoBuilder b)]) = _$SelectInfo;

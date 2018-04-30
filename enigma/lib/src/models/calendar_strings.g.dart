@@ -30,28 +30,28 @@ class _$CalendarStringsSerializer
     final result = <Object>[];
     if (object.dayNames != null) {
       result
-        ..add('dayNames')
+        ..add('qDayNames')
         ..add(serializers.serialize(object.dayNames,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.monthNames != null) {
       result
-        ..add('monthNames')
+        ..add('qMonthNames')
         ..add(serializers.serialize(object.monthNames,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.longDayNames != null) {
       result
-        ..add('longDayNames')
+        ..add('qLongDayNames')
         ..add(serializers.serialize(object.longDayNames,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.longMonthNames != null) {
       result
-        ..add('longMonthNames')
+        ..add('qLongMonthNames')
         ..add(serializers.serialize(object.longMonthNames,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -71,25 +71,25 @@ class _$CalendarStringsSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'dayNames':
+        case 'qDayNames':
           result.dayNames.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'monthNames':
+        case 'qMonthNames':
           result.monthNames.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'longDayNames':
+        case 'qLongDayNames':
           result.longDayNames.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'longMonthNames':
+        case 'qLongMonthNames':
           result.longMonthNames.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

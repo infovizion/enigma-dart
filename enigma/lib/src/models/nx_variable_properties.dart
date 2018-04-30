@@ -17,11 +17,13 @@ abstract class NxVariableProperties
   /// Name of the variable.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Defines the format of the value of a variable.
   /// Original name: qNumberPresentation
   @nullable
+  @BuiltValueField(wireName: 'qNumberPresentation')
   FieldAttributes get numberPresentation;
 
   /// Set this property to true to update the variable when applying a bookmark.
@@ -29,18 +31,21 @@ abstract class NxVariableProperties
   /// The default value is false.
   /// Original name: qIncludeInBookmark
   @nullable
+  @BuiltValueField(wireName: 'qIncludeInBookmark')
   bool get includeInBookmark;
 
   /// The value of a variable can be an enumeration.
   /// Set this property to true to reflect the predefined values in an enumeration.
   /// Original name: qUsePredefListedValues
   @nullable
+  @BuiltValueField(wireName: 'qUsePredefListedValues')
   bool get usePredefListedValues;
 
   /// List of enumerations.
   /// This property is used if _qUsePredefListedValues_ is set to true.
   /// Original name: qPreDefinedList
   @nullable
+  @BuiltValueField(wireName: 'qPreDefinedList')
   BuiltList<NxCell> get preDefinedList;
 
   factory NxVariableProperties([updates(NxVariablePropertiesBuilder b)]) =

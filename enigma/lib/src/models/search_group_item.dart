@@ -20,11 +20,13 @@ abstract class SearchGroupItem
   /// * GenericObject or GENERIC_OBJECT
   /// Original name: qItemType
   @nullable
+  @BuiltValueField(wireName: 'qItemType')
   String get itemType;
 
   /// Total number of distinct matches in the search group item.
   /// Original name: qTotalNumberOfMatches
   @nullable
+  @BuiltValueField(wireName: 'qTotalNumberOfMatches')
   int get totalNumberOfMatches;
 
   /// Identifier of the item.
@@ -33,17 +35,20 @@ abstract class SearchGroupItem
   /// * The id of the generic object if the type of the search group is generic object.
   /// Original name: qIdentifier
   @nullable
+  @BuiltValueField(wireName: 'qIdentifier')
   String get identifier;
 
   /// List of matches in the search group item.
   /// The group item matches are numbered from the value of _SearchGroupItemOptions.qOffset_ to the value of _SearchGroupItemOptions.qOffset_ \+ _SearchGroupItemOptions.qCount_ .
   /// Original name: qItemMatches
   @nullable
+  @BuiltValueField(wireName: 'qItemMatches')
   BuiltList<NxCell> get itemMatches;
 
   /// Indexes of the search terms that are included in the group item. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ .
   /// Original name: qSearchTermsMatched
   @nullable
+  @BuiltValueField(wireName: 'qSearchTermsMatched')
   BuiltList<NxCell> get searchTermsMatched;
 
   factory SearchGroupItem([updates(SearchGroupItemBuilder b)]) =

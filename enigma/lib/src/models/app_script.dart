@@ -13,12 +13,14 @@ abstract class AppScript implements Built<AppScript, AppScriptBuilder> {
   /// Script text.
   /// Original name: qScript
   @nullable
+  @BuiltValueField(wireName: 'qScript')
   String get script;
 
   /// Information about publishing and permissions.
   /// This parameter is optional.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   factory AppScript([updates(AppScriptBuilder b)]) = _$AppScript;

@@ -28,19 +28,19 @@ class _$NxPatchSerializer implements StructuredSerializer<NxPatch> {
     final result = <Object>[];
     if (object.op != null) {
       result
-        ..add('op')
+        ..add('qOp')
         ..add(serializers.serialize(object.op,
             specifiedType: const FullType(String)));
     }
     if (object.path != null) {
       result
-        ..add('path')
+        ..add('qPath')
         ..add(serializers.serialize(object.path,
             specifiedType: const FullType(String)));
     }
     if (object.value != null) {
       result
-        ..add('value')
+        ..add('qValue')
         ..add(serializers.serialize(object.value,
             specifiedType: const FullType(String)));
     }
@@ -59,15 +59,15 @@ class _$NxPatchSerializer implements StructuredSerializer<NxPatch> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'op':
+        case 'qOp':
           result.op = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'path':
+        case 'qPath':
           result.path = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'value':
+        case 'qValue':
           result.value = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

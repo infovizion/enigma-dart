@@ -30,19 +30,19 @@ class _$SearchCharRangeSerializer
     final result = <Object>[];
     if (object.charPos != null) {
       result
-        ..add('charPos')
+        ..add('qCharPos')
         ..add(serializers.serialize(object.charPos,
             specifiedType: const FullType(int)));
     }
     if (object.charCount != null) {
       result
-        ..add('charCount')
+        ..add('qCharCount')
         ..add(serializers.serialize(object.charCount,
             specifiedType: const FullType(int)));
     }
     if (object.term != null) {
       result
-        ..add('term')
+        ..add('qTerm')
         ..add(serializers.serialize(object.term,
             specifiedType: const FullType(int)));
     }
@@ -61,15 +61,15 @@ class _$SearchCharRangeSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'charPos':
+        case 'qCharPos':
           result.charPos = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'charCount':
+        case 'qCharCount':
           result.charCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'term':
+        case 'qTerm':
           result.term = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

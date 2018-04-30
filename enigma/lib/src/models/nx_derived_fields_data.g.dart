@@ -33,27 +33,27 @@ class _$NxDerivedFieldsDataSerializer
     final result = <Object>[];
     if (object.derivedDefinitionName != null) {
       result
-        ..add('derivedDefinitionName')
+        ..add('qDerivedDefinitionName')
         ..add(serializers.serialize(object.derivedDefinitionName,
             specifiedType: const FullType(String)));
     }
     if (object.fieldDefs != null) {
       result
-        ..add('fieldDefs')
+        ..add('qFieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.groupDefs != null) {
       result
-        ..add('groupDefs')
+        ..add('qGroupDefs')
         ..add(serializers.serialize(object.groupDefs,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -73,23 +73,23 @@ class _$NxDerivedFieldsDataSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'derivedDefinitionName':
+        case 'qDerivedDefinitionName':
           result.derivedDefinitionName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fieldDefs':
+        case 'qFieldDefs':
           result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'groupDefs':
+        case 'qGroupDefs':
           result.groupDefs.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

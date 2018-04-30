@@ -30,14 +30,14 @@ class _$SourceKeyRecordSerializer
     final result = <Object>[];
     if (object.keyFields != null) {
       result
-        ..add('keyFields')
+        ..add('qKeyFields')
         ..add(serializers.serialize(object.keyFields,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.tables != null) {
       result
-        ..add('tables')
+        ..add('qTables')
         ..add(serializers.serialize(object.tables,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -57,13 +57,13 @@ class _$SourceKeyRecordSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'keyFields':
+        case 'qKeyFields':
           result.keyFields.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'tables':
+        case 'qTables':
           result.tables.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

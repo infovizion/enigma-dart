@@ -33,100 +33,100 @@ class _$NxCurrentSelectionItemSerializer
     final result = <Object>[];
     if (object.total != null) {
       result
-        ..add('total')
+        ..add('qTotal')
         ..add(serializers.serialize(object.total,
             specifiedType: const FullType(int)));
     }
     if (object.isNum != null) {
       result
-        ..add('isNum')
+        ..add('qIsNum')
         ..add(serializers.serialize(object.isNum,
             specifiedType: const FullType(bool)));
     }
     if (object.field != null) {
       result
-        ..add('field')
+        ..add('qField')
         ..add(serializers.serialize(object.field,
             specifiedType: const FullType(String)));
     }
     if (object.locked != null) {
       result
-        ..add('locked')
+        ..add('qLocked')
         ..add(serializers.serialize(object.locked,
             specifiedType: const FullType(bool)));
     }
     if (object.oneAndOnlyOne != null) {
       result
-        ..add('oneAndOnlyOne')
+        ..add('qOneAndOnlyOne')
         ..add(serializers.serialize(object.oneAndOnlyOne,
             specifiedType: const FullType(bool)));
     }
     if (object.textSearch != null) {
       result
-        ..add('textSearch')
+        ..add('qTextSearch')
         ..add(serializers.serialize(object.textSearch,
             specifiedType: const FullType(String)));
     }
     if (object.selectedCount != null) {
       result
-        ..add('selectedCount')
+        ..add('qSelectedCount')
         ..add(serializers.serialize(object.selectedCount,
             specifiedType: const FullType(int)));
     }
     if (object.selected != null) {
       result
-        ..add('selected')
+        ..add('qSelected')
         ..add(serializers.serialize(object.selected,
             specifiedType: const FullType(String)));
     }
     if (object.rangeInfo != null) {
       result
-        ..add('rangeInfo')
+        ..add('qRangeInfo')
         ..add(serializers.serialize(object.rangeInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.sortIndex != null) {
       result
-        ..add('sortIndex')
+        ..add('qSortIndex')
         ..add(serializers.serialize(object.sortIndex,
             specifiedType: const FullType(int)));
     }
     if (object.stateCounts != null) {
       result
-        ..add('stateCounts')
+        ..add('qStateCounts')
         ..add(serializers.serialize(object.stateCounts,
             specifiedType: const FullType(NxStateCounts)));
     }
     if (object.selectedFieldSelectionInfo != null) {
       result
-        ..add('selectedFieldSelectionInfo')
+        ..add('qSelectedFieldSelectionInfo')
         ..add(serializers.serialize(object.selectedFieldSelectionInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.notSelectedFieldSelectionInfo != null) {
       result
-        ..add('notSelectedFieldSelectionInfo')
+        ..add('qNotSelectedFieldSelectionInfo')
         ..add(serializers.serialize(object.notSelectedFieldSelectionInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.selectionThreshold != null) {
       result
-        ..add('selectionThreshold')
+        ..add('qSelectionThreshold')
         ..add(serializers.serialize(object.selectionThreshold,
             specifiedType: const FullType(int)));
     }
     if (object.readableName != null) {
       result
-        ..add('readableName')
+        ..add('qReadableName')
         ..add(serializers.serialize(object.readableName,
             specifiedType: const FullType(String)));
     }
     if (object.isHidden != null) {
       result
-        ..add('isHidden')
+        ..add('qIsHidden')
         ..add(serializers.serialize(object.isHidden,
             specifiedType: const FullType(bool)));
     }
@@ -146,75 +146,75 @@ class _$NxCurrentSelectionItemSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'total':
+        case 'qTotal':
           result.total = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'isNum':
+        case 'qIsNum':
           result.isNum = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'field':
+        case 'qField':
           result.field = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'locked':
+        case 'qLocked':
           result.locked = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'oneAndOnlyOne':
+        case 'qOneAndOnlyOne':
           result.oneAndOnlyOne = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'textSearch':
+        case 'qTextSearch':
           result.textSearch = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'selectedCount':
+        case 'qSelectedCount':
           result.selectedCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'selected':
+        case 'qSelected':
           result.selected = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'rangeInfo':
+        case 'qRangeInfo':
           result.rangeInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'sortIndex':
+        case 'qSortIndex':
           result.sortIndex = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'stateCounts':
+        case 'qStateCounts':
           result.stateCounts.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxStateCounts)) as NxStateCounts);
           break;
-        case 'selectedFieldSelectionInfo':
+        case 'qSelectedFieldSelectionInfo':
           result.selectedFieldSelectionInfo.replace(serializers.deserialize(
                   value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'notSelectedFieldSelectionInfo':
+        case 'qNotSelectedFieldSelectionInfo':
           result.notSelectedFieldSelectionInfo.replace(serializers.deserialize(
                   value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'selectionThreshold':
+        case 'qSelectionThreshold':
           result.selectionThreshold = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'readableName':
+        case 'qReadableName':
           result.readableName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isHidden':
+        case 'qIsHidden':
           result.isHidden = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

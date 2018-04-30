@@ -28,55 +28,55 @@ class _$ConnectionSerializer implements StructuredSerializer<Connection> {
     final result = <Object>[];
     if (object.id != null) {
       result
-        ..add('id')
+        ..add('qId')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(String)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.connectionString != null) {
       result
-        ..add('connectionString')
+        ..add('qConnectionString')
         ..add(serializers.serialize(object.connectionString,
             specifiedType: const FullType(String)));
     }
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.userName != null) {
       result
-        ..add('userName')
+        ..add('qUserName')
         ..add(serializers.serialize(object.userName,
             specifiedType: const FullType(String)));
     }
     if (object.password != null) {
       result
-        ..add('password')
+        ..add('qPassword')
         ..add(serializers.serialize(object.password,
             specifiedType: const FullType(String)));
     }
     if (object.modifiedDate != null) {
       result
-        ..add('modifiedDate')
+        ..add('qModifiedDate')
         ..add(serializers.serialize(object.modifiedDate,
             specifiedType: const FullType(String)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.logOn != null) {
       result
-        ..add('logOn')
+        ..add('qLogOn')
         ..add(serializers.serialize(object.logOn,
             specifiedType: const FullType(String)));
     }
@@ -95,39 +95,39 @@ class _$ConnectionSerializer implements StructuredSerializer<Connection> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'id':
+        case 'qId':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'connectionString':
+        case 'qConnectionString':
           result.connectionString = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'userName':
+        case 'qUserName':
           result.userName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'password':
+        case 'qPassword':
           result.password = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'modifiedDate':
+        case 'qModifiedDate':
           result.modifiedDate = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'logOn':
+        case 'qLogOn':
           result.logOn = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

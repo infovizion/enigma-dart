@@ -14,11 +14,13 @@ abstract class NxCalcCond implements Built<NxCalcCond, NxCalcCondBuilder> {
   /// Condition for calculating an hypercube, dimension or measure.
   /// Original name: qCond
   @nullable
+  @BuiltValueField(wireName: 'qCond')
   ValueExpr get cond;
 
   /// Evaluated if Cond is not fullfilled.
   /// Original name: qMsg
   @nullable
+  @BuiltValueField(wireName: 'qMsg')
   StringExpr get msg;
 
   factory NxCalcCond([updates(NxCalcCondBuilder b)]) = _$NxCalcCond;

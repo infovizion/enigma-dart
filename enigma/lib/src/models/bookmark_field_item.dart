@@ -18,27 +18,32 @@ abstract class BookmarkFieldItem
   /// Name and type of the field.
   /// Original name: qDef
   @nullable
+  @BuiltValueField(wireName: 'qDef')
   FieldDefEx get def;
 
   /// Indicates if the field is locked.
   /// Default is false.
   /// Original name: qLocked
   @nullable
+  @BuiltValueField(wireName: 'qLocked')
   bool get locked;
 
   /// Information on the selections criteria.
   /// Original name: qSelectInfo
   @nullable
+  @BuiltValueField(wireName: 'qSelectInfo')
   SelectInfo get selectInfo;
 
   /// Original name: qValues
   @nullable
+  @BuiltValueField(wireName: 'qValues')
   BuiltList<NxCell> get values;
 
   /// List of excluded values.
   /// Either the list of selected values or the list of excluded values is displayed.
   /// Original name: qExcludedValues
   @nullable
+  @BuiltValueField(wireName: 'qExcludedValues')
   BuiltList<NxCell> get excludedValues;
 
   /// If set to true, selections within a list object are made in AND mode; If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in and-mode, all records that are associated with Customer 1 **and** Customer 2 are selected.
@@ -46,12 +51,14 @@ abstract class BookmarkFieldItem
   /// This parameter is not returned if set to false.
   /// Original name: qAndMode
   @nullable
+  @BuiltValueField(wireName: 'qAndMode')
   bool get andMode;
 
   /// If set to true, the field has always one selection (not 0 and not more than 1). If another value is selected, the previous one is unselected.
   /// The default value is false. This parameter is not returned if set to false.
   /// Original name: qOneAndOnlyOne
   @nullable
+  @BuiltValueField(wireName: 'qOneAndOnlyOne')
   bool get oneAndOnlyOne;
 
   factory BookmarkFieldItem([updates(BookmarkFieldItemBuilder b)]) =

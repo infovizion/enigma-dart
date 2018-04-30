@@ -16,11 +16,13 @@ abstract class NxContinuousRangeSelectInfo
   /// Range information.
   /// Original name: qRange
   @nullable
+  @BuiltValueField(wireName: 'qRange')
   Range get range;
 
   /// Dimension index.
   /// Original name: qDimIx
   @nullable
+  @BuiltValueField(wireName: 'qDimIx')
   int get dimIx;
 
   factory NxContinuousRangeSelectInfo(

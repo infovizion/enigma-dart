@@ -16,6 +16,7 @@ abstract class ContentLibraryList
   /// Information about the content library.
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory ContentLibraryList([updates(ContentLibraryListBuilder b)]) =

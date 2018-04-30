@@ -28,37 +28,37 @@ class _$TextMacroSerializer implements StructuredSerializer<TextMacro> {
     final result = <Object>[];
     if (object.tag != null) {
       result
-        ..add('tag')
+        ..add('qTag')
         ..add(serializers.serialize(object.tag,
             specifiedType: const FullType(String)));
     }
     if (object.refSeqNo != null) {
       result
-        ..add('refSeqNo')
+        ..add('qRefSeqNo')
         ..add(serializers.serialize(object.refSeqNo,
             specifiedType: const FullType(int)));
     }
     if (object.setSeqNo != null) {
       result
-        ..add('setSeqNo')
+        ..add('qSetSeqNo')
         ..add(serializers.serialize(object.setSeqNo,
             specifiedType: const FullType(int)));
     }
     if (object.displayString != null) {
       result
-        ..add('displayString')
+        ..add('qDisplayString')
         ..add(serializers.serialize(object.displayString,
             specifiedType: const FullType(String)));
     }
     if (object.isSystem != null) {
       result
-        ..add('isSystem')
+        ..add('qIsSystem')
         ..add(serializers.serialize(object.isSystem,
             specifiedType: const FullType(bool)));
     }
     if (object.isReserved != null) {
       result
-        ..add('isReserved')
+        ..add('qIsReserved')
         ..add(serializers.serialize(object.isReserved,
             specifiedType: const FullType(bool)));
     }
@@ -77,27 +77,27 @@ class _$TextMacroSerializer implements StructuredSerializer<TextMacro> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'tag':
+        case 'qTag':
           result.tag = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'refSeqNo':
+        case 'qRefSeqNo':
           result.refSeqNo = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'setSeqNo':
+        case 'qSetSeqNo':
           result.setSeqNo = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'displayString':
+        case 'qDisplayString':
           result.displayString = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isSystem':
+        case 'qIsSystem':
           result.isSystem = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isReserved':
+        case 'qIsReserved':
           result.isReserved = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

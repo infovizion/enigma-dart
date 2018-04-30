@@ -30,25 +30,25 @@ class _$NxDataAreaPageSerializer
     final result = <Object>[];
     if (object.left != null) {
       result
-        ..add('left')
+        ..add('qLeft')
         ..add(serializers.serialize(object.left,
             specifiedType: const FullType(num)));
     }
     if (object.top != null) {
       result
-        ..add('top')
+        ..add('qTop')
         ..add(serializers.serialize(object.top,
             specifiedType: const FullType(num)));
     }
     if (object.width != null) {
       result
-        ..add('width')
+        ..add('qWidth')
         ..add(serializers.serialize(object.width,
             specifiedType: const FullType(num)));
     }
     if (object.height != null) {
       result
-        ..add('height')
+        ..add('qHeight')
         ..add(serializers.serialize(object.height,
             specifiedType: const FullType(num)));
     }
@@ -67,19 +67,19 @@ class _$NxDataAreaPageSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'left':
+        case 'qLeft':
           result.left = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'top':
+        case 'qTop':
           result.top = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'width':
+        case 'qWidth':
           result.width = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'height':
+        case 'qHeight':
           result.height = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;

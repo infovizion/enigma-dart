@@ -30,118 +30,118 @@ class _$FieldInTableDataSerializer
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.originalFields != null) {
       result
-        ..add('originalFields')
+        ..add('qOriginalFields')
         ..add(serializers.serialize(object.originalFields,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.present != null) {
       result
-        ..add('present')
+        ..add('qPresent')
         ..add(serializers.serialize(object.present,
             specifiedType: const FullType(bool)));
     }
     if (object.hasNull != null) {
       result
-        ..add('hasNull')
+        ..add('qHasNull')
         ..add(serializers.serialize(object.hasNull,
             specifiedType: const FullType(bool)));
     }
     if (object.hasWild != null) {
       result
-        ..add('hasWild')
+        ..add('qHasWild')
         ..add(serializers.serialize(object.hasWild,
             specifiedType: const FullType(bool)));
     }
     if (object.hasDuplicates != null) {
       result
-        ..add('hasDuplicates')
+        ..add('qHasDuplicates')
         ..add(serializers.serialize(object.hasDuplicates,
             specifiedType: const FullType(bool)));
     }
     if (object.isSynthetic != null) {
       result
-        ..add('isSynthetic')
+        ..add('qIsSynthetic')
         ..add(serializers.serialize(object.isSynthetic,
             specifiedType: const FullType(bool)));
     }
     if (object.informationDensity != null) {
       result
-        ..add('informationDensity')
+        ..add('qInformationDensity')
         ..add(serializers.serialize(object.informationDensity,
             specifiedType: const FullType(num)));
     }
     if (object.nNonNulls != null) {
       result
-        ..add('nNonNulls')
+        ..add('qnNonNulls')
         ..add(serializers.serialize(object.nNonNulls,
             specifiedType: const FullType(int)));
     }
     if (object.nRows != null) {
       result
-        ..add('nRows')
+        ..add('qnRows')
         ..add(serializers.serialize(object.nRows,
             specifiedType: const FullType(int)));
     }
     if (object.subsetRatio != null) {
       result
-        ..add('subsetRatio')
+        ..add('qSubsetRatio')
         ..add(serializers.serialize(object.subsetRatio,
             specifiedType: const FullType(num)));
     }
     if (object.nTotalDistinctValues != null) {
       result
-        ..add('nTotalDistinctValues')
+        ..add('qnTotalDistinctValues')
         ..add(serializers.serialize(object.nTotalDistinctValues,
             specifiedType: const FullType(int)));
     }
     if (object.nPresentDistinctValues != null) {
       result
-        ..add('nPresentDistinctValues')
+        ..add('qnPresentDistinctValues')
         ..add(serializers.serialize(object.nPresentDistinctValues,
             specifiedType: const FullType(int)));
     }
     if (object.keyType != null) {
       result
-        ..add('keyType')
+        ..add('qKeyType')
         ..add(serializers.serialize(object.keyType,
             specifiedType: const FullType(String)));
     }
     if (object.comment != null) {
       result
-        ..add('comment')
+        ..add('qComment')
         ..add(serializers.serialize(object.comment,
             specifiedType: const FullType(String)));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.derivedFields != null) {
       result
-        ..add('derivedFields')
+        ..add('qDerivedFields')
         ..add(serializers.serialize(object.derivedFields,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isFieldOnTheFly != null) {
       result
-        ..add('isFieldOnTheFly')
+        ..add('qIsFieldOnTheFly')
         ..add(serializers.serialize(object.isFieldOnTheFly,
             specifiedType: const FullType(bool)));
     }
     if (object.readableName != null) {
       result
-        ..add('readableName')
+        ..add('qReadableName')
         ..add(serializers.serialize(object.readableName,
             specifiedType: const FullType(String)));
     }
@@ -160,85 +160,85 @@ class _$FieldInTableDataSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'originalFields':
+        case 'qOriginalFields':
           result.originalFields.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'present':
+        case 'qPresent':
           result.present = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'hasNull':
+        case 'qHasNull':
           result.hasNull = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'hasWild':
+        case 'qHasWild':
           result.hasWild = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'hasDuplicates':
+        case 'qHasDuplicates':
           result.hasDuplicates = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isSynthetic':
+        case 'qIsSynthetic':
           result.isSynthetic = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'informationDensity':
+        case 'qInformationDensity':
           result.informationDensity = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'nNonNulls':
+        case 'qnNonNulls':
           result.nNonNulls = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'nRows':
+        case 'qnRows':
           result.nRows = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'subsetRatio':
+        case 'qSubsetRatio':
           result.subsetRatio = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'nTotalDistinctValues':
+        case 'qnTotalDistinctValues':
           result.nTotalDistinctValues = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'nPresentDistinctValues':
+        case 'qnPresentDistinctValues':
           result.nPresentDistinctValues = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'keyType':
+        case 'qKeyType':
           result.keyType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'comment':
+        case 'qComment':
           result.comment = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'derivedFields':
+        case 'qDerivedFields':
           result.derivedFields.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'isFieldOnTheFly':
+        case 'qIsFieldOnTheFly':
           result.isFieldOnTheFly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'readableName':
+        case 'qReadableName':
           result.readableName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

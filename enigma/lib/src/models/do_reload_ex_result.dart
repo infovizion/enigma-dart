@@ -13,10 +13,12 @@ abstract class DoReloadExResult
 
   /// Original name: qSuccess
   @nullable
+  @BuiltValueField(wireName: 'qSuccess')
   bool get success;
 
   /// Original name: qScriptLogFile
   @nullable
+  @BuiltValueField(wireName: 'qScriptLogFile')
   String get scriptLogFile;
 
   factory DoReloadExResult([updates(DoReloadExResultBuilder b)]) =

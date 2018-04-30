@@ -13,11 +13,13 @@ abstract class AlfaNumString
   /// Calculated value.
   /// Original name: qString
   @nullable
+  @BuiltValueField(wireName: 'qString')
   String get string;
 
   /// Is set to true if the value is a numeric.
   /// Original name: qIsNum
   @nullable
+  @BuiltValueField(wireName: 'qIsNum')
   bool get isNum;
 
   factory AlfaNumString([updates(AlfaNumStringBuilder b)]) = _$AlfaNumString;

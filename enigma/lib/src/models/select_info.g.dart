@@ -28,44 +28,44 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
     final result = <Object>[];
     if (object.textSearch != null) {
       result
-        ..add('textSearch')
+        ..add('qTextSearch')
         ..add(serializers.serialize(object.textSearch,
             specifiedType: const FullType(String)));
     }
     if (object.rangeLo != null) {
       result
-        ..add('rangeLo')
+        ..add('qRangeLo')
         ..add(serializers.serialize(object.rangeLo,
             specifiedType: const FullType(num)));
     }
     if (object.rangeHi != null) {
       result
-        ..add('rangeHi')
+        ..add('qRangeHi')
         ..add(serializers.serialize(object.rangeHi,
             specifiedType: const FullType(num)));
     }
     if (object.numberFormat != null) {
       result
-        ..add('numberFormat')
+        ..add('qNumberFormat')
         ..add(serializers.serialize(object.numberFormat,
             specifiedType: const FullType(FieldAttributes)));
     }
     if (object.rangeInfo != null) {
       result
-        ..add('rangeInfo')
+        ..add('qRangeInfo')
         ..add(serializers.serialize(object.rangeInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.softLock != null) {
       result
-        ..add('softLock')
+        ..add('qSoftLock')
         ..add(serializers.serialize(object.softLock,
             specifiedType: const FullType(bool)));
     }
     if (object.continuousRangeInfo != null) {
       result
-        ..add('continuousRangeInfo')
+        ..add('qContinuousRangeInfo')
         ..add(serializers.serialize(object.continuousRangeInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -85,34 +85,34 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'textSearch':
+        case 'qTextSearch':
           result.textSearch = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'rangeLo':
+        case 'qRangeLo':
           result.rangeLo = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'rangeHi':
+        case 'qRangeHi':
           result.rangeHi = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'numberFormat':
+        case 'qNumberFormat':
           result.numberFormat.replace(serializers.deserialize(value,
                   specifiedType: const FullType(FieldAttributes))
               as FieldAttributes);
           break;
-        case 'rangeInfo':
+        case 'qRangeInfo':
           result.rangeInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'softLock':
+        case 'qSoftLock':
           result.softLock = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'continuousRangeInfo':
+        case 'qContinuousRangeInfo':
           result.continuousRangeInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

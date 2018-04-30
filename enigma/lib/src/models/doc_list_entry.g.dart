@@ -29,61 +29,61 @@ class _$DocListEntrySerializer implements StructuredSerializer<DocListEntry> {
     final result = <Object>[];
     if (object.docName != null) {
       result
-        ..add('docName')
+        ..add('qDocName')
         ..add(serializers.serialize(object.docName,
             specifiedType: const FullType(String)));
     }
     if (object.connectedUsers != null) {
       result
-        ..add('connectedUsers')
+        ..add('qConnectedUsers')
         ..add(serializers.serialize(object.connectedUsers,
             specifiedType: const FullType(int)));
     }
     if (object.fileTime != null) {
       result
-        ..add('fileTime')
+        ..add('qFileTime')
         ..add(serializers.serialize(object.fileTime,
             specifiedType: const FullType(num)));
     }
     if (object.fileSize != null) {
       result
-        ..add('fileSize')
+        ..add('qFileSize')
         ..add(serializers.serialize(object.fileSize,
             specifiedType: const FullType(num)));
     }
     if (object.docId != null) {
       result
-        ..add('docId')
+        ..add('qDocId')
         ..add(serializers.serialize(object.docId,
             specifiedType: const FullType(String)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.lastReloadTime != null) {
       result
-        ..add('lastReloadTime')
+        ..add('qLastReloadTime')
         ..add(serializers.serialize(object.lastReloadTime,
             specifiedType: const FullType(String)));
     }
     if (object.readOnly != null) {
       result
-        ..add('readOnly')
+        ..add('qReadOnly')
         ..add(serializers.serialize(object.readOnly,
             specifiedType: const FullType(bool)));
     }
     if (object.title != null) {
       result
-        ..add('title')
+        ..add('qTitle')
         ..add(serializers.serialize(object.title,
             specifiedType: const FullType(String)));
     }
     if (object.thumbnail != null) {
       result
-        ..add('thumbnail')
+        ..add('qThumbnail')
         ..add(serializers.serialize(object.thumbnail,
             specifiedType: const FullType(StaticContentUrl)));
     }
@@ -102,43 +102,43 @@ class _$DocListEntrySerializer implements StructuredSerializer<DocListEntry> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'docName':
+        case 'qDocName':
           result.docName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'connectedUsers':
+        case 'qConnectedUsers':
           result.connectedUsers = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'fileTime':
+        case 'qFileTime':
           result.fileTime = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'fileSize':
+        case 'qFileSize':
           result.fileSize = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'docId':
+        case 'qDocId':
           result.docId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'lastReloadTime':
+        case 'qLastReloadTime':
           result.lastReloadTime = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'readOnly':
+        case 'qReadOnly':
           result.readOnly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'title':
+        case 'qTitle':
           result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'thumbnail':
+        case 'qThumbnail':
           result.thumbnail.replace(serializers.deserialize(value,
                   specifiedType: const FullType(StaticContentUrl))
               as StaticContentUrl);

@@ -12,16 +12,19 @@ abstract class NxTickCell implements Built<NxTickCell, NxTickCellBuilder> {
   /// Tick's label.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// Start value.
   /// Original name: qStart
   @nullable
+  @BuiltValueField(wireName: 'qStart')
   num get start;
 
   /// End value.
   /// Original name: qEnd
   @nullable
+  @BuiltValueField(wireName: 'qEnd')
   num get end;
 
   factory NxTickCell([updates(NxTickCellBuilder b)]) = _$NxTickCell;

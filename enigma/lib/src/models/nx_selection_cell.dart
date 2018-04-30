@@ -19,6 +19,7 @@ abstract class NxSelectionCell
   /// * L or NX_CELL_LEFT
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Column index to select.
@@ -29,6 +30,7 @@ abstract class NxSelectionCell
   /// * L, the index is based on the left dimensions indexes.
   /// Original name: qCol
   @nullable
+  @BuiltValueField(wireName: 'qCol')
   int get col;
 
   /// Row index to select.
@@ -39,6 +41,7 @@ abstract class NxSelectionCell
   /// * L, the index is based on the data matrix.
   /// Original name: qRow
   @nullable
+  @BuiltValueField(wireName: 'qRow')
   int get row;
 
   factory NxSelectionCell([updates(NxSelectionCellBuilder b)]) =

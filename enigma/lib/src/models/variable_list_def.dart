@@ -16,21 +16,25 @@ abstract class VariableListDef
   /// Type of the list.
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Shows the reserved variables if set to true.
   /// Original name: qShowReserved
   @nullable
+  @BuiltValueField(wireName: 'qShowReserved')
   bool get showReserved;
 
   /// Shows the system variables if set to true.
   /// Original name: qShowConfig
   @nullable
+  @BuiltValueField(wireName: 'qShowConfig')
   bool get showConfig;
 
   /// Data
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   JsonObject get data;
 
   factory VariableListDef([updates(VariableListDefBuilder b)]) =

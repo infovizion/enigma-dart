@@ -21,32 +21,38 @@ abstract class ListObject implements Built<ListObject, ListObjectBuilder> {
   /// Default is current selections _$_ .
   /// Original name: qStateName
   @nullable
+  @BuiltValueField(wireName: 'qStateName')
   String get stateName;
 
   /// Defines the size of a list object.
   /// Original name: qSize
   @nullable
+  @BuiltValueField(wireName: 'qSize')
   Size get size;
 
   /// This parameter is optional and is displayed in case of error.
   /// Original name: qError
   @nullable
+  @BuiltValueField(wireName: 'qError')
   NxValidationError get error;
 
   /// Information about the dimension.
   /// Original name: qDimensionInfo
   @nullable
+  @BuiltValueField(wireName: 'qDimensionInfo')
   NxDimensionInfo get dimensionInfo;
 
   /// Lists the expressions in the list object.
   /// Original name: qExpressions
   @nullable
+  @BuiltValueField(wireName: 'qExpressions')
   BuiltList<NxCell> get expressions;
 
   /// Set of data.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _ListObjectDef_.
   /// Original name: qDataPages
   @nullable
+  @BuiltValueField(wireName: 'qDataPages')
   BuiltList<NxCell> get dataPages;
 
   factory ListObject([updates(ListObjectBuilder b)]) = _$ListObject;

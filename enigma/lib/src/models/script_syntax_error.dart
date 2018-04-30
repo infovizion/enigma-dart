@@ -14,31 +14,37 @@ abstract class ScriptSyntaxError
   /// Length of the word where the error is located.
   /// Original name: qErrLen
   @nullable
+  @BuiltValueField(wireName: 'qErrLen')
   int get errLen;
 
   /// Number of the faulty section.
   /// Original name: qTabIx
   @nullable
+  @BuiltValueField(wireName: 'qTabIx')
   int get tabIx;
 
   /// Line number in the section where the error is located.
   /// Original name: qLineInTab
   @nullable
+  @BuiltValueField(wireName: 'qLineInTab')
   int get lineInTab;
 
   /// Position of the erroneous text from the beginning of the line.
   /// Original name: qColInLine
   @nullable
+  @BuiltValueField(wireName: 'qColInLine')
   int get colInLine;
 
   /// Position of the erroneous text from the beginning of the script.
   /// Original name: qTextPos
   @nullable
+  @BuiltValueField(wireName: 'qTextPos')
   int get textPos;
 
   /// The default value is false.
   /// Original name: qSecondaryFailure
   @nullable
+  @BuiltValueField(wireName: 'qSecondaryFailure')
   bool get secondaryFailure;
 
   factory ScriptSyntaxError([updates(ScriptSyntaxErrorBuilder b)]) =

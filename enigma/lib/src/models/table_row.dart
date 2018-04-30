@@ -14,6 +14,7 @@ abstract class TableRow implements Built<TableRow, TableRowBuilder> {
   /// Array of field values.
   /// Original name: qValue
   @nullable
+  @BuiltValueField(wireName: 'qValue')
   BuiltList<NxCell> get value;
 
   factory TableRow([updates(TableRowBuilder b)]) = _$TableRow;

@@ -28,13 +28,13 @@ class _$PointSerializer implements StructuredSerializer<Point> {
     final result = <Object>[];
     if (object.x != null) {
       result
-        ..add('x')
+        ..add('qx')
         ..add(serializers.serialize(object.x,
             specifiedType: const FullType(int)));
     }
     if (object.y != null) {
       result
-        ..add('y')
+        ..add('qy')
         ..add(serializers.serialize(object.y,
             specifiedType: const FullType(int)));
     }
@@ -53,11 +53,11 @@ class _$PointSerializer implements StructuredSerializer<Point> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'x':
+        case 'qx':
           result.x = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'y':
+        case 'qy':
           result.y = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

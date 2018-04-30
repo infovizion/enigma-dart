@@ -30,32 +30,32 @@ class _$SearchGroupItemSerializer
     final result = <Object>[];
     if (object.itemType != null) {
       result
-        ..add('itemType')
+        ..add('qItemType')
         ..add(serializers.serialize(object.itemType,
             specifiedType: const FullType(String)));
     }
     if (object.totalNumberOfMatches != null) {
       result
-        ..add('totalNumberOfMatches')
+        ..add('qTotalNumberOfMatches')
         ..add(serializers.serialize(object.totalNumberOfMatches,
             specifiedType: const FullType(int)));
     }
     if (object.identifier != null) {
       result
-        ..add('identifier')
+        ..add('qIdentifier')
         ..add(serializers.serialize(object.identifier,
             specifiedType: const FullType(String)));
     }
     if (object.itemMatches != null) {
       result
-        ..add('itemMatches')
+        ..add('qItemMatches')
         ..add(serializers.serialize(object.itemMatches,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.searchTermsMatched != null) {
       result
-        ..add('searchTermsMatched')
+        ..add('qSearchTermsMatched')
         ..add(serializers.serialize(object.searchTermsMatched,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -75,25 +75,25 @@ class _$SearchGroupItemSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'itemType':
+        case 'qItemType':
           result.itemType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'totalNumberOfMatches':
+        case 'qTotalNumberOfMatches':
           result.totalNumberOfMatches = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'identifier':
+        case 'qIdentifier':
           result.identifier = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'itemMatches':
+        case 'qItemMatches':
           result.itemMatches.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'searchTermsMatched':
+        case 'qSearchTermsMatched':
           result.searchTermsMatched.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

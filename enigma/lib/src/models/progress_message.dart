@@ -16,11 +16,13 @@ abstract class ProgressMessage
   /// Code number to the corresponding localized message string.
   /// Original name: qMessageCode
   @nullable
+  @BuiltValueField(wireName: 'qMessageCode')
   int get messageCode;
 
   /// Parameters to be inserted in the localized message string.
   /// Original name: qMessageParameters
   @nullable
+  @BuiltValueField(wireName: 'qMessageParameters')
   BuiltList<NxCell> get messageParameters;
 
   factory ProgressMessage([updates(ProgressMessageBuilder b)]) =

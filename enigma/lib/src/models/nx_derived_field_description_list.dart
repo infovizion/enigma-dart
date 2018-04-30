@@ -18,6 +18,7 @@ abstract class NxDerivedFieldDescriptionList
   /// Information about the derived fields.
   /// Original name: qDerivedFieldLists
   @nullable
+  @BuiltValueField(wireName: 'qDerivedFieldLists')
   BuiltList<NxCell> get derivedFieldLists;
 
   factory NxDerivedFieldDescriptionList(

@@ -20,21 +20,25 @@ abstract class NxTreeDimensionDef
   /// Refers to a dimension stored in the library.
   /// Original name: qLibraryId
   @nullable
+  @BuiltValueField(wireName: 'qLibraryId')
   String get libraryId;
 
   /// Refers to a dimension.
   /// Original name: qDef
   @nullable
+  @BuiltValueField(wireName: 'qDef')
   NxInlineDimensionDef get def;
 
   /// List of measures.
   /// Original name: qValueExprs
   @nullable
+  @BuiltValueField(wireName: 'qValueExprs')
   BuiltList<NxCell> get valueExprs;
 
   /// If set to true, no null values are returned.
   /// Original name: qNullSuppression
   @nullable
+  @BuiltValueField(wireName: 'qNullSuppression')
   bool get nullSuppression;
 
   /// Sets the dimension limits. Each dimension of a hypercube is configured separately.
@@ -42,11 +46,13 @@ abstract class NxTreeDimensionDef
   /// For example in a pie chart all values lower than 200 could be grouped together.
   /// Original name: qOtherTotalSpec
   @nullable
+  @BuiltValueField(wireName: 'qOtherTotalSpec')
   OtherTotalSpecProp get otherTotalSpec;
 
   /// If set to true, all dimension values are shown.
   /// Original name: qShowAll
   @nullable
+  @BuiltValueField(wireName: 'qShowAll')
   bool get showAll;
 
   /// This property is used when some dimension limits are set.
@@ -59,6 +65,7 @@ abstract class NxTreeDimensionDef
   /// * &lt; _label_ &gt; is the label of the _Others_ group.
   /// Original name: qOtherLabel
   @nullable
+  @BuiltValueField(wireName: 'qOtherLabel')
   StringExpr get otherLabel;
 
   /// If this property is set, the total of the calculated values is returned.
@@ -71,6 +78,7 @@ abstract class NxTreeDimensionDef
   /// * &lt; _label_ &gt; is the label of the _Total_ group.
   /// Original name: qTotalLabel
   @nullable
+  @BuiltValueField(wireName: 'qTotalLabel')
   StringExpr get totalLabel;
 
   /// Specifies a calculation condition object.
@@ -79,16 +87,19 @@ abstract class NxTreeDimensionDef
   /// This property is optional.
   /// Original name: qCalcCondition
   @nullable
+  @BuiltValueField(wireName: 'qCalcCondition')
   NxCalcCond get calcCondition;
 
   /// List of attribute expressions.
   /// Original name: qAttributeExpressions
   @nullable
+  @BuiltValueField(wireName: 'qAttributeExpressions')
   BuiltList<NxCell> get attributeExpressions;
 
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
   @nullable
+  @BuiltValueField(wireName: 'qAttributeDimensions')
   BuiltList<NxCell> get attributeDimensions;
 
   factory NxTreeDimensionDef([updates(NxTreeDimensionDefBuilder b)]) =

@@ -30,13 +30,13 @@ class _$AlternateStateDataSerializer
     final result = <Object>[];
     if (object.stateName != null) {
       result
-        ..add('stateName')
+        ..add('qStateName')
         ..add(serializers.serialize(object.stateName,
             specifiedType: const FullType(String)));
     }
     if (object.fieldItems != null) {
       result
-        ..add('fieldItems')
+        ..add('qFieldItems')
         ..add(serializers.serialize(object.fieldItems,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -56,11 +56,11 @@ class _$AlternateStateDataSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'stateName':
+        case 'qStateName':
           result.stateName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fieldItems':
+        case 'qFieldItems':
           result.fieldItems.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

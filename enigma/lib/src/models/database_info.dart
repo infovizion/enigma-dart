@@ -15,16 +15,19 @@ abstract class DatabaseInfo
   /// Name of the product accessed by the provider.
   /// Original name: qDBMSName
   @nullable
+  @BuiltValueField(wireName: 'qDBMSName')
   String get dBMSName;
 
   /// If set to true, it means that the data source contains some databases.
   /// Original name: qDBUsage
   @nullable
+  @BuiltValueField(wireName: 'qDBUsage')
   bool get dBUsage;
 
   /// If set to true, it means that the data source contains some owners.
   /// Original name: qOwnerUsage
   @nullable
+  @BuiltValueField(wireName: 'qOwnerUsage')
   bool get ownerUsage;
 
   /// Character string used after the database name.
@@ -36,6 +39,7 @@ abstract class DatabaseInfo
   /// * **Months** is the table name
   /// Original name: qDBSeparator
   @nullable
+  @BuiltValueField(wireName: 'qDBSeparator')
   String get dBSeparator;
 
   /// Character string used after the owner name.
@@ -47,36 +51,43 @@ abstract class DatabaseInfo
   /// * **Months** is the table name
   /// Original name: qOwnerSeparator
   @nullable
+  @BuiltValueField(wireName: 'qOwnerSeparator')
   String get ownerSeparator;
 
   /// If set to true, it means that the database is displayed first, before the owners and tables.
   /// Original name: qDBFirst
   @nullable
+  @BuiltValueField(wireName: 'qDBFirst')
   bool get dBFirst;
 
   /// Prefix used with field, database or owner names that contain special characters or keywords.
   /// Original name: qQuotePreffix
   @nullable
+  @BuiltValueField(wireName: 'qQuotePreffix')
   String get quotePreffix;
 
   /// Suffix used with field, database or owner names that contain special characters or keywords.
   /// Original name: qQuoteSuffix
   @nullable
+  @BuiltValueField(wireName: 'qQuoteSuffix')
   String get quoteSuffix;
 
   /// List of the special characters.
   /// Original name: qSpecialChars
   @nullable
+  @BuiltValueField(wireName: 'qSpecialChars')
   String get specialChars;
 
   /// Name of the default database.
   /// Original name: qDefaultDatabase
   @nullable
+  @BuiltValueField(wireName: 'qDefaultDatabase')
   String get defaultDatabase;
 
   /// List of the script keywords.
   /// Original name: qKeywords
   @nullable
+  @BuiltValueField(wireName: 'qKeywords')
   BuiltList<NxCell> get keywords;
 
   factory DatabaseInfo([updates(DatabaseInfoBuilder b)]) = _$DatabaseInfo;

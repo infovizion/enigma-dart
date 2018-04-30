@@ -30,19 +30,19 @@ class _$NxSelectionCellSerializer
     final result = <Object>[];
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.col != null) {
       result
-        ..add('col')
+        ..add('qCol')
         ..add(serializers.serialize(object.col,
             specifiedType: const FullType(int)));
     }
     if (object.row != null) {
       result
-        ..add('row')
+        ..add('qRow')
         ..add(serializers.serialize(object.row,
             specifiedType: const FullType(int)));
     }
@@ -61,15 +61,15 @@ class _$NxSelectionCellSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'col':
+        case 'qCol':
           result.col = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'row':
+        case 'qRow':
           result.row = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

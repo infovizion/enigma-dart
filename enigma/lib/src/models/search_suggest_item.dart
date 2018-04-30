@@ -14,12 +14,14 @@ abstract class SearchSuggestItem
   /// Value of the suggestion.
   /// Original name: qValue
   @nullable
+  @BuiltValueField(wireName: 'qValue')
   String get value;
 
   /// Index of the suggestion value.
   /// The indexing starts from 0 and from the left.
   /// Original name: qTerm
   @nullable
+  @BuiltValueField(wireName: 'qTerm')
   int get term;
 
   factory SearchSuggestItem([updates(SearchSuggestItemBuilder b)]) =
