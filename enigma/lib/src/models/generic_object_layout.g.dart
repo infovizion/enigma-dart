@@ -67,6 +67,114 @@ class _$GenericObjectLayoutSerializer
         ..add(serializers.serialize(object.selectionInfo,
             specifiedType: const FullType(NxSelectionInfo)));
     }
+    if (object.appObjectList != null) {
+      result
+        ..add('qAppObjectList')
+        ..add(serializers.serialize(object.appObjectList,
+            specifiedType: const FullType(AppObjectList)));
+    }
+    if (object.bookmarkList != null) {
+      result
+        ..add('qBookmarkList')
+        ..add(serializers.serialize(object.bookmarkList,
+            specifiedType: const FullType(BookmarkList)));
+    }
+    if (object.childList != null) {
+      result
+        ..add('qChildList')
+        ..add(serializers.serialize(object.childList,
+            specifiedType: const FullType(ChildList)));
+    }
+    if (object.dimensionList != null) {
+      result
+        ..add('qDimensionList')
+        ..add(serializers.serialize(object.dimensionList,
+            specifiedType: const FullType(DimensionList)));
+    }
+    if (object.embeddedSnapshot != null) {
+      result
+        ..add('qEmbeddedSnapshot')
+        ..add(serializers.serialize(object.embeddedSnapshot,
+            specifiedType: const FullType(JsonObject)));
+    }
+    if (object.extensionList != null) {
+      result
+        ..add('qExtensionList')
+        ..add(serializers.serialize(object.extensionList,
+            specifiedType: const FullType(ExtensionList)));
+    }
+    if (object.fieldList != null) {
+      result
+        ..add('qFieldList')
+        ..add(serializers.serialize(object.fieldList,
+            specifiedType: const FullType(FieldList)));
+    }
+    if (object.hyperCube != null) {
+      result
+        ..add('qHyperCube')
+        ..add(serializers.serialize(object.hyperCube,
+            specifiedType: const FullType(HyperCube)));
+    }
+    if (object.listObject != null) {
+      result
+        ..add('qListObject')
+        ..add(serializers.serialize(object.listObject,
+            specifiedType: const FullType(ListObject)));
+    }
+    if (object.measureList != null) {
+      result
+        ..add('qMeasureList')
+        ..add(serializers.serialize(object.measureList,
+            specifiedType: const FullType(MeasureList)));
+    }
+    if (object.mediaList != null) {
+      result
+        ..add('qMediaList')
+        ..add(serializers.serialize(object.mediaList,
+            specifiedType: const FullType(MediaList)));
+    }
+    if (object.nxLibraryDimension != null) {
+      result
+        ..add('qNxLibraryDimension')
+        ..add(serializers.serialize(object.nxLibraryDimension,
+            specifiedType: const FullType(NxLibraryDimension)));
+    }
+    if (object.nxLibraryMeasure != null) {
+      result
+        ..add('qNxLibraryMeasure')
+        ..add(serializers.serialize(object.nxLibraryMeasure,
+            specifiedType: const FullType(NxLibraryMeasure)));
+    }
+    if (object.selectionObject != null) {
+      result
+        ..add('qSelectionObject')
+        ..add(serializers.serialize(object.selectionObject,
+            specifiedType: const FullType(SelectionObject)));
+    }
+    if (object.staticContentUrl != null) {
+      result
+        ..add('qStaticContentUrl')
+        ..add(serializers.serialize(object.staticContentUrl,
+            specifiedType: const FullType(StaticContentUrl)));
+    }
+    if (object.treeData != null) {
+      result
+        ..add('qTreeData')
+        ..add(serializers.serialize(object.treeData,
+            specifiedType: const FullType(TreeData)));
+    }
+    if (object.undoInfo != null) {
+      result
+        ..add('qUndoInfo')
+        ..add(serializers.serialize(object.undoInfo,
+            specifiedType: const FullType(UndoInfo)));
+    }
+    if (object.variableList != null) {
+      result
+        ..add('qVariableList')
+        ..add(serializers.serialize(object.variableList,
+            specifiedType: const FullType(VariableList)));
+    }
 
     return result;
   }
@@ -107,6 +215,82 @@ class _$GenericObjectLayoutSerializer
                   specifiedType: const FullType(NxSelectionInfo))
               as NxSelectionInfo);
           break;
+        case 'qAppObjectList':
+          result.appObjectList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(AppObjectList)) as AppObjectList);
+          break;
+        case 'qBookmarkList':
+          result.bookmarkList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BookmarkList)) as BookmarkList);
+          break;
+        case 'qChildList':
+          result.childList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ChildList)) as ChildList);
+          break;
+        case 'qDimensionList':
+          result.dimensionList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(DimensionList)) as DimensionList);
+          break;
+        case 'qEmbeddedSnapshot':
+          result.embeddedSnapshot = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
+          break;
+        case 'qExtensionList':
+          result.extensionList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ExtensionList)) as ExtensionList);
+          break;
+        case 'qFieldList':
+          result.fieldList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(FieldList)) as FieldList);
+          break;
+        case 'qHyperCube':
+          result.hyperCube.replace(serializers.deserialize(value,
+              specifiedType: const FullType(HyperCube)) as HyperCube);
+          break;
+        case 'qListObject':
+          result.listObject.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ListObject)) as ListObject);
+          break;
+        case 'qMeasureList':
+          result.measureList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(MeasureList)) as MeasureList);
+          break;
+        case 'qMediaList':
+          result.mediaList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(MediaList)) as MediaList);
+          break;
+        case 'qNxLibraryDimension':
+          result.nxLibraryDimension.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(NxLibraryDimension))
+              as NxLibraryDimension);
+          break;
+        case 'qNxLibraryMeasure':
+          result.nxLibraryMeasure.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(NxLibraryMeasure))
+              as NxLibraryMeasure);
+          break;
+        case 'qSelectionObject':
+          result.selectionObject.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SelectionObject))
+              as SelectionObject);
+          break;
+        case 'qStaticContentUrl':
+          result.staticContentUrl.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(StaticContentUrl))
+              as StaticContentUrl);
+          break;
+        case 'qTreeData':
+          result.treeData.replace(serializers.deserialize(value,
+              specifiedType: const FullType(TreeData)) as TreeData);
+          break;
+        case 'qUndoInfo':
+          result.undoInfo.replace(serializers.deserialize(value,
+              specifiedType: const FullType(UndoInfo)) as UndoInfo);
+          break;
+        case 'qVariableList':
+          result.variableList.replace(serializers.deserialize(value,
+              specifiedType: const FullType(VariableList)) as VariableList);
+          break;
       }
     }
 
@@ -127,6 +311,42 @@ class _$GenericObjectLayout extends GenericObjectLayout {
   final NxLayoutErrors error;
   @override
   final NxSelectionInfo selectionInfo;
+  @override
+  final AppObjectList appObjectList;
+  @override
+  final BookmarkList bookmarkList;
+  @override
+  final ChildList childList;
+  @override
+  final DimensionList dimensionList;
+  @override
+  final JsonObject embeddedSnapshot;
+  @override
+  final ExtensionList extensionList;
+  @override
+  final FieldList fieldList;
+  @override
+  final HyperCube hyperCube;
+  @override
+  final ListObject listObject;
+  @override
+  final MeasureList measureList;
+  @override
+  final MediaList mediaList;
+  @override
+  final NxLibraryDimension nxLibraryDimension;
+  @override
+  final NxLibraryMeasure nxLibraryMeasure;
+  @override
+  final SelectionObject selectionObject;
+  @override
+  final StaticContentUrl staticContentUrl;
+  @override
+  final TreeData treeData;
+  @override
+  final UndoInfo undoInfo;
+  @override
+  final VariableList variableList;
 
   factory _$GenericObjectLayout([void updates(GenericObjectLayoutBuilder b)]) =>
       (new GenericObjectLayoutBuilder()..update(updates)).build();
@@ -137,7 +357,25 @@ class _$GenericObjectLayout extends GenericObjectLayout {
       this.extendsId,
       this.hasSoftPatches,
       this.error,
-      this.selectionInfo})
+      this.selectionInfo,
+      this.appObjectList,
+      this.bookmarkList,
+      this.childList,
+      this.dimensionList,
+      this.embeddedSnapshot,
+      this.extensionList,
+      this.fieldList,
+      this.hyperCube,
+      this.listObject,
+      this.measureList,
+      this.mediaList,
+      this.nxLibraryDimension,
+      this.nxLibraryMeasure,
+      this.selectionObject,
+      this.staticContentUrl,
+      this.treeData,
+      this.undoInfo,
+      this.variableList})
       : super._();
 
   @override
@@ -157,7 +395,25 @@ class _$GenericObjectLayout extends GenericObjectLayout {
         extendsId == other.extendsId &&
         hasSoftPatches == other.hasSoftPatches &&
         error == other.error &&
-        selectionInfo == other.selectionInfo;
+        selectionInfo == other.selectionInfo &&
+        appObjectList == other.appObjectList &&
+        bookmarkList == other.bookmarkList &&
+        childList == other.childList &&
+        dimensionList == other.dimensionList &&
+        embeddedSnapshot == other.embeddedSnapshot &&
+        extensionList == other.extensionList &&
+        fieldList == other.fieldList &&
+        hyperCube == other.hyperCube &&
+        listObject == other.listObject &&
+        measureList == other.measureList &&
+        mediaList == other.mediaList &&
+        nxLibraryDimension == other.nxLibraryDimension &&
+        nxLibraryMeasure == other.nxLibraryMeasure &&
+        selectionObject == other.selectionObject &&
+        staticContentUrl == other.staticContentUrl &&
+        treeData == other.treeData &&
+        undoInfo == other.undoInfo &&
+        variableList == other.variableList;
   }
 
   @override
@@ -165,11 +421,41 @@ class _$GenericObjectLayout extends GenericObjectLayout {
     return $jf($jc(
         $jc(
             $jc(
-                $jc($jc($jc(0, info.hashCode), meta.hashCode),
-                    extendsId.hashCode),
-                hasSoftPatches.hashCode),
-            error.hashCode),
-        selectionInfo.hashCode));
+                $jc(
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(
+                                                                $jc(
+                                                                    $jc(
+                                                                        $jc(
+                                                                            $jc($jc($jc($jc($jc($jc(0, info.hashCode), meta.hashCode), extendsId.hashCode), hasSoftPatches.hashCode), error.hashCode),
+                                                                                selectionInfo.hashCode),
+                                                                            appObjectList.hashCode),
+                                                                        bookmarkList.hashCode),
+                                                                    childList.hashCode),
+                                                                dimensionList.hashCode),
+                                                            embeddedSnapshot.hashCode),
+                                                        extensionList.hashCode),
+                                                    fieldList.hashCode),
+                                                hyperCube.hashCode),
+                                            listObject.hashCode),
+                                        measureList.hashCode),
+                                    mediaList.hashCode),
+                                nxLibraryDimension.hashCode),
+                            nxLibraryMeasure.hashCode),
+                        selectionObject.hashCode),
+                    staticContentUrl.hashCode),
+                treeData.hashCode),
+            undoInfo.hashCode),
+        variableList.hashCode));
   }
 
   @override
@@ -180,7 +466,25 @@ class _$GenericObjectLayout extends GenericObjectLayout {
           ..add('extendsId', extendsId)
           ..add('hasSoftPatches', hasSoftPatches)
           ..add('error', error)
-          ..add('selectionInfo', selectionInfo))
+          ..add('selectionInfo', selectionInfo)
+          ..add('appObjectList', appObjectList)
+          ..add('bookmarkList', bookmarkList)
+          ..add('childList', childList)
+          ..add('dimensionList', dimensionList)
+          ..add('embeddedSnapshot', embeddedSnapshot)
+          ..add('extensionList', extensionList)
+          ..add('fieldList', fieldList)
+          ..add('hyperCube', hyperCube)
+          ..add('listObject', listObject)
+          ..add('measureList', measureList)
+          ..add('mediaList', mediaList)
+          ..add('nxLibraryDimension', nxLibraryDimension)
+          ..add('nxLibraryMeasure', nxLibraryMeasure)
+          ..add('selectionObject', selectionObject)
+          ..add('staticContentUrl', staticContentUrl)
+          ..add('treeData', treeData)
+          ..add('undoInfo', undoInfo)
+          ..add('variableList', variableList))
         .toString();
   }
 }
@@ -217,6 +521,105 @@ class GenericObjectLayoutBuilder
   set selectionInfo(NxSelectionInfoBuilder selectionInfo) =>
       _$this._selectionInfo = selectionInfo;
 
+  AppObjectListBuilder _appObjectList;
+  AppObjectListBuilder get appObjectList =>
+      _$this._appObjectList ??= new AppObjectListBuilder();
+  set appObjectList(AppObjectListBuilder appObjectList) =>
+      _$this._appObjectList = appObjectList;
+
+  BookmarkListBuilder _bookmarkList;
+  BookmarkListBuilder get bookmarkList =>
+      _$this._bookmarkList ??= new BookmarkListBuilder();
+  set bookmarkList(BookmarkListBuilder bookmarkList) =>
+      _$this._bookmarkList = bookmarkList;
+
+  ChildListBuilder _childList;
+  ChildListBuilder get childList =>
+      _$this._childList ??= new ChildListBuilder();
+  set childList(ChildListBuilder childList) => _$this._childList = childList;
+
+  DimensionListBuilder _dimensionList;
+  DimensionListBuilder get dimensionList =>
+      _$this._dimensionList ??= new DimensionListBuilder();
+  set dimensionList(DimensionListBuilder dimensionList) =>
+      _$this._dimensionList = dimensionList;
+
+  JsonObject _embeddedSnapshot;
+  JsonObject get embeddedSnapshot => _$this._embeddedSnapshot;
+  set embeddedSnapshot(JsonObject embeddedSnapshot) =>
+      _$this._embeddedSnapshot = embeddedSnapshot;
+
+  ExtensionListBuilder _extensionList;
+  ExtensionListBuilder get extensionList =>
+      _$this._extensionList ??= new ExtensionListBuilder();
+  set extensionList(ExtensionListBuilder extensionList) =>
+      _$this._extensionList = extensionList;
+
+  FieldListBuilder _fieldList;
+  FieldListBuilder get fieldList =>
+      _$this._fieldList ??= new FieldListBuilder();
+  set fieldList(FieldListBuilder fieldList) => _$this._fieldList = fieldList;
+
+  HyperCubeBuilder _hyperCube;
+  HyperCubeBuilder get hyperCube =>
+      _$this._hyperCube ??= new HyperCubeBuilder();
+  set hyperCube(HyperCubeBuilder hyperCube) => _$this._hyperCube = hyperCube;
+
+  ListObjectBuilder _listObject;
+  ListObjectBuilder get listObject =>
+      _$this._listObject ??= new ListObjectBuilder();
+  set listObject(ListObjectBuilder listObject) =>
+      _$this._listObject = listObject;
+
+  MeasureListBuilder _measureList;
+  MeasureListBuilder get measureList =>
+      _$this._measureList ??= new MeasureListBuilder();
+  set measureList(MeasureListBuilder measureList) =>
+      _$this._measureList = measureList;
+
+  MediaListBuilder _mediaList;
+  MediaListBuilder get mediaList =>
+      _$this._mediaList ??= new MediaListBuilder();
+  set mediaList(MediaListBuilder mediaList) => _$this._mediaList = mediaList;
+
+  NxLibraryDimensionBuilder _nxLibraryDimension;
+  NxLibraryDimensionBuilder get nxLibraryDimension =>
+      _$this._nxLibraryDimension ??= new NxLibraryDimensionBuilder();
+  set nxLibraryDimension(NxLibraryDimensionBuilder nxLibraryDimension) =>
+      _$this._nxLibraryDimension = nxLibraryDimension;
+
+  NxLibraryMeasureBuilder _nxLibraryMeasure;
+  NxLibraryMeasureBuilder get nxLibraryMeasure =>
+      _$this._nxLibraryMeasure ??= new NxLibraryMeasureBuilder();
+  set nxLibraryMeasure(NxLibraryMeasureBuilder nxLibraryMeasure) =>
+      _$this._nxLibraryMeasure = nxLibraryMeasure;
+
+  SelectionObjectBuilder _selectionObject;
+  SelectionObjectBuilder get selectionObject =>
+      _$this._selectionObject ??= new SelectionObjectBuilder();
+  set selectionObject(SelectionObjectBuilder selectionObject) =>
+      _$this._selectionObject = selectionObject;
+
+  StaticContentUrlBuilder _staticContentUrl;
+  StaticContentUrlBuilder get staticContentUrl =>
+      _$this._staticContentUrl ??= new StaticContentUrlBuilder();
+  set staticContentUrl(StaticContentUrlBuilder staticContentUrl) =>
+      _$this._staticContentUrl = staticContentUrl;
+
+  TreeDataBuilder _treeData;
+  TreeDataBuilder get treeData => _$this._treeData ??= new TreeDataBuilder();
+  set treeData(TreeDataBuilder treeData) => _$this._treeData = treeData;
+
+  UndoInfoBuilder _undoInfo;
+  UndoInfoBuilder get undoInfo => _$this._undoInfo ??= new UndoInfoBuilder();
+  set undoInfo(UndoInfoBuilder undoInfo) => _$this._undoInfo = undoInfo;
+
+  VariableListBuilder _variableList;
+  VariableListBuilder get variableList =>
+      _$this._variableList ??= new VariableListBuilder();
+  set variableList(VariableListBuilder variableList) =>
+      _$this._variableList = variableList;
+
   GenericObjectLayoutBuilder();
 
   GenericObjectLayoutBuilder get _$this {
@@ -227,6 +630,24 @@ class GenericObjectLayoutBuilder
       _hasSoftPatches = _$v.hasSoftPatches;
       _error = _$v.error?.toBuilder();
       _selectionInfo = _$v.selectionInfo?.toBuilder();
+      _appObjectList = _$v.appObjectList?.toBuilder();
+      _bookmarkList = _$v.bookmarkList?.toBuilder();
+      _childList = _$v.childList?.toBuilder();
+      _dimensionList = _$v.dimensionList?.toBuilder();
+      _embeddedSnapshot = _$v.embeddedSnapshot;
+      _extensionList = _$v.extensionList?.toBuilder();
+      _fieldList = _$v.fieldList?.toBuilder();
+      _hyperCube = _$v.hyperCube?.toBuilder();
+      _listObject = _$v.listObject?.toBuilder();
+      _measureList = _$v.measureList?.toBuilder();
+      _mediaList = _$v.mediaList?.toBuilder();
+      _nxLibraryDimension = _$v.nxLibraryDimension?.toBuilder();
+      _nxLibraryMeasure = _$v.nxLibraryMeasure?.toBuilder();
+      _selectionObject = _$v.selectionObject?.toBuilder();
+      _staticContentUrl = _$v.staticContentUrl?.toBuilder();
+      _treeData = _$v.treeData?.toBuilder();
+      _undoInfo = _$v.undoInfo?.toBuilder();
+      _variableList = _$v.variableList?.toBuilder();
       _$v = null;
     }
     return this;
@@ -254,7 +675,25 @@ class GenericObjectLayoutBuilder
               extendsId: extendsId,
               hasSoftPatches: hasSoftPatches,
               error: _error?.build(),
-              selectionInfo: _selectionInfo?.build());
+              selectionInfo: _selectionInfo?.build(),
+              appObjectList: _appObjectList?.build(),
+              bookmarkList: _bookmarkList?.build(),
+              childList: _childList?.build(),
+              dimensionList: _dimensionList?.build(),
+              embeddedSnapshot: embeddedSnapshot,
+              extensionList: _extensionList?.build(),
+              fieldList: _fieldList?.build(),
+              hyperCube: _hyperCube?.build(),
+              listObject: _listObject?.build(),
+              measureList: _measureList?.build(),
+              mediaList: _mediaList?.build(),
+              nxLibraryDimension: _nxLibraryDimension?.build(),
+              nxLibraryMeasure: _nxLibraryMeasure?.build(),
+              selectionObject: _selectionObject?.build(),
+              staticContentUrl: _staticContentUrl?.build(),
+              treeData: _treeData?.build(),
+              undoInfo: _undoInfo?.build(),
+              variableList: _variableList?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -267,6 +706,41 @@ class GenericObjectLayoutBuilder
         _error?.build();
         _$failedField = 'selectionInfo';
         _selectionInfo?.build();
+        _$failedField = 'appObjectList';
+        _appObjectList?.build();
+        _$failedField = 'bookmarkList';
+        _bookmarkList?.build();
+        _$failedField = 'childList';
+        _childList?.build();
+        _$failedField = 'dimensionList';
+        _dimensionList?.build();
+
+        _$failedField = 'extensionList';
+        _extensionList?.build();
+        _$failedField = 'fieldList';
+        _fieldList?.build();
+        _$failedField = 'hyperCube';
+        _hyperCube?.build();
+        _$failedField = 'listObject';
+        _listObject?.build();
+        _$failedField = 'measureList';
+        _measureList?.build();
+        _$failedField = 'mediaList';
+        _mediaList?.build();
+        _$failedField = 'nxLibraryDimension';
+        _nxLibraryDimension?.build();
+        _$failedField = 'nxLibraryMeasure';
+        _nxLibraryMeasure?.build();
+        _$failedField = 'selectionObject';
+        _selectionObject?.build();
+        _$failedField = 'staticContentUrl';
+        _staticContentUrl?.build();
+        _$failedField = 'treeData';
+        _treeData?.build();
+        _$failedField = 'undoInfo';
+        _undoInfo?.build();
+        _$failedField = 'variableList';
+        _variableList?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'GenericObjectLayout', _$failedField, e.toString());

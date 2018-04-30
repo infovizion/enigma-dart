@@ -5,6 +5,11 @@ import '../models.dart';
 import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
+import 'generic_object.dart';
+import 'generic_dimension.dart';
+import 'generic_measure.dart';
+import 'variable.dart';
+import 'generic_bookmark.dart';
 
 class Doc extends BaseService {
   Doc(Enigma enigma, int handle) : super(enigma, handle);
@@ -208,19 +213,6 @@ class Doc extends BaseService {
   /// * The list of tables in an app and the fields inside each table.
   /// * The list of derived fields.
   /// * The list of key fields.
-  Future<BuiltList<NxCell>> getTablesAndKeys(Size windowSize, Size nullSize,
-      int cellHeight, bool syntheticMode, bool includeSysVars) async {
-    var params = <String, dynamic>{};
-    params['qCellHeight'] = cellHeight;
-    params['qSyntheticMode'] = syntheticMode;
-    params['qIncludeSysVars'] = includeSysVars;
-    var rawResult = await query('GetTablesAndKeys', params);
-    var jsonData = rawResult['result']['qtr'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
-    return dartData;
-  }
-
   /// Returns information about the position of the tables in the data model viewer.
   /// <div class=note>The position of the broom points and the position of the connection points cannot be retrieved in Qlik Sense.</div>
   ///
@@ -430,12 +422,13 @@ class Doc extends BaseService {
   /// A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).
   /// The linked object has the same properties as the linking object.
   /// <div class=note>The linking object cannot be a transient object.</div>
-  Future<NxInfo> createObject(GenericObjectProperties prop) async {
+  Future<GenericObject> createObject(GenericObjectProperties prop) async {
     var params = <String, dynamic>{};
     var rawResult = await query('CreateObject', params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new GenericObject(enigma, dartData.handle);
   }
 
   /// Removes an app object.
@@ -550,12 +543,14 @@ class Doc extends BaseService {
 
   /// Creates a master dimension.
   /// A master dimension is stored in the library of an app and can be used in many objects. Several generic objects can contain the same dimension.
-  Future<NxInfo> createDimension(GenericDimensionProperties prop) async {
+  Future<GenericDimension> createDimension(
+      GenericDimensionProperties prop) async {
     var params = <String, dynamic>{};
     var rawResult = await query('CreateDimension', params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new GenericDimension(enigma, dartData.handle);
   }
 
   /// Removes a dimension.
@@ -591,12 +586,13 @@ class Doc extends BaseService {
 
   /// Creates a master measure.
   /// A master measure is stored in the library of an app and can be used in many objects. Several generic objects can contain the same measure.
-  Future<NxInfo> createMeasure(GenericMeasureProperties prop) async {
+  Future<GenericMeasure> createMeasure(GenericMeasureProperties prop) async {
     var params = <String, dynamic>{};
     var rawResult = await query('CreateMeasure', params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new GenericMeasure(enigma, dartData.handle);
   }
 
   /// Removes a generic measure.
@@ -673,12 +669,13 @@ class Doc extends BaseService {
   /// The variable _x_ contains the text string _Sum(Sales)_ .
   /// In a chart, you define the expression _$(x)/12_ . The effect is exactly the same as having the chart expression _Sum(Sales)/12_ .
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
-  Future<NxInfo> createVariableEx(GenericVariableProperties prop) async {
+  Future<Variable> createVariableEx(GenericVariableProperties prop) async {
     var params = <String, dynamic>{};
     var rawResult = await query('CreateVariableEx', params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new Variable(enigma, dartData.handle);
   }
 
   /// Removes a variable.
@@ -727,23 +724,9 @@ class Doc extends BaseService {
 
   /// Checks if a given expression is valid.
   /// <div class=note>The expression is correct if the parameters _qErrorMsg_ , _qBadFieldNames_ and _qDangerousFieldNames_ are empty. </div>
-  Future<String> checkExpression(String expr, BuiltList<NxCell> labels) async {
-    var params = <String, dynamic>{};
-    params['qExpr'] = expr;
-    var rawResult = await query('CheckExpression', params);
-    return rawResult['result']['qErrorMsg'];
-  }
-
   /// Checks if:
   /// * A given expression is valid.
   /// * A number is correct according to the locale.
-  Future<String> checkNumberOrExpression(String expr) async {
-    var params = <String, dynamic>{};
-    params['qExpr'] = expr;
-    var rawResult = await query('CheckNumberOrExpression', params);
-    return rawResult['result']['qErrorMsg'];
-  }
-
   /// Adds an alternate state in the app.
   /// You can create multiple states within a Qlik Sense app and apply these states to specific objects within the app. Objects in a given state are not affected by user selections in the other states.
   Future<void> addAlternateState(String stateName) async {
@@ -760,12 +743,13 @@ class Doc extends BaseService {
   }
 
   /// Creates a bookmark.
-  Future<NxInfo> createBookmark(GenericBookmarkProperties prop) async {
+  Future<GenericBookmark> createBookmark(GenericBookmarkProperties prop) async {
     var params = <String, dynamic>{};
     var rawResult = await query('CreateBookmark', params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new GenericBookmark(enigma, dartData.handle);
   }
 
   /// Removes a bookmark.
@@ -914,15 +898,6 @@ class Doc extends BaseService {
   }
 
   /// Lists the media files.
-  Future<MediaList> getMediaList() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetMediaList', params);
-    var jsonData = rawResult['result']['qList'];
-    var dartData =
-        fromJsonFullType<MediaList>(const FullType(MediaList), jsonData);
-    return dartData;
-  }
-
   /// Lists the content libraries.
   /// To differentiate a global content library from an app specific content library, you can check the property _qAppSpecific_ . If this property is set to true, it means that the content library is app specific.
   /// <div class=note>There is always one specific content library per app.</div>
@@ -1269,24 +1244,6 @@ class Doc extends BaseService {
   }
 
   /// Retrieves the values of the specified table of a database for a ODBC, OLEDB or CUSTOM connection.
-  Future<BuiltList<NxCell>> getDatabaseTablePreview(
-      String connectionId,
-      String table,
-      String database,
-      String owner,
-      FilterInfo conditions) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
-    params['qDatabase'] = database;
-    params['qOwner'] = owner;
-    params['qTable'] = table;
-    var rawResult = await query('GetDatabaseTablePreview', params);
-    var jsonData = rawResult['result']['qPreview'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
-    return dartData;
-  }
-
   /// Lists the items for a folder connection.
   Future<BuiltList<NxCell>> getFolderItemsForConnection(
       String connectionId, String relativePath) async {
@@ -1381,19 +1338,6 @@ class Doc extends BaseService {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  Future<BuiltList<NxCell>> getFileTableFields(String connectionId,
-      FileDataFormat dataFormat, String table, String relativePath) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
-    params['qRelativePath'] = relativePath;
-    params['qTable'] = table;
-    var rawResult = await query('GetFileTableFields', params);
-    var jsonData = rawResult['result']['qFields'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
-    return dartData;
-  }
-
   /// Lists the values in a table for a folder connection.
   ///
   /// ### FileType
@@ -1409,19 +1353,6 @@ class Doc extends BaseService {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  Future<BuiltList<NxCell>> getFileTablePreview(String connectionId,
-      FileDataFormat dataFormat, String table, String relativePath) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
-    params['qRelativePath'] = relativePath;
-    params['qTable'] = table;
-    var rawResult = await query('GetFileTablePreview', params);
-    var jsonData = rawResult['result']['qPreview'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
-    return dartData;
-  }
-
   /// Lists the tables and fields of a JSON or XML file for a folder connection.
   Future<BuiltList<NxCell>> getFileTablesEx(String connectionId,
       FileDataFormat dataFormat, String relativePath) async {
