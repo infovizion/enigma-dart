@@ -28,7 +28,7 @@ class _$NxCellSerializer implements StructuredSerializer<NxCell> {
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
@@ -40,61 +40,61 @@ class _$NxCellSerializer implements StructuredSerializer<NxCell> {
     }
     if (object.elemNumber != null) {
       result
-        ..add('elemNumber')
+        ..add('qElemNumber')
         ..add(serializers.serialize(object.elemNumber,
             specifiedType: const FullType(int)));
     }
     if (object.state != null) {
       result
-        ..add('state')
+        ..add('qState')
         ..add(serializers.serialize(object.state,
             specifiedType: const FullType(String)));
     }
     if (object.isEmpty != null) {
       result
-        ..add('isEmpty')
+        ..add('qIsEmpty')
         ..add(serializers.serialize(object.isEmpty,
             specifiedType: const FullType(bool)));
     }
     if (object.isTotalCell != null) {
       result
-        ..add('isTotalCell')
+        ..add('qIsTotalCell')
         ..add(serializers.serialize(object.isTotalCell,
             specifiedType: const FullType(bool)));
     }
     if (object.isOtherCell != null) {
       result
-        ..add('isOtherCell')
+        ..add('qIsOtherCell')
         ..add(serializers.serialize(object.isOtherCell,
             specifiedType: const FullType(bool)));
     }
     if (object.frequency != null) {
       result
-        ..add('frequency')
+        ..add('qFrequency')
         ..add(serializers.serialize(object.frequency,
             specifiedType: const FullType(String)));
     }
     if (object.highlightRanges != null) {
       result
-        ..add('highlightRanges')
+        ..add('qHighlightRanges')
         ..add(serializers.serialize(object.highlightRanges,
             specifiedType: const FullType(JsonObject)));
     }
     if (object.attrExps != null) {
       result
-        ..add('attrExps')
+        ..add('qAttrExps')
         ..add(serializers.serialize(object.attrExps,
             specifiedType: const FullType(JsonObject)));
     }
     if (object.attrDims != null) {
       result
-        ..add('attrDims')
+        ..add('qAttrDims')
         ..add(serializers.serialize(object.attrDims,
             specifiedType: const FullType(JsonObject)));
     }
     if (object.isNull != null) {
       result
-        ..add('isNull')
+        ..add('qIsNull')
         ..add(serializers.serialize(object.isNull,
             specifiedType: const FullType(bool)));
     }
@@ -113,7 +113,7 @@ class _$NxCellSerializer implements StructuredSerializer<NxCell> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
@@ -121,43 +121,43 @@ class _$NxCellSerializer implements StructuredSerializer<NxCell> {
           result.qNum = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'elemNumber':
+        case 'qElemNumber':
           result.elemNumber = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'state':
+        case 'qState':
           result.state = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isEmpty':
+        case 'qIsEmpty':
           result.isEmpty = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isTotalCell':
+        case 'qIsTotalCell':
           result.isTotalCell = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isOtherCell':
+        case 'qIsOtherCell':
           result.isOtherCell = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'frequency':
+        case 'qFrequency':
           result.frequency = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'highlightRanges':
+        case 'qHighlightRanges':
           result.highlightRanges = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
-        case 'attrExps':
+        case 'qAttrExps':
           result.attrExps = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
-        case 'attrDims':
+        case 'qAttrDims':
           result.attrDims = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
-        case 'isNull':
+        case 'qIsNull':
           result.isNull = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

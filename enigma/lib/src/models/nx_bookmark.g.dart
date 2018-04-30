@@ -28,20 +28,20 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
     final result = <Object>[];
     if (object.stateData != null) {
       result
-        ..add('stateData')
+        ..add('qStateData')
         ..add(serializers.serialize(object.stateData,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.utcModifyTime != null) {
       result
-        ..add('utcModifyTime')
+        ..add('qUtcModifyTime')
         ..add(serializers.serialize(object.utcModifyTime,
             specifiedType: const FullType(num)));
     }
     if (object.variableItems != null) {
       result
-        ..add('variableItems')
+        ..add('qVariableItems')
         ..add(serializers.serialize(object.variableItems,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -61,17 +61,17 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'stateData':
+        case 'qStateData':
           result.stateData.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'utcModifyTime':
+        case 'qUtcModifyTime':
           result.utcModifyTime = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'variableItems':
+        case 'qVariableItems':
           result.variableItems.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

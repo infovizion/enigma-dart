@@ -28,63 +28,63 @@ class _$NxTreeNodeSerializer implements StructuredSerializer<NxTreeNode> {
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
     if (object.elemNo != null) {
       result
-        ..add('elemNo')
+        ..add('qElemNo')
         ..add(serializers.serialize(object.elemNo,
             specifiedType: const FullType(int)));
     }
     if (object.nodeNr != null) {
       result
-        ..add('nodeNr')
+        ..add('qNodeNr')
         ..add(serializers.serialize(object.nodeNr,
             specifiedType: const FullType(int)));
     }
     if (object.parentNode != null) {
       result
-        ..add('parentNode')
+        ..add('qParentNode')
         ..add(serializers.serialize(object.parentNode,
             specifiedType: const FullType(int)));
     }
     if (object.row != null) {
       result
-        ..add('row')
+        ..add('qRow')
         ..add(serializers.serialize(object.row,
             specifiedType: const FullType(int)));
     }
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.values != null) {
       result
-        ..add('values')
+        ..add('qValues')
         ..add(serializers.serialize(object.values,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.nodes != null) {
       result
-        ..add('nodes')
+        ..add('qNodes')
         ..add(serializers.serialize(object.nodes,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attrExps != null) {
       result
-        ..add('attrExps')
+        ..add('qAttrExps')
         ..add(serializers.serialize(object.attrExps,
             specifiedType: const FullType(NxAttributeExpressionValues)));
     }
     if (object.attrDims != null) {
       result
-        ..add('attrDims')
+        ..add('qAttrDims')
         ..add(serializers.serialize(object.attrDims,
             specifiedType: const FullType(NxAttributeDimValues)));
     }
@@ -103,48 +103,48 @@ class _$NxTreeNodeSerializer implements StructuredSerializer<NxTreeNode> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'elemNo':
+        case 'qElemNo':
           result.elemNo = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'nodeNr':
+        case 'qNodeNr':
           result.nodeNr = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'parentNode':
+        case 'qParentNode':
           result.parentNode = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'row':
+        case 'qRow':
           result.row = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'values':
+        case 'qValues':
           result.values.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'nodes':
+        case 'qNodes':
           result.nodes.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'attrExps':
+        case 'qAttrExps':
           result.attrExps.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAttributeExpressionValues))
               as NxAttributeExpressionValues);
           break;
-        case 'attrDims':
+        case 'qAttrDims':
           result.attrDims.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAttributeDimValues))
               as NxAttributeDimValues);

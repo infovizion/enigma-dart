@@ -28,13 +28,13 @@ class _$FilterInfoSerializer implements StructuredSerializer<FilterInfo> {
     final result = <Object>[];
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.wherePredicate != null) {
       result
-        ..add('wherePredicate')
+        ..add('qWherePredicate')
         ..add(serializers.serialize(object.wherePredicate,
             specifiedType: const FullType(String)));
     }
@@ -53,11 +53,11 @@ class _$FilterInfoSerializer implements StructuredSerializer<FilterInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'wherePredicate':
+        case 'qWherePredicate':
           result.wherePredicate = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

@@ -16,6 +16,7 @@ abstract class VariableList
   /// List of the variables.
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory VariableList([updates(VariableListBuilder b)]) = _$VariableList;

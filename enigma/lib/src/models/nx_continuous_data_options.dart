@@ -14,26 +14,31 @@ abstract class NxContinuousDataOptions
   /// Start value.
   /// Original name: qStart
   @nullable
+  @BuiltValueField(wireName: 'qStart')
   num get start;
 
   /// End value.
   /// Original name: qEnd
   @nullable
+  @BuiltValueField(wireName: 'qEnd')
   num get end;
 
   /// Number of bins for binning.
   /// Original name: qNbrPoints
   @nullable
+  @BuiltValueField(wireName: 'qNbrPoints')
   int get nbrPoints;
 
   /// Maximum number of ticks.
   /// Original name: qMaxNbrTicks
   @nullable
+  @BuiltValueField(wireName: 'qMaxNbrTicks')
   int get maxNbrTicks;
 
   /// Maximum number of lines.
   /// Original name: qMaxNumberLines
   @nullable
+  @BuiltValueField(wireName: 'qMaxNumberLines')
   int get maxNumberLines;
 
   factory NxContinuousDataOptions([updates(NxContinuousDataOptionsBuilder b)]) =

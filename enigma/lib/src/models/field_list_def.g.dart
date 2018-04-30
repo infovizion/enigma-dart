@@ -29,43 +29,43 @@ class _$FieldListDefSerializer implements StructuredSerializer<FieldListDef> {
     final result = <Object>[];
     if (object.showSystem != null) {
       result
-        ..add('showSystem')
+        ..add('qShowSystem')
         ..add(serializers.serialize(object.showSystem,
             specifiedType: const FullType(bool)));
     }
     if (object.showHidden != null) {
       result
-        ..add('showHidden')
+        ..add('qShowHidden')
         ..add(serializers.serialize(object.showHidden,
             specifiedType: const FullType(bool)));
     }
     if (object.showSemantic != null) {
       result
-        ..add('showSemantic')
+        ..add('qShowSemantic')
         ..add(serializers.serialize(object.showSemantic,
             specifiedType: const FullType(bool)));
     }
     if (object.showSrcTables != null) {
       result
-        ..add('showSrcTables')
+        ..add('qShowSrcTables')
         ..add(serializers.serialize(object.showSrcTables,
             specifiedType: const FullType(bool)));
     }
     if (object.showDefinitionOnly != null) {
       result
-        ..add('showDefinitionOnly')
+        ..add('qShowDefinitionOnly')
         ..add(serializers.serialize(object.showDefinitionOnly,
             specifiedType: const FullType(bool)));
     }
     if (object.showDerivedFields != null) {
       result
-        ..add('showDerivedFields')
+        ..add('qShowDerivedFields')
         ..add(serializers.serialize(object.showDerivedFields,
             specifiedType: const FullType(bool)));
     }
     if (object.showImplicit != null) {
       result
-        ..add('showImplicit')
+        ..add('qShowImplicit')
         ..add(serializers.serialize(object.showImplicit,
             specifiedType: const FullType(bool)));
     }
@@ -84,31 +84,31 @@ class _$FieldListDefSerializer implements StructuredSerializer<FieldListDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'showSystem':
+        case 'qShowSystem':
           result.showSystem = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'showHidden':
+        case 'qShowHidden':
           result.showHidden = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'showSemantic':
+        case 'qShowSemantic':
           result.showSemantic = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'showSrcTables':
+        case 'qShowSrcTables':
           result.showSrcTables = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'showDefinitionOnly':
+        case 'qShowDefinitionOnly':
           result.showDefinitionOnly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'showDerivedFields':
+        case 'qShowDerivedFields':
           result.showDerivedFields = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'showImplicit':
+        case 'qShowImplicit':
           result.showImplicit = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

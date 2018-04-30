@@ -28,103 +28,103 @@ class _$LocaleInfoSerializer implements StructuredSerializer<LocaleInfo> {
     final result = <Object>[];
     if (object.decimalSep != null) {
       result
-        ..add('decimalSep')
+        ..add('qDecimalSep')
         ..add(serializers.serialize(object.decimalSep,
             specifiedType: const FullType(String)));
     }
     if (object.thousandSep != null) {
       result
-        ..add('thousandSep')
+        ..add('qThousandSep')
         ..add(serializers.serialize(object.thousandSep,
             specifiedType: const FullType(String)));
     }
     if (object.listSep != null) {
       result
-        ..add('listSep')
+        ..add('qListSep')
         ..add(serializers.serialize(object.listSep,
             specifiedType: const FullType(String)));
     }
     if (object.moneyDecimalSep != null) {
       result
-        ..add('moneyDecimalSep')
+        ..add('qMoneyDecimalSep')
         ..add(serializers.serialize(object.moneyDecimalSep,
             specifiedType: const FullType(String)));
     }
     if (object.moneyThousandSep != null) {
       result
-        ..add('moneyThousandSep')
+        ..add('qMoneyThousandSep')
         ..add(serializers.serialize(object.moneyThousandSep,
             specifiedType: const FullType(String)));
     }
     if (object.currentYear != null) {
       result
-        ..add('currentYear')
+        ..add('qCurrentYear')
         ..add(serializers.serialize(object.currentYear,
             specifiedType: const FullType(int)));
     }
     if (object.moneyFmt != null) {
       result
-        ..add('moneyFmt')
+        ..add('qMoneyFmt')
         ..add(serializers.serialize(object.moneyFmt,
             specifiedType: const FullType(String)));
     }
     if (object.timeFmt != null) {
       result
-        ..add('timeFmt')
+        ..add('qTimeFmt')
         ..add(serializers.serialize(object.timeFmt,
             specifiedType: const FullType(String)));
     }
     if (object.dateFmt != null) {
       result
-        ..add('dateFmt')
+        ..add('qDateFmt')
         ..add(serializers.serialize(object.dateFmt,
             specifiedType: const FullType(String)));
     }
     if (object.timestampFmt != null) {
       result
-        ..add('timestampFmt')
+        ..add('qTimestampFmt')
         ..add(serializers.serialize(object.timestampFmt,
             specifiedType: const FullType(String)));
     }
     if (object.calendarStrings != null) {
       result
-        ..add('calendarStrings')
+        ..add('qCalendarStrings')
         ..add(serializers.serialize(object.calendarStrings,
             specifiedType: const FullType(CalendarStrings)));
     }
     if (object.firstWeekDay != null) {
       result
-        ..add('firstWeekDay')
+        ..add('qFirstWeekDay')
         ..add(serializers.serialize(object.firstWeekDay,
             specifiedType: const FullType(int)));
     }
     if (object.brokenWeeks != null) {
       result
-        ..add('brokenWeeks')
+        ..add('qBrokenWeeks')
         ..add(serializers.serialize(object.brokenWeeks,
             specifiedType: const FullType(bool)));
     }
     if (object.referenceDay != null) {
       result
-        ..add('referenceDay')
+        ..add('qReferenceDay')
         ..add(serializers.serialize(object.referenceDay,
             specifiedType: const FullType(int)));
     }
     if (object.firstMonthOfYear != null) {
       result
-        ..add('firstMonthOfYear')
+        ..add('qFirstMonthOfYear')
         ..add(serializers.serialize(object.firstMonthOfYear,
             specifiedType: const FullType(int)));
     }
     if (object.collation != null) {
       result
-        ..add('collation')
+        ..add('qCollation')
         ..add(serializers.serialize(object.collation,
             specifiedType: const FullType(String)));
     }
     if (object.numericalAbbreviation != null) {
       result
-        ..add('numericalAbbreviation')
+        ..add('qNumericalAbbreviation')
         ..add(serializers.serialize(object.numericalAbbreviation,
             specifiedType: const FullType(String)));
     }
@@ -143,72 +143,72 @@ class _$LocaleInfoSerializer implements StructuredSerializer<LocaleInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'decimalSep':
+        case 'qDecimalSep':
           result.decimalSep = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'thousandSep':
+        case 'qThousandSep':
           result.thousandSep = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'listSep':
+        case 'qListSep':
           result.listSep = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'moneyDecimalSep':
+        case 'qMoneyDecimalSep':
           result.moneyDecimalSep = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'moneyThousandSep':
+        case 'qMoneyThousandSep':
           result.moneyThousandSep = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'currentYear':
+        case 'qCurrentYear':
           result.currentYear = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'moneyFmt':
+        case 'qMoneyFmt':
           result.moneyFmt = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'timeFmt':
+        case 'qTimeFmt':
           result.timeFmt = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'dateFmt':
+        case 'qDateFmt':
           result.dateFmt = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'timestampFmt':
+        case 'qTimestampFmt':
           result.timestampFmt = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'calendarStrings':
+        case 'qCalendarStrings':
           result.calendarStrings.replace(serializers.deserialize(value,
                   specifiedType: const FullType(CalendarStrings))
               as CalendarStrings);
           break;
-        case 'firstWeekDay':
+        case 'qFirstWeekDay':
           result.firstWeekDay = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'brokenWeeks':
+        case 'qBrokenWeeks':
           result.brokenWeeks = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'referenceDay':
+        case 'qReferenceDay':
           result.referenceDay = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'firstMonthOfYear':
+        case 'qFirstMonthOfYear':
           result.firstMonthOfYear = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'collation':
+        case 'qCollation':
           result.collation = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'numericalAbbreviation':
+        case 'qNumericalAbbreviation':
           result.numericalAbbreviation = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

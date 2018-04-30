@@ -30,7 +30,7 @@ class _$SelectionObjectDefSerializer
     final result = <Object>[];
     if (object.stateName != null) {
       result
-        ..add('stateName')
+        ..add('qStateName')
         ..add(serializers.serialize(object.stateName,
             specifiedType: const FullType(String)));
     }
@@ -49,7 +49,7 @@ class _$SelectionObjectDefSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'stateName':
+        case 'qStateName':
           result.stateName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

@@ -16,11 +16,13 @@ abstract class GenericBookmarkEntry
   /// Information about the properties of the bookmark.
   /// Original name: qProperties
   @nullable
+  @BuiltValueField(wireName: 'qProperties')
   GenericBookmarkProperties get properties;
 
   /// Information about the bookmark.
   /// Original name: qBookmark
   @nullable
+  @BuiltValueField(wireName: 'qBookmark')
   NxBookmark get bookmark;
 
   factory GenericBookmarkEntry([updates(GenericBookmarkEntryBuilder b)]) =

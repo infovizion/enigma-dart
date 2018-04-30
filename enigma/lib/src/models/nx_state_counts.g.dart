@@ -29,49 +29,49 @@ class _$NxStateCountsSerializer implements StructuredSerializer<NxStateCounts> {
     final result = <Object>[];
     if (object.locked != null) {
       result
-        ..add('locked')
+        ..add('qLocked')
         ..add(serializers.serialize(object.locked,
             specifiedType: const FullType(int)));
     }
     if (object.selected != null) {
       result
-        ..add('selected')
+        ..add('qSelected')
         ..add(serializers.serialize(object.selected,
             specifiedType: const FullType(int)));
     }
     if (object.option != null) {
       result
-        ..add('option')
+        ..add('qOption')
         ..add(serializers.serialize(object.option,
             specifiedType: const FullType(int)));
     }
     if (object.deselected != null) {
       result
-        ..add('deselected')
+        ..add('qDeselected')
         ..add(serializers.serialize(object.deselected,
             specifiedType: const FullType(int)));
     }
     if (object.alternative != null) {
       result
-        ..add('alternative')
+        ..add('qAlternative')
         ..add(serializers.serialize(object.alternative,
             specifiedType: const FullType(int)));
     }
     if (object.excluded != null) {
       result
-        ..add('excluded')
+        ..add('qExcluded')
         ..add(serializers.serialize(object.excluded,
             specifiedType: const FullType(int)));
     }
     if (object.selectedExcluded != null) {
       result
-        ..add('selectedExcluded')
+        ..add('qSelectedExcluded')
         ..add(serializers.serialize(object.selectedExcluded,
             specifiedType: const FullType(int)));
     }
     if (object.lockedExcluded != null) {
       result
-        ..add('lockedExcluded')
+        ..add('qLockedExcluded')
         ..add(serializers.serialize(object.lockedExcluded,
             specifiedType: const FullType(int)));
     }
@@ -90,35 +90,35 @@ class _$NxStateCountsSerializer implements StructuredSerializer<NxStateCounts> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'locked':
+        case 'qLocked':
           result.locked = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'selected':
+        case 'qSelected':
           result.selected = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'option':
+        case 'qOption':
           result.option = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'deselected':
+        case 'qDeselected':
           result.deselected = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'alternative':
+        case 'qAlternative':
           result.alternative = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'excluded':
+        case 'qExcluded':
           result.excluded = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'selectedExcluded':
+        case 'qSelectedExcluded':
           result.selectedExcluded = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'lockedExcluded':
+        case 'qLockedExcluded':
           result.lockedExcluded = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

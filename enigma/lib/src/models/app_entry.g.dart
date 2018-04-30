@@ -28,49 +28,49 @@ class _$AppEntrySerializer implements StructuredSerializer<AppEntry> {
     final result = <Object>[];
     if (object.iD != null) {
       result
-        ..add('iD')
+        ..add('qID')
         ..add(serializers.serialize(object.iD,
             specifiedType: const FullType(String)));
     }
     if (object.title != null) {
       result
-        ..add('title')
+        ..add('qTitle')
         ..add(serializers.serialize(object.title,
             specifiedType: const FullType(String)));
     }
     if (object.path != null) {
       result
-        ..add('path')
+        ..add('qPath')
         ..add(serializers.serialize(object.path,
             specifiedType: const FullType(String)));
     }
     if (object.lastReloadTime != null) {
       result
-        ..add('lastReloadTime')
+        ..add('qLastReloadTime')
         ..add(serializers.serialize(object.lastReloadTime,
             specifiedType: const FullType(String)));
     }
     if (object.readOnly != null) {
       result
-        ..add('readOnly')
+        ..add('qReadOnly')
         ..add(serializers.serialize(object.readOnly,
             specifiedType: const FullType(bool)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.thumbnail != null) {
       result
-        ..add('thumbnail')
+        ..add('qThumbnail')
         ..add(serializers.serialize(object.thumbnail,
             specifiedType: const FullType(StaticContentUrl)));
     }
     if (object.fileSize != null) {
       result
-        ..add('fileSize')
+        ..add('qFileSize')
         ..add(serializers.serialize(object.fileSize,
             specifiedType: const FullType(int)));
     }
@@ -89,36 +89,36 @@ class _$AppEntrySerializer implements StructuredSerializer<AppEntry> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'iD':
+        case 'qID':
           result.iD = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'title':
+        case 'qTitle':
           result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'path':
+        case 'qPath':
           result.path = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'lastReloadTime':
+        case 'qLastReloadTime':
           result.lastReloadTime = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'readOnly':
+        case 'qReadOnly':
           result.readOnly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'thumbnail':
+        case 'qThumbnail':
           result.thumbnail.replace(serializers.deserialize(value,
                   specifiedType: const FullType(StaticContentUrl))
               as StaticContentUrl);
           break;
-        case 'fileSize':
+        case 'qFileSize':
           result.fileSize = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

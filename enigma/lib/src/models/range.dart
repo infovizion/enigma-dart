@@ -12,11 +12,13 @@ abstract class Range implements Built<Range, RangeBuilder> {
   /// Lowest value in the range
   /// Original name: qMin
   @nullable
+  @BuiltValueField(wireName: 'qMin')
   num get min;
 
   /// Highest value in the range
   /// Original name: qMax
   @nullable
+  @BuiltValueField(wireName: 'qMax')
   num get max;
 
   /// If set to true, the range includes the lowest value in the range of selections (Equals to ). [bn(50500)]
@@ -24,6 +26,7 @@ abstract class Range implements Built<Range, RangeBuilder> {
   /// The range is [1,10]. If _qMinInclEq_ is set to true it means that 1 is included in the range of selections.
   /// Original name: qMinInclEq
   @nullable
+  @BuiltValueField(wireName: 'qMinInclEq')
   bool get minInclEq;
 
   /// If set to true, the range includes the highest value in the range of selections (Equals to ). [bn(50500)]
@@ -31,6 +34,7 @@ abstract class Range implements Built<Range, RangeBuilder> {
   /// The range is [1,10]. If _qMinInclEq_ is set to true it means that 10 is included in the range of selections.
   /// Original name: qMaxInclEq
   @nullable
+  @BuiltValueField(wireName: 'qMaxInclEq')
   bool get maxInclEq;
 
   factory Range([updates(RangeBuilder b)]) = _$Range;

@@ -22,11 +22,13 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
   /// Refers to a measure stored in the library.
   /// Original name: qLibraryId
   @nullable
+  @BuiltValueField(wireName: 'qLibraryId')
   String get libraryId;
 
   /// Refers to a measure stored in the hypercube.
   /// Original name: qDef
   @nullable
+  @BuiltValueField(wireName: 'qDef')
   NxInlineMeasureDef get def;
 
   /// Defines the sort criteria.
@@ -34,16 +36,19 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
   /// This property is optional.
   /// Original name: qSortBy
   @nullable
+  @BuiltValueField(wireName: 'qSortBy')
   SortCriteria get sortBy;
 
   /// List of attribute expressions.
   /// Original name: qAttributeExpressions
   @nullable
+  @BuiltValueField(wireName: 'qAttributeExpressions')
   BuiltList<NxCell> get attributeExpressions;
 
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
   @nullable
+  @BuiltValueField(wireName: 'qAttributeDimensions')
   BuiltList<NxCell> get attributeDimensions;
 
   /// Specifies a calculation condition, which must be fulfilled for the measure to be calculated.
@@ -52,6 +57,7 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
   /// This property is optional.
   /// Original name: qCalcCond
   @nullable
+  @BuiltValueField(wireName: 'qCalcCond')
   ValueExpr get calcCond;
 
   /// Specifies a calculation condition object.
@@ -60,6 +66,7 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
   /// This property is optional.
   /// Original name: qCalcCondition
   @nullable
+  @BuiltValueField(wireName: 'qCalcCondition')
   NxCalcCond get calcCondition;
 
   factory NxMeasure([updates(NxMeasureBuilder b)]) = _$NxMeasure;

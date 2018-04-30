@@ -28,31 +28,31 @@ class _$DriveInfoSerializer implements StructuredSerializer<DriveInfo> {
     final result = <Object>[];
     if (object.drive != null) {
       result
-        ..add('drive')
+        ..add('qDrive')
         ..add(serializers.serialize(object.drive,
             specifiedType: const FullType(String)));
     }
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.typeIdentifier != null) {
       result
-        ..add('typeIdentifier')
+        ..add('qTypeIdentifier')
         ..add(serializers.serialize(object.typeIdentifier,
             specifiedType: const FullType(String)));
     }
     if (object.unnamedDrive != null) {
       result
-        ..add('unnamedDrive')
+        ..add('qUnnamedDrive')
         ..add(serializers.serialize(object.unnamedDrive,
             specifiedType: const FullType(bool)));
     }
@@ -71,23 +71,23 @@ class _$DriveInfoSerializer implements StructuredSerializer<DriveInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'drive':
+        case 'qDrive':
           result.drive = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'typeIdentifier':
+        case 'qTypeIdentifier':
           result.typeIdentifier = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'unnamedDrive':
+        case 'qUnnamedDrive':
           result.unnamedDrive = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

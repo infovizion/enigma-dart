@@ -33,19 +33,19 @@ class _$GenericObjectPropertiesSerializer
     final result = <Object>[];
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.extendsId != null) {
       result
-        ..add('extendsId')
+        ..add('qExtendsId')
         ..add(serializers.serialize(object.extendsId,
             specifiedType: const FullType(String)));
     }
     if (object.metaDef != null) {
       result
-        ..add('metaDef')
+        ..add('qMetaDef')
         ..add(serializers.serialize(object.metaDef,
             specifiedType: const FullType(JsonObject)));
     }
@@ -65,15 +65,15 @@ class _$GenericObjectPropertiesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'extendsId':
+        case 'qExtendsId':
           result.extendsId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'metaDef':
+        case 'qMetaDef':
           result.metaDef = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;

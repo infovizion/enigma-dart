@@ -30,45 +30,45 @@ class _$BookmarkFieldItemSerializer
     final result = <Object>[];
     if (object.def != null) {
       result
-        ..add('def')
+        ..add('qDef')
         ..add(serializers.serialize(object.def,
             specifiedType: const FullType(FieldDefEx)));
     }
     if (object.locked != null) {
       result
-        ..add('locked')
+        ..add('qLocked')
         ..add(serializers.serialize(object.locked,
             specifiedType: const FullType(bool)));
     }
     if (object.selectInfo != null) {
       result
-        ..add('selectInfo')
+        ..add('qSelectInfo')
         ..add(serializers.serialize(object.selectInfo,
             specifiedType: const FullType(SelectInfo)));
     }
     if (object.values != null) {
       result
-        ..add('values')
+        ..add('qValues')
         ..add(serializers.serialize(object.values,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.excludedValues != null) {
       result
-        ..add('excludedValues')
+        ..add('qExcludedValues')
         ..add(serializers.serialize(object.excludedValues,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.andMode != null) {
       result
-        ..add('andMode')
+        ..add('qAndMode')
         ..add(serializers.serialize(object.andMode,
             specifiedType: const FullType(bool)));
     }
     if (object.oneAndOnlyOne != null) {
       result
-        ..add('oneAndOnlyOne')
+        ..add('qOneAndOnlyOne')
         ..add(serializers.serialize(object.oneAndOnlyOne,
             specifiedType: const FullType(bool)));
     }
@@ -87,35 +87,35 @@ class _$BookmarkFieldItemSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'def':
+        case 'qDef':
           result.def.replace(serializers.deserialize(value,
               specifiedType: const FullType(FieldDefEx)) as FieldDefEx);
           break;
-        case 'locked':
+        case 'qLocked':
           result.locked = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'selectInfo':
+        case 'qSelectInfo':
           result.selectInfo.replace(serializers.deserialize(value,
               specifiedType: const FullType(SelectInfo)) as SelectInfo);
           break;
-        case 'values':
+        case 'qValues':
           result.values.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'excludedValues':
+        case 'qExcludedValues':
           result.excludedValues.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'andMode':
+        case 'qAndMode':
           result.andMode = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'oneAndOnlyOne':
+        case 'qOneAndOnlyOne':
           result.oneAndOnlyOne = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

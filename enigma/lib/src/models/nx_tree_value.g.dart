@@ -28,25 +28,25 @@ class _$NxTreeValueSerializer implements StructuredSerializer<NxTreeValue> {
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
     if (object.value != null) {
       result
-        ..add('value')
+        ..add('qValue')
         ..add(serializers.serialize(object.value,
             specifiedType: const FullType(num)));
     }
     if (object.attrExps != null) {
       result
-        ..add('attrExps')
+        ..add('qAttrExps')
         ..add(serializers.serialize(object.attrExps,
             specifiedType: const FullType(NxAttributeExpressionValues)));
     }
     if (object.attrDims != null) {
       result
-        ..add('attrDims')
+        ..add('qAttrDims')
         ..add(serializers.serialize(object.attrDims,
             specifiedType: const FullType(NxAttributeDimValues)));
     }
@@ -65,20 +65,20 @@ class _$NxTreeValueSerializer implements StructuredSerializer<NxTreeValue> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'value':
+        case 'qValue':
           result.value = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'attrExps':
+        case 'qAttrExps':
           result.attrExps.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAttributeExpressionValues))
               as NxAttributeExpressionValues);
           break;
-        case 'attrDims':
+        case 'qAttrDims':
           result.attrDims.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAttributeDimValues))
               as NxAttributeDimValues);

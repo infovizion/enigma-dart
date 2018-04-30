@@ -17,16 +17,19 @@ abstract class NxPivotValuePoint
   /// This parameter is optional.
   /// Original name: qLabel
   @nullable
+  @BuiltValueField(wireName: 'qLabel')
   String get label;
 
   /// Some text related to the cell.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// Value of the cell.
   /// Original name: qNum
   @nullable
+  @BuiltValueField(wireName: 'qNum')
   num get qNum;
 
   /// Type of the cell.
@@ -44,15 +47,18 @@ abstract class NxPivotValuePoint
   /// * G or NX_DIM_CELL_GENERATED
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Attribute expressions values.
   /// Original name: qAttrExps
   @nullable
+  @BuiltValueField(wireName: 'qAttrExps')
   NxAttributeExpressionValues get attrExps;
 
   /// Original name: qAttrDims
   @nullable
+  @BuiltValueField(wireName: 'qAttrDims')
   NxAttributeDimValues get attrDims;
 
   factory NxPivotValuePoint([updates(NxPivotValuePointBuilder b)]) =

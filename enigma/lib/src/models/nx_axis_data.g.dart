@@ -28,7 +28,7 @@ class _$NxAxisDataSerializer implements StructuredSerializer<NxAxisData> {
     final result = <Object>[];
     if (object.axis != null) {
       result
-        ..add('axis')
+        ..add('qAxis')
         ..add(serializers.serialize(object.axis,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -48,7 +48,7 @@ class _$NxAxisDataSerializer implements StructuredSerializer<NxAxisData> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'axis':
+        case 'qAxis':
           result.axis.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

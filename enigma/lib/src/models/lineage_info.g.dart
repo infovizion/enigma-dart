@@ -28,13 +28,13 @@ class _$LineageInfoSerializer implements StructuredSerializer<LineageInfo> {
     final result = <Object>[];
     if (object.discriminator != null) {
       result
-        ..add('discriminator')
+        ..add('qDiscriminator')
         ..add(serializers.serialize(object.discriminator,
             specifiedType: const FullType(String)));
     }
     if (object.statement != null) {
       result
-        ..add('statement')
+        ..add('qStatement')
         ..add(serializers.serialize(object.statement,
             specifiedType: const FullType(String)));
     }
@@ -53,11 +53,11 @@ class _$LineageInfoSerializer implements StructuredSerializer<LineageInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'discriminator':
+        case 'qDiscriminator':
           result.discriminator = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'statement':
+        case 'qStatement':
           result.statement = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

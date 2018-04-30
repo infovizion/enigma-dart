@@ -15,11 +15,13 @@ abstract class NxSimpleDimValue
   /// This property is optional. No text is returned if the attribute expression value is a numeric.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// Element number.
   /// Original name: qElemNo
   @nullable
+  @BuiltValueField(wireName: 'qElemNo')
   int get elemNo;
 
   factory NxSimpleDimValue([updates(NxSimpleDimValueBuilder b)]) =

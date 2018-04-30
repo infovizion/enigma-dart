@@ -15,6 +15,7 @@ abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
   /// Array of data.
   /// Original name: qMatrix
   @nullable
+  @BuiltValueField(wireName: 'qMatrix')
   BuiltList<NxCell> get matrix;
 
   /// Array of tails.
@@ -22,17 +23,20 @@ abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
   /// If there is no tail, the array is empty _[ ]_ .
   /// Original name: qTails
   @nullable
+  @BuiltValueField(wireName: 'qTails')
   BuiltList<NxCell> get tails;
 
   /// Size and offset of the data in the matrix.
   /// Original name: qArea
   @nullable
+  @BuiltValueField(wireName: 'qArea')
   Rect get area;
 
   /// Is set to true, if the data have been reduced.
   /// The default value is false.
   /// Original name: qIsReduced
   @nullable
+  @BuiltValueField(wireName: 'qIsReduced')
   bool get isReduced;
 
   factory NxDataPage([updates(NxDataPageBuilder b)]) = _$NxDataPage;

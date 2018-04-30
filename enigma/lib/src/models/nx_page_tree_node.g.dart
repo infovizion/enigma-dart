@@ -30,13 +30,13 @@ class _$NxPageTreeNodeSerializer
     final result = <Object>[];
     if (object.area != null) {
       result
-        ..add('area')
+        ..add('qArea')
         ..add(serializers.serialize(object.area,
             specifiedType: const FullType(Rect)));
     }
     if (object.allValues != null) {
       result
-        ..add('allValues')
+        ..add('qAllValues')
         ..add(serializers.serialize(object.allValues,
             specifiedType: const FullType(bool)));
     }
@@ -55,11 +55,11 @@ class _$NxPageTreeNodeSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'area':
+        case 'qArea':
           result.area.replace(serializers.deserialize(value,
               specifiedType: const FullType(Rect)) as Rect);
           break;
-        case 'allValues':
+        case 'qAllValues':
           result.allValues = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

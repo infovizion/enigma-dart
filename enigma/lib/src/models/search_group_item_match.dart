@@ -19,12 +19,14 @@ abstract class SearchGroupItemMatch
   /// If the match is found in a generic object property, it corresponds to the property value.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// List of ranges.
   /// For example, if the search terms are Price and Make, and the search group item value is Make by Price vs Mileage, then there are two ranges: one for Price and one for Make.
   /// Original name: qRanges
   @nullable
+  @BuiltValueField(wireName: 'qRanges')
   BuiltList<NxCell> get ranges;
 
   /// Provides detail of the match as requested by the user in _SearchObjectsOptions.qAttributes_ or _SearchCombinationOptions.qAttributes_
@@ -34,6 +36,7 @@ abstract class SearchGroupItemMatch
   /// For _SearchResults_ requested with _qElemNum_ , the _SearchGroupItemMatch.qAttributes_ return value contains _["qElemNum", N]_ where _N_ is the value index of the element.
   /// Original name: qAttributes
   @nullable
+  @BuiltValueField(wireName: 'qAttributes')
   BuiltList<NxCell> get attributes;
 
   factory SearchGroupItemMatch([updates(SearchGroupItemMatchBuilder b)]) =

@@ -15,12 +15,14 @@ abstract class NxListObjectExpression
   /// Value of the expression.
   /// Original name: qExpr
   @nullable
+  @BuiltValueField(wireName: 'qExpr')
   String get expr;
 
   /// Gives information on the error.
   /// This parameter is optional.
   /// Original name: qError
   @nullable
+  @BuiltValueField(wireName: 'qError')
   NxLayoutErrors get error;
 
   factory NxListObjectExpression([updates(NxListObjectExpressionBuilder b)]) =

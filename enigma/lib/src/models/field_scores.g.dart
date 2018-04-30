@@ -28,31 +28,31 @@ class _$FieldScoresSerializer implements StructuredSerializer<FieldScores> {
     final result = <Object>[];
     if (object.fieldName != null) {
       result
-        ..add('fieldName')
+        ..add('qFieldName')
         ..add(serializers.serialize(object.fieldName,
             specifiedType: const FullType(String)));
     }
     if (object.readableName != null) {
       result
-        ..add('readableName')
+        ..add('qReadableName')
         ..add(serializers.serialize(object.readableName,
             specifiedType: const FullType(String)));
     }
     if (object.cardinalRatio != null) {
       result
-        ..add('cardinalRatio')
+        ..add('qCardinalRatio')
         ..add(serializers.serialize(object.cardinalRatio,
             specifiedType: const FullType(num)));
     }
     if (object.symbolScore != null) {
       result
-        ..add('symbolScore')
+        ..add('qSymbolScore')
         ..add(serializers.serialize(object.symbolScore,
             specifiedType: const FullType(num)));
     }
     if (object.rowScore != null) {
       result
-        ..add('rowScore')
+        ..add('qRowScore')
         ..add(serializers.serialize(object.rowScore,
             specifiedType: const FullType(num)));
     }
@@ -71,23 +71,23 @@ class _$FieldScoresSerializer implements StructuredSerializer<FieldScores> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'fieldName':
+        case 'qFieldName':
           result.fieldName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'readableName':
+        case 'qReadableName':
           result.readableName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'cardinalRatio':
+        case 'qCardinalRatio':
           result.cardinalRatio = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'symbolScore':
+        case 'qSymbolScore':
           result.symbolScore = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'rowScore':
+        case 'qRowScore':
           result.rowScore = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;

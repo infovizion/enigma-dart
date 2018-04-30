@@ -65,18 +65,21 @@ abstract class FieldAttributes
   /// * IV or INTERVAL
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Number of decimals.
   /// Default is 10.
   /// Original name: qnDec
   @nullable
+  @BuiltValueField(wireName: 'qnDec')
   int get nDec;
 
   /// Defines whether or not a thousands separator must be used.
   /// Default is 0.
   /// Original name: qUseThou
   @nullable
+  @BuiltValueField(wireName: 'qUseThou')
   int get useThou;
 
   /// Defines the format pattern that applies to _qText_ .
@@ -85,12 +88,14 @@ abstract class FieldAttributes
   /// Example: _YYYY-MM-DD_ for a date.
   /// Original name: qFmt
   @nullable
+  @BuiltValueField(wireName: 'qFmt')
   String get fmt;
 
   /// Defines the decimal separator.
   /// Example: **.**
   /// Original name: qDec
   @nullable
+  @BuiltValueField(wireName: 'qDec')
   String get dec;
 
   /// Defines the thousand separator (if any).
@@ -98,6 +103,7 @@ abstract class FieldAttributes
   /// Example: **,**
   /// Original name: qThou
   @nullable
+  @BuiltValueField(wireName: 'qThou')
   String get thou;
 
   factory FieldAttributes([updates(FieldAttributesBuilder b)]) =

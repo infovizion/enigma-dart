@@ -29,62 +29,74 @@ abstract class NxAppLayout implements Built<NxAppLayout, NxAppLayoutBuilder> {
   /// Title of the app.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   String get title;
 
   /// In Qlik Sense Enterprise, this property corresponds to the app identifier (GUID).
   /// In Qlik Sense Desktop, this property corresponds to the full path of the app.
   /// Original name: qFileName
   @nullable
+  @BuiltValueField(wireName: 'qFileName')
   String get fileName;
 
   /// Date and time of the last reload of the app in ISO format.
   /// Original name: qLastReloadTime
   @nullable
+  @BuiltValueField(wireName: 'qLastReloadTime')
   String get lastReloadTime;
 
   /// Is set to true if the app has been updated since the last save.
   /// Original name: qModified
   @nullable
+  @BuiltValueField(wireName: 'qModified')
   bool get modified;
 
   /// Is set to true if a script is defined in the app.
   /// Original name: qHasScript
   @nullable
+  @BuiltValueField(wireName: 'qHasScript')
   bool get hasScript;
 
   /// Array of alternate states.
   /// Original name: qStateNames
   @nullable
+  @BuiltValueField(wireName: 'qStateNames')
   BuiltList<NxCell> get stateNames;
 
   /// Information on publishing and permissions.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// Information about the locale.
   /// Original name: qLocaleInfo
   @nullable
+  @BuiltValueField(wireName: 'qLocaleInfo')
   LocaleInfo get localeInfo;
 
   /// Is set to true if the app contains data following a script reload.
   /// Original name: qHasData
   @nullable
+  @BuiltValueField(wireName: 'qHasData')
   bool get hasData;
 
   /// If set to true, it means that the app is read-only.
   /// Original name: qReadOnly
   @nullable
+  @BuiltValueField(wireName: 'qReadOnly')
   bool get readOnly;
 
   /// If set to true, it means that the app was opened without loading its data.
   /// Original name: qIsOpenedWithoutData
   @nullable
+  @BuiltValueField(wireName: 'qIsOpenedWithoutData')
   bool get isOpenedWithoutData;
 
   /// App thumbnail.
   /// Original name: qThumbnail
   @nullable
+  @BuiltValueField(wireName: 'qThumbnail')
   StaticContentUrl get thumbnail;
 
   factory NxAppLayout([updates(NxAppLayoutBuilder b)]) = _$NxAppLayout;

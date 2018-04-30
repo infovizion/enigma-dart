@@ -14,40 +14,48 @@ abstract class AppEntry implements Built<AppEntry, AppEntryBuilder> {
   /// Identifier of the app.
   /// Original name: qID
   @nullable
+  @BuiltValueField(wireName: 'qID')
   String get iD;
 
   /// Title of the app.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   String get title;
 
   /// Path of the app.
   /// Original name: qPath
   @nullable
+  @BuiltValueField(wireName: 'qPath')
   String get path;
 
   /// Last reload time of the app.
   /// Original name: qLastReloadTime
   @nullable
+  @BuiltValueField(wireName: 'qLastReloadTime')
   String get lastReloadTime;
 
   /// Is set to true if the app is read-only.
   /// Original name: qReadOnly
   @nullable
+  @BuiltValueField(wireName: 'qReadOnly')
   bool get readOnly;
 
   /// Meta data.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// App thumbnail.
   /// Original name: qThumbnail
   @nullable
+  @BuiltValueField(wireName: 'qThumbnail')
   StaticContentUrl get thumbnail;
 
   /// Original name: qFileSize
   @nullable
+  @BuiltValueField(wireName: 'qFileSize')
   int get fileSize;
 
   factory AppEntry([updates(AppEntryBuilder b)]) = _$AppEntry;

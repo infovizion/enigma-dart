@@ -23,6 +23,7 @@ abstract class NxInlineDimensionDef
   /// * C or GRP_NX_COLLECTION
   /// Original name: qGrouping
   @nullable
+  @BuiltValueField(wireName: 'qGrouping')
   String get grouping;
 
   /// Array of field names.
@@ -30,12 +31,14 @@ abstract class NxInlineDimensionDef
   /// This parameter is optional.
   /// Original name: qFieldDefs
   @nullable
+  @BuiltValueField(wireName: 'qFieldDefs')
   BuiltList<NxCell> get fieldDefs;
 
   /// Array of field labels.
   /// This parameter is optional.
   /// Original name: qFieldLabels
   @nullable
+  @BuiltValueField(wireName: 'qFieldLabels')
   BuiltList<NxCell> get fieldLabels;
 
   /// Defines the sorting criteria in the field.
@@ -43,17 +46,20 @@ abstract class NxInlineDimensionDef
   /// This parameter is optional.
   /// Original name: qSortCriterias
   @nullable
+  @BuiltValueField(wireName: 'qSortCriterias')
   BuiltList<NxCell> get sortCriterias;
 
   /// Defines the format of the value.
   /// This parameter is optional.
   /// Original name: qNumberPresentations
   @nullable
+  @BuiltValueField(wireName: 'qNumberPresentations')
   BuiltList<NxCell> get numberPresentations;
 
   /// If set to true, it inverts the sort criteria in the field.
   /// Original name: qReverseSort
   @nullable
+  @BuiltValueField(wireName: 'qReverseSort')
   bool get reverseSort;
 
   /// Index of the active field in a cyclic dimension.
@@ -61,12 +67,14 @@ abstract class NxInlineDimensionDef
   /// This parameter is used in case of cyclic dimensions ( _qGrouping_ is C).
   /// Original name: qActiveField
   @nullable
+  @BuiltValueField(wireName: 'qActiveField')
   int get activeField;
 
   /// Label expression.
   /// This parameter is optional.
   /// Original name: qLabelExpression
   @nullable
+  @BuiltValueField(wireName: 'qLabelExpression')
   String get labelExpression;
 
   factory NxInlineDimensionDef([updates(NxInlineDimensionDefBuilder b)]) =

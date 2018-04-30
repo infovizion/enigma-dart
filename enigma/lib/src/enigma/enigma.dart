@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:web_socket_channel/web_socket_channel.dart';
 import 'dart:convert';
 import 'package:logging/logging.dart';
-// import '../services/global.dart';
+import '../services/global.dart';
 
 class Enigma {
   final Logger logger = new Logger('Engine');
@@ -80,5 +80,10 @@ class Enigma {
 
   Future<Map> queryList(int handle, String method, List args) async {
     return await query(handle, method, args);
+  }
+
+  Global open() {
+    channel.stream.listen(onMessage, onError: onError);
+    return new Global(this, -1);
   }
 }

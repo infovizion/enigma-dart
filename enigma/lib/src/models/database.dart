@@ -12,11 +12,13 @@ abstract class Database implements Built<Database, DatabaseBuilder> {
   /// Name of the database.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Is set to true if the database is set by default.
   /// Original name: qIsDefault
   @nullable
+  @BuiltValueField(wireName: 'qIsDefault')
   bool get isDefault;
 
   factory Database([updates(DatabaseBuilder b)]) = _$Database;

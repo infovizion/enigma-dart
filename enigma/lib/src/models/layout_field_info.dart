@@ -13,14 +13,17 @@ abstract class LayoutFieldInfo
 
   /// Original name: qFieldName
   @nullable
+  @BuiltValueField(wireName: 'qFieldName')
   String get fieldName;
 
   /// Original name: qValuesCount
   @nullable
+  @BuiltValueField(wireName: 'qValuesCount')
   int get valuesCount;
 
   /// Original name: qExcludedValuesCount
   @nullable
+  @BuiltValueField(wireName: 'qExcludedValuesCount')
   int get excludedValuesCount;
 
   factory LayoutFieldInfo([updates(LayoutFieldInfoBuilder b)]) =

@@ -13,18 +13,22 @@ abstract class ObjectInterface
 
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Original name: qHandle
   @nullable
+  @BuiltValueField(wireName: 'qHandle')
   int get handle;
 
   /// Original name: qGenericType
   @nullable
+  @BuiltValueField(wireName: 'qGenericType')
   String get genericType;
 
   /// Original name: qGenericId
   @nullable
+  @BuiltValueField(wireName: 'qGenericId')
   String get genericId;
 
   factory ObjectInterface([updates(ObjectInterfaceBuilder b)]) =

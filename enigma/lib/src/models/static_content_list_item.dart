@@ -22,6 +22,7 @@ abstract class StaticContentListItem
   /// * In the _/media/ folder_ are embedded in the qvf file.
   /// Original name: qUrlDef
   @nullable
+  @BuiltValueField(wireName: 'qUrlDef')
   String get urlDef;
 
   /// Relative path to the content file. The URL is static.
@@ -34,6 +35,7 @@ abstract class StaticContentListItem
   /// * In the _/media/ folder_ are embedded in the qvf file.
   /// Original name: qUrl
   @nullable
+  @BuiltValueField(wireName: 'qUrl')
   String get url;
 
   factory StaticContentListItem([updates(StaticContentListItemBuilder b)]) =

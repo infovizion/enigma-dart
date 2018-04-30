@@ -15,6 +15,7 @@ abstract class NxGroupTail implements Built<NxGroupTail, NxGroupTailBuilder> {
   /// This parameter is optional.
   /// Original name: qUp
   @nullable
+  @BuiltValueField(wireName: 'qUp')
   int get up;
 
   /// Number of elements that are part of the next tail.
@@ -23,6 +24,7 @@ abstract class NxGroupTail implements Built<NxGroupTail, NxGroupTailBuilder> {
   /// This parameter is optional.
   /// Original name: qDown
   @nullable
+  @BuiltValueField(wireName: 'qDown')
   int get down;
 
   factory NxGroupTail([updates(NxGroupTailBuilder b)]) = _$NxGroupTail;

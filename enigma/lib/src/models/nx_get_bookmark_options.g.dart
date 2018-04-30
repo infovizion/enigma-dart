@@ -33,14 +33,14 @@ class _$NxGetBookmarkOptionsSerializer
     final result = <Object>[];
     if (object.types != null) {
       result
-        ..add('types')
+        ..add('qTypes')
         ..add(serializers.serialize(object.types,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.data != null) {
       result
-        ..add('data')
+        ..add('qData')
         ..add(serializers.serialize(object.data,
             specifiedType: const FullType(JsonObject)));
     }
@@ -59,13 +59,13 @@ class _$NxGetBookmarkOptionsSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'types':
+        case 'qTypes':
           result.types.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'data':
+        case 'qData':
           result.data = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;

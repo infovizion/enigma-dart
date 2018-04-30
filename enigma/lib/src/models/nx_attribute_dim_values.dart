@@ -16,6 +16,7 @@ abstract class NxAttributeDimValues
   /// List of values.
   /// Original name: qValues
   @nullable
+  @BuiltValueField(wireName: 'qValues')
   BuiltList<NxCell> get values;
 
   factory NxAttributeDimValues([updates(NxAttributeDimValuesBuilder b)]) =

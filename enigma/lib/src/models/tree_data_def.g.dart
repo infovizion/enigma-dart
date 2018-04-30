@@ -28,57 +28,57 @@ class _$TreeDataDefSerializer implements StructuredSerializer<TreeDataDef> {
     final result = <Object>[];
     if (object.stateName != null) {
       result
-        ..add('stateName')
+        ..add('qStateName')
         ..add(serializers.serialize(object.stateName,
             specifiedType: const FullType(String)));
     }
     if (object.dimensions != null) {
       result
-        ..add('dimensions')
+        ..add('qDimensions')
         ..add(serializers.serialize(object.dimensions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.interColumnSortOrder != null) {
       result
-        ..add('interColumnSortOrder')
+        ..add('qInterColumnSortOrder')
         ..add(serializers.serialize(object.interColumnSortOrder,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.suppressZero != null) {
       result
-        ..add('suppressZero')
+        ..add('qSuppressZero')
         ..add(serializers.serialize(object.suppressZero,
             specifiedType: const FullType(bool)));
     }
     if (object.suppressMissing != null) {
       result
-        ..add('suppressMissing')
+        ..add('qSuppressMissing')
         ..add(serializers.serialize(object.suppressMissing,
             specifiedType: const FullType(bool)));
     }
     if (object.openFullyExpanded != null) {
       result
-        ..add('openFullyExpanded')
+        ..add('qOpenFullyExpanded')
         ..add(serializers.serialize(object.openFullyExpanded,
             specifiedType: const FullType(bool)));
     }
     if (object.populateMissing != null) {
       result
-        ..add('populateMissing')
+        ..add('qPopulateMissing')
         ..add(serializers.serialize(object.populateMissing,
             specifiedType: const FullType(bool)));
     }
     if (object.calcCondition != null) {
       result
-        ..add('calcCondition')
+        ..add('qCalcCondition')
         ..add(serializers.serialize(object.calcCondition,
             specifiedType: const FullType(NxCalcCond)));
     }
     if (object.title != null) {
       result
-        ..add('title')
+        ..add('qTitle')
         ..add(serializers.serialize(object.title,
             specifiedType: const FullType(StringExpr)));
     }
@@ -97,43 +97,43 @@ class _$TreeDataDefSerializer implements StructuredSerializer<TreeDataDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'stateName':
+        case 'qStateName':
           result.stateName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'dimensions':
+        case 'qDimensions':
           result.dimensions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'interColumnSortOrder':
+        case 'qInterColumnSortOrder':
           result.interColumnSortOrder.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'suppressZero':
+        case 'qSuppressZero':
           result.suppressZero = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'suppressMissing':
+        case 'qSuppressMissing':
           result.suppressMissing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'openFullyExpanded':
+        case 'qOpenFullyExpanded':
           result.openFullyExpanded = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'populateMissing':
+        case 'qPopulateMissing':
           result.populateMissing = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'calcCondition':
+        case 'qCalcCondition':
           result.calcCondition.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxCalcCond)) as NxCalcCond);
           break;
-        case 'title':
+        case 'qTitle':
           result.title.replace(serializers.deserialize(value,
               specifiedType: const FullType(StringExpr)) as StringExpr);
           break;

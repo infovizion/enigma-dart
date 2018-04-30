@@ -16,21 +16,25 @@ abstract class CalendarStrings
   /// List of short day names.
   /// Original name: qDayNames
   @nullable
+  @BuiltValueField(wireName: 'qDayNames')
   BuiltList<NxCell> get dayNames;
 
   /// List of short month names.
   /// Original name: qMonthNames
   @nullable
+  @BuiltValueField(wireName: 'qMonthNames')
   BuiltList<NxCell> get monthNames;
 
   /// List of long day names.
   /// Original name: qLongDayNames
   @nullable
+  @BuiltValueField(wireName: 'qLongDayNames')
   BuiltList<NxCell> get longDayNames;
 
   /// List of long month names.
   /// Original name: qLongMonthNames
   @nullable
+  @BuiltValueField(wireName: 'qLongMonthNames')
   BuiltList<NxCell> get longMonthNames;
 
   factory CalendarStrings([updates(CalendarStringsBuilder b)]) =

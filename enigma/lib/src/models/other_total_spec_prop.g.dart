@@ -30,73 +30,73 @@ class _$OtherTotalSpecPropSerializer
     final result = <Object>[];
     if (object.otherMode != null) {
       result
-        ..add('otherMode')
+        ..add('qOtherMode')
         ..add(serializers.serialize(object.otherMode,
             specifiedType: const FullType(String)));
     }
     if (object.otherCounted != null) {
       result
-        ..add('otherCounted')
+        ..add('qOtherCounted')
         ..add(serializers.serialize(object.otherCounted,
             specifiedType: const FullType(ValueExpr)));
     }
     if (object.otherLimit != null) {
       result
-        ..add('otherLimit')
+        ..add('qOtherLimit')
         ..add(serializers.serialize(object.otherLimit,
             specifiedType: const FullType(ValueExpr)));
     }
     if (object.otherLimitMode != null) {
       result
-        ..add('otherLimitMode')
+        ..add('qOtherLimitMode')
         ..add(serializers.serialize(object.otherLimitMode,
             specifiedType: const FullType(String)));
     }
     if (object.suppressOther != null) {
       result
-        ..add('suppressOther')
+        ..add('qSuppressOther')
         ..add(serializers.serialize(object.suppressOther,
             specifiedType: const FullType(bool)));
     }
     if (object.forceBadValueKeeping != null) {
       result
-        ..add('forceBadValueKeeping')
+        ..add('qForceBadValueKeeping')
         ..add(serializers.serialize(object.forceBadValueKeeping,
             specifiedType: const FullType(bool)));
     }
     if (object.applyEvenWhenPossiblyWrongResult != null) {
       result
-        ..add('applyEvenWhenPossiblyWrongResult')
+        ..add('qApplyEvenWhenPossiblyWrongResult')
         ..add(serializers.serialize(object.applyEvenWhenPossiblyWrongResult,
             specifiedType: const FullType(bool)));
     }
     if (object.globalOtherGrouping != null) {
       result
-        ..add('globalOtherGrouping')
+        ..add('qGlobalOtherGrouping')
         ..add(serializers.serialize(object.globalOtherGrouping,
             specifiedType: const FullType(bool)));
     }
     if (object.otherCollapseInnerDimensions != null) {
       result
-        ..add('otherCollapseInnerDimensions')
+        ..add('qOtherCollapseInnerDimensions')
         ..add(serializers.serialize(object.otherCollapseInnerDimensions,
             specifiedType: const FullType(bool)));
     }
     if (object.otherSortMode != null) {
       result
-        ..add('otherSortMode')
+        ..add('qOtherSortMode')
         ..add(serializers.serialize(object.otherSortMode,
             specifiedType: const FullType(String)));
     }
     if (object.totalMode != null) {
       result
-        ..add('totalMode')
+        ..add('qTotalMode')
         ..add(serializers.serialize(object.totalMode,
             specifiedType: const FullType(String)));
     }
     if (object.referencedExpression != null) {
       result
-        ..add('referencedExpression')
+        ..add('qReferencedExpression')
         ..add(serializers.serialize(object.referencedExpression,
             specifiedType: const FullType(StringExpr)));
     }
@@ -115,51 +115,51 @@ class _$OtherTotalSpecPropSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'otherMode':
+        case 'qOtherMode':
           result.otherMode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'otherCounted':
+        case 'qOtherCounted':
           result.otherCounted.replace(serializers.deserialize(value,
               specifiedType: const FullType(ValueExpr)) as ValueExpr);
           break;
-        case 'otherLimit':
+        case 'qOtherLimit':
           result.otherLimit.replace(serializers.deserialize(value,
               specifiedType: const FullType(ValueExpr)) as ValueExpr);
           break;
-        case 'otherLimitMode':
+        case 'qOtherLimitMode':
           result.otherLimitMode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'suppressOther':
+        case 'qSuppressOther':
           result.suppressOther = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'forceBadValueKeeping':
+        case 'qForceBadValueKeeping':
           result.forceBadValueKeeping = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'applyEvenWhenPossiblyWrongResult':
+        case 'qApplyEvenWhenPossiblyWrongResult':
           result.applyEvenWhenPossiblyWrongResult = serializers
               .deserialize(value, specifiedType: const FullType(bool)) as bool;
           break;
-        case 'globalOtherGrouping':
+        case 'qGlobalOtherGrouping':
           result.globalOtherGrouping = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'otherCollapseInnerDimensions':
+        case 'qOtherCollapseInnerDimensions':
           result.otherCollapseInnerDimensions = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'otherSortMode':
+        case 'qOtherSortMode':
           result.otherSortMode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'totalMode':
+        case 'qTotalMode':
           result.totalMode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'referencedExpression':
+        case 'qReferencedExpression':
           result.referencedExpression.replace(serializers.deserialize(value,
               specifiedType: const FullType(StringExpr)) as StringExpr);
           break;

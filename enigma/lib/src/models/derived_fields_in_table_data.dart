@@ -17,16 +17,19 @@ abstract class DerivedFieldsInTableData
   /// Name of the derived definition.
   /// Original name: qDefinitionName
   @nullable
+  @BuiltValueField(wireName: 'qDefinitionName')
   String get definitionName;
 
   /// List of tags.
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   /// Is set to true is the derived field is in use.
   /// Original name: qActive
   @nullable
+  @BuiltValueField(wireName: 'qActive')
   bool get active;
 
   factory DerivedFieldsInTableData(

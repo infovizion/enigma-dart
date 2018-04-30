@@ -16,6 +16,7 @@ abstract class NxFieldProperties
   /// <div class=note>The property _OneAndOnlyOne_ can be set to true if one and only value has been selected in the field prior to setting the property. </div>
   /// Original name: qOneAndOnlyOne
   @nullable
+  @BuiltValueField(wireName: 'qOneAndOnlyOne')
   bool get oneAndOnlyOne;
 
   factory NxFieldProperties([updates(NxFieldPropertiesBuilder b)]) =

@@ -20,11 +20,13 @@ abstract class LineageInfo implements Built<LineageInfo, LineageInfoBuilder> {
   /// * EXTENSION: the data comes from a Server Side Extension (SSE).
   /// Original name: qDiscriminator
   @nullable
+  @BuiltValueField(wireName: 'qDiscriminator')
   String get discriminator;
 
   /// The LOAD and SELECT script statements from the data load script.
   /// Original name: qStatement
   @nullable
+  @BuiltValueField(wireName: 'qStatement')
   String get statement;
 
   factory LineageInfo([updates(LineageInfoBuilder b)]) = _$LineageInfo;

@@ -12,17 +12,20 @@ abstract class OdbcDsn implements Built<OdbcDsn, OdbcDsnBuilder> {
   /// Name of the ODBC connection.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Description of the ODBC connection.
   /// Original name: qDescription
   @nullable
+  @BuiltValueField(wireName: 'qDescription')
   String get description;
 
   /// Is set to true if the version of ODBC is 32-bit.
   /// This parameter is optional. Default is false.
   /// Original name: qBit32
   @nullable
+  @BuiltValueField(wireName: 'qBit32')
   bool get bit32;
 
   /// Is set to true if the connection is User DSN. The connection works only for a specific user.
@@ -30,6 +33,7 @@ abstract class OdbcDsn implements Built<OdbcDsn, OdbcDsnBuilder> {
   /// This parameter is optional.
   /// Original name: qUserOnly
   @nullable
+  @BuiltValueField(wireName: 'qUserOnly')
   bool get userOnly;
 
   factory OdbcDsn([updates(OdbcDsnBuilder b)]) = _$OdbcDsn;

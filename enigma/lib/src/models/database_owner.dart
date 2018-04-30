@@ -13,6 +13,7 @@ abstract class DatabaseOwner
   /// Name of the owner.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   factory DatabaseOwner([updates(DatabaseOwnerBuilder b)]) = _$DatabaseOwner;

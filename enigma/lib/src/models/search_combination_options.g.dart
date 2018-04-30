@@ -33,26 +33,26 @@ class _$SearchCombinationOptionsSerializer
     final result = <Object>[];
     if (object.searchFields != null) {
       result
-        ..add('searchFields')
+        ..add('qSearchFields')
         ..add(serializers.serialize(object.searchFields,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.context != null) {
       result
-        ..add('context')
+        ..add('qContext')
         ..add(serializers.serialize(object.context,
             specifiedType: const FullType(String)));
     }
     if (object.charEncoding != null) {
       result
-        ..add('charEncoding')
+        ..add('qCharEncoding')
         ..add(serializers.serialize(object.charEncoding,
             specifiedType: const FullType(String)));
     }
     if (object.attributes != null) {
       result
-        ..add('attributes')
+        ..add('qAttributes')
         ..add(serializers.serialize(object.attributes,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -73,21 +73,21 @@ class _$SearchCombinationOptionsSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'searchFields':
+        case 'qSearchFields':
           result.searchFields.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'context':
+        case 'qContext':
           result.context = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'charEncoding':
+        case 'qCharEncoding':
           result.charEncoding = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'attributes':
+        case 'qAttributes':
           result.attributes.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

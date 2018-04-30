@@ -15,22 +15,26 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   /// Generally, if the array is not empty, the definition is a BNF rule (_qIsBnfRule_ is set to true). However, some BNF  rules do have an empty array (_qIsBnfRule_ is set to true, but _qBnf_ is empty).
   /// Original name: qBnf
   @nullable
+  @BuiltValueField(wireName: 'qBnf')
   BuiltList<NxCell> get bnf;
 
   /// Number of the current token definition.
   /// Original name: qNbr
   @nullable
+  @BuiltValueField(wireName: 'qNbr')
   int get nbr;
 
   /// Number of the parent rule definition.
   /// Original name: qPNbr
   @nullable
+  @BuiltValueField(wireName: 'qPNbr')
   int get pNbr;
 
   /// Reference identifier to a function described in the documentation. The identifier is stored in the definition of the token containing the function name.
   /// Is not used in Qlik Sense.
   /// Original name: qHelpId
   @nullable
+  @BuiltValueField(wireName: 'qHelpId')
   int get helpId;
 
   /// Token name.
@@ -40,48 +44,56 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   /// * A literal value
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Literal string of the token.
   /// Examples: 'Round' and '('.
   /// Original name: qStr
   @nullable
+  @BuiltValueField(wireName: 'qStr')
   String get str;
 
   /// If set to true, a list of related rule tokens is assigned to _qBnf_ .
   /// This parameter is optional. The default value is false.
   /// Original name: qIsBnfRule
   @nullable
+  @BuiltValueField(wireName: 'qIsBnfRule')
   bool get isBnfRule;
 
   /// If set to true, the definition specifies a script statement.
   /// This parameter is optional. The default value is false.
   /// Original name: qScriptStatement
   @nullable
+  @BuiltValueField(wireName: 'qScriptStatement')
   bool get scriptStatement;
 
   /// If set to true, the definition specifies a control statement.
   /// This parameter is optional. The default value is false.
   /// Original name: qControlStatement
   @nullable
+  @BuiltValueField(wireName: 'qControlStatement')
   bool get controlStatement;
 
   /// If set to true, the definition specifies a literal token.
   /// This parameter is optional. The default value is false.
   /// Original name: qBnfLiteral
   @nullable
+  @BuiltValueField(wireName: 'qBnfLiteral')
   bool get bnfLiteral;
 
   /// If set to true, the definition is related to a Qlik Sense function. It cannot be an aggregation function.
   /// This parameter is optional. The default value is false.
   /// Original name: qQvFunc
   @nullable
+  @BuiltValueField(wireName: 'qQvFunc')
   bool get qvFunc;
 
   /// If set to true, the definition is related to an aggregation function.
   /// This parameter is optional. The default value is false.
   /// Original name: qAggrFunc
   @nullable
+  @BuiltValueField(wireName: 'qAggrFunc')
   bool get aggrFunc;
 
   /// Group of the function.
@@ -116,12 +128,14 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   /// * EXT or FUNC_GROUP_EXTERNAL
   /// Original name: qFG
   @nullable
+  @BuiltValueField(wireName: 'qFG')
   String get fG;
 
   /// If set to true, the definition is related to a field.
   /// This parameter is optional. The default value is false.
   /// Original name: qFieldFlag
   @nullable
+  @BuiltValueField(wireName: 'qFieldFlag')
   bool get fieldFlag;
 
   /// Type of the data.
@@ -133,6 +147,7 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   /// * V or META_DEFAULT_VALUE
   /// Original name: qMT
   @nullable
+  @BuiltValueField(wireName: 'qMT')
   String get mT;
 
   /// Indicates whether a script statement, a chart or a script function is deprecated (not recommended for use).
@@ -140,6 +155,7 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   /// This parameter is optional. The default value is false.
   /// Original name: qDepr
   @nullable
+  @BuiltValueField(wireName: 'qDepr')
   bool get depr;
 
   factory BNFDef([updates(BNFDefBuilder b)]) = _$BNFDef;

@@ -14,16 +14,19 @@ abstract class NxAxisTicks implements Built<NxAxisTicks, NxAxisTicksBuilder> {
   /// Name of the derived definition.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// List of tags.
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   /// List of ticks.
   /// Original name: qTicks
   @nullable
+  @BuiltValueField(wireName: 'qTicks')
   BuiltList<NxCell> get ticks;
 
   factory NxAxisTicks([updates(NxAxisTicksBuilder b)]) = _$NxAxisTicks;

@@ -30,19 +30,19 @@ class _$NxValidationErrorSerializer
     final result = <Object>[];
     if (object.errorCode != null) {
       result
-        ..add('errorCode')
+        ..add('qErrorCode')
         ..add(serializers.serialize(object.errorCode,
             specifiedType: const FullType(int)));
     }
     if (object.context != null) {
       result
-        ..add('context')
+        ..add('qContext')
         ..add(serializers.serialize(object.context,
             specifiedType: const FullType(String)));
     }
     if (object.extendedMessage != null) {
       result
-        ..add('extendedMessage')
+        ..add('qExtendedMessage')
         ..add(serializers.serialize(object.extendedMessage,
             specifiedType: const FullType(String)));
     }
@@ -61,15 +61,15 @@ class _$NxValidationErrorSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'errorCode':
+        case 'qErrorCode':
           result.errorCode = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'context':
+        case 'qContext':
           result.context = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'extendedMessage':
+        case 'qExtendedMessage':
           result.extendedMessage = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

@@ -33,13 +33,13 @@ class _$NxListObjectExpressionSerializer
     final result = <Object>[];
     if (object.expr != null) {
       result
-        ..add('expr')
+        ..add('qExpr')
         ..add(serializers.serialize(object.expr,
             specifiedType: const FullType(String)));
     }
     if (object.error != null) {
       result
-        ..add('error')
+        ..add('qError')
         ..add(serializers.serialize(object.error,
             specifiedType: const FullType(NxLayoutErrors)));
     }
@@ -59,11 +59,11 @@ class _$NxListObjectExpressionSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'expr':
+        case 'qExpr':
           result.expr = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'error':
+        case 'qError':
           result.error.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxLayoutErrors)) as NxLayoutErrors);
           break;

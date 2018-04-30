@@ -16,6 +16,7 @@ abstract class NxAutoSortByStateDef
   /// If _qDisplayNumberOfRows_ is set to a negative value or to 0, the sort by state is disabled.
   /// Original name: qDisplayNumberOfRows
   @nullable
+  @BuiltValueField(wireName: 'qDisplayNumberOfRows')
   int get displayNumberOfRows;
 
   factory NxAutoSortByStateDef([updates(NxAutoSortByStateDefBuilder b)]) =

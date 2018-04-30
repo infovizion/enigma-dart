@@ -213,7 +213,7 @@ part 'serializers.g.dart';
   InteractDef,
   AppEntry,
   BNFDef,
-  ScriptsFunction,
+  ScriptFunction,
   OdbcDsn,
   OleDbProvider,
   DriveInfo,

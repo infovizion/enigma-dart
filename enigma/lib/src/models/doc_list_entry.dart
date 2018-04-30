@@ -15,11 +15,13 @@ abstract class DocListEntry
   /// Name of the app.
   /// Original name: qDocName
   @nullable
+  @BuiltValueField(wireName: 'qDocName')
   String get docName;
 
   /// Not used.
   /// Original name: qConnectedUsers
   @nullable
+  @BuiltValueField(wireName: 'qConnectedUsers')
   int get connectedUsers;
 
   /// Last modified time stamp of the app.
@@ -27,6 +29,7 @@ abstract class DocListEntry
   /// It is set to 0 for Qlik Sense Enterprise.
   /// Original name: qFileTime
   @nullable
+  @BuiltValueField(wireName: 'qFileTime')
   num get fileTime;
 
   /// Size of remote app.
@@ -34,6 +37,7 @@ abstract class DocListEntry
   /// It is set to 0 for Qlik Sense Enterprise.
   /// Original name: qFileSize
   @nullable
+  @BuiltValueField(wireName: 'qFileSize')
   num get fileSize;
 
   /// Identifier of the app.
@@ -41,31 +45,37 @@ abstract class DocListEntry
   /// * In Qlik Sense Enterprise, the identifier is the app's GUID.
   /// Original name: qDocId
   @nullable
+  @BuiltValueField(wireName: 'qDocId')
   String get docId;
 
   /// Meta data related to the app.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// Last reload time of the app.
   /// Original name: qLastReloadTime
   @nullable
+  @BuiltValueField(wireName: 'qLastReloadTime')
   String get lastReloadTime;
 
   /// If set to true, the app is read-only.
   /// Original name: qReadOnly
   @nullable
+  @BuiltValueField(wireName: 'qReadOnly')
   bool get readOnly;
 
   /// Title of the app.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   String get title;
 
   /// Thumbnail of the app.
   /// Original name: qThumbnail
   @nullable
+  @BuiltValueField(wireName: 'qThumbnail')
   StaticContentUrl get thumbnail;
 
   factory DocListEntry([updates(DocListEntryBuilder b)]) = _$DocListEntry;

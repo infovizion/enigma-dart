@@ -16,31 +16,37 @@ abstract class NxAttrDimInfo
   /// Cardinality of the attribute expression.
   /// Original name: qCardinal
   @nullable
+  @BuiltValueField(wireName: 'qCardinal')
   int get cardinal;
 
   /// Number of rows.
   /// Original name: qSize
   @nullable
+  @BuiltValueField(wireName: 'qSize')
   Size get size;
 
   /// The title for the attribute dimension.
   /// Original name: qFallbackTitle
   @nullable
+  @BuiltValueField(wireName: 'qFallbackTitle')
   String get fallbackTitle;
 
   /// The Locked value of the dimension.
   /// Original name: qLocked
   @nullable
+  @BuiltValueField(wireName: 'qLocked')
   bool get locked;
 
   /// Validation error.
   /// Original name: qError
   @nullable
+  @BuiltValueField(wireName: 'qError')
   NxValidationError get error;
 
   /// True if this is a calculated dimension.
   /// Original name: qIsCalculated
   @nullable
+  @BuiltValueField(wireName: 'qIsCalculated')
   bool get isCalculated;
 
   factory NxAttrDimInfo([updates(NxAttrDimInfoBuilder b)]) = _$NxAttrDimInfo;

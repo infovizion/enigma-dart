@@ -33,13 +33,13 @@ class _$TableViewTableWinSaveInfoSerializer
     final result = <Object>[];
     if (object.pos != null) {
       result
-        ..add('pos')
+        ..add('qPos')
         ..add(serializers.serialize(object.pos,
             specifiedType: const FullType(Rect)));
     }
     if (object.caption != null) {
       result
-        ..add('caption')
+        ..add('qCaption')
         ..add(serializers.serialize(object.caption,
             specifiedType: const FullType(String)));
     }
@@ -59,11 +59,11 @@ class _$TableViewTableWinSaveInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'pos':
+        case 'qPos':
           result.pos.replace(serializers.deserialize(value,
               specifiedType: const FullType(Rect)) as Rect);
           break;
-        case 'caption':
+        case 'qCaption':
           result.caption = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

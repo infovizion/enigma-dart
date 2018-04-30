@@ -15,11 +15,13 @@ abstract class BookmarkVariableItem
   /// Name of the variable.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Value of the variable.
   /// Original name: qValue
   @nullable
+  @BuiltValueField(wireName: 'qValue')
   FieldValue get value;
 
   factory BookmarkVariableItem([updates(BookmarkVariableItemBuilder b)]) =

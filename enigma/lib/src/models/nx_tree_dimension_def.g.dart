@@ -30,69 +30,69 @@ class _$NxTreeDimensionDefSerializer
     final result = <Object>[];
     if (object.libraryId != null) {
       result
-        ..add('libraryId')
+        ..add('qLibraryId')
         ..add(serializers.serialize(object.libraryId,
             specifiedType: const FullType(String)));
     }
     if (object.def != null) {
       result
-        ..add('def')
+        ..add('qDef')
         ..add(serializers.serialize(object.def,
             specifiedType: const FullType(NxInlineDimensionDef)));
     }
     if (object.valueExprs != null) {
       result
-        ..add('valueExprs')
+        ..add('qValueExprs')
         ..add(serializers.serialize(object.valueExprs,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.nullSuppression != null) {
       result
-        ..add('nullSuppression')
+        ..add('qNullSuppression')
         ..add(serializers.serialize(object.nullSuppression,
             specifiedType: const FullType(bool)));
     }
     if (object.otherTotalSpec != null) {
       result
-        ..add('otherTotalSpec')
+        ..add('qOtherTotalSpec')
         ..add(serializers.serialize(object.otherTotalSpec,
             specifiedType: const FullType(OtherTotalSpecProp)));
     }
     if (object.showAll != null) {
       result
-        ..add('showAll')
+        ..add('qShowAll')
         ..add(serializers.serialize(object.showAll,
             specifiedType: const FullType(bool)));
     }
     if (object.otherLabel != null) {
       result
-        ..add('otherLabel')
+        ..add('qOtherLabel')
         ..add(serializers.serialize(object.otherLabel,
             specifiedType: const FullType(StringExpr)));
     }
     if (object.totalLabel != null) {
       result
-        ..add('totalLabel')
+        ..add('qTotalLabel')
         ..add(serializers.serialize(object.totalLabel,
             specifiedType: const FullType(StringExpr)));
     }
     if (object.calcCondition != null) {
       result
-        ..add('calcCondition')
+        ..add('qCalcCondition')
         ..add(serializers.serialize(object.calcCondition,
             specifiedType: const FullType(NxCalcCond)));
     }
     if (object.attributeExpressions != null) {
       result
-        ..add('attributeExpressions')
+        ..add('qAttributeExpressions')
         ..add(serializers.serialize(object.attributeExpressions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attributeDimensions != null) {
       result
-        ..add('attributeDimensions')
+        ..add('qAttributeDimensions')
         ..add(serializers.serialize(object.attributeDimensions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -112,53 +112,53 @@ class _$NxTreeDimensionDefSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'libraryId':
+        case 'qLibraryId':
           result.libraryId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'def':
+        case 'qDef':
           result.def.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxInlineDimensionDef))
               as NxInlineDimensionDef);
           break;
-        case 'valueExprs':
+        case 'qValueExprs':
           result.valueExprs.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'nullSuppression':
+        case 'qNullSuppression':
           result.nullSuppression = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'otherTotalSpec':
+        case 'qOtherTotalSpec':
           result.otherTotalSpec.replace(serializers.deserialize(value,
                   specifiedType: const FullType(OtherTotalSpecProp))
               as OtherTotalSpecProp);
           break;
-        case 'showAll':
+        case 'qShowAll':
           result.showAll = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'otherLabel':
+        case 'qOtherLabel':
           result.otherLabel.replace(serializers.deserialize(value,
               specifiedType: const FullType(StringExpr)) as StringExpr);
           break;
-        case 'totalLabel':
+        case 'qTotalLabel':
           result.totalLabel.replace(serializers.deserialize(value,
               specifiedType: const FullType(StringExpr)) as StringExpr);
           break;
-        case 'calcCondition':
+        case 'qCalcCondition':
           result.calcCondition.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxCalcCond)) as NxCalcCond);
           break;
-        case 'attributeExpressions':
+        case 'qAttributeExpressions':
           result.attributeExpressions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'attributeDimensions':
+        case 'qAttributeDimensions':
           result.attributeDimensions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

@@ -15,24 +15,28 @@ abstract class NxDataAreaPage
   /// Corresponds to the lowest possible value of the first measure (the measure on the x-axis).
   /// Original name: qLeft
   @nullable
+  @BuiltValueField(wireName: 'qLeft')
   num get left;
 
   /// Position from the top.
   /// Corresponds to the highest possible value of the second measure (the measure on the y-axis).
   /// Original name: qTop
   @nullable
+  @BuiltValueField(wireName: 'qTop')
   num get top;
 
   /// Width of the page.
   /// Corresponds to the highest possible value of the first measure (the measure on the x-axis).
   /// Original name: qWidth
   @nullable
+  @BuiltValueField(wireName: 'qWidth')
   num get width;
 
   /// Height of the page.
   /// The difference between _qTop_ and _qHeight_ gives the lowest possible value of the second measure (the measure on the y-axis).
   /// Original name: qHeight
   @nullable
+  @BuiltValueField(wireName: 'qHeight')
   num get height;
 
   factory NxDataAreaPage([updates(NxDataAreaPageBuilder b)]) = _$NxDataAreaPage;

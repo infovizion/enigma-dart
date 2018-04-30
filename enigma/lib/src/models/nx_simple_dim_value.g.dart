@@ -30,13 +30,13 @@ class _$NxSimpleDimValueSerializer
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
     if (object.elemNo != null) {
       result
-        ..add('elemNo')
+        ..add('qElemNo')
         ..add(serializers.serialize(object.elemNo,
             specifiedType: const FullType(int)));
     }
@@ -55,11 +55,11 @@ class _$NxSimpleDimValueSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'elemNo':
+        case 'qElemNo':
           result.elemNo = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

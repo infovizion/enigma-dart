@@ -28,7 +28,7 @@ class _$TableRowSerializer implements StructuredSerializer<TableRow> {
     final result = <Object>[];
     if (object.value != null) {
       result
-        ..add('value')
+        ..add('qValue')
         ..add(serializers.serialize(object.value,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -48,7 +48,7 @@ class _$TableRowSerializer implements StructuredSerializer<TableRow> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'value':
+        case 'qValue':
           result.value.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

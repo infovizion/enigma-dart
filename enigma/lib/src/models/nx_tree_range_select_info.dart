@@ -15,18 +15,21 @@ abstract class NxTreeRangeSelectInfo
   /// Range of values.
   /// Original name: qRange
   @nullable
+  @BuiltValueField(wireName: 'qRange')
   Range get range;
 
   /// Number of the measure to select.
   /// Numbering starts from 0.
   /// Original name: qMeasureIx
   @nullable
+  @BuiltValueField(wireName: 'qMeasureIx')
   int get measureIx;
 
   /// Number of the dimension to select
   /// measure from.  Numbering starts from 0.
   /// Original name: qDimensionIx
   @nullable
+  @BuiltValueField(wireName: 'qDimensionIx')
   int get dimensionIx;
 
   factory NxTreeRangeSelectInfo([updates(NxTreeRangeSelectInfoBuilder b)]) =

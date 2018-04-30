@@ -33,14 +33,14 @@ class _$SearchObjectOptionsSerializer
     final result = <Object>[];
     if (object.attributes != null) {
       result
-        ..add('attributes')
+        ..add('qAttributes')
         ..add(serializers.serialize(object.attributes,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.charEncoding != null) {
       result
-        ..add('charEncoding')
+        ..add('qCharEncoding')
         ..add(serializers.serialize(object.charEncoding,
             specifiedType: const FullType(String)));
     }
@@ -59,13 +59,13 @@ class _$SearchObjectOptionsSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'attributes':
+        case 'qAttributes':
           result.attributes.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'charEncoding':
+        case 'qCharEncoding':
           result.charEncoding = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

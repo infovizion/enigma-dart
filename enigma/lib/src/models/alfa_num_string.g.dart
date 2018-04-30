@@ -29,13 +29,13 @@ class _$AlfaNumStringSerializer implements StructuredSerializer<AlfaNumString> {
     final result = <Object>[];
     if (object.string != null) {
       result
-        ..add('string')
+        ..add('qString')
         ..add(serializers.serialize(object.string,
             specifiedType: const FullType(String)));
     }
     if (object.isNum != null) {
       result
-        ..add('isNum')
+        ..add('qIsNum')
         ..add(serializers.serialize(object.isNum,
             specifiedType: const FullType(bool)));
     }
@@ -54,11 +54,11 @@ class _$AlfaNumStringSerializer implements StructuredSerializer<AlfaNumString> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'string':
+        case 'qString':
           result.string = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isNum':
+        case 'qIsNum':
           result.isNum = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

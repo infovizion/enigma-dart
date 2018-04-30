@@ -2,6 +2,7 @@ import 'dart:async';
 import '../enigma/base_service.dart';
 import '../enigma/enigma.dart';
 import '../models.dart';
+import '../serializers/json_serializer.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at variable level.
@@ -16,13 +17,16 @@ class Variable extends BaseService {
   Future<AlfaNumString> getContent() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetContent', params);
+    var jsonData = rawResult['result']['qContent'];
+    var dartData = fromJson<AlfaNumString>(AlfaNumString, jsonData);
+    return dartData;
   }
 
   /// Returns the raw value of a variable.
   Future<String> getRawContent() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetRawContent', params);
-    return rawResult['qReturn'];
+    return rawResult['result']['qReturn'];
   }
 
   /// Sets a value to a variable.
@@ -31,7 +35,7 @@ class Variable extends BaseService {
     params['qContent'] = content;
     params['qUpdateMRU'] = updateMRU;
     var rawResult = await query('SetContent', params);
-    return rawResult['qReturn'];
+    return rawResult['result']['qReturn'];
   }
 
   /// Sets the value of a dual variable overriding any input constraints.
@@ -46,6 +50,10 @@ class Variable extends BaseService {
   Future<NxVariableProperties> getNxProperties() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetNxProperties', params);
+    var jsonData = rawResult['result']['qProperties'];
+    var dartData =
+        fromJson<NxVariableProperties>(NxVariableProperties, jsonData);
+    return dartData;
   }
 
   /// Sets some properties to a variable.

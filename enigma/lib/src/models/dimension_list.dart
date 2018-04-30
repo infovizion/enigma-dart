@@ -16,6 +16,7 @@ abstract class DimensionList
   /// Information about the list of dimensions.
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory DimensionList([updates(DimensionListBuilder b)]) = _$DimensionList;

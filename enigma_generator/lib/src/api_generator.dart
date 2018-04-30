@@ -194,6 +194,7 @@ class ApiGenerator {
       print('Type not found for field $jsonFieldName $fieldContent');
     }
     buffer.writeln('  @nullable');
+    buffer.writeln('''  @BuiltValueField(wireName: '$jsonFieldName')''');
     buffer.writeln('  $dartType get $fieldName;\n');
     return '$dartType $fieldName';
   }
@@ -225,14 +226,11 @@ class ApiGenerator {
       return;
     }
     var typeData = typeMap[className];
-    if (typeData == null) {
-      int debug = 2;
-    }
     if (typeData?.dartType == 'JsonObject') {
       return;
     }
     if (className == 'Function') {
-      className = 'ScriptsFunction';
+      className = 'ScriptFunction';
     }
     exportList.add(className);
     schemaType = preprocessClass(className, schemaType);
@@ -347,8 +345,16 @@ class ApiGenerator {
       }
     }
     buffer.writeln("var rawResult = await query('$methodName', params);");
-    if (mainResponse != null && resultTypeData.isPrimitive) {
-      buffer.writeln("return rawResult['${mainResponse.name}'];");
+    if (mainResponse != null) {
+      if (resultTypeData.isPrimitive) {
+        buffer.writeln("return rawResult['result']['${mainResponse.name}'];");
+      } else {
+        buffer.writeln(
+            "var jsonData = rawResult['result']['${mainResponse.name}'];");
+        buffer.writeln(
+            "var dartData = fromJson<${resultTypeData.dartType}>(${resultTypeData.dartType},jsonData);");
+        buffer.writeln('return dartData;');
+      }
     }
     buffer.writeln('}');
   }
@@ -360,6 +366,7 @@ class ApiGenerator {
     headerBuffer.writeln("import '../enigma/base_service.dart';");
     headerBuffer.writeln("import '../enigma/enigma.dart';");
     headerBuffer.writeln("import '../models.dart';");
+    headerBuffer.writeln("import '../serializers/json_serializer.dart';");
     headerBuffer
         .writeln("import 'package:built_collection/built_collection.dart';");
     var buffer = new StringBuffer();

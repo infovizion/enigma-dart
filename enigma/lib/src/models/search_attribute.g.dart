@@ -30,13 +30,13 @@ class _$SearchAttributeSerializer
     final result = <Object>[];
     if (object.key != null) {
       result
-        ..add('key')
+        ..add('qKey')
         ..add(serializers.serialize(object.key,
             specifiedType: const FullType(String)));
     }
     if (object.value != null) {
       result
-        ..add('value')
+        ..add('qValue')
         ..add(serializers.serialize(object.value,
             specifiedType: const FullType(String)));
     }
@@ -55,11 +55,11 @@ class _$SearchAttributeSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'key':
+        case 'qKey':
           result.key = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'value':
+        case 'qValue':
           result.value = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

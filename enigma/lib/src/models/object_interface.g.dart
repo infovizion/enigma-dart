@@ -30,25 +30,25 @@ class _$ObjectInterfaceSerializer
     final result = <Object>[];
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.handle != null) {
       result
-        ..add('handle')
+        ..add('qHandle')
         ..add(serializers.serialize(object.handle,
             specifiedType: const FullType(int)));
     }
     if (object.genericType != null) {
       result
-        ..add('genericType')
+        ..add('qGenericType')
         ..add(serializers.serialize(object.genericType,
             specifiedType: const FullType(String)));
     }
     if (object.genericId != null) {
       result
-        ..add('genericId')
+        ..add('qGenericId')
         ..add(serializers.serialize(object.genericId,
             specifiedType: const FullType(String)));
     }
@@ -67,19 +67,19 @@ class _$ObjectInterfaceSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'handle':
+        case 'qHandle':
           result.handle = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'genericType':
+        case 'qGenericType':
           result.genericType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'genericId':
+        case 'qGenericId':
           result.genericId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

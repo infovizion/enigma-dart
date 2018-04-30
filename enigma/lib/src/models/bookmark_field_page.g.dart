@@ -30,13 +30,13 @@ class _$BookmarkFieldPageSerializer
     final result = <Object>[];
     if (object.startIndex != null) {
       result
-        ..add('startIndex')
+        ..add('qStartIndex')
         ..add(serializers.serialize(object.startIndex,
             specifiedType: const FullType(int)));
     }
     if (object.endIndex != null) {
       result
-        ..add('endIndex')
+        ..add('qEndIndex')
         ..add(serializers.serialize(object.endIndex,
             specifiedType: const FullType(int)));
     }
@@ -55,11 +55,11 @@ class _$BookmarkFieldPageSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'startIndex':
+        case 'qStartIndex':
           result.startIndex = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'endIndex':
+        case 'qEndIndex':
           result.endIndex = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

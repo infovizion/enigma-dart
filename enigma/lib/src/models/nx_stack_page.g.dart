@@ -28,14 +28,14 @@ class _$NxStackPageSerializer implements StructuredSerializer<NxStackPage> {
     final result = <Object>[];
     if (object.data != null) {
       result
-        ..add('data')
+        ..add('qData')
         ..add(serializers.serialize(object.data,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.area != null) {
       result
-        ..add('area')
+        ..add('qArea')
         ..add(serializers.serialize(object.area,
             specifiedType: const FullType(Rect)));
     }
@@ -54,13 +54,13 @@ class _$NxStackPageSerializer implements StructuredSerializer<NxStackPage> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'data':
+        case 'qData':
           result.data.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'area':
+        case 'qArea':
           result.area.replace(serializers.deserialize(value,
               specifiedType: const FullType(Rect)) as Rect);
           break;

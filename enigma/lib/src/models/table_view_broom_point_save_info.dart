@@ -18,16 +18,19 @@ abstract class TableViewBroomPointSaveInfo
   /// Information about the position of the broom point.
   /// Original name: qPos
   @nullable
+  @BuiltValueField(wireName: 'qPos')
   Point get pos;
 
   /// Name of the table.
   /// Original name: qTable
   @nullable
+  @BuiltValueField(wireName: 'qTable')
   String get table;
 
   /// List of fields in the table.
   /// Original name: qFields
   @nullable
+  @BuiltValueField(wireName: 'qFields')
   BuiltList<NxCell> get fields;
 
   factory TableViewBroomPointSaveInfo(

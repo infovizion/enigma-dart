@@ -14,17 +14,20 @@ abstract class NxAttrExprDef
   /// Example: _"Max(OrderID)"_
   /// Original name: qExpression
   @nullable
+  @BuiltValueField(wireName: 'qExpression')
   String get expression;
 
   /// Definition of the attribute expression stored in the library.
   /// Example: _"MyGenericMeasure"_
   /// Original name: qLibraryId
   @nullable
+  @BuiltValueField(wireName: 'qLibraryId')
   String get libraryId;
 
   /// If set to true, this measure will not affect the number of rows in the cube.
   /// Original name: qAttribute
   @nullable
+  @BuiltValueField(wireName: 'qAttribute')
   bool get attribute;
 
   factory NxAttrExprDef([updates(NxAttrExprDefBuilder b)]) = _$NxAttrExprDef;

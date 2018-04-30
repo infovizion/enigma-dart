@@ -33,13 +33,13 @@ class _$NxListObjectExpressionDefSerializer
     final result = <Object>[];
     if (object.expr != null) {
       result
-        ..add('expr')
+        ..add('qExpr')
         ..add(serializers.serialize(object.expr,
             specifiedType: const FullType(String)));
     }
     if (object.libraryId != null) {
       result
-        ..add('libraryId')
+        ..add('qLibraryId')
         ..add(serializers.serialize(object.libraryId,
             specifiedType: const FullType(String)));
     }
@@ -59,11 +59,11 @@ class _$NxListObjectExpressionDefSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'expr':
+        case 'qExpr':
           result.expr = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'libraryId':
+        case 'qLibraryId':
           result.libraryId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

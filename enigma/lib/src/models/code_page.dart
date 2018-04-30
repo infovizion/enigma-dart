@@ -12,16 +12,19 @@ abstract class CodePage implements Built<CodePage, CodePageBuilder> {
   /// Number of the code page.
   /// Original name: qNumber
   @nullable
+  @BuiltValueField(wireName: 'qNumber')
   int get number;
 
   /// Name of the code page.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Description of the code page.
   /// Original name: qDescription
   @nullable
+  @BuiltValueField(wireName: 'qDescription')
   String get description;
 
   factory CodePage([updates(CodePageBuilder b)]) = _$CodePage;

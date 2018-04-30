@@ -30,55 +30,55 @@ class _$NxVariableListItemSerializer
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.description != null) {
       result
-        ..add('description')
+        ..add('qDescription')
         ..add(serializers.serialize(object.description,
             specifiedType: const FullType(String)));
     }
     if (object.definition != null) {
       result
-        ..add('definition')
+        ..add('qDefinition')
         ..add(serializers.serialize(object.definition,
             specifiedType: const FullType(String)));
     }
     if (object.isConfig != null) {
       result
-        ..add('isConfig')
+        ..add('qIsConfig')
         ..add(serializers.serialize(object.isConfig,
             specifiedType: const FullType(bool)));
     }
     if (object.isReserved != null) {
       result
-        ..add('isReserved')
+        ..add('qIsReserved')
         ..add(serializers.serialize(object.isReserved,
             specifiedType: const FullType(bool)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.data != null) {
       result
-        ..add('data')
+        ..add('qData')
         ..add(serializers.serialize(object.data,
             specifiedType: const FullType(JsonObject)));
     }
     if (object.isScriptCreated != null) {
       result
-        ..add('isScriptCreated')
+        ..add('qIsScriptCreated')
         ..add(serializers.serialize(object.isScriptCreated,
             specifiedType: const FullType(bool)));
     }
@@ -97,39 +97,39 @@ class _$NxVariableListItemSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'description':
+        case 'qDescription':
           result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'definition':
+        case 'qDefinition':
           result.definition = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isConfig':
+        case 'qIsConfig':
           result.isConfig = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isReserved':
+        case 'qIsReserved':
           result.isReserved = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'data':
+        case 'qData':
           result.data = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
-        case 'isScriptCreated':
+        case 'qIsScriptCreated':
           result.isScriptCreated = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

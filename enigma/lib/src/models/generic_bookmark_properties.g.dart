@@ -33,13 +33,13 @@ class _$GenericBookmarkPropertiesSerializer
     final result = <Object>[];
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.metaDef != null) {
       result
-        ..add('metaDef')
+        ..add('qMetaDef')
         ..add(serializers.serialize(object.metaDef,
             specifiedType: const FullType(JsonObject)));
     }
@@ -59,11 +59,11 @@ class _$GenericBookmarkPropertiesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'metaDef':
+        case 'qMetaDef':
           result.metaDef = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;

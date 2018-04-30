@@ -16,11 +16,13 @@ abstract class NxLibraryMeasureDef
   /// Label of the measure.
   /// Original name: qLabel
   @nullable
+  @BuiltValueField(wireName: 'qLabel')
   String get label;
 
   /// Definition of the measure.
   /// Original name: qDef
   @nullable
+  @BuiltValueField(wireName: 'qDef')
   String get def;
 
   /// Used to define a cyclic group or drill-down group.
@@ -33,20 +35,24 @@ abstract class NxLibraryMeasureDef
   /// * C or GRP_NX_COLLECTION
   /// Original name: qGrouping
   @nullable
+  @BuiltValueField(wireName: 'qGrouping')
   String get grouping;
 
   /// Array of expressions.
   /// Original name: qExpressions
   @nullable
+  @BuiltValueField(wireName: 'qExpressions')
   BuiltList<NxCell> get expressions;
 
   /// Index to the active expression in a measure.
   /// Original name: qActiveExpression
   @nullable
+  @BuiltValueField(wireName: 'qActiveExpression')
   int get activeExpression;
 
   /// Original name: qLabelExpression
   @nullable
+  @BuiltValueField(wireName: 'qLabelExpression')
   String get labelExpression;
 
   factory NxLibraryMeasureDef([updates(NxLibraryMeasureDefBuilder b)]) =

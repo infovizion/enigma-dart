@@ -17,11 +17,13 @@ abstract class AlternateStateData
   /// Default is current selections: $
   /// Original name: qStateName
   @nullable
+  @BuiltValueField(wireName: 'qStateName')
   String get stateName;
 
   /// List of the selections.
   /// Original name: qFieldItems
   @nullable
+  @BuiltValueField(wireName: 'qFieldItems')
   BuiltList<NxCell> get fieldItems;
 
   factory AlternateStateData([updates(AlternateStateDataBuilder b)]) =

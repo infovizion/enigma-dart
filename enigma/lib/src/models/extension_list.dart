@@ -14,6 +14,7 @@ abstract class ExtensionList
 
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory ExtensionList([updates(ExtensionListBuilder b)]) = _$ExtensionList;

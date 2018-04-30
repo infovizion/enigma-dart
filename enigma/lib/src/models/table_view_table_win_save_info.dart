@@ -16,11 +16,13 @@ abstract class TableViewTableWinSaveInfo
   /// Information about the position of the table.
   /// Original name: qPos
   @nullable
+  @BuiltValueField(wireName: 'qPos')
   Rect get pos;
 
   /// Table name.
   /// Original name: qCaption
   @nullable
+  @BuiltValueField(wireName: 'qCaption')
   String get caption;
 
   factory TableViewTableWinSaveInfo(

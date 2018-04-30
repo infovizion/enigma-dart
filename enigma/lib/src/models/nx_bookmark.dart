@@ -14,16 +14,19 @@ abstract class NxBookmark implements Built<NxBookmark, NxBookmarkBuilder> {
   /// List of selections for each state.
   /// Original name: qStateData
   @nullable
+  @BuiltValueField(wireName: 'qStateData')
   BuiltList<NxCell> get stateData;
 
   /// Time when the bookmark was created.
   /// Original name: qUtcModifyTime
   @nullable
+  @BuiltValueField(wireName: 'qUtcModifyTime')
   num get utcModifyTime;
 
   /// List of the variables in the app at the time the bookmark was created.
   /// Original name: qVariableItems
   @nullable
+  @BuiltValueField(wireName: 'qVariableItems')
   BuiltList<NxCell> get variableItems;
 
   factory NxBookmark([updates(NxBookmarkBuilder b)]) = _$NxBookmark;

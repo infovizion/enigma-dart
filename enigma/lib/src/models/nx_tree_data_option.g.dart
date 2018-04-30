@@ -30,20 +30,20 @@ class _$NxTreeDataOptionSerializer
     final result = <Object>[];
     if (object.maxNbrOfNodes != null) {
       result
-        ..add('maxNbrOfNodes')
+        ..add('qMaxNbrOfNodes')
         ..add(serializers.serialize(object.maxNbrOfNodes,
             specifiedType: const FullType(int)));
     }
     if (object.treeNodes != null) {
       result
-        ..add('treeNodes')
+        ..add('qTreeNodes')
         ..add(serializers.serialize(object.treeNodes,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.treeLevels != null) {
       result
-        ..add('treeLevels')
+        ..add('qTreeLevels')
         ..add(serializers.serialize(object.treeLevels,
             specifiedType: const FullType(NxPageTreeLevel)));
     }
@@ -62,17 +62,17 @@ class _$NxTreeDataOptionSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'maxNbrOfNodes':
+        case 'qMaxNbrOfNodes':
           result.maxNbrOfNodes = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'treeNodes':
+        case 'qTreeNodes':
           result.treeNodes.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'treeLevels':
+        case 'qTreeLevels':
           result.treeLevels.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxPageTreeLevel))
               as NxPageTreeLevel);

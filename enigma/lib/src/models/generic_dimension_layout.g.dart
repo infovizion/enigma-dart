@@ -33,25 +33,25 @@ class _$GenericDimensionLayoutSerializer
     final result = <Object>[];
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.dim != null) {
       result
-        ..add('dim')
+        ..add('qDim')
         ..add(serializers.serialize(object.dim,
             specifiedType: const FullType(NxLibraryDimension)));
     }
     if (object.dimInfos != null) {
       result
-        ..add('dimInfos')
+        ..add('qDimInfos')
         ..add(serializers.serialize(object.dimInfos,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -72,20 +72,20 @@ class _$GenericDimensionLayoutSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'dim':
+        case 'qDim':
           result.dim.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxLibraryDimension))
               as NxLibraryDimension);
           break;
-        case 'dimInfos':
+        case 'qDimInfos':
           result.dimInfos.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

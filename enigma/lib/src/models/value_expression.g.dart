@@ -30,7 +30,7 @@ class _$ValueExpressionSerializer
     final result = <Object>[];
     if (object.expr != null) {
       result
-        ..add('expr')
+        ..add('qExpr')
         ..add(serializers.serialize(object.expr,
             specifiedType: const FullType(String)));
     }
@@ -49,7 +49,7 @@ class _$ValueExpressionSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'expr':
+        case 'qExpr':
           result.expr = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

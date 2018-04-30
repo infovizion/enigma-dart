@@ -35,19 +35,19 @@ class _$TableViewBroomPointSaveInfoSerializer
     final result = <Object>[];
     if (object.pos != null) {
       result
-        ..add('pos')
+        ..add('qPos')
         ..add(serializers.serialize(object.pos,
             specifiedType: const FullType(Point)));
     }
     if (object.table != null) {
       result
-        ..add('table')
+        ..add('qTable')
         ..add(serializers.serialize(object.table,
             specifiedType: const FullType(String)));
     }
     if (object.fields != null) {
       result
-        ..add('fields')
+        ..add('qFields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -68,15 +68,15 @@ class _$TableViewBroomPointSaveInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'pos':
+        case 'qPos':
           result.pos.replace(serializers.deserialize(value,
               specifiedType: const FullType(Point)) as Point);
           break;
-        case 'table':
+        case 'qTable':
           result.table = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fields':
+        case 'qFields':
           result.fields.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

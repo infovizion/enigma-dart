@@ -17,6 +17,7 @@ abstract class NxDerivedField
   /// The identifier is unique.
   /// Original name: qId
   @nullable
+  @BuiltValueField(wireName: 'qId')
   String get id;
 
   /// Combination of field name, definition and method.
@@ -24,11 +25,13 @@ abstract class NxDerivedField
   /// _OrderDate.MyDefinition.Year_
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Method name associated to the derived field.
   /// Original name: qMethod
   @nullable
+  @BuiltValueField(wireName: 'qMethod')
   String get method;
 
   /// Expression of the derived field.
@@ -37,11 +40,13 @@ abstract class NxDerivedField
   /// _=${Mydefinition(OrderDate).Year}_
   /// Original name: qExpr
   @nullable
+  @BuiltValueField(wireName: 'qExpr')
   String get expr;
 
   /// List of tags.
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   factory NxDerivedField([updates(NxDerivedFieldBuilder b)]) = _$NxDerivedField;

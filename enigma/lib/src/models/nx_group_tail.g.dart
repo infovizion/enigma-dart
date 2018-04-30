@@ -28,13 +28,13 @@ class _$NxGroupTailSerializer implements StructuredSerializer<NxGroupTail> {
     final result = <Object>[];
     if (object.up != null) {
       result
-        ..add('up')
+        ..add('qUp')
         ..add(serializers.serialize(object.up,
             specifiedType: const FullType(int)));
     }
     if (object.down != null) {
       result
-        ..add('down')
+        ..add('qDown')
         ..add(serializers.serialize(object.down,
             specifiedType: const FullType(int)));
     }
@@ -53,11 +53,11 @@ class _$NxGroupTailSerializer implements StructuredSerializer<NxGroupTail> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'up':
+        case 'qUp':
           result.up = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'down':
+        case 'qDown':
           result.down = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

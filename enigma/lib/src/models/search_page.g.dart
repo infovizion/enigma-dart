@@ -28,32 +28,32 @@ class _$SearchPageSerializer implements StructuredSerializer<SearchPage> {
     final result = <Object>[];
     if (object.offset != null) {
       result
-        ..add('offset')
+        ..add('qOffset')
         ..add(serializers.serialize(object.offset,
             specifiedType: const FullType(int)));
     }
     if (object.count != null) {
       result
-        ..add('count')
+        ..add('qCount')
         ..add(serializers.serialize(object.count,
             specifiedType: const FullType(int)));
     }
     if (object.maxNbrFieldMatches != null) {
       result
-        ..add('maxNbrFieldMatches')
+        ..add('qMaxNbrFieldMatches')
         ..add(serializers.serialize(object.maxNbrFieldMatches,
             specifiedType: const FullType(int)));
     }
     if (object.groupOptions != null) {
       result
-        ..add('groupOptions')
+        ..add('qGroupOptions')
         ..add(serializers.serialize(object.groupOptions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.groupItemOptions != null) {
       result
-        ..add('groupItemOptions')
+        ..add('qGroupItemOptions')
         ..add(serializers.serialize(object.groupItemOptions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -73,25 +73,25 @@ class _$SearchPageSerializer implements StructuredSerializer<SearchPage> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'offset':
+        case 'qOffset':
           result.offset = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'count':
+        case 'qCount':
           result.count = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'maxNbrFieldMatches':
+        case 'qMaxNbrFieldMatches':
           result.maxNbrFieldMatches = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'groupOptions':
+        case 'qGroupOptions':
           result.groupOptions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'groupItemOptions':
+        case 'qGroupItemOptions':
           result.groupItemOptions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

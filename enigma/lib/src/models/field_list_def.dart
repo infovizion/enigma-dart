@@ -15,42 +15,49 @@ abstract class FieldListDef
   /// Default is false.
   /// Original name: qShowSystem
   @nullable
+  @BuiltValueField(wireName: 'qShowSystem')
   bool get showSystem;
 
   /// Shows the hidden fields if set to true.
   /// Default is false.
   /// Original name: qShowHidden
   @nullable
+  @BuiltValueField(wireName: 'qShowHidden')
   bool get showHidden;
 
   /// Show the semantic fields if set to true.
   /// Default is false.
   /// Original name: qShowSemantic
   @nullable
+  @BuiltValueField(wireName: 'qShowSemantic')
   bool get showSemantic;
 
   /// Shows the tables and fields present in the data model viewer if set to true.
   /// Default is false.
   /// Original name: qShowSrcTables
   @nullable
+  @BuiltValueField(wireName: 'qShowSrcTables')
   bool get showSrcTables;
 
   /// Shows the fields defined on the fly if set to true.
   /// Default is false.
   /// Original name: qShowDefinitionOnly
   @nullable
+  @BuiltValueField(wireName: 'qShowDefinitionOnly')
   bool get showDefinitionOnly;
 
   /// Shows the fields and derived fields if set to true.
   /// Default is false.
   /// Original name: qShowDerivedFields
   @nullable
+  @BuiltValueField(wireName: 'qShowDerivedFields')
   bool get showDerivedFields;
 
   /// Shows the Direct Discovery measure fields if set to true.
   /// Default is false.
   /// Original name: qShowImplicit
   @nullable
+  @BuiltValueField(wireName: 'qShowImplicit')
   bool get showImplicit;
 
   factory FieldListDef([updates(FieldListDefBuilder b)]) = _$FieldListDef;

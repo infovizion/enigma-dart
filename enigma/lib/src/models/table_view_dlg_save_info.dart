@@ -17,11 +17,13 @@ abstract class TableViewDlgSaveInfo
   /// Not used in Qlik Sense.
   /// Original name: qPos
   @nullable
+  @BuiltValueField(wireName: 'qPos')
   Rect get pos;
 
   /// Set of data for internal and source view modes.
   /// Original name: qCtlInfo
   @nullable
+  @BuiltValueField(wireName: 'qCtlInfo')
   TableViewCtlSaveInfo get ctlInfo;
 
   /// View mode to display when opening Qlik Sense data model viewer.
@@ -30,6 +32,7 @@ abstract class TableViewDlgSaveInfo
   /// * 1 for source view mode.
   /// Original name: qMode
   @nullable
+  @BuiltValueField(wireName: 'qMode')
   int get mode;
 
   factory TableViewDlgSaveInfo([updates(TableViewDlgSaveInfoBuilder b)]) =

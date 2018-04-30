@@ -33,68 +33,68 @@ class _$NxPivotDimensionCellSerializer
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
     if (object.elemNo != null) {
       result
-        ..add('elemNo')
+        ..add('qElemNo')
         ..add(serializers.serialize(object.elemNo,
             specifiedType: const FullType(int)));
     }
     if (object.value != null) {
       result
-        ..add('value')
+        ..add('qValue')
         ..add(serializers.serialize(object.value,
             specifiedType: const FullType(num)));
     }
     if (object.canExpand != null) {
       result
-        ..add('canExpand')
+        ..add('qCanExpand')
         ..add(serializers.serialize(object.canExpand,
             specifiedType: const FullType(bool)));
     }
     if (object.canCollapse != null) {
       result
-        ..add('canCollapse')
+        ..add('qCanCollapse')
         ..add(serializers.serialize(object.canCollapse,
             specifiedType: const FullType(bool)));
     }
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.up != null) {
       result
-        ..add('up')
+        ..add('qUp')
         ..add(serializers.serialize(object.up,
             specifiedType: const FullType(int)));
     }
     if (object.down != null) {
       result
-        ..add('down')
+        ..add('qDown')
         ..add(serializers.serialize(object.down,
             specifiedType: const FullType(int)));
     }
     if (object.subNodes != null) {
       result
-        ..add('subNodes')
+        ..add('qSubNodes')
         ..add(serializers.serialize(object.subNodes,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attrExps != null) {
       result
-        ..add('attrExps')
+        ..add('qAttrExps')
         ..add(serializers.serialize(object.attrExps,
             specifiedType: const FullType(NxAttributeExpressionValues)));
     }
     if (object.attrDims != null) {
       result
-        ..add('attrDims')
+        ..add('qAttrDims')
         ..add(serializers.serialize(object.attrDims,
             specifiedType: const FullType(NxAttributeDimValues)));
     }
@@ -113,50 +113,50 @@ class _$NxPivotDimensionCellSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'elemNo':
+        case 'qElemNo':
           result.elemNo = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'value':
+        case 'qValue':
           result.value = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'canExpand':
+        case 'qCanExpand':
           result.canExpand = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'canCollapse':
+        case 'qCanCollapse':
           result.canCollapse = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'up':
+        case 'qUp':
           result.up = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'down':
+        case 'qDown':
           result.down = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'subNodes':
+        case 'qSubNodes':
           result.subNodes.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'attrExps':
+        case 'qAttrExps':
           result.attrExps.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAttributeExpressionValues))
               as NxAttributeExpressionValues);
           break;
-        case 'attrDims':
+        case 'qAttrDims':
           result.attrDims.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxAttributeDimValues))
               as NxAttributeDimValues);

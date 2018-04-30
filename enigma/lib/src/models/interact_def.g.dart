@@ -28,67 +28,67 @@ class _$InteractDefSerializer implements StructuredSerializer<InteractDef> {
     final result = <Object>[];
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.title != null) {
       result
-        ..add('title')
+        ..add('qTitle')
         ..add(serializers.serialize(object.title,
             specifiedType: const FullType(String)));
     }
     if (object.msg != null) {
       result
-        ..add('msg')
+        ..add('qMsg')
         ..add(serializers.serialize(object.msg,
             specifiedType: const FullType(String)));
     }
     if (object.buttons != null) {
       result
-        ..add('buttons')
+        ..add('qButtons')
         ..add(serializers.serialize(object.buttons,
             specifiedType: const FullType(int)));
     }
     if (object.line != null) {
       result
-        ..add('line')
+        ..add('qLine')
         ..add(serializers.serialize(object.line,
             specifiedType: const FullType(String)));
     }
     if (object.oldLineNr != null) {
       result
-        ..add('oldLineNr')
+        ..add('qOldLineNr')
         ..add(serializers.serialize(object.oldLineNr,
             specifiedType: const FullType(int)));
     }
     if (object.newLineNr != null) {
       result
-        ..add('newLineNr')
+        ..add('qNewLineNr')
         ..add(serializers.serialize(object.newLineNr,
             specifiedType: const FullType(int)));
     }
     if (object.path != null) {
       result
-        ..add('path')
+        ..add('qPath')
         ..add(serializers.serialize(object.path,
             specifiedType: const FullType(String)));
     }
     if (object.hidden != null) {
       result
-        ..add('hidden')
+        ..add('qHidden')
         ..add(serializers.serialize(object.hidden,
             specifiedType: const FullType(bool)));
     }
     if (object.result != null) {
       result
-        ..add('result')
+        ..add('qResult')
         ..add(serializers.serialize(object.result,
             specifiedType: const FullType(int)));
     }
     if (object.input != null) {
       result
-        ..add('input')
+        ..add('qInput')
         ..add(serializers.serialize(object.input,
             specifiedType: const FullType(String)));
     }
@@ -107,47 +107,47 @@ class _$InteractDefSerializer implements StructuredSerializer<InteractDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'title':
+        case 'qTitle':
           result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'msg':
+        case 'qMsg':
           result.msg = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'buttons':
+        case 'qButtons':
           result.buttons = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'line':
+        case 'qLine':
           result.line = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'oldLineNr':
+        case 'qOldLineNr':
           result.oldLineNr = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'newLineNr':
+        case 'qNewLineNr':
           result.newLineNr = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'path':
+        case 'qPath':
           result.path = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'hidden':
+        case 'qHidden':
           result.hidden = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'result':
+        case 'qResult':
           result.result = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'input':
+        case 'qInput':
           result.input = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

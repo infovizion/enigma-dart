@@ -28,19 +28,19 @@ class _$NxTickCellSerializer implements StructuredSerializer<NxTickCell> {
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
     if (object.start != null) {
       result
-        ..add('start')
+        ..add('qStart')
         ..add(serializers.serialize(object.start,
             specifiedType: const FullType(num)));
     }
     if (object.end != null) {
       result
-        ..add('end')
+        ..add('qEnd')
         ..add(serializers.serialize(object.end,
             specifiedType: const FullType(num)));
     }
@@ -59,15 +59,15 @@ class _$NxTickCellSerializer implements StructuredSerializer<NxTickCell> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'start':
+        case 'qStart':
           result.start = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'end':
+        case 'qEnd':
           result.end = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;

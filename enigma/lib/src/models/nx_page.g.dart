@@ -28,25 +28,25 @@ class _$NxPageSerializer implements StructuredSerializer<NxPage> {
     final result = <Object>[];
     if (object.left != null) {
       result
-        ..add('left')
+        ..add('qLeft')
         ..add(serializers.serialize(object.left,
             specifiedType: const FullType(int)));
     }
     if (object.top != null) {
       result
-        ..add('top')
+        ..add('qTop')
         ..add(serializers.serialize(object.top,
             specifiedType: const FullType(int)));
     }
     if (object.width != null) {
       result
-        ..add('width')
+        ..add('qWidth')
         ..add(serializers.serialize(object.width,
             specifiedType: const FullType(int)));
     }
     if (object.height != null) {
       result
-        ..add('height')
+        ..add('qHeight')
         ..add(serializers.serialize(object.height,
             specifiedType: const FullType(int)));
     }
@@ -65,19 +65,19 @@ class _$NxPageSerializer implements StructuredSerializer<NxPage> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'left':
+        case 'qLeft':
           result.left = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'top':
+        case 'qTop':
           result.top = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'width':
+        case 'qWidth':
           result.width = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'height':
+        case 'qHeight':
           result.height = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

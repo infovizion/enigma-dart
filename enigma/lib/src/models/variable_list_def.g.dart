@@ -30,25 +30,25 @@ class _$VariableListDefSerializer
     final result = <Object>[];
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.showReserved != null) {
       result
-        ..add('showReserved')
+        ..add('qShowReserved')
         ..add(serializers.serialize(object.showReserved,
             specifiedType: const FullType(bool)));
     }
     if (object.showConfig != null) {
       result
-        ..add('showConfig')
+        ..add('qShowConfig')
         ..add(serializers.serialize(object.showConfig,
             specifiedType: const FullType(bool)));
     }
     if (object.data != null) {
       result
-        ..add('data')
+        ..add('qData')
         ..add(serializers.serialize(object.data,
             specifiedType: const FullType(JsonObject)));
     }
@@ -67,19 +67,19 @@ class _$VariableListDefSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'showReserved':
+        case 'qShowReserved':
           result.showReserved = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'showConfig':
+        case 'qShowConfig':
           result.showConfig = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'data':
+        case 'qData':
           result.data = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;

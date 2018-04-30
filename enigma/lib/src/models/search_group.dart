@@ -14,6 +14,7 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
   /// Identifier of the search group.
   /// Original name: qId
   @nullable
+  @BuiltValueField(wireName: 'qId')
   int get id;
 
   /// Type of the search group.
@@ -23,22 +24,26 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
   /// * GenericObjectsType or GENERIC_OBJECTS_GROUP
   /// Original name: qGroupType
   @nullable
+  @BuiltValueField(wireName: 'qGroupType')
   String get groupType;
 
   /// Indexes of the search terms that are included in the group. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ .
   /// Original name: qSearchTermsMatched
   @nullable
+  @BuiltValueField(wireName: 'qSearchTermsMatched')
   BuiltList<NxCell> get searchTermsMatched;
 
   /// Total number of distinct items in the search group.
   /// Original name: qTotalNumberOfItems
   @nullable
+  @BuiltValueField(wireName: 'qTotalNumberOfItems')
   int get totalNumberOfItems;
 
   /// List of items in the search group.
   /// The group items are numbered from the value of _SearchGroupOptions.qOffset_ to the value of _SearchGroupOptions.qOffset_ \+ _SearchGroupOptions.qCount_
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory SearchGroup([updates(SearchGroupBuilder b)]) = _$SearchGroup;

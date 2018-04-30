@@ -35,7 +35,7 @@ class _$NxDerivedFieldDescriptionListSerializer
     final result = <Object>[];
     if (object.derivedFieldLists != null) {
       result
-        ..add('derivedFieldLists')
+        ..add('qDerivedFieldLists')
         ..add(serializers.serialize(object.derivedFieldLists,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -56,7 +56,7 @@ class _$NxDerivedFieldDescriptionListSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'derivedFieldLists':
+        case 'qDerivedFieldLists':
           result.derivedFieldLists.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

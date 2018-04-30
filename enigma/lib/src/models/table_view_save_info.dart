@@ -16,24 +16,28 @@ abstract class TableViewSaveInfo
   /// List of the tables in the database model viewer.
   /// Original name: qTables
   @nullable
+  @BuiltValueField(wireName: 'qTables')
   BuiltList<NxCell> get tables;
 
   /// List of the broom points in the database model viewer.
   /// Not used in Qlik Sense.
   /// Original name: qBroomPoints
   @nullable
+  @BuiltValueField(wireName: 'qBroomPoints')
   BuiltList<NxCell> get broomPoints;
 
   /// List of connection points in the database model viewer.
   /// Not used in Qlik Sense.
   /// Original name: qConnectionPoints
   @nullable
+  @BuiltValueField(wireName: 'qConnectionPoints')
   BuiltList<NxCell> get connectionPoints;
 
   /// Zoom factor in the database model viewer.
   /// The default value is 1.0.
   /// Original name: qZoomFactor
   @nullable
+  @BuiltValueField(wireName: 'qZoomFactor')
   num get zoomFactor;
 
   factory TableViewSaveInfo([updates(TableViewSaveInfoBuilder b)]) =

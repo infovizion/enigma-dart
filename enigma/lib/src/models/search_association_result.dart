@@ -16,28 +16,33 @@ abstract class SearchAssociationResult
   /// List of the fields that contains search associations.
   /// Original name: qFieldNames
   @nullable
+  @BuiltValueField(wireName: 'qFieldNames')
   BuiltList<NxCell> get fieldNames;
 
   /// List of the search terms.
   /// Original name: qSearchTerms
   @nullable
+  @BuiltValueField(wireName: 'qSearchTerms')
   BuiltList<NxCell> get searchTerms;
 
   /// Information about the fields containing search hits.
   /// Original name: qFieldDictionaries
   @nullable
+  @BuiltValueField(wireName: 'qFieldDictionaries')
   BuiltList<NxCell> get fieldDictionaries;
 
   /// List of search results.
   /// The maximum number of search results in this list is set by _qPage/qCount_ .
   /// Original name: qSearchTermsMatched
   @nullable
+  @BuiltValueField(wireName: 'qSearchTermsMatched')
   BuiltList<NxCell> get searchTermsMatched;
 
   /// Total number of search results.
   /// This number is not limited by _qPage/qCount_ .
   /// Original name: qTotalSearchResults
   @nullable
+  @BuiltValueField(wireName: 'qTotalSearchResults')
   int get totalSearchResults;
 
   factory SearchAssociationResult([updates(SearchAssociationResultBuilder b)]) =

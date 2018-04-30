@@ -33,14 +33,14 @@ class _$NxMultiRangeSelectInfoSerializer
     final result = <Object>[];
     if (object.ranges != null) {
       result
-        ..add('ranges')
+        ..add('qRanges')
         ..add(serializers.serialize(object.ranges,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.columnsToSelect != null) {
       result
-        ..add('columnsToSelect')
+        ..add('qColumnsToSelect')
         ..add(serializers.serialize(object.columnsToSelect,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -61,13 +61,13 @@ class _$NxMultiRangeSelectInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'ranges':
+        case 'qRanges':
           result.ranges.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'columnsToSelect':
+        case 'qColumnsToSelect':
           result.columnsToSelect.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

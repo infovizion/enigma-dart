@@ -16,11 +16,13 @@ abstract class SourceKeyRecord
   /// Name of the key field.
   /// Original name: qKeyFields
   @nullable
+  @BuiltValueField(wireName: 'qKeyFields')
   BuiltList<NxCell> get keyFields;
 
   /// Table the key belongs to.
   /// Original name: qTables
   @nullable
+  @BuiltValueField(wireName: 'qTables')
   BuiltList<NxCell> get tables;
 
   factory SourceKeyRecord([updates(SourceKeyRecordBuilder b)]) =

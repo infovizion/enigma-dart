@@ -15,6 +15,7 @@ abstract class StaticContentUrlDef
   /// Relative path of the thumbnail.
   /// Original name: qUrl
   @nullable
+  @BuiltValueField(wireName: 'qUrl')
   String get url;
 
   factory StaticContentUrlDef([updates(StaticContentUrlDefBuilder b)]) =

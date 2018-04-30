@@ -13,12 +13,14 @@ abstract class NxSimpleValue
   /// Text related to the attribute expression value.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// Numeric value of the attribute expression.
   /// Set to NaN (Not a Number) if the attribute expression value is not numeric.
   /// Original name: qNum
   @nullable
+  @BuiltValueField(wireName: 'qNum')
   num get qNum;
 
   factory NxSimpleValue([updates(NxSimpleValueBuilder b)]) = _$NxSimpleValue;

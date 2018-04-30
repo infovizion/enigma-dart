@@ -28,13 +28,13 @@ class _$NxCalcCondSerializer implements StructuredSerializer<NxCalcCond> {
     final result = <Object>[];
     if (object.cond != null) {
       result
-        ..add('cond')
+        ..add('qCond')
         ..add(serializers.serialize(object.cond,
             specifiedType: const FullType(ValueExpr)));
     }
     if (object.msg != null) {
       result
-        ..add('msg')
+        ..add('qMsg')
         ..add(serializers.serialize(object.msg,
             specifiedType: const FullType(StringExpr)));
     }
@@ -53,11 +53,11 @@ class _$NxCalcCondSerializer implements StructuredSerializer<NxCalcCond> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'cond':
+        case 'qCond':
           result.cond.replace(serializers.deserialize(value,
               specifiedType: const FullType(ValueExpr)) as ValueExpr);
           break;
-        case 'msg':
+        case 'qMsg':
           result.msg.replace(serializers.deserialize(value,
               specifiedType: const FullType(StringExpr)) as StringExpr);
           break;

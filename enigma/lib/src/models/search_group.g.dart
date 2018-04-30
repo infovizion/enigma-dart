@@ -28,32 +28,32 @@ class _$SearchGroupSerializer implements StructuredSerializer<SearchGroup> {
     final result = <Object>[];
     if (object.id != null) {
       result
-        ..add('id')
+        ..add('qId')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(int)));
     }
     if (object.groupType != null) {
       result
-        ..add('groupType')
+        ..add('qGroupType')
         ..add(serializers.serialize(object.groupType,
             specifiedType: const FullType(String)));
     }
     if (object.searchTermsMatched != null) {
       result
-        ..add('searchTermsMatched')
+        ..add('qSearchTermsMatched')
         ..add(serializers.serialize(object.searchTermsMatched,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.totalNumberOfItems != null) {
       result
-        ..add('totalNumberOfItems')
+        ..add('qTotalNumberOfItems')
         ..add(serializers.serialize(object.totalNumberOfItems,
             specifiedType: const FullType(int)));
     }
     if (object.items != null) {
       result
-        ..add('items')
+        ..add('qItems')
         ..add(serializers.serialize(object.items,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -73,25 +73,25 @@ class _$SearchGroupSerializer implements StructuredSerializer<SearchGroup> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'id':
+        case 'qId':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'groupType':
+        case 'qGroupType':
           result.groupType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'searchTermsMatched':
+        case 'qSearchTermsMatched':
           result.searchTermsMatched.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'totalNumberOfItems':
+        case 'qTotalNumberOfItems':
           result.totalNumberOfItems = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'items':
+        case 'qItems':
           result.items.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

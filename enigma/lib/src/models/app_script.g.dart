@@ -28,13 +28,13 @@ class _$AppScriptSerializer implements StructuredSerializer<AppScript> {
     final result = <Object>[];
     if (object.script != null) {
       result
-        ..add('script')
+        ..add('qScript')
         ..add(serializers.serialize(object.script,
             specifiedType: const FullType(String)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
@@ -53,11 +53,11 @@ class _$AppScriptSerializer implements StructuredSerializer<AppScript> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'script':
+        case 'qScript':
           result.script = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;

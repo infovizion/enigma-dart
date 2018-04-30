@@ -41,6 +41,7 @@ abstract class FileDataFormat
   /// * KML or FILE_TYPE_KML
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// One of:
@@ -49,6 +50,7 @@ abstract class FileDataFormat
   /// * Explicit labels (for DIFfiles)
   /// Original name: qLabel
   @nullable
+  @BuiltValueField(wireName: 'qLabel')
   String get label;
 
   /// One of:
@@ -59,6 +61,7 @@ abstract class FileDataFormat
   /// This property is used for delimited files.
   /// Original name: qQuote
   @nullable
+  @BuiltValueField(wireName: 'qQuote')
   String get quote;
 
   /// String that marks the beginning of the comment line.
@@ -67,23 +70,27 @@ abstract class FileDataFormat
   /// This property is only used for delimited files.
   /// Original name: qComment
   @nullable
+  @BuiltValueField(wireName: 'qComment')
   String get comment;
 
   /// Information about the delimiter.
   /// This property is used for delimited files.
   /// Original name: qDelimiter
   @nullable
+  @BuiltValueField(wireName: 'qDelimiter')
   DelimiterInfo get delimiter;
 
   /// Character set used in the file.
   /// Original name: qCodePage
   @nullable
+  @BuiltValueField(wireName: 'qCodePage')
   int get codePage;
 
   /// Size of the header.
   /// Example: If the header size is 2, the first two rows in the file are considered as header and not as data. The header can contain the field names.
   /// Original name: qHeaderSize
   @nullable
+  @BuiltValueField(wireName: 'qHeaderSize')
   int get headerSize;
 
   /// Record length.
@@ -91,24 +98,28 @@ abstract class FileDataFormat
   /// This property is used for fixed record data files.
   /// Original name: qRecordSize
   @nullable
+  @BuiltValueField(wireName: 'qRecordSize')
   int get recordSize;
 
   /// Number of spaces that one tab character represents in the table file.
   /// This property is used for fixed record data files.
   /// Original name: qTabSize
   @nullable
+  @BuiltValueField(wireName: 'qTabSize')
   int get tabSize;
 
   /// Is set to true, the end-of-file character is not taken into account during reload.
   /// This property is used for delimited files and fixed record data files.
   /// Original name: qIgnoreEOF
   @nullable
+  @BuiltValueField(wireName: 'qIgnoreEOF')
   bool get ignoreEOF;
 
   /// Positions of the field breaks in the table.
   /// This property is used for fixed record data files.
   /// Original name: qFixedWidthDelimiters
   @nullable
+  @BuiltValueField(wireName: 'qFixedWidthDelimiters')
   String get fixedWidthDelimiters;
 
   factory FileDataFormat([updates(FileDataFormatBuilder b)]) = _$FileDataFormat;

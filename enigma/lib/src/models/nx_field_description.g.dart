@@ -30,74 +30,74 @@ class _$NxFieldDescriptionSerializer
     final result = <Object>[];
     if (object.isSemantic != null) {
       result
-        ..add('isSemantic')
+        ..add('qIsSemantic')
         ..add(serializers.serialize(object.isSemantic,
             specifiedType: const FullType(bool)));
     }
     if (object.isHidden != null) {
       result
-        ..add('isHidden')
+        ..add('qIsHidden')
         ..add(serializers.serialize(object.isHidden,
             specifiedType: const FullType(bool)));
     }
     if (object.isSystem != null) {
       result
-        ..add('isSystem')
+        ..add('qIsSystem')
         ..add(serializers.serialize(object.isSystem,
             specifiedType: const FullType(bool)));
     }
     if (object.andMode != null) {
       result
-        ..add('andMode')
+        ..add('qAndMode')
         ..add(serializers.serialize(object.andMode,
             specifiedType: const FullType(bool)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.cardinal != null) {
       result
-        ..add('cardinal')
+        ..add('qCardinal')
         ..add(serializers.serialize(object.cardinal,
             specifiedType: const FullType(int)));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.isDefinitionOnly != null) {
       result
-        ..add('isDefinitionOnly')
+        ..add('qIsDefinitionOnly')
         ..add(serializers.serialize(object.isDefinitionOnly,
             specifiedType: const FullType(bool)));
     }
     if (object.derivedFieldData != null) {
       result
-        ..add('derivedFieldData')
+        ..add('qDerivedFieldData')
         ..add(serializers.serialize(object.derivedFieldData,
             specifiedType: const FullType(NxDerivedFieldDescriptionList)));
     }
     if (object.isDetail != null) {
       result
-        ..add('isDetail')
+        ..add('qIsDetail')
         ..add(serializers.serialize(object.isDetail,
             specifiedType: const FullType(bool)));
     }
     if (object.isImplicit != null) {
       result
-        ..add('isImplicit')
+        ..add('qIsImplicit')
         ..add(serializers.serialize(object.isImplicit,
             specifiedType: const FullType(bool)));
     }
     if (object.readableName != null) {
       result
-        ..add('readableName')
+        ..add('qReadableName')
         ..add(serializers.serialize(object.readableName,
             specifiedType: const FullType(String)));
     }
@@ -116,54 +116,54 @@ class _$NxFieldDescriptionSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'isSemantic':
+        case 'qIsSemantic':
           result.isSemantic = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isHidden':
+        case 'qIsHidden':
           result.isHidden = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isSystem':
+        case 'qIsSystem':
           result.isSystem = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'andMode':
+        case 'qAndMode':
           result.andMode = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'cardinal':
+        case 'qCardinal':
           result.cardinal = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'isDefinitionOnly':
+        case 'qIsDefinitionOnly':
           result.isDefinitionOnly = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'derivedFieldData':
+        case 'qDerivedFieldData':
           result.derivedFieldData.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxDerivedFieldDescriptionList))
               as NxDerivedFieldDescriptionList);
           break;
-        case 'isDetail':
+        case 'qIsDetail':
           result.isDetail = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isImplicit':
+        case 'qIsImplicit':
           result.isImplicit = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'readableName':
+        case 'qReadableName':
           result.readableName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

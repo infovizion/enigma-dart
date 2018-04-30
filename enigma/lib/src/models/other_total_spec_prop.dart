@@ -25,12 +25,14 @@ abstract class OtherTotalSpecProp
   /// * OTHER_REL_ACC_TARGET
   /// Original name: qOtherMode
   @nullable
+  @BuiltValueField(wireName: 'qOtherMode')
   String get otherMode;
 
   /// Number of values to display. The number of values can be entered as a calculated formula.
   /// This parameter is used when _qOtherMode_ is set to _OTHER_COUNTED_ .
   /// Original name: qOtherCounted
   @nullable
+  @BuiltValueField(wireName: 'qOtherCounted')
   ValueExpr get otherCounted;
 
   /// Value used to limit the dimension values. The limit can be entered as a calculated formula.
@@ -41,6 +43,7 @@ abstract class OtherTotalSpecProp
   /// OTHER_REL_ACC_TARGET
   /// Original name: qOtherLimit
   @nullable
+  @BuiltValueField(wireName: 'qOtherLimit')
   ValueExpr get otherLimit;
 
   /// Sets the limit for the _Others_ mode.
@@ -57,12 +60,14 @@ abstract class OtherTotalSpecProp
   /// * OTHER_LT_LIMIT
   /// Original name: qOtherLimitMode
   @nullable
+  @BuiltValueField(wireName: 'qOtherLimitMode')
   String get otherLimitMode;
 
   /// If set to true, the group _Others_ is not displayed as a dimension value.
   /// The default value is false.
   /// Original name: qSuppressOther
   @nullable
+  @BuiltValueField(wireName: 'qSuppressOther')
   bool get suppressOther;
 
   /// This parameter is used when _qOtherMode_ is set to:
@@ -76,6 +81,7 @@ abstract class OtherTotalSpecProp
   /// The default value is true.
   /// Original name: qForceBadValueKeeping
   @nullable
+  @BuiltValueField(wireName: 'qForceBadValueKeeping')
   bool get forceBadValueKeeping;
 
   /// Set this parameter to true to allow the calculation of _Others_ even if the engine detects some potential mistakes.
@@ -83,6 +89,7 @@ abstract class OtherTotalSpecProp
   /// The default value is true.
   /// Original name: qApplyEvenWhenPossiblyWrongResult
   @nullable
+  @BuiltValueField(wireName: 'qApplyEvenWhenPossiblyWrongResult')
   bool get applyEvenWhenPossiblyWrongResult;
 
   /// This parameter applies to inner dimensions.
@@ -90,12 +97,14 @@ abstract class OtherTotalSpecProp
   /// The default value is false.
   /// Original name: qGlobalOtherGrouping
   @nullable
+  @BuiltValueField(wireName: 'qGlobalOtherGrouping')
   bool get globalOtherGrouping;
 
   /// If set to true, it collapses the inner dimensions (if any) in the group _Others_ .
   /// The default value is false.
   /// Original name: qOtherCollapseInnerDimensions
   @nullable
+  @BuiltValueField(wireName: 'qOtherCollapseInnerDimensions')
   bool get otherCollapseInnerDimensions;
 
   /// Defines the sort order of the dimension values.
@@ -107,6 +116,7 @@ abstract class OtherTotalSpecProp
   /// * OTHER_SORT_ASCENDING
   /// Original name: qOtherSortMode
   @nullable
+  @BuiltValueField(wireName: 'qOtherSortMode')
   String get otherSortMode;
 
   /// If set to _TOTAL_EXPR_ , the total of the dimension values is returned.
@@ -117,12 +127,14 @@ abstract class OtherTotalSpecProp
   /// * TOTAL_EXPR
   /// Original name: qTotalMode
   @nullable
+  @BuiltValueField(wireName: 'qTotalMode')
   String get totalMode;
 
   /// This parameter applies when there are several measures.
   /// Name of the measure to use for the calculation of _Others_ for a specific dimension.
   /// Original name: qReferencedExpression
   @nullable
+  @BuiltValueField(wireName: 'qReferencedExpression')
   StringExpr get referencedExpression;
 
   factory OtherTotalSpecProp([updates(OtherTotalSpecPropBuilder b)]) =

@@ -12,11 +12,13 @@ abstract class DataField implements Built<DataField, DataFieldBuilder> {
   /// Name of the field.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Is set to true if the field is a primary key.
   /// Original name: qIsKey
   @nullable
+  @BuiltValueField(wireName: 'qIsKey')
   bool get isKey;
 
   /// Is shown for fixed records.
@@ -24,6 +26,7 @@ abstract class DataField implements Built<DataField, DataFieldBuilder> {
   /// _qOriginalFieldName_ differs from _qName_ if embedded file names are used in the file.
   /// Original name: qOriginalFieldName
   @nullable
+  @BuiltValueField(wireName: 'qOriginalFieldName')
   String get originalFieldName;
 
   factory DataField([updates(DataFieldBuilder b)]) = _$DataField;

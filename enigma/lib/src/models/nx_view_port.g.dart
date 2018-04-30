@@ -28,19 +28,19 @@ class _$NxViewPortSerializer implements StructuredSerializer<NxViewPort> {
     final result = <Object>[];
     if (object.width != null) {
       result
-        ..add('width')
+        ..add('qWidth')
         ..add(serializers.serialize(object.width,
             specifiedType: const FullType(int)));
     }
     if (object.height != null) {
       result
-        ..add('height')
+        ..add('qHeight')
         ..add(serializers.serialize(object.height,
             specifiedType: const FullType(int)));
     }
     if (object.zoomLevel != null) {
       result
-        ..add('zoomLevel')
+        ..add('qZoomLevel')
         ..add(serializers.serialize(object.zoomLevel,
             specifiedType: const FullType(int)));
     }
@@ -59,15 +59,15 @@ class _$NxViewPortSerializer implements StructuredSerializer<NxViewPort> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'width':
+        case 'qWidth':
           result.width = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'height':
+        case 'qHeight':
           result.height = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'zoomLevel':
+        case 'qZoomLevel':
           result.zoomLevel = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

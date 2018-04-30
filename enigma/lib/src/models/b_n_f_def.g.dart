@@ -28,98 +28,98 @@ class _$BNFDefSerializer implements StructuredSerializer<BNFDef> {
     final result = <Object>[];
     if (object.bnf != null) {
       result
-        ..add('bnf')
+        ..add('qBnf')
         ..add(serializers.serialize(object.bnf,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.nbr != null) {
       result
-        ..add('nbr')
+        ..add('qNbr')
         ..add(serializers.serialize(object.nbr,
             specifiedType: const FullType(int)));
     }
     if (object.pNbr != null) {
       result
-        ..add('pNbr')
+        ..add('qPNbr')
         ..add(serializers.serialize(object.pNbr,
             specifiedType: const FullType(int)));
     }
     if (object.helpId != null) {
       result
-        ..add('helpId')
+        ..add('qHelpId')
         ..add(serializers.serialize(object.helpId,
             specifiedType: const FullType(int)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.str != null) {
       result
-        ..add('str')
+        ..add('qStr')
         ..add(serializers.serialize(object.str,
             specifiedType: const FullType(String)));
     }
     if (object.isBnfRule != null) {
       result
-        ..add('isBnfRule')
+        ..add('qIsBnfRule')
         ..add(serializers.serialize(object.isBnfRule,
             specifiedType: const FullType(bool)));
     }
     if (object.scriptStatement != null) {
       result
-        ..add('scriptStatement')
+        ..add('qScriptStatement')
         ..add(serializers.serialize(object.scriptStatement,
             specifiedType: const FullType(bool)));
     }
     if (object.controlStatement != null) {
       result
-        ..add('controlStatement')
+        ..add('qControlStatement')
         ..add(serializers.serialize(object.controlStatement,
             specifiedType: const FullType(bool)));
     }
     if (object.bnfLiteral != null) {
       result
-        ..add('bnfLiteral')
+        ..add('qBnfLiteral')
         ..add(serializers.serialize(object.bnfLiteral,
             specifiedType: const FullType(bool)));
     }
     if (object.qvFunc != null) {
       result
-        ..add('qvFunc')
+        ..add('qQvFunc')
         ..add(serializers.serialize(object.qvFunc,
             specifiedType: const FullType(bool)));
     }
     if (object.aggrFunc != null) {
       result
-        ..add('aggrFunc')
+        ..add('qAggrFunc')
         ..add(serializers.serialize(object.aggrFunc,
             specifiedType: const FullType(bool)));
     }
     if (object.fG != null) {
       result
-        ..add('fG')
+        ..add('qFG')
         ..add(serializers.serialize(object.fG,
             specifiedType: const FullType(String)));
     }
     if (object.fieldFlag != null) {
       result
-        ..add('fieldFlag')
+        ..add('qFieldFlag')
         ..add(serializers.serialize(object.fieldFlag,
             specifiedType: const FullType(bool)));
     }
     if (object.mT != null) {
       result
-        ..add('mT')
+        ..add('qMT')
         ..add(serializers.serialize(object.mT,
             specifiedType: const FullType(String)));
     }
     if (object.depr != null) {
       result
-        ..add('depr')
+        ..add('qDepr')
         ..add(serializers.serialize(object.depr,
             specifiedType: const FullType(bool)));
     }
@@ -138,69 +138,69 @@ class _$BNFDefSerializer implements StructuredSerializer<BNFDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'bnf':
+        case 'qBnf':
           result.bnf.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'nbr':
+        case 'qNbr':
           result.nbr = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'pNbr':
+        case 'qPNbr':
           result.pNbr = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'helpId':
+        case 'qHelpId':
           result.helpId = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'str':
+        case 'qStr':
           result.str = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isBnfRule':
+        case 'qIsBnfRule':
           result.isBnfRule = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'scriptStatement':
+        case 'qScriptStatement':
           result.scriptStatement = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'controlStatement':
+        case 'qControlStatement':
           result.controlStatement = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'bnfLiteral':
+        case 'qBnfLiteral':
           result.bnfLiteral = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'qvFunc':
+        case 'qQvFunc':
           result.qvFunc = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'aggrFunc':
+        case 'qAggrFunc':
           result.aggrFunc = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'fG':
+        case 'qFG':
           result.fG = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'fieldFlag':
+        case 'qFieldFlag':
           result.fieldFlag = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'mT':
+        case 'qMT':
           result.mT = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'depr':
+        case 'qDepr':
           result.depr = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

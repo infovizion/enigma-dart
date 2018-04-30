@@ -30,7 +30,7 @@ class _$StaticContentUrlSerializer
     final result = <Object>[];
     if (object.url != null) {
       result
-        ..add('url')
+        ..add('qUrl')
         ..add(serializers.serialize(object.url,
             specifiedType: const FullType(String)));
     }
@@ -49,7 +49,7 @@ class _$StaticContentUrlSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'url':
+        case 'qUrl':
           result.url = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

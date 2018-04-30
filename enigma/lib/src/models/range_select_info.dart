@@ -14,16 +14,19 @@ abstract class RangeSelectInfo
   /// Lowest value in the range.
   /// Original name: qRangeLo
   @nullable
+  @BuiltValueField(wireName: 'qRangeLo')
   num get rangeLo;
 
   /// Highest value in the range.
   /// Original name: qRangeHi
   @nullable
+  @BuiltValueField(wireName: 'qRangeHi')
   num get rangeHi;
 
   /// Label of the measure.
   /// Original name: qMeasure
   @nullable
+  @BuiltValueField(wireName: 'qMeasure')
   String get measure;
 
   factory RangeSelectInfo([updates(RangeSelectInfoBuilder b)]) =

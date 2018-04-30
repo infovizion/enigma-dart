@@ -29,25 +29,25 @@ class _$NxAttrDimDefSerializer implements StructuredSerializer<NxAttrDimDef> {
     final result = <Object>[];
     if (object.def != null) {
       result
-        ..add('def')
+        ..add('qDef')
         ..add(serializers.serialize(object.def,
             specifiedType: const FullType(String)));
     }
     if (object.libraryId != null) {
       result
-        ..add('libraryId')
+        ..add('qLibraryId')
         ..add(serializers.serialize(object.libraryId,
             specifiedType: const FullType(String)));
     }
     if (object.sortBy != null) {
       result
-        ..add('sortBy')
+        ..add('qSortBy')
         ..add(serializers.serialize(object.sortBy,
             specifiedType: const FullType(SortCriteria)));
     }
     if (object.attribute != null) {
       result
-        ..add('attribute')
+        ..add('qAttribute')
         ..add(serializers.serialize(object.attribute,
             specifiedType: const FullType(bool)));
     }
@@ -66,19 +66,19 @@ class _$NxAttrDimDefSerializer implements StructuredSerializer<NxAttrDimDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'def':
+        case 'qDef':
           result.def = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'libraryId':
+        case 'qLibraryId':
           result.libraryId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'sortBy':
+        case 'qSortBy':
           result.sortBy.replace(serializers.deserialize(value,
               specifiedType: const FullType(SortCriteria)) as SortCriteria);
           break;
-        case 'attribute':
+        case 'qAttribute':
           result.attribute = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

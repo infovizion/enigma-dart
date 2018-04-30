@@ -30,13 +30,13 @@ class _$NxLinkedObjectInfoSerializer
     final result = <Object>[];
     if (object.rootId != null) {
       result
-        ..add('rootId')
+        ..add('qRootId')
         ..add(serializers.serialize(object.rootId,
             specifiedType: const FullType(String)));
     }
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
@@ -55,11 +55,11 @@ class _$NxLinkedObjectInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'rootId':
+        case 'qRootId':
           result.rootId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;

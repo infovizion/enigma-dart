@@ -30,7 +30,7 @@ class _$NxLayoutErrorsSerializer
     final result = <Object>[];
     if (object.errorCode != null) {
       result
-        ..add('errorCode')
+        ..add('qErrorCode')
         ..add(serializers.serialize(object.errorCode,
             specifiedType: const FullType(int)));
     }
@@ -49,7 +49,7 @@ class _$NxLayoutErrorsSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'errorCode':
+        case 'qErrorCode':
           result.errorCode = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

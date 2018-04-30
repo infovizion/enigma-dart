@@ -16,6 +16,7 @@ abstract class FieldInTableData
   /// Name of the field.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Is shown for fixed records.
@@ -23,58 +24,70 @@ abstract class FieldInTableData
   /// _qOriginalFieldName_ differs from _qName_ if embedded file names are used in the file.
   /// Original name: qOriginalFields
   @nullable
+  @BuiltValueField(wireName: 'qOriginalFields')
   BuiltList<NxCell> get originalFields;
 
   /// Original name: qPresent
   @nullable
+  @BuiltValueField(wireName: 'qPresent')
   bool get present;
 
   /// This property is set to true if the field contains some Null values.
   /// Original name: qHasNull
   @nullable
+  @BuiltValueField(wireName: 'qHasNull')
   bool get hasNull;
 
   /// Original name: qHasWild
   @nullable
+  @BuiltValueField(wireName: 'qHasWild')
   bool get hasWild;
 
   /// This property is set to true if the field contains some duplicate values.
   /// Original name: qHasDuplicates
   @nullable
+  @BuiltValueField(wireName: 'qHasDuplicates')
   bool get hasDuplicates;
 
   /// This property is set to true if the field contains a synthetic key.
   /// Original name: qIsSynthetic
   @nullable
+  @BuiltValueField(wireName: 'qIsSynthetic')
   bool get isSynthetic;
 
   /// Number of records that have values (for example, not NULL) in the field as compared to the total number of records in the table.
   /// Original name: qInformationDensity
   @nullable
+  @BuiltValueField(wireName: 'qInformationDensity')
   num get informationDensity;
 
   /// Number of values that are non Null.
   /// Original name: qnNonNulls
   @nullable
+  @BuiltValueField(wireName: 'qnNonNulls')
   int get nNonNulls;
 
   /// Number of rows in the field.
   /// Original name: qnRows
   @nullable
+  @BuiltValueField(wireName: 'qnRows')
   int get nRows;
 
   /// Number of distinct values in the field (in the current table) as compared to the total number of distinct values of this field (in all tables).
   /// Original name: qSubsetRatio
   @nullable
+  @BuiltValueField(wireName: 'qSubsetRatio')
   num get subsetRatio;
 
   /// Number of distinct values in the field.
   /// Original name: qnTotalDistinctValues
   @nullable
+  @BuiltValueField(wireName: 'qnTotalDistinctValues')
   int get nTotalDistinctValues;
 
   /// Original name: qnPresentDistinctValues
   @nullable
+  @BuiltValueField(wireName: 'qnPresentDistinctValues')
   int get nPresentDistinctValues;
 
   /// Tells if the field is a key field.
@@ -86,29 +99,35 @@ abstract class FieldInTableData
   /// * PERFECT_KEY
   /// Original name: qKeyType
   @nullable
+  @BuiltValueField(wireName: 'qKeyType')
   String get keyType;
 
   /// Comment related to the field.
   /// Original name: qComment
   @nullable
+  @BuiltValueField(wireName: 'qComment')
   String get comment;
 
   /// List of tags related to the field.
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   /// List of the derived fields.
   /// Original name: qDerivedFields
   @nullable
+  @BuiltValueField(wireName: 'qDerivedFields')
   BuiltList<NxCell> get derivedFields;
 
   /// Original name: qIsFieldOnTheFly
   @nullable
+  @BuiltValueField(wireName: 'qIsFieldOnTheFly')
   bool get isFieldOnTheFly;
 
   /// Original name: qReadableName
   @nullable
+  @BuiltValueField(wireName: 'qReadableName')
   String get readableName;
 
   factory FieldInTableData([updates(FieldInTableDataBuilder b)]) =

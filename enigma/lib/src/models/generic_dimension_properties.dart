@@ -19,17 +19,20 @@ abstract class GenericDimensionProperties
   /// This parameter is mandatory.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Definition of the dimension.
   /// This parameter is mandatory.
   /// Original name: qDim
   @nullable
+  @BuiltValueField(wireName: 'qDim')
   NxLibraryDimensionDef get dim;
 
   /// Definition of the dynamic properties.
   /// Original name: qMetaDef
   @nullable
+  @BuiltValueField(wireName: 'qMetaDef')
   JsonObject get metaDef;
 
   factory GenericDimensionProperties(

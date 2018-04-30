@@ -30,13 +30,13 @@ class _$DimensionListDefSerializer
     final result = <Object>[];
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
     if (object.data != null) {
       result
-        ..add('data')
+        ..add('qData')
         ..add(serializers.serialize(object.data,
             specifiedType: const FullType(JsonObject)));
     }
@@ -55,11 +55,11 @@ class _$DimensionListDefSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'data':
+        case 'qData':
           result.data = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;

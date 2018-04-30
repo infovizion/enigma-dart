@@ -17,12 +17,14 @@ abstract class AppObjectListDef
   /// Type of the app list.
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Data that you want to include in the app list definition.
   /// You need to enter the paths to the information you want to retrieve.
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   JsonObject get data;
 
   factory AppObjectListDef([updates(AppObjectListDefBuilder b)]) =

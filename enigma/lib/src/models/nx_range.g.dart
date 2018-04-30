@@ -28,13 +28,13 @@ class _$NxRangeSerializer implements StructuredSerializer<NxRange> {
     final result = <Object>[];
     if (object.from != null) {
       result
-        ..add('from')
+        ..add('qFrom')
         ..add(serializers.serialize(object.from,
             specifiedType: const FullType(int)));
     }
     if (object.count != null) {
       result
-        ..add('count')
+        ..add('qCount')
         ..add(serializers.serialize(object.count,
             specifiedType: const FullType(int)));
     }
@@ -53,11 +53,11 @@ class _$NxRangeSerializer implements StructuredSerializer<NxRange> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'from':
+        case 'qFrom':
           result.from = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'count':
+        case 'qCount':
           result.count = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

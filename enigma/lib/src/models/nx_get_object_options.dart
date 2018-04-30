@@ -17,17 +17,20 @@ abstract class NxGetObjectOptions
   /// List of object types.
   /// Original name: qTypes
   @nullable
+  @BuiltValueField(wireName: 'qTypes')
   BuiltList<NxCell> get types;
 
   /// Set to true to include session objects.
   /// The default value is false.
   /// Original name: qIncludeSessionObjects
   @nullable
+  @BuiltValueField(wireName: 'qIncludeSessionObjects')
   bool get includeSessionObjects;
 
   /// Set of data.
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   JsonObject get data;
 
   factory NxGetObjectOptions([updates(NxGetObjectOptionsBuilder b)]) =

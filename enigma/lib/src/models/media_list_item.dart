@@ -17,6 +17,7 @@ abstract class MediaListItem
   /// * in the _/media/ folder_ are embedded in the qvf file.
   /// Original name: qUrlDef
   @nullable
+  @BuiltValueField(wireName: 'qUrlDef')
   String get urlDef;
 
   /// Relative path to the media file.
@@ -25,6 +26,7 @@ abstract class MediaListItem
   /// * in the _/media/ folder_ are embedded in the qvf file.
   /// Original name: qUrl
   @nullable
+  @BuiltValueField(wireName: 'qUrl')
   String get url;
 
   factory MediaListItem([updates(MediaListItemBuilder b)]) = _$MediaListItem;

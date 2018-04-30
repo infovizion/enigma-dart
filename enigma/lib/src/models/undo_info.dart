@@ -13,11 +13,13 @@ abstract class UndoInfo implements Built<UndoInfo, UndoInfoBuilder> {
   /// Number of possible undos.
   /// Original name: qUndoCount
   @nullable
+  @BuiltValueField(wireName: 'qUndoCount')
   int get undoCount;
 
   /// Number of possible redos.
   /// Original name: qRedoCount
   @nullable
+  @BuiltValueField(wireName: 'qRedoCount')
   int get redoCount;
 
   factory UndoInfo([updates(UndoInfoBuilder b)]) = _$UndoInfo;

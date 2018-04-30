@@ -16,6 +16,7 @@ abstract class NxHighlightRanges
   /// Ranges of highlighted values.
   /// Original name: qRanges
   @nullable
+  @BuiltValueField(wireName: 'qRanges')
   BuiltList<NxCell> get ranges;
 
   factory NxHighlightRanges([updates(NxHighlightRangesBuilder b)]) =

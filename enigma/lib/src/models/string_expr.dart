@@ -11,6 +11,7 @@ abstract class StringExpr implements Built<StringExpr, StringExprBuilder> {
 
   /// Original name: qv
   @nullable
+  @BuiltValueField(wireName: 'qv')
   String get v;
 
   factory StringExpr([updates(StringExprBuilder b)]) = _$StringExpr;

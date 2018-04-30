@@ -30,19 +30,19 @@ class _$RangeSelectInfoSerializer
     final result = <Object>[];
     if (object.rangeLo != null) {
       result
-        ..add('rangeLo')
+        ..add('qRangeLo')
         ..add(serializers.serialize(object.rangeLo,
             specifiedType: const FullType(num)));
     }
     if (object.rangeHi != null) {
       result
-        ..add('rangeHi')
+        ..add('qRangeHi')
         ..add(serializers.serialize(object.rangeHi,
             specifiedType: const FullType(num)));
     }
     if (object.measure != null) {
       result
-        ..add('measure')
+        ..add('qMeasure')
         ..add(serializers.serialize(object.measure,
             specifiedType: const FullType(String)));
     }
@@ -61,15 +61,15 @@ class _$RangeSelectInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'rangeLo':
+        case 'qRangeLo':
           result.rangeLo = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'rangeHi':
+        case 'qRangeHi':
           result.rangeHi = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'measure':
+        case 'qMeasure':
           result.measure = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

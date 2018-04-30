@@ -28,13 +28,13 @@ class _$DataTableSerializer implements StructuredSerializer<DataTable> {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.type != null) {
       result
-        ..add('type')
+        ..add('qType')
         ..add(serializers.serialize(object.type,
             specifiedType: const FullType(String)));
     }
@@ -53,11 +53,11 @@ class _$DataTableSerializer implements StructuredSerializer<DataTable> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'type':
+        case 'qType':
           result.type = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

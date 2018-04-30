@@ -20,22 +20,26 @@ abstract class GenericDimensionLayout
   /// Identifier and type of the dimension.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Information about publishing and permissions.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// Name and label of the dimension, information about grouping.
   /// Original name: qDim
   @nullable
+  @BuiltValueField(wireName: 'qDim')
   NxLibraryDimension get dim;
 
   /// Cardinal and tags related to the dimension.
   /// Length of the longest value in the field.
   /// Original name: qDimInfos
   @nullable
+  @BuiltValueField(wireName: 'qDimInfos')
   BuiltList<NxCell> get dimInfos;
 
   factory GenericDimensionLayout([updates(GenericDimensionLayoutBuilder b)]) =

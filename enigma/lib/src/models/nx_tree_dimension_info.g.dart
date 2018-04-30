@@ -33,175 +33,175 @@ class _$NxTreeDimensionInfoSerializer
     final result = <Object>[];
     if (object.fallbackTitle != null) {
       result
-        ..add('fallbackTitle')
+        ..add('qFallbackTitle')
         ..add(serializers.serialize(object.fallbackTitle,
             specifiedType: const FullType(String)));
     }
     if (object.apprMaxGlyphCount != null) {
       result
-        ..add('apprMaxGlyphCount')
+        ..add('qApprMaxGlyphCount')
         ..add(serializers.serialize(object.apprMaxGlyphCount,
             specifiedType: const FullType(int)));
     }
     if (object.cardinal != null) {
       result
-        ..add('cardinal')
+        ..add('qCardinal')
         ..add(serializers.serialize(object.cardinal,
             specifiedType: const FullType(int)));
     }
     if (object.locked != null) {
       result
-        ..add('locked')
+        ..add('qLocked')
         ..add(serializers.serialize(object.locked,
             specifiedType: const FullType(bool)));
     }
     if (object.sortIndicator != null) {
       result
-        ..add('sortIndicator')
+        ..add('qSortIndicator')
         ..add(serializers.serialize(object.sortIndicator,
             specifiedType: const FullType(String)));
     }
     if (object.groupFallbackTitles != null) {
       result
-        ..add('groupFallbackTitles')
+        ..add('qGroupFallbackTitles')
         ..add(serializers.serialize(object.groupFallbackTitles,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.groupPos != null) {
       result
-        ..add('groupPos')
+        ..add('qGroupPos')
         ..add(serializers.serialize(object.groupPos,
             specifiedType: const FullType(int)));
     }
     if (object.stateCounts != null) {
       result
-        ..add('stateCounts')
+        ..add('qStateCounts')
         ..add(serializers.serialize(object.stateCounts,
             specifiedType: const FullType(NxStateCounts)));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.error != null) {
       result
-        ..add('error')
+        ..add('qError')
         ..add(serializers.serialize(object.error,
             specifiedType: const FullType(NxValidationError)));
     }
     if (object.dimensionType != null) {
       result
-        ..add('dimensionType')
+        ..add('qDimensionType')
         ..add(serializers.serialize(object.dimensionType,
             specifiedType: const FullType(String)));
     }
     if (object.reverseSort != null) {
       result
-        ..add('reverseSort')
+        ..add('qReverseSort')
         ..add(serializers.serialize(object.reverseSort,
             specifiedType: const FullType(bool)));
     }
     if (object.grouping != null) {
       result
-        ..add('grouping')
+        ..add('qGrouping')
         ..add(serializers.serialize(object.grouping,
             specifiedType: const FullType(String)));
     }
     if (object.isSemantic != null) {
       result
-        ..add('isSemantic')
+        ..add('qIsSemantic')
         ..add(serializers.serialize(object.isSemantic,
             specifiedType: const FullType(bool)));
     }
     if (object.numFormat != null) {
       result
-        ..add('numFormat')
+        ..add('qNumFormat')
         ..add(serializers.serialize(object.numFormat,
             specifiedType: const FullType(FieldAttributes)));
     }
     if (object.isAutoFormat != null) {
       result
-        ..add('isAutoFormat')
+        ..add('qIsAutoFormat')
         ..add(serializers.serialize(object.isAutoFormat,
             specifiedType: const FullType(bool)));
     }
     if (object.groupFieldDefs != null) {
       result
-        ..add('groupFieldDefs')
+        ..add('qGroupFieldDefs')
         ..add(serializers.serialize(object.groupFieldDefs,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.min != null) {
       result
-        ..add('min')
+        ..add('qMin')
         ..add(serializers.serialize(object.min,
             specifiedType: const FullType(num)));
     }
     if (object.max != null) {
       result
-        ..add('max')
+        ..add('qMax')
         ..add(serializers.serialize(object.max,
             specifiedType: const FullType(num)));
     }
     if (object.continuousAxes != null) {
       result
-        ..add('continuousAxes')
+        ..add('qContinuousAxes')
         ..add(serializers.serialize(object.continuousAxes,
             specifiedType: const FullType(bool)));
     }
     if (object.isCyclic != null) {
       result
-        ..add('isCyclic')
+        ..add('qIsCyclic')
         ..add(serializers.serialize(object.isCyclic,
             specifiedType: const FullType(bool)));
     }
     if (object.derivedField != null) {
       result
-        ..add('derivedField')
+        ..add('qDerivedField')
         ..add(serializers.serialize(object.derivedField,
             specifiedType: const FullType(bool)));
     }
     if (object.measureInfo != null) {
       result
-        ..add('measureInfo')
+        ..add('qMeasureInfo')
         ..add(serializers.serialize(object.measureInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attrExprInfo != null) {
       result
-        ..add('attrExprInfo')
+        ..add('qAttrExprInfo')
         ..add(serializers.serialize(object.attrExprInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attrDimInfo != null) {
       result
-        ..add('attrDimInfo')
+        ..add('qAttrDimInfo')
         ..add(serializers.serialize(object.attrDimInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.calcCondMsg != null) {
       result
-        ..add('calcCondMsg')
+        ..add('qCalcCondMsg')
         ..add(serializers.serialize(object.calcCondMsg,
             specifiedType: const FullType(String)));
     }
     if (object.isCalculated != null) {
       result
-        ..add('isCalculated')
+        ..add('qIsCalculated')
         ..add(serializers.serialize(object.isCalculated,
             specifiedType: const FullType(bool)));
     }
     if (object.isOneAndOnlyOne != null) {
       result
-        ..add('isOneAndOnlyOne')
+        ..add('qIsOneAndOnlyOne')
         ..add(serializers.serialize(object.isOneAndOnlyOne,
             specifiedType: const FullType(bool)));
     }
@@ -220,129 +220,129 @@ class _$NxTreeDimensionInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'fallbackTitle':
+        case 'qFallbackTitle':
           result.fallbackTitle = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'apprMaxGlyphCount':
+        case 'qApprMaxGlyphCount':
           result.apprMaxGlyphCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'cardinal':
+        case 'qCardinal':
           result.cardinal = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'locked':
+        case 'qLocked':
           result.locked = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'sortIndicator':
+        case 'qSortIndicator':
           result.sortIndicator = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'groupFallbackTitles':
+        case 'qGroupFallbackTitles':
           result.groupFallbackTitles.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'groupPos':
+        case 'qGroupPos':
           result.groupPos = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'stateCounts':
+        case 'qStateCounts':
           result.stateCounts.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxStateCounts)) as NxStateCounts);
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'error':
+        case 'qError':
           result.error.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxValidationError))
               as NxValidationError);
           break;
-        case 'dimensionType':
+        case 'qDimensionType':
           result.dimensionType = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'reverseSort':
+        case 'qReverseSort':
           result.reverseSort = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'grouping':
+        case 'qGrouping':
           result.grouping = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isSemantic':
+        case 'qIsSemantic':
           result.isSemantic = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'numFormat':
+        case 'qNumFormat':
           result.numFormat.replace(serializers.deserialize(value,
                   specifiedType: const FullType(FieldAttributes))
               as FieldAttributes);
           break;
-        case 'isAutoFormat':
+        case 'qIsAutoFormat':
           result.isAutoFormat = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'groupFieldDefs':
+        case 'qGroupFieldDefs':
           result.groupFieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'min':
+        case 'qMin':
           result.min = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'max':
+        case 'qMax':
           result.max = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'continuousAxes':
+        case 'qContinuousAxes':
           result.continuousAxes = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isCyclic':
+        case 'qIsCyclic':
           result.isCyclic = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'derivedField':
+        case 'qDerivedField':
           result.derivedField = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'measureInfo':
+        case 'qMeasureInfo':
           result.measureInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'attrExprInfo':
+        case 'qAttrExprInfo':
           result.attrExprInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'attrDimInfo':
+        case 'qAttrDimInfo':
           result.attrDimInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'calcCondMsg':
+        case 'qCalcCondMsg':
           result.calcCondMsg = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isCalculated':
+        case 'qIsCalculated':
           result.isCalculated = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isOneAndOnlyOne':
+        case 'qIsOneAndOnlyOne':
           result.isOneAndOnlyOne = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

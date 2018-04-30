@@ -17,12 +17,14 @@ abstract class SearchFieldDictionary
   /// The list of fields is defined in _qResults/qFieldNames_ and contains the search associations.
   /// Original name: qField
   @nullable
+  @BuiltValueField(wireName: 'qField')
   int get field;
 
   /// List of the matching values.
   /// The maximum number of values in this list is set by _qMaxNbrFieldMatches_ .
   /// Original name: qResult
   @nullable
+  @BuiltValueField(wireName: 'qResult')
   BuiltList<NxCell> get result;
 
   factory SearchFieldDictionary([updates(SearchFieldDictionaryBuilder b)]) =

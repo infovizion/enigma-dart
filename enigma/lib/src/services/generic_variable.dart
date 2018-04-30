@@ -2,6 +2,7 @@ import 'dart:async';
 import '../enigma/base_service.dart';
 import '../enigma/enigma.dart';
 import '../models.dart';
+import '../serializers/json_serializer.dart';
 import 'package:built_collection/built_collection.dart';
 
 /// This class describes all the methods that apply at generic variable level.
@@ -16,6 +17,10 @@ class GenericVariable extends BaseService {
   Future<GenericVariableLayout> getLayout() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetLayout', params);
+    var jsonData = rawResult['result']['qLayout'];
+    var dartData =
+        fromJson<GenericVariableLayout>(GenericVariableLayout, jsonData);
+    return dartData;
   }
 
   /// Applies a patch to the properties of a variable. Allows an update to some of the properties.
@@ -38,12 +43,19 @@ class GenericVariable extends BaseService {
   Future<GenericVariableProperties> getProperties() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetProperties', params);
+    var jsonData = rawResult['result']['qProp'];
+    var dartData = fromJson<GenericVariableProperties>(
+        GenericVariableProperties, jsonData);
+    return dartData;
   }
 
   /// Returns the type and identifier of the object.
   Future<NxInfo> getInfo() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetInfo', params);
+    var jsonData = rawResult['result']['qInfo'];
+    var dartData = fromJson<NxInfo>(NxInfo, jsonData);
+    return dartData;
   }
 
   /// Sets a string value to a variable.

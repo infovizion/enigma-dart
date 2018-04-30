@@ -15,21 +15,25 @@ abstract class NxAttrDimDef
   /// Expression or field name.
   /// Original name: qDef
   @nullable
+  @BuiltValueField(wireName: 'qDef')
   String get def;
 
   /// LibraryId for dimension.
   /// Original name: qLibraryId
   @nullable
+  @BuiltValueField(wireName: 'qLibraryId')
   String get libraryId;
 
   /// Sorting.
   /// Original name: qSortBy
   @nullable
+  @BuiltValueField(wireName: 'qSortBy')
   SortCriteria get sortBy;
 
   /// If set to true, this attribute will not affect the number of rows in the cube.
   /// Original name: qAttribute
   @nullable
+  @BuiltValueField(wireName: 'qAttribute')
   bool get attribute;
 
   factory NxAttrDimDef([updates(NxAttrDimDefBuilder b)]) = _$NxAttrDimDef;

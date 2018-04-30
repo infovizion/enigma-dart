@@ -33,13 +33,13 @@ class _$SearchFieldDictionarySerializer
     final result = <Object>[];
     if (object.field != null) {
       result
-        ..add('field')
+        ..add('qField')
         ..add(serializers.serialize(object.field,
             specifiedType: const FullType(int)));
     }
     if (object.result != null) {
       result
-        ..add('result')
+        ..add('qResult')
         ..add(serializers.serialize(object.result,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -60,11 +60,11 @@ class _$SearchFieldDictionarySerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'field':
+        case 'qField':
           result.field = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'result':
+        case 'qResult':
           result.result.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

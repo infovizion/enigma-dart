@@ -17,16 +17,19 @@ abstract class NxContainerEntry
   /// Information about the object.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Information on publishing and permissions.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   /// Set of data.
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   JsonObject get data;
 
   factory NxContainerEntry([updates(NxContainerEntryBuilder b)]) =

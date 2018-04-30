@@ -30,13 +30,13 @@ class _$ProgressMessageSerializer
     final result = <Object>[];
     if (object.messageCode != null) {
       result
-        ..add('messageCode')
+        ..add('qMessageCode')
         ..add(serializers.serialize(object.messageCode,
             specifiedType: const FullType(int)));
     }
     if (object.messageParameters != null) {
       result
-        ..add('messageParameters')
+        ..add('qMessageParameters')
         ..add(serializers.serialize(object.messageParameters,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -56,11 +56,11 @@ class _$ProgressMessageSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'messageCode':
+        case 'qMessageCode':
           result.messageCode = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'messageParameters':
+        case 'qMessageParameters':
           result.messageParameters.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

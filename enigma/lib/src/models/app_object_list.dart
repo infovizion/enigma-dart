@@ -17,6 +17,7 @@ abstract class AppObjectList
   /// Information about the list of dimensions.
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory AppObjectList([updates(AppObjectListBuilder b)]) = _$AppObjectList;

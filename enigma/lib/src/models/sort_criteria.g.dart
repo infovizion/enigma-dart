@@ -29,49 +29,49 @@ class _$SortCriteriaSerializer implements StructuredSerializer<SortCriteria> {
     final result = <Object>[];
     if (object.sortByState != null) {
       result
-        ..add('sortByState')
+        ..add('qSortByState')
         ..add(serializers.serialize(object.sortByState,
             specifiedType: const FullType(int)));
     }
     if (object.sortByFrequency != null) {
       result
-        ..add('sortByFrequency')
+        ..add('qSortByFrequency')
         ..add(serializers.serialize(object.sortByFrequency,
             specifiedType: const FullType(int)));
     }
     if (object.sortByNumeric != null) {
       result
-        ..add('sortByNumeric')
+        ..add('qSortByNumeric')
         ..add(serializers.serialize(object.sortByNumeric,
             specifiedType: const FullType(int)));
     }
     if (object.sortByAscii != null) {
       result
-        ..add('sortByAscii')
+        ..add('qSortByAscii')
         ..add(serializers.serialize(object.sortByAscii,
             specifiedType: const FullType(int)));
     }
     if (object.sortByLoadOrder != null) {
       result
-        ..add('sortByLoadOrder')
+        ..add('qSortByLoadOrder')
         ..add(serializers.serialize(object.sortByLoadOrder,
             specifiedType: const FullType(int)));
     }
     if (object.sortByExpression != null) {
       result
-        ..add('sortByExpression')
+        ..add('qSortByExpression')
         ..add(serializers.serialize(object.sortByExpression,
             specifiedType: const FullType(int)));
     }
     if (object.expression != null) {
       result
-        ..add('expression')
+        ..add('qExpression')
         ..add(serializers.serialize(object.expression,
             specifiedType: const FullType(ValueExpr)));
     }
     if (object.sortByGreyness != null) {
       result
-        ..add('sortByGreyness')
+        ..add('qSortByGreyness')
         ..add(serializers.serialize(object.sortByGreyness,
             specifiedType: const FullType(int)));
     }
@@ -90,35 +90,35 @@ class _$SortCriteriaSerializer implements StructuredSerializer<SortCriteria> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'sortByState':
+        case 'qSortByState':
           result.sortByState = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'sortByFrequency':
+        case 'qSortByFrequency':
           result.sortByFrequency = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'sortByNumeric':
+        case 'qSortByNumeric':
           result.sortByNumeric = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'sortByAscii':
+        case 'qSortByAscii':
           result.sortByAscii = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'sortByLoadOrder':
+        case 'qSortByLoadOrder':
           result.sortByLoadOrder = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'sortByExpression':
+        case 'qSortByExpression':
           result.sortByExpression = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'expression':
+        case 'qExpression':
           result.expression.replace(serializers.deserialize(value,
               specifiedType: const FullType(ValueExpr)) as ValueExpr);
           break;
-        case 'sortByGreyness':
+        case 'qSortByGreyness':
           result.sortByGreyness = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

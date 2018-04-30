@@ -23,6 +23,7 @@ abstract class ValueExpression
 
   /// Original name: qExpr
   @nullable
+  @BuiltValueField(wireName: 'qExpr')
   String get expr;
 
   factory ValueExpression([updates(ValueExpressionBuilder b)]) =

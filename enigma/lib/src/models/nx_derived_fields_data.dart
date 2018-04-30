@@ -16,21 +16,25 @@ abstract class NxDerivedFieldsData
   /// Name of the derived definition.
   /// Original name: qDerivedDefinitionName
   @nullable
+  @BuiltValueField(wireName: 'qDerivedDefinitionName')
   String get derivedDefinitionName;
 
   /// List of the derived fields.
   /// Original name: qFieldDefs
   @nullable
+  @BuiltValueField(wireName: 'qFieldDefs')
   BuiltList<NxCell> get fieldDefs;
 
   /// List of the derived groups.
   /// Original name: qGroupDefs
   @nullable
+  @BuiltValueField(wireName: 'qGroupDefs')
   BuiltList<NxCell> get groupDefs;
 
   /// List of tags on the derived fields.
   /// Original name: qTags
   @nullable
+  @BuiltValueField(wireName: 'qTags')
   BuiltList<NxCell> get tags;
 
   factory NxDerivedFieldsData([updates(NxDerivedFieldsDataBuilder b)]) =

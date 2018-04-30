@@ -15,11 +15,13 @@ abstract class NxStackPage implements Built<NxStackPage, NxStackPageBuilder> {
   /// Array of data.
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   BuiltList<NxCell> get data;
 
   /// Size and offset of the data in the matrix.
   /// Original name: qArea
   @nullable
+  @BuiltValueField(wireName: 'qArea')
   Rect get area;
 
   factory NxStackPage([updates(NxStackPageBuilder b)]) = _$NxStackPage;

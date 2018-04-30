@@ -18,6 +18,7 @@ abstract class SelectionObjectDef
 
   /// Original name: qStateName
   @nullable
+  @BuiltValueField(wireName: 'qStateName')
   String get stateName;
 
   factory SelectionObjectDef([updates(SelectionObjectDefBuilder b)]) =

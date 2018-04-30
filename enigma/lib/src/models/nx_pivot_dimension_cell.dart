@@ -18,30 +18,35 @@ abstract class NxPivotDimensionCell
   /// Some text.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// Rank number of the value.
   /// If set to -1, it means that the value is not an element number.
   /// Original name: qElemNo
   @nullable
+  @BuiltValueField(wireName: 'qElemNo')
   int get elemNo;
 
   /// Value of the cell.
   /// Is set to _NaN_ , if the value is not a number.
   /// Original name: qValue
   @nullable
+  @BuiltValueField(wireName: 'qValue')
   num get value;
 
   /// If set to true, it means that the cell can be expanded.
   /// This parameter is not returned if it is set to false.
   /// Original name: qCanExpand
   @nullable
+  @BuiltValueField(wireName: 'qCanExpand')
   bool get canExpand;
 
   /// If set to true, it means that the cell can be collapsed.
   /// This parameter is not returned if it is set to false.
   /// Original name: qCanCollapse
   @nullable
+  @BuiltValueField(wireName: 'qCanCollapse')
   bool get canCollapse;
 
   /// Type of the cell.
@@ -59,35 +64,41 @@ abstract class NxPivotDimensionCell
   /// * G or NX_DIM_CELL_GENERATED
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Number of elements that are part of the previous tail.
   /// This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ .
   /// Original name: qUp
   @nullable
+  @BuiltValueField(wireName: 'qUp')
   int get up;
 
   /// Number of elements that are part of the next tail.
   /// This number depends on the paging, more particularly it depends on the values defined in _qTop_ and _qHeight_ .
   /// Original name: qDown
   @nullable
+  @BuiltValueField(wireName: 'qDown')
   int get down;
 
   /// Information about sub nodes (or sub cells).
   /// The array is empty _[ ]_ when there is no sub nodes.
   /// Original name: qSubNodes
   @nullable
+  @BuiltValueField(wireName: 'qSubNodes')
   BuiltList<NxCell> get subNodes;
 
   /// Information about attribute expressions.
   /// The array is empty _[ ]_ when there is no attribute expressions.
   /// Original name: qAttrExps
   @nullable
+  @BuiltValueField(wireName: 'qAttrExps')
   NxAttributeExpressionValues get attrExps;
 
   /// Information about attribute dimensions.
   /// Original name: qAttrDims
   @nullable
+  @BuiltValueField(wireName: 'qAttrDims')
   NxAttributeDimValues get attrDims;
 
   factory NxPivotDimensionCell([updates(NxPivotDimensionCellBuilder b)]) =

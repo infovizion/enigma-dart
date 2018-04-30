@@ -30,7 +30,7 @@ class _$StaticContentListSerializer
     final result = <Object>[];
     if (object.items != null) {
       result
-        ..add('items')
+        ..add('qItems')
         ..add(serializers.serialize(object.items,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -50,7 +50,7 @@ class _$StaticContentListSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'items':
+        case 'qItems':
           result.items.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

@@ -20,21 +20,25 @@ abstract class ListObjectDef
   /// Default is current selections _$_ .
   /// Original name: qStateName
   @nullable
+  @BuiltValueField(wireName: 'qStateName')
   String get stateName;
 
   /// Refers to a dimension stored in the library.
   /// Original name: qLibraryId
   @nullable
+  @BuiltValueField(wireName: 'qLibraryId')
   String get libraryId;
 
   /// Refers to a dimension stored in the list object.
   /// Original name: qDef
   @nullable
+  @BuiltValueField(wireName: 'qDef')
   NxInlineDimensionDef get def;
 
   /// Defines the sorting by state.
   /// Original name: qAutoSortByState
   @nullable
+  @BuiltValueField(wireName: 'qAutoSortByState')
   NxAutoSortByStateDef get autoSortByState;
 
   /// Defines the frequency mode. The frequency mode is used to calculate the frequency of a value in a list object.
@@ -48,6 +52,7 @@ abstract class ListObjectDef
   /// * R or NX_FREQUENCY_RELATIVE
   /// Original name: qFrequencyMode
   @nullable
+  @BuiltValueField(wireName: 'qFrequencyMode')
   String get frequencyMode;
 
   /// If set to true, alternative values are allowed in _qData_ .
@@ -57,17 +62,20 @@ abstract class ListObjectDef
   /// This parameter is optional.
   /// Original name: qShowAlternatives
   @nullable
+  @BuiltValueField(wireName: 'qShowAlternatives')
   bool get showAlternatives;
 
   /// Fetches an initial data set.
   /// Original name: qInitialDataFetch
   @nullable
+  @BuiltValueField(wireName: 'qInitialDataFetch')
   BuiltList<NxCell> get initialDataFetch;
 
   /// Lists the expressions in the list object.
   /// This parameter is optional.
   /// Original name: qExpressions
   @nullable
+  @BuiltValueField(wireName: 'qExpressions')
   BuiltList<NxCell> get expressions;
 
   factory ListObjectDef([updates(ListObjectDefBuilder b)]) = _$ListObjectDef;

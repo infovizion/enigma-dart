@@ -33,13 +33,13 @@ class _$BookmarkVariableItemSerializer
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.value != null) {
       result
-        ..add('value')
+        ..add('qValue')
         ..add(serializers.serialize(object.value,
             specifiedType: const FullType(FieldValue)));
     }
@@ -58,11 +58,11 @@ class _$BookmarkVariableItemSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'value':
+        case 'qValue':
           result.value.replace(serializers.deserialize(value,
               specifiedType: const FullType(FieldValue)) as FieldValue);
           break;

@@ -15,17 +15,20 @@ abstract class SearchResult
   /// List of the search terms.
   /// Original name: qSearchTerms
   @nullable
+  @BuiltValueField(wireName: 'qSearchTerms')
   BuiltList<NxCell> get searchTerms;
 
   /// Total number of groups.
   /// Original name: qTotalNumberOfGroups
   @nullable
+  @BuiltValueField(wireName: 'qTotalNumberOfGroups')
   int get totalNumberOfGroups;
 
   /// List of search groups.
   /// The groups are numbered from the value of _SearchPage.qOffset_ to the value of _SearchPage.qOffset + SearchPage.qCount_ .
   /// Original name: qSearchGroupArray
   @nullable
+  @BuiltValueField(wireName: 'qSearchGroupArray')
   BuiltList<NxCell> get searchGroupArray;
 
   factory SearchResult([updates(SearchResultBuilder b)]) = _$SearchResult;

@@ -30,31 +30,31 @@ class _$NxAttrExprInfoSerializer
     final result = <Object>[];
     if (object.min != null) {
       result
-        ..add('min')
+        ..add('qMin')
         ..add(serializers.serialize(object.min,
             specifiedType: const FullType(num)));
     }
     if (object.max != null) {
       result
-        ..add('max')
+        ..add('qMax')
         ..add(serializers.serialize(object.max,
             specifiedType: const FullType(num)));
     }
     if (object.fallbackTitle != null) {
       result
-        ..add('fallbackTitle')
+        ..add('qFallbackTitle')
         ..add(serializers.serialize(object.fallbackTitle,
             specifiedType: const FullType(String)));
     }
     if (object.minText != null) {
       result
-        ..add('minText')
+        ..add('qMinText')
         ..add(serializers.serialize(object.minText,
             specifiedType: const FullType(String)));
     }
     if (object.maxText != null) {
       result
-        ..add('maxText')
+        ..add('qMaxText')
         ..add(serializers.serialize(object.maxText,
             specifiedType: const FullType(String)));
     }
@@ -73,23 +73,23 @@ class _$NxAttrExprInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'min':
+        case 'qMin':
           result.min = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'max':
+        case 'qMax':
           result.max = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'fallbackTitle':
+        case 'qFallbackTitle':
           result.fallbackTitle = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'minText':
+        case 'qMinText':
           result.minText = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'maxText':
+        case 'qMaxText':
           result.maxText = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

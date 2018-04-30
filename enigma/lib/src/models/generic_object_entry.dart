@@ -18,16 +18,19 @@ abstract class GenericObjectEntry
   /// Information about the generic object properties.
   /// Original name: qProperty
   @nullable
+  @BuiltValueField(wireName: 'qProperty')
   GenericObjectProperties get property;
 
   /// Information about the children of the generic object.
   /// Original name: qChildren
   @nullable
+  @BuiltValueField(wireName: 'qChildren')
   BuiltList<NxCell> get children;
 
   /// Reference to a bookmark/snapshot that is embedded in the generic object.
   /// Original name: qEmbeddedSnapshotRef
   @nullable
+  @BuiltValueField(wireName: 'qEmbeddedSnapshotRef')
   GenericBookmarkEntry get embeddedSnapshotRef;
 
   factory GenericObjectEntry([updates(GenericObjectEntryBuilder b)]) =

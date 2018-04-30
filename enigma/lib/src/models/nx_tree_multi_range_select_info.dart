@@ -17,6 +17,7 @@ abstract class NxTreeMultiRangeSelectInfo
   /// An array of Ranges.
   /// Original name: qRanges
   @nullable
+  @BuiltValueField(wireName: 'qRanges')
   BuiltList<NxCell> get ranges;
 
   factory NxTreeMultiRangeSelectInfo(

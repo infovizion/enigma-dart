@@ -30,31 +30,31 @@ class _$NxDerivedFieldSerializer
     final result = <Object>[];
     if (object.id != null) {
       result
-        ..add('id')
+        ..add('qId')
         ..add(serializers.serialize(object.id,
             specifiedType: const FullType(String)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.method != null) {
       result
-        ..add('method')
+        ..add('qMethod')
         ..add(serializers.serialize(object.method,
             specifiedType: const FullType(String)));
     }
     if (object.expr != null) {
       result
-        ..add('expr')
+        ..add('qExpr')
         ..add(serializers.serialize(object.expr,
             specifiedType: const FullType(String)));
     }
     if (object.tags != null) {
       result
-        ..add('tags')
+        ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -74,23 +74,23 @@ class _$NxDerivedFieldSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'id':
+        case 'qId':
           result.id = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'method':
+        case 'qMethod':
           result.method = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'expr':
+        case 'qExpr':
           result.expr = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'tags':
+        case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

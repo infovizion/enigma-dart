@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of scripts_function;
+part of script_function;
 
 // **************************************************************************
 // Generator: BuiltValueGenerator
@@ -14,35 +14,35 @@ part of scripts_function;
 // ignore_for_file: prefer_expression_function_bodies
 // ignore_for_file: sort_constructors_first
 
-Serializer<ScriptsFunction> _$scriptsFunctionSerializer =
-    new _$ScriptsFunctionSerializer();
+Serializer<ScriptFunction> _$scriptFunctionSerializer =
+    new _$ScriptFunctionSerializer();
 
-class _$ScriptsFunctionSerializer
-    implements StructuredSerializer<ScriptsFunction> {
+class _$ScriptFunctionSerializer
+    implements StructuredSerializer<ScriptFunction> {
   @override
-  final Iterable<Type> types = const [ScriptsFunction, _$ScriptsFunction];
+  final Iterable<Type> types = const [ScriptFunction, _$ScriptFunction];
   @override
-  final String wireName = 'ScriptsFunction';
+  final String wireName = 'ScriptFunction';
 
   @override
-  Iterable serialize(Serializers serializers, ScriptsFunction object,
+  Iterable serialize(Serializers serializers, ScriptFunction object,
       {FullType specifiedType: FullType.unspecified}) {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.group != null) {
       result
-        ..add('group')
+        ..add('qGroup')
         ..add(serializers.serialize(object.group,
             specifiedType: const FullType(String)));
     }
     if (object.signature != null) {
       result
-        ..add('signature')
+        ..add('qSignature')
         ..add(serializers.serialize(object.signature,
             specifiedType: const FullType(String)));
     }
@@ -51,9 +51,9 @@ class _$ScriptsFunctionSerializer
   }
 
   @override
-  ScriptsFunction deserialize(Serializers serializers, Iterable serialized,
+  ScriptFunction deserialize(Serializers serializers, Iterable serialized,
       {FullType specifiedType: FullType.unspecified}) {
-    final result = new ScriptsFunctionBuilder();
+    final result = new ScriptFunctionBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -61,15 +61,15 @@ class _$ScriptsFunctionSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'group':
+        case 'qGroup':
           result.group = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'signature':
+        case 'qSignature':
           result.signature = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
@@ -80,7 +80,7 @@ class _$ScriptsFunctionSerializer
   }
 }
 
-class _$ScriptsFunction extends ScriptsFunction {
+class _$ScriptFunction extends ScriptFunction {
   @override
   final String name;
   @override
@@ -88,23 +88,23 @@ class _$ScriptsFunction extends ScriptsFunction {
   @override
   final String signature;
 
-  factory _$ScriptsFunction([void updates(ScriptsFunctionBuilder b)]) =>
-      (new ScriptsFunctionBuilder()..update(updates)).build();
+  factory _$ScriptFunction([void updates(ScriptFunctionBuilder b)]) =>
+      (new ScriptFunctionBuilder()..update(updates)).build();
 
-  _$ScriptsFunction._({this.name, this.group, this.signature}) : super._();
+  _$ScriptFunction._({this.name, this.group, this.signature}) : super._();
 
   @override
-  ScriptsFunction rebuild(void updates(ScriptsFunctionBuilder b)) =>
+  ScriptFunction rebuild(void updates(ScriptFunctionBuilder b)) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ScriptsFunctionBuilder toBuilder() =>
-      new ScriptsFunctionBuilder()..replace(this);
+  ScriptFunctionBuilder toBuilder() =>
+      new ScriptFunctionBuilder()..replace(this);
 
   @override
   bool operator ==(dynamic other) {
     if (identical(other, this)) return true;
-    if (other is! ScriptsFunction) return false;
+    if (other is! ScriptFunction) return false;
     return name == other.name &&
         group == other.group &&
         signature == other.signature;
@@ -118,7 +118,7 @@ class _$ScriptsFunction extends ScriptsFunction {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('ScriptsFunction')
+    return (newBuiltValueToStringHelper('ScriptFunction')
           ..add('name', name)
           ..add('group', group)
           ..add('signature', signature))
@@ -126,9 +126,9 @@ class _$ScriptsFunction extends ScriptsFunction {
   }
 }
 
-class ScriptsFunctionBuilder
-    implements Builder<ScriptsFunction, ScriptsFunctionBuilder> {
-  _$ScriptsFunction _$v;
+class ScriptFunctionBuilder
+    implements Builder<ScriptFunction, ScriptFunctionBuilder> {
+  _$ScriptFunction _$v;
 
   String _name;
   String get name => _$this._name;
@@ -142,9 +142,9 @@ class ScriptsFunctionBuilder
   String get signature => _$this._signature;
   set signature(String signature) => _$this._signature = signature;
 
-  ScriptsFunctionBuilder();
+  ScriptFunctionBuilder();
 
-  ScriptsFunctionBuilder get _$this {
+  ScriptFunctionBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
       _group = _$v.group;
@@ -155,20 +155,20 @@ class ScriptsFunctionBuilder
   }
 
   @override
-  void replace(ScriptsFunction other) {
+  void replace(ScriptFunction other) {
     if (other == null) throw new ArgumentError.notNull('other');
-    _$v = other as _$ScriptsFunction;
+    _$v = other as _$ScriptFunction;
   }
 
   @override
-  void update(void updates(ScriptsFunctionBuilder b)) {
+  void update(void updates(ScriptFunctionBuilder b)) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$ScriptsFunction build() {
+  _$ScriptFunction build() {
     final _$result = _$v ??
-        new _$ScriptsFunction._(name: name, group: group, signature: signature);
+        new _$ScriptFunction._(name: name, group: group, signature: signature);
     replace(_$result);
     return _$result;
   }

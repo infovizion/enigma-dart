@@ -33,20 +33,20 @@ class _$SearchGroupItemMatchSerializer
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
     if (object.ranges != null) {
       result
-        ..add('ranges')
+        ..add('qRanges')
         ..add(serializers.serialize(object.ranges,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attributes != null) {
       result
-        ..add('attributes')
+        ..add('qAttributes')
         ..add(serializers.serialize(object.attributes,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -66,17 +66,17 @@ class _$SearchGroupItemMatchSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'ranges':
+        case 'qRanges':
           result.ranges.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'attributes':
+        case 'qAttributes':
           result.attributes.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

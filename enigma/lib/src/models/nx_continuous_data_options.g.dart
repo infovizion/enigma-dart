@@ -33,31 +33,31 @@ class _$NxContinuousDataOptionsSerializer
     final result = <Object>[];
     if (object.start != null) {
       result
-        ..add('start')
+        ..add('qStart')
         ..add(serializers.serialize(object.start,
             specifiedType: const FullType(num)));
     }
     if (object.end != null) {
       result
-        ..add('end')
+        ..add('qEnd')
         ..add(serializers.serialize(object.end,
             specifiedType: const FullType(num)));
     }
     if (object.nbrPoints != null) {
       result
-        ..add('nbrPoints')
+        ..add('qNbrPoints')
         ..add(serializers.serialize(object.nbrPoints,
             specifiedType: const FullType(int)));
     }
     if (object.maxNbrTicks != null) {
       result
-        ..add('maxNbrTicks')
+        ..add('qMaxNbrTicks')
         ..add(serializers.serialize(object.maxNbrTicks,
             specifiedType: const FullType(int)));
     }
     if (object.maxNumberLines != null) {
       result
-        ..add('maxNumberLines')
+        ..add('qMaxNumberLines')
         ..add(serializers.serialize(object.maxNumberLines,
             specifiedType: const FullType(int)));
     }
@@ -77,23 +77,23 @@ class _$NxContinuousDataOptionsSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'start':
+        case 'qStart':
           result.start = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'end':
+        case 'qEnd':
           result.end = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'nbrPoints':
+        case 'qNbrPoints':
           result.nbrPoints = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'maxNbrTicks':
+        case 'qMaxNbrTicks':
           result.maxNbrTicks = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'maxNumberLines':
+        case 'qMaxNumberLines':
           result.maxNumberLines = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

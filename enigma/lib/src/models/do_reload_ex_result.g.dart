@@ -30,13 +30,13 @@ class _$DoReloadExResultSerializer
     final result = <Object>[];
     if (object.success != null) {
       result
-        ..add('success')
+        ..add('qSuccess')
         ..add(serializers.serialize(object.success,
             specifiedType: const FullType(bool)));
     }
     if (object.scriptLogFile != null) {
       result
-        ..add('scriptLogFile')
+        ..add('qScriptLogFile')
         ..add(serializers.serialize(object.scriptLogFile,
             specifiedType: const FullType(String)));
     }
@@ -55,11 +55,11 @@ class _$DoReloadExResultSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'success':
+        case 'qSuccess':
           result.success = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'scriptLogFile':
+        case 'qScriptLogFile':
           result.scriptLogFile = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

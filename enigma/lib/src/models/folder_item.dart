@@ -12,6 +12,7 @@ abstract class FolderItem implements Built<FolderItem, FolderItemBuilder> {
   /// Name of the folder item.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Type of the folder item.
@@ -22,6 +23,7 @@ abstract class FolderItem implements Built<FolderItem, FolderItemBuilder> {
   /// * OTHER or FOLDER_ITEM_OTHER
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   factory FolderItem([updates(FolderItemBuilder b)]) = _$FolderItem;

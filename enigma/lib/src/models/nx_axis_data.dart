@@ -14,6 +14,7 @@ abstract class NxAxisData implements Built<NxAxisData, NxAxisDataBuilder> {
   /// List of axis data.
   /// Original name: qAxis
   @nullable
+  @BuiltValueField(wireName: 'qAxis')
   BuiltList<NxCell> get axis;
 
   factory NxAxisData([updates(NxAxisDataBuilder b)]) = _$NxAxisData;

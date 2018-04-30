@@ -33,13 +33,13 @@ class _$GenericBookmarkEntrySerializer
     final result = <Object>[];
     if (object.properties != null) {
       result
-        ..add('properties')
+        ..add('qProperties')
         ..add(serializers.serialize(object.properties,
             specifiedType: const FullType(GenericBookmarkProperties)));
     }
     if (object.bookmark != null) {
       result
-        ..add('bookmark')
+        ..add('qBookmark')
         ..add(serializers.serialize(object.bookmark,
             specifiedType: const FullType(NxBookmark)));
     }
@@ -58,12 +58,12 @@ class _$GenericBookmarkEntrySerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'properties':
+        case 'qProperties':
           result.properties.replace(serializers.deserialize(value,
                   specifiedType: const FullType(GenericBookmarkProperties))
               as GenericBookmarkProperties);
           break;
-        case 'bookmark':
+        case 'qBookmark':
           result.bookmark.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxBookmark)) as NxBookmark);
           break;

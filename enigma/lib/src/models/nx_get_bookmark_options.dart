@@ -17,11 +17,13 @@ abstract class NxGetBookmarkOptions
   /// List of object types.
   /// Original name: qTypes
   @nullable
+  @BuiltValueField(wireName: 'qTypes')
   BuiltList<NxCell> get types;
 
   /// Set of data.
   /// Original name: qData
   @nullable
+  @BuiltValueField(wireName: 'qData')
   JsonObject get data;
 
   factory NxGetBookmarkOptions([updates(NxGetBookmarkOptionsBuilder b)]) =

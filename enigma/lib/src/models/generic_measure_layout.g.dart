@@ -33,19 +33,19 @@ class _$GenericMeasureLayoutSerializer
     final result = <Object>[];
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.measure != null) {
       result
-        ..add('measure')
+        ..add('qMeasure')
         ..add(serializers.serialize(object.measure,
             specifiedType: const FullType(NxLibraryMeasure)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
@@ -64,16 +64,16 @@ class _$GenericMeasureLayoutSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'measure':
+        case 'qMeasure':
           result.measure.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxLibraryMeasure))
               as NxLibraryMeasure);
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;

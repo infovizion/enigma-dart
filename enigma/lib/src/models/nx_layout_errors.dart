@@ -14,6 +14,7 @@ abstract class NxLayoutErrors
   /// Error code.
   /// Original name: qErrorCode
   @nullable
+  @BuiltValueField(wireName: 'qErrorCode')
   int get errorCode;
 
   factory NxLayoutErrors([updates(NxLayoutErrorsBuilder b)]) = _$NxLayoutErrors;

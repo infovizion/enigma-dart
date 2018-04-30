@@ -28,38 +28,38 @@ class _$ListObjectSerializer implements StructuredSerializer<ListObject> {
     final result = <Object>[];
     if (object.stateName != null) {
       result
-        ..add('stateName')
+        ..add('qStateName')
         ..add(serializers.serialize(object.stateName,
             specifiedType: const FullType(String)));
     }
     if (object.size != null) {
       result
-        ..add('size')
+        ..add('qSize')
         ..add(serializers.serialize(object.size,
             specifiedType: const FullType(Size)));
     }
     if (object.error != null) {
       result
-        ..add('error')
+        ..add('qError')
         ..add(serializers.serialize(object.error,
             specifiedType: const FullType(NxValidationError)));
     }
     if (object.dimensionInfo != null) {
       result
-        ..add('dimensionInfo')
+        ..add('qDimensionInfo')
         ..add(serializers.serialize(object.dimensionInfo,
             specifiedType: const FullType(NxDimensionInfo)));
     }
     if (object.expressions != null) {
       result
-        ..add('expressions')
+        ..add('qExpressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.dataPages != null) {
       result
-        ..add('dataPages')
+        ..add('qDataPages')
         ..add(serializers.serialize(object.dataPages,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -79,31 +79,31 @@ class _$ListObjectSerializer implements StructuredSerializer<ListObject> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'stateName':
+        case 'qStateName':
           result.stateName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'size':
+        case 'qSize':
           result.size.replace(serializers.deserialize(value,
               specifiedType: const FullType(Size)) as Size);
           break;
-        case 'error':
+        case 'qError':
           result.error.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxValidationError))
               as NxValidationError);
           break;
-        case 'dimensionInfo':
+        case 'qDimensionInfo':
           result.dimensionInfo.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxDimensionInfo))
               as NxDimensionInfo);
           break;
-        case 'expressions':
+        case 'qExpressions':
           result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'dataPages':
+        case 'qDataPages':
           result.dataPages.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

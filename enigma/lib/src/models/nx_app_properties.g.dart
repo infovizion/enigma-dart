@@ -30,31 +30,31 @@ class _$NxAppPropertiesSerializer
     final result = <Object>[];
     if (object.title != null) {
       result
-        ..add('title')
+        ..add('qTitle')
         ..add(serializers.serialize(object.title,
             specifiedType: const FullType(String)));
     }
     if (object.lastReloadTime != null) {
       result
-        ..add('lastReloadTime')
+        ..add('qLastReloadTime')
         ..add(serializers.serialize(object.lastReloadTime,
             specifiedType: const FullType(String)));
     }
     if (object.migrationHash != null) {
       result
-        ..add('migrationHash')
+        ..add('qMigrationHash')
         ..add(serializers.serialize(object.migrationHash,
             specifiedType: const FullType(String)));
     }
     if (object.savedInProductVersion != null) {
       result
-        ..add('savedInProductVersion')
+        ..add('qSavedInProductVersion')
         ..add(serializers.serialize(object.savedInProductVersion,
             specifiedType: const FullType(String)));
     }
     if (object.thumbnail != null) {
       result
-        ..add('thumbnail')
+        ..add('qThumbnail')
         ..add(serializers.serialize(object.thumbnail,
             specifiedType: const FullType(StaticContentUrlDef)));
     }
@@ -73,23 +73,23 @@ class _$NxAppPropertiesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'title':
+        case 'qTitle':
           result.title = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'lastReloadTime':
+        case 'qLastReloadTime':
           result.lastReloadTime = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'migrationHash':
+        case 'qMigrationHash':
           result.migrationHash = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'savedInProductVersion':
+        case 'qSavedInProductVersion':
           result.savedInProductVersion = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'thumbnail':
+        case 'qThumbnail':
           result.thumbnail.replace(serializers.deserialize(value,
                   specifiedType: const FullType(StaticContentUrlDef))
               as StaticContentUrlDef);

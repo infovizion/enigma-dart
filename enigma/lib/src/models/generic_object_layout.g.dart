@@ -33,37 +33,37 @@ class _$GenericObjectLayoutSerializer
     final result = <Object>[];
     if (object.info != null) {
       result
-        ..add('info')
+        ..add('qInfo')
         ..add(serializers.serialize(object.info,
             specifiedType: const FullType(NxInfo)));
     }
     if (object.meta != null) {
       result
-        ..add('meta')
+        ..add('qMeta')
         ..add(serializers.serialize(object.meta,
             specifiedType: const FullType(NxMeta)));
     }
     if (object.extendsId != null) {
       result
-        ..add('extendsId')
+        ..add('qExtendsId')
         ..add(serializers.serialize(object.extendsId,
             specifiedType: const FullType(String)));
     }
     if (object.hasSoftPatches != null) {
       result
-        ..add('hasSoftPatches')
+        ..add('qHasSoftPatches')
         ..add(serializers.serialize(object.hasSoftPatches,
             specifiedType: const FullType(bool)));
     }
     if (object.error != null) {
       result
-        ..add('error')
+        ..add('qError')
         ..add(serializers.serialize(object.error,
             specifiedType: const FullType(NxLayoutErrors)));
     }
     if (object.selectionInfo != null) {
       result
-        ..add('selectionInfo')
+        ..add('qSelectionInfo')
         ..add(serializers.serialize(object.selectionInfo,
             specifiedType: const FullType(NxSelectionInfo)));
     }
@@ -82,27 +82,27 @@ class _$GenericObjectLayoutSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'info':
+        case 'qInfo':
           result.info.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxInfo)) as NxInfo);
           break;
-        case 'meta':
+        case 'qMeta':
           result.meta.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxMeta)) as NxMeta);
           break;
-        case 'extendsId':
+        case 'qExtendsId':
           result.extendsId = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'hasSoftPatches':
+        case 'qHasSoftPatches':
           result.hasSoftPatches = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'error':
+        case 'qError':
           result.error.replace(serializers.deserialize(value,
               specifiedType: const FullType(NxLayoutErrors)) as NxLayoutErrors);
           break;
-        case 'selectionInfo':
+        case 'qSelectionInfo':
           result.selectionInfo.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxSelectionInfo))
               as NxSelectionInfo);

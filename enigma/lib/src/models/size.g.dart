@@ -28,13 +28,13 @@ class _$SizeSerializer implements StructuredSerializer<Size> {
     final result = <Object>[];
     if (object.cx != null) {
       result
-        ..add('cx')
+        ..add('qcx')
         ..add(serializers.serialize(object.cx,
             specifiedType: const FullType(int)));
     }
     if (object.cy != null) {
       result
-        ..add('cy')
+        ..add('qcy')
         ..add(serializers.serialize(object.cy,
             specifiedType: const FullType(int)));
     }
@@ -53,11 +53,11 @@ class _$SizeSerializer implements StructuredSerializer<Size> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'cx':
+        case 'qcx':
           result.cx = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'cy':
+        case 'qcy':
           result.cy = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

@@ -20,6 +20,7 @@ abstract class AssociationScore
   /// If the field is a synthetic key, the name of the field is preceded by _[Synthetic key]:_ .
   /// Original name: qFieldPairName
   @nullable
+  @BuiltValueField(wireName: 'qFieldPairName')
   String get fieldPairName;
 
   /// Flag used to interpret calculated scores.
@@ -35,16 +36,19 @@ abstract class AssociationScore
   /// The number of rows of the field _FieldName1_ is zero, and the number of distinct values of the field _FieldName2_ is zero, then _qScoreSummary_ is -18.
   /// Original name: qScoreSummary
   @nullable
+  @BuiltValueField(wireName: 'qScoreSummary')
   int get scoreSummary;
 
   /// Association information about the field _FieldName1_ defined in _qFieldPairName_ .
   /// Original name: qField1Scores
   @nullable
+  @BuiltValueField(wireName: 'qField1Scores')
   FieldScores get field1Scores;
 
   /// Association information about the field _FieldName2_ defined in _qFieldPairName_ .
   /// Original name: qField2Scores
   @nullable
+  @BuiltValueField(wireName: 'qField2Scores')
   FieldScores get field2Scores;
 
   factory AssociationScore([updates(AssociationScoreBuilder b)]) =

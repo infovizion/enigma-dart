@@ -15,6 +15,7 @@ abstract class NxValidationError
   /// This parameter is always displayed in case of error.
   /// Original name: qErrorCode
   @nullable
+  @BuiltValueField(wireName: 'qErrorCode')
   int get errorCode;
 
   /// Context related to the error, from the user app domain.
@@ -22,12 +23,14 @@ abstract class NxValidationError
   /// This parameter is optional.
   /// Original name: qContext
   @nullable
+  @BuiltValueField(wireName: 'qContext')
   String get context;
 
   /// Internal information from the server.
   /// This parameter is optional.
   /// Original name: qExtendedMessage
   @nullable
+  @BuiltValueField(wireName: 'qExtendedMessage')
   String get extendedMessage;
 
   factory NxValidationError([updates(NxValidationErrorBuilder b)]) =

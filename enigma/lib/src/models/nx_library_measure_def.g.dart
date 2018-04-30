@@ -33,38 +33,38 @@ class _$NxLibraryMeasureDefSerializer
     final result = <Object>[];
     if (object.label != null) {
       result
-        ..add('label')
+        ..add('qLabel')
         ..add(serializers.serialize(object.label,
             specifiedType: const FullType(String)));
     }
     if (object.def != null) {
       result
-        ..add('def')
+        ..add('qDef')
         ..add(serializers.serialize(object.def,
             specifiedType: const FullType(String)));
     }
     if (object.grouping != null) {
       result
-        ..add('grouping')
+        ..add('qGrouping')
         ..add(serializers.serialize(object.grouping,
             specifiedType: const FullType(String)));
     }
     if (object.expressions != null) {
       result
-        ..add('expressions')
+        ..add('qExpressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.activeExpression != null) {
       result
-        ..add('activeExpression')
+        ..add('qActiveExpression')
         ..add(serializers.serialize(object.activeExpression,
             specifiedType: const FullType(int)));
     }
     if (object.labelExpression != null) {
       result
-        ..add('labelExpression')
+        ..add('qLabelExpression')
         ..add(serializers.serialize(object.labelExpression,
             specifiedType: const FullType(String)));
     }
@@ -83,29 +83,29 @@ class _$NxLibraryMeasureDefSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'label':
+        case 'qLabel':
           result.label = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'def':
+        case 'qDef':
           result.def = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'grouping':
+        case 'qGrouping':
           result.grouping = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'expressions':
+        case 'qExpressions':
           result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'activeExpression':
+        case 'qActiveExpression':
           result.activeExpression = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'labelExpression':
+        case 'qLabelExpression':
           result.labelExpression = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

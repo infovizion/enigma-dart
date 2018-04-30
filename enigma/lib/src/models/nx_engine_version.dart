@@ -14,6 +14,7 @@ abstract class NxEngineVersion
   /// Version number of the Qlik engine component.
   /// Original name: qComponentVersion
   @nullable
+  @BuiltValueField(wireName: 'qComponentVersion')
   String get componentVersion;
 
   factory NxEngineVersion([updates(NxEngineVersionBuilder b)]) =

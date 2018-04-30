@@ -28,19 +28,19 @@ class _$CodePageSerializer implements StructuredSerializer<CodePage> {
     final result = <Object>[];
     if (object.number != null) {
       result
-        ..add('number')
+        ..add('qNumber')
         ..add(serializers.serialize(object.number,
             specifiedType: const FullType(int)));
     }
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.description != null) {
       result
-        ..add('description')
+        ..add('qDescription')
         ..add(serializers.serialize(object.description,
             specifiedType: const FullType(String)));
     }
@@ -59,15 +59,15 @@ class _$CodePageSerializer implements StructuredSerializer<CodePage> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'number':
+        case 'qNumber':
           result.number = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'description':
+        case 'qDescription':
           result.description = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

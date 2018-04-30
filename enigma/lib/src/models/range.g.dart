@@ -28,25 +28,25 @@ class _$RangeSerializer implements StructuredSerializer<Range> {
     final result = <Object>[];
     if (object.min != null) {
       result
-        ..add('min')
+        ..add('qMin')
         ..add(serializers.serialize(object.min,
             specifiedType: const FullType(num)));
     }
     if (object.max != null) {
       result
-        ..add('max')
+        ..add('qMax')
         ..add(serializers.serialize(object.max,
             specifiedType: const FullType(num)));
     }
     if (object.minInclEq != null) {
       result
-        ..add('minInclEq')
+        ..add('qMinInclEq')
         ..add(serializers.serialize(object.minInclEq,
             specifiedType: const FullType(bool)));
     }
     if (object.maxInclEq != null) {
       result
-        ..add('maxInclEq')
+        ..add('qMaxInclEq')
         ..add(serializers.serialize(object.maxInclEq,
             specifiedType: const FullType(bool)));
     }
@@ -65,19 +65,19 @@ class _$RangeSerializer implements StructuredSerializer<Range> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'min':
+        case 'qMin':
           result.min = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'max':
+        case 'qMax':
           result.max = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'minInclEq':
+        case 'qMinInclEq':
           result.minInclEq = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'maxInclEq':
+        case 'qMaxInclEq':
           result.maxInclEq = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

@@ -17,16 +17,19 @@ abstract class SelectionObject
   /// Number of steps back.
   /// Original name: qBackCount
   @nullable
+  @BuiltValueField(wireName: 'qBackCount')
   int get backCount;
 
   /// Number of steps forward.
   /// Original name: qForwardCount
   @nullable
+  @BuiltValueField(wireName: 'qForwardCount')
   int get forwardCount;
 
   /// Lists the fields that are selected.
   /// Original name: qSelections
   @nullable
+  @BuiltValueField(wireName: 'qSelections')
   BuiltList<NxCell> get selections;
 
   factory SelectionObject([updates(SelectionObjectBuilder b)]) =

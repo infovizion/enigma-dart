@@ -15,11 +15,13 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
   /// If the offset is set to 0, the first search result to be returned is at position 0.
   /// Original name: qOffset
   @nullable
+  @BuiltValueField(wireName: 'qOffset')
   int get offset;
 
   /// Number of search groups to return (in _qSearchGroupArray_ ).
   /// Original name: qCount
   @nullable
+  @BuiltValueField(wireName: 'qCount')
   int get count;
 
   /// Maximum number of matching values to return per search result.
@@ -27,6 +29,7 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
   /// This property is to be used with the _SearchAssociations method_.
   /// Original name: qMaxNbrFieldMatches
   @nullable
+  @BuiltValueField(wireName: 'qMaxNbrFieldMatches')
   int get maxNbrFieldMatches;
 
   /// Options of the search groups.
@@ -34,6 +37,7 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
   /// This property is to be used with the _SearchResults method_ or the _SearchObjects method_.
   /// Original name: qGroupOptions
   @nullable
+  @BuiltValueField(wireName: 'qGroupOptions')
   BuiltList<NxCell> get groupOptions;
 
   /// Options of the search group items.
@@ -41,6 +45,7 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
   /// This property is to be used with the _SearchResults method_ or the _SearchObjects method_.
   /// Original name: qGroupItemOptions
   @nullable
+  @BuiltValueField(wireName: 'qGroupItemOptions')
   BuiltList<NxCell> get groupItemOptions;
 
   factory SearchPage([updates(SearchPageBuilder b)]) = _$SearchPage;

@@ -18,16 +18,19 @@ abstract class GenericMeasureLayout
   /// Information about the object.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Information about the measure.
   /// Original name: qMeasure
   @nullable
+  @BuiltValueField(wireName: 'qMeasure')
   NxLibraryMeasure get measure;
 
   /// Information on publishing and permissions.
   /// Original name: qMeta
   @nullable
+  @BuiltValueField(wireName: 'qMeta')
   NxMeta get meta;
 
   factory GenericMeasureLayout([updates(GenericMeasureLayoutBuilder b)]) =

@@ -28,19 +28,19 @@ class _$DataFieldSerializer implements StructuredSerializer<DataField> {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.isKey != null) {
       result
-        ..add('isKey')
+        ..add('qIsKey')
         ..add(serializers.serialize(object.isKey,
             specifiedType: const FullType(bool)));
     }
     if (object.originalFieldName != null) {
       result
-        ..add('originalFieldName')
+        ..add('qOriginalFieldName')
         ..add(serializers.serialize(object.originalFieldName,
             specifiedType: const FullType(String)));
     }
@@ -59,15 +59,15 @@ class _$DataFieldSerializer implements StructuredSerializer<DataField> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isKey':
+        case 'qIsKey':
           result.isKey = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'originalFieldName':
+        case 'qOriginalFieldName':
           result.originalFieldName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

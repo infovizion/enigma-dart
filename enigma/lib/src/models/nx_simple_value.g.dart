@@ -29,7 +29,7 @@ class _$NxSimpleValueSerializer implements StructuredSerializer<NxSimpleValue> {
     final result = <Object>[];
     if (object.text != null) {
       result
-        ..add('text')
+        ..add('qText')
         ..add(serializers.serialize(object.text,
             specifiedType: const FullType(String)));
     }
@@ -54,7 +54,7 @@ class _$NxSimpleValueSerializer implements StructuredSerializer<NxSimpleValue> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'text':
+        case 'qText':
           result.text = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

@@ -29,81 +29,81 @@ class _$NxMeasureInfoSerializer implements StructuredSerializer<NxMeasureInfo> {
     final result = <Object>[];
     if (object.fallbackTitle != null) {
       result
-        ..add('fallbackTitle')
+        ..add('qFallbackTitle')
         ..add(serializers.serialize(object.fallbackTitle,
             specifiedType: const FullType(String)));
     }
     if (object.apprMaxGlyphCount != null) {
       result
-        ..add('apprMaxGlyphCount')
+        ..add('qApprMaxGlyphCount')
         ..add(serializers.serialize(object.apprMaxGlyphCount,
             specifiedType: const FullType(int)));
     }
     if (object.cardinal != null) {
       result
-        ..add('cardinal')
+        ..add('qCardinal')
         ..add(serializers.serialize(object.cardinal,
             specifiedType: const FullType(int)));
     }
     if (object.sortIndicator != null) {
       result
-        ..add('sortIndicator')
+        ..add('qSortIndicator')
         ..add(serializers.serialize(object.sortIndicator,
             specifiedType: const FullType(String)));
     }
     if (object.numFormat != null) {
       result
-        ..add('numFormat')
+        ..add('qNumFormat')
         ..add(serializers.serialize(object.numFormat,
             specifiedType: const FullType(FieldAttributes)));
     }
     if (object.min != null) {
       result
-        ..add('min')
+        ..add('qMin')
         ..add(serializers.serialize(object.min,
             specifiedType: const FullType(num)));
     }
     if (object.max != null) {
       result
-        ..add('max')
+        ..add('qMax')
         ..add(serializers.serialize(object.max,
             specifiedType: const FullType(num)));
     }
     if (object.error != null) {
       result
-        ..add('error')
+        ..add('qError')
         ..add(serializers.serialize(object.error,
             specifiedType: const FullType(NxValidationError)));
     }
     if (object.reverseSort != null) {
       result
-        ..add('reverseSort')
+        ..add('qReverseSort')
         ..add(serializers.serialize(object.reverseSort,
             specifiedType: const FullType(bool)));
     }
     if (object.isAutoFormat != null) {
       result
-        ..add('isAutoFormat')
+        ..add('qIsAutoFormat')
         ..add(serializers.serialize(object.isAutoFormat,
             specifiedType: const FullType(bool)));
     }
     if (object.attrExprInfo != null) {
       result
-        ..add('attrExprInfo')
+        ..add('qAttrExprInfo')
         ..add(serializers.serialize(object.attrExprInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.attrDimInfo != null) {
       result
-        ..add('attrDimInfo')
+        ..add('qAttrDimInfo')
         ..add(serializers.serialize(object.attrDimInfo,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.calcCondMsg != null) {
       result
-        ..add('calcCondMsg')
+        ..add('qCalcCondMsg')
         ..add(serializers.serialize(object.calcCondMsg,
             specifiedType: const FullType(String)));
     }
@@ -122,61 +122,61 @@ class _$NxMeasureInfoSerializer implements StructuredSerializer<NxMeasureInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'fallbackTitle':
+        case 'qFallbackTitle':
           result.fallbackTitle = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'apprMaxGlyphCount':
+        case 'qApprMaxGlyphCount':
           result.apprMaxGlyphCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'cardinal':
+        case 'qCardinal':
           result.cardinal = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'sortIndicator':
+        case 'qSortIndicator':
           result.sortIndicator = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'numFormat':
+        case 'qNumFormat':
           result.numFormat.replace(serializers.deserialize(value,
                   specifiedType: const FullType(FieldAttributes))
               as FieldAttributes);
           break;
-        case 'min':
+        case 'qMin':
           result.min = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'max':
+        case 'qMax':
           result.max = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;
-        case 'error':
+        case 'qError':
           result.error.replace(serializers.deserialize(value,
                   specifiedType: const FullType(NxValidationError))
               as NxValidationError);
           break;
-        case 'reverseSort':
+        case 'qReverseSort':
           result.reverseSort = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'isAutoFormat':
+        case 'qIsAutoFormat':
           result.isAutoFormat = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
-        case 'attrExprInfo':
+        case 'qAttrExprInfo':
           result.attrExprInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'attrDimInfo':
+        case 'qAttrDimInfo':
           result.attrDimInfo.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'calcCondMsg':
+        case 'qCalcCondMsg':
           result.calcCondMsg = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;

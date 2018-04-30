@@ -30,28 +30,28 @@ class _$TableViewSaveInfoSerializer
     final result = <Object>[];
     if (object.tables != null) {
       result
-        ..add('tables')
+        ..add('qTables')
         ..add(serializers.serialize(object.tables,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.broomPoints != null) {
       result
-        ..add('broomPoints')
+        ..add('qBroomPoints')
         ..add(serializers.serialize(object.broomPoints,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.connectionPoints != null) {
       result
-        ..add('connectionPoints')
+        ..add('qConnectionPoints')
         ..add(serializers.serialize(object.connectionPoints,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.zoomFactor != null) {
       result
-        ..add('zoomFactor')
+        ..add('qZoomFactor')
         ..add(serializers.serialize(object.zoomFactor,
             specifiedType: const FullType(num)));
     }
@@ -70,25 +70,25 @@ class _$TableViewSaveInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'tables':
+        case 'qTables':
           result.tables.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'broomPoints':
+        case 'qBroomPoints':
           result.broomPoints.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'connectionPoints':
+        case 'qConnectionPoints':
           result.connectionPoints.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'zoomFactor':
+        case 'qZoomFactor':
           result.zoomFactor = serializers.deserialize(value,
               specifiedType: const FullType(num)) as num;
           break;

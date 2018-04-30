@@ -33,13 +33,13 @@ class _$TableViewCtlSaveInfoSerializer
     final result = <Object>[];
     if (object.internalView != null) {
       result
-        ..add('internalView')
+        ..add('qInternalView')
         ..add(serializers.serialize(object.internalView,
             specifiedType: const FullType(TableViewSaveInfo)));
     }
     if (object.sourceView != null) {
       result
-        ..add('sourceView')
+        ..add('qSourceView')
         ..add(serializers.serialize(object.sourceView,
             specifiedType: const FullType(TableViewSaveInfo)));
     }
@@ -58,12 +58,12 @@ class _$TableViewCtlSaveInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'internalView':
+        case 'qInternalView':
           result.internalView.replace(serializers.deserialize(value,
                   specifiedType: const FullType(TableViewSaveInfo))
               as TableViewSaveInfo);
           break;
-        case 'sourceView':
+        case 'qSourceView':
           result.sourceView.replace(serializers.deserialize(value,
                   specifiedType: const FullType(TableViewSaveInfo))
               as TableViewSaveInfo);

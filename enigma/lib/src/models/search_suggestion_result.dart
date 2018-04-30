@@ -16,11 +16,13 @@ abstract class SearchSuggestionResult
   /// List of suggestions.
   /// Original name: qSuggestions
   @nullable
+  @BuiltValueField(wireName: 'qSuggestions')
   BuiltList<NxCell> get suggestions;
 
   /// List of field names that contain search hits.
   /// Original name: qFieldNames
   @nullable
+  @BuiltValueField(wireName: 'qFieldNames')
   BuiltList<NxCell> get fieldNames;
 
   factory SearchSuggestionResult([updates(SearchSuggestionResultBuilder b)]) =

@@ -13,16 +13,19 @@ abstract class ErrorData implements Built<ErrorData, ErrorDataBuilder> {
   /// Detailed information about the error message.
   /// Original name: qErrorString
   @nullable
+  @BuiltValueField(wireName: 'qErrorString')
   String get errorString;
 
   /// Line termination characters.
   /// Original name: qLineEnd
   @nullable
+  @BuiltValueField(wireName: 'qLineEnd')
   String get lineEnd;
 
   /// Script statement where the error occurs.
   /// Original name: qLine
   @nullable
+  @BuiltValueField(wireName: 'qLine')
   String get line;
 
   /// Type of the error messages.
@@ -33,10 +36,12 @@ abstract class ErrorData implements Built<ErrorData, ErrorDataBuilder> {
   /// * EDC_CIRCULAR_REFERENCE
   /// Original name: qErrorDataCode
   @nullable
+  @BuiltValueField(wireName: 'qErrorDataCode')
   String get errorDataCode;
 
   /// Original name: qMessage
   @nullable
+  @BuiltValueField(wireName: 'qMessage')
   ProgressMessage get message;
 
   factory ErrorData([updates(ErrorDataBuilder b)]) = _$ErrorData;

@@ -17,6 +17,7 @@ abstract class NxAttributeExpressionValues
   /// List of attribute expressions values.
   /// Original name: qValues
   @nullable
+  @BuiltValueField(wireName: 'qValues')
   BuiltList<NxCell> get values;
 
   factory NxAttributeExpressionValues(

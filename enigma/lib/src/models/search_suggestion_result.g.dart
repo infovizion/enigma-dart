@@ -33,14 +33,14 @@ class _$SearchSuggestionResultSerializer
     final result = <Object>[];
     if (object.suggestions != null) {
       result
-        ..add('suggestions')
+        ..add('qSuggestions')
         ..add(serializers.serialize(object.suggestions,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
     }
     if (object.fieldNames != null) {
       result
-        ..add('fieldNames')
+        ..add('qFieldNames')
         ..add(serializers.serialize(object.fieldNames,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(NxCell)])));
@@ -61,13 +61,13 @@ class _$SearchSuggestionResultSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'suggestions':
+        case 'qSuggestions':
           result.suggestions.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))
               as BuiltList);
           break;
-        case 'fieldNames':
+        case 'qFieldNames':
           result.fieldNames.replace(serializers.deserialize(value,
                   specifiedType:
                       const FullType(BuiltList, const [const FullType(NxCell)]))

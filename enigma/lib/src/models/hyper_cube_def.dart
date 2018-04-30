@@ -21,16 +21,19 @@ abstract class HyperCubeDef
   /// Default is current selections _$_ .
   /// Original name: qStateName
   @nullable
+  @BuiltValueField(wireName: 'qStateName')
   String get stateName;
 
   /// Array of dimensions.
   /// Original name: qDimensions
   @nullable
+  @BuiltValueField(wireName: 'qDimensions')
   BuiltList<NxCell> get dimensions;
 
   /// Array of measures.
   /// Original name: qMeasures
   @nullable
+  @BuiltValueField(wireName: 'qMeasures')
   BuiltList<NxCell> get measures;
 
   /// Defines the sort order of the columns in the hypercube.
@@ -43,21 +46,25 @@ abstract class HyperCubeDef
   /// Stacked pivot tables can only contain one measure.
   /// Original name: qInterColumnSortOrder
   @nullable
+  @BuiltValueField(wireName: 'qInterColumnSortOrder')
   BuiltList<NxCell> get interColumnSortOrder;
 
   /// Removes zero values.
   /// Original name: qSuppressZero
   @nullable
+  @BuiltValueField(wireName: 'qSuppressZero')
   bool get suppressZero;
 
   /// Removes missing values.
   /// Original name: qSuppressMissing
   @nullable
+  @BuiltValueField(wireName: 'qSuppressMissing')
   bool get suppressMissing;
 
   /// Initial data set.
   /// Original name: qInitialDataFetch
   @nullable
+  @BuiltValueField(wireName: 'qInitialDataFetch')
   BuiltList<NxCell> get initialDataFetch;
 
   ///
@@ -69,6 +76,7 @@ abstract class HyperCubeDef
   /// * ST or DATA_REDUCTION_STACKED
   /// Original name: qReductionMode
   @nullable
+  @BuiltValueField(wireName: 'qReductionMode')
   String get reductionMode;
 
   /// Defines the way the data are handled internally by the engine.
@@ -82,10 +90,12 @@ abstract class HyperCubeDef
   /// * T or DATA_MODE_TREE
   /// Original name: qMode
   @nullable
+  @BuiltValueField(wireName: 'qMode')
   String get mode;
 
   /// Original name: qPseudoDimPos
   @nullable
+  @BuiltValueField(wireName: 'qPseudoDimPos')
   int get pseudoDimPos;
 
   /// Number of left dimensions.
@@ -118,36 +128,42 @@ abstract class HyperCubeDef
   /// * The pseudo dimension is a top dimension.
   /// Original name: qNoOfLeftDims
   @nullable
+  @BuiltValueField(wireName: 'qNoOfLeftDims')
   int get noOfLeftDims;
 
   /// If this property is set to true, the cells are always expanded. It implies that it is not possible to collapse any cells.
   /// The default value is false.
   /// Original name: qAlwaysFullyExpanded
   @nullable
+  @BuiltValueField(wireName: 'qAlwaysFullyExpanded')
   bool get alwaysFullyExpanded;
 
   /// Maximum number of cells for an initial data fetch (set in _qInitialDataFetch_ ) when in stacked mode ( _qMode_ is K).
   /// The default value is 5000.
   /// Original name: qMaxStackedCells
   @nullable
+  @BuiltValueField(wireName: 'qMaxStackedCells')
   int get maxStackedCells;
 
   /// If this property is set to true, the missing symbols (if any) are replaced by 0 if the value is a numeric and by an empty string if the value is a string.
   /// The default value is false.
   /// Original name: qPopulateMissing
   @nullable
+  @BuiltValueField(wireName: 'qPopulateMissing')
   bool get populateMissing;
 
   /// If set to true, the total (if any) is shown on the first row.
   /// The default value is false.
   /// Original name: qShowTotalsAbove
   @nullable
+  @BuiltValueField(wireName: 'qShowTotalsAbove')
   bool get showTotalsAbove;
 
   /// This property applies for pivot tables and allows to change the layout of the table. An indentation is added to the beginning of each row.
   /// The default value is false.
   /// Original name: qIndentMode
   @nullable
+  @BuiltValueField(wireName: 'qIndentMode')
   bool get indentMode;
 
   /// Specifies a calculation condition, which must be fulfilled for the hypercube to be (re)calculated.
@@ -155,6 +171,7 @@ abstract class HyperCubeDef
   /// This property is optional. By default, there is no calculation condition.
   /// Original name: qCalcCond
   @nullable
+  @BuiltValueField(wireName: 'qCalcCond')
   ValueExpr get calcCond;
 
   /// To enable the sorting by ascending or descending order in the values of a measure.
@@ -162,11 +179,13 @@ abstract class HyperCubeDef
   /// In the case of a pivot table, the measure or pseudo dimension should be defined as a top dimension. The sorting is restricted to the values of the first measure in a pivot table.
   /// Original name: qSortbyYValue
   @nullable
+  @BuiltValueField(wireName: 'qSortbyYValue')
   int get sortbyYValue;
 
   /// Title of the hypercube, for example the title of a chart.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   StringExpr get title;
 
   /// Specifies a calculation condition object.
@@ -175,11 +194,13 @@ abstract class HyperCubeDef
   /// This property is optional.
   /// Original name: qCalcCondition
   @nullable
+  @BuiltValueField(wireName: 'qCalcCondition')
   NxCalcCond get calcCondition;
 
   /// The order of the columns.
   /// Original name: qColumnOrder
   @nullable
+  @BuiltValueField(wireName: 'qColumnOrder')
   BuiltList<NxCell> get columnOrder;
 
   factory HyperCubeDef([updates(HyperCubeDefBuilder b)]) = _$HyperCubeDef;

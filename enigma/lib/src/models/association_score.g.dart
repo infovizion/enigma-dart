@@ -30,25 +30,25 @@ class _$AssociationScoreSerializer
     final result = <Object>[];
     if (object.fieldPairName != null) {
       result
-        ..add('fieldPairName')
+        ..add('qFieldPairName')
         ..add(serializers.serialize(object.fieldPairName,
             specifiedType: const FullType(String)));
     }
     if (object.scoreSummary != null) {
       result
-        ..add('scoreSummary')
+        ..add('qScoreSummary')
         ..add(serializers.serialize(object.scoreSummary,
             specifiedType: const FullType(int)));
     }
     if (object.field1Scores != null) {
       result
-        ..add('field1Scores')
+        ..add('qField1Scores')
         ..add(serializers.serialize(object.field1Scores,
             specifiedType: const FullType(FieldScores)));
     }
     if (object.field2Scores != null) {
       result
-        ..add('field2Scores')
+        ..add('qField2Scores')
         ..add(serializers.serialize(object.field2Scores,
             specifiedType: const FullType(FieldScores)));
     }
@@ -67,19 +67,19 @@ class _$AssociationScoreSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'fieldPairName':
+        case 'qFieldPairName':
           result.fieldPairName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'scoreSummary':
+        case 'qScoreSummary':
           result.scoreSummary = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'field1Scores':
+        case 'qField1Scores':
           result.field1Scores.replace(serializers.deserialize(value,
               specifiedType: const FullType(FieldScores)) as FieldScores);
           break;
-        case 'field2Scores':
+        case 'qField2Scores':
           result.field2Scores.replace(serializers.deserialize(value,
               specifiedType: const FullType(FieldScores)) as FieldScores);
           break;

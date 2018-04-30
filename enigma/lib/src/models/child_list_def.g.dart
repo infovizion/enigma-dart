@@ -29,7 +29,7 @@ class _$ChildListDefSerializer implements StructuredSerializer<ChildListDef> {
     final result = <Object>[];
     if (object.data != null) {
       result
-        ..add('data')
+        ..add('qData')
         ..add(serializers.serialize(object.data,
             specifiedType: const FullType(JsonObject)));
     }
@@ -48,7 +48,7 @@ class _$ChildListDefSerializer implements StructuredSerializer<ChildListDef> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'data':
+        case 'qData':
           result.data = serializers.deserialize(value,
               specifiedType: const FullType(JsonObject)) as JsonObject;
           break;

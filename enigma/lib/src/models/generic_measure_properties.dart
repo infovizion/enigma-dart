@@ -19,17 +19,20 @@ abstract class GenericMeasureProperties
   /// This parameter is mandatory.
   /// Original name: qInfo
   @nullable
+  @BuiltValueField(wireName: 'qInfo')
   NxInfo get info;
 
   /// Definition of the measure.
   /// This parameter is mandatory.
   /// Original name: qMeasure
   @nullable
+  @BuiltValueField(wireName: 'qMeasure')
   NxLibraryMeasureDef get measure;
 
   /// Definition of the dynamic properties.
   /// Original name: qMetaDef
   @nullable
+  @BuiltValueField(wireName: 'qMetaDef')
   JsonObject get metaDef;
 
   factory GenericMeasureProperties(

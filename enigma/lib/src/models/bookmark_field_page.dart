@@ -15,11 +15,13 @@ abstract class BookmarkFieldPage
   /// The start value of the range.
   /// Original name: qStartIndex
   @nullable
+  @BuiltValueField(wireName: 'qStartIndex')
   int get startIndex;
 
   /// The end value of the range.
   /// Original name: qEndIndex
   @nullable
+  @BuiltValueField(wireName: 'qEndIndex')
   int get endIndex;
 
   factory BookmarkFieldPage([updates(BookmarkFieldPageBuilder b)]) =

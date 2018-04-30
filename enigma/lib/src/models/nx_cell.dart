@@ -14,12 +14,14 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
   /// This parameter is optional.
   /// Original name: qText
   @nullable
+  @BuiltValueField(wireName: 'qText')
   String get text;
 
   /// A value.
   /// This parameter is optional.
   /// Original name: qNum
   @nullable
+  @BuiltValueField(wireName: 'qNum')
   num get qNum;
 
   /// Rank number of the value, starting from 0.
@@ -31,6 +33,7 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
   /// * -4: the cell is empty. Applies to pivot tables.
   /// Original name: qElemNumber
   @nullable
+  @BuiltValueField(wireName: 'qElemNumber')
   int get elemNumber;
 
   /// State of the value.
@@ -48,12 +51,14 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
   /// * NSTATES
   /// Original name: qState
   @nullable
+  @BuiltValueField(wireName: 'qState')
   String get state;
 
   /// Is set to _true_ , if **qText** and **qNum** are empty.
   /// This parameter is optional. The default value is _false_ .
   /// Original name: qIsEmpty
   @nullable
+  @BuiltValueField(wireName: 'qIsEmpty')
   bool get isEmpty;
 
   /// Is set to _true_ if a total is displayed in the cell.
@@ -61,6 +66,7 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
   /// Not applicable to list objects.
   /// Original name: qIsTotalCell
   @nullable
+  @BuiltValueField(wireName: 'qIsTotalCell')
   bool get isTotalCell;
 
   /// Is set to _true_ if the cell belongs to the group _Others_ .
@@ -69,12 +75,14 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
   /// Not applicable to list objects.
   /// Original name: qIsOtherCell
   @nullable
+  @BuiltValueField(wireName: 'qIsOtherCell')
   bool get isOtherCell;
 
   /// Frequency of the value.
   /// This parameter is optional.
   /// Original name: qFrequency
   @nullable
+  @BuiltValueField(wireName: 'qFrequency')
   String get frequency;
 
   /// Search hits.
@@ -82,21 +90,25 @@ abstract class NxCell implements Built<NxCell, NxCellBuilder> {
   /// This parameter is optional.
   /// Original name: qHighlightRanges
   @nullable
+  @BuiltValueField(wireName: 'qHighlightRanges')
   JsonObject get highlightRanges;
 
   /// Attribute expression values.
   /// Original name: qAttrExps
   @nullable
+  @BuiltValueField(wireName: 'qAttrExps')
   JsonObject get attrExps;
 
   /// Attribute dimensions values.
   /// Original name: qAttrDims
   @nullable
+  @BuiltValueField(wireName: 'qAttrDims')
   JsonObject get attrDims;
 
   /// Is set to _true_ if the value is Null.
   /// Original name: qIsNull
   @nullable
+  @BuiltValueField(wireName: 'qIsNull')
   bool get isNull;
 
   factory NxCell([updates(NxCellBuilder b)]) = _$NxCell;

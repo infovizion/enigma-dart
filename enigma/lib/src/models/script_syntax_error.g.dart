@@ -30,37 +30,37 @@ class _$ScriptSyntaxErrorSerializer
     final result = <Object>[];
     if (object.errLen != null) {
       result
-        ..add('errLen')
+        ..add('qErrLen')
         ..add(serializers.serialize(object.errLen,
             specifiedType: const FullType(int)));
     }
     if (object.tabIx != null) {
       result
-        ..add('tabIx')
+        ..add('qTabIx')
         ..add(serializers.serialize(object.tabIx,
             specifiedType: const FullType(int)));
     }
     if (object.lineInTab != null) {
       result
-        ..add('lineInTab')
+        ..add('qLineInTab')
         ..add(serializers.serialize(object.lineInTab,
             specifiedType: const FullType(int)));
     }
     if (object.colInLine != null) {
       result
-        ..add('colInLine')
+        ..add('qColInLine')
         ..add(serializers.serialize(object.colInLine,
             specifiedType: const FullType(int)));
     }
     if (object.textPos != null) {
       result
-        ..add('textPos')
+        ..add('qTextPos')
         ..add(serializers.serialize(object.textPos,
             specifiedType: const FullType(int)));
     }
     if (object.secondaryFailure != null) {
       result
-        ..add('secondaryFailure')
+        ..add('qSecondaryFailure')
         ..add(serializers.serialize(object.secondaryFailure,
             specifiedType: const FullType(bool)));
     }
@@ -79,27 +79,27 @@ class _$ScriptSyntaxErrorSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'errLen':
+        case 'qErrLen':
           result.errLen = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'tabIx':
+        case 'qTabIx':
           result.tabIx = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'lineInTab':
+        case 'qLineInTab':
           result.lineInTab = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'colInLine':
+        case 'qColInLine':
           result.colInLine = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'textPos':
+        case 'qTextPos':
           result.textPos = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'secondaryFailure':
+        case 'qSecondaryFailure':
           result.secondaryFailure = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

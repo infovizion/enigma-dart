@@ -15,11 +15,13 @@ abstract class NxListObjectExpressionDef
   /// Value of the expression.
   /// Original name: qExpr
   @nullable
+  @BuiltValueField(wireName: 'qExpr')
   String get expr;
 
   /// Refers to an expression stored in the library.
   /// Original name: qLibraryId
   @nullable
+  @BuiltValueField(wireName: 'qLibraryId')
   String get libraryId;
 
   factory NxListObjectExpressionDef(

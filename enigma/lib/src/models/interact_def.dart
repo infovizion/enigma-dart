@@ -21,18 +21,21 @@ abstract class InteractDef implements Built<InteractDef, InteractDefBuilder> {
   /// * IT_USERNAME
   /// Original name: qType
   @nullable
+  @BuiltValueField(wireName: 'qType')
   String get type;
 
   /// Title used in the message box dialog.
   /// This property is relevant if _qType_ is *IT_MSGBOX*.
   /// Original name: qTitle
   @nullable
+  @BuiltValueField(wireName: 'qTitle')
   String get title;
 
   /// Message used in the message box dialog.
   /// This property is relevant if _qType_ is *IT_MSGBOX*.
   /// Original name: qMsg
   @nullable
+  @BuiltValueField(wireName: 'qMsg')
   String get msg;
 
   /// Buttons displayed in the message box dialog.
@@ -42,24 +45,28 @@ abstract class InteractDef implements Built<InteractDef, InteractDefBuilder> {
   /// * 17 means that the message box contains the **OK** and **Cancel** buttons or the **stop** -sign icon.
   /// Original name: qButtons
   @nullable
+  @BuiltValueField(wireName: 'qButtons')
   int get buttons;
 
   /// Next script statement to be executed.
   /// This property is used if the type of interaction is *IT_SCRIPTLINE*.
   /// Original name: qLine
   @nullable
+  @BuiltValueField(wireName: 'qLine')
   String get line;
 
   /// First line number of the previously executed statement.
   /// This property is used if the type of interaction is *IT_SCRIPTLINE*.
   /// Original name: qOldLineNr
   @nullable
+  @BuiltValueField(wireName: 'qOldLineNr')
   int get oldLineNr;
 
   /// First line number of the next statement to be executed.
   /// This property is used if the type of interaction is *IT_SCRIPTLINE*.
   /// Original name: qNewLineNr
   @nullable
+  @BuiltValueField(wireName: 'qNewLineNr')
   int get newLineNr;
 
   /// Path specified by the **Include** script variable.
@@ -68,21 +75,25 @@ abstract class InteractDef implements Built<InteractDef, InteractDefBuilder> {
   /// _$(Include=lib:\\\MyDataFiles\abc.txt);_
   /// Original name: qPath
   @nullable
+  @BuiltValueField(wireName: 'qPath')
   String get path;
 
   /// This property is set to true if the returned statement is an hidden script statement.
   /// Original name: qHidden
   @nullable
+  @BuiltValueField(wireName: 'qHidden')
   bool get hidden;
 
   /// Not relevant for describing the requested user interaction.
   /// Original name: qResult
   @nullable
+  @BuiltValueField(wireName: 'qResult')
   int get result;
 
   /// Is not used in Qlik Sense.
   /// Original name: qInput
   @nullable
+  @BuiltValueField(wireName: 'qInput')
   String get input;
 
   factory InteractDef([updates(InteractDefBuilder b)]) = _$InteractDef;

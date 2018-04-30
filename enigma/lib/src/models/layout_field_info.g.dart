@@ -30,19 +30,19 @@ class _$LayoutFieldInfoSerializer
     final result = <Object>[];
     if (object.fieldName != null) {
       result
-        ..add('fieldName')
+        ..add('qFieldName')
         ..add(serializers.serialize(object.fieldName,
             specifiedType: const FullType(String)));
     }
     if (object.valuesCount != null) {
       result
-        ..add('valuesCount')
+        ..add('qValuesCount')
         ..add(serializers.serialize(object.valuesCount,
             specifiedType: const FullType(int)));
     }
     if (object.excludedValuesCount != null) {
       result
-        ..add('excludedValuesCount')
+        ..add('qExcludedValuesCount')
         ..add(serializers.serialize(object.excludedValuesCount,
             specifiedType: const FullType(int)));
     }
@@ -61,15 +61,15 @@ class _$LayoutFieldInfoSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'fieldName':
+        case 'qFieldName':
           result.fieldName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'valuesCount':
+        case 'qValuesCount':
           result.valuesCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'excludedValuesCount':
+        case 'qExcludedValuesCount':
           result.excludedValuesCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

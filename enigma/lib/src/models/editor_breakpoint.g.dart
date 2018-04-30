@@ -30,19 +30,19 @@ class _$EditorBreakpointSerializer
     final result = <Object>[];
     if (object.bufferName != null) {
       result
-        ..add('bufferName')
+        ..add('qbufferName')
         ..add(serializers.serialize(object.bufferName,
             specifiedType: const FullType(String)));
     }
     if (object.lineIx != null) {
       result
-        ..add('lineIx')
+        ..add('qlineIx')
         ..add(serializers.serialize(object.lineIx,
             specifiedType: const FullType(int)));
     }
     if (object.enabled != null) {
       result
-        ..add('enabled')
+        ..add('qEnabled')
         ..add(serializers.serialize(object.enabled,
             specifiedType: const FullType(bool)));
     }
@@ -61,15 +61,15 @@ class _$EditorBreakpointSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'bufferName':
+        case 'qbufferName':
           result.bufferName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'lineIx':
+        case 'qlineIx':
           result.lineIx = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'enabled':
+        case 'qEnabled':
           result.enabled = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

@@ -16,6 +16,7 @@ abstract class ChildList implements Built<ChildList, ChildListBuilder> {
   /// Information about the items in the app object.
   /// Original name: qItems
   @nullable
+  @BuiltValueField(wireName: 'qItems')
   BuiltList<NxCell> get items;
 
   factory ChildList([updates(ChildListBuilder b)]) = _$ChildList;

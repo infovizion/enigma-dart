@@ -28,13 +28,13 @@ class _$UndoInfoSerializer implements StructuredSerializer<UndoInfo> {
     final result = <Object>[];
     if (object.undoCount != null) {
       result
-        ..add('undoCount')
+        ..add('qUndoCount')
         ..add(serializers.serialize(object.undoCount,
             specifiedType: const FullType(int)));
     }
     if (object.redoCount != null) {
       result
-        ..add('redoCount')
+        ..add('qRedoCount')
         ..add(serializers.serialize(object.redoCount,
             specifiedType: const FullType(int)));
     }
@@ -53,11 +53,11 @@ class _$UndoInfoSerializer implements StructuredSerializer<UndoInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'undoCount':
+        case 'qUndoCount':
           result.undoCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'redoCount':
+        case 'qRedoCount':
           result.redoCount = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;

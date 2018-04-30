@@ -29,25 +29,25 @@ class _$DelimiterInfoSerializer implements StructuredSerializer<DelimiterInfo> {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.scriptCode != null) {
       result
-        ..add('scriptCode')
+        ..add('qScriptCode')
         ..add(serializers.serialize(object.scriptCode,
             specifiedType: const FullType(String)));
     }
     if (object.number != null) {
       result
-        ..add('number')
+        ..add('qNumber')
         ..add(serializers.serialize(object.number,
             specifiedType: const FullType(int)));
     }
     if (object.isMultiple != null) {
       result
-        ..add('isMultiple')
+        ..add('qIsMultiple')
         ..add(serializers.serialize(object.isMultiple,
             specifiedType: const FullType(bool)));
     }
@@ -66,19 +66,19 @@ class _$DelimiterInfoSerializer implements StructuredSerializer<DelimiterInfo> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'scriptCode':
+        case 'qScriptCode':
           result.scriptCode = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'number':
+        case 'qNumber':
           result.number = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int;
           break;
-        case 'isMultiple':
+        case 'qIsMultiple':
           result.isMultiple = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

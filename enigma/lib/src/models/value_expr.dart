@@ -11,6 +11,7 @@ abstract class ValueExpr implements Built<ValueExpr, ValueExprBuilder> {
 
   /// Original name: qv
   @nullable
+  @BuiltValueField(wireName: 'qv')
   String get v;
 
   factory ValueExpr([updates(ValueExprBuilder b)]) = _$ValueExpr;

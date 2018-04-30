@@ -28,13 +28,13 @@ class _$DatabaseSerializer implements StructuredSerializer<Database> {
     final result = <Object>[];
     if (object.name != null) {
       result
-        ..add('name')
+        ..add('qName')
         ..add(serializers.serialize(object.name,
             specifiedType: const FullType(String)));
     }
     if (object.isDefault != null) {
       result
-        ..add('isDefault')
+        ..add('qIsDefault')
         ..add(serializers.serialize(object.isDefault,
             specifiedType: const FullType(bool)));
     }
@@ -53,11 +53,11 @@ class _$DatabaseSerializer implements StructuredSerializer<Database> {
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'name':
+        case 'qName':
           result.name = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'isDefault':
+        case 'qIsDefault':
           result.isDefault = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;

@@ -13,11 +13,13 @@ abstract class OleDbProvider
   /// Name of the OLEDB provider.
   /// Original name: qName
   @nullable
+  @BuiltValueField(wireName: 'qName')
   String get name;
 
   /// Description of the OLEDB provider.
   /// Original name: qDescription
   @nullable
+  @BuiltValueField(wireName: 'qDescription')
   String get description;
 
   /// Is set to true if the version of the OLEDB provider is 32-bit.
@@ -25,6 +27,7 @@ abstract class OleDbProvider
   /// This parameter is optional.
   /// Original name: qBit32
   @nullable
+  @BuiltValueField(wireName: 'qBit32')
   bool get bit32;
 
   factory OleDbProvider([updates(OleDbProviderBuilder b)]) = _$OleDbProvider;

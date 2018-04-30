@@ -13,60 +13,71 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// Decimal separator.
   /// Original name: qDecimalSep
   @nullable
+  @BuiltValueField(wireName: 'qDecimalSep')
   String get decimalSep;
 
   /// Thousand separator.
   /// Original name: qThousandSep
   @nullable
+  @BuiltValueField(wireName: 'qThousandSep')
   String get thousandSep;
 
   /// List separator.
   /// Original name: qListSep
   @nullable
+  @BuiltValueField(wireName: 'qListSep')
   String get listSep;
 
   /// Money decimal separator.
   /// Original name: qMoneyDecimalSep
   @nullable
+  @BuiltValueField(wireName: 'qMoneyDecimalSep')
   String get moneyDecimalSep;
 
   /// Money thousand separator.
   /// Original name: qMoneyThousandSep
   @nullable
+  @BuiltValueField(wireName: 'qMoneyThousandSep')
   String get moneyThousandSep;
 
   /// Current year.
   /// Original name: qCurrentYear
   @nullable
+  @BuiltValueField(wireName: 'qCurrentYear')
   int get currentYear;
 
   /// Money format.
   /// Example: _#.##0,00 kr;-#.##0,00 kr_
   /// Original name: qMoneyFmt
   @nullable
+  @BuiltValueField(wireName: 'qMoneyFmt')
   String get moneyFmt;
 
   /// Time format.
   /// Example: _hh:mm:ss_
   /// Original name: qTimeFmt
   @nullable
+  @BuiltValueField(wireName: 'qTimeFmt')
   String get timeFmt;
 
   /// Date format.
   /// Example: _YYYY-MM-DD_
   /// Original name: qDateFmt
   @nullable
+  @BuiltValueField(wireName: 'qDateFmt')
   String get dateFmt;
 
   /// Time stamp format.
   /// Example: _YYYY-MM-DD hh:mm:ss[.fff]_
   /// Original name: qTimestampFmt
   @nullable
+  @BuiltValueField(wireName: 'qTimestampFmt')
   String get timestampFmt;
 
   /// Information about the calendar.
   /// Original name: qCalendarStrings
   @nullable
+  @BuiltValueField(wireName: 'qCalendarStrings')
   CalendarStrings get calendarStrings;
 
   /// First day of the week, starting from 0.
@@ -79,6 +90,7 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// If this property has not been set in a script, the returned value comes from the Windows operating system.
   /// Original name: qFirstWeekDay
   @nullable
+  @BuiltValueField(wireName: 'qFirstWeekDay')
   int get firstWeekDay;
 
   /// Is set to true if broken weeks are allowed in a year.
@@ -88,6 +100,7 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// If this property has not been set in a script, the returned value comes from the Windows operating system.
   /// Original name: qBrokenWeeks
   @nullable
+  @BuiltValueField(wireName: 'qBrokenWeeks')
   bool get brokenWeeks;
 
   /// Day in the year that is always in week 1.
@@ -97,6 +110,7 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// This property is not relevant if there are broken weeks in the year.
   /// Original name: qReferenceDay
   @nullable
+  @BuiltValueField(wireName: 'qReferenceDay')
   int get referenceDay;
 
   /// First month of the year, starting from 1.
@@ -108,6 +122,7 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// If this property has not been set in a script, the returned value comes from the Windows operating system.
   /// Original name: qFirstMonthOfYear
   @nullable
+  @BuiltValueField(wireName: 'qFirstMonthOfYear')
   int get firstMonthOfYear;
 
   /// Locale name (following language tagging convention RFC 4646):
@@ -119,12 +134,14 @@ abstract class LocaleInfo implements Built<LocaleInfo, LocaleInfoBuilder> {
   /// If this property has not been set in a script, the returned value comes from the Windows operating system.
   /// Original name: qCollation
   @nullable
+  @BuiltValueField(wireName: 'qCollation')
   String get collation;
 
   /// Number format.
   /// Example: 3:k;6:M;9:G;12:T;15:P;18:E;21:Z;24:Y;-3:m;-6:μ;-9:n;-12:p;-15:f;-18:a;-21:z;-24:y
   /// Original name: qNumericalAbbreviation
   @nullable
+  @BuiltValueField(wireName: 'qNumericalAbbreviation')
   String get numericalAbbreviation;
 
   factory LocaleInfo([updates(LocaleInfoBuilder b)]) = _$LocaleInfo;
