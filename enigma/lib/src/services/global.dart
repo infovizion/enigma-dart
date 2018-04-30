@@ -5,6 +5,9 @@ import '../models.dart';
 import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
+import 'doc.dart';
+import 'doc.dart';
+import 'doc.dart';
 
 class Global extends BaseService {
   Global(Enigma enigma, int handle) : super(enigma, handle);
@@ -90,16 +93,6 @@ class Global extends BaseService {
   /// * When the script execution is finished.
   ///
   /// To know if the engine is paused and waits for a response to an interaction request, the _GetProgress method_ should be used. The engine waits for a response if the property _qUserInteractionWanted_ is set to true in the response of the _GetProgress_ request.
-  Future<InteractDef> getInteract(int requestId) async {
-    var params = <String, dynamic>{};
-    params['qRequestId'] = requestId;
-    var rawResult = await query('GetInteract', params);
-    var jsonData = rawResult['result']['qDef'];
-    var dartData =
-        fromJsonFullType<InteractDef>(const FullType(InteractDef), jsonData);
-    return dartData;
-  }
-
   /// Informs the engine that a user interaction (which was earlier requested by the engine) was performed and indicates to the engine what to do next.
   Future<void> interactDone(int requestId, InteractDef def) async {
     var params = <String, dynamic>{};
@@ -116,7 +109,7 @@ class Global extends BaseService {
 
   /// Creates an app and opens an engine session.
   /// <div class=note>This operation is possible only in Qlik Sense Desktop.</div>
-  Future<String> createDocEx(String docName, String userName, String password,
+  Future<Doc> createDocEx(String docName, String userName, String password,
       String serial, String localizedScriptMainSection) async {
     var params = <String, dynamic>{};
     params['qDocName'] = docName;
@@ -125,7 +118,10 @@ class Global extends BaseService {
     params['qSerial'] = serial;
     params['qLocalizedScriptMainSection'] = localizedScriptMainSection;
     var rawResult = await query('CreateDocEx', params);
-    return rawResult['result']['qDocId'];
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new Doc(enigma, dartData.handle);
   }
 
   /// Returns the handle of the current app.
@@ -176,15 +172,6 @@ class Global extends BaseService {
   /// <td>%UserProfile%/Documents/Qlik/Sense/Log</td>
   /// </tr>
   /// </table>
-  Future<bool> createApp(
-      String appName, String localizedScriptMainSection) async {
-    var params = <String, dynamic>{};
-    params['qAppName'] = appName;
-    params['qLocalizedScriptMainSection'] = localizedScriptMainSection;
-    var rawResult = await query('CreateApp', params);
-    return rawResult['result']['qSuccess'];
-  }
-
   /// Deletes an app from the Qlik Sense repository or from the file system.
   ///
   /// #### Qlik Sense Enterprise
@@ -373,10 +360,13 @@ class Global extends BaseService {
   /// The following applies:
   /// * The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.
   /// * A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
-  Future<String> createSessionApp() async {
+  Future<Doc> createSessionApp() async {
     var params = <String, dynamic>{};
     var rawResult = await query('CreateSessionApp', params);
-    return rawResult['result']['qSessionAppId'];
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new Doc(enigma, dartData.handle);
   }
 
   /// Creates a session app from a source app.
@@ -385,11 +375,14 @@ class Global extends BaseService {
   /// * The script of the session app can be edited and reloaded.
   /// * The name of a session app cannot be chosen. The engine automatically assigns a unique identifier to the session app.
   /// * A session app is not persisted and cannot be saved. Everything created during a session app is non-persisted; for example: objects, data connections.
-  Future<String> createSessionAppFromApp(String srcAppId) async {
+  Future<Doc> createSessionAppFromApp(String srcAppId) async {
     var params = <String, dynamic>{};
     params['qSrcAppId'] = srcAppId;
     var rawResult = await query('CreateSessionAppFromApp', params);
-    return rawResult['result']['qSessionAppId'];
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new Doc(enigma, dartData.handle);
   }
 
   /// Returns the Qlik Sense version number.
@@ -561,16 +554,6 @@ class Global extends BaseService {
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.
   /// In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  Future<BuiltList<NxCell>> getBaseBNF(String bnfType) async {
-    var params = <String, dynamic>{};
-    params['qBnfType'] = bnfType;
-    var rawResult = await query('GetBaseBNF', params);
-    var jsonData = rawResult['result']['qBnfDefs'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
-    return dartData;
-  }
-
   /// Gets a string hash calculated from the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. If the hash changes between subsequent calls to this method, this indicates that the BNF grammar has changed.
   Future<String> getBaseBNFHash(String bnfType) async {
     var params = <String, dynamic>{};
@@ -581,10 +564,4 @@ class Global extends BaseService {
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.
   /// In the Qlik engine grammars, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  Future<String> getBaseBNFString(String bnfType) async {
-    var params = <String, dynamic>{};
-    params['qBnfType'] = bnfType;
-    var rawResult = await query('GetBaseBNFString', params);
-    return rawResult['result']['qBnfStr'];
-  }
 }

@@ -6,6 +6,22 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'nx_info.dart';
 import 'package:built_value/json_object.dart';
+import 'app_object_list_def.dart';
+import 'bookmark_list_def.dart';
+import 'child_list_def.dart';
+import 'dimension_list_def.dart';
+import 'field_list_def.dart';
+import 'hyper_cube_def.dart';
+import 'list_object_def.dart';
+import 'measure_list_def.dart';
+import 'nx_library_dimension_def.dart';
+import 'nx_library_measure_def.dart';
+import 'selection_object_def.dart';
+import 'static_content_url_def.dart';
+import 'string_expression.dart';
+import 'tree_data_def.dart';
+import 'value_expression.dart';
+import 'variable_list_def.dart';
 part 'generic_object_properties.g.dart';
 
 abstract class GenericObjectProperties
@@ -34,13 +50,139 @@ abstract class GenericObjectProperties
   @BuiltValueField(wireName: 'qMetaDef')
   JsonObject get metaDef;
 
+  /// Original name: qAppObjectListDef
+  @nullable
+  @BuiltValueField(wireName: 'qAppObjectListDef')
+  AppObjectListDef get appObjectListDef;
+
+  /// Original name: qBookmarkListDef
+  @nullable
+  @BuiltValueField(wireName: 'qBookmarkListDef')
+  BookmarkListDef get bookmarkListDef;
+
+  /// Original name: qChildListDef
+  @nullable
+  @BuiltValueField(wireName: 'qChildListDef')
+  ChildListDef get childListDef;
+
+  /// Original name: qDimensionListDef
+  @nullable
+  @BuiltValueField(wireName: 'qDimensionListDef')
+  DimensionListDef get dimensionListDef;
+
+  /// Original name: qEmbeddedSnapshotDef
+  @nullable
+  @BuiltValueField(wireName: 'qEmbeddedSnapshotDef')
+  JsonObject get embeddedSnapshotDef;
+
+  /// Original name: qExtensionListDef
+  @nullable
+  @BuiltValueField(wireName: 'qExtensionListDef')
+  JsonObject get extensionListDef;
+
+  /// Original name: qFieldListDef
+  @nullable
+  @BuiltValueField(wireName: 'qFieldListDef')
+  FieldListDef get fieldListDef;
+
+  /// Original name: qHyperCubeDef
+  @nullable
+  @BuiltValueField(wireName: 'qHyperCubeDef')
+  HyperCubeDef get hyperCubeDef;
+
+  /// Original name: qLayoutExclude
+  @nullable
+  @BuiltValueField(wireName: 'qLayoutExclude')
+  JsonObject get layoutExclude;
+
+  /// Original name: qListObjectDef
+  @nullable
+  @BuiltValueField(wireName: 'qListObjectDef')
+  ListObjectDef get listObjectDef;
+
+  /// Original name: qMeasureListDef
+  @nullable
+  @BuiltValueField(wireName: 'qMeasureListDef')
+  MeasureListDef get measureListDef;
+
+  /// Original name: qMediaListDef
+  @nullable
+  @BuiltValueField(wireName: 'qMediaListDef')
+  JsonObject get mediaListDef;
+
+  /// Original name: qNxLibraryDimensionDef
+  @nullable
+  @BuiltValueField(wireName: 'qNxLibraryDimensionDef')
+  NxLibraryDimensionDef get nxLibraryDimensionDef;
+
+  /// Original name: qNxLibraryMeasureDef
+  @nullable
+  @BuiltValueField(wireName: 'qNxLibraryMeasureDef')
+  NxLibraryMeasureDef get nxLibraryMeasureDef;
+
+  /// Original name: qSelectionObjectDef
+  @nullable
+  @BuiltValueField(wireName: 'qSelectionObjectDef')
+  SelectionObjectDef get selectionObjectDef;
+
+  /// Original name: qStaticContentUrlDef
+  @nullable
+  @BuiltValueField(wireName: 'qStaticContentUrlDef')
+  StaticContentUrlDef get staticContentUrlDef;
+
+  /// Original name: qStringExpression
+  @nullable
+  @BuiltValueField(wireName: 'qStringExpression')
+  StringExpression get stringExpression;
+
+  /// Original name: qTreeDataDef
+  @nullable
+  @BuiltValueField(wireName: 'qTreeDataDef')
+  TreeDataDef get treeDataDef;
+
+  /// Original name: qUndoInfoDef
+  @nullable
+  @BuiltValueField(wireName: 'qUndoInfoDef')
+  JsonObject get undoInfoDef;
+
+  /// Original name: qValueExpression
+  @nullable
+  @BuiltValueField(wireName: 'qValueExpression')
+  ValueExpression get valueExpression;
+
+  /// Original name: qVariableListDef
+  @nullable
+  @BuiltValueField(wireName: 'qVariableListDef')
+  VariableListDef get variableListDef;
+
   factory GenericObjectProperties([updates(GenericObjectPropertiesBuilder b)]) =
       _$GenericObjectProperties;
 
   factory GenericObjectProperties.init(
       {NxInfo info,
       String extendsId,
-      JsonObject metaDef}) = _$GenericObjectProperties._;
+      JsonObject metaDef,
+      AppObjectListDef appObjectListDef,
+      BookmarkListDef bookmarkListDef,
+      ChildListDef childListDef,
+      DimensionListDef dimensionListDef,
+      JsonObject embeddedSnapshotDef,
+      JsonObject extensionListDef,
+      FieldListDef fieldListDef,
+      HyperCubeDef hyperCubeDef,
+      JsonObject layoutExclude,
+      ListObjectDef listObjectDef,
+      MeasureListDef measureListDef,
+      JsonObject mediaListDef,
+      NxLibraryDimensionDef nxLibraryDimensionDef,
+      NxLibraryMeasureDef nxLibraryMeasureDef,
+      SelectionObjectDef selectionObjectDef,
+      StaticContentUrlDef staticContentUrlDef,
+      StringExpression stringExpression,
+      TreeDataDef treeDataDef,
+      JsonObject undoInfoDef,
+      ValueExpression valueExpression,
+      VariableListDef variableListDef}) = _$GenericObjectProperties._;
 
   GenericObjectProperties._();
 }

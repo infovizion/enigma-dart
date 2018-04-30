@@ -13,7 +13,25 @@ class _SchemaWithTypeData {
   _SchemaWithTypeData(this.schemaType, this.typeData, this.dartName);
 }
 
+enum ReturnKind {
+  Common,
+  ObjectIterface,
+}
+
+class ReturnDescriptor {
+  SchemaType schemaType;
+  TypeData typeData;
+  ReturnKind returnKind = ReturnKind.Common;
+  String dartType;
+}
+
 class ApiGenerator {
+  int structsGenerated = 0;
+  int fieldsGenerated = 0;
+  int servicesGenerated = 0;
+  int methodsGenerated = 0;
+  int ambiguousReturns = 0;
+
   var typeMap = <String, TypeData>{};
   _addType(TypeData typeData) {
     typeMap[typeData.jsonType] = typeData;
@@ -25,29 +43,29 @@ class ApiGenerator {
   static Map<String, String> createObjectFunctionToObjectTypeMapping() {
     // Register mappings that describe what remote object type is created by each method
     var result = <String, String>{};
-    result["Global.GetActiveDoc"] = "Doc";
-    result["Global.OpenDoc"] = "Doc";
-    result["Global.CreateDocEx"] = "Doc";
-    result["Global.CreateSessionAppFromApp"] = "Doc";
-    result["Global.CreateSessionApp"] = "Doc";
-    result["GenericObject.CreateChild"] = "GenericObject";
-    result["GenericObject.GetChild"] = "GenericObject";
-    result["GenericObject.GetSnapshotObject"] = "GenericObject";
-    result["Doc.CreateSessionObject"] = "GenericObject";
-    result["Doc.CreateBookmark"] = "GenericBookmark";
-    result["Doc.GetDimension"] = "GenericDimension";
-    result["Doc.CreateMeasure"] = "GenericMeasure";
-    result["Doc.GetField"] = "Field";
-    result["Doc.CreateSessionVariable"] = "Variable";
-    result["Doc.GetVariable"] = "Variable";
-    result["Doc.GetObject"] = "GenericObject";
-    result["Doc.GetVariableById"] = "Variable";
-    result["Doc.CreateObject"] = "GenericObject";
-    result["Doc.CreateVariableEx"] = "Variable";
-    result["Doc.CreateDimension"] = "GenericDimension";
-    result["Doc.GetBookmark"] = "GenericBookmark";
-    result["Doc.GetVariableByName"] = "GenericVariable";
-    result["Doc.GetMeasure"] = "GenericMeasure";
+    result["GetActiveDoc"] = "Doc";
+    result["OpenDoc"] = "Doc";
+    result["CreateDocEx"] = "Doc";
+    result["CreateSessionAppFromApp"] = "Doc";
+    result["CreateSessionApp"] = "Doc";
+    result["CreateChild"] = "GenericObject";
+    result["GetChild"] = "GenericObject";
+    result["GetSnapshotObject"] = "GenericObject";
+    result["CreateSessionObject"] = "GenericObject";
+    result["CreateBookmark"] = "GenericBookmark";
+    result["GetDimension"] = "GenericDimension";
+    result["CreateMeasure"] = "GenericMeasure";
+    result["GetField"] = "Field";
+    result["CreateSessionVariable"] = "Variable";
+    result["GetVariable"] = "Variable";
+    result["GetObject"] = "GenericObject";
+    result["GetVariableById"] = "Variable";
+    result["CreateObject"] = "GenericObject";
+    result["CreateVariableEx"] = "Variable";
+    result["CreateDimension"] = "GenericDimension";
+    result["GetBookmark"] = "GenericBookmark";
+    result["GetVariableByName"] = "GenericVariable";
+    result["GetMeasure"] = "GenericMeasure";
     return result;
   }
 
@@ -68,10 +86,8 @@ class ApiGenerator {
     var schemaContent = new File('tool/schema.json').readAsStringSync();
     var schemaJson = json.decode(schemaContent);
     var schema = fromJson<Schema>(Schema, schemaJson);
-    // var objectInterface = schema.definitions['ObjectInterface'].rebuild((b) => b .. jsonType = 'object');
-    // var defs = schema.definitions.asMap();
-    // defs['ObjectIterface'] = objectInterface;
-    // schema = schema.rebuild((b) => b..definitions.replace(defs));
+    schema = expandGenericObjectWithLayouts(schema);
+//    print(schema.definitions['GenericObjectLayout']);
     populateTypes(schema);
     schema.definitions.forEach((key, value) {
       generateStruct(key, value);
@@ -81,6 +97,30 @@ class ApiGenerator {
       generateService(key, value);
     });
     generateSerializers();
+    print(''''Generated structs: $structsGenerated, fields: $fieldsGenerated.
+     Generated services: $servicesGenerated, methods: $methodsGenerated, ambiguousReturns: $ambiguousReturns''');
+  }
+
+  Schema expandGenericObjectWithLayouts(Schema schema) {
+    var genericObjectProperties =
+        schema.definitions['GenericObjectProperties'].properties.toMap();
+    var genericObjectLayout =
+        schema.definitions['GenericObjectLayout'].properties.toMap();
+    for (var layout in schema.services['GenericObject'].layouts) {
+      if (layout.prop != null) {
+        genericObjectProperties[layout.prop.name] = layout.prop;
+      }
+      if (layout.layout != null) {
+        genericObjectLayout[layout.layout.name] = layout.layout;
+      }
+    }
+    var definitions = schema.definitions.toMap();
+    definitions['GenericObjectProperties'] =
+        definitions['GenericObjectProperties']
+            .rebuild((b) => b..properties.replace(genericObjectProperties));
+    definitions['GenericObjectLayout'] = definitions['GenericObjectLayout']
+        .rebuild((b) => b..properties.replace(genericObjectLayout));
+    return schema.rebuild((b) => b..definitions.replace(definitions));
   }
 
   populateTypes(Schema schema) {
@@ -164,7 +204,8 @@ class ApiGenerator {
         return null;
       }
       result.dartType = 'BuiltList<${dataType.dartType}>';
-      result.specifiedType = 'const FullType(BuiltList, const [const FullType(${dataType.dartType})])';
+      result.specifiedType =
+          'const FullType(BuiltList, const [const FullType(${dataType.dartType})])';
       result.importDirectives.addAll(dataType.importDirectives);
       result.importDirectives
           .add("import 'package:built_collection/built_collection.dart';");
@@ -175,6 +216,9 @@ class ApiGenerator {
 
   var _qPattern = new RegExp('^q');
   String toDartVarName(String value) {
+    if (value == null) {
+      int debug = 1;
+    }
     var result = value.replaceFirst(_qPattern, '');
     result = new ReCase(result).camelCase;
     if (result == 'num') {
@@ -183,8 +227,8 @@ class ApiGenerator {
     return result;
   }
 
-  String generateField(
-      String jsonFieldName, SchemaType fieldContent, StringBuffer buffer) {
+  String generateField(String className, String jsonFieldName,
+      SchemaType fieldContent, StringBuffer buffer) {
     addComment(fieldContent.description, buffer, '  ');
     addComment('Original name: $jsonFieldName', buffer, '  ');
     var dartType = 'NOT_FOUND';
@@ -199,6 +243,7 @@ class ApiGenerator {
     buffer.writeln('  @nullable');
     buffer.writeln('''  @BuiltValueField(wireName: '$jsonFieldName')''');
     buffer.writeln('  $dartType get $fieldName;\n');
+    fieldsGenerated++;
     return '$dartType $fieldName';
   }
 
@@ -268,9 +313,14 @@ class ApiGenerator {
     buffer.writeln(
         ' static Serializer<$className> get serializer => _\$${camelCaseName}Serializer;\n');
 //   @nullable
+    if (className == 'GenericObjectLayout') {
+      int debug = 1;
+    }
     var paramList = <String>[];
     properties.forEach((fieldName, content) {
-      paramList.add(generateField(fieldName, content, buffer));
+      if (fieldName != null) {
+        paramList.add(generateField(className, fieldName, content, buffer));
+      }
     });
     buffer.writeln(
         '  factory $className([updates(${className}Builder b)]) = _\$$className;\n');
@@ -280,13 +330,7 @@ class ApiGenerator {
     buffer.writeln('}');
     var outFile = new File('../enigma/lib/src/models/$fileName');
     outFile.createSync();
-//     var fileContent = '''
-// /// This code was autogenerated
-// import 'package:built_value/built_value.dart';
-// $importDirectives
-
-// $buffer
-// ''';
+    structsGenerated++;
     outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
   }
 
@@ -321,26 +365,37 @@ class ApiGenerator {
     if (optionalParams.isNotEmpty) {
       paramParts.add('{${optionalParams.join(', ')}}');
     }
-    var returnType = '';
-    TypeData resultTypeData;
-    SchemaType mainResponse;
+    ReturnDescriptor returnDescriptor = new ReturnDescriptor();
     if (method.responses.isNotEmpty) {
       if (method.responses.length > 1) {
-        print('$methodName ${method.responses}');
-      }
-      mainResponse = method.responses.first;
-      resultTypeData = getTypeData(mainResponse);
-      if (resultTypeData != null) {
-        returnType = resultTypeData.dartType;
+        // print('$methodName ${method.responses}');
+        var serviceType = objectFuncToObject[methodName];
+        if (serviceType != null) {
+          returnDescriptor.schemaType =
+              method.responses.firstWhere((r) => r.name == 'qReturn');
+          returnDescriptor.dartType = serviceType;
+          returnDescriptor.returnKind = ReturnKind.ObjectIterface;
+        } else {
+          print('Cannot generate method $methodName');
+          ambiguousReturns++;
+          return;
+        }
+        returnDescriptor.typeData = getTypeData(returnDescriptor.schemaType);
       } else {
-        returnType = 'void';
-        // print('Not found ${method.responses.first}');
+        returnDescriptor.schemaType = method.responses.first;
+        returnDescriptor.typeData = getTypeData(returnDescriptor.schemaType);
+        if (returnDescriptor.typeData != null) {
+          returnDescriptor.dartType = returnDescriptor.typeData.dartType;
+        } else {
+          returnDescriptor.dartType = 'void';
+          // print('Not found ${method.responses.first}');
+        }
       }
     } else {
-      returnType = 'void';
+      returnDescriptor.dartType = 'void';
     }
     buffer.writeln(
-        '  Future<$returnType> $dartMethodName(${paramParts.join(', ')}) async {');
+        '  Future<${returnDescriptor.dartType}> $dartMethodName(${paramParts.join(', ')}) async {');
     buffer.writeln('var params = <String, dynamic>{};');
     for (var p in paramsWithDartTypes) {
       if (p.typeData.isPrimitive) {
@@ -348,18 +403,26 @@ class ApiGenerator {
       }
     }
     buffer.writeln("var rawResult = await query('$methodName', params);");
-    if (mainResponse != null) {
-      if (resultTypeData.isPrimitive) {
-        buffer.writeln("return rawResult['result']['${mainResponse.name}'];");
+    if (returnDescriptor.dartType != 'void') {
+      if (returnDescriptor.typeData.isPrimitive) {
+        buffer.writeln(
+            "return rawResult['result']['${returnDescriptor.schemaType.name}'];");
       } else {
         buffer.writeln(
-            "var jsonData = rawResult['result']['${mainResponse.name}'];");
+            "var jsonData = rawResult['result']['${returnDescriptor.schemaType.name}'];");
         buffer.writeln(
-            "var dartData = fromJsonFullType<${resultTypeData.dartType}>(${resultTypeData.specifiedType},jsonData);");
-        buffer.writeln('return dartData;');
+            "var dartData = fromJsonFullType<${returnDescriptor.typeData.dartType}>(${returnDescriptor.typeData.specifiedType},jsonData);");
+        if (returnDescriptor.returnKind == ReturnKind.ObjectIterface) {
+          buffer.writeln(
+              'return new ${returnDescriptor.dartType}(enigma,dartData.handle);');
+          additionalImports.add(returnDescriptor.dartType);
+        } else {
+          buffer.writeln('return dartData;');
+        }
       }
     }
     buffer.writeln('}');
+    methodsGenerated++;
   }
 
   generateService(String className, Service service) {
@@ -397,8 +460,13 @@ class ApiGenerator {
 
 // $buffer
 // ''';
+    for (var each in additionalImports) {
+      var fileNameBase = new ReCase(each).snakeCase;
+      headerBuffer.writeln("import '$fileNameBase.dart';");
+    }
     headerBuffer.writeln(buffer.toString());
     outFile.writeAsStringSync(_formatDartContent(headerBuffer.toString()));
+    servicesGenerated++;
   }
 
   generateSerializers() {

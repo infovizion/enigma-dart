@@ -5,6 +5,7 @@ import '../models.dart';
 import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
+import 'generic_object.dart';
 
 /// This class describes all the methods that apply at generic object level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the generic object.
@@ -131,18 +132,6 @@ class GenericObject extends BaseService {
 
   /// Retrieves and packs compressed hypercube and axis data. It is possible to retrieve specific pages of data.
   /// <div class=note>Binning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.</div>
-  Future<BuiltList<NxCell>> getHyperCubeContinuousData(
-      String path, NxContinuousDataOptions options, bool reverseSort) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qReverseSort'] = reverseSort;
-    var rawResult = await query('GetHyperCubeContinuousData', params);
-    var jsonData = rawResult['result']['qDataPages'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
-    return dartData;
-  }
-
   /// Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a treedata object or a hypercube in DATA_MODE_TREE.</div>
   Future<BuiltList<NxCell>> getHyperCubeTreeData(
@@ -436,17 +425,6 @@ class GenericObject extends BaseService {
   /// If the exported file is larger than the maximum value, then an out-of-memory error with code 13000 is returned.
   ///
   /// <div class=note>Exported files are temporary and are available only for a certain time span and only to the user who created them.</div>
-  Future<String> exportData(
-      String fileType, String path, String fileName, String exportState) async {
-    var params = <String, dynamic>{};
-    params['qFileType'] = fileType;
-    params['qPath'] = path;
-    params['qFileName'] = fileName;
-    params['qExportState'] = exportState;
-    var rawResult = await query('ExportData', params);
-    return rawResult['result']['qUrl'];
-  }
-
   /// Makes single selections in dimensions.
   /// <div class=note>This method applies to list objects only.</div>
   /// The member **Change** returns the handles of the objects that are updated following the selections.
@@ -803,13 +781,14 @@ class GenericObject extends BaseService {
 
   /// Creates a generic object that is a child of another generic object.
   /// <div class=note>It is possible to update the properties of the child's parent at the same time that the child is created. Both operations are performed by the same call.</div> <div class=note>It is possible to create a child that is linked to another generic object. The two objects have the same properties.</div>
-  Future<NxInfo> createChild(
+  Future<GenericObject> createChild(
       GenericObjectProperties prop, GenericObjectProperties propForThis) async {
     var params = <String, dynamic>{};
     var rawResult = await query('CreateChild', params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var jsonData = rawResult['result']['qReturn'];
+    var dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), jsonData);
+    return new GenericObject(enigma, dartData.handle);
   }
 
   /// Removes a child object.
