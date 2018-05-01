@@ -31,8 +31,14 @@ class Field extends BaseService {
   Future<bool> selectValues(FieldValue fieldValues,
       {bool toggleMode, bool softLock}) async {
     var params = <String, dynamic>{};
-    params['qToggleMode'] = toggleMode;
-    params['qSoftLock'] = softLock;
+    params['qFieldValues'] =
+        toJson(fieldValues, specifiedType: const FullType(FieldValue));
+    if (toggleMode != null) {
+      params['qToggleMode'] = toggleMode;
+    }
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
     var rawResult = await query('SelectValues', params);
     return rawResult['result']['qReturn'];
   }
@@ -42,8 +48,12 @@ class Field extends BaseService {
       {bool softLock, int excludedValuesMode}) async {
     var params = <String, dynamic>{};
     params['qMatch'] = match;
-    params['qSoftLock'] = softLock;
-    params['qExcludedValuesMode'] = excludedValuesMode;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
+    if (excludedValuesMode != null) {
+      params['qExcludedValuesMode'] = excludedValuesMode;
+    }
     var rawResult = await query('Select', params);
     return rawResult['result']['qReturn'];
   }
@@ -53,8 +63,12 @@ class Field extends BaseService {
       {bool softLock, int excludedValuesMode}) async {
     var params = <String, dynamic>{};
     params['qMatch'] = match;
-    params['qSoftLock'] = softLock;
-    params['qExcludedValuesMode'] = excludedValuesMode;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
+    if (excludedValuesMode != null) {
+      params['qExcludedValuesMode'] = excludedValuesMode;
+    }
     var rawResult = await query('ToggleSelect', params);
     return rawResult['result']['qReturn'];
   }
@@ -62,7 +76,9 @@ class Field extends BaseService {
   /// Maintains the selections in the current field while clearing the selections in the other fields.
   Future<bool> clearAllButThis({bool softLock}) async {
     var params = <String, dynamic>{};
-    params['qSoftLock'] = softLock;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
     var rawResult = await query('ClearAllButThis', params);
     return rawResult['result']['qReturn'];
   }
@@ -70,7 +86,9 @@ class Field extends BaseService {
   /// Selects all possible values in a specific field.
   Future<bool> selectPossible({bool softLock}) async {
     var params = <String, dynamic>{};
-    params['qSoftLock'] = softLock;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
     var rawResult = await query('SelectPossible', params);
     return rawResult['result']['qReturn'];
   }
@@ -78,7 +96,9 @@ class Field extends BaseService {
   /// Inverts the current selections.
   Future<bool> selectExcluded({bool softLock}) async {
     var params = <String, dynamic>{};
-    params['qSoftLock'] = softLock;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
     var rawResult = await query('SelectExcluded', params);
     return rawResult['result']['qReturn'];
   }
@@ -86,7 +106,9 @@ class Field extends BaseService {
   /// Selects all values of a field. Excluded values are also selected.
   Future<bool> selectAll({bool softLock}) async {
     var params = <String, dynamic>{};
-    params['qSoftLock'] = softLock;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
     var rawResult = await query('SelectAll', params);
     return rawResult['result']['qReturn'];
   }
@@ -120,6 +142,8 @@ class Field extends BaseService {
   /// Sets some properties to a field.
   Future<void> setNxProperties(NxFieldProperties properties) async {
     var params = <String, dynamic>{};
+    params['qProperties'] =
+        toJson(properties, specifiedType: const FullType(NxFieldProperties));
     var rawResult = await query('SetNxProperties', params);
   }
 
@@ -134,7 +158,9 @@ class Field extends BaseService {
   /// <div class=note>In a field that contains at least one selected value, the values that are neither selected nor excluded are alternatives values.</div>
   Future<bool> selectAlternative({bool softLock}) async {
     var params = <String, dynamic>{};
-    params['qSoftLock'] = softLock;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
     var rawResult = await query('SelectAlternative', params);
     return rawResult['result']['qReturn'];
   }
@@ -143,8 +169,12 @@ class Field extends BaseService {
   Future<bool> lowLevelSelect(BuiltList<int> values, bool toggleMode,
       {bool softLock}) async {
     var params = <String, dynamic>{};
+    params['qValues'] = toJson(values,
+        specifiedType: const FullType(BuiltList, const [const FullType(int)]));
     params['qToggleMode'] = toggleMode;
-    params['qSoftLock'] = softLock;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
     var rawResult = await query('LowLevelSelect', params);
     return rawResult['result']['qReturn'];
   }

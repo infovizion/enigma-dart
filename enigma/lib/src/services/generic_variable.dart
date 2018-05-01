@@ -28,6 +28,8 @@ class GenericVariable extends BaseService {
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
   Future<void> applyPatches(NxPatch patches) async {
     var params = <String, dynamic>{};
+    params['qPatches'] =
+        toJson(patches, specifiedType: const FullType(NxPatch));
     var rawResult = await query('ApplyPatches', params);
   }
 
@@ -35,6 +37,8 @@ class GenericVariable extends BaseService {
   /// <div class=note>The identifier of a variable cannot be modified.</div> <div class=note>You cannot update the properties of a script-defined variable using the _SetProperties method_. </div>
   Future<void> setProperties(GenericVariableProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericVariableProperties));
     var rawResult = await query('SetProperties', params);
   }
 

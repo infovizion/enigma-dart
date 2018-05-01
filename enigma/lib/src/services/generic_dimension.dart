@@ -27,12 +27,16 @@ class GenericDimension extends BaseService {
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
   Future<void> applyPatches(NxPatch patches) async {
     var params = <String, dynamic>{};
+    params['qPatches'] =
+        toJson(patches, specifiedType: const FullType(NxPatch));
     var rawResult = await query('ApplyPatches', params);
   }
 
   /// Sets some properties for a dimension.
   Future<void> setProperties(GenericDimensionProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericDimensionProperties));
     var rawResult = await query('SetProperties', params);
   }
 

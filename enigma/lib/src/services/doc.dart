@@ -20,7 +20,9 @@ class Doc extends BaseService {
   Future<ObjectInterface> getField(String fieldName, {String stateName}) async {
     var params = <String, dynamic>{};
     params['qFieldName'] = fieldName;
-    params['qStateName'] = stateName;
+    if (stateName != null) {
+      params['qStateName'] = stateName;
+    }
     var rawResult = await query('GetField', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -78,6 +80,9 @@ class Doc extends BaseService {
   /// <div class=note>The last three values in the vector are for internal use.</div>
   Future<bool> setLooselyCoupledVector(BuiltList<String> v) async {
     var params = <String, dynamic>{};
+    params['qv'] = toJson(v,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
     var rawResult = await query('SetLooselyCoupledVector', params);
     return rawResult['result']['qReturn'];
   }
@@ -152,22 +157,30 @@ class Doc extends BaseService {
   /// Clear selections in fields for current state. Locked fields are not cleared by default.
   Future<void> clearAll({bool lockedAlso, String stateName}) async {
     var params = <String, dynamic>{};
-    params['qLockedAlso'] = lockedAlso;
-    params['qStateName'] = stateName;
+    if (lockedAlso != null) {
+      params['qLockedAlso'] = lockedAlso;
+    }
+    if (stateName != null) {
+      params['qStateName'] = stateName;
+    }
     var rawResult = await query('ClearAll', params);
   }
 
   /// Locks all selections in fields for current state.
   Future<void> lockAll({String stateName}) async {
     var params = <String, dynamic>{};
-    params['qStateName'] = stateName;
+    if (stateName != null) {
+      params['qStateName'] = stateName;
+    }
     var rawResult = await query('LockAll', params);
   }
 
   /// Unlocks all selections in fields for current state.
   Future<void> unlockAll({String stateName}) async {
     var params = <String, dynamic>{};
-    params['qStateName'] = stateName;
+    if (stateName != null) {
+      params['qStateName'] = stateName;
+    }
     var rawResult = await query('UnlockAll', params);
   }
 
@@ -238,6 +251,8 @@ class Doc extends BaseService {
   /// The red circle represents a connection point.
   Future<void> setViewDlgSaveInfo(TableViewDlgSaveInfo info) async {
     var params = <String, dynamic>{};
+    params['qInfo'] =
+        toJson(info, specifiedType: const FullType(TableViewDlgSaveInfo));
     var rawResult = await query('SetViewDlgSaveInfo', params);
   }
 
@@ -245,7 +260,9 @@ class Doc extends BaseService {
   /// <div class=note>The computer regional settings are retrieved when the engine starts.</div>
   Future<String> getEmptyScript({String localizedMainSection}) async {
     var params = <String, dynamic>{};
-    params['qLocalizedMainSection'] = localizedMainSection;
+    if (localizedMainSection != null) {
+      params['qLocalizedMainSection'] = localizedMainSection;
+    }
     var rawResult = await query('GetEmptyScript', params);
     return rawResult['result']['qReturn'];
   }
@@ -281,9 +298,15 @@ class Doc extends BaseService {
   /// </table>
   Future<bool> doReload({int mode, bool partial, bool debug}) async {
     var params = <String, dynamic>{};
-    params['qMode'] = mode;
-    params['qPartial'] = partial;
-    params['qDebug'] = debug;
+    if (mode != null) {
+      params['qMode'] = mode;
+    }
+    if (partial != null) {
+      params['qPartial'] = partial;
+    }
+    if (debug != null) {
+      params['qDebug'] = debug;
+    }
     var rawResult = await query('DoReload', params);
     return rawResult['result']['qReturn'];
   }
@@ -301,6 +324,8 @@ class Doc extends BaseService {
   /// Set some breakpoints in the script of an app.
   Future<void> setScriptBreakpoints(EditorBreakpoint breakpoints) async {
     var params = <String, dynamic>{};
+    params['qBreakpoints'] =
+        toJson(breakpoints, specifiedType: const FullType(EditorBreakpoint));
     var rawResult = await query('SetScriptBreakpoints', params);
   }
 
@@ -334,7 +359,9 @@ class Doc extends BaseService {
   /// Saves an app. All objects and data in the data model are saved.
   Future<void> doSave({String fileName}) async {
     var params = <String, dynamic>{};
-    params['qFileName'] = fileName;
+    if (fileName != null) {
+      params['qFileName'] = fileName;
+    }
     var rawResult = await query('DoSave', params);
   }
 
@@ -368,6 +395,8 @@ class Doc extends BaseService {
   /// Sets properties to an app.
   Future<void> setAppProperties(NxAppProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(NxAppProperties));
     var rawResult = await query('SetAppProperties', params);
   }
 
@@ -400,6 +429,8 @@ class Doc extends BaseService {
   Future<ObjectInterface> createSessionObject(
       GenericObjectProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericObjectProperties));
     var rawResult = await query('CreateSessionObject', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -424,6 +455,8 @@ class Doc extends BaseService {
   /// <div class=note>The linking object cannot be a transient object.</div>
   Future<GenericObject> createObject(GenericObjectProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericObjectProperties));
     var rawResult = await query('CreateObject', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -455,6 +488,8 @@ class Doc extends BaseService {
 
   Future<NxContainerEntry> getObjects(NxGetObjectOptions options) async {
     var params = <String, dynamic>{};
+    params['qOptions'] =
+        toJson(options, specifiedType: const FullType(NxGetObjectOptions));
     var rawResult = await query('GetObjects', params);
     var jsonData = rawResult['result']['qList'];
     var dartData = fromJsonFullType<NxContainerEntry>(
@@ -464,6 +499,8 @@ class Doc extends BaseService {
 
   Future<NxContainerEntry> getBookmarks(NxGetBookmarkOptions options) async {
     var params = <String, dynamic>{};
+    params['qOptions'] =
+        toJson(options, specifiedType: const FullType(NxGetBookmarkOptions));
     var rawResult = await query('GetBookmarks', params);
     var jsonData = rawResult['result']['qList'];
     var dartData = fromJsonFullType<NxContainerEntry>(
@@ -546,6 +583,8 @@ class Doc extends BaseService {
   Future<GenericDimension> createDimension(
       GenericDimensionProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericDimensionProperties));
     var rawResult = await query('CreateDimension', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -588,6 +627,8 @@ class Doc extends BaseService {
   /// A master measure is stored in the library of an app and can be used in many objects. Several generic objects can contain the same measure.
   Future<GenericMeasure> createMeasure(GenericMeasureProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericMeasureProperties));
     var rawResult = await query('CreateMeasure', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -640,6 +681,8 @@ class Doc extends BaseService {
   Future<ObjectInterface> createSessionVariable(
       GenericVariableProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericVariableProperties));
     var rawResult = await query('CreateSessionVariable', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -671,6 +714,8 @@ class Doc extends BaseService {
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
   Future<Variable> createVariableEx(GenericVariableProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericVariableProperties));
     var rawResult = await query('CreateVariableEx', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -745,6 +790,8 @@ class Doc extends BaseService {
   /// Creates a bookmark.
   Future<GenericBookmark> createBookmark(GenericBookmarkProperties prop) async {
     var params = <String, dynamic>{};
+    params['qProp'] =
+        toJson(prop, specifiedType: const FullType(GenericBookmarkProperties));
     var rawResult = await query('CreateBookmark', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -837,7 +884,9 @@ class Doc extends BaseService {
   Future<void> publish(String streamId, {String name}) async {
     var params = <String, dynamic>{};
     params['qStreamId'] = streamId;
-    params['qName'] = name;
+    if (name != null) {
+      params['qName'] = name;
+    }
     var rawResult = await query('Publish', params);
   }
 
@@ -846,7 +895,12 @@ class Doc extends BaseService {
   Future<NxMatchingFieldInfo> getMatchingFields(BuiltList<String> tags,
       {String matchingFieldMode}) async {
     var params = <String, dynamic>{};
-    params['qMatchingFieldMode'] = matchingFieldMode;
+    params['qTags'] = toJson(tags,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
+    if (matchingFieldMode != null) {
+      params['qMatchingFieldMode'] = matchingFieldMode;
+    }
     var rawResult = await query('GetMatchingFields', params);
     var jsonData = rawResult['result']['qFieldNames'];
     var dartData = fromJsonFullType<NxMatchingFieldInfo>(
@@ -860,6 +914,9 @@ class Doc extends BaseService {
       String fieldName, BuiltList<String> tags) async {
     var params = <String, dynamic>{};
     params['qFieldName'] = fieldName;
+    params['qTags'] = toJson(tags,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
     var rawResult = await query('FindMatchingFields', params);
     var jsonData = rawResult['result']['qFieldNames'];
     var dartData = fromJsonFullType<NxMatchingFieldInfo>(
@@ -1019,6 +1076,10 @@ class Doc extends BaseService {
   /// If the data load has successfully finished, no matter how the indexing behaves, _true_ is returned. This happens even if there is a timeout, a memory limit is reached or any other error occurs during the indexing.
   Future<DoReloadExResult> doReloadEx({DoReloadExParams params}) async {
     var params = <String, dynamic>{};
+    if (params != null) {
+      params['qParams'] =
+          toJson(params, specifiedType: const FullType(DoReloadExParams));
+    }
     var rawResult = await query('DoReloadEx', params);
     var jsonData = rawResult['result']['qResult'];
     var dartData = fromJsonFullType<DoReloadExResult>(
@@ -1114,6 +1175,9 @@ class Doc extends BaseService {
   /// Set some variables as favorite.
   Future<void> setFavoriteVariables(BuiltList<String> names) async {
     var params = <String, dynamic>{};
+    params['qNames'] = toJson(names,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
     var rawResult = await query('SetFavoriteVariables', params);
   }
 
@@ -1129,6 +1193,8 @@ class Doc extends BaseService {
   /// A connection indicates from which data source the data should be taken.
   Future<String> createConnection(Connection connection) async {
     var params = <String, dynamic>{};
+    params['qConnection'] =
+        toJson(connection, specifiedType: const FullType(Connection));
     var rawResult = await query('CreateConnection', params);
     return rawResult['result']['qConnectionId'];
   }
@@ -1139,7 +1205,11 @@ class Doc extends BaseService {
       {bool overrideCredentials}) async {
     var params = <String, dynamic>{};
     params['qConnectionId'] = connectionId;
-    params['qOverrideCredentials'] = overrideCredentials;
+    params['qConnection'] =
+        toJson(connection, specifiedType: const FullType(Connection));
+    if (overrideCredentials != null) {
+      params['qOverrideCredentials'] = overrideCredentials;
+    }
     var rawResult = await query('ModifyConnection', params);
   }
 
@@ -1205,7 +1275,9 @@ class Doc extends BaseService {
       {String database}) async {
     var params = <String, dynamic>{};
     params['qConnectionId'] = connectionId;
-    params['qDatabase'] = database;
+    if (database != null) {
+      params['qDatabase'] = database;
+    }
     var rawResult = await query('GetDatabaseOwners', params);
     var jsonData = rawResult['result']['qOwners'];
     var dartData = fromJsonFullType<DatabaseOwner>(
@@ -1218,8 +1290,12 @@ class Doc extends BaseService {
       {String database, String owner}) async {
     var params = <String, dynamic>{};
     params['qConnectionId'] = connectionId;
-    params['qDatabase'] = database;
-    params['qOwner'] = owner;
+    if (database != null) {
+      params['qDatabase'] = database;
+    }
+    if (owner != null) {
+      params['qOwner'] = owner;
+    }
     var rawResult = await query('GetDatabaseTables', params);
     var jsonData = rawResult['result']['qTables'];
     var dartData =
@@ -1232,8 +1308,12 @@ class Doc extends BaseService {
       {String database, String owner}) async {
     var params = <String, dynamic>{};
     params['qConnectionId'] = connectionId;
-    params['qDatabase'] = database;
-    params['qOwner'] = owner;
+    if (database != null) {
+      params['qDatabase'] = database;
+    }
+    if (owner != null) {
+      params['qOwner'] = owner;
+    }
     params['qTable'] = table;
     var rawResult = await query('GetDatabaseTableFields', params);
     var jsonData = rawResult['result']['qFields'];
@@ -1248,7 +1328,9 @@ class Doc extends BaseService {
       {String relativePath}) async {
     var params = <String, dynamic>{};
     params['qConnectionId'] = connectionId;
-    params['qRelativePath'] = relativePath;
+    if (relativePath != null) {
+      params['qRelativePath'] = relativePath;
+    }
     var rawResult = await query('GetFolderItemsForConnection', params);
     var jsonData = rawResult['result']['qFolderItems'];
     var dartData =
@@ -1287,7 +1369,9 @@ class Doc extends BaseService {
       {String relativePath}) async {
     var params = <String, dynamic>{};
     params['qConnectionId'] = connectionId;
-    params['qRelativePath'] = relativePath;
+    if (relativePath != null) {
+      params['qRelativePath'] = relativePath;
+    }
     var rawResult = await query('GuessFileType', params);
     var jsonData = rawResult['result']['qDataFormat'];
     var dartData = fromJsonFullType<FileDataFormat>(
@@ -1315,7 +1399,11 @@ class Doc extends BaseService {
       {String relativePath}) async {
     var params = <String, dynamic>{};
     params['qConnectionId'] = connectionId;
-    params['qRelativePath'] = relativePath;
+    if (relativePath != null) {
+      params['qRelativePath'] = relativePath;
+    }
+    params['qDataFormat'] =
+        toJson(dataFormat, specifiedType: const FullType(FileDataFormat));
     var rawResult = await query('GetFileTables', params);
     var jsonData = rawResult['result']['qTables'];
     var dartData =
@@ -1359,7 +1447,11 @@ class Doc extends BaseService {
       {String relativePath}) async {
     var params = <String, dynamic>{};
     params['qConnectionId'] = connectionId;
-    params['qRelativePath'] = relativePath;
+    if (relativePath != null) {
+      params['qRelativePath'] = relativePath;
+    }
+    params['qDataFormat'] =
+        toJson(dataFormat, specifiedType: const FullType(FileDataFormat));
     var rawResult = await query('GetFileTablesEx', params);
     var jsonData = rawResult['result']['qTables'];
     var dartData =
@@ -1379,6 +1471,9 @@ class Doc extends BaseService {
     params['qProvider'] = provider;
     params['qCommand'] = command;
     params['qMethod'] = method;
+    params['qParameters'] = toJson(parameters,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
     params['qAppendConnection'] = appendConnection;
     var rawResult = await query('SendGenericCommandToCustomConnector', params);
     return rawResult['result']['qResult'];
@@ -1388,6 +1483,11 @@ class Doc extends BaseService {
   Future<SearchSuggestionResult> searchSuggest(
       SearchCombinationOptions options, BuiltList<String> terms) async {
     var params = <String, dynamic>{};
+    params['qOptions'] = toJson(options,
+        specifiedType: const FullType(SearchCombinationOptions));
+    params['qTerms'] = toJson(terms,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
     var rawResult = await query('SearchSuggest', params);
     var jsonData = rawResult['result']['qResult'];
     var dartData = fromJsonFullType<SearchSuggestionResult>(
@@ -1417,6 +1517,12 @@ class Doc extends BaseService {
       BuiltList<String> terms,
       SearchPage page) async {
     var params = <String, dynamic>{};
+    params['qOptions'] = toJson(options,
+        specifiedType: const FullType(SearchCombinationOptions));
+    params['qTerms'] = toJson(terms,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
+    params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchAssociations', params);
     var jsonData = rawResult['result']['qResults'];
     var dartData = fromJsonFullType<SearchAssociationResult>(
@@ -1431,8 +1537,15 @@ class Doc extends BaseService {
       SearchCombinationOptions options, BuiltList<String> terms, int matchIx,
       {bool softLock}) async {
     var params = <String, dynamic>{};
+    params['qOptions'] = toJson(options,
+        specifiedType: const FullType(SearchCombinationOptions));
+    params['qTerms'] = toJson(terms,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
     params['qMatchIx'] = matchIx;
-    params['qSoftLock'] = softLock;
+    if (softLock != null) {
+      params['qSoftLock'] = softLock;
+    }
     var rawResult = await query('SelectAssociations', params);
   }
 
@@ -1453,6 +1566,12 @@ class Doc extends BaseService {
   Future<SearchResult> searchResults(SearchCombinationOptions options,
       BuiltList<String> terms, SearchPage page) async {
     var params = <String, dynamic>{};
+    params['qOptions'] = toJson(options,
+        specifiedType: const FullType(SearchCombinationOptions));
+    params['qTerms'] = toJson(terms,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
+    params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchResults', params);
     var jsonData = rawResult['result']['qResult'];
     var dartData =
@@ -1464,6 +1583,12 @@ class Doc extends BaseService {
   Future<SearchResult> searchObjects(SearchObjectOptions options,
       BuiltList<String> terms, SearchPage page) async {
     var params = <String, dynamic>{};
+    params['qOptions'] =
+        toJson(options, specifiedType: const FullType(SearchObjectOptions));
+    params['qTerms'] = toJson(terms,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
+    params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchObjects', params);
     var jsonData = rawResult['result']['qResult'];
     var dartData =

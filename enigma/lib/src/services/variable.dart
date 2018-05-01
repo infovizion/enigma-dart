@@ -61,6 +61,8 @@ class Variable extends BaseService {
   /// Sets some properties to a variable.
   Future<void> setNxProperties(NxVariableProperties properties) async {
     var params = <String, dynamic>{};
+    params['qProperties'] =
+        toJson(properties, specifiedType: const FullType(NxVariableProperties));
     var rawResult = await query('SetNxProperties', params);
   }
 }
