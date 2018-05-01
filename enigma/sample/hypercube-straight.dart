@@ -16,14 +16,18 @@ main() async {
   var doc = await global.createSessionApp();
   await doc.setScript(loadScript);
   await doc.doReload();
-  var object = await doc.createObject(new GenericObjectProperties((b) => b
+  var properties = new GenericObjectProperties((b) => b
     ..info.type = 'my-straight-hypercube'
-    ..hyperCubeDef.update((b) => b
-      ..dimensions.add(new NxDimension((b) => b..def.fieldDefs.add('ID')))
-      ..measures.add(new NxMeasure((b) => b..def.def = '=Sum(Value)'))
-      ..initialDataFetch.add(new NxPage((b) => b
-        ..height = 5
-        ..width = 2)))));
+    ..hyperCubeDef
+        .dimensions
+        .add(new NxDimension((b) => b..def.fieldDefs.add('ID')))
+    ..hyperCubeDef
+        .measures
+        .add(new NxMeasure((b) => b..def.def = '=Sum(Value)'))
+    ..hyperCubeDef.initialDataFetch.add(new NxPage((b) => b
+      ..height = 5
+      ..width = 2)));
+  var object = await doc.createObject(properties);
   var layout = await object.getLayout();
   print('Hypercube data pages: ${layout.hyperCube.dataPages}');
   await object.selectHyperCubeCells('/qHyperCubeDef', [0, 2, 4], [0]);

@@ -5,10 +5,20 @@ import '../models.dart';
 import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
+import 'field.dart';
+import 'variable.dart';
+import 'generic_object.dart';
+import 'generic_object.dart';
 import 'generic_object.dart';
 import 'generic_dimension.dart';
+import 'generic_dimension.dart';
 import 'generic_measure.dart';
+import 'generic_measure.dart';
+import 'generic_variable.dart';
 import 'variable.dart';
+import 'variable.dart';
+import 'generic_variable.dart';
+import 'generic_bookmark.dart';
 import 'generic_bookmark.dart';
 
 class Doc extends BaseService {
@@ -17,7 +27,7 @@ class Doc extends BaseService {
   String get serviceType => 'Doc';
 
   /// Returns a handle to a field.
-  Future<ObjectInterface> getField(String fieldName, {String stateName}) async {
+  Future<Field> getField(String fieldName, {String stateName}) async {
     var params = <String, dynamic>{};
     params['qFieldName'] = fieldName;
     if (stateName != null) {
@@ -27,7 +37,7 @@ class Doc extends BaseService {
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new Field(enigma, dartData.handle);
   }
 
   /// Returns the description of a field.
@@ -42,14 +52,14 @@ class Doc extends BaseService {
   }
 
   /// Returns a handle to a variable.
-  Future<ObjectInterface> getVariable(String name) async {
+  Future<Variable> getVariable(String name) async {
     var params = <String, dynamic>{};
     params['qName'] = name;
     var rawResult = await query('GetVariable', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new Variable(enigma, dartData.handle);
   }
 
   /// Returns a list of table states.
@@ -421,7 +431,7 @@ class Doc extends BaseService {
   /// A linked object is an object that points to a linking object. The linking object is defined in the properties of the linked object (in _qExtendsId_ ).
   /// The linked object has the same properties as the linking object.
   /// <div class=note>The linking object cannot be a transient object.</div>
-  Future<ObjectInterface> createSessionObject(
+  Future<GenericObject> createSessionObject(
       GenericObjectProperties prop) async {
     var params = <String, dynamic>{};
     params['qProp'] =
@@ -430,7 +440,7 @@ class Doc extends BaseService {
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericObject(enigma, dartData.handle);
   }
 
   /// Removes a transient object.
@@ -471,14 +481,14 @@ class Doc extends BaseService {
   }
 
   /// Returns the type of the app object and the corresponding handle.
-  Future<ObjectInterface> getObject(String id) async {
+  Future<GenericObject> getObject(String id) async {
     var params = <String, dynamic>{};
     params['qId'] = id;
     var rawResult = await query('GetObject', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericObject(enigma, dartData.handle);
   }
 
   Future<NxContainerEntry> getObjects(NxGetObjectOptions options) async {
@@ -598,14 +608,14 @@ class Doc extends BaseService {
   }
 
   /// Returns the handle of a dimension.
-  Future<ObjectInterface> getDimension(String id) async {
+  Future<GenericDimension> getDimension(String id) async {
     var params = <String, dynamic>{};
     params['qId'] = id;
     var rawResult = await query('GetDimension', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericDimension(enigma, dartData.handle);
   }
 
   /// Clones a dimension.
@@ -642,14 +652,14 @@ class Doc extends BaseService {
   }
 
   /// Returns the handle of a measure.
-  Future<ObjectInterface> getMeasure(String id) async {
+  Future<GenericMeasure> getMeasure(String id) async {
     var params = <String, dynamic>{};
     params['qId'] = id;
     var rawResult = await query('GetMeasure', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericMeasure(enigma, dartData.handle);
   }
 
   /// Clones a measure.
@@ -673,7 +683,7 @@ class Doc extends BaseService {
   /// The variable _x_ contains the text string _Sum(Sales)_ .
   /// In a chart, you define the expression _$(x)/12_ . The effect is exactly the same as having the chart expression _Sum(Sales)/12_ .
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
-  Future<ObjectInterface> createSessionVariable(
+  Future<GenericVariable> createSessionVariable(
       GenericVariableProperties prop) async {
     var params = <String, dynamic>{};
     params['qProp'] =
@@ -682,7 +692,7 @@ class Doc extends BaseService {
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericVariable(enigma, dartData.handle);
   }
 
   /// Removes a transient variable.
@@ -741,25 +751,25 @@ class Doc extends BaseService {
   }
 
   /// Gets the handle of a variable.
-  Future<ObjectInterface> getVariableById(String id) async {
+  Future<Variable> getVariableById(String id) async {
     var params = <String, dynamic>{};
     params['qId'] = id;
     var rawResult = await query('GetVariableById', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new Variable(enigma, dartData.handle);
   }
 
   /// Gets the handle of a variable.
-  Future<ObjectInterface> getVariableByName(String name) async {
+  Future<GenericVariable> getVariableByName(String name) async {
     var params = <String, dynamic>{};
     params['qName'] = name;
     var rawResult = await query('GetVariableByName', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericVariable(enigma, dartData.handle);
   }
 
   /// Checks if a given expression is valid.
@@ -804,14 +814,14 @@ class Doc extends BaseService {
   }
 
   /// Returns the handle of a bookmark.
-  Future<ObjectInterface> getBookmark(String id) async {
+  Future<GenericBookmark> getBookmark(String id) async {
     var params = <String, dynamic>{};
     params['qId'] = id;
     var rawResult = await query('GetBookmark', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericBookmark(enigma, dartData.handle);
   }
 
   /// Applies a bookmark.

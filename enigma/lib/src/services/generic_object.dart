@@ -6,6 +6,8 @@ import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'generic_object.dart';
+import 'generic_object.dart';
+import 'generic_object.dart';
 
 /// This class describes all the methods that apply at generic object level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the generic object.
@@ -833,14 +835,14 @@ class GenericObject extends BaseService {
   }
 
   /// Returns the type of the object and the corresponding handle.
-  Future<ObjectInterface> getChild(String id) async {
+  Future<GenericObject> getChild(String id) async {
     var params = <String, dynamic>{};
     params['qId'] = id;
     var rawResult = await query('GetChild', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericObject(enigma, dartData.handle);
   }
 
   /// Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.
@@ -960,13 +962,13 @@ class GenericObject extends BaseService {
   }
 
   /// Returns the type of the object and the corresponding handle.
-  Future<ObjectInterface> getSnapshotObject() async {
+  Future<GenericObject> getSnapshotObject() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetSnapshotObject', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new GenericObject(enigma, dartData.handle);
   }
 
   /// Publishes a generic object.

@@ -3,10 +3,10 @@ import 'package:web_socket_channel/web_socket_channel.dart';
 import 'dart:convert';
 import 'package:logging/logging.dart';
 import '../services/global.dart';
-
 class Enigma {
   final Logger logger = new Logger('Engine');
-  int seqId = 0;
+  int _nextRequestId = 0;
+  int get nextRequestId => _nextRequestId;
   final WebSocketChannel channel;
   bool closed = false;
   Map<String, String> headers;
@@ -14,49 +14,38 @@ class Enigma {
   Enigma(this.channel);
 
   onError(error) {
-    print('ERRORL $error');
+    logger.severe('ERRORL $error');
   }
 
   onMessage(String message) {
-    print('<<<<<');
-    print(message);
+    logger.fine('<<<<< $message');
     Map reply = json.decode(message);
     if (reply['method'] == 'OnLicenseAccessDenied') {
       throw new Exception('OnLicenseAccessDenied ${reply["params"]}');
-    }
-    if (reply['method'] == 'OnAuthenticationInformation') {
-      return;
     }
     if (reply['error'] != null) {
       throw new Exception('QIX-ERROR: $reply');
     }
     int id = reply['id'];
     if (id == null) {
-      print(message);
       return;
     }
     var completer = replyCompleters.remove(reply['id']);
     assert(completer != null);
     completer.complete(reply);
-    // if (id == -1) {
-    //   completer.complete(new Global(this));
-    // } else {
-    //   completer.complete(reply);
-    // }
   }
 
   Future<Map> query(int handle, String method, args) async {
-    seqId++;
+    _nextRequestId++;
 
     var request = {
       'method': method,
       'handle': handle,
       'params': args,
-      'id': seqId,
+      'id': _nextRequestId,
       'jsonrpc': '2.0'
     };
-    print('$method >>>>>>>>');
-    print(new JsonEncoder().convert(request));
+    logger.fine('$method >>>>>>>> ${json.encode(request)}');
     return rawQuery(request);
   }
 
