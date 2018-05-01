@@ -39,28 +39,26 @@ class GenericObject extends BaseService {
 
   /// Retrieves the values of a list object.
   /// A data set is returned.
-  Future<BuiltList<NxCell>> getListObjectData(
-      String path, BuiltList<NxCell> pages) async {
+  Future<NxDataPage> getListObjectData(String path, NxPage pages) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     var rawResult = await query('GetListObjectData', params);
     var jsonData = rawResult['result']['qDataPages'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
     return dartData;
   }
 
   /// Retrieves the calculated data for a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_STRAIGHT.</div>
   /// A data set is returned.
-  Future<BuiltList<NxCell>> getHyperCubeData(
-      String path, BuiltList<NxCell> pages) async {
+  Future<NxDataPage> getHyperCubeData(String path, NxPage pages) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     var rawResult = await query('GetHyperCubeData', params);
     var jsonData = rawResult['result']['qDataPages'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
     return dartData;
   }
 
@@ -90,43 +88,42 @@ class GenericObject extends BaseService {
   ///
   /// ### Example
   /// If you have a scatter plot chart and the zoom factor is set to 2, the scatter plot chart resolution is reduced by 4.
-  Future<BuiltList<NxCell>> getHyperCubeReducedData(String path,
-      BuiltList<NxCell> pages, int zoomFactor, String reductionMode) async {
+  Future<NxDataPage> getHyperCubeReducedData(
+      String path, NxPage pages, int zoomFactor, String reductionMode) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qZoomFactor'] = zoomFactor;
     params['qReductionMode'] = reductionMode;
     var rawResult = await query('GetHyperCubeReducedData', params);
     var jsonData = rawResult['result']['qDataPages'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
     return dartData;
   }
 
   /// Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT.</div>
-  Future<BuiltList<NxCell>> getHyperCubePivotData(
-      String path, BuiltList<NxCell> pages) async {
+  Future<NxPivotPage> getHyperCubePivotData(String path, NxPage pages) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     var rawResult = await query('GetHyperCubePivotData', params);
     var jsonData = rawResult['result']['qDataPages'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<NxPivotPage>(const FullType(NxPivotPage), jsonData);
     return dartData;
   }
 
   /// Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT_STACK.</div>
-  Future<BuiltList<NxCell>> getHyperCubeStackData(
-      String path, BuiltList<NxCell> pages, int maxNbrCells) async {
+  Future<NxStackPage> getHyperCubeStackData(String path, NxPage pages,
+      {int maxNbrCells}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qMaxNbrCells'] = maxNbrCells;
     var rawResult = await query('GetHyperCubeStackData', params);
     var jsonData = rawResult['result']['qDataPages'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<NxStackPage>(const FullType(NxStackPage), jsonData);
     return dartData;
   }
 
@@ -134,14 +131,14 @@ class GenericObject extends BaseService {
   /// <div class=note>Binning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.</div>
   /// Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a treedata object or a hypercube in DATA_MODE_TREE.</div>
-  Future<BuiltList<NxCell>> getHyperCubeTreeData(
-      String path, NxTreeDataOption nodeOptions) async {
+  Future<NxTreeNode> getHyperCubeTreeData(String path,
+      {NxTreeDataOption nodeOptions}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     var rawResult = await query('GetHyperCubeTreeData', params);
     var jsonData = rawResult['result']['qNodes'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<NxTreeNode>(const FullType(NxTreeNode), jsonData);
     return dartData;
   }
 
@@ -278,11 +275,11 @@ class GenericObject extends BaseService {
   /// </td>
   /// </tr>
   /// </table>
-  Future<BuiltList<NxCell>> getHyperCubeBinnedData(
+  Future<NxDataPage> getHyperCubeBinnedData(
       String path,
-      BuiltList<NxCell> pages,
+      NxPage pages,
       NxViewPort viewport,
-      BuiltList<NxCell> dataRanges,
+      NxDataAreaPage dataRanges,
       int maxNbrCells,
       int queryLevel,
       int binningMethod) async {
@@ -293,8 +290,8 @@ class GenericObject extends BaseService {
     params['qBinningMethod'] = binningMethod;
     var rawResult = await query('GetHyperCubeBinnedData', params);
     var jsonData = rawResult['result']['qDataPages'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
     return dartData;
   }
 
@@ -303,7 +300,7 @@ class GenericObject extends BaseService {
   /// In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing _GetProperties_ , and only a _GetLayout_ call shows the result of the operation.
   /// Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.
   /// <div class=note>Soft properties apply only to generic objects.</div>
-  Future<void> applyPatches(BuiltList<NxCell> patches, bool softPatch) async {
+  Future<void> applyPatches(NxPatch patches, {bool softPatch}) async {
     var params = <String, dynamic>{};
     params['qSoftPatch'] = softPatch;
     var rawResult = await query('ApplyPatches', params);
@@ -388,8 +385,7 @@ class GenericObject extends BaseService {
   }
 
   /// Clears the selections in a dimension of a visualization.
-  Future<void> clearSelections(
-      String path, BuiltList<NxCell> colIndices) async {
+  Future<void> clearSelections(String path, {BuiltList<int> colIndices}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     var rawResult = await query('ClearSelections', params);
@@ -432,8 +428,9 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectValues(String path, BuiltList<NxCell> values,
-      bool toggleMode, bool softLock) async {
+  Future<bool> selectListObjectValues(
+      String path, BuiltList<int> values, bool toggleMode,
+      {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qToggleMode'] = toggleMode;
@@ -449,7 +446,7 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectPossible(String path, bool softLock) async {
+  Future<bool> selectListObjectPossible(String path, {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qSoftLock'] = softLock;
@@ -464,7 +461,7 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectExcluded(String path, bool softLock) async {
+  Future<bool> selectListObjectExcluded(String path, {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qSoftLock'] = softLock;
@@ -479,7 +476,7 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectAlternative(String path, bool softLock) async {
+  Future<bool> selectListObjectAlternative(String path, {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qSoftLock'] = softLock;
@@ -494,7 +491,7 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectListObjectAll(String path, bool softLock) async {
+  Future<bool> selectListObjectAll(String path, {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qSoftLock'] = softLock;
@@ -504,8 +501,8 @@ class GenericObject extends BaseService {
 
   /// The following is returned in the output:
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  Future<bool> selectListObjectContinuousRange(
-      String path, BuiltList<NxCell> ranges, bool softLock) async {
+  Future<bool> selectListObjectContinuousRange(String path, Range ranges,
+      {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qSoftLock'] = softLock;
@@ -535,8 +532,8 @@ class GenericObject extends BaseService {
 
   /// Accept the results of a search in a list object. The search results become selected in the field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note>The search results are displayed using the _GetLayout Method_. </div>
-  Future<void> acceptListObjectSearch(
-      String path, bool toggleMode, bool softLock) async {
+  Future<void> acceptListObjectSearch(String path, bool toggleMode,
+      {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qToggleMode'] = toggleMode;
@@ -600,14 +597,14 @@ class GenericObject extends BaseService {
   }
 
   /// Locks the selected values of a generic object.
-  Future<void> lock(String path, BuiltList<NxCell> colIndices) async {
+  Future<void> lock(String path, {BuiltList<int> colIndices}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     var rawResult = await query('Lock', params);
   }
 
   /// Unlocks the selected values of a generic object if the target (or handle ) is a generic object
-  Future<void> unlock(String path, BuiltList<NxCell> colIndices) async {
+  Future<void> unlock(String path, {BuiltList<int> colIndices}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     var rawResult = await query('Unlock', params);
@@ -622,7 +619,7 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectHyperCubeValues(
-      String path, int dimNo, BuiltList<NxCell> values, bool toggleMode) async {
+      String path, int dimNo, BuiltList<int> values, bool toggleMode) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qDimNo'] = dimNo;
@@ -639,11 +636,8 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectHyperCubeCells(
-      String path,
-      BuiltList<NxCell> rowIndices,
-      BuiltList<NxCell> colIndices,
-      bool softLock,
-      bool deselectOnlyOneSelected) async {
+      String path, BuiltList<int> rowIndices, BuiltList<int> colIndices,
+      {bool softLock, bool deselectOnlyOneSelected}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qSoftLock'] = softLock;
@@ -688,8 +682,8 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectPivotCells(String path, BuiltList<NxCell> selections,
-      bool softLock, bool deselectOnlyOneSelected) async {
+  Future<bool> selectPivotCells(String path, NxSelectionCell selections,
+      {bool softLock, bool deselectOnlyOneSelected}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qSoftLock'] = softLock;
@@ -705,12 +699,10 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> rangeSelectHyperCubeValues(
-      String path,
-      BuiltList<NxCell> ranges,
-      BuiltList<NxCell> columnsToSelect,
+  Future<bool> rangeSelectHyperCubeValues(String path, NxRangeSelectInfo ranges,
+      {BuiltList<int> columnsToSelect,
       bool orMode,
-      bool deselectOnlyOneSelected) async {
+      bool deselectOnlyOneSelected}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qOrMode'] = orMode;
@@ -720,10 +712,8 @@ class GenericObject extends BaseService {
   }
 
   Future<bool> multiRangeSelectHyperCubeValues(
-      String path,
-      BuiltList<NxCell> ranges,
-      bool orMode,
-      bool deselectOnlyOneSelected) async {
+      String path, NxMultiRangeSelectInfo ranges,
+      {bool orMode, bool deselectOnlyOneSelected}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qOrMode'] = orMode;
@@ -733,10 +723,8 @@ class GenericObject extends BaseService {
   }
 
   Future<bool> multiRangeSelectTreeDataValues(
-      String path,
-      BuiltList<NxCell> ranges,
-      bool orMode,
-      bool deselectOnlyOneSelected) async {
+      String path, NxTreeMultiRangeSelectInfo ranges,
+      {bool orMode, bool deselectOnlyOneSelected}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qOrMode'] = orMode;
@@ -748,7 +736,8 @@ class GenericObject extends BaseService {
   /// The following is returned in the output:
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> selectHyperCubeContinuousRange(
-      String path, BuiltList<NxCell> ranges, bool softLock) async {
+      String path, NxContinuousRangeSelectInfo ranges,
+      {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qSoftLock'] = softLock;
@@ -770,19 +759,18 @@ class GenericObject extends BaseService {
   /// Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.
   ///
   /// Full dynamic properties are optional and are returned if they exist in the definition of the object.
-  Future<BuiltList<NxCell>> getChildInfos() async {
+  Future<NxInfo> getChildInfos() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetChildInfos', params);
     var jsonData = rawResult['result']['qInfos'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
     return dartData;
   }
 
   /// Creates a generic object that is a child of another generic object.
   /// <div class=note>It is possible to update the properties of the child's parent at the same time that the child is created. Both operations are performed by the same call.</div> <div class=note>It is possible to create a child that is linked to another generic object. The two objects have the same properties.</div>
-  Future<GenericObject> createChild(
-      GenericObjectProperties prop, GenericObjectProperties propForThis) async {
+  Future<GenericObject> createChild(GenericObjectProperties prop,
+      {GenericObjectProperties propForThis}) async {
     var params = <String, dynamic>{};
     var rawResult = await query('CreateChild', params);
     var jsonData = rawResult['result']['qReturn'];
@@ -795,8 +783,8 @@ class GenericObject extends BaseService {
   /// <div class=note>It is possible to update the properties of the child's parent at the same time that the child is removed. Both operations are performed by the same call.</div> <div class=note>Removing a linked object, invalidate the linking object. </div>
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  Future<bool> destroyChild(
-      String id, GenericObjectProperties propForThis) async {
+  Future<bool> destroyChild(String id,
+      {GenericObjectProperties propForThis}) async {
     var params = <String, dynamic>{};
     params['qId'] = id;
     var rawResult = await query('DestroyChild', params);
@@ -804,25 +792,25 @@ class GenericObject extends BaseService {
   }
 
   /// Removes all children and all children to the children on an object.
-  Future<void> destroyAllChildren(GenericObjectProperties propForThis) async {
+  Future<void> destroyAllChildren({GenericObjectProperties propForThis}) async {
     var params = <String, dynamic>{};
     var rawResult = await query('DestroyAllChildren', params);
   }
 
   /// Sets the order of the children in a generic object.
   /// <div class=note>To change the order of the children in a generic object, the identifiers of all the children must be included in the list of the identifiers (in _qIds_ ). </div>
-  Future<void> setChildArrayOrder(BuiltList<NxCell> ids) async {
+  Future<void> setChildArrayOrder(BuiltList<String> ids) async {
     var params = <String, dynamic>{};
     var rawResult = await query('SetChildArrayOrder', params);
   }
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
-  Future<BuiltList<NxCell>> getLinkedObjects() async {
+  Future<NxLinkedObjectInfo> getLinkedObjects() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetLinkedObjects', params);
     var jsonData = rawResult['result']['qItems'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData = fromJsonFullType<NxLinkedObjectInfo>(
+        const FullType(NxLinkedObjectInfo), jsonData);
     return dartData;
   }
 
@@ -842,7 +830,7 @@ class GenericObject extends BaseService {
   ///
   /// ### Example
   /// A sheet contains a list object and a chart. If the list object is in selection mode then the chart cannot be in selection mode. No selection on the chart can be made until the list object exits the selection mode.
-  Future<void> beginSelections(BuiltList<NxCell> paths) async {
+  Future<void> beginSelections(BuiltList<String> paths) async {
     var params = <String, dynamic>{};
     var rawResult = await query('BeginSelections', params);
   }

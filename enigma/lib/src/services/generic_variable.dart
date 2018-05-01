@@ -26,7 +26,7 @@ class GenericVariable extends BaseService {
 
   /// Applies a patch to the properties of a variable. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
-  Future<void> applyPatches(BuiltList<NxCell> patches) async {
+  Future<void> applyPatches(NxPatch patches) async {
     var params = <String, dynamic>{};
     var rawResult = await query('ApplyPatches', params);
   }

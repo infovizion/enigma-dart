@@ -44,8 +44,8 @@ class _$SelectionObjectSerializer
       result
         ..add('qSelections')
         ..add(serializers.serialize(object.selections,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxCurrentSelectionItem)])));
     }
 
     return result;
@@ -72,9 +72,9 @@ class _$SelectionObjectSerializer
           break;
         case 'qSelections':
           result.selections.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(NxCurrentSelectionItem)
+              ])) as BuiltList);
           break;
       }
     }
@@ -89,7 +89,7 @@ class _$SelectionObject extends SelectionObject {
   @override
   final int forwardCount;
   @override
-  final BuiltList<NxCell> selections;
+  final BuiltList<NxCurrentSelectionItem> selections;
 
   factory _$SelectionObject([void updates(SelectionObjectBuilder b)]) =>
       (new SelectionObjectBuilder()..update(updates)).build();
@@ -142,10 +142,10 @@ class SelectionObjectBuilder
   int get forwardCount => _$this._forwardCount;
   set forwardCount(int forwardCount) => _$this._forwardCount = forwardCount;
 
-  ListBuilder<NxCell> _selections;
-  ListBuilder<NxCell> get selections =>
-      _$this._selections ??= new ListBuilder<NxCell>();
-  set selections(ListBuilder<NxCell> selections) =>
+  ListBuilder<NxCurrentSelectionItem> _selections;
+  ListBuilder<NxCurrentSelectionItem> get selections =>
+      _$this._selections ??= new ListBuilder<NxCurrentSelectionItem>();
+  set selections(ListBuilder<NxCurrentSelectionItem> selections) =>
       _$this._selections = selections;
 
   SelectionObjectBuilder();

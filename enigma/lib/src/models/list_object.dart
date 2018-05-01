@@ -7,8 +7,9 @@ import 'package:built_value/built_value.dart';
 import 'size.dart';
 import 'nx_validation_error.dart';
 import 'nx_dimension_info.dart';
-import 'nx_cell.dart';
+import 'nx_list_object_expression.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_data_page.dart';
 part 'list_object.g.dart';
 
 /// Renders the properties of a list object. Is the layout for _ListObjectDef_.
@@ -46,14 +47,14 @@ abstract class ListObject implements Built<ListObject, ListObjectBuilder> {
   /// Original name: qExpressions
   @nullable
   @BuiltValueField(wireName: 'qExpressions')
-  BuiltList<NxCell> get expressions;
+  BuiltList<NxListObjectExpression> get expressions;
 
   /// Set of data.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _ListObjectDef_.
   /// Original name: qDataPages
   @nullable
   @BuiltValueField(wireName: 'qDataPages')
-  BuiltList<NxCell> get dataPages;
+  BuiltList<NxDataPage> get dataPages;
 
   factory ListObject([updates(ListObjectBuilder b)]) = _$ListObject;
 
@@ -62,8 +63,8 @@ abstract class ListObject implements Built<ListObject, ListObjectBuilder> {
       Size size,
       NxValidationError error,
       NxDimensionInfo dimensionInfo,
-      BuiltList<NxCell> expressions,
-      BuiltList<NxCell> dataPages}) = _$ListObject._;
+      BuiltList<NxListObjectExpression> expressions,
+      BuiltList<NxDataPage> dataPages}) = _$ListObject._;
 
   ListObject._();
 }

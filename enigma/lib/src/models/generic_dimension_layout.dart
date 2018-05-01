@@ -7,7 +7,7 @@ import 'package:built_value/built_value.dart';
 import 'nx_info.dart';
 import 'nx_meta.dart';
 import 'nx_library_dimension.dart';
-import 'nx_cell.dart';
+import 'generic_dimension_info.dart';
 import 'package:built_collection/built_collection.dart';
 part 'generic_dimension_layout.g.dart';
 
@@ -40,7 +40,7 @@ abstract class GenericDimensionLayout
   /// Original name: qDimInfos
   @nullable
   @BuiltValueField(wireName: 'qDimInfos')
-  BuiltList<NxCell> get dimInfos;
+  BuiltList<GenericDimensionInfo> get dimInfos;
 
   factory GenericDimensionLayout([updates(GenericDimensionLayoutBuilder b)]) =
       _$GenericDimensionLayout;
@@ -49,7 +49,7 @@ abstract class GenericDimensionLayout
       {NxInfo info,
       NxMeta meta,
       NxLibraryDimension dim,
-      BuiltList<NxCell> dimInfos}) = _$GenericDimensionLayout._;
+      BuiltList<GenericDimensionInfo> dimInfos}) = _$GenericDimensionLayout._;
 
   GenericDimensionLayout._();
 }

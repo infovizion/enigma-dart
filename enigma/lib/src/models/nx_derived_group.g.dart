@@ -51,7 +51,7 @@ class _$NxDerivedGroupSerializer
         ..add('qFieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -83,7 +83,7 @@ class _$NxDerivedGroupSerializer
         case 'qFieldDefs':
           result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -101,7 +101,7 @@ class _$NxDerivedGroup extends NxDerivedGroup {
   @override
   final String grouping;
   @override
-  final BuiltList<NxCell> fieldDefs;
+  final BuiltList<String> fieldDefs;
 
   factory _$NxDerivedGroup([void updates(NxDerivedGroupBuilder b)]) =>
       (new NxDerivedGroupBuilder()..update(updates)).build();
@@ -161,10 +161,10 @@ class NxDerivedGroupBuilder
   String get grouping => _$this._grouping;
   set grouping(String grouping) => _$this._grouping = grouping;
 
-  ListBuilder<NxCell> _fieldDefs;
-  ListBuilder<NxCell> get fieldDefs =>
-      _$this._fieldDefs ??= new ListBuilder<NxCell>();
-  set fieldDefs(ListBuilder<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
+  ListBuilder<String> _fieldDefs;
+  ListBuilder<String> get fieldDefs =>
+      _$this._fieldDefs ??= new ListBuilder<String>();
+  set fieldDefs(ListBuilder<String> fieldDefs) => _$this._fieldDefs = fieldDefs;
 
   NxDerivedGroupBuilder();
 

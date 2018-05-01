@@ -4,7 +4,7 @@ library bookmark_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_container_entry.dart';
 import 'package:built_collection/built_collection.dart';
 part 'bookmark_list.g.dart';
 
@@ -17,11 +17,12 @@ abstract class BookmarkList
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<NxContainerEntry> get items;
 
   factory BookmarkList([updates(BookmarkListBuilder b)]) = _$BookmarkList;
 
-  factory BookmarkList.init({BuiltList<NxCell> items}) = _$BookmarkList._;
+  factory BookmarkList.init({BuiltList<NxContainerEntry> items}) =
+      _$BookmarkList._;
 
   BookmarkList._();
 }

@@ -32,8 +32,8 @@ class _$StaticContentListSerializer
       result
         ..add('qItems')
         ..add(serializers.serialize(object.items,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(StaticContentListItem)])));
     }
 
     return result;
@@ -52,8 +52,8 @@ class _$StaticContentListSerializer
       switch (key) {
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(StaticContentListItem)]))
               as BuiltList);
           break;
       }
@@ -65,7 +65,7 @@ class _$StaticContentListSerializer
 
 class _$StaticContentList extends StaticContentList {
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<StaticContentListItem> items;
 
   factory _$StaticContentList([void updates(StaticContentListBuilder b)]) =>
       (new StaticContentListBuilder()..update(updates)).build();
@@ -104,9 +104,10 @@ class StaticContentListBuilder
     implements Builder<StaticContentList, StaticContentListBuilder> {
   _$StaticContentList _$v;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<StaticContentListItem> _items;
+  ListBuilder<StaticContentListItem> get items =>
+      _$this._items ??= new ListBuilder<StaticContentListItem>();
+  set items(ListBuilder<StaticContentListItem> items) => _$this._items = items;
 
   StaticContentListBuilder();
 

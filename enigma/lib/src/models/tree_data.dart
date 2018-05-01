@@ -4,9 +4,9 @@ library tree_data;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_validation_error.dart';
+import 'nx_tree_dimension_info.dart';
 import 'nx_cell_position.dart';
 part 'tree_data.g.dart';
 
@@ -27,7 +27,7 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
   /// Original name: qNodesOnDim
   @nullable
   @BuiltValueField(wireName: 'qNodesOnDim')
-  BuiltList<NxCell> get nodesOnDim;
+  BuiltList<int> get nodesOnDim;
 
   /// This parameter is optional and is displayed in case of error.
   /// Original name: qError
@@ -39,7 +39,7 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
   /// Original name: qDimensionInfo
   @nullable
   @BuiltValueField(wireName: 'qDimensionInfo')
-  BuiltList<NxCell> get dimensionInfo;
+  BuiltList<NxTreeDimensionInfo> get dimensionInfo;
 
   /// Defines the order of the dimenion levels/columns in the TreeData object.
   /// Column numbers are separated by a comma.
@@ -47,7 +47,7 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
   /// Original name: qEffectiveInterColumnSortOrder
   @nullable
   @BuiltValueField(wireName: 'qEffectiveInterColumnSortOrder')
-  BuiltList<NxCell> get effectiveInterColumnSortOrder;
+  BuiltList<int> get effectiveInterColumnSortOrder;
 
   /// True if other row exists.
   /// Original name: qHasOtherValues
@@ -78,10 +78,10 @@ abstract class TreeData implements Built<TreeData, TreeDataBuilder> {
 
   factory TreeData.init(
       {String stateName,
-      BuiltList<NxCell> nodesOnDim,
+      BuiltList<int> nodesOnDim,
       NxValidationError error,
-      BuiltList<NxCell> dimensionInfo,
-      BuiltList<NxCell> effectiveInterColumnSortOrder,
+      BuiltList<NxTreeDimensionInfo> dimensionInfo,
+      BuiltList<int> effectiveInterColumnSortOrder,
       bool hasOtherValues,
       String title,
       NxCellPosition lastExpandedPos,

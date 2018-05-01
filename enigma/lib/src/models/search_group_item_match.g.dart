@@ -41,15 +41,15 @@ class _$SearchGroupItemMatchSerializer
       result
         ..add('qRanges')
         ..add(serializers.serialize(object.ranges,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchCharRange)])));
     }
     if (object.attributes != null) {
       result
         ..add('qAttributes')
         ..add(serializers.serialize(object.attributes,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchAttribute)])));
     }
 
     return result;
@@ -72,14 +72,14 @@ class _$SearchGroupItemMatchSerializer
           break;
         case 'qRanges':
           result.ranges.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchCharRange)]))
               as BuiltList);
           break;
         case 'qAttributes':
           result.attributes.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchAttribute)]))
               as BuiltList);
           break;
       }
@@ -93,9 +93,9 @@ class _$SearchGroupItemMatch extends SearchGroupItemMatch {
   @override
   final String text;
   @override
-  final BuiltList<NxCell> ranges;
+  final BuiltList<SearchCharRange> ranges;
   @override
-  final BuiltList<NxCell> attributes;
+  final BuiltList<SearchAttribute> attributes;
 
   factory _$SearchGroupItemMatch(
           [void updates(SearchGroupItemMatchBuilder b)]) =>
@@ -145,15 +145,15 @@ class SearchGroupItemMatchBuilder
   String get text => _$this._text;
   set text(String text) => _$this._text = text;
 
-  ListBuilder<NxCell> _ranges;
-  ListBuilder<NxCell> get ranges =>
-      _$this._ranges ??= new ListBuilder<NxCell>();
-  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<SearchCharRange> _ranges;
+  ListBuilder<SearchCharRange> get ranges =>
+      _$this._ranges ??= new ListBuilder<SearchCharRange>();
+  set ranges(ListBuilder<SearchCharRange> ranges) => _$this._ranges = ranges;
 
-  ListBuilder<NxCell> _attributes;
-  ListBuilder<NxCell> get attributes =>
-      _$this._attributes ??= new ListBuilder<NxCell>();
-  set attributes(ListBuilder<NxCell> attributes) =>
+  ListBuilder<SearchAttribute> _attributes;
+  ListBuilder<SearchAttribute> get attributes =>
+      _$this._attributes ??= new ListBuilder<SearchAttribute>();
+  set attributes(ListBuilder<SearchAttribute> attributes) =>
       _$this._attributes = attributes;
 
   SearchGroupItemMatchBuilder();

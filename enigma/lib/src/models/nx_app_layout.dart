@@ -4,7 +4,6 @@ library nx_app_layout;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_meta.dart';
 import 'locale_info.dart';
@@ -61,7 +60,7 @@ abstract class NxAppLayout implements Built<NxAppLayout, NxAppLayoutBuilder> {
   /// Original name: qStateNames
   @nullable
   @BuiltValueField(wireName: 'qStateNames')
-  BuiltList<NxCell> get stateNames;
+  BuiltList<String> get stateNames;
 
   /// Information on publishing and permissions.
   /// Original name: qMeta
@@ -107,7 +106,7 @@ abstract class NxAppLayout implements Built<NxAppLayout, NxAppLayoutBuilder> {
       String lastReloadTime,
       bool modified,
       bool hasScript,
-      BuiltList<NxCell> stateNames,
+      BuiltList<String> stateNames,
       NxMeta meta,
       LocaleInfo localeInfo,
       bool hasData,

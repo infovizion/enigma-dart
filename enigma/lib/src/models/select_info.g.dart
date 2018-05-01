@@ -54,8 +54,8 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
       result
         ..add('qRangeInfo')
         ..add(serializers.serialize(object.rangeInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(RangeSelectInfo)])));
     }
     if (object.softLock != null) {
       result
@@ -68,7 +68,7 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
         ..add('qContinuousRangeInfo')
         ..add(serializers.serialize(object.continuousRangeInfo,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(Range)])));
     }
 
     return result;
@@ -104,8 +104,8 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
           break;
         case 'qRangeInfo':
           result.rangeInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(RangeSelectInfo)]))
               as BuiltList);
           break;
         case 'qSoftLock':
@@ -115,7 +115,7 @@ class _$SelectInfoSerializer implements StructuredSerializer<SelectInfo> {
         case 'qContinuousRangeInfo':
           result.continuousRangeInfo.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(Range)]))
               as BuiltList);
           break;
       }
@@ -135,11 +135,11 @@ class _$SelectInfo extends SelectInfo {
   @override
   final FieldAttributes numberFormat;
   @override
-  final BuiltList<NxCell> rangeInfo;
+  final BuiltList<RangeSelectInfo> rangeInfo;
   @override
   final bool softLock;
   @override
-  final BuiltList<NxCell> continuousRangeInfo;
+  final BuiltList<Range> continuousRangeInfo;
 
   factory _$SelectInfo([void updates(SelectInfoBuilder b)]) =>
       (new SelectInfoBuilder()..update(updates)).build();
@@ -223,19 +223,20 @@ class SelectInfoBuilder implements Builder<SelectInfo, SelectInfoBuilder> {
   set numberFormat(FieldAttributesBuilder numberFormat) =>
       _$this._numberFormat = numberFormat;
 
-  ListBuilder<NxCell> _rangeInfo;
-  ListBuilder<NxCell> get rangeInfo =>
-      _$this._rangeInfo ??= new ListBuilder<NxCell>();
-  set rangeInfo(ListBuilder<NxCell> rangeInfo) => _$this._rangeInfo = rangeInfo;
+  ListBuilder<RangeSelectInfo> _rangeInfo;
+  ListBuilder<RangeSelectInfo> get rangeInfo =>
+      _$this._rangeInfo ??= new ListBuilder<RangeSelectInfo>();
+  set rangeInfo(ListBuilder<RangeSelectInfo> rangeInfo) =>
+      _$this._rangeInfo = rangeInfo;
 
   bool _softLock;
   bool get softLock => _$this._softLock;
   set softLock(bool softLock) => _$this._softLock = softLock;
 
-  ListBuilder<NxCell> _continuousRangeInfo;
-  ListBuilder<NxCell> get continuousRangeInfo =>
-      _$this._continuousRangeInfo ??= new ListBuilder<NxCell>();
-  set continuousRangeInfo(ListBuilder<NxCell> continuousRangeInfo) =>
+  ListBuilder<Range> _continuousRangeInfo;
+  ListBuilder<Range> get continuousRangeInfo =>
+      _$this._continuousRangeInfo ??= new ListBuilder<Range>();
+  set continuousRangeInfo(ListBuilder<Range> continuousRangeInfo) =>
       _$this._continuousRangeInfo = continuousRangeInfo;
 
   SelectInfoBuilder();

@@ -4,7 +4,6 @@ library b_n_f_def;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'b_n_f_def.g.dart';
 
@@ -16,7 +15,7 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   /// Original name: qBnf
   @nullable
   @BuiltValueField(wireName: 'qBnf')
-  BuiltList<NxCell> get bnf;
+  BuiltList<int> get bnf;
 
   /// Number of the current token definition.
   /// Original name: qNbr
@@ -161,7 +160,7 @@ abstract class BNFDef implements Built<BNFDef, BNFDefBuilder> {
   factory BNFDef([updates(BNFDefBuilder b)]) = _$BNFDef;
 
   factory BNFDef.init(
-      {BuiltList<NxCell> bnf,
+      {BuiltList<int> bnf,
       int nbr,
       int pNbr,
       int helpId,

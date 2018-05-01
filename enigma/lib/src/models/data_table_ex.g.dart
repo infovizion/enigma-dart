@@ -37,7 +37,7 @@ class _$DataTableExSerializer implements StructuredSerializer<DataTableEx> {
         ..add('qFields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(DataField)])));
     }
     if (object.formatSpec != null) {
       result
@@ -66,9 +66,8 @@ class _$DataTableExSerializer implements StructuredSerializer<DataTableEx> {
           break;
         case 'qFields':
           result.fields.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(DataField)])) as BuiltList);
           break;
         case 'qFormatSpec':
           result.formatSpec = serializers.deserialize(value,
@@ -85,7 +84,7 @@ class _$DataTableEx extends DataTableEx {
   @override
   final String name;
   @override
-  final BuiltList<NxCell> fields;
+  final BuiltList<DataField> fields;
   @override
   final String formatSpec;
 
@@ -133,10 +132,10 @@ class DataTableExBuilder implements Builder<DataTableEx, DataTableExBuilder> {
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  ListBuilder<NxCell> _fields;
-  ListBuilder<NxCell> get fields =>
-      _$this._fields ??= new ListBuilder<NxCell>();
-  set fields(ListBuilder<NxCell> fields) => _$this._fields = fields;
+  ListBuilder<DataField> _fields;
+  ListBuilder<DataField> get fields =>
+      _$this._fields ??= new ListBuilder<DataField>();
+  set fields(ListBuilder<DataField> fields) => _$this._fields = fields;
 
   String _formatSpec;
   String get formatSpec => _$this._formatSpec;

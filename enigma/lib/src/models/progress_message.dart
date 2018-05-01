@@ -4,7 +4,6 @@ library progress_message;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'progress_message.g.dart';
 
@@ -23,14 +22,14 @@ abstract class ProgressMessage
   /// Original name: qMessageParameters
   @nullable
   @BuiltValueField(wireName: 'qMessageParameters')
-  BuiltList<NxCell> get messageParameters;
+  BuiltList<String> get messageParameters;
 
   factory ProgressMessage([updates(ProgressMessageBuilder b)]) =
       _$ProgressMessage;
 
   factory ProgressMessage.init(
       {int messageCode,
-      BuiltList<NxCell> messageParameters}) = _$ProgressMessage._;
+      BuiltList<String> messageParameters}) = _$ProgressMessage._;
 
   ProgressMessage._();
 }

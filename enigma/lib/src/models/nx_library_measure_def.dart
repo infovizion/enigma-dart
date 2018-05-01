@@ -4,7 +4,6 @@ library nx_library_measure_def;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_library_measure_def.g.dart';
 
@@ -42,7 +41,7 @@ abstract class NxLibraryMeasureDef
   /// Original name: qExpressions
   @nullable
   @BuiltValueField(wireName: 'qExpressions')
-  BuiltList<NxCell> get expressions;
+  BuiltList<String> get expressions;
 
   /// Index to the active expression in a measure.
   /// Original name: qActiveExpression
@@ -62,7 +61,7 @@ abstract class NxLibraryMeasureDef
       {String label,
       String def,
       String grouping,
-      BuiltList<NxCell> expressions,
+      BuiltList<String> expressions,
       int activeExpression,
       String labelExpression}) = _$NxLibraryMeasureDef._;
 

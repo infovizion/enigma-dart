@@ -38,15 +38,15 @@ class GenericBookmark extends BaseService {
   /// <td>Double</td>
   /// </tr>
   /// </table>
-  Future<BuiltList<NxCell>> getFieldValues(
+  Future<FieldValue> getFieldValues(
       String field, bool getExcludedValues, BookmarkFieldPage dataPage) async {
     var params = <String, dynamic>{};
     params['qField'] = field;
     params['qGetExcludedValues'] = getExcludedValues;
     var rawResult = await query('GetFieldValues', params);
     var jsonData = rawResult['result']['qFieldValues'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<FieldValue>(const FullType(FieldValue), jsonData);
     return dartData;
   }
 
@@ -63,7 +63,7 @@ class GenericBookmark extends BaseService {
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
-  Future<void> applyPatches(BuiltList<NxCell> patches) async {
+  Future<void> applyPatches(NxPatch patches) async {
     var params = <String, dynamic>{};
     var rawResult = await query('ApplyPatches', params);
   }

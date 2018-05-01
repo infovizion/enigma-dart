@@ -4,8 +4,8 @@ library field_in_table_data;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
+import 'derived_fields_in_table_data.dart';
 part 'field_in_table_data.g.dart';
 
 abstract class FieldInTableData
@@ -25,7 +25,7 @@ abstract class FieldInTableData
   /// Original name: qOriginalFields
   @nullable
   @BuiltValueField(wireName: 'qOriginalFields')
-  BuiltList<NxCell> get originalFields;
+  BuiltList<String> get originalFields;
 
   /// Original name: qPresent
   @nullable
@@ -112,13 +112,13 @@ abstract class FieldInTableData
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   /// List of the derived fields.
   /// Original name: qDerivedFields
   @nullable
   @BuiltValueField(wireName: 'qDerivedFields')
-  BuiltList<NxCell> get derivedFields;
+  BuiltList<DerivedFieldsInTableData> get derivedFields;
 
   /// Original name: qIsFieldOnTheFly
   @nullable
@@ -135,7 +135,7 @@ abstract class FieldInTableData
 
   factory FieldInTableData.init(
       {String name,
-      BuiltList<NxCell> originalFields,
+      BuiltList<String> originalFields,
       bool present,
       bool hasNull,
       bool hasWild,
@@ -149,8 +149,8 @@ abstract class FieldInTableData
       int nPresentDistinctValues,
       String keyType,
       String comment,
-      BuiltList<NxCell> tags,
-      BuiltList<NxCell> derivedFields,
+      BuiltList<String> tags,
+      BuiltList<DerivedFieldsInTableData> derivedFields,
       bool isFieldOnTheFly,
       String readableName}) = _$FieldInTableData._;
 

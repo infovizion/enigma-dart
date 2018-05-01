@@ -83,8 +83,8 @@ class _$NxPivotDimensionCellSerializer
       result
         ..add('qSubNodes')
         ..add(serializers.serialize(object.subNodes,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxPivotDimensionCell)])));
     }
     if (object.attrExps != null) {
       result
@@ -147,8 +147,8 @@ class _$NxPivotDimensionCellSerializer
           break;
         case 'qSubNodes':
           result.subNodes.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxPivotDimensionCell)]))
               as BuiltList);
           break;
         case 'qAttrExps':
@@ -186,7 +186,7 @@ class _$NxPivotDimensionCell extends NxPivotDimensionCell {
   @override
   final int down;
   @override
-  final BuiltList<NxCell> subNodes;
+  final BuiltList<NxPivotDimensionCell> subNodes;
   @override
   final NxAttributeExpressionValues attrExps;
   @override
@@ -313,10 +313,11 @@ class NxPivotDimensionCellBuilder
   int get down => _$this._down;
   set down(int down) => _$this._down = down;
 
-  ListBuilder<NxCell> _subNodes;
-  ListBuilder<NxCell> get subNodes =>
-      _$this._subNodes ??= new ListBuilder<NxCell>();
-  set subNodes(ListBuilder<NxCell> subNodes) => _$this._subNodes = subNodes;
+  ListBuilder<NxPivotDimensionCell> _subNodes;
+  ListBuilder<NxPivotDimensionCell> get subNodes =>
+      _$this._subNodes ??= new ListBuilder<NxPivotDimensionCell>();
+  set subNodes(ListBuilder<NxPivotDimensionCell> subNodes) =>
+      _$this._subNodes = subNodes;
 
   NxAttributeExpressionValuesBuilder _attrExps;
   NxAttributeExpressionValuesBuilder get attrExps =>

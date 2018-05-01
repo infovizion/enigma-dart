@@ -4,7 +4,7 @@ library nx_stacked_pivot_cell;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_stacked_pivot_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_attribute_expression_values.dart';
 import 'nx_attribute_dim_values.dart';
@@ -103,7 +103,7 @@ abstract class NxStackedPivotCell
   /// Original name: qSubNodes
   @nullable
   @BuiltValueField(wireName: 'qSubNodes')
-  BuiltList<NxCell> get subNodes;
+  BuiltList<NxStackedPivotCell> get subNodes;
 
   /// Attribute expressions values.
   /// Original name: qAttrExps
@@ -132,7 +132,7 @@ abstract class NxStackedPivotCell
       int up,
       int down,
       int row,
-      BuiltList<NxCell> subNodes,
+      BuiltList<NxStackedPivotCell> subNodes,
       NxAttributeExpressionValues attrExps,
       NxAttributeDimValues attrDims}) = _$NxStackedPivotCell._;
 

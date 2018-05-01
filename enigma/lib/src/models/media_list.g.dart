@@ -30,8 +30,8 @@ class _$MediaListSerializer implements StructuredSerializer<MediaList> {
       result
         ..add('qItems')
         ..add(serializers.serialize(object.items,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(MediaListItem)])));
     }
 
     return result;
@@ -50,8 +50,8 @@ class _$MediaListSerializer implements StructuredSerializer<MediaList> {
       switch (key) {
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(MediaListItem)]))
               as BuiltList);
           break;
       }
@@ -63,7 +63,7 @@ class _$MediaListSerializer implements StructuredSerializer<MediaList> {
 
 class _$MediaList extends MediaList {
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<MediaListItem> items;
 
   factory _$MediaList([void updates(MediaListBuilder b)]) =>
       (new MediaListBuilder()..update(updates)).build();
@@ -99,9 +99,10 @@ class _$MediaList extends MediaList {
 class MediaListBuilder implements Builder<MediaList, MediaListBuilder> {
   _$MediaList _$v;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<MediaListItem> _items;
+  ListBuilder<MediaListItem> get items =>
+      _$this._items ??= new ListBuilder<MediaListItem>();
+  set items(ListBuilder<MediaListItem> items) => _$this._items = items;
 
   MediaListBuilder();
 

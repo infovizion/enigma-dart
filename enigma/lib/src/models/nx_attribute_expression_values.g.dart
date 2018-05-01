@@ -37,8 +37,8 @@ class _$NxAttributeExpressionValuesSerializer
       result
         ..add('qValues')
         ..add(serializers.serialize(object.values,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxSimpleValue)])));
     }
 
     return result;
@@ -58,8 +58,8 @@ class _$NxAttributeExpressionValuesSerializer
       switch (key) {
         case 'qValues':
           result.values.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxSimpleValue)]))
               as BuiltList);
           break;
       }
@@ -71,7 +71,7 @@ class _$NxAttributeExpressionValuesSerializer
 
 class _$NxAttributeExpressionValues extends NxAttributeExpressionValues {
   @override
-  final BuiltList<NxCell> values;
+  final BuiltList<NxSimpleValue> values;
 
   factory _$NxAttributeExpressionValues(
           [void updates(NxAttributeExpressionValuesBuilder b)]) =>
@@ -114,10 +114,10 @@ class NxAttributeExpressionValuesBuilder
             NxAttributeExpressionValuesBuilder> {
   _$NxAttributeExpressionValues _$v;
 
-  ListBuilder<NxCell> _values;
-  ListBuilder<NxCell> get values =>
-      _$this._values ??= new ListBuilder<NxCell>();
-  set values(ListBuilder<NxCell> values) => _$this._values = values;
+  ListBuilder<NxSimpleValue> _values;
+  ListBuilder<NxSimpleValue> get values =>
+      _$this._values ??= new ListBuilder<NxSimpleValue>();
+  set values(ListBuilder<NxSimpleValue> values) => _$this._values = values;
 
   NxAttributeExpressionValuesBuilder();
 

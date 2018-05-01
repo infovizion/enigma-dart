@@ -4,7 +4,6 @@ library generic_dimension_info;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'generic_dimension_info.g.dart';
 
@@ -30,7 +29,7 @@ abstract class GenericDimensionInfo
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   /// If set to true, it means that the field is a semantic.
   /// Original name: qIsSemantic
@@ -51,7 +50,7 @@ abstract class GenericDimensionInfo
   factory GenericDimensionInfo.init(
       {int apprMaxGlyphCount,
       int cardinal,
-      BuiltList<NxCell> tags,
+      BuiltList<String> tags,
       bool isSemantic,
       bool andMode}) = _$GenericDimensionInfo._;
 

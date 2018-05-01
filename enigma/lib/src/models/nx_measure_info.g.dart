@@ -91,15 +91,15 @@ class _$NxMeasureInfoSerializer implements StructuredSerializer<NxMeasureInfo> {
       result
         ..add('qAttrExprInfo')
         ..add(serializers.serialize(object.attrExprInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxAttrExprInfo)])));
     }
     if (object.attrDimInfo != null) {
       result
         ..add('qAttrDimInfo')
         ..add(serializers.serialize(object.attrDimInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxAttrDimInfo)])));
     }
     if (object.calcCondMsg != null) {
       result
@@ -166,14 +166,14 @@ class _$NxMeasureInfoSerializer implements StructuredSerializer<NxMeasureInfo> {
           break;
         case 'qAttrExprInfo':
           result.attrExprInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxAttrExprInfo)]))
               as BuiltList);
           break;
         case 'qAttrDimInfo':
           result.attrDimInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxAttrDimInfo)]))
               as BuiltList);
           break;
         case 'qCalcCondMsg':
@@ -209,9 +209,9 @@ class _$NxMeasureInfo extends NxMeasureInfo {
   @override
   final bool isAutoFormat;
   @override
-  final BuiltList<NxCell> attrExprInfo;
+  final BuiltList<NxAttrExprInfo> attrExprInfo;
   @override
-  final BuiltList<NxCell> attrDimInfo;
+  final BuiltList<NxAttrDimInfo> attrDimInfo;
   @override
   final String calcCondMsg;
 
@@ -360,16 +360,16 @@ class NxMeasureInfoBuilder
   bool get isAutoFormat => _$this._isAutoFormat;
   set isAutoFormat(bool isAutoFormat) => _$this._isAutoFormat = isAutoFormat;
 
-  ListBuilder<NxCell> _attrExprInfo;
-  ListBuilder<NxCell> get attrExprInfo =>
-      _$this._attrExprInfo ??= new ListBuilder<NxCell>();
-  set attrExprInfo(ListBuilder<NxCell> attrExprInfo) =>
+  ListBuilder<NxAttrExprInfo> _attrExprInfo;
+  ListBuilder<NxAttrExprInfo> get attrExprInfo =>
+      _$this._attrExprInfo ??= new ListBuilder<NxAttrExprInfo>();
+  set attrExprInfo(ListBuilder<NxAttrExprInfo> attrExprInfo) =>
       _$this._attrExprInfo = attrExprInfo;
 
-  ListBuilder<NxCell> _attrDimInfo;
-  ListBuilder<NxCell> get attrDimInfo =>
-      _$this._attrDimInfo ??= new ListBuilder<NxCell>();
-  set attrDimInfo(ListBuilder<NxCell> attrDimInfo) =>
+  ListBuilder<NxAttrDimInfo> _attrDimInfo;
+  ListBuilder<NxAttrDimInfo> get attrDimInfo =>
+      _$this._attrDimInfo ??= new ListBuilder<NxAttrDimInfo>();
+  set attrDimInfo(ListBuilder<NxAttrDimInfo> attrDimInfo) =>
       _$this._attrDimInfo = attrDimInfo;
 
   String _calcCondMsg;

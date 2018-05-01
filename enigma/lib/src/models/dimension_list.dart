@@ -4,7 +4,7 @@ library dimension_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_container_entry.dart';
 import 'package:built_collection/built_collection.dart';
 part 'dimension_list.g.dart';
 
@@ -17,11 +17,12 @@ abstract class DimensionList
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<NxContainerEntry> get items;
 
   factory DimensionList([updates(DimensionListBuilder b)]) = _$DimensionList;
 
-  factory DimensionList.init({BuiltList<NxCell> items}) = _$DimensionList._;
+  factory DimensionList.init({BuiltList<NxContainerEntry> items}) =
+      _$DimensionList._;
 
   DimensionList._();
 }

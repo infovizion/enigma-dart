@@ -4,7 +4,7 @@ library field_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_field_description.dart';
 import 'package:built_collection/built_collection.dart';
 part 'field_list.g.dart';
 
@@ -16,11 +16,11 @@ abstract class FieldList implements Built<FieldList, FieldListBuilder> {
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<NxFieldDescription> get items;
 
   factory FieldList([updates(FieldListBuilder b)]) = _$FieldList;
 
-  factory FieldList.init({BuiltList<NxCell> items}) = _$FieldList._;
+  factory FieldList.init({BuiltList<NxFieldDescription> items}) = _$FieldList._;
 
   FieldList._();
 }

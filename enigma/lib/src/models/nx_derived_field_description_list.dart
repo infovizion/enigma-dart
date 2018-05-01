@@ -4,7 +4,7 @@ library nx_derived_field_description_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_derived_fields_data.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_derived_field_description_list.g.dart';
 
@@ -19,14 +19,14 @@ abstract class NxDerivedFieldDescriptionList
   /// Original name: qDerivedFieldLists
   @nullable
   @BuiltValueField(wireName: 'qDerivedFieldLists')
-  BuiltList<NxCell> get derivedFieldLists;
+  BuiltList<NxDerivedFieldsData> get derivedFieldLists;
 
   factory NxDerivedFieldDescriptionList(
           [updates(NxDerivedFieldDescriptionListBuilder b)]) =
       _$NxDerivedFieldDescriptionList;
 
   factory NxDerivedFieldDescriptionList.init(
-          {BuiltList<NxCell> derivedFieldLists}) =
+          {BuiltList<NxDerivedFieldsData> derivedFieldLists}) =
       _$NxDerivedFieldDescriptionList._;
 
   NxDerivedFieldDescriptionList._();

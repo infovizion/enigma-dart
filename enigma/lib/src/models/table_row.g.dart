@@ -31,7 +31,7 @@ class _$TableRowSerializer implements StructuredSerializer<TableRow> {
         ..add('qValue')
         ..add(serializers.serialize(object.value,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(FieldValue)])));
     }
 
     return result;
@@ -50,9 +50,8 @@ class _$TableRowSerializer implements StructuredSerializer<TableRow> {
       switch (key) {
         case 'qValue':
           result.value.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(FieldValue)])) as BuiltList);
           break;
       }
     }
@@ -63,7 +62,7 @@ class _$TableRowSerializer implements StructuredSerializer<TableRow> {
 
 class _$TableRow extends TableRow {
   @override
-  final BuiltList<NxCell> value;
+  final BuiltList<FieldValue> value;
 
   factory _$TableRow([void updates(TableRowBuilder b)]) =>
       (new TableRowBuilder()..update(updates)).build();
@@ -99,9 +98,10 @@ class _$TableRow extends TableRow {
 class TableRowBuilder implements Builder<TableRow, TableRowBuilder> {
   _$TableRow _$v;
 
-  ListBuilder<NxCell> _value;
-  ListBuilder<NxCell> get value => _$this._value ??= new ListBuilder<NxCell>();
-  set value(ListBuilder<NxCell> value) => _$this._value = value;
+  ListBuilder<FieldValue> _value;
+  ListBuilder<FieldValue> get value =>
+      _$this._value ??= new ListBuilder<FieldValue>();
+  set value(ListBuilder<FieldValue> value) => _$this._value = value;
 
   TableRowBuilder();
 

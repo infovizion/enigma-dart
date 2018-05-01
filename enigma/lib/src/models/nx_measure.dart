@@ -6,8 +6,9 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'nx_inline_measure_def.dart';
 import 'sort_criteria.dart';
-import 'nx_cell.dart';
+import 'nx_attr_expr_def.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_attr_dim_def.dart';
 import 'value_expr.dart';
 import 'nx_calc_cond.dart';
 part 'nx_measure.g.dart';
@@ -43,13 +44,13 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
   /// Original name: qAttributeExpressions
   @nullable
   @BuiltValueField(wireName: 'qAttributeExpressions')
-  BuiltList<NxCell> get attributeExpressions;
+  BuiltList<NxAttrExprDef> get attributeExpressions;
 
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
   @nullable
   @BuiltValueField(wireName: 'qAttributeDimensions')
-  BuiltList<NxCell> get attributeDimensions;
+  BuiltList<NxAttrDimDef> get attributeDimensions;
 
   /// Specifies a calculation condition, which must be fulfilled for the measure to be calculated.
   /// If the calculation condition is not met, the measure is excluded from the calculation.
@@ -75,8 +76,8 @@ abstract class NxMeasure implements Built<NxMeasure, NxMeasureBuilder> {
       {String libraryId,
       NxInlineMeasureDef def,
       SortCriteria sortBy,
-      BuiltList<NxCell> attributeExpressions,
-      BuiltList<NxCell> attributeDimensions,
+      BuiltList<NxAttrExprDef> attributeExpressions,
+      BuiltList<NxAttrDimDef> attributeDimensions,
       ValueExpr calcCond,
       NxCalcCond calcCondition}) = _$NxMeasure._;
 

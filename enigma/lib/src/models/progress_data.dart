@@ -4,7 +4,7 @@ library progress_data;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'error_data.dart';
 import 'package:built_collection/built_collection.dart';
 import 'progress_message.dart';
 part 'progress_data.g.dart';
@@ -71,13 +71,13 @@ abstract class ProgressData
   /// Original name: qErrorData
   @nullable
   @BuiltValueField(wireName: 'qErrorData')
-  BuiltList<NxCell> get errorData;
+  BuiltList<ErrorData> get errorData;
 
   /// List of persistent progress messages.
   /// Original name: qPersistentProgressMessages
   @nullable
   @BuiltValueField(wireName: 'qPersistentProgressMessages')
-  BuiltList<NxCell> get persistentProgressMessages;
+  BuiltList<ProgressMessage> get persistentProgressMessages;
 
   /// Transient progress message.
   /// Original name: qTransientProgressMessage
@@ -97,8 +97,8 @@ abstract class ProgressData
       bool userInteractionWanted,
       String persistentProgress,
       String transientProgress,
-      BuiltList<NxCell> errorData,
-      BuiltList<NxCell> persistentProgressMessages,
+      BuiltList<ErrorData> errorData,
+      BuiltList<ProgressMessage> persistentProgressMessages,
       ProgressMessage transientProgressMessage}) = _$ProgressData._;
 
   ProgressData._();

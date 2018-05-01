@@ -4,7 +4,7 @@ library search_term_result;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'search_char_range.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_term_result.g.dart';
 
@@ -30,7 +30,7 @@ abstract class SearchTermResult
   /// Original name: qRanges
   @nullable
   @BuiltValueField(wireName: 'qRanges')
-  BuiltList<NxCell> get ranges;
+  BuiltList<SearchCharRange> get ranges;
 
   factory SearchTermResult([updates(SearchTermResultBuilder b)]) =
       _$SearchTermResult;
@@ -38,7 +38,7 @@ abstract class SearchTermResult
   factory SearchTermResult.init(
       {String text,
       int elemNumber,
-      BuiltList<NxCell> ranges}) = _$SearchTermResult._;
+      BuiltList<SearchCharRange> ranges}) = _$SearchTermResult._;
 
   SearchTermResult._();
 }

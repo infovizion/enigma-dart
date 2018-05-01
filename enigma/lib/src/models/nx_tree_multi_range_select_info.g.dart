@@ -35,8 +35,8 @@ class _$NxTreeMultiRangeSelectInfoSerializer
       result
         ..add('qRanges')
         ..add(serializers.serialize(object.ranges,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxTreeRangeSelectInfo)])));
     }
 
     return result;
@@ -56,8 +56,8 @@ class _$NxTreeMultiRangeSelectInfoSerializer
       switch (key) {
         case 'qRanges':
           result.ranges.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxTreeRangeSelectInfo)]))
               as BuiltList);
           break;
       }
@@ -69,7 +69,7 @@ class _$NxTreeMultiRangeSelectInfoSerializer
 
 class _$NxTreeMultiRangeSelectInfo extends NxTreeMultiRangeSelectInfo {
   @override
-  final BuiltList<NxCell> ranges;
+  final BuiltList<NxTreeRangeSelectInfo> ranges;
 
   factory _$NxTreeMultiRangeSelectInfo(
           [void updates(NxTreeMultiRangeSelectInfoBuilder b)]) =>
@@ -111,10 +111,11 @@ class NxTreeMultiRangeSelectInfoBuilder
         Builder<NxTreeMultiRangeSelectInfo, NxTreeMultiRangeSelectInfoBuilder> {
   _$NxTreeMultiRangeSelectInfo _$v;
 
-  ListBuilder<NxCell> _ranges;
-  ListBuilder<NxCell> get ranges =>
-      _$this._ranges ??= new ListBuilder<NxCell>();
-  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<NxTreeRangeSelectInfo> _ranges;
+  ListBuilder<NxTreeRangeSelectInfo> get ranges =>
+      _$this._ranges ??= new ListBuilder<NxTreeRangeSelectInfo>();
+  set ranges(ListBuilder<NxTreeRangeSelectInfo> ranges) =>
+      _$this._ranges = ranges;
 
   NxTreeMultiRangeSelectInfoBuilder();
 

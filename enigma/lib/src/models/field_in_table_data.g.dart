@@ -39,7 +39,7 @@ class _$FieldInTableDataSerializer
         ..add('qOriginalFields')
         ..add(serializers.serialize(object.originalFields,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.present != null) {
       result
@@ -124,14 +124,14 @@ class _$FieldInTableDataSerializer
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.derivedFields != null) {
       result
         ..add('qDerivedFields')
         ..add(serializers.serialize(object.derivedFields,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(DerivedFieldsInTableData)])));
     }
     if (object.isFieldOnTheFly != null) {
       result
@@ -167,7 +167,7 @@ class _$FieldInTableDataSerializer
         case 'qOriginalFields':
           result.originalFields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qPresent':
@@ -225,14 +225,14 @@ class _$FieldInTableDataSerializer
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qDerivedFields':
           result.derivedFields.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(DerivedFieldsInTableData)
+              ])) as BuiltList);
           break;
         case 'qIsFieldOnTheFly':
           result.isFieldOnTheFly = serializers.deserialize(value,
@@ -253,7 +253,7 @@ class _$FieldInTableData extends FieldInTableData {
   @override
   final String name;
   @override
-  final BuiltList<NxCell> originalFields;
+  final BuiltList<String> originalFields;
   @override
   final bool present;
   @override
@@ -281,9 +281,9 @@ class _$FieldInTableData extends FieldInTableData {
   @override
   final String comment;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
   @override
-  final BuiltList<NxCell> derivedFields;
+  final BuiltList<DerivedFieldsInTableData> derivedFields;
   @override
   final bool isFieldOnTheFly;
   @override
@@ -431,10 +431,10 @@ class FieldInTableDataBuilder
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  ListBuilder<NxCell> _originalFields;
-  ListBuilder<NxCell> get originalFields =>
-      _$this._originalFields ??= new ListBuilder<NxCell>();
-  set originalFields(ListBuilder<NxCell> originalFields) =>
+  ListBuilder<String> _originalFields;
+  ListBuilder<String> get originalFields =>
+      _$this._originalFields ??= new ListBuilder<String>();
+  set originalFields(ListBuilder<String> originalFields) =>
       _$this._originalFields = originalFields;
 
   bool _present;
@@ -493,14 +493,14 @@ class FieldInTableDataBuilder
   String get comment => _$this._comment;
   set comment(String comment) => _$this._comment = comment;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
-  ListBuilder<NxCell> _derivedFields;
-  ListBuilder<NxCell> get derivedFields =>
-      _$this._derivedFields ??= new ListBuilder<NxCell>();
-  set derivedFields(ListBuilder<NxCell> derivedFields) =>
+  ListBuilder<DerivedFieldsInTableData> _derivedFields;
+  ListBuilder<DerivedFieldsInTableData> get derivedFields =>
+      _$this._derivedFields ??= new ListBuilder<DerivedFieldsInTableData>();
+  set derivedFields(ListBuilder<DerivedFieldsInTableData> derivedFields) =>
       _$this._derivedFields = derivedFields;
 
   bool _isFieldOnTheFly;

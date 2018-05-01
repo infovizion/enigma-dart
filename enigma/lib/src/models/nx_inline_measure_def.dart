@@ -4,7 +4,6 @@ library nx_inline_measure_def;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'field_attributes.dart';
 part 'nx_inline_measure_def.g.dart';
@@ -36,7 +35,7 @@ abstract class NxInlineMeasureDef
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   /// Default value is no grouping.
   /// This parameter is optional.
@@ -119,7 +118,7 @@ abstract class NxInlineMeasureDef
   /// Original name: qExpressions
   @nullable
   @BuiltValueField(wireName: 'qExpressions')
-  BuiltList<NxCell> get expressions;
+  BuiltList<String> get expressions;
 
   /// Label expression.
   /// This parameter is optional.
@@ -134,7 +133,7 @@ abstract class NxInlineMeasureDef
   factory NxInlineMeasureDef.init(
       {String label,
       String description,
-      BuiltList<NxCell> tags,
+      BuiltList<String> tags,
       String grouping,
       String def,
       FieldAttributes numFormat,
@@ -144,7 +143,7 @@ abstract class NxInlineMeasureDef
       int accumulate,
       bool reverseSort,
       int activeExpression,
-      BuiltList<NxCell> expressions,
+      BuiltList<String> expressions,
       String labelExpression}) = _$NxInlineMeasureDef._;
 
   NxInlineMeasureDef._();

@@ -4,7 +4,7 @@ library nx_tree_data_option;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_page_tree_node.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_page_tree_level.dart';
 part 'nx_tree_data_option.g.dart';
@@ -25,7 +25,7 @@ abstract class NxTreeDataOption
   /// Original name: qTreeNodes
   @nullable
   @BuiltValueField(wireName: 'qTreeNodes')
-  BuiltList<NxCell> get treeNodes;
+  BuiltList<NxPageTreeNode> get treeNodes;
 
   /// Filters out complete dimensions from the fetched tree.
   /// Original name: qTreeLevels
@@ -38,7 +38,7 @@ abstract class NxTreeDataOption
 
   factory NxTreeDataOption.init(
       {int maxNbrOfNodes,
-      BuiltList<NxCell> treeNodes,
+      BuiltList<NxPageTreeNode> treeNodes,
       NxPageTreeLevel treeLevels}) = _$NxTreeDataOption._;
 
   NxTreeDataOption._();

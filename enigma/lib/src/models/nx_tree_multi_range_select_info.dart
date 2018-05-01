@@ -4,7 +4,7 @@ library nx_tree_multi_range_select_info;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_tree_range_select_info.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_tree_multi_range_select_info.g.dart';
 
@@ -18,13 +18,14 @@ abstract class NxTreeMultiRangeSelectInfo
   /// Original name: qRanges
   @nullable
   @BuiltValueField(wireName: 'qRanges')
-  BuiltList<NxCell> get ranges;
+  BuiltList<NxTreeRangeSelectInfo> get ranges;
 
   factory NxTreeMultiRangeSelectInfo(
           [updates(NxTreeMultiRangeSelectInfoBuilder b)]) =
       _$NxTreeMultiRangeSelectInfo;
 
-  factory NxTreeMultiRangeSelectInfo.init({BuiltList<NxCell> ranges}) =
+  factory NxTreeMultiRangeSelectInfo.init(
+          {BuiltList<NxTreeRangeSelectInfo> ranges}) =
       _$NxTreeMultiRangeSelectInfo._;
 
   NxTreeMultiRangeSelectInfo._();

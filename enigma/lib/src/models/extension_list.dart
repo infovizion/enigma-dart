@@ -4,7 +4,6 @@ library extension_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'extension_list.g.dart';
 
@@ -15,11 +14,11 @@ abstract class ExtensionList
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<String> get items;
 
   factory ExtensionList([updates(ExtensionListBuilder b)]) = _$ExtensionList;
 
-  factory ExtensionList.init({BuiltList<NxCell> items}) = _$ExtensionList._;
+  factory ExtensionList.init({BuiltList<String> items}) = _$ExtensionList._;
 
   ExtensionList._();
 }

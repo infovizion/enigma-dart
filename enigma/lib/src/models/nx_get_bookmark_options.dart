@@ -4,7 +4,6 @@ library nx_get_bookmark_options;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 part 'nx_get_bookmark_options.g.dart';
@@ -18,7 +17,7 @@ abstract class NxGetBookmarkOptions
   /// Original name: qTypes
   @nullable
   @BuiltValueField(wireName: 'qTypes')
-  BuiltList<NxCell> get types;
+  BuiltList<String> get types;
 
   /// Set of data.
   /// Original name: qData
@@ -30,7 +29,7 @@ abstract class NxGetBookmarkOptions
       _$NxGetBookmarkOptions;
 
   factory NxGetBookmarkOptions.init(
-      {BuiltList<NxCell> types, JsonObject data}) = _$NxGetBookmarkOptions._;
+      {BuiltList<String> types, JsonObject data}) = _$NxGetBookmarkOptions._;
 
   NxGetBookmarkOptions._();
 }

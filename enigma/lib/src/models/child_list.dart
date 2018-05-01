@@ -4,7 +4,7 @@ library child_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_container_entry.dart';
 import 'package:built_collection/built_collection.dart';
 part 'child_list.g.dart';
 
@@ -17,11 +17,11 @@ abstract class ChildList implements Built<ChildList, ChildListBuilder> {
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<NxContainerEntry> get items;
 
   factory ChildList([updates(ChildListBuilder b)]) = _$ChildList;
 
-  factory ChildList.init({BuiltList<NxCell> items}) = _$ChildList._;
+  factory ChildList.init({BuiltList<NxContainerEntry> items}) = _$ChildList._;
 
   ChildList._();
 }

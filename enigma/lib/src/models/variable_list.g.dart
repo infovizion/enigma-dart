@@ -31,8 +31,8 @@ class _$VariableListSerializer implements StructuredSerializer<VariableList> {
       result
         ..add('qItems')
         ..add(serializers.serialize(object.items,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxVariableListItem)])));
     }
 
     return result;
@@ -51,8 +51,8 @@ class _$VariableListSerializer implements StructuredSerializer<VariableList> {
       switch (key) {
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxVariableListItem)]))
               as BuiltList);
           break;
       }
@@ -64,7 +64,7 @@ class _$VariableListSerializer implements StructuredSerializer<VariableList> {
 
 class _$VariableList extends VariableList {
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<NxVariableListItem> items;
 
   factory _$VariableList([void updates(VariableListBuilder b)]) =>
       (new VariableListBuilder()..update(updates)).build();
@@ -101,9 +101,10 @@ class VariableListBuilder
     implements Builder<VariableList, VariableListBuilder> {
   _$VariableList _$v;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<NxVariableListItem> _items;
+  ListBuilder<NxVariableListItem> get items =>
+      _$this._items ??= new ListBuilder<NxVariableListItem>();
+  set items(ListBuilder<NxVariableListItem> items) => _$this._items = items;
 
   VariableListBuilder();
 

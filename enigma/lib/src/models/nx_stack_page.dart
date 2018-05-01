@@ -4,7 +4,7 @@ library nx_stack_page;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_stacked_pivot_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'rect.dart';
 part 'nx_stack_page.g.dart';
@@ -16,7 +16,7 @@ abstract class NxStackPage implements Built<NxStackPage, NxStackPageBuilder> {
   /// Original name: qData
   @nullable
   @BuiltValueField(wireName: 'qData')
-  BuiltList<NxCell> get data;
+  BuiltList<NxStackedPivotCell> get data;
 
   /// Size and offset of the data in the matrix.
   /// Original name: qArea
@@ -26,7 +26,7 @@ abstract class NxStackPage implements Built<NxStackPage, NxStackPageBuilder> {
 
   factory NxStackPage([updates(NxStackPageBuilder b)]) = _$NxStackPage;
 
-  factory NxStackPage.init({BuiltList<NxCell> data, Rect area}) =
+  factory NxStackPage.init({BuiltList<NxStackedPivotCell> data, Rect area}) =
       _$NxStackPage._;
 
   NxStackPage._();

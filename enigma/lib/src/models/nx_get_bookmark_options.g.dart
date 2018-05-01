@@ -36,7 +36,7 @@ class _$NxGetBookmarkOptionsSerializer
         ..add('qTypes')
         ..add(serializers.serialize(object.types,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.data != null) {
       result
@@ -62,7 +62,7 @@ class _$NxGetBookmarkOptionsSerializer
         case 'qTypes':
           result.types.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qData':
@@ -78,7 +78,7 @@ class _$NxGetBookmarkOptionsSerializer
 
 class _$NxGetBookmarkOptions extends NxGetBookmarkOptions {
   @override
-  final BuiltList<NxCell> types;
+  final BuiltList<String> types;
   @override
   final JsonObject data;
 
@@ -121,9 +121,9 @@ class NxGetBookmarkOptionsBuilder
     implements Builder<NxGetBookmarkOptions, NxGetBookmarkOptionsBuilder> {
   _$NxGetBookmarkOptions _$v;
 
-  ListBuilder<NxCell> _types;
-  ListBuilder<NxCell> get types => _$this._types ??= new ListBuilder<NxCell>();
-  set types(ListBuilder<NxCell> types) => _$this._types = types;
+  ListBuilder<String> _types;
+  ListBuilder<String> get types => _$this._types ??= new ListBuilder<String>();
+  set types(ListBuilder<String> types) => _$this._types = types;
 
   JsonObject _data;
   JsonObject get data => _$this._data;

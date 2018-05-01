@@ -4,7 +4,7 @@ library nx_highlight_ranges;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'char_range.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_highlight_ranges.g.dart';
 
@@ -17,12 +17,12 @@ abstract class NxHighlightRanges
   /// Original name: qRanges
   @nullable
   @BuiltValueField(wireName: 'qRanges')
-  BuiltList<NxCell> get ranges;
+  BuiltList<CharRange> get ranges;
 
   factory NxHighlightRanges([updates(NxHighlightRangesBuilder b)]) =
       _$NxHighlightRanges;
 
-  factory NxHighlightRanges.init({BuiltList<NxCell> ranges}) =
+  factory NxHighlightRanges.init({BuiltList<CharRange> ranges}) =
       _$NxHighlightRanges._;
 
   NxHighlightRanges._();

@@ -4,7 +4,6 @@ library nx_field_description;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_derived_field_description_list.dart';
 part 'nx_field_description.g.dart';
@@ -84,7 +83,7 @@ abstract class NxFieldDescription
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   /// If set to true, it means that the field is a field on the fly.
   /// Original name: qIsDefinitionOnly
@@ -127,7 +126,7 @@ abstract class NxFieldDescription
       bool andMode,
       String name,
       int cardinal,
-      BuiltList<NxCell> tags,
+      BuiltList<String> tags,
       bool isDefinitionOnly,
       NxDerivedFieldDescriptionList derivedFieldData,
       bool isDetail,

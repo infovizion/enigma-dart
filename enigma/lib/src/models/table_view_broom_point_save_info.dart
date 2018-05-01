@@ -5,7 +5,6 @@ library table_view_broom_point_save_info;
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'point.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'table_view_broom_point_save_info.g.dart';
 
@@ -31,7 +30,7 @@ abstract class TableViewBroomPointSaveInfo
   /// Original name: qFields
   @nullable
   @BuiltValueField(wireName: 'qFields')
-  BuiltList<NxCell> get fields;
+  BuiltList<String> get fields;
 
   factory TableViewBroomPointSaveInfo(
           [updates(TableViewBroomPointSaveInfoBuilder b)]) =
@@ -40,7 +39,7 @@ abstract class TableViewBroomPointSaveInfo
   factory TableViewBroomPointSaveInfo.init(
       {Point pos,
       String table,
-      BuiltList<NxCell> fields}) = _$TableViewBroomPointSaveInfo._;
+      BuiltList<String> fields}) = _$TableViewBroomPointSaveInfo._;
 
   TableViewBroomPointSaveInfo._();
 }

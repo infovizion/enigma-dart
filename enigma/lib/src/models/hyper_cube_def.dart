@@ -4,8 +4,10 @@ library hyper_cube_def;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_dimension.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_measure.dart';
+import 'nx_page.dart';
 import 'value_expr.dart';
 import 'string_expr.dart';
 import 'nx_calc_cond.dart';
@@ -28,13 +30,13 @@ abstract class HyperCubeDef
   /// Original name: qDimensions
   @nullable
   @BuiltValueField(wireName: 'qDimensions')
-  BuiltList<NxCell> get dimensions;
+  BuiltList<NxDimension> get dimensions;
 
   /// Array of measures.
   /// Original name: qMeasures
   @nullable
   @BuiltValueField(wireName: 'qMeasures')
-  BuiltList<NxCell> get measures;
+  BuiltList<NxMeasure> get measures;
 
   /// Defines the sort order of the columns in the hypercube.
   /// Column numbers are separated by a comma.
@@ -47,7 +49,7 @@ abstract class HyperCubeDef
   /// Original name: qInterColumnSortOrder
   @nullable
   @BuiltValueField(wireName: 'qInterColumnSortOrder')
-  BuiltList<NxCell> get interColumnSortOrder;
+  BuiltList<int> get interColumnSortOrder;
 
   /// Removes zero values.
   /// Original name: qSuppressZero
@@ -65,7 +67,7 @@ abstract class HyperCubeDef
   /// Original name: qInitialDataFetch
   @nullable
   @BuiltValueField(wireName: 'qInitialDataFetch')
-  BuiltList<NxCell> get initialDataFetch;
+  BuiltList<NxPage> get initialDataFetch;
 
   ///
   /// One of:
@@ -201,18 +203,18 @@ abstract class HyperCubeDef
   /// Original name: qColumnOrder
   @nullable
   @BuiltValueField(wireName: 'qColumnOrder')
-  BuiltList<NxCell> get columnOrder;
+  BuiltList<int> get columnOrder;
 
   factory HyperCubeDef([updates(HyperCubeDefBuilder b)]) = _$HyperCubeDef;
 
   factory HyperCubeDef.init(
       {String stateName,
-      BuiltList<NxCell> dimensions,
-      BuiltList<NxCell> measures,
-      BuiltList<NxCell> interColumnSortOrder,
+      BuiltList<NxDimension> dimensions,
+      BuiltList<NxMeasure> measures,
+      BuiltList<int> interColumnSortOrder,
       bool suppressZero,
       bool suppressMissing,
-      BuiltList<NxCell> initialDataFetch,
+      BuiltList<NxPage> initialDataFetch,
       String reductionMode,
       String mode,
       int pseudoDimPos,
@@ -226,7 +228,7 @@ abstract class HyperCubeDef
       int sortbyYValue,
       StringExpr title,
       NxCalcCond calcCondition,
-      BuiltList<NxCell> columnOrder}) = _$HyperCubeDef._;
+      BuiltList<int> columnOrder}) = _$HyperCubeDef._;
 
   HyperCubeDef._();
 }

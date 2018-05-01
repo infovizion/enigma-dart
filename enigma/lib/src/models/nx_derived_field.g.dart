@@ -57,7 +57,7 @@ class _$NxDerivedFieldSerializer
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -93,7 +93,7 @@ class _$NxDerivedFieldSerializer
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -113,7 +113,7 @@ class _$NxDerivedField extends NxDerivedField {
   @override
   final String expr;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
 
   factory _$NxDerivedField([void updates(NxDerivedFieldBuilder b)]) =>
       (new NxDerivedFieldBuilder()..update(updates)).build();
@@ -180,9 +180,9 @@ class NxDerivedFieldBuilder
   String get expr => _$this._expr;
   set expr(String expr) => _$this._expr = expr;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
   NxDerivedFieldBuilder();
 

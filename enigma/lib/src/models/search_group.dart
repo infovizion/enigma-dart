@@ -4,8 +4,8 @@ library search_group;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
+import 'search_group_item.dart';
 part 'search_group.g.dart';
 
 abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
@@ -31,7 +31,7 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
   /// Original name: qSearchTermsMatched
   @nullable
   @BuiltValueField(wireName: 'qSearchTermsMatched')
-  BuiltList<NxCell> get searchTermsMatched;
+  BuiltList<int> get searchTermsMatched;
 
   /// Total number of distinct items in the search group.
   /// Original name: qTotalNumberOfItems
@@ -44,16 +44,16 @@ abstract class SearchGroup implements Built<SearchGroup, SearchGroupBuilder> {
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<SearchGroupItem> get items;
 
   factory SearchGroup([updates(SearchGroupBuilder b)]) = _$SearchGroup;
 
   factory SearchGroup.init(
       {int id,
       String groupType,
-      BuiltList<NxCell> searchTermsMatched,
+      BuiltList<int> searchTermsMatched,
       int totalNumberOfItems,
-      BuiltList<NxCell> items}) = _$SearchGroup._;
+      BuiltList<SearchGroupItem> items}) = _$SearchGroup._;
 
   SearchGroup._();
 }

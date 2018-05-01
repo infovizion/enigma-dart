@@ -5,11 +5,13 @@ library nx_tree_dimension_def;
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'nx_inline_dimension_def.dart';
-import 'nx_cell.dart';
+import 'nx_measure.dart';
 import 'package:built_collection/built_collection.dart';
 import 'other_total_spec_prop.dart';
 import 'string_expr.dart';
 import 'nx_calc_cond.dart';
+import 'nx_attr_expr_def.dart';
+import 'nx_attr_dim_def.dart';
 part 'nx_tree_dimension_def.g.dart';
 
 abstract class NxTreeDimensionDef
@@ -33,7 +35,7 @@ abstract class NxTreeDimensionDef
   /// Original name: qValueExprs
   @nullable
   @BuiltValueField(wireName: 'qValueExprs')
-  BuiltList<NxCell> get valueExprs;
+  BuiltList<NxMeasure> get valueExprs;
 
   /// If set to true, no null values are returned.
   /// Original name: qNullSuppression
@@ -94,13 +96,13 @@ abstract class NxTreeDimensionDef
   /// Original name: qAttributeExpressions
   @nullable
   @BuiltValueField(wireName: 'qAttributeExpressions')
-  BuiltList<NxCell> get attributeExpressions;
+  BuiltList<NxAttrExprDef> get attributeExpressions;
 
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
   @nullable
   @BuiltValueField(wireName: 'qAttributeDimensions')
-  BuiltList<NxCell> get attributeDimensions;
+  BuiltList<NxAttrDimDef> get attributeDimensions;
 
   factory NxTreeDimensionDef([updates(NxTreeDimensionDefBuilder b)]) =
       _$NxTreeDimensionDef;
@@ -108,15 +110,15 @@ abstract class NxTreeDimensionDef
   factory NxTreeDimensionDef.init(
       {String libraryId,
       NxInlineDimensionDef def,
-      BuiltList<NxCell> valueExprs,
+      BuiltList<NxMeasure> valueExprs,
       bool nullSuppression,
       OtherTotalSpecProp otherTotalSpec,
       bool showAll,
       StringExpr otherLabel,
       StringExpr totalLabel,
       NxCalcCond calcCondition,
-      BuiltList<NxCell> attributeExpressions,
-      BuiltList<NxCell> attributeDimensions}) = _$NxTreeDimensionDef._;
+      BuiltList<NxAttrExprDef> attributeExpressions,
+      BuiltList<NxAttrDimDef> attributeDimensions}) = _$NxTreeDimensionDef._;
 
   NxTreeDimensionDef._();
 }

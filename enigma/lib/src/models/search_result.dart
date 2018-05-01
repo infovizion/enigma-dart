@@ -4,8 +4,8 @@ library search_result;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
+import 'search_group.dart';
 part 'search_result.g.dart';
 
 abstract class SearchResult
@@ -16,7 +16,7 @@ abstract class SearchResult
   /// Original name: qSearchTerms
   @nullable
   @BuiltValueField(wireName: 'qSearchTerms')
-  BuiltList<NxCell> get searchTerms;
+  BuiltList<String> get searchTerms;
 
   /// Total number of groups.
   /// Original name: qTotalNumberOfGroups
@@ -29,14 +29,14 @@ abstract class SearchResult
   /// Original name: qSearchGroupArray
   @nullable
   @BuiltValueField(wireName: 'qSearchGroupArray')
-  BuiltList<NxCell> get searchGroupArray;
+  BuiltList<SearchGroup> get searchGroupArray;
 
   factory SearchResult([updates(SearchResultBuilder b)]) = _$SearchResult;
 
   factory SearchResult.init(
-      {BuiltList<NxCell> searchTerms,
+      {BuiltList<String> searchTerms,
       int totalNumberOfGroups,
-      BuiltList<NxCell> searchGroupArray}) = _$SearchResult._;
+      BuiltList<SearchGroup> searchGroupArray}) = _$SearchResult._;
 
   SearchResult._();
 }

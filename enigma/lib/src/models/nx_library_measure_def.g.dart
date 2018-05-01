@@ -54,7 +54,7 @@ class _$NxLibraryMeasureDefSerializer
         ..add('qExpressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.activeExpression != null) {
       result
@@ -98,7 +98,7 @@ class _$NxLibraryMeasureDefSerializer
         case 'qExpressions':
           result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qActiveExpression':
@@ -124,7 +124,7 @@ class _$NxLibraryMeasureDef extends NxLibraryMeasureDef {
   @override
   final String grouping;
   @override
-  final BuiltList<NxCell> expressions;
+  final BuiltList<String> expressions;
   @override
   final int activeExpression;
   @override
@@ -203,10 +203,10 @@ class NxLibraryMeasureDefBuilder
   String get grouping => _$this._grouping;
   set grouping(String grouping) => _$this._grouping = grouping;
 
-  ListBuilder<NxCell> _expressions;
-  ListBuilder<NxCell> get expressions =>
-      _$this._expressions ??= new ListBuilder<NxCell>();
-  set expressions(ListBuilder<NxCell> expressions) =>
+  ListBuilder<String> _expressions;
+  ListBuilder<String> get expressions =>
+      _$this._expressions ??= new ListBuilder<String>();
+  set expressions(ListBuilder<String> expressions) =>
       _$this._expressions = expressions;
 
   int _activeExpression;

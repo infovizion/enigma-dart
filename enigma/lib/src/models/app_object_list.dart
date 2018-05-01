@@ -4,7 +4,7 @@ library app_object_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_container_entry.dart';
 import 'package:built_collection/built_collection.dart';
 part 'app_object_list.g.dart';
 
@@ -18,11 +18,12 @@ abstract class AppObjectList
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<NxContainerEntry> get items;
 
   factory AppObjectList([updates(AppObjectListBuilder b)]) = _$AppObjectList;
 
-  factory AppObjectList.init({BuiltList<NxCell> items}) = _$AppObjectList._;
+  factory AppObjectList.init({BuiltList<NxContainerEntry> items}) =
+      _$AppObjectList._;
 
   AppObjectList._();
 }

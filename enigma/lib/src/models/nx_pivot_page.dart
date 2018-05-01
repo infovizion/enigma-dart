@@ -4,8 +4,9 @@ library nx_pivot_page;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_pivot_dimension_cell.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_pivot_value_point.dart';
 import 'rect.dart';
 part 'nx_pivot_page.g.dart';
 
@@ -16,19 +17,19 @@ abstract class NxPivotPage implements Built<NxPivotPage, NxPivotPageBuilder> {
   /// Original name: qLeft
   @nullable
   @BuiltValueField(wireName: 'qLeft')
-  BuiltList<NxCell> get left;
+  BuiltList<NxPivotDimensionCell> get left;
 
   /// Information about the top dimension values of a pivot table. If there is no top dimension in the pivot table, information about the measures are given.
   /// Original name: qTop
   @nullable
   @BuiltValueField(wireName: 'qTop')
-  BuiltList<NxCell> get top;
+  BuiltList<NxPivotDimensionCell> get top;
 
   /// Array of data.
   /// Original name: qData
   @nullable
   @BuiltValueField(wireName: 'qData')
-  BuiltList<NxCell> get data;
+  BuiltList<BuiltList<NxPivotValuePoint>> get data;
 
   /// Size and offset of the data in the matrix.
   /// Original name: qArea
@@ -39,9 +40,9 @@ abstract class NxPivotPage implements Built<NxPivotPage, NxPivotPageBuilder> {
   factory NxPivotPage([updates(NxPivotPageBuilder b)]) = _$NxPivotPage;
 
   factory NxPivotPage.init(
-      {BuiltList<NxCell> left,
-      BuiltList<NxCell> top,
-      BuiltList<NxCell> data,
+      {BuiltList<NxPivotDimensionCell> left,
+      BuiltList<NxPivotDimensionCell> top,
+      BuiltList<BuiltList<NxPivotValuePoint>> data,
       Rect area}) = _$NxPivotPage._;
 
   NxPivotPage._();

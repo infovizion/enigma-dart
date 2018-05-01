@@ -63,7 +63,7 @@ class _$NxDimensionInfoSerializer
         ..add('qGroupFallbackTitles')
         ..add(serializers.serialize(object.groupFallbackTitles,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.groupPos != null) {
       result
@@ -82,7 +82,7 @@ class _$NxDimensionInfoSerializer
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.error != null) {
       result
@@ -137,7 +137,7 @@ class _$NxDimensionInfoSerializer
         ..add('qGroupFieldDefs')
         ..add(serializers.serialize(object.groupFieldDefs,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.min != null) {
       result
@@ -173,15 +173,15 @@ class _$NxDimensionInfoSerializer
       result
         ..add('qAttrExprInfo')
         ..add(serializers.serialize(object.attrExprInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxAttrExprInfo)])));
     }
     if (object.attrDimInfo != null) {
       result
         ..add('qAttrDimInfo')
         ..add(serializers.serialize(object.attrDimInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxAttrDimInfo)])));
     }
     if (object.calcCondMsg != null) {
       result
@@ -233,7 +233,7 @@ class _$NxDimensionInfoSerializer
         case 'qGroupFallbackTitles':
           result.groupFallbackTitles.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qGroupPos':
@@ -247,7 +247,7 @@ class _$NxDimensionInfoSerializer
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qError':
@@ -287,7 +287,7 @@ class _$NxDimensionInfoSerializer
         case 'qGroupFieldDefs':
           result.groupFieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qMin':
@@ -312,14 +312,14 @@ class _$NxDimensionInfoSerializer
           break;
         case 'qAttrExprInfo':
           result.attrExprInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxAttrExprInfo)]))
               as BuiltList);
           break;
         case 'qAttrDimInfo':
           result.attrDimInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxAttrDimInfo)]))
               as BuiltList);
           break;
         case 'qCalcCondMsg':
@@ -349,13 +349,13 @@ class _$NxDimensionInfo extends NxDimensionInfo {
   @override
   final String sortIndicator;
   @override
-  final BuiltList<NxCell> groupFallbackTitles;
+  final BuiltList<String> groupFallbackTitles;
   @override
   final int groupPos;
   @override
   final NxStateCounts stateCounts;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
   @override
   final NxValidationError error;
   @override
@@ -373,7 +373,7 @@ class _$NxDimensionInfo extends NxDimensionInfo {
   @override
   final bool isAutoFormat;
   @override
-  final BuiltList<NxCell> groupFieldDefs;
+  final BuiltList<String> groupFieldDefs;
   @override
   final num min;
   @override
@@ -385,9 +385,9 @@ class _$NxDimensionInfo extends NxDimensionInfo {
   @override
   final bool derivedField;
   @override
-  final BuiltList<NxCell> attrExprInfo;
+  final BuiltList<NxAttrExprInfo> attrExprInfo;
   @override
-  final BuiltList<NxCell> attrDimInfo;
+  final BuiltList<NxAttrDimInfo> attrDimInfo;
   @override
   final String calcCondMsg;
   @override
@@ -570,10 +570,10 @@ class NxDimensionInfoBuilder
   set sortIndicator(String sortIndicator) =>
       _$this._sortIndicator = sortIndicator;
 
-  ListBuilder<NxCell> _groupFallbackTitles;
-  ListBuilder<NxCell> get groupFallbackTitles =>
-      _$this._groupFallbackTitles ??= new ListBuilder<NxCell>();
-  set groupFallbackTitles(ListBuilder<NxCell> groupFallbackTitles) =>
+  ListBuilder<String> _groupFallbackTitles;
+  ListBuilder<String> get groupFallbackTitles =>
+      _$this._groupFallbackTitles ??= new ListBuilder<String>();
+  set groupFallbackTitles(ListBuilder<String> groupFallbackTitles) =>
       _$this._groupFallbackTitles = groupFallbackTitles;
 
   int _groupPos;
@@ -586,9 +586,9 @@ class NxDimensionInfoBuilder
   set stateCounts(NxStateCountsBuilder stateCounts) =>
       _$this._stateCounts = stateCounts;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
   NxValidationErrorBuilder _error;
   NxValidationErrorBuilder get error =>
@@ -627,10 +627,10 @@ class NxDimensionInfoBuilder
   bool get isAutoFormat => _$this._isAutoFormat;
   set isAutoFormat(bool isAutoFormat) => _$this._isAutoFormat = isAutoFormat;
 
-  ListBuilder<NxCell> _groupFieldDefs;
-  ListBuilder<NxCell> get groupFieldDefs =>
-      _$this._groupFieldDefs ??= new ListBuilder<NxCell>();
-  set groupFieldDefs(ListBuilder<NxCell> groupFieldDefs) =>
+  ListBuilder<String> _groupFieldDefs;
+  ListBuilder<String> get groupFieldDefs =>
+      _$this._groupFieldDefs ??= new ListBuilder<String>();
+  set groupFieldDefs(ListBuilder<String> groupFieldDefs) =>
       _$this._groupFieldDefs = groupFieldDefs;
 
   num _min;
@@ -654,16 +654,16 @@ class NxDimensionInfoBuilder
   bool get derivedField => _$this._derivedField;
   set derivedField(bool derivedField) => _$this._derivedField = derivedField;
 
-  ListBuilder<NxCell> _attrExprInfo;
-  ListBuilder<NxCell> get attrExprInfo =>
-      _$this._attrExprInfo ??= new ListBuilder<NxCell>();
-  set attrExprInfo(ListBuilder<NxCell> attrExprInfo) =>
+  ListBuilder<NxAttrExprInfo> _attrExprInfo;
+  ListBuilder<NxAttrExprInfo> get attrExprInfo =>
+      _$this._attrExprInfo ??= new ListBuilder<NxAttrExprInfo>();
+  set attrExprInfo(ListBuilder<NxAttrExprInfo> attrExprInfo) =>
       _$this._attrExprInfo = attrExprInfo;
 
-  ListBuilder<NxCell> _attrDimInfo;
-  ListBuilder<NxCell> get attrDimInfo =>
-      _$this._attrDimInfo ??= new ListBuilder<NxCell>();
-  set attrDimInfo(ListBuilder<NxCell> attrDimInfo) =>
+  ListBuilder<NxAttrDimInfo> _attrDimInfo;
+  ListBuilder<NxAttrDimInfo> get attrDimInfo =>
+      _$this._attrDimInfo ??= new ListBuilder<NxAttrDimInfo>();
+  set attrDimInfo(ListBuilder<NxAttrDimInfo> attrDimInfo) =>
       _$this._attrDimInfo = attrDimInfo;
 
   String _calcCondMsg;

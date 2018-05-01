@@ -36,7 +36,7 @@ class _$SearchCombinationOptionsSerializer
         ..add('qSearchFields')
         ..add(serializers.serialize(object.searchFields,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.context != null) {
       result
@@ -55,7 +55,7 @@ class _$SearchCombinationOptionsSerializer
         ..add('qAttributes')
         ..add(serializers.serialize(object.attributes,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -76,7 +76,7 @@ class _$SearchCombinationOptionsSerializer
         case 'qSearchFields':
           result.searchFields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qContext':
@@ -90,7 +90,7 @@ class _$SearchCombinationOptionsSerializer
         case 'qAttributes':
           result.attributes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -102,13 +102,13 @@ class _$SearchCombinationOptionsSerializer
 
 class _$SearchCombinationOptions extends SearchCombinationOptions {
   @override
-  final BuiltList<NxCell> searchFields;
+  final BuiltList<String> searchFields;
   @override
   final String context;
   @override
   final String charEncoding;
   @override
-  final BuiltList<NxCell> attributes;
+  final BuiltList<String> attributes;
 
   factory _$SearchCombinationOptions(
           [void updates(SearchCombinationOptionsBuilder b)]) =>
@@ -161,10 +161,10 @@ class SearchCombinationOptionsBuilder
         Builder<SearchCombinationOptions, SearchCombinationOptionsBuilder> {
   _$SearchCombinationOptions _$v;
 
-  ListBuilder<NxCell> _searchFields;
-  ListBuilder<NxCell> get searchFields =>
-      _$this._searchFields ??= new ListBuilder<NxCell>();
-  set searchFields(ListBuilder<NxCell> searchFields) =>
+  ListBuilder<String> _searchFields;
+  ListBuilder<String> get searchFields =>
+      _$this._searchFields ??= new ListBuilder<String>();
+  set searchFields(ListBuilder<String> searchFields) =>
       _$this._searchFields = searchFields;
 
   String _context;
@@ -175,10 +175,10 @@ class SearchCombinationOptionsBuilder
   String get charEncoding => _$this._charEncoding;
   set charEncoding(String charEncoding) => _$this._charEncoding = charEncoding;
 
-  ListBuilder<NxCell> _attributes;
-  ListBuilder<NxCell> get attributes =>
-      _$this._attributes ??= new ListBuilder<NxCell>();
-  set attributes(ListBuilder<NxCell> attributes) =>
+  ListBuilder<String> _attributes;
+  ListBuilder<String> get attributes =>
+      _$this._attributes ??= new ListBuilder<String>();
+  set attributes(ListBuilder<String> attributes) =>
       _$this._attributes = attributes;
 
   SearchCombinationOptionsBuilder();

@@ -48,22 +48,22 @@ class _$HyperCubeSerializer implements StructuredSerializer<HyperCube> {
       result
         ..add('qDimensionInfo')
         ..add(serializers.serialize(object.dimensionInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxDimensionInfo)])));
     }
     if (object.measureInfo != null) {
       result
         ..add('qMeasureInfo')
         ..add(serializers.serialize(object.measureInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxMeasureInfo)])));
     }
     if (object.effectiveInterColumnSortOrder != null) {
       result
         ..add('qEffectiveInterColumnSortOrder')
         ..add(serializers.serialize(object.effectiveInterColumnSortOrder,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.grandTotalRow != null) {
       result
@@ -77,21 +77,21 @@ class _$HyperCubeSerializer implements StructuredSerializer<HyperCube> {
         ..add('qDataPages')
         ..add(serializers.serialize(object.dataPages,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxDataPage)])));
     }
     if (object.pivotDataPages != null) {
       result
         ..add('qPivotDataPages')
         ..add(serializers.serialize(object.pivotDataPages,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxPivotPage)])));
     }
     if (object.stackedDataPages != null) {
       result
         ..add('qStackedDataPages')
         ..add(serializers.serialize(object.stackedDataPages,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxStackPage)])));
     }
     if (object.mode != null) {
       result
@@ -134,7 +134,7 @@ class _$HyperCubeSerializer implements StructuredSerializer<HyperCube> {
         ..add('qTreeNodesOnDim')
         ..add(serializers.serialize(object.treeNodesOnDim,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.calcCondMsg != null) {
       result
@@ -147,7 +147,7 @@ class _$HyperCubeSerializer implements StructuredSerializer<HyperCube> {
         ..add('qColumnOrder')
         ..add(serializers.serialize(object.columnOrder,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
 
     return result;
@@ -179,21 +179,21 @@ class _$HyperCubeSerializer implements StructuredSerializer<HyperCube> {
           break;
         case 'qDimensionInfo':
           result.dimensionInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxDimensionInfo)]))
               as BuiltList);
           break;
         case 'qMeasureInfo':
           result.measureInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxMeasureInfo)]))
               as BuiltList);
           break;
         case 'qEffectiveInterColumnSortOrder':
           result.effectiveInterColumnSortOrder.replace(serializers.deserialize(
                   value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qGrandTotalRow':
@@ -204,20 +204,19 @@ class _$HyperCubeSerializer implements StructuredSerializer<HyperCube> {
           break;
         case 'qDataPages':
           result.dataPages.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(NxDataPage)])) as BuiltList);
           break;
         case 'qPivotDataPages':
           result.pivotDataPages.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxPivotPage)]))
               as BuiltList);
           break;
         case 'qStackedDataPages':
           result.stackedDataPages.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxStackPage)]))
               as BuiltList);
           break;
         case 'qMode':
@@ -247,7 +246,7 @@ class _$HyperCubeSerializer implements StructuredSerializer<HyperCube> {
         case 'qTreeNodesOnDim':
           result.treeNodesOnDim.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qCalcCondMsg':
@@ -257,7 +256,7 @@ class _$HyperCubeSerializer implements StructuredSerializer<HyperCube> {
         case 'qColumnOrder':
           result.columnOrder.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
       }
@@ -275,19 +274,19 @@ class _$HyperCube extends HyperCube {
   @override
   final NxValidationError error;
   @override
-  final BuiltList<NxCell> dimensionInfo;
+  final BuiltList<NxDimensionInfo> dimensionInfo;
   @override
-  final BuiltList<NxCell> measureInfo;
+  final BuiltList<NxMeasureInfo> measureInfo;
   @override
-  final BuiltList<NxCell> effectiveInterColumnSortOrder;
+  final BuiltList<int> effectiveInterColumnSortOrder;
   @override
   final BuiltList<NxCell> grandTotalRow;
   @override
-  final BuiltList<NxCell> dataPages;
+  final BuiltList<NxDataPage> dataPages;
   @override
-  final BuiltList<NxCell> pivotDataPages;
+  final BuiltList<NxPivotPage> pivotDataPages;
   @override
-  final BuiltList<NxCell> stackedDataPages;
+  final BuiltList<NxStackPage> stackedDataPages;
   @override
   final String mode;
   @override
@@ -301,11 +300,11 @@ class _$HyperCube extends HyperCube {
   @override
   final String title;
   @override
-  final BuiltList<NxCell> treeNodesOnDim;
+  final BuiltList<int> treeNodesOnDim;
   @override
   final String calcCondMsg;
   @override
-  final BuiltList<NxCell> columnOrder;
+  final BuiltList<int> columnOrder;
 
   factory _$HyperCube([void updates(HyperCubeBuilder b)]) =>
       (new HyperCubeBuilder()..update(updates)).build();
@@ -455,23 +454,23 @@ class HyperCubeBuilder implements Builder<HyperCube, HyperCubeBuilder> {
       _$this._error ??= new NxValidationErrorBuilder();
   set error(NxValidationErrorBuilder error) => _$this._error = error;
 
-  ListBuilder<NxCell> _dimensionInfo;
-  ListBuilder<NxCell> get dimensionInfo =>
-      _$this._dimensionInfo ??= new ListBuilder<NxCell>();
-  set dimensionInfo(ListBuilder<NxCell> dimensionInfo) =>
+  ListBuilder<NxDimensionInfo> _dimensionInfo;
+  ListBuilder<NxDimensionInfo> get dimensionInfo =>
+      _$this._dimensionInfo ??= new ListBuilder<NxDimensionInfo>();
+  set dimensionInfo(ListBuilder<NxDimensionInfo> dimensionInfo) =>
       _$this._dimensionInfo = dimensionInfo;
 
-  ListBuilder<NxCell> _measureInfo;
-  ListBuilder<NxCell> get measureInfo =>
-      _$this._measureInfo ??= new ListBuilder<NxCell>();
-  set measureInfo(ListBuilder<NxCell> measureInfo) =>
+  ListBuilder<NxMeasureInfo> _measureInfo;
+  ListBuilder<NxMeasureInfo> get measureInfo =>
+      _$this._measureInfo ??= new ListBuilder<NxMeasureInfo>();
+  set measureInfo(ListBuilder<NxMeasureInfo> measureInfo) =>
       _$this._measureInfo = measureInfo;
 
-  ListBuilder<NxCell> _effectiveInterColumnSortOrder;
-  ListBuilder<NxCell> get effectiveInterColumnSortOrder =>
-      _$this._effectiveInterColumnSortOrder ??= new ListBuilder<NxCell>();
+  ListBuilder<int> _effectiveInterColumnSortOrder;
+  ListBuilder<int> get effectiveInterColumnSortOrder =>
+      _$this._effectiveInterColumnSortOrder ??= new ListBuilder<int>();
   set effectiveInterColumnSortOrder(
-          ListBuilder<NxCell> effectiveInterColumnSortOrder) =>
+          ListBuilder<int> effectiveInterColumnSortOrder) =>
       _$this._effectiveInterColumnSortOrder = effectiveInterColumnSortOrder;
 
   ListBuilder<NxCell> _grandTotalRow;
@@ -480,21 +479,22 @@ class HyperCubeBuilder implements Builder<HyperCube, HyperCubeBuilder> {
   set grandTotalRow(ListBuilder<NxCell> grandTotalRow) =>
       _$this._grandTotalRow = grandTotalRow;
 
-  ListBuilder<NxCell> _dataPages;
-  ListBuilder<NxCell> get dataPages =>
-      _$this._dataPages ??= new ListBuilder<NxCell>();
-  set dataPages(ListBuilder<NxCell> dataPages) => _$this._dataPages = dataPages;
+  ListBuilder<NxDataPage> _dataPages;
+  ListBuilder<NxDataPage> get dataPages =>
+      _$this._dataPages ??= new ListBuilder<NxDataPage>();
+  set dataPages(ListBuilder<NxDataPage> dataPages) =>
+      _$this._dataPages = dataPages;
 
-  ListBuilder<NxCell> _pivotDataPages;
-  ListBuilder<NxCell> get pivotDataPages =>
-      _$this._pivotDataPages ??= new ListBuilder<NxCell>();
-  set pivotDataPages(ListBuilder<NxCell> pivotDataPages) =>
+  ListBuilder<NxPivotPage> _pivotDataPages;
+  ListBuilder<NxPivotPage> get pivotDataPages =>
+      _$this._pivotDataPages ??= new ListBuilder<NxPivotPage>();
+  set pivotDataPages(ListBuilder<NxPivotPage> pivotDataPages) =>
       _$this._pivotDataPages = pivotDataPages;
 
-  ListBuilder<NxCell> _stackedDataPages;
-  ListBuilder<NxCell> get stackedDataPages =>
-      _$this._stackedDataPages ??= new ListBuilder<NxCell>();
-  set stackedDataPages(ListBuilder<NxCell> stackedDataPages) =>
+  ListBuilder<NxStackPage> _stackedDataPages;
+  ListBuilder<NxStackPage> get stackedDataPages =>
+      _$this._stackedDataPages ??= new ListBuilder<NxStackPage>();
+  set stackedDataPages(ListBuilder<NxStackPage> stackedDataPages) =>
       _$this._stackedDataPages = stackedDataPages;
 
   String _mode;
@@ -524,20 +524,20 @@ class HyperCubeBuilder implements Builder<HyperCube, HyperCubeBuilder> {
   String get title => _$this._title;
   set title(String title) => _$this._title = title;
 
-  ListBuilder<NxCell> _treeNodesOnDim;
-  ListBuilder<NxCell> get treeNodesOnDim =>
-      _$this._treeNodesOnDim ??= new ListBuilder<NxCell>();
-  set treeNodesOnDim(ListBuilder<NxCell> treeNodesOnDim) =>
+  ListBuilder<int> _treeNodesOnDim;
+  ListBuilder<int> get treeNodesOnDim =>
+      _$this._treeNodesOnDim ??= new ListBuilder<int>();
+  set treeNodesOnDim(ListBuilder<int> treeNodesOnDim) =>
       _$this._treeNodesOnDim = treeNodesOnDim;
 
   String _calcCondMsg;
   String get calcCondMsg => _$this._calcCondMsg;
   set calcCondMsg(String calcCondMsg) => _$this._calcCondMsg = calcCondMsg;
 
-  ListBuilder<NxCell> _columnOrder;
-  ListBuilder<NxCell> get columnOrder =>
-      _$this._columnOrder ??= new ListBuilder<NxCell>();
-  set columnOrder(ListBuilder<NxCell> columnOrder) =>
+  ListBuilder<int> _columnOrder;
+  ListBuilder<int> get columnOrder =>
+      _$this._columnOrder ??= new ListBuilder<int>();
+  set columnOrder(ListBuilder<int> columnOrder) =>
       _$this._columnOrder = columnOrder;
 
   HyperCubeBuilder();

@@ -7,7 +7,7 @@ import 'package:built_value/built_value.dart';
 import 'nx_info.dart';
 import 'nx_meta.dart';
 import 'nx_bookmark.dart';
-import 'nx_cell.dart';
+import 'layout_field_info.dart';
 import 'package:built_collection/built_collection.dart';
 part 'generic_bookmark_layout.g.dart';
 
@@ -38,7 +38,7 @@ abstract class GenericBookmarkLayout
   /// Original name: qFieldInfos
   @nullable
   @BuiltValueField(wireName: 'qFieldInfos')
-  BuiltList<NxCell> get fieldInfos;
+  BuiltList<LayoutFieldInfo> get fieldInfos;
 
   factory GenericBookmarkLayout([updates(GenericBookmarkLayoutBuilder b)]) =
       _$GenericBookmarkLayout;
@@ -47,7 +47,7 @@ abstract class GenericBookmarkLayout
       {NxInfo info,
       NxMeta meta,
       NxBookmark bookmark,
-      BuiltList<NxCell> fieldInfos}) = _$GenericBookmarkLayout._;
+      BuiltList<LayoutFieldInfo> fieldInfos}) = _$GenericBookmarkLayout._;
 
   GenericBookmarkLayout._();
 }

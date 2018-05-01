@@ -48,8 +48,8 @@ class _$TableRecordSerializer implements StructuredSerializer<TableRecord> {
       result
         ..add('qFields')
         ..add(serializers.serialize(object.fields,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(FieldInTableData)])));
     }
     if (object.pos != null) {
       result
@@ -104,8 +104,8 @@ class _$TableRecordSerializer implements StructuredSerializer<TableRecord> {
           break;
         case 'qFields':
           result.fields.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(FieldInTableData)]))
               as BuiltList);
           break;
         case 'qPos':
@@ -139,7 +139,7 @@ class _$TableRecord extends TableRecord {
   @override
   final int noOfRows;
   @override
-  final BuiltList<NxCell> fields;
+  final BuiltList<FieldInTableData> fields;
   @override
   final Point pos;
   @override
@@ -230,10 +230,10 @@ class TableRecordBuilder implements Builder<TableRecord, TableRecordBuilder> {
   int get noOfRows => _$this._noOfRows;
   set noOfRows(int noOfRows) => _$this._noOfRows = noOfRows;
 
-  ListBuilder<NxCell> _fields;
-  ListBuilder<NxCell> get fields =>
-      _$this._fields ??= new ListBuilder<NxCell>();
-  set fields(ListBuilder<NxCell> fields) => _$this._fields = fields;
+  ListBuilder<FieldInTableData> _fields;
+  ListBuilder<FieldInTableData> get fields =>
+      _$this._fields ??= new ListBuilder<FieldInTableData>();
+  set fields(ListBuilder<FieldInTableData> fields) => _$this._fields = fields;
 
   PointBuilder _pos;
   PointBuilder get pos => _$this._pos ??= new PointBuilder();

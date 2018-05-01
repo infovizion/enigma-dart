@@ -54,15 +54,15 @@ class _$ListObjectSerializer implements StructuredSerializer<ListObject> {
       result
         ..add('qExpressions')
         ..add(serializers.serialize(object.expressions,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxListObjectExpression)])));
     }
     if (object.dataPages != null) {
       result
         ..add('qDataPages')
         ..add(serializers.serialize(object.dataPages,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxDataPage)])));
     }
 
     return result;
@@ -99,15 +99,14 @@ class _$ListObjectSerializer implements StructuredSerializer<ListObject> {
           break;
         case 'qExpressions':
           result.expressions.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(NxListObjectExpression)
+              ])) as BuiltList);
           break;
         case 'qDataPages':
           result.dataPages.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(NxDataPage)])) as BuiltList);
           break;
       }
     }
@@ -126,9 +125,9 @@ class _$ListObject extends ListObject {
   @override
   final NxDimensionInfo dimensionInfo;
   @override
-  final BuiltList<NxCell> expressions;
+  final BuiltList<NxListObjectExpression> expressions;
   @override
-  final BuiltList<NxCell> dataPages;
+  final BuiltList<NxDataPage> dataPages;
 
   factory _$ListObject([void updates(ListObjectBuilder b)]) =>
       (new ListObjectBuilder()..update(updates)).build();
@@ -208,16 +207,17 @@ class ListObjectBuilder implements Builder<ListObject, ListObjectBuilder> {
   set dimensionInfo(NxDimensionInfoBuilder dimensionInfo) =>
       _$this._dimensionInfo = dimensionInfo;
 
-  ListBuilder<NxCell> _expressions;
-  ListBuilder<NxCell> get expressions =>
-      _$this._expressions ??= new ListBuilder<NxCell>();
-  set expressions(ListBuilder<NxCell> expressions) =>
+  ListBuilder<NxListObjectExpression> _expressions;
+  ListBuilder<NxListObjectExpression> get expressions =>
+      _$this._expressions ??= new ListBuilder<NxListObjectExpression>();
+  set expressions(ListBuilder<NxListObjectExpression> expressions) =>
       _$this._expressions = expressions;
 
-  ListBuilder<NxCell> _dataPages;
-  ListBuilder<NxCell> get dataPages =>
-      _$this._dataPages ??= new ListBuilder<NxCell>();
-  set dataPages(ListBuilder<NxCell> dataPages) => _$this._dataPages = dataPages;
+  ListBuilder<NxDataPage> _dataPages;
+  ListBuilder<NxDataPage> get dataPages =>
+      _$this._dataPages ??= new ListBuilder<NxDataPage>();
+  set dataPages(ListBuilder<NxDataPage> dataPages) =>
+      _$this._dataPages = dataPages;
 
   ListObjectBuilder();
 

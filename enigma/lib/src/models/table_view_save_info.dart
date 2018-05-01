@@ -4,8 +4,10 @@ library table_view_save_info;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'table_view_table_win_save_info.dart';
 import 'package:built_collection/built_collection.dart';
+import 'table_view_broom_point_save_info.dart';
+import 'table_view_connection_point_save_info.dart';
 part 'table_view_save_info.g.dart';
 
 abstract class TableViewSaveInfo
@@ -17,21 +19,21 @@ abstract class TableViewSaveInfo
   /// Original name: qTables
   @nullable
   @BuiltValueField(wireName: 'qTables')
-  BuiltList<NxCell> get tables;
+  BuiltList<TableViewTableWinSaveInfo> get tables;
 
   /// List of the broom points in the database model viewer.
   /// Not used in Qlik Sense.
   /// Original name: qBroomPoints
   @nullable
   @BuiltValueField(wireName: 'qBroomPoints')
-  BuiltList<NxCell> get broomPoints;
+  BuiltList<TableViewBroomPointSaveInfo> get broomPoints;
 
   /// List of connection points in the database model viewer.
   /// Not used in Qlik Sense.
   /// Original name: qConnectionPoints
   @nullable
   @BuiltValueField(wireName: 'qConnectionPoints')
-  BuiltList<NxCell> get connectionPoints;
+  BuiltList<TableViewConnectionPointSaveInfo> get connectionPoints;
 
   /// Zoom factor in the database model viewer.
   /// The default value is 1.0.
@@ -44,9 +46,9 @@ abstract class TableViewSaveInfo
       _$TableViewSaveInfo;
 
   factory TableViewSaveInfo.init(
-      {BuiltList<NxCell> tables,
-      BuiltList<NxCell> broomPoints,
-      BuiltList<NxCell> connectionPoints,
+      {BuiltList<TableViewTableWinSaveInfo> tables,
+      BuiltList<TableViewBroomPointSaveInfo> broomPoints,
+      BuiltList<TableViewConnectionPointSaveInfo> connectionPoints,
       num zoomFactor}) = _$TableViewSaveInfo._;
 
   TableViewSaveInfo._();

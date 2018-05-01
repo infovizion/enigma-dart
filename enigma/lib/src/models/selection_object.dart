@@ -4,7 +4,7 @@ library selection_object;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_current_selection_item.dart';
 import 'package:built_collection/built_collection.dart';
 part 'selection_object.g.dart';
 
@@ -30,7 +30,7 @@ abstract class SelectionObject
   /// Original name: qSelections
   @nullable
   @BuiltValueField(wireName: 'qSelections')
-  BuiltList<NxCell> get selections;
+  BuiltList<NxCurrentSelectionItem> get selections;
 
   factory SelectionObject([updates(SelectionObjectBuilder b)]) =
       _$SelectionObject;
@@ -38,7 +38,7 @@ abstract class SelectionObject
   factory SelectionObject.init(
       {int backCount,
       int forwardCount,
-      BuiltList<NxCell> selections}) = _$SelectionObject._;
+      BuiltList<NxCurrentSelectionItem> selections}) = _$SelectionObject._;
 
   SelectionObject._();
 }

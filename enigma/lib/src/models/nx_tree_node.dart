@@ -4,8 +4,9 @@ library nx_tree_node;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_tree_value.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_tree_node.dart';
 import 'nx_attribute_expression_values.dart';
 import 'nx_attribute_dim_values.dart';
 part 'nx_tree_node.g.dart';
@@ -67,13 +68,13 @@ abstract class NxTreeNode implements Built<NxTreeNode, NxTreeNodeBuilder> {
   /// Original name: qValues
   @nullable
   @BuiltValueField(wireName: 'qValues')
-  BuiltList<NxCell> get values;
+  BuiltList<NxTreeValue> get values;
 
   /// The children of this node in the tree structure.
   /// Original name: qNodes
   @nullable
   @BuiltValueField(wireName: 'qNodes')
-  BuiltList<NxCell> get nodes;
+  BuiltList<NxTreeNode> get nodes;
 
   /// Attribute expression values.
   /// Original name: qAttrExps
@@ -96,8 +97,8 @@ abstract class NxTreeNode implements Built<NxTreeNode, NxTreeNodeBuilder> {
       int parentNode,
       int row,
       String type,
-      BuiltList<NxCell> values,
-      BuiltList<NxCell> nodes,
+      BuiltList<NxTreeValue> values,
+      BuiltList<NxTreeNode> nodes,
       NxAttributeExpressionValues attrExps,
       NxAttributeDimValues attrDims}) = _$NxTreeNode._;
 

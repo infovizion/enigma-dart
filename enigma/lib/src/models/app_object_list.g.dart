@@ -31,8 +31,8 @@ class _$AppObjectListSerializer implements StructuredSerializer<AppObjectList> {
       result
         ..add('qItems')
         ..add(serializers.serialize(object.items,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxContainerEntry)])));
     }
 
     return result;
@@ -51,8 +51,8 @@ class _$AppObjectListSerializer implements StructuredSerializer<AppObjectList> {
       switch (key) {
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxContainerEntry)]))
               as BuiltList);
           break;
       }
@@ -64,7 +64,7 @@ class _$AppObjectListSerializer implements StructuredSerializer<AppObjectList> {
 
 class _$AppObjectList extends AppObjectList {
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<NxContainerEntry> items;
 
   factory _$AppObjectList([void updates(AppObjectListBuilder b)]) =>
       (new AppObjectListBuilder()..update(updates)).build();
@@ -101,9 +101,10 @@ class AppObjectListBuilder
     implements Builder<AppObjectList, AppObjectListBuilder> {
   _$AppObjectList _$v;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<NxContainerEntry> _items;
+  ListBuilder<NxContainerEntry> get items =>
+      _$this._items ??= new ListBuilder<NxContainerEntry>();
+  set items(ListBuilder<NxContainerEntry> items) => _$this._items = items;
 
   AppObjectListBuilder();
 

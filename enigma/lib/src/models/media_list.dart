@@ -4,7 +4,7 @@ library media_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'media_list_item.dart';
 import 'package:built_collection/built_collection.dart';
 part 'media_list.g.dart';
 
@@ -22,11 +22,11 @@ abstract class MediaList implements Built<MediaList, MediaListBuilder> {
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<MediaListItem> get items;
 
   factory MediaList([updates(MediaListBuilder b)]) = _$MediaList;
 
-  factory MediaList.init({BuiltList<NxCell> items}) = _$MediaList._;
+  factory MediaList.init({BuiltList<MediaListItem> items}) = _$MediaList._;
 
   MediaList._();
 }

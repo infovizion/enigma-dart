@@ -36,28 +36,30 @@ class _$SearchAssociationResultSerializer
         ..add('qFieldNames')
         ..add(serializers.serialize(object.fieldNames,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.searchTerms != null) {
       result
         ..add('qSearchTerms')
         ..add(serializers.serialize(object.searchTerms,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.fieldDictionaries != null) {
       result
         ..add('qFieldDictionaries')
         ..add(serializers.serialize(object.fieldDictionaries,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchFieldDictionary)])));
     }
     if (object.searchTermsMatched != null) {
       result
         ..add('qSearchTermsMatched')
         ..add(serializers.serialize(object.searchTermsMatched,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(
+                  BuiltList, const [const FullType(SearchMatchCombination)])
+            ])));
     }
     if (object.totalSearchResults != null) {
       result
@@ -84,26 +86,27 @@ class _$SearchAssociationResultSerializer
         case 'qFieldNames':
           result.fieldNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qSearchTerms':
           result.searchTerms.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qFieldDictionaries':
           result.fieldDictionaries.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchFieldDictionary)]))
               as BuiltList);
           break;
         case 'qSearchTermsMatched':
           result.searchTermsMatched.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    BuiltList, const [const FullType(SearchMatchCombination)])
+              ])) as BuiltList);
           break;
         case 'qTotalSearchResults':
           result.totalSearchResults = serializers.deserialize(value,
@@ -118,13 +121,13 @@ class _$SearchAssociationResultSerializer
 
 class _$SearchAssociationResult extends SearchAssociationResult {
   @override
-  final BuiltList<NxCell> fieldNames;
+  final BuiltList<String> fieldNames;
   @override
-  final BuiltList<NxCell> searchTerms;
+  final BuiltList<String> searchTerms;
   @override
-  final BuiltList<NxCell> fieldDictionaries;
+  final BuiltList<SearchFieldDictionary> fieldDictionaries;
   @override
-  final BuiltList<NxCell> searchTermsMatched;
+  final BuiltList<BuiltList<SearchMatchCombination>> searchTermsMatched;
   @override
   final int totalSearchResults;
 
@@ -187,28 +190,30 @@ class SearchAssociationResultBuilder
         Builder<SearchAssociationResult, SearchAssociationResultBuilder> {
   _$SearchAssociationResult _$v;
 
-  ListBuilder<NxCell> _fieldNames;
-  ListBuilder<NxCell> get fieldNames =>
-      _$this._fieldNames ??= new ListBuilder<NxCell>();
-  set fieldNames(ListBuilder<NxCell> fieldNames) =>
+  ListBuilder<String> _fieldNames;
+  ListBuilder<String> get fieldNames =>
+      _$this._fieldNames ??= new ListBuilder<String>();
+  set fieldNames(ListBuilder<String> fieldNames) =>
       _$this._fieldNames = fieldNames;
 
-  ListBuilder<NxCell> _searchTerms;
-  ListBuilder<NxCell> get searchTerms =>
-      _$this._searchTerms ??= new ListBuilder<NxCell>();
-  set searchTerms(ListBuilder<NxCell> searchTerms) =>
+  ListBuilder<String> _searchTerms;
+  ListBuilder<String> get searchTerms =>
+      _$this._searchTerms ??= new ListBuilder<String>();
+  set searchTerms(ListBuilder<String> searchTerms) =>
       _$this._searchTerms = searchTerms;
 
-  ListBuilder<NxCell> _fieldDictionaries;
-  ListBuilder<NxCell> get fieldDictionaries =>
-      _$this._fieldDictionaries ??= new ListBuilder<NxCell>();
-  set fieldDictionaries(ListBuilder<NxCell> fieldDictionaries) =>
+  ListBuilder<SearchFieldDictionary> _fieldDictionaries;
+  ListBuilder<SearchFieldDictionary> get fieldDictionaries =>
+      _$this._fieldDictionaries ??= new ListBuilder<SearchFieldDictionary>();
+  set fieldDictionaries(ListBuilder<SearchFieldDictionary> fieldDictionaries) =>
       _$this._fieldDictionaries = fieldDictionaries;
 
-  ListBuilder<NxCell> _searchTermsMatched;
-  ListBuilder<NxCell> get searchTermsMatched =>
-      _$this._searchTermsMatched ??= new ListBuilder<NxCell>();
-  set searchTermsMatched(ListBuilder<NxCell> searchTermsMatched) =>
+  ListBuilder<BuiltList<SearchMatchCombination>> _searchTermsMatched;
+  ListBuilder<BuiltList<SearchMatchCombination>> get searchTermsMatched =>
+      _$this._searchTermsMatched ??=
+          new ListBuilder<BuiltList<SearchMatchCombination>>();
+  set searchTermsMatched(
+          ListBuilder<BuiltList<SearchMatchCombination>> searchTermsMatched) =>
       _$this._searchTermsMatched = searchTermsMatched;
 
   int _totalSearchResults;

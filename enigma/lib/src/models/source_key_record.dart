@@ -4,7 +4,6 @@ library source_key_record;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'source_key_record.g.dart';
 
@@ -17,20 +16,20 @@ abstract class SourceKeyRecord
   /// Original name: qKeyFields
   @nullable
   @BuiltValueField(wireName: 'qKeyFields')
-  BuiltList<NxCell> get keyFields;
+  BuiltList<String> get keyFields;
 
   /// Table the key belongs to.
   /// Original name: qTables
   @nullable
   @BuiltValueField(wireName: 'qTables')
-  BuiltList<NxCell> get tables;
+  BuiltList<String> get tables;
 
   factory SourceKeyRecord([updates(SourceKeyRecordBuilder b)]) =
       _$SourceKeyRecord;
 
   factory SourceKeyRecord.init(
-      {BuiltList<NxCell> keyFields,
-      BuiltList<NxCell> tables}) = _$SourceKeyRecord._;
+      {BuiltList<String> keyFields,
+      BuiltList<String> tables}) = _$SourceKeyRecord._;
 
   SourceKeyRecord._();
 }

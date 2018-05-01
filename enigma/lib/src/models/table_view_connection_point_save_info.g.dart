@@ -44,7 +44,7 @@ class _$TableViewConnectionPointSaveInfoSerializer
         ..add('qFields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -69,7 +69,7 @@ class _$TableViewConnectionPointSaveInfoSerializer
         case 'qFields':
           result.fields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -84,7 +84,7 @@ class _$TableViewConnectionPointSaveInfo
   @override
   final Point pos;
   @override
-  final BuiltList<NxCell> fields;
+  final BuiltList<String> fields;
 
   factory _$TableViewConnectionPointSaveInfo(
           [void updates(TableViewConnectionPointSaveInfoBuilder b)]) =>
@@ -132,10 +132,10 @@ class TableViewConnectionPointSaveInfoBuilder
   PointBuilder get pos => _$this._pos ??= new PointBuilder();
   set pos(PointBuilder pos) => _$this._pos = pos;
 
-  ListBuilder<NxCell> _fields;
-  ListBuilder<NxCell> get fields =>
-      _$this._fields ??= new ListBuilder<NxCell>();
-  set fields(ListBuilder<NxCell> fields) => _$this._fields = fields;
+  ListBuilder<String> _fields;
+  ListBuilder<String> get fields =>
+      _$this._fields ??= new ListBuilder<String>();
+  set fields(ListBuilder<String> fields) => _$this._fields = fields;
 
   TableViewConnectionPointSaveInfoBuilder();
 

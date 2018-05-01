@@ -4,7 +4,7 @@ library search_field_dictionary;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'search_term_result.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_field_dictionary.g.dart';
 
@@ -25,13 +25,14 @@ abstract class SearchFieldDictionary
   /// Original name: qResult
   @nullable
   @BuiltValueField(wireName: 'qResult')
-  BuiltList<NxCell> get result;
+  BuiltList<SearchTermResult> get result;
 
   factory SearchFieldDictionary([updates(SearchFieldDictionaryBuilder b)]) =
       _$SearchFieldDictionary;
 
-  factory SearchFieldDictionary.init({int field, BuiltList<NxCell> result}) =
-      _$SearchFieldDictionary._;
+  factory SearchFieldDictionary.init(
+      {int field,
+      BuiltList<SearchTermResult> result}) = _$SearchFieldDictionary._;
 
   SearchFieldDictionary._();
 }

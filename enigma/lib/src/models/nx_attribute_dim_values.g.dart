@@ -35,8 +35,8 @@ class _$NxAttributeDimValuesSerializer
       result
         ..add('qValues')
         ..add(serializers.serialize(object.values,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxSimpleDimValue)])));
     }
 
     return result;
@@ -55,8 +55,8 @@ class _$NxAttributeDimValuesSerializer
       switch (key) {
         case 'qValues':
           result.values.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxSimpleDimValue)]))
               as BuiltList);
           break;
       }
@@ -68,7 +68,7 @@ class _$NxAttributeDimValuesSerializer
 
 class _$NxAttributeDimValues extends NxAttributeDimValues {
   @override
-  final BuiltList<NxCell> values;
+  final BuiltList<NxSimpleDimValue> values;
 
   factory _$NxAttributeDimValues(
           [void updates(NxAttributeDimValuesBuilder b)]) =>
@@ -108,10 +108,10 @@ class NxAttributeDimValuesBuilder
     implements Builder<NxAttributeDimValues, NxAttributeDimValuesBuilder> {
   _$NxAttributeDimValues _$v;
 
-  ListBuilder<NxCell> _values;
-  ListBuilder<NxCell> get values =>
-      _$this._values ??= new ListBuilder<NxCell>();
-  set values(ListBuilder<NxCell> values) => _$this._values = values;
+  ListBuilder<NxSimpleDimValue> _values;
+  ListBuilder<NxSimpleDimValue> get values =>
+      _$this._values ??= new ListBuilder<NxSimpleDimValue>();
+  set values(ListBuilder<NxSimpleDimValue> values) => _$this._values = values;
 
   NxAttributeDimValuesBuilder();
 

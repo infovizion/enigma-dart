@@ -30,8 +30,8 @@ class _$FieldListSerializer implements StructuredSerializer<FieldList> {
       result
         ..add('qItems')
         ..add(serializers.serialize(object.items,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxFieldDescription)])));
     }
 
     return result;
@@ -50,8 +50,8 @@ class _$FieldListSerializer implements StructuredSerializer<FieldList> {
       switch (key) {
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxFieldDescription)]))
               as BuiltList);
           break;
       }
@@ -63,7 +63,7 @@ class _$FieldListSerializer implements StructuredSerializer<FieldList> {
 
 class _$FieldList extends FieldList {
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<NxFieldDescription> items;
 
   factory _$FieldList([void updates(FieldListBuilder b)]) =>
       (new FieldListBuilder()..update(updates)).build();
@@ -99,9 +99,10 @@ class _$FieldList extends FieldList {
 class FieldListBuilder implements Builder<FieldList, FieldListBuilder> {
   _$FieldList _$v;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<NxFieldDescription> _items;
+  ListBuilder<NxFieldDescription> get items =>
+      _$this._items ??= new ListBuilder<NxFieldDescription>();
+  set items(ListBuilder<NxFieldDescription> items) => _$this._items = items;
 
   FieldListBuilder();
 

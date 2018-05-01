@@ -4,7 +4,7 @@ library data_table_ex;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'data_field.dart';
 import 'package:built_collection/built_collection.dart';
 part 'data_table_ex.g.dart';
 
@@ -21,7 +21,7 @@ abstract class DataTableEx implements Built<DataTableEx, DataTableExBuilder> {
   /// Original name: qFields
   @nullable
   @BuiltValueField(wireName: 'qFields')
-  BuiltList<NxCell> get fields;
+  BuiltList<DataField> get fields;
 
   /// List of format specification items, within brackets.
   /// Examples of specification items:
@@ -37,7 +37,7 @@ abstract class DataTableEx implements Built<DataTableEx, DataTableExBuilder> {
 
   factory DataTableEx.init(
       {String name,
-      BuiltList<NxCell> fields,
+      BuiltList<DataField> fields,
       String formatSpec}) = _$DataTableEx._;
 
   DataTableEx._();

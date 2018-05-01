@@ -45,7 +45,7 @@ class _$NxTreeDimensionDefSerializer
         ..add('qValueExprs')
         ..add(serializers.serialize(object.valueExprs,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxMeasure)])));
     }
     if (object.nullSuppression != null) {
       result
@@ -87,15 +87,15 @@ class _$NxTreeDimensionDefSerializer
       result
         ..add('qAttributeExpressions')
         ..add(serializers.serialize(object.attributeExpressions,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxAttrExprDef)])));
     }
     if (object.attributeDimensions != null) {
       result
         ..add('qAttributeDimensions')
         ..add(serializers.serialize(object.attributeDimensions,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxAttrDimDef)])));
     }
 
     return result;
@@ -123,9 +123,8 @@ class _$NxTreeDimensionDefSerializer
           break;
         case 'qValueExprs':
           result.valueExprs.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(NxMeasure)])) as BuiltList);
           break;
         case 'qNullSuppression':
           result.nullSuppression = serializers.deserialize(value,
@@ -154,14 +153,14 @@ class _$NxTreeDimensionDefSerializer
           break;
         case 'qAttributeExpressions':
           result.attributeExpressions.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxAttrExprDef)]))
               as BuiltList);
           break;
         case 'qAttributeDimensions':
           result.attributeDimensions.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxAttrDimDef)]))
               as BuiltList);
           break;
       }
@@ -177,7 +176,7 @@ class _$NxTreeDimensionDef extends NxTreeDimensionDef {
   @override
   final NxInlineDimensionDef def;
   @override
-  final BuiltList<NxCell> valueExprs;
+  final BuiltList<NxMeasure> valueExprs;
   @override
   final bool nullSuppression;
   @override
@@ -191,9 +190,9 @@ class _$NxTreeDimensionDef extends NxTreeDimensionDef {
   @override
   final NxCalcCond calcCondition;
   @override
-  final BuiltList<NxCell> attributeExpressions;
+  final BuiltList<NxAttrExprDef> attributeExpressions;
   @override
-  final BuiltList<NxCell> attributeDimensions;
+  final BuiltList<NxAttrDimDef> attributeDimensions;
 
   factory _$NxTreeDimensionDef([void updates(NxTreeDimensionDefBuilder b)]) =>
       (new NxTreeDimensionDefBuilder()..update(updates)).build();
@@ -292,10 +291,10 @@ class NxTreeDimensionDefBuilder
       _$this._def ??= new NxInlineDimensionDefBuilder();
   set def(NxInlineDimensionDefBuilder def) => _$this._def = def;
 
-  ListBuilder<NxCell> _valueExprs;
-  ListBuilder<NxCell> get valueExprs =>
-      _$this._valueExprs ??= new ListBuilder<NxCell>();
-  set valueExprs(ListBuilder<NxCell> valueExprs) =>
+  ListBuilder<NxMeasure> _valueExprs;
+  ListBuilder<NxMeasure> get valueExprs =>
+      _$this._valueExprs ??= new ListBuilder<NxMeasure>();
+  set valueExprs(ListBuilder<NxMeasure> valueExprs) =>
       _$this._valueExprs = valueExprs;
 
   bool _nullSuppression;
@@ -331,16 +330,16 @@ class NxTreeDimensionDefBuilder
   set calcCondition(NxCalcCondBuilder calcCondition) =>
       _$this._calcCondition = calcCondition;
 
-  ListBuilder<NxCell> _attributeExpressions;
-  ListBuilder<NxCell> get attributeExpressions =>
-      _$this._attributeExpressions ??= new ListBuilder<NxCell>();
-  set attributeExpressions(ListBuilder<NxCell> attributeExpressions) =>
+  ListBuilder<NxAttrExprDef> _attributeExpressions;
+  ListBuilder<NxAttrExprDef> get attributeExpressions =>
+      _$this._attributeExpressions ??= new ListBuilder<NxAttrExprDef>();
+  set attributeExpressions(ListBuilder<NxAttrExprDef> attributeExpressions) =>
       _$this._attributeExpressions = attributeExpressions;
 
-  ListBuilder<NxCell> _attributeDimensions;
-  ListBuilder<NxCell> get attributeDimensions =>
-      _$this._attributeDimensions ??= new ListBuilder<NxCell>();
-  set attributeDimensions(ListBuilder<NxCell> attributeDimensions) =>
+  ListBuilder<NxAttrDimDef> _attributeDimensions;
+  ListBuilder<NxAttrDimDef> get attributeDimensions =>
+      _$this._attributeDimensions ??= new ListBuilder<NxAttrDimDef>();
+  set attributeDimensions(ListBuilder<NxAttrDimDef> attributeDimensions) =>
       _$this._attributeDimensions = attributeDimensions;
 
   NxTreeDimensionDefBuilder();

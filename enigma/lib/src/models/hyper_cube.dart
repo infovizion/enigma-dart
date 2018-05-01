@@ -6,8 +6,13 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'size.dart';
 import 'nx_validation_error.dart';
-import 'nx_cell.dart';
+import 'nx_dimension_info.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_measure_info.dart';
+import 'nx_cell.dart';
+import 'nx_data_page.dart';
+import 'nx_pivot_page.dart';
+import 'nx_stack_page.dart';
 import 'nx_cell_position.dart';
 part 'hyper_cube.g.dart';
 
@@ -40,13 +45,13 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// Original name: qDimensionInfo
   @nullable
   @BuiltValueField(wireName: 'qDimensionInfo')
-  BuiltList<NxCell> get dimensionInfo;
+  BuiltList<NxDimensionInfo> get dimensionInfo;
 
   /// Information on the measure.
   /// Original name: qMeasureInfo
   @nullable
   @BuiltValueField(wireName: 'qMeasureInfo')
-  BuiltList<NxCell> get measureInfo;
+  BuiltList<NxMeasureInfo> get measureInfo;
 
   /// Sort order of the columns in the hypercube.
   /// Column numbers are separated by a comma.
@@ -54,7 +59,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// Original name: qEffectiveInterColumnSortOrder
   @nullable
   @BuiltValueField(wireName: 'qEffectiveInterColumnSortOrder')
-  BuiltList<NxCell> get effectiveInterColumnSortOrder;
+  BuiltList<int> get effectiveInterColumnSortOrder;
 
   /// Aggregate for measures of all values in the field.
   /// The result value depends on the _qAggrFunc_ defined in _HyperCubeDef_.
@@ -68,21 +73,21 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// Original name: qDataPages
   @nullable
   @BuiltValueField(wireName: 'qDataPages')
-  BuiltList<NxCell> get dataPages;
+  BuiltList<NxDataPage> get dataPages;
 
   /// Set of data for pivot tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qPivotDataPages
   @nullable
   @BuiltValueField(wireName: 'qPivotDataPages')
-  BuiltList<NxCell> get pivotDataPages;
+  BuiltList<NxPivotPage> get pivotDataPages;
 
   /// Set of data for stacked tables.
   /// Is empty if nothing has been defined in **qInitialDataFetch** in _HyperCubeDef_.
   /// Original name: qStackedDataPages
   @nullable
   @BuiltValueField(wireName: 'qStackedDataPages')
-  BuiltList<NxCell> get stackedDataPages;
+  BuiltList<NxStackPage> get stackedDataPages;
 
   /// Information about the mode of the visualization.
   ///
@@ -158,7 +163,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// Original name: qTreeNodesOnDim
   @nullable
   @BuiltValueField(wireName: 'qTreeNodesOnDim')
-  BuiltList<NxCell> get treeNodesOnDim;
+  BuiltList<int> get treeNodesOnDim;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
@@ -170,7 +175,7 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
   /// Original name: qColumnOrder
   @nullable
   @BuiltValueField(wireName: 'qColumnOrder')
-  BuiltList<NxCell> get columnOrder;
+  BuiltList<int> get columnOrder;
 
   factory HyperCube([updates(HyperCubeBuilder b)]) = _$HyperCube;
 
@@ -178,22 +183,22 @@ abstract class HyperCube implements Built<HyperCube, HyperCubeBuilder> {
       {String stateName,
       Size size,
       NxValidationError error,
-      BuiltList<NxCell> dimensionInfo,
-      BuiltList<NxCell> measureInfo,
-      BuiltList<NxCell> effectiveInterColumnSortOrder,
+      BuiltList<NxDimensionInfo> dimensionInfo,
+      BuiltList<NxMeasureInfo> measureInfo,
+      BuiltList<int> effectiveInterColumnSortOrder,
       BuiltList<NxCell> grandTotalRow,
-      BuiltList<NxCell> dataPages,
-      BuiltList<NxCell> pivotDataPages,
-      BuiltList<NxCell> stackedDataPages,
+      BuiltList<NxDataPage> dataPages,
+      BuiltList<NxPivotPage> pivotDataPages,
+      BuiltList<NxStackPage> stackedDataPages,
       String mode,
       int noOfLeftDims,
       bool indentMode,
       NxCellPosition lastExpandedPos,
       bool hasOtherValues,
       String title,
-      BuiltList<NxCell> treeNodesOnDim,
+      BuiltList<int> treeNodesOnDim,
       String calcCondMsg,
-      BuiltList<NxCell> columnOrder}) = _$HyperCube._;
+      BuiltList<int> columnOrder}) = _$HyperCube._;
 
   HyperCube._();
 }

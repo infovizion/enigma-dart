@@ -36,15 +36,15 @@ class _$TreeDataDefSerializer implements StructuredSerializer<TreeDataDef> {
       result
         ..add('qDimensions')
         ..add(serializers.serialize(object.dimensions,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxTreeDimensionDef)])));
     }
     if (object.interColumnSortOrder != null) {
       result
         ..add('qInterColumnSortOrder')
         ..add(serializers.serialize(object.interColumnSortOrder,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.suppressZero != null) {
       result
@@ -103,14 +103,14 @@ class _$TreeDataDefSerializer implements StructuredSerializer<TreeDataDef> {
           break;
         case 'qDimensions':
           result.dimensions.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxTreeDimensionDef)]))
               as BuiltList);
           break;
         case 'qInterColumnSortOrder':
           result.interColumnSortOrder.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qSuppressZero':
@@ -148,9 +148,9 @@ class _$TreeDataDef extends TreeDataDef {
   @override
   final String stateName;
   @override
-  final BuiltList<NxCell> dimensions;
+  final BuiltList<NxTreeDimensionDef> dimensions;
   @override
-  final BuiltList<NxCell> interColumnSortOrder;
+  final BuiltList<int> interColumnSortOrder;
   @override
   final bool suppressZero;
   @override
@@ -244,16 +244,16 @@ class TreeDataDefBuilder implements Builder<TreeDataDef, TreeDataDefBuilder> {
   String get stateName => _$this._stateName;
   set stateName(String stateName) => _$this._stateName = stateName;
 
-  ListBuilder<NxCell> _dimensions;
-  ListBuilder<NxCell> get dimensions =>
-      _$this._dimensions ??= new ListBuilder<NxCell>();
-  set dimensions(ListBuilder<NxCell> dimensions) =>
+  ListBuilder<NxTreeDimensionDef> _dimensions;
+  ListBuilder<NxTreeDimensionDef> get dimensions =>
+      _$this._dimensions ??= new ListBuilder<NxTreeDimensionDef>();
+  set dimensions(ListBuilder<NxTreeDimensionDef> dimensions) =>
       _$this._dimensions = dimensions;
 
-  ListBuilder<NxCell> _interColumnSortOrder;
-  ListBuilder<NxCell> get interColumnSortOrder =>
-      _$this._interColumnSortOrder ??= new ListBuilder<NxCell>();
-  set interColumnSortOrder(ListBuilder<NxCell> interColumnSortOrder) =>
+  ListBuilder<int> _interColumnSortOrder;
+  ListBuilder<int> get interColumnSortOrder =>
+      _$this._interColumnSortOrder ??= new ListBuilder<int>();
+  set interColumnSortOrder(ListBuilder<int> interColumnSortOrder) =>
       _$this._interColumnSortOrder = interColumnSortOrder;
 
   bool _suppressZero;

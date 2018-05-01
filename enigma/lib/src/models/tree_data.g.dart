@@ -37,7 +37,7 @@ class _$TreeDataSerializer implements StructuredSerializer<TreeData> {
         ..add('qNodesOnDim')
         ..add(serializers.serialize(object.nodesOnDim,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.error != null) {
       result
@@ -49,15 +49,15 @@ class _$TreeDataSerializer implements StructuredSerializer<TreeData> {
       result
         ..add('qDimensionInfo')
         ..add(serializers.serialize(object.dimensionInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxTreeDimensionInfo)])));
     }
     if (object.effectiveInterColumnSortOrder != null) {
       result
         ..add('qEffectiveInterColumnSortOrder')
         ..add(serializers.serialize(object.effectiveInterColumnSortOrder,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.hasOtherValues != null) {
       result
@@ -105,7 +105,7 @@ class _$TreeDataSerializer implements StructuredSerializer<TreeData> {
         case 'qNodesOnDim':
           result.nodesOnDim.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qError':
@@ -115,15 +115,15 @@ class _$TreeDataSerializer implements StructuredSerializer<TreeData> {
           break;
         case 'qDimensionInfo':
           result.dimensionInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxTreeDimensionInfo)]))
               as BuiltList);
           break;
         case 'qEffectiveInterColumnSortOrder':
           result.effectiveInterColumnSortOrder.replace(serializers.deserialize(
                   value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qHasOtherValues':
@@ -153,13 +153,13 @@ class _$TreeData extends TreeData {
   @override
   final String stateName;
   @override
-  final BuiltList<NxCell> nodesOnDim;
+  final BuiltList<int> nodesOnDim;
   @override
   final NxValidationError error;
   @override
-  final BuiltList<NxCell> dimensionInfo;
+  final BuiltList<NxTreeDimensionInfo> dimensionInfo;
   @override
-  final BuiltList<NxCell> effectiveInterColumnSortOrder;
+  final BuiltList<int> effectiveInterColumnSortOrder;
   @override
   final bool hasOtherValues;
   @override
@@ -249,10 +249,10 @@ class TreeDataBuilder implements Builder<TreeData, TreeDataBuilder> {
   String get stateName => _$this._stateName;
   set stateName(String stateName) => _$this._stateName = stateName;
 
-  ListBuilder<NxCell> _nodesOnDim;
-  ListBuilder<NxCell> get nodesOnDim =>
-      _$this._nodesOnDim ??= new ListBuilder<NxCell>();
-  set nodesOnDim(ListBuilder<NxCell> nodesOnDim) =>
+  ListBuilder<int> _nodesOnDim;
+  ListBuilder<int> get nodesOnDim =>
+      _$this._nodesOnDim ??= new ListBuilder<int>();
+  set nodesOnDim(ListBuilder<int> nodesOnDim) =>
       _$this._nodesOnDim = nodesOnDim;
 
   NxValidationErrorBuilder _error;
@@ -260,17 +260,17 @@ class TreeDataBuilder implements Builder<TreeData, TreeDataBuilder> {
       _$this._error ??= new NxValidationErrorBuilder();
   set error(NxValidationErrorBuilder error) => _$this._error = error;
 
-  ListBuilder<NxCell> _dimensionInfo;
-  ListBuilder<NxCell> get dimensionInfo =>
-      _$this._dimensionInfo ??= new ListBuilder<NxCell>();
-  set dimensionInfo(ListBuilder<NxCell> dimensionInfo) =>
+  ListBuilder<NxTreeDimensionInfo> _dimensionInfo;
+  ListBuilder<NxTreeDimensionInfo> get dimensionInfo =>
+      _$this._dimensionInfo ??= new ListBuilder<NxTreeDimensionInfo>();
+  set dimensionInfo(ListBuilder<NxTreeDimensionInfo> dimensionInfo) =>
       _$this._dimensionInfo = dimensionInfo;
 
-  ListBuilder<NxCell> _effectiveInterColumnSortOrder;
-  ListBuilder<NxCell> get effectiveInterColumnSortOrder =>
-      _$this._effectiveInterColumnSortOrder ??= new ListBuilder<NxCell>();
+  ListBuilder<int> _effectiveInterColumnSortOrder;
+  ListBuilder<int> get effectiveInterColumnSortOrder =>
+      _$this._effectiveInterColumnSortOrder ??= new ListBuilder<int>();
   set effectiveInterColumnSortOrder(
-          ListBuilder<NxCell> effectiveInterColumnSortOrder) =>
+          ListBuilder<int> effectiveInterColumnSortOrder) =>
       _$this._effectiveInterColumnSortOrder = effectiveInterColumnSortOrder;
 
   bool _hasOtherValues;

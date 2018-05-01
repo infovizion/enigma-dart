@@ -4,7 +4,7 @@ library nx_pivot_dimension_cell;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_pivot_dimension_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_attribute_expression_values.dart';
 import 'nx_attribute_dim_values.dart';
@@ -86,7 +86,7 @@ abstract class NxPivotDimensionCell
   /// Original name: qSubNodes
   @nullable
   @BuiltValueField(wireName: 'qSubNodes')
-  BuiltList<NxCell> get subNodes;
+  BuiltList<NxPivotDimensionCell> get subNodes;
 
   /// Information about attribute expressions.
   /// The array is empty _[ ]_ when there is no attribute expressions.
@@ -113,7 +113,7 @@ abstract class NxPivotDimensionCell
       String type,
       int up,
       int down,
-      BuiltList<NxCell> subNodes,
+      BuiltList<NxPivotDimensionCell> subNodes,
       NxAttributeExpressionValues attrExps,
       NxAttributeDimValues attrDims}) = _$NxPivotDimensionCell._;
 

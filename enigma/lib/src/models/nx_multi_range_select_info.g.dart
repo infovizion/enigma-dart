@@ -35,15 +35,15 @@ class _$NxMultiRangeSelectInfoSerializer
       result
         ..add('qRanges')
         ..add(serializers.serialize(object.ranges,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxRangeSelectInfo)])));
     }
     if (object.columnsToSelect != null) {
       result
         ..add('qColumnsToSelect')
         ..add(serializers.serialize(object.columnsToSelect,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
 
     return result;
@@ -63,14 +63,14 @@ class _$NxMultiRangeSelectInfoSerializer
       switch (key) {
         case 'qRanges':
           result.ranges.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxRangeSelectInfo)]))
               as BuiltList);
           break;
         case 'qColumnsToSelect':
           result.columnsToSelect.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
       }
@@ -82,9 +82,9 @@ class _$NxMultiRangeSelectInfoSerializer
 
 class _$NxMultiRangeSelectInfo extends NxMultiRangeSelectInfo {
   @override
-  final BuiltList<NxCell> ranges;
+  final BuiltList<NxRangeSelectInfo> ranges;
   @override
-  final BuiltList<NxCell> columnsToSelect;
+  final BuiltList<int> columnsToSelect;
 
   factory _$NxMultiRangeSelectInfo(
           [void updates(NxMultiRangeSelectInfoBuilder b)]) =>
@@ -126,15 +126,15 @@ class NxMultiRangeSelectInfoBuilder
     implements Builder<NxMultiRangeSelectInfo, NxMultiRangeSelectInfoBuilder> {
   _$NxMultiRangeSelectInfo _$v;
 
-  ListBuilder<NxCell> _ranges;
-  ListBuilder<NxCell> get ranges =>
-      _$this._ranges ??= new ListBuilder<NxCell>();
-  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<NxRangeSelectInfo> _ranges;
+  ListBuilder<NxRangeSelectInfo> get ranges =>
+      _$this._ranges ??= new ListBuilder<NxRangeSelectInfo>();
+  set ranges(ListBuilder<NxRangeSelectInfo> ranges) => _$this._ranges = ranges;
 
-  ListBuilder<NxCell> _columnsToSelect;
-  ListBuilder<NxCell> get columnsToSelect =>
-      _$this._columnsToSelect ??= new ListBuilder<NxCell>();
-  set columnsToSelect(ListBuilder<NxCell> columnsToSelect) =>
+  ListBuilder<int> _columnsToSelect;
+  ListBuilder<int> get columnsToSelect =>
+      _$this._columnsToSelect ??= new ListBuilder<int>();
+  set columnsToSelect(ListBuilder<int> columnsToSelect) =>
       _$this._columnsToSelect = columnsToSelect;
 
   NxMultiRangeSelectInfoBuilder();

@@ -4,7 +4,7 @@ library search_suggestion_result;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'search_suggest_item.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_suggestion_result.g.dart';
 
@@ -17,20 +17,20 @@ abstract class SearchSuggestionResult
   /// Original name: qSuggestions
   @nullable
   @BuiltValueField(wireName: 'qSuggestions')
-  BuiltList<NxCell> get suggestions;
+  BuiltList<SearchSuggestItem> get suggestions;
 
   /// List of field names that contain search hits.
   /// Original name: qFieldNames
   @nullable
   @BuiltValueField(wireName: 'qFieldNames')
-  BuiltList<NxCell> get fieldNames;
+  BuiltList<String> get fieldNames;
 
   factory SearchSuggestionResult([updates(SearchSuggestionResultBuilder b)]) =
       _$SearchSuggestionResult;
 
   factory SearchSuggestionResult.init(
-      {BuiltList<NxCell> suggestions,
-      BuiltList<NxCell> fieldNames}) = _$SearchSuggestionResult._;
+      {BuiltList<SearchSuggestItem> suggestions,
+      BuiltList<String> fieldNames}) = _$SearchSuggestionResult._;
 
   SearchSuggestionResult._();
 }

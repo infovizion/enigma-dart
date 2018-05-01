@@ -83,8 +83,8 @@ class _$NxCurrentSelectionItemSerializer
       result
         ..add('qRangeInfo')
         ..add(serializers.serialize(object.rangeInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(RangeSelectInfo)])));
     }
     if (object.sortIndex != null) {
       result
@@ -102,15 +102,15 @@ class _$NxCurrentSelectionItemSerializer
       result
         ..add('qSelectedFieldSelectionInfo')
         ..add(serializers.serialize(object.selectedFieldSelectionInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxFieldSelectionInfo)])));
     }
     if (object.notSelectedFieldSelectionInfo != null) {
       result
         ..add('qNotSelectedFieldSelectionInfo')
         ..add(serializers.serialize(object.notSelectedFieldSelectionInfo,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxFieldSelectionInfo)])));
     }
     if (object.selectionThreshold != null) {
       result
@@ -180,8 +180,8 @@ class _$NxCurrentSelectionItemSerializer
           break;
         case 'qRangeInfo':
           result.rangeInfo.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(RangeSelectInfo)]))
               as BuiltList);
           break;
         case 'qSortIndex':
@@ -195,15 +195,15 @@ class _$NxCurrentSelectionItemSerializer
         case 'qSelectedFieldSelectionInfo':
           result.selectedFieldSelectionInfo.replace(serializers.deserialize(
                   value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxFieldSelectionInfo)]))
               as BuiltList);
           break;
         case 'qNotSelectedFieldSelectionInfo':
           result.notSelectedFieldSelectionInfo.replace(serializers.deserialize(
                   value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxFieldSelectionInfo)]))
               as BuiltList);
           break;
         case 'qSelectionThreshold':
@@ -243,15 +243,15 @@ class _$NxCurrentSelectionItem extends NxCurrentSelectionItem {
   @override
   final String selected;
   @override
-  final BuiltList<NxCell> rangeInfo;
+  final BuiltList<RangeSelectInfo> rangeInfo;
   @override
   final int sortIndex;
   @override
   final NxStateCounts stateCounts;
   @override
-  final BuiltList<NxCell> selectedFieldSelectionInfo;
+  final BuiltList<NxFieldSelectionInfo> selectedFieldSelectionInfo;
   @override
-  final BuiltList<NxCell> notSelectedFieldSelectionInfo;
+  final BuiltList<NxFieldSelectionInfo> notSelectedFieldSelectionInfo;
   @override
   final int selectionThreshold;
   @override
@@ -411,10 +411,11 @@ class NxCurrentSelectionItemBuilder
   String get selected => _$this._selected;
   set selected(String selected) => _$this._selected = selected;
 
-  ListBuilder<NxCell> _rangeInfo;
-  ListBuilder<NxCell> get rangeInfo =>
-      _$this._rangeInfo ??= new ListBuilder<NxCell>();
-  set rangeInfo(ListBuilder<NxCell> rangeInfo) => _$this._rangeInfo = rangeInfo;
+  ListBuilder<RangeSelectInfo> _rangeInfo;
+  ListBuilder<RangeSelectInfo> get rangeInfo =>
+      _$this._rangeInfo ??= new ListBuilder<RangeSelectInfo>();
+  set rangeInfo(ListBuilder<RangeSelectInfo> rangeInfo) =>
+      _$this._rangeInfo = rangeInfo;
 
   int _sortIndex;
   int get sortIndex => _$this._sortIndex;
@@ -426,18 +427,20 @@ class NxCurrentSelectionItemBuilder
   set stateCounts(NxStateCountsBuilder stateCounts) =>
       _$this._stateCounts = stateCounts;
 
-  ListBuilder<NxCell> _selectedFieldSelectionInfo;
-  ListBuilder<NxCell> get selectedFieldSelectionInfo =>
-      _$this._selectedFieldSelectionInfo ??= new ListBuilder<NxCell>();
+  ListBuilder<NxFieldSelectionInfo> _selectedFieldSelectionInfo;
+  ListBuilder<NxFieldSelectionInfo> get selectedFieldSelectionInfo =>
+      _$this._selectedFieldSelectionInfo ??=
+          new ListBuilder<NxFieldSelectionInfo>();
   set selectedFieldSelectionInfo(
-          ListBuilder<NxCell> selectedFieldSelectionInfo) =>
+          ListBuilder<NxFieldSelectionInfo> selectedFieldSelectionInfo) =>
       _$this._selectedFieldSelectionInfo = selectedFieldSelectionInfo;
 
-  ListBuilder<NxCell> _notSelectedFieldSelectionInfo;
-  ListBuilder<NxCell> get notSelectedFieldSelectionInfo =>
-      _$this._notSelectedFieldSelectionInfo ??= new ListBuilder<NxCell>();
+  ListBuilder<NxFieldSelectionInfo> _notSelectedFieldSelectionInfo;
+  ListBuilder<NxFieldSelectionInfo> get notSelectedFieldSelectionInfo =>
+      _$this._notSelectedFieldSelectionInfo ??=
+          new ListBuilder<NxFieldSelectionInfo>();
   set notSelectedFieldSelectionInfo(
-          ListBuilder<NxCell> notSelectedFieldSelectionInfo) =>
+          ListBuilder<NxFieldSelectionInfo> notSelectedFieldSelectionInfo) =>
       _$this._notSelectedFieldSelectionInfo = notSelectedFieldSelectionInfo;
 
   int _selectionThreshold;
