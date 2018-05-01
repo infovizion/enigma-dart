@@ -53,29 +53,30 @@ class ApiGenerator {
   static Map<String, String> createObjectFunctionToObjectTypeMapping() {
     // Register mappings that describe what remote object type is created by each method
     var result = <String, String>{};
-    result["GetActiveDoc"] = "Doc";
-    result["OpenDoc"] = "Doc";
-    result["CreateDocEx"] = "Doc";
-    result["CreateSessionAppFromApp"] = "Doc";
-    result["CreateSessionApp"] = "Doc";
-    result["CreateChild"] = "GenericObject";
-    result["GetChild"] = "GenericObject";
-    result["GetSnapshotObject"] = "GenericObject";
-    result["CreateSessionObject"] = "GenericObject";
-    result["CreateBookmark"] = "GenericBookmark";
-    result["GetDimension"] = "GenericDimension";
-    result["CreateMeasure"] = "GenericMeasure";
-    result["GetField"] = "Field";
-    result["CreateSessionVariable"] = "Variable";
-    result["GetVariable"] = "Variable";
-    result["GetObject"] = "GenericObject";
-    result["GetVariableById"] = "Variable";
-    result["CreateObject"] = "GenericObject";
-    result["CreateVariableEx"] = "Variable";
-    result["CreateDimension"] = "GenericDimension";
-    result["GetBookmark"] = "GenericBookmark";
-    result["GetVariableByName"] = "GenericVariable";
-    result["GetMeasure"] = "GenericMeasure";
+    result["Global.GetActiveDoc"] = "Doc";
+    result["Global.OpenDoc"] = "Doc";
+    result["Global.CreateDocEx"] = "Doc";
+    result["Global.CreateSessionAppFromApp"] = "Doc";
+    result["Global.CreateSessionApp"] = "Doc";
+    result["GenericObject.CreateChild"] = "GenericObject";
+    result["GenericObject.GetChild"] = "GenericObject";
+    result["GenericObject.GetSnapshotObject"] = "GenericObject";
+    result["Doc.CreateSessionObject"] = "GenericObject";
+    result["Doc.CreateBookmark"] = "GenericBookmark";
+    result["Doc.CreateBookmark"] = "GenericBookmark";
+    result["Doc.GetDimension"] = "GenericDimension";
+    result["Doc.CreateMeasure"] = "GenericMeasure";
+    result["Doc.GetField"] = "Field";
+    result["Doc.CreateSessionVariable"] = "GenericVariable";
+    result["Doc.GetVariable"] = "Variable";
+    result["Doc.GetObject"] = "GenericObject";
+    result["Doc.GetVariableById"] = "Variable";
+    result["Doc.CreateObject"] = "GenericObject";
+    result["Doc.CreateVariableEx"] = "Variable";
+    result["Doc.CreateDimension"] = "GenericDimension";
+    result["Doc.GetBookmark"] = "GenericBookmark";
+    result["Doc.GetVariableByName"] = "GenericVariable";
+    result["Doc.GetMeasure"] = "GenericMeasure";
     return result;
   }
 
@@ -352,8 +353,8 @@ class ApiGenerator {
   }
 
   _isRequired(SchemaType param) => param.required != null && param.required;
-  generateMethod(String methodName, Method method, StringBuffer buffer,
-      List<String> additionalImports) {
+  generateMethod(String serviceName, String methodName, Method method,
+      StringBuffer buffer, List<String> additionalImports) {
     addComment(method.description, buffer, '  ');
     var dartMethodName = new ReCase(methodName).camelCase;
     var paramsWithDartTypes = <_SchemaWithTypeData>[];
@@ -375,7 +376,7 @@ class ApiGenerator {
         optionalParams.add('${p.typeData?.paramType} ${p.dartName}');
       }
     }
-    if (methodName == 'DoReload') {
+    if (methodName == 'CreateSessionVariable') {
       int debug = 1;
     }
     var paramParts = <String>[];
@@ -387,20 +388,18 @@ class ApiGenerator {
     }
     ReturnDescriptor returnDescriptor = new ReturnDescriptor();
     if (method.responses.isNotEmpty) {
-      if (method.responses.length > 1) {
-        // print('$methodName ${method.responses}');
-        var serviceType = objectFuncToObject[methodName];
-        if (serviceType != null) {
-          returnDescriptor.schemaType =
-              method.responses.firstWhere((r) => r.name == 'qReturn');
-          returnDescriptor.dartType = serviceType;
-          returnDescriptor.returnKind = ReturnKind.ObjectIterface;
-        } else {
-          print('Cannot generate method $methodName');
-          ambiguousReturns++;
-          return;
-        }
+      // print('$methodName ${method.responses}');
+      var serviceType = objectFuncToObject['$serviceName.$methodName'];
+      if (serviceType != null) {
+        returnDescriptor.schemaType =
+            method.responses.firstWhere((r) => r.name == 'qReturn');
+        returnDescriptor.dartType = serviceType;
+        returnDescriptor.returnKind = ReturnKind.ObjectIterface;
         returnDescriptor.typeData = getTypeData(returnDescriptor.schemaType);
+      } else if (method.responses.length > 1) {
+        print('Cannot generate method $methodName');
+        ambiguousReturns++;
+        return;
       } else {
         returnDescriptor.schemaType = method.responses.first;
         returnDescriptor.typeData = getTypeData(returnDescriptor.schemaType);
@@ -476,7 +475,7 @@ class ApiGenerator {
       String get serviceType => '$className';''');
     var additionalImports = <String>[];
     service.methods.forEach((methodName, content) {
-      generateMethod(methodName, content, buffer, additionalImports);
+      generateMethod(className, methodName, content, buffer, additionalImports);
     });
     buffer.writeln('}');
     var outFile = new File('../enigma/lib/src/services/$fileName');

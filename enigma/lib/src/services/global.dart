@@ -8,6 +8,8 @@ import 'package:built_collection/built_collection.dart';
 import 'doc.dart';
 import 'doc.dart';
 import 'doc.dart';
+import 'doc.dart';
+import 'doc.dart';
 
 class Global extends BaseService {
   Global(Enigma enigma, int handle) : super(enigma, handle);
@@ -137,13 +139,13 @@ class Global extends BaseService {
   }
 
   /// Returns the handle of the current app.
-  Future<ObjectInterface> getActiveDoc() async {
+  Future<Doc> getActiveDoc() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetActiveDoc', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new Doc(enigma, dartData.handle);
   }
 
   /// Indicates whether or not a user is able to create an app.
@@ -358,7 +360,7 @@ class Global extends BaseService {
   /// In Qlik Sense Desktop, apps are automatically backed up before a migration.
   /// The backup files are located in _%userprofile%\Documents\Qlik\Sense\AppsBackup\&lt;Qlik Sense Desktop version&gt;_.
   /// In Qlik Sense Enterprise, no automatic back up is run. The back up should be done manually.
-  Future<ObjectInterface> openDoc(String docName,
+  Future<Doc> openDoc(String docName,
       {String userName, String password, String serial, bool noData}) async {
     var params = <String, dynamic>{};
     params['qDocName'] = docName;
@@ -378,7 +380,7 @@ class Global extends BaseService {
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
-    return dartData;
+    return new Doc(enigma, dartData.handle);
   }
 
   /// Creates an empty session app.

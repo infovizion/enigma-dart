@@ -8,8 +8,6 @@ main() async {
 
   var engineVersion = await global.engineVersion();
 
-  print(engineVersion);
-  var productVersion = await global.productVersion();
-  print('Product version: $productVersion');
+  print('Hello. Engine version is ${engineVersion.componentVersion}');
   await enigma.close();
 }
