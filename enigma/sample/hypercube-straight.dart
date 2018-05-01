@@ -26,6 +26,10 @@ main() async {
         ..width = 2)))));
   var layout = await object.getLayout();
   print('Hypercube data pages: ${layout.hyperCube.dataPages}');
-  //await object.selectHyperCubeCells('/qHyperCubeDef', rowIndices, colIndices)      
+  await object.selectHyperCubeCells('/qHyperCubeDef', [0, 2, 4], [0]);
+  print('After selection (notice the `qState` values)');
+  layout = await object.getLayout();
+  print('Hypercube data pages: ${layout.hyperCube.dataPages}');
+
   await enigma.close();
 }

@@ -366,13 +366,13 @@ class ApiGenerator {
     var mandatoryParams = <String>[];
     for (var p in paramsWithDartTypes) {
       if (_isRequired(p.schemaType)) {
-        mandatoryParams.add('${p.typeData?.dartType} ${p.dartName}');
+        mandatoryParams.add('${p.typeData?.paramType} ${p.dartName}');
       }
     }
     var optionalParams = <String>[];
     for (var p in paramsWithDartTypes) {
       if (!_isRequired(p.schemaType)) {
-        optionalParams.add('${p.typeData?.dartType} ${p.dartName}');
+        optionalParams.add('${p.typeData?.paramType} ${p.dartName}');
       }
     }
     if (methodName == 'DoReload') {

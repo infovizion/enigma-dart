@@ -263,13 +263,11 @@ class Global extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> replaceAppFromID(
-      String targetAppId, String srcAppID, BuiltList<String> ids) async {
+      String targetAppId, String srcAppID, List<String> ids) async {
     var params = <String, dynamic>{};
     params['qTargetAppId'] = targetAppId;
     params['qSrcAppID'] = srcAppID;
-    params['qIds'] = toJson(ids,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qIds'] = ids;
     var rawResult = await query('ReplaceAppFromID', params);
     return rawResult['result']['qSuccess'];
   }
@@ -278,13 +276,11 @@ class Global extends BaseService {
   /// The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](#csh-RepositoryServiceAPI-Introduction) for more information.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
   Future<bool> copyApp(
-      String targetAppId, String srcAppId, BuiltList<String> ids) async {
+      String targetAppId, String srcAppId, List<String> ids) async {
     var params = <String, dynamic>{};
     params['qTargetAppId'] = targetAppId;
     params['qSrcAppId'] = srcAppId;
-    params['qIds'] = toJson(ids,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qIds'] = ids;
     var rawResult = await query('CopyApp', params);
     return rawResult['result']['qSuccess'];
   }
@@ -311,15 +307,12 @@ class Global extends BaseService {
   ///
   /// The log files are located in:
   /// _%ProgramData%/Qlik/Sense/Log/Engine_
-  Future<bool> exportApp(
-      String targetPath, String srcAppId, BuiltList<String> ids,
+  Future<bool> exportApp(String targetPath, String srcAppId, List<String> ids,
       {bool noData}) async {
     var params = <String, dynamic>{};
     params['qTargetPath'] = targetPath;
     params['qSrcAppId'] = srcAppId;
-    params['qIds'] = toJson(ids,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qIds'] = ids;
     if (noData != null) {
       params['qNoData'] = noData;
     }

@@ -166,11 +166,10 @@ class Field extends BaseService {
   }
 
   /// Selects some values in a field, by entering the element numbers related to the values to select.
-  Future<bool> lowLevelSelect(BuiltList<int> values, bool toggleMode,
+  Future<bool> lowLevelSelect(List<int> values, bool toggleMode,
       {bool softLock}) async {
     var params = <String, dynamic>{};
-    params['qValues'] = toJson(values,
-        specifiedType: const FullType(BuiltList, const [const FullType(int)]));
+    params['qValues'] = values;
     params['qToggleMode'] = toggleMode;
     if (softLock != null) {
       params['qSoftLock'] = softLock;

@@ -409,13 +409,11 @@ class GenericObject extends BaseService {
   }
 
   /// Clears the selections in a dimension of a visualization.
-  Future<void> clearSelections(String path, {BuiltList<int> colIndices}) async {
+  Future<void> clearSelections(String path, {List<int> colIndices}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     if (colIndices != null) {
-      params['qColIndices'] = toJson(colIndices,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(int)]));
+      params['qColIndices'] = colIndices;
     }
     var rawResult = await query('ClearSelections', params);
   }
@@ -458,12 +456,11 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectListObjectValues(
-      String path, BuiltList<int> values, bool toggleMode,
+      String path, List<int> values, bool toggleMode,
       {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
-    params['qValues'] = toJson(values,
-        specifiedType: const FullType(BuiltList, const [const FullType(int)]));
+    params['qValues'] = values;
     params['qToggleMode'] = toggleMode;
     if (softLock != null) {
       params['qSoftLock'] = softLock;
@@ -643,25 +640,21 @@ class GenericObject extends BaseService {
   }
 
   /// Locks the selected values of a generic object.
-  Future<void> lock(String path, {BuiltList<int> colIndices}) async {
+  Future<void> lock(String path, {List<int> colIndices}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     if (colIndices != null) {
-      params['qColIndices'] = toJson(colIndices,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(int)]));
+      params['qColIndices'] = colIndices;
     }
     var rawResult = await query('Lock', params);
   }
 
   /// Unlocks the selected values of a generic object if the target (or handle ) is a generic object
-  Future<void> unlock(String path, {BuiltList<int> colIndices}) async {
+  Future<void> unlock(String path, {List<int> colIndices}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     if (colIndices != null) {
-      params['qColIndices'] = toJson(colIndices,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(int)]));
+      params['qColIndices'] = colIndices;
     }
     var rawResult = await query('Unlock', params);
   }
@@ -675,12 +668,11 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectHyperCubeValues(
-      String path, int dimNo, BuiltList<int> values, bool toggleMode) async {
+      String path, int dimNo, List<int> values, bool toggleMode) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     params['qDimNo'] = dimNo;
-    params['qValues'] = toJson(values,
-        specifiedType: const FullType(BuiltList, const [const FullType(int)]));
+    params['qValues'] = values;
     params['qToggleMode'] = toggleMode;
     var rawResult = await query('SelectHyperCubeValues', params);
     return rawResult['result']['qSuccess'];
@@ -694,14 +686,12 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectHyperCubeCells(
-      String path, BuiltList<int> rowIndices, BuiltList<int> colIndices,
+      String path, List<int> rowIndices, List<int> colIndices,
       {bool softLock, bool deselectOnlyOneSelected}) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
-    params['qRowIndices'] = toJson(rowIndices,
-        specifiedType: const FullType(BuiltList, const [const FullType(int)]));
-    params['qColIndices'] = toJson(colIndices,
-        specifiedType: const FullType(BuiltList, const [const FullType(int)]));
+    params['qRowIndices'] = rowIndices;
+    params['qColIndices'] = colIndices;
     if (softLock != null) {
       params['qSoftLock'] = softLock;
     }
@@ -772,7 +762,7 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> rangeSelectHyperCubeValues(String path, NxRangeSelectInfo ranges,
-      {BuiltList<int> columnsToSelect,
+      {List<int> columnsToSelect,
       bool orMode,
       bool deselectOnlyOneSelected}) async {
     var params = <String, dynamic>{};
@@ -780,9 +770,7 @@ class GenericObject extends BaseService {
     params['qRanges'] =
         toJson(ranges, specifiedType: const FullType(NxRangeSelectInfo));
     if (columnsToSelect != null) {
-      params['qColumnsToSelect'] = toJson(columnsToSelect,
-          specifiedType:
-              const FullType(BuiltList, const [const FullType(int)]));
+      params['qColumnsToSelect'] = columnsToSelect;
     }
     if (orMode != null) {
       params['qOrMode'] = orMode;
@@ -912,11 +900,9 @@ class GenericObject extends BaseService {
 
   /// Sets the order of the children in a generic object.
   /// <div class=note>To change the order of the children in a generic object, the identifiers of all the children must be included in the list of the identifiers (in _qIds_ ). </div>
-  Future<void> setChildArrayOrder(BuiltList<String> ids) async {
+  Future<void> setChildArrayOrder(List<String> ids) async {
     var params = <String, dynamic>{};
-    params['qIds'] = toJson(ids,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qIds'] = ids;
     var rawResult = await query('SetChildArrayOrder', params);
   }
 
@@ -946,11 +932,9 @@ class GenericObject extends BaseService {
   ///
   /// ### Example
   /// A sheet contains a list object and a chart. If the list object is in selection mode then the chart cannot be in selection mode. No selection on the chart can be made until the list object exits the selection mode.
-  Future<void> beginSelections(BuiltList<String> paths) async {
+  Future<void> beginSelections(List<String> paths) async {
     var params = <String, dynamic>{};
-    params['qPaths'] = toJson(paths,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qPaths'] = paths;
     var rawResult = await query('BeginSelections', params);
   }
 

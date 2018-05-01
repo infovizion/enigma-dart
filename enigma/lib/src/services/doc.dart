@@ -64,10 +64,7 @@ class Doc extends BaseService {
   Future<BuiltList<String>> getLooselyCoupledVector() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetLooselyCoupledVector', params);
-    var jsonData = rawResult['result']['qv'];
-    var dartData = fromJsonFullType<BuiltList<String>>(
-        const FullType(BuiltList, const [const FullType(String)]), jsonData);
-    return dartData;
+    return rawResult['result']['qv'];
   }
 
   /// Sets a list of table states, one for each table.
@@ -78,11 +75,9 @@ class Doc extends BaseService {
   /// * 2 The table is loosely coupled and cannot be changed to another state using the Qlik Engine API.
   ///
   /// <div class=note>The last three values in the vector are for internal use.</div>
-  Future<bool> setLooselyCoupledVector(BuiltList<String> v) async {
+  Future<bool> setLooselyCoupledVector(List<String> v) async {
     var params = <String, dynamic>{};
-    params['qv'] = toJson(v,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qv'] = v;
     var rawResult = await query('SetLooselyCoupledVector', params);
     return rawResult['result']['qReturn'];
   }
@@ -892,12 +887,10 @@ class Doc extends BaseService {
 
   /// Retrieves any fields that match all of the specified tags or just one of them in the data model of an app.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
-  Future<NxMatchingFieldInfo> getMatchingFields(BuiltList<String> tags,
+  Future<NxMatchingFieldInfo> getMatchingFields(List<String> tags,
       {String matchingFieldMode}) async {
     var params = <String, dynamic>{};
-    params['qTags'] = toJson(tags,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qTags'] = tags;
     if (matchingFieldMode != null) {
       params['qMatchingFieldMode'] = matchingFieldMode;
     }
@@ -911,12 +904,10 @@ class Doc extends BaseService {
   /// Retrieves any fields that belong to the same archipelago as the specified field and that match at least one of the specified tags.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
   Future<NxMatchingFieldInfo> findMatchingFields(
-      String fieldName, BuiltList<String> tags) async {
+      String fieldName, List<String> tags) async {
     var params = <String, dynamic>{};
     params['qFieldName'] = fieldName;
-    params['qTags'] = toJson(tags,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qTags'] = tags;
     var rawResult = await query('FindMatchingFields', params);
     var jsonData = rawResult['result']['qFieldNames'];
     var dartData = fromJsonFullType<NxMatchingFieldInfo>(
@@ -1166,18 +1157,13 @@ class Doc extends BaseService {
   Future<BuiltList<String>> getFavoriteVariables() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetFavoriteVariables', params);
-    var jsonData = rawResult['result']['qNames'];
-    var dartData = fromJsonFullType<BuiltList<String>>(
-        const FullType(BuiltList, const [const FullType(String)]), jsonData);
-    return dartData;
+    return rawResult['result']['qNames'];
   }
 
   /// Set some variables as favorite.
-  Future<void> setFavoriteVariables(BuiltList<String> names) async {
+  Future<void> setFavoriteVariables(List<String> names) async {
     var params = <String, dynamic>{};
-    params['qNames'] = toJson(names,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qNames'] = names;
     var rawResult = await query('SetFavoriteVariables', params);
   }
 
@@ -1465,15 +1451,13 @@ class Doc extends BaseService {
       String provider,
       String command,
       String method,
-      BuiltList<String> parameters,
+      List<String> parameters,
       String appendConnection) async {
     var params = <String, dynamic>{};
     params['qProvider'] = provider;
     params['qCommand'] = command;
     params['qMethod'] = method;
-    params['qParameters'] = toJson(parameters,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qParameters'] = parameters;
     params['qAppendConnection'] = appendConnection;
     var rawResult = await query('SendGenericCommandToCustomConnector', params);
     return rawResult['result']['qResult'];
@@ -1481,13 +1465,11 @@ class Doc extends BaseService {
 
   /// Returns search terms suggestions.
   Future<SearchSuggestionResult> searchSuggest(
-      SearchCombinationOptions options, BuiltList<String> terms) async {
+      SearchCombinationOptions options, List<String> terms) async {
     var params = <String, dynamic>{};
     params['qOptions'] = toJson(options,
         specifiedType: const FullType(SearchCombinationOptions));
-    params['qTerms'] = toJson(terms,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qTerms'] = terms;
     var rawResult = await query('SearchSuggest', params);
     var jsonData = rawResult['result']['qResult'];
     var dartData = fromJsonFullType<SearchSuggestionResult>(
@@ -1514,14 +1496,12 @@ class Doc extends BaseService {
   /// </table>
   Future<SearchAssociationResult> searchAssociations(
       SearchCombinationOptions options,
-      BuiltList<String> terms,
+      List<String> terms,
       SearchPage page) async {
     var params = <String, dynamic>{};
     params['qOptions'] = toJson(options,
         specifiedType: const FullType(SearchCombinationOptions));
-    params['qTerms'] = toJson(terms,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qTerms'] = terms;
     params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchAssociations', params);
     var jsonData = rawResult['result']['qResults'];
@@ -1534,14 +1514,12 @@ class Doc extends BaseService {
   /// The results depend on the search context.
   /// _SearchCombinationOptions_.
   Future<void> selectAssociations(
-      SearchCombinationOptions options, BuiltList<String> terms, int matchIx,
+      SearchCombinationOptions options, List<String> terms, int matchIx,
       {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qOptions'] = toJson(options,
         specifiedType: const FullType(SearchCombinationOptions));
-    params['qTerms'] = toJson(terms,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qTerms'] = terms;
     params['qMatchIx'] = matchIx;
     if (softLock != null) {
       params['qSoftLock'] = softLock;
@@ -1564,13 +1542,11 @@ class Doc extends BaseService {
   /// For every search group, there are one or more search group items. Each subgroup item contains results that correspond to an item type (for example a field).
   /// For every search group item, there are one or several search matches. The position of the match in each search result is given.
   Future<SearchResult> searchResults(SearchCombinationOptions options,
-      BuiltList<String> terms, SearchPage page) async {
+      List<String> terms, SearchPage page) async {
     var params = <String, dynamic>{};
     params['qOptions'] = toJson(options,
         specifiedType: const FullType(SearchCombinationOptions));
-    params['qTerms'] = toJson(terms,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qTerms'] = terms;
     params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchResults', params);
     var jsonData = rawResult['result']['qResult'];
@@ -1580,14 +1556,12 @@ class Doc extends BaseService {
   }
 
   /// Returns the generic objects corresponding to one or more search terms. The search is performed within the title, subtitle, footnote and type. In addition, associated dimension values are also searched in. For example, if the country “Japan” is selected and the object contains the dimension City, the object will appear in the results for “Osaka” but not for “Johannesburg”. The generic objects with the following types will never appear in the results: _slideitem_ , _sheet_ , _story_ , _slide_ , _masterobject_ , _snapshot_ , _LoadModel_ , _appprops_ and _searchhistory_ .
-  Future<SearchResult> searchObjects(SearchObjectOptions options,
-      BuiltList<String> terms, SearchPage page) async {
+  Future<SearchResult> searchObjects(
+      SearchObjectOptions options, List<String> terms, SearchPage page) async {
     var params = <String, dynamic>{};
     params['qOptions'] =
         toJson(options, specifiedType: const FullType(SearchObjectOptions));
-    params['qTerms'] = toJson(terms,
-        specifiedType:
-            const FullType(BuiltList, const [const FullType(String)]));
+    params['qTerms'] = terms;
     params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchObjects', params);
     var jsonData = rawResult['result']['qResult'];
