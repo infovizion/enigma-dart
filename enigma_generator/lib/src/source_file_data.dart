@@ -3,6 +3,7 @@ class TypeData {
   String jsonType;
   String dartType;
   String specifiedType;
+  String get paramType => dartType?.replaceFirst('BuiltList', 'List');
   String jsonName;
   String dartName;
   bool get isPrimitive =>
@@ -10,6 +11,9 @@ class TypeData {
       dartType == 'bool' ||
       dartType == 'int' ||
       dartType == 'num' ||
+      dartType == 'BuiltList<int>' ||
+      dartType == 'BuiltList<String>' ||
+      dartType == 'BuiltList<num>' ||
       dartType == 'double';
   TypeData({this.jsonType, this.dartType});
   String toString() =>
