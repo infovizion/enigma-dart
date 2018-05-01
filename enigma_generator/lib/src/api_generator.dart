@@ -81,14 +81,19 @@ class ApiGenerator {
 
   var exportList = <String>[];
   initBasicTypes() {
-    _addType('string',new TypeData(jsonType: 'string', dartType: 'String'));
-    _addType('boolean',new TypeData(jsonType: 'boolean', dartType: 'bool'));
-    _addType('number',new TypeData(jsonType: 'number', dartType: 'num'));
-    _addType('integer',new TypeData(jsonType: 'integer', dartType: 'int'));
-    _addType('Function',new TypeData(jsonType: 'Function', dartType: 'ScriptFunction')
-      ..importDirectives.add("import 'models/script_function.dart';"));
-    _addType('JsonObject',new TypeData(jsonType: 'JsonObject', dartType: 'JsonObject')
-      ..importDirectives.add("import 'package:built_value/json_object.dart';"));
+    _addType('string', new TypeData(jsonType: 'string', dartType: 'String'));
+    _addType('boolean', new TypeData(jsonType: 'boolean', dartType: 'bool'));
+    _addType('number', new TypeData(jsonType: 'number', dartType: 'num'));
+    _addType('integer', new TypeData(jsonType: 'integer', dartType: 'int'));
+    _addType(
+        'Function',
+        new TypeData(jsonType: 'Function', dartType: 'ScriptFunction')
+          ..importDirectives.add("import 'models/script_function.dart';"));
+    _addType(
+        'JsonObject',
+        new TypeData(jsonType: 'JsonObject', dartType: 'JsonObject')
+          ..importDirectives
+              .add("import 'package:built_value/json_object.dart';"));
   }
 
   run() {
@@ -143,13 +148,15 @@ class ApiGenerator {
         typeData.specifiedType = 'const FullType($key)';
         var importDirective = "import '${getModelFileName(key)}';";
         typeData.importDirectives.add(importDirective);
-        _addType(key,typeData);
+        _addType(key, typeData);
       }
       if (value.jsonType == 'object' && value.properties.isEmpty) {
-        _addType(key, new TypeData(jsonType: key, dartType: 'JsonObject')
-          ..specifiedType = 'const FullType($key)'
-          ..importDirectives
-              .add("import 'package:built_value/json_object.dart';"));
+        _addType(
+            key,
+            new TypeData(jsonType: key, dartType: 'JsonObject')
+              ..specifiedType = 'const FullType($key)'
+              ..importDirectives
+                  .add("import 'package:built_value/json_object.dart';"));
       }
     });
     schema.definitions.forEach((key, value) {
@@ -344,6 +351,7 @@ class ApiGenerator {
     outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
   }
 
+  _isRequired(SchemaType param) => param.required != null && param.required;
   generateMethod(String methodName, Method method, StringBuffer buffer,
       List<String> additionalImports) {
     addComment(method.description, buffer, '  ');
@@ -357,13 +365,13 @@ class ApiGenerator {
     }
     var mandatoryParams = <String>[];
     for (var p in paramsWithDartTypes) {
-      if (p.schemaType.required != null && p.schemaType.required) {
+      if (_isRequired(p.schemaType)) {
         mandatoryParams.add('${p.typeData?.dartType} ${p.dartName}');
       }
     }
     var optionalParams = <String>[];
     for (var p in paramsWithDartTypes) {
-      if (p.schemaType.required == null || !p.schemaType.required) {
+      if (!_isRequired(p.schemaType)) {
         optionalParams.add('${p.typeData?.dartType} ${p.dartName}');
       }
     }
@@ -410,8 +418,17 @@ class ApiGenerator {
         '  Future<${returnDescriptor.dartType}> $dartMethodName(${paramParts.join(', ')}) async {');
     buffer.writeln('var params = <String, dynamic>{};');
     for (var p in paramsWithDartTypes) {
+      if (!_isRequired(p.schemaType)) {
+        buffer.writeln("if ( ${p.dartName} != null ) {");
+      }
       if (p.typeData.isPrimitive) {
         buffer.writeln("params['${p.schemaType.name}'] = ${p.dartName};");
+      } else {
+        buffer.writeln(
+            "params['${p.schemaType.name}'] = toJson(${p.dartName},specifiedType: ${p.typeData.specifiedType});");
+      }
+      if (!_isRequired(p.schemaType)) {
+        buffer.writeln('}');
       }
     }
     buffer.writeln("var rawResult = await query('$methodName', params);");

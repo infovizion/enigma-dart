@@ -97,6 +97,7 @@ class Global extends BaseService {
   Future<void> interactDone(int requestId, InteractDef def) async {
     var params = <String, dynamic>{};
     params['qRequestId'] = requestId;
+    params['qDef'] = toJson(def, specifiedType: const FullType(InteractDef));
     var rawResult = await query('InteractDone', params);
   }
 
@@ -116,10 +117,18 @@ class Global extends BaseService {
       String localizedScriptMainSection}) async {
     var params = <String, dynamic>{};
     params['qDocName'] = docName;
-    params['qUserName'] = userName;
-    params['qPassword'] = password;
-    params['qSerial'] = serial;
-    params['qLocalizedScriptMainSection'] = localizedScriptMainSection;
+    if (userName != null) {
+      params['qUserName'] = userName;
+    }
+    if (password != null) {
+      params['qPassword'] = password;
+    }
+    if (serial != null) {
+      params['qSerial'] = serial;
+    }
+    if (localizedScriptMainSection != null) {
+      params['qLocalizedScriptMainSection'] = localizedScriptMainSection;
+    }
     var rawResult = await query('CreateDocEx', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -258,6 +267,9 @@ class Global extends BaseService {
     var params = <String, dynamic>{};
     params['qTargetAppId'] = targetAppId;
     params['qSrcAppID'] = srcAppID;
+    params['qIds'] = toJson(ids,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
     var rawResult = await query('ReplaceAppFromID', params);
     return rawResult['result']['qSuccess'];
   }
@@ -270,6 +282,9 @@ class Global extends BaseService {
     var params = <String, dynamic>{};
     params['qTargetAppId'] = targetAppId;
     params['qSrcAppId'] = srcAppId;
+    params['qIds'] = toJson(ids,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
     var rawResult = await query('CopyApp', params);
     return rawResult['result']['qSuccess'];
   }
@@ -302,7 +317,12 @@ class Global extends BaseService {
     var params = <String, dynamic>{};
     params['qTargetPath'] = targetPath;
     params['qSrcAppId'] = srcAppId;
-    params['qNoData'] = noData;
+    params['qIds'] = toJson(ids,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(String)]));
+    if (noData != null) {
+      params['qNoData'] = noData;
+    }
     var rawResult = await query('ExportApp', params);
     return rawResult['result']['qSuccess'];
   }
@@ -349,10 +369,18 @@ class Global extends BaseService {
       {String userName, String password, String serial, bool noData}) async {
     var params = <String, dynamic>{};
     params['qDocName'] = docName;
-    params['qUserName'] = userName;
-    params['qPassword'] = password;
-    params['qSerial'] = serial;
-    params['qNoData'] = noData;
+    if (userName != null) {
+      params['qUserName'] = userName;
+    }
+    if (password != null) {
+      params['qPassword'] = password;
+    }
+    if (serial != null) {
+      params['qSerial'] = serial;
+    }
+    if (noData != null) {
+      params['qNoData'] = noData;
+    }
     var rawResult = await query('OpenDoc', params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
@@ -438,7 +466,9 @@ class Global extends BaseService {
   /// Gets the list of all the script functions.
   Future<Function> getFunctions({String group}) async {
     var params = <String, dynamic>{};
-    params['qGroup'] = group;
+    if (group != null) {
+      params['qGroup'] = group;
+    }
     var rawResult = await query('GetFunctions', params);
     var jsonData = rawResult['result']['qFunctions'];
     var dartData =
@@ -469,6 +499,8 @@ class Global extends BaseService {
   Future<Database> getDatabasesFromConnectionString(
       Connection connection) async {
     var params = <String, dynamic>{};
+    params['qConnection'] =
+        toJson(connection, specifiedType: const FullType(Connection));
     var rawResult = await query('GetDatabasesFromConnectionString', params);
     var jsonData = rawResult['result']['qDatabases'];
     var dartData =
@@ -479,6 +511,8 @@ class Global extends BaseService {
   /// Checks if a connection string is valid.
   Future<bool> isValidConnectionString(Connection connection) async {
     var params = <String, dynamic>{};
+    params['qConnection'] =
+        toJson(connection, specifiedType: const FullType(Connection));
     var rawResult = await query('IsValidConnectionString', params);
     return rawResult['result']['qReturn'];
   }
@@ -526,7 +560,9 @@ class Global extends BaseService {
   /// List the custom connectors available in the system.
   Future<CustomConnector> getCustomConnectors({bool reloadList}) async {
     var params = <String, dynamic>{};
-    params['qReloadList'] = reloadList;
+    if (reloadList != null) {
+      params['qReloadList'] = reloadList;
+    }
     var rawResult = await query('GetCustomConnectors', params);
     var jsonData = rawResult['result']['qConnectors'];
     var dartData = fromJsonFullType<CustomConnector>(
