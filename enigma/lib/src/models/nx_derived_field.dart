@@ -4,7 +4,6 @@ library nx_derived_field;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_derived_field.g.dart';
 
@@ -47,7 +46,7 @@ abstract class NxDerivedField
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   factory NxDerivedField([updates(NxDerivedFieldBuilder b)]) = _$NxDerivedField;
 
@@ -56,7 +55,7 @@ abstract class NxDerivedField
       String name,
       String method,
       String expr,
-      BuiltList<NxCell> tags}) = _$NxDerivedField._;
+      BuiltList<String> tags}) = _$NxDerivedField._;
 
   NxDerivedField._();
 }

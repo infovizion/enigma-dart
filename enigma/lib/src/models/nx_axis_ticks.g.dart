@@ -37,14 +37,14 @@ class _$NxAxisTicksSerializer implements StructuredSerializer<NxAxisTicks> {
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.ticks != null) {
       result
         ..add('qTicks')
         ..add(serializers.serialize(object.ticks,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxTickCell)])));
     }
 
     return result;
@@ -68,14 +68,13 @@ class _$NxAxisTicksSerializer implements StructuredSerializer<NxAxisTicks> {
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qTicks':
           result.ticks.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(NxTickCell)])) as BuiltList);
           break;
       }
     }
@@ -88,9 +87,9 @@ class _$NxAxisTicks extends NxAxisTicks {
   @override
   final String name;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
   @override
-  final BuiltList<NxCell> ticks;
+  final BuiltList<NxTickCell> ticks;
 
   factory _$NxAxisTicks([void updates(NxAxisTicksBuilder b)]) =>
       (new NxAxisTicksBuilder()..update(updates)).build();
@@ -133,13 +132,14 @@ class NxAxisTicksBuilder implements Builder<NxAxisTicks, NxAxisTicksBuilder> {
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
-  ListBuilder<NxCell> _ticks;
-  ListBuilder<NxCell> get ticks => _$this._ticks ??= new ListBuilder<NxCell>();
-  set ticks(ListBuilder<NxCell> ticks) => _$this._ticks = ticks;
+  ListBuilder<NxTickCell> _ticks;
+  ListBuilder<NxTickCell> get ticks =>
+      _$this._ticks ??= new ListBuilder<NxTickCell>();
+  set ticks(ListBuilder<NxTickCell> ticks) => _$this._ticks = ticks;
 
   NxAxisTicksBuilder();
 

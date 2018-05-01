@@ -4,8 +4,9 @@ library nx_inline_dimension_def;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
+import 'sort_criteria.dart';
+import 'field_attributes.dart';
 part 'nx_inline_dimension_def.g.dart';
 
 abstract class NxInlineDimensionDef
@@ -32,14 +33,14 @@ abstract class NxInlineDimensionDef
   /// Original name: qFieldDefs
   @nullable
   @BuiltValueField(wireName: 'qFieldDefs')
-  BuiltList<NxCell> get fieldDefs;
+  BuiltList<String> get fieldDefs;
 
   /// Array of field labels.
   /// This parameter is optional.
   /// Original name: qFieldLabels
   @nullable
   @BuiltValueField(wireName: 'qFieldLabels')
-  BuiltList<NxCell> get fieldLabels;
+  BuiltList<String> get fieldLabels;
 
   /// Defines the sorting criteria in the field.
   /// Default is to sort by alphabetical order, ascending.
@@ -47,14 +48,14 @@ abstract class NxInlineDimensionDef
   /// Original name: qSortCriterias
   @nullable
   @BuiltValueField(wireName: 'qSortCriterias')
-  BuiltList<NxCell> get sortCriterias;
+  BuiltList<SortCriteria> get sortCriterias;
 
   /// Defines the format of the value.
   /// This parameter is optional.
   /// Original name: qNumberPresentations
   @nullable
   @BuiltValueField(wireName: 'qNumberPresentations')
-  BuiltList<NxCell> get numberPresentations;
+  BuiltList<FieldAttributes> get numberPresentations;
 
   /// If set to true, it inverts the sort criteria in the field.
   /// Original name: qReverseSort
@@ -82,10 +83,10 @@ abstract class NxInlineDimensionDef
 
   factory NxInlineDimensionDef.init(
       {String grouping,
-      BuiltList<NxCell> fieldDefs,
-      BuiltList<NxCell> fieldLabels,
-      BuiltList<NxCell> sortCriterias,
-      BuiltList<NxCell> numberPresentations,
+      BuiltList<String> fieldDefs,
+      BuiltList<String> fieldLabels,
+      BuiltList<SortCriteria> sortCriterias,
+      BuiltList<FieldAttributes> numberPresentations,
       bool reverseSort,
       int activeField,
       String labelExpression}) = _$NxInlineDimensionDef._;

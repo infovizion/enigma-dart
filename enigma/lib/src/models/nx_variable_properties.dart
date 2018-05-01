@@ -5,7 +5,6 @@ library nx_variable_properties;
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'field_attributes.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_variable_properties.g.dart';
 
@@ -46,7 +45,7 @@ abstract class NxVariableProperties
   /// Original name: qPreDefinedList
   @nullable
   @BuiltValueField(wireName: 'qPreDefinedList')
-  BuiltList<NxCell> get preDefinedList;
+  BuiltList<String> get preDefinedList;
 
   factory NxVariableProperties([updates(NxVariablePropertiesBuilder b)]) =
       _$NxVariableProperties;
@@ -56,7 +55,7 @@ abstract class NxVariableProperties
       FieldAttributes numberPresentation,
       bool includeInBookmark,
       bool usePredefListedValues,
-      BuiltList<NxCell> preDefinedList}) = _$NxVariableProperties._;
+      BuiltList<String> preDefinedList}) = _$NxVariableProperties._;
 
   NxVariableProperties._();
 }

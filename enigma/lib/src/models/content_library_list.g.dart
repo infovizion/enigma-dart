@@ -32,8 +32,8 @@ class _$ContentLibraryListSerializer
       result
         ..add('qItems')
         ..add(serializers.serialize(object.items,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(ContentLibraryListItem)])));
     }
 
     return result;
@@ -52,9 +52,9 @@ class _$ContentLibraryListSerializer
       switch (key) {
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(ContentLibraryListItem)
+              ])) as BuiltList);
           break;
       }
     }
@@ -65,7 +65,7 @@ class _$ContentLibraryListSerializer
 
 class _$ContentLibraryList extends ContentLibraryList {
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<ContentLibraryListItem> items;
 
   factory _$ContentLibraryList([void updates(ContentLibraryListBuilder b)]) =>
       (new ContentLibraryListBuilder()..update(updates)).build();
@@ -104,9 +104,10 @@ class ContentLibraryListBuilder
     implements Builder<ContentLibraryList, ContentLibraryListBuilder> {
   _$ContentLibraryList _$v;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<ContentLibraryListItem> _items;
+  ListBuilder<ContentLibraryListItem> get items =>
+      _$this._items ??= new ListBuilder<ContentLibraryListItem>();
+  set items(ListBuilder<ContentLibraryListItem> items) => _$this._items = items;
 
   ContentLibraryListBuilder();
 

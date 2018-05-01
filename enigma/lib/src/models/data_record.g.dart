@@ -31,7 +31,7 @@ class _$DataRecordSerializer implements StructuredSerializer<DataRecord> {
         ..add('qValues')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -51,7 +51,7 @@ class _$DataRecordSerializer implements StructuredSerializer<DataRecord> {
         case 'qValues':
           result.values.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -63,7 +63,7 @@ class _$DataRecordSerializer implements StructuredSerializer<DataRecord> {
 
 class _$DataRecord extends DataRecord {
   @override
-  final BuiltList<NxCell> values;
+  final BuiltList<String> values;
 
   factory _$DataRecord([void updates(DataRecordBuilder b)]) =>
       (new DataRecordBuilder()..update(updates)).build();
@@ -99,10 +99,10 @@ class _$DataRecord extends DataRecord {
 class DataRecordBuilder implements Builder<DataRecord, DataRecordBuilder> {
   _$DataRecord _$v;
 
-  ListBuilder<NxCell> _values;
-  ListBuilder<NxCell> get values =>
-      _$this._values ??= new ListBuilder<NxCell>();
-  set values(ListBuilder<NxCell> values) => _$this._values = values;
+  ListBuilder<String> _values;
+  ListBuilder<String> get values =>
+      _$this._values ??= new ListBuilder<String>();
+  set values(ListBuilder<String> values) => _$this._values = values;
 
   DataRecordBuilder();
 

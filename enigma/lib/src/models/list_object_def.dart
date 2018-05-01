@@ -6,8 +6,9 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'nx_inline_dimension_def.dart';
 import 'nx_auto_sort_by_state_def.dart';
-import 'nx_cell.dart';
+import 'nx_page.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_list_object_expression_def.dart';
 part 'list_object_def.g.dart';
 
 /// Defines the properties of a list object.
@@ -69,14 +70,14 @@ abstract class ListObjectDef
   /// Original name: qInitialDataFetch
   @nullable
   @BuiltValueField(wireName: 'qInitialDataFetch')
-  BuiltList<NxCell> get initialDataFetch;
+  BuiltList<NxPage> get initialDataFetch;
 
   /// Lists the expressions in the list object.
   /// This parameter is optional.
   /// Original name: qExpressions
   @nullable
   @BuiltValueField(wireName: 'qExpressions')
-  BuiltList<NxCell> get expressions;
+  BuiltList<NxListObjectExpressionDef> get expressions;
 
   factory ListObjectDef([updates(ListObjectDefBuilder b)]) = _$ListObjectDef;
 
@@ -87,8 +88,8 @@ abstract class ListObjectDef
       NxAutoSortByStateDef autoSortByState,
       String frequencyMode,
       bool showAlternatives,
-      BuiltList<NxCell> initialDataFetch,
-      BuiltList<NxCell> expressions}) = _$ListObjectDef._;
+      BuiltList<NxPage> initialDataFetch,
+      BuiltList<NxListObjectExpressionDef> expressions}) = _$ListObjectDef._;
 
   ListObjectDef._();
 }

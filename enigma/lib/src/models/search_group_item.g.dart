@@ -50,15 +50,15 @@ class _$SearchGroupItemSerializer
       result
         ..add('qItemMatches')
         ..add(serializers.serialize(object.itemMatches,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchGroupItemMatch)])));
     }
     if (object.searchTermsMatched != null) {
       result
         ..add('qSearchTermsMatched')
         ..add(serializers.serialize(object.searchTermsMatched,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
 
     return result;
@@ -89,14 +89,14 @@ class _$SearchGroupItemSerializer
           break;
         case 'qItemMatches':
           result.itemMatches.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchGroupItemMatch)]))
               as BuiltList);
           break;
         case 'qSearchTermsMatched':
           result.searchTermsMatched.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
       }
@@ -114,9 +114,9 @@ class _$SearchGroupItem extends SearchGroupItem {
   @override
   final String identifier;
   @override
-  final BuiltList<NxCell> itemMatches;
+  final BuiltList<SearchGroupItemMatch> itemMatches;
   @override
-  final BuiltList<NxCell> searchTermsMatched;
+  final BuiltList<int> searchTermsMatched;
 
   factory _$SearchGroupItem([void updates(SearchGroupItemBuilder b)]) =>
       (new SearchGroupItemBuilder()..update(updates)).build();
@@ -187,16 +187,16 @@ class SearchGroupItemBuilder
   String get identifier => _$this._identifier;
   set identifier(String identifier) => _$this._identifier = identifier;
 
-  ListBuilder<NxCell> _itemMatches;
-  ListBuilder<NxCell> get itemMatches =>
-      _$this._itemMatches ??= new ListBuilder<NxCell>();
-  set itemMatches(ListBuilder<NxCell> itemMatches) =>
+  ListBuilder<SearchGroupItemMatch> _itemMatches;
+  ListBuilder<SearchGroupItemMatch> get itemMatches =>
+      _$this._itemMatches ??= new ListBuilder<SearchGroupItemMatch>();
+  set itemMatches(ListBuilder<SearchGroupItemMatch> itemMatches) =>
       _$this._itemMatches = itemMatches;
 
-  ListBuilder<NxCell> _searchTermsMatched;
-  ListBuilder<NxCell> get searchTermsMatched =>
-      _$this._searchTermsMatched ??= new ListBuilder<NxCell>();
-  set searchTermsMatched(ListBuilder<NxCell> searchTermsMatched) =>
+  ListBuilder<int> _searchTermsMatched;
+  ListBuilder<int> get searchTermsMatched =>
+      _$this._searchTermsMatched ??= new ListBuilder<int>();
+  set searchTermsMatched(ListBuilder<int> searchTermsMatched) =>
       _$this._searchTermsMatched = searchTermsMatched;
 
   SearchGroupItemBuilder();

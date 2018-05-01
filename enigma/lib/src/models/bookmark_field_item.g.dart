@@ -51,14 +51,14 @@ class _$BookmarkFieldItemSerializer
         ..add('qValues')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(FieldValue)])));
     }
     if (object.excludedValues != null) {
       result
         ..add('qExcludedValues')
         ..add(serializers.serialize(object.excludedValues,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(FieldValue)])));
     }
     if (object.andMode != null) {
       result
@@ -101,15 +101,13 @@ class _$BookmarkFieldItemSerializer
           break;
         case 'qValues':
           result.values.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(FieldValue)])) as BuiltList);
           break;
         case 'qExcludedValues':
           result.excludedValues.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(FieldValue)])) as BuiltList);
           break;
         case 'qAndMode':
           result.andMode = serializers.deserialize(value,
@@ -134,9 +132,9 @@ class _$BookmarkFieldItem extends BookmarkFieldItem {
   @override
   final SelectInfo selectInfo;
   @override
-  final BuiltList<NxCell> values;
+  final BuiltList<FieldValue> values;
   @override
-  final BuiltList<NxCell> excludedValues;
+  final BuiltList<FieldValue> excludedValues;
   @override
   final bool andMode;
   @override
@@ -222,15 +220,15 @@ class BookmarkFieldItemBuilder
   set selectInfo(SelectInfoBuilder selectInfo) =>
       _$this._selectInfo = selectInfo;
 
-  ListBuilder<NxCell> _values;
-  ListBuilder<NxCell> get values =>
-      _$this._values ??= new ListBuilder<NxCell>();
-  set values(ListBuilder<NxCell> values) => _$this._values = values;
+  ListBuilder<FieldValue> _values;
+  ListBuilder<FieldValue> get values =>
+      _$this._values ??= new ListBuilder<FieldValue>();
+  set values(ListBuilder<FieldValue> values) => _$this._values = values;
 
-  ListBuilder<NxCell> _excludedValues;
-  ListBuilder<NxCell> get excludedValues =>
-      _$this._excludedValues ??= new ListBuilder<NxCell>();
-  set excludedValues(ListBuilder<NxCell> excludedValues) =>
+  ListBuilder<FieldValue> _excludedValues;
+  ListBuilder<FieldValue> get excludedValues =>
+      _$this._excludedValues ??= new ListBuilder<FieldValue>();
+  set excludedValues(ListBuilder<FieldValue> excludedValues) =>
       _$this._excludedValues = excludedValues;
 
   bool _andMode;

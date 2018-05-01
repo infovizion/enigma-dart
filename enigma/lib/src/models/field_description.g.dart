@@ -45,7 +45,7 @@ class _$FieldDescriptionSerializer
         ..add('qSrcTables')
         ..add(serializers.serialize(object.srcTables,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.isSystem != null) {
       result
@@ -130,7 +130,7 @@ class _$FieldDescriptionSerializer
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.isDefinitionOnly != null) {
       result
@@ -170,7 +170,7 @@ class _$FieldDescriptionSerializer
         case 'qSrcTables':
           result.srcTables.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qIsSystem':
@@ -228,7 +228,7 @@ class _$FieldDescriptionSerializer
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qIsDefinitionOnly':
@@ -252,7 +252,7 @@ class _$FieldDescription extends FieldDescription {
   @override
   final String name;
   @override
-  final BuiltList<NxCell> srcTables;
+  final BuiltList<String> srcTables;
   @override
   final bool isSystem;
   @override
@@ -280,7 +280,7 @@ class _$FieldDescription extends FieldDescription {
   @override
   final String comment;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
   @override
   final bool isDefinitionOnly;
   @override
@@ -432,10 +432,10 @@ class FieldDescriptionBuilder
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  ListBuilder<NxCell> _srcTables;
-  ListBuilder<NxCell> get srcTables =>
-      _$this._srcTables ??= new ListBuilder<NxCell>();
-  set srcTables(ListBuilder<NxCell> srcTables) => _$this._srcTables = srcTables;
+  ListBuilder<String> _srcTables;
+  ListBuilder<String> get srcTables =>
+      _$this._srcTables ??= new ListBuilder<String>();
+  set srcTables(ListBuilder<String> srcTables) => _$this._srcTables = srcTables;
 
   bool _isSystem;
   bool get isSystem => _$this._isSystem;
@@ -492,9 +492,9 @@ class FieldDescriptionBuilder
   String get comment => _$this._comment;
   set comment(String comment) => _$this._comment = comment;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
   bool _isDefinitionOnly;
   bool get isDefinitionOnly => _$this._isDefinitionOnly;

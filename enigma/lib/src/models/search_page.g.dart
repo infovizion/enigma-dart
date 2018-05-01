@@ -48,15 +48,15 @@ class _$SearchPageSerializer implements StructuredSerializer<SearchPage> {
       result
         ..add('qGroupOptions')
         ..add(serializers.serialize(object.groupOptions,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchGroupOptions)])));
     }
     if (object.groupItemOptions != null) {
       result
         ..add('qGroupItemOptions')
         ..add(serializers.serialize(object.groupItemOptions,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchGroupItemOptions)])));
     }
 
     return result;
@@ -87,15 +87,15 @@ class _$SearchPageSerializer implements StructuredSerializer<SearchPage> {
           break;
         case 'qGroupOptions':
           result.groupOptions.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchGroupOptions)]))
               as BuiltList);
           break;
         case 'qGroupItemOptions':
           result.groupItemOptions.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(SearchGroupItemOptions)
+              ])) as BuiltList);
           break;
       }
     }
@@ -112,9 +112,9 @@ class _$SearchPage extends SearchPage {
   @override
   final int maxNbrFieldMatches;
   @override
-  final BuiltList<NxCell> groupOptions;
+  final BuiltList<SearchGroupOptions> groupOptions;
   @override
-  final BuiltList<NxCell> groupItemOptions;
+  final BuiltList<SearchGroupItemOptions> groupItemOptions;
 
   factory _$SearchPage([void updates(SearchPageBuilder b)]) =>
       (new SearchPageBuilder()..update(updates)).build();
@@ -183,16 +183,16 @@ class SearchPageBuilder implements Builder<SearchPage, SearchPageBuilder> {
   set maxNbrFieldMatches(int maxNbrFieldMatches) =>
       _$this._maxNbrFieldMatches = maxNbrFieldMatches;
 
-  ListBuilder<NxCell> _groupOptions;
-  ListBuilder<NxCell> get groupOptions =>
-      _$this._groupOptions ??= new ListBuilder<NxCell>();
-  set groupOptions(ListBuilder<NxCell> groupOptions) =>
+  ListBuilder<SearchGroupOptions> _groupOptions;
+  ListBuilder<SearchGroupOptions> get groupOptions =>
+      _$this._groupOptions ??= new ListBuilder<SearchGroupOptions>();
+  set groupOptions(ListBuilder<SearchGroupOptions> groupOptions) =>
       _$this._groupOptions = groupOptions;
 
-  ListBuilder<NxCell> _groupItemOptions;
-  ListBuilder<NxCell> get groupItemOptions =>
-      _$this._groupItemOptions ??= new ListBuilder<NxCell>();
-  set groupItemOptions(ListBuilder<NxCell> groupItemOptions) =>
+  ListBuilder<SearchGroupItemOptions> _groupItemOptions;
+  ListBuilder<SearchGroupItemOptions> get groupItemOptions =>
+      _$this._groupItemOptions ??= new ListBuilder<SearchGroupItemOptions>();
+  set groupItemOptions(ListBuilder<SearchGroupItemOptions> groupItemOptions) =>
       _$this._groupItemOptions = groupItemOptions;
 
   SearchPageBuilder();

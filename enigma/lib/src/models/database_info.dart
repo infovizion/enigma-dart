@@ -4,7 +4,6 @@ library database_info;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'database_info.g.dart';
 
@@ -88,7 +87,7 @@ abstract class DatabaseInfo
   /// Original name: qKeywords
   @nullable
   @BuiltValueField(wireName: 'qKeywords')
-  BuiltList<NxCell> get keywords;
+  BuiltList<String> get keywords;
 
   factory DatabaseInfo([updates(DatabaseInfoBuilder b)]) = _$DatabaseInfo;
 
@@ -103,7 +102,7 @@ abstract class DatabaseInfo
       String quoteSuffix,
       String specialChars,
       String defaultDatabase,
-      BuiltList<NxCell> keywords}) = _$DatabaseInfo._;
+      BuiltList<String> keywords}) = _$DatabaseInfo._;
 
   DatabaseInfo._();
 }

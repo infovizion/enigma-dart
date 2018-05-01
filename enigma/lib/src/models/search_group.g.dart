@@ -43,7 +43,7 @@ class _$SearchGroupSerializer implements StructuredSerializer<SearchGroup> {
         ..add('qSearchTermsMatched')
         ..add(serializers.serialize(object.searchTermsMatched,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.totalNumberOfItems != null) {
       result
@@ -55,8 +55,8 @@ class _$SearchGroupSerializer implements StructuredSerializer<SearchGroup> {
       result
         ..add('qItems')
         ..add(serializers.serialize(object.items,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchGroupItem)])));
     }
 
     return result;
@@ -84,7 +84,7 @@ class _$SearchGroupSerializer implements StructuredSerializer<SearchGroup> {
         case 'qSearchTermsMatched':
           result.searchTermsMatched.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qTotalNumberOfItems':
@@ -93,8 +93,8 @@ class _$SearchGroupSerializer implements StructuredSerializer<SearchGroup> {
           break;
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchGroupItem)]))
               as BuiltList);
           break;
       }
@@ -110,11 +110,11 @@ class _$SearchGroup extends SearchGroup {
   @override
   final String groupType;
   @override
-  final BuiltList<NxCell> searchTermsMatched;
+  final BuiltList<int> searchTermsMatched;
   @override
   final int totalNumberOfItems;
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<SearchGroupItem> items;
 
   factory _$SearchGroup([void updates(SearchGroupBuilder b)]) =>
       (new SearchGroupBuilder()..update(updates)).build();
@@ -178,10 +178,10 @@ class SearchGroupBuilder implements Builder<SearchGroup, SearchGroupBuilder> {
   String get groupType => _$this._groupType;
   set groupType(String groupType) => _$this._groupType = groupType;
 
-  ListBuilder<NxCell> _searchTermsMatched;
-  ListBuilder<NxCell> get searchTermsMatched =>
-      _$this._searchTermsMatched ??= new ListBuilder<NxCell>();
-  set searchTermsMatched(ListBuilder<NxCell> searchTermsMatched) =>
+  ListBuilder<int> _searchTermsMatched;
+  ListBuilder<int> get searchTermsMatched =>
+      _$this._searchTermsMatched ??= new ListBuilder<int>();
+  set searchTermsMatched(ListBuilder<int> searchTermsMatched) =>
       _$this._searchTermsMatched = searchTermsMatched;
 
   int _totalNumberOfItems;
@@ -189,9 +189,10 @@ class SearchGroupBuilder implements Builder<SearchGroup, SearchGroupBuilder> {
   set totalNumberOfItems(int totalNumberOfItems) =>
       _$this._totalNumberOfItems = totalNumberOfItems;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<SearchGroupItem> _items;
+  ListBuilder<SearchGroupItem> get items =>
+      _$this._items ??= new ListBuilder<SearchGroupItem>();
+  set items(ListBuilder<SearchGroupItem> items) => _$this._items = items;
 
   SearchGroupBuilder();
 

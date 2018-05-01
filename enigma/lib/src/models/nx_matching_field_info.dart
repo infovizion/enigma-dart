@@ -4,7 +4,6 @@ library nx_matching_field_info;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_matching_field_info.g.dart';
 
@@ -23,12 +22,12 @@ abstract class NxMatchingFieldInfo
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   factory NxMatchingFieldInfo([updates(NxMatchingFieldInfoBuilder b)]) =
       _$NxMatchingFieldInfo;
 
-  factory NxMatchingFieldInfo.init({String name, BuiltList<NxCell> tags}) =
+  factory NxMatchingFieldInfo.init({String name, BuiltList<String> tags}) =
       _$NxMatchingFieldInfo._;
 
   NxMatchingFieldInfo._();

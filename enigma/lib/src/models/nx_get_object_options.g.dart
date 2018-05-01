@@ -33,7 +33,7 @@ class _$NxGetObjectOptionsSerializer
         ..add('qTypes')
         ..add(serializers.serialize(object.types,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.includeSessionObjects != null) {
       result
@@ -65,7 +65,7 @@ class _$NxGetObjectOptionsSerializer
         case 'qTypes':
           result.types.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qIncludeSessionObjects':
@@ -85,7 +85,7 @@ class _$NxGetObjectOptionsSerializer
 
 class _$NxGetObjectOptions extends NxGetObjectOptions {
   @override
-  final BuiltList<NxCell> types;
+  final BuiltList<String> types;
   @override
   final bool includeSessionObjects;
   @override
@@ -134,9 +134,9 @@ class NxGetObjectOptionsBuilder
     implements Builder<NxGetObjectOptions, NxGetObjectOptionsBuilder> {
   _$NxGetObjectOptions _$v;
 
-  ListBuilder<NxCell> _types;
-  ListBuilder<NxCell> get types => _$this._types ??= new ListBuilder<NxCell>();
-  set types(ListBuilder<NxCell> types) => _$this._types = types;
+  ListBuilder<String> _types;
+  ListBuilder<String> get types => _$this._types ??= new ListBuilder<String>();
+  set types(ListBuilder<String> types) => _$this._types = types;
 
   bool _includeSessionObjects;
   bool get includeSessionObjects => _$this._includeSessionObjects;

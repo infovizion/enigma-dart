@@ -4,7 +4,7 @@ library table_record;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'field_in_table_data.dart';
 import 'package:built_collection/built_collection.dart';
 import 'point.dart';
 part 'table_record.g.dart';
@@ -34,7 +34,7 @@ abstract class TableRecord implements Built<TableRecord, TableRecordBuilder> {
   /// Original name: qFields
   @nullable
   @BuiltValueField(wireName: 'qFields')
-  BuiltList<NxCell> get fields;
+  BuiltList<FieldInTableData> get fields;
 
   /// Information about the position of the table.
   /// Original name: qPos
@@ -67,7 +67,7 @@ abstract class TableRecord implements Built<TableRecord, TableRecordBuilder> {
       {String name,
       bool loose,
       int noOfRows,
-      BuiltList<NxCell> fields,
+      BuiltList<FieldInTableData> fields,
       Point pos,
       String comment,
       bool isDirectDiscovery,

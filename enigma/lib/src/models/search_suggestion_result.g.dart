@@ -35,15 +35,15 @@ class _$SearchSuggestionResultSerializer
       result
         ..add('qSuggestions')
         ..add(serializers.serialize(object.suggestions,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchSuggestItem)])));
     }
     if (object.fieldNames != null) {
       result
         ..add('qFieldNames')
         ..add(serializers.serialize(object.fieldNames,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -63,14 +63,14 @@ class _$SearchSuggestionResultSerializer
       switch (key) {
         case 'qSuggestions':
           result.suggestions.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchSuggestItem)]))
               as BuiltList);
           break;
         case 'qFieldNames':
           result.fieldNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -82,9 +82,9 @@ class _$SearchSuggestionResultSerializer
 
 class _$SearchSuggestionResult extends SearchSuggestionResult {
   @override
-  final BuiltList<NxCell> suggestions;
+  final BuiltList<SearchSuggestItem> suggestions;
   @override
-  final BuiltList<NxCell> fieldNames;
+  final BuiltList<String> fieldNames;
 
   factory _$SearchSuggestionResult(
           [void updates(SearchSuggestionResultBuilder b)]) =>
@@ -126,16 +126,16 @@ class SearchSuggestionResultBuilder
     implements Builder<SearchSuggestionResult, SearchSuggestionResultBuilder> {
   _$SearchSuggestionResult _$v;
 
-  ListBuilder<NxCell> _suggestions;
-  ListBuilder<NxCell> get suggestions =>
-      _$this._suggestions ??= new ListBuilder<NxCell>();
-  set suggestions(ListBuilder<NxCell> suggestions) =>
+  ListBuilder<SearchSuggestItem> _suggestions;
+  ListBuilder<SearchSuggestItem> get suggestions =>
+      _$this._suggestions ??= new ListBuilder<SearchSuggestItem>();
+  set suggestions(ListBuilder<SearchSuggestItem> suggestions) =>
       _$this._suggestions = suggestions;
 
-  ListBuilder<NxCell> _fieldNames;
-  ListBuilder<NxCell> get fieldNames =>
-      _$this._fieldNames ??= new ListBuilder<NxCell>();
-  set fieldNames(ListBuilder<NxCell> fieldNames) =>
+  ListBuilder<String> _fieldNames;
+  ListBuilder<String> get fieldNames =>
+      _$this._fieldNames ??= new ListBuilder<String>();
+  set fieldNames(ListBuilder<String> fieldNames) =>
       _$this._fieldNames = fieldNames;
 
   SearchSuggestionResultBuilder();

@@ -45,7 +45,7 @@ class _$NxInlineMeasureDefSerializer
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.grouping != null) {
       result
@@ -106,7 +106,7 @@ class _$NxInlineMeasureDefSerializer
         ..add('qExpressions')
         ..add(serializers.serialize(object.expressions,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.labelExpression != null) {
       result
@@ -140,7 +140,7 @@ class _$NxInlineMeasureDefSerializer
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qGrouping':
@@ -183,7 +183,7 @@ class _$NxInlineMeasureDefSerializer
         case 'qExpressions':
           result.expressions.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qLabelExpression':
@@ -203,7 +203,7 @@ class _$NxInlineMeasureDef extends NxInlineMeasureDef {
   @override
   final String description;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
   @override
   final String grouping;
   @override
@@ -223,7 +223,7 @@ class _$NxInlineMeasureDef extends NxInlineMeasureDef {
   @override
   final int activeExpression;
   @override
-  final BuiltList<NxCell> expressions;
+  final BuiltList<String> expressions;
   @override
   final String labelExpression;
 
@@ -338,9 +338,9 @@ class NxInlineMeasureDefBuilder
   String get description => _$this._description;
   set description(String description) => _$this._description = description;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
   String _grouping;
   String get grouping => _$this._grouping;
@@ -381,10 +381,10 @@ class NxInlineMeasureDefBuilder
   set activeExpression(int activeExpression) =>
       _$this._activeExpression = activeExpression;
 
-  ListBuilder<NxCell> _expressions;
-  ListBuilder<NxCell> get expressions =>
-      _$this._expressions ??= new ListBuilder<NxCell>();
-  set expressions(ListBuilder<NxCell> expressions) =>
+  ListBuilder<String> _expressions;
+  ListBuilder<String> get expressions =>
+      _$this._expressions ??= new ListBuilder<String>();
+  set expressions(ListBuilder<String> expressions) =>
       _$this._expressions = expressions;
 
   String _labelExpression;

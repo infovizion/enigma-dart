@@ -4,11 +4,13 @@ library nx_tree_dimension_info;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_state_counts.dart';
 import 'nx_validation_error.dart';
 import 'field_attributes.dart';
+import 'nx_measure_info.dart';
+import 'nx_attr_expr_info.dart';
+import 'nx_attr_dim_info.dart';
 part 'nx_tree_dimension_info.g.dart';
 
 abstract class NxTreeDimensionInfo
@@ -59,7 +61,7 @@ abstract class NxTreeDimensionInfo
   /// Original name: qGroupFallbackTitles
   @nullable
   @BuiltValueField(wireName: 'qGroupFallbackTitles')
-  BuiltList<NxCell> get groupFallbackTitles;
+  BuiltList<String> get groupFallbackTitles;
 
   /// Index of the dimension that is currently in use.
   /// _qGroupPos_ is set to 0 if there are no hierarchical groups (drill-down groups) or cycle groups.
@@ -79,7 +81,7 @@ abstract class NxTreeDimensionInfo
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   /// This parameter is optional.
   /// Gives information on the error.
@@ -139,7 +141,7 @@ abstract class NxTreeDimensionInfo
   /// Original name: qGroupFieldDefs
   @nullable
   @BuiltValueField(wireName: 'qGroupFieldDefs')
-  BuiltList<NxCell> get groupFieldDefs;
+  BuiltList<String> get groupFieldDefs;
 
   /// Minimum value.
   /// Original name: qMin
@@ -175,19 +177,19 @@ abstract class NxTreeDimensionInfo
   /// Original name: qMeasureInfo
   @nullable
   @BuiltValueField(wireName: 'qMeasureInfo')
-  BuiltList<NxCell> get measureInfo;
+  BuiltList<NxMeasureInfo> get measureInfo;
 
   /// List of attribute expressions.
   /// Original name: qAttrExprInfo
   @nullable
   @BuiltValueField(wireName: 'qAttrExprInfo')
-  BuiltList<NxCell> get attrExprInfo;
+  BuiltList<NxAttrExprInfo> get attrExprInfo;
 
   /// List of attribute dimensions.
   /// Original name: qAttrDimInfo
   @nullable
   @BuiltValueField(wireName: 'qAttrDimInfo')
-  BuiltList<NxCell> get attrDimInfo;
+  BuiltList<NxAttrDimInfo> get attrDimInfo;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
@@ -216,10 +218,10 @@ abstract class NxTreeDimensionInfo
       int cardinal,
       bool locked,
       String sortIndicator,
-      BuiltList<NxCell> groupFallbackTitles,
+      BuiltList<String> groupFallbackTitles,
       int groupPos,
       NxStateCounts stateCounts,
-      BuiltList<NxCell> tags,
+      BuiltList<String> tags,
       NxValidationError error,
       String dimensionType,
       bool reverseSort,
@@ -227,15 +229,15 @@ abstract class NxTreeDimensionInfo
       bool isSemantic,
       FieldAttributes numFormat,
       bool isAutoFormat,
-      BuiltList<NxCell> groupFieldDefs,
+      BuiltList<String> groupFieldDefs,
       num min,
       num max,
       bool continuousAxes,
       bool isCyclic,
       bool derivedField,
-      BuiltList<NxCell> measureInfo,
-      BuiltList<NxCell> attrExprInfo,
-      BuiltList<NxCell> attrDimInfo,
+      BuiltList<NxMeasureInfo> measureInfo,
+      BuiltList<NxAttrExprInfo> attrExprInfo,
+      BuiltList<NxAttrDimInfo> attrDimInfo,
       String calcCondMsg,
       bool isCalculated,
       bool isOneAndOnlyOne}) = _$NxTreeDimensionInfo._;

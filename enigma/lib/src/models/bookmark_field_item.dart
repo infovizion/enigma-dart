@@ -6,7 +6,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'field_def_ex.dart';
 import 'select_info.dart';
-import 'nx_cell.dart';
+import 'field_value.dart';
 import 'package:built_collection/built_collection.dart';
 part 'bookmark_field_item.g.dart';
 
@@ -37,14 +37,14 @@ abstract class BookmarkFieldItem
   /// Original name: qValues
   @nullable
   @BuiltValueField(wireName: 'qValues')
-  BuiltList<NxCell> get values;
+  BuiltList<FieldValue> get values;
 
   /// List of excluded values.
   /// Either the list of selected values or the list of excluded values is displayed.
   /// Original name: qExcludedValues
   @nullable
   @BuiltValueField(wireName: 'qExcludedValues')
-  BuiltList<NxCell> get excludedValues;
+  BuiltList<FieldValue> get excludedValues;
 
   /// If set to true, selections within a list object are made in AND mode; If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in and-mode, all records that are associated with Customer 1 **and** Customer 2 are selected.
   /// The default value is false; selections within a list object are made in OR mode. If you have a list object that lists all customers, by selecting Customer 1 and Customer 2 while in or-mode, all records that are associated with either Customer 1 **or** Customer 2 are selected.
@@ -68,8 +68,8 @@ abstract class BookmarkFieldItem
       {FieldDefEx def,
       bool locked,
       SelectInfo selectInfo,
-      BuiltList<NxCell> values,
-      BuiltList<NxCell> excludedValues,
+      BuiltList<FieldValue> values,
+      BuiltList<FieldValue> excludedValues,
       bool andMode,
       bool oneAndOnlyOne}) = _$BookmarkFieldItem._;
 

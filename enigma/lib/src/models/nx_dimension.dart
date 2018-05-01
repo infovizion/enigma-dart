@@ -8,8 +8,9 @@ import 'nx_inline_dimension_def.dart';
 import 'other_total_spec_prop.dart';
 import 'string_expr.dart';
 import 'value_expr.dart';
-import 'nx_cell.dart';
+import 'nx_attr_expr_def.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_attr_dim_def.dart';
 import 'nx_calc_cond.dart';
 part 'nx_dimension.g.dart';
 
@@ -98,13 +99,13 @@ abstract class NxDimension implements Built<NxDimension, NxDimensionBuilder> {
   /// Original name: qAttributeExpressions
   @nullable
   @BuiltValueField(wireName: 'qAttributeExpressions')
-  BuiltList<NxCell> get attributeExpressions;
+  BuiltList<NxAttrExprDef> get attributeExpressions;
 
   /// List of attribute dimensions.
   /// Original name: qAttributeDimensions
   @nullable
   @BuiltValueField(wireName: 'qAttributeDimensions')
-  BuiltList<NxCell> get attributeDimensions;
+  BuiltList<NxAttrDimDef> get attributeDimensions;
 
   /// Specifies a calculation condition object.
   /// If CalcCondition.Cond is not fulfilled, the dimension is excluded from the calculation and CalcCondition.Msg is evaluated.
@@ -128,8 +129,8 @@ abstract class NxDimension implements Built<NxDimension, NxDimensionBuilder> {
       StringExpr otherLabel,
       StringExpr totalLabel,
       ValueExpr calcCond,
-      BuiltList<NxCell> attributeExpressions,
-      BuiltList<NxCell> attributeDimensions,
+      BuiltList<NxAttrExprDef> attributeExpressions,
+      BuiltList<NxAttrDimDef> attributeDimensions,
       NxCalcCond calcCondition}) = _$NxDimension._;
 
   NxDimension._();

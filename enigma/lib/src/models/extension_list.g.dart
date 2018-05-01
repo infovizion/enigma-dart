@@ -32,7 +32,7 @@ class _$ExtensionListSerializer implements StructuredSerializer<ExtensionList> {
         ..add('qItems')
         ..add(serializers.serialize(object.items,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -52,7 +52,7 @@ class _$ExtensionListSerializer implements StructuredSerializer<ExtensionList> {
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -64,7 +64,7 @@ class _$ExtensionListSerializer implements StructuredSerializer<ExtensionList> {
 
 class _$ExtensionList extends ExtensionList {
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<String> items;
 
   factory _$ExtensionList([void updates(ExtensionListBuilder b)]) =>
       (new ExtensionListBuilder()..update(updates)).build();
@@ -101,9 +101,9 @@ class ExtensionListBuilder
     implements Builder<ExtensionList, ExtensionListBuilder> {
   _$ExtensionList _$v;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<String> _items;
+  ListBuilder<String> get items => _$this._items ??= new ListBuilder<String>();
+  set items(ListBuilder<String> items) => _$this._items = items;
 
   ExtensionListBuilder();
 

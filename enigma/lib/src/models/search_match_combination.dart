@@ -4,7 +4,7 @@ library search_match_combination;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'search_field_match.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_match_combination.g.dart';
 
@@ -23,13 +23,14 @@ abstract class SearchMatchCombination
   /// Original name: qFieldMatches
   @nullable
   @BuiltValueField(wireName: 'qFieldMatches')
-  BuiltList<NxCell> get fieldMatches;
+  BuiltList<SearchFieldMatch> get fieldMatches;
 
   factory SearchMatchCombination([updates(SearchMatchCombinationBuilder b)]) =
       _$SearchMatchCombination;
 
   factory SearchMatchCombination.init(
-      {int id, BuiltList<NxCell> fieldMatches}) = _$SearchMatchCombination._;
+      {int id,
+      BuiltList<SearchFieldMatch> fieldMatches}) = _$SearchMatchCombination._;
 
   SearchMatchCombination._();
 }

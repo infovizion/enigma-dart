@@ -44,8 +44,8 @@ class _$SearchTermResultSerializer
       result
         ..add('qRanges')
         ..add(serializers.serialize(object.ranges,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchCharRange)])));
     }
 
     return result;
@@ -72,8 +72,8 @@ class _$SearchTermResultSerializer
           break;
         case 'qRanges':
           result.ranges.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchCharRange)]))
               as BuiltList);
           break;
       }
@@ -89,7 +89,7 @@ class _$SearchTermResult extends SearchTermResult {
   @override
   final int elemNumber;
   @override
-  final BuiltList<NxCell> ranges;
+  final BuiltList<SearchCharRange> ranges;
 
   factory _$SearchTermResult([void updates(SearchTermResultBuilder b)]) =>
       (new SearchTermResultBuilder()..update(updates)).build();
@@ -141,10 +141,10 @@ class SearchTermResultBuilder
   int get elemNumber => _$this._elemNumber;
   set elemNumber(int elemNumber) => _$this._elemNumber = elemNumber;
 
-  ListBuilder<NxCell> _ranges;
-  ListBuilder<NxCell> get ranges =>
-      _$this._ranges ??= new ListBuilder<NxCell>();
-  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<SearchCharRange> _ranges;
+  ListBuilder<SearchCharRange> get ranges =>
+      _$this._ranges ??= new ListBuilder<SearchCharRange>();
+  set ranges(ListBuilder<SearchCharRange> ranges) => _$this._ranges = ranges;
 
   SearchTermResultBuilder();
 

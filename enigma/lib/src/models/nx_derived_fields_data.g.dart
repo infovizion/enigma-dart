@@ -41,22 +41,22 @@ class _$NxDerivedFieldsDataSerializer
       result
         ..add('qFieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxDerivedField)])));
     }
     if (object.groupDefs != null) {
       result
         ..add('qGroupDefs')
         ..add(serializers.serialize(object.groupDefs,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxDerivedGroup)])));
     }
     if (object.tags != null) {
       result
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -79,20 +79,20 @@ class _$NxDerivedFieldsDataSerializer
           break;
         case 'qFieldDefs':
           result.fieldDefs.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxDerivedField)]))
               as BuiltList);
           break;
         case 'qGroupDefs':
           result.groupDefs.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxDerivedGroup)]))
               as BuiltList);
           break;
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -106,11 +106,11 @@ class _$NxDerivedFieldsData extends NxDerivedFieldsData {
   @override
   final String derivedDefinitionName;
   @override
-  final BuiltList<NxCell> fieldDefs;
+  final BuiltList<NxDerivedField> fieldDefs;
   @override
-  final BuiltList<NxCell> groupDefs;
+  final BuiltList<NxDerivedGroup> groupDefs;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
 
   factory _$NxDerivedFieldsData([void updates(NxDerivedFieldsDataBuilder b)]) =>
       (new NxDerivedFieldsDataBuilder()..update(updates)).build();
@@ -165,19 +165,21 @@ class NxDerivedFieldsDataBuilder
   set derivedDefinitionName(String derivedDefinitionName) =>
       _$this._derivedDefinitionName = derivedDefinitionName;
 
-  ListBuilder<NxCell> _fieldDefs;
-  ListBuilder<NxCell> get fieldDefs =>
-      _$this._fieldDefs ??= new ListBuilder<NxCell>();
-  set fieldDefs(ListBuilder<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
+  ListBuilder<NxDerivedField> _fieldDefs;
+  ListBuilder<NxDerivedField> get fieldDefs =>
+      _$this._fieldDefs ??= new ListBuilder<NxDerivedField>();
+  set fieldDefs(ListBuilder<NxDerivedField> fieldDefs) =>
+      _$this._fieldDefs = fieldDefs;
 
-  ListBuilder<NxCell> _groupDefs;
-  ListBuilder<NxCell> get groupDefs =>
-      _$this._groupDefs ??= new ListBuilder<NxCell>();
-  set groupDefs(ListBuilder<NxCell> groupDefs) => _$this._groupDefs = groupDefs;
+  ListBuilder<NxDerivedGroup> _groupDefs;
+  ListBuilder<NxDerivedGroup> get groupDefs =>
+      _$this._groupDefs ??= new ListBuilder<NxDerivedGroup>();
+  set groupDefs(ListBuilder<NxDerivedGroup> groupDefs) =>
+      _$this._groupDefs = groupDefs;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
   NxDerivedFieldsDataBuilder();
 

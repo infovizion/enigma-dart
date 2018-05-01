@@ -6,6 +6,7 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_group_tail.dart';
 import 'rect.dart';
 part 'nx_data_page.g.dart';
 
@@ -16,7 +17,7 @@ abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
   /// Original name: qMatrix
   @nullable
   @BuiltValueField(wireName: 'qMatrix')
-  BuiltList<NxCell> get matrix;
+  BuiltList<BuiltList<NxCell>> get matrix;
 
   /// Array of tails.
   /// Is used for hypercube objects with multiple dimensions. It might happen that due to the window size some elements in a group cannot be displayed in the same page as the other elements of the group. Elements of a group of dimensions can be part of the previous or the next tail.
@@ -24,7 +25,7 @@ abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
   /// Original name: qTails
   @nullable
   @BuiltValueField(wireName: 'qTails')
-  BuiltList<NxCell> get tails;
+  BuiltList<NxGroupTail> get tails;
 
   /// Size and offset of the data in the matrix.
   /// Original name: qArea
@@ -42,8 +43,8 @@ abstract class NxDataPage implements Built<NxDataPage, NxDataPageBuilder> {
   factory NxDataPage([updates(NxDataPageBuilder b)]) = _$NxDataPage;
 
   factory NxDataPage.init(
-      {BuiltList<NxCell> matrix,
-      BuiltList<NxCell> tails,
+      {BuiltList<BuiltList<NxCell>> matrix,
+      BuiltList<NxGroupTail> tails,
       Rect area,
       bool isReduced}) = _$NxDataPage._;
 

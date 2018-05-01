@@ -36,7 +36,7 @@ class _$SearchObjectOptionsSerializer
         ..add('qAttributes')
         ..add(serializers.serialize(object.attributes,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.charEncoding != null) {
       result
@@ -62,7 +62,7 @@ class _$SearchObjectOptionsSerializer
         case 'qAttributes':
           result.attributes.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qCharEncoding':
@@ -78,7 +78,7 @@ class _$SearchObjectOptionsSerializer
 
 class _$SearchObjectOptions extends SearchObjectOptions {
   @override
-  final BuiltList<NxCell> attributes;
+  final BuiltList<String> attributes;
   @override
   final String charEncoding;
 
@@ -120,10 +120,10 @@ class SearchObjectOptionsBuilder
     implements Builder<SearchObjectOptions, SearchObjectOptionsBuilder> {
   _$SearchObjectOptions _$v;
 
-  ListBuilder<NxCell> _attributes;
-  ListBuilder<NxCell> get attributes =>
-      _$this._attributes ??= new ListBuilder<NxCell>();
-  set attributes(ListBuilder<NxCell> attributes) =>
+  ListBuilder<String> _attributes;
+  ListBuilder<String> get attributes =>
+      _$this._attributes ??= new ListBuilder<String>();
+  set attributes(ListBuilder<String> attributes) =>
       _$this._attributes = attributes;
 
   String _charEncoding;

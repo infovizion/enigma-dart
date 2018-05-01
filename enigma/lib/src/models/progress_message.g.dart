@@ -39,7 +39,7 @@ class _$ProgressMessageSerializer
         ..add('qMessageParameters')
         ..add(serializers.serialize(object.messageParameters,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -63,7 +63,7 @@ class _$ProgressMessageSerializer
         case 'qMessageParameters':
           result.messageParameters.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -77,7 +77,7 @@ class _$ProgressMessage extends ProgressMessage {
   @override
   final int messageCode;
   @override
-  final BuiltList<NxCell> messageParameters;
+  final BuiltList<String> messageParameters;
 
   factory _$ProgressMessage([void updates(ProgressMessageBuilder b)]) =>
       (new ProgressMessageBuilder()..update(updates)).build();
@@ -122,10 +122,10 @@ class ProgressMessageBuilder
   int get messageCode => _$this._messageCode;
   set messageCode(int messageCode) => _$this._messageCode = messageCode;
 
-  ListBuilder<NxCell> _messageParameters;
-  ListBuilder<NxCell> get messageParameters =>
-      _$this._messageParameters ??= new ListBuilder<NxCell>();
-  set messageParameters(ListBuilder<NxCell> messageParameters) =>
+  ListBuilder<String> _messageParameters;
+  ListBuilder<String> get messageParameters =>
+      _$this._messageParameters ??= new ListBuilder<String>();
+  set messageParameters(ListBuilder<String> messageParameters) =>
       _$this._messageParameters = messageParameters;
 
   ProgressMessageBuilder();

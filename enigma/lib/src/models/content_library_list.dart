@@ -4,7 +4,7 @@ library content_library_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'content_library_list_item.dart';
 import 'package:built_collection/built_collection.dart';
 part 'content_library_list.g.dart';
 
@@ -17,12 +17,12 @@ abstract class ContentLibraryList
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<ContentLibraryListItem> get items;
 
   factory ContentLibraryList([updates(ContentLibraryListBuilder b)]) =
       _$ContentLibraryList;
 
-  factory ContentLibraryList.init({BuiltList<NxCell> items}) =
+  factory ContentLibraryList.init({BuiltList<ContentLibraryListItem> items}) =
       _$ContentLibraryList._;
 
   ContentLibraryList._();

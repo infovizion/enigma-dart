@@ -4,8 +4,9 @@ library search_group_item_match;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'search_char_range.dart';
 import 'package:built_collection/built_collection.dart';
+import 'search_attribute.dart';
 part 'search_group_item_match.g.dart';
 
 abstract class SearchGroupItemMatch
@@ -27,7 +28,7 @@ abstract class SearchGroupItemMatch
   /// Original name: qRanges
   @nullable
   @BuiltValueField(wireName: 'qRanges')
-  BuiltList<NxCell> get ranges;
+  BuiltList<SearchCharRange> get ranges;
 
   /// Provides detail of the match as requested by the user in _SearchObjectsOptions.qAttributes_ or _SearchCombinationOptions.qAttributes_
   /// If the user requests _SearchObjects_ or _SearchResults_ with an empty _qAttributes_ option, the outputted _qAttributes_ is returned empty.
@@ -37,15 +38,15 @@ abstract class SearchGroupItemMatch
   /// Original name: qAttributes
   @nullable
   @BuiltValueField(wireName: 'qAttributes')
-  BuiltList<NxCell> get attributes;
+  BuiltList<SearchAttribute> get attributes;
 
   factory SearchGroupItemMatch([updates(SearchGroupItemMatchBuilder b)]) =
       _$SearchGroupItemMatch;
 
   factory SearchGroupItemMatch.init(
       {String text,
-      BuiltList<NxCell> ranges,
-      BuiltList<NxCell> attributes}) = _$SearchGroupItemMatch._;
+      BuiltList<SearchCharRange> ranges,
+      BuiltList<SearchAttribute> attributes}) = _$SearchGroupItemMatch._;
 
   SearchGroupItemMatch._();
 }

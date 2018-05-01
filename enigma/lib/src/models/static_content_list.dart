@@ -4,7 +4,7 @@ library static_content_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'static_content_list_item.dart';
 import 'package:built_collection/built_collection.dart';
 part 'static_content_list.g.dart';
 
@@ -17,12 +17,12 @@ abstract class StaticContentList
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<StaticContentListItem> get items;
 
   factory StaticContentList([updates(StaticContentListBuilder b)]) =
       _$StaticContentList;
 
-  factory StaticContentList.init({BuiltList<NxCell> items}) =
+  factory StaticContentList.init({BuiltList<StaticContentListItem> items}) =
       _$StaticContentList._;
 
   StaticContentList._();

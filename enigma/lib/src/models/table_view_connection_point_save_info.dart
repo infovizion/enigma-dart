@@ -5,7 +5,6 @@ library table_view_connection_point_save_info;
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'point.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'table_view_connection_point_save_info.g.dart';
 
@@ -26,7 +25,7 @@ abstract class TableViewConnectionPointSaveInfo
   /// Original name: qFields
   @nullable
   @BuiltValueField(wireName: 'qFields')
-  BuiltList<NxCell> get fields;
+  BuiltList<String> get fields;
 
   factory TableViewConnectionPointSaveInfo(
           [updates(TableViewConnectionPointSaveInfoBuilder b)]) =
@@ -34,7 +33,7 @@ abstract class TableViewConnectionPointSaveInfo
 
   factory TableViewConnectionPointSaveInfo.init(
       {Point pos,
-      BuiltList<NxCell> fields}) = _$TableViewConnectionPointSaveInfo._;
+      BuiltList<String> fields}) = _$TableViewConnectionPointSaveInfo._;
 
   TableViewConnectionPointSaveInfo._();
 }

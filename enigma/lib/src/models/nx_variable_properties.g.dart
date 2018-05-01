@@ -60,7 +60,7 @@ class _$NxVariablePropertiesSerializer
         ..add('qPreDefinedList')
         ..add(serializers.serialize(object.preDefinedList,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -97,7 +97,7 @@ class _$NxVariablePropertiesSerializer
         case 'qPreDefinedList':
           result.preDefinedList.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -117,7 +117,7 @@ class _$NxVariableProperties extends NxVariableProperties {
   @override
   final bool usePredefListedValues;
   @override
-  final BuiltList<NxCell> preDefinedList;
+  final BuiltList<String> preDefinedList;
 
   factory _$NxVariableProperties(
           [void updates(NxVariablePropertiesBuilder b)]) =>
@@ -196,10 +196,10 @@ class NxVariablePropertiesBuilder
   set usePredefListedValues(bool usePredefListedValues) =>
       _$this._usePredefListedValues = usePredefListedValues;
 
-  ListBuilder<NxCell> _preDefinedList;
-  ListBuilder<NxCell> get preDefinedList =>
-      _$this._preDefinedList ??= new ListBuilder<NxCell>();
-  set preDefinedList(ListBuilder<NxCell> preDefinedList) =>
+  ListBuilder<String> _preDefinedList;
+  ListBuilder<String> get preDefinedList =>
+      _$this._preDefinedList ??= new ListBuilder<String>();
+  set preDefinedList(ListBuilder<String> preDefinedList) =>
       _$this._preDefinedList = preDefinedList;
 
   NxVariablePropertiesBuilder();

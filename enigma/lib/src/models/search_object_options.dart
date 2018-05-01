@@ -4,7 +4,6 @@ library search_object_options;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_object_options.g.dart';
 
@@ -17,7 +16,7 @@ abstract class SearchObjectOptions
   /// Original name: qAttributes
   @nullable
   @BuiltValueField(wireName: 'qAttributes')
-  BuiltList<NxCell> get attributes;
+  BuiltList<String> get attributes;
 
   /// Encoding used to compute qRanges of type SearchCharRange.
   /// <div class=note>Only affects the computation of the ranges. It does not impact the encoding of the text.</div>
@@ -34,7 +33,7 @@ abstract class SearchObjectOptions
       _$SearchObjectOptions;
 
   factory SearchObjectOptions.init(
-      {BuiltList<NxCell> attributes,
+      {BuiltList<String> attributes,
       String charEncoding}) = _$SearchObjectOptions._;
 
   SearchObjectOptions._();

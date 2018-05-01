@@ -4,7 +4,7 @@ library table_row;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'field_value.dart';
 import 'package:built_collection/built_collection.dart';
 part 'table_row.g.dart';
 
@@ -15,11 +15,11 @@ abstract class TableRow implements Built<TableRow, TableRowBuilder> {
   /// Original name: qValue
   @nullable
   @BuiltValueField(wireName: 'qValue')
-  BuiltList<NxCell> get value;
+  BuiltList<FieldValue> get value;
 
   factory TableRow([updates(TableRowBuilder b)]) = _$TableRow;
 
-  factory TableRow.init({BuiltList<NxCell> value}) = _$TableRow._;
+  factory TableRow.init({BuiltList<FieldValue> value}) = _$TableRow._;
 
   TableRow._();
 }

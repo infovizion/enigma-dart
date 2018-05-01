@@ -42,7 +42,7 @@ class _$DerivedFieldsInTableDataSerializer
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.active != null) {
       result
@@ -73,7 +73,7 @@ class _$DerivedFieldsInTableDataSerializer
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qActive':
@@ -91,7 +91,7 @@ class _$DerivedFieldsInTableData extends DerivedFieldsInTableData {
   @override
   final String definitionName;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
   @override
   final bool active;
 
@@ -146,9 +146,9 @@ class DerivedFieldsInTableDataBuilder
   set definitionName(String definitionName) =>
       _$this._definitionName = definitionName;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
   bool _active;
   bool get active => _$this._active;

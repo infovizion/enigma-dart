@@ -86,14 +86,14 @@ class _$ProgressDataSerializer implements StructuredSerializer<ProgressData> {
         ..add('qErrorData')
         ..add(serializers.serialize(object.errorData,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(ErrorData)])));
     }
     if (object.persistentProgressMessages != null) {
       result
         ..add('qPersistentProgressMessages')
         ..add(serializers.serialize(object.persistentProgressMessages,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(ProgressMessage)])));
     }
     if (object.transientProgressMessage != null) {
       result
@@ -154,15 +154,14 @@ class _$ProgressDataSerializer implements StructuredSerializer<ProgressData> {
           break;
         case 'qErrorData':
           result.errorData.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(ErrorData)])) as BuiltList);
           break;
         case 'qPersistentProgressMessages':
           result.persistentProgressMessages.replace(serializers.deserialize(
                   value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(ProgressMessage)]))
               as BuiltList);
           break;
         case 'qTransientProgressMessage':
@@ -197,9 +196,9 @@ class _$ProgressData extends ProgressData {
   @override
   final String transientProgress;
   @override
-  final BuiltList<NxCell> errorData;
+  final BuiltList<ErrorData> errorData;
   @override
-  final BuiltList<NxCell> persistentProgressMessages;
+  final BuiltList<ProgressMessage> persistentProgressMessages;
   @override
   final ProgressMessage transientProgressMessage;
 
@@ -334,16 +333,17 @@ class ProgressDataBuilder
   set transientProgress(String transientProgress) =>
       _$this._transientProgress = transientProgress;
 
-  ListBuilder<NxCell> _errorData;
-  ListBuilder<NxCell> get errorData =>
-      _$this._errorData ??= new ListBuilder<NxCell>();
-  set errorData(ListBuilder<NxCell> errorData) => _$this._errorData = errorData;
+  ListBuilder<ErrorData> _errorData;
+  ListBuilder<ErrorData> get errorData =>
+      _$this._errorData ??= new ListBuilder<ErrorData>();
+  set errorData(ListBuilder<ErrorData> errorData) =>
+      _$this._errorData = errorData;
 
-  ListBuilder<NxCell> _persistentProgressMessages;
-  ListBuilder<NxCell> get persistentProgressMessages =>
-      _$this._persistentProgressMessages ??= new ListBuilder<NxCell>();
+  ListBuilder<ProgressMessage> _persistentProgressMessages;
+  ListBuilder<ProgressMessage> get persistentProgressMessages =>
+      _$this._persistentProgressMessages ??= new ListBuilder<ProgressMessage>();
   set persistentProgressMessages(
-          ListBuilder<NxCell> persistentProgressMessages) =>
+          ListBuilder<ProgressMessage> persistentProgressMessages) =>
       _$this._persistentProgressMessages = persistentProgressMessages;
 
   ProgressMessageBuilder _transientProgressMessage;

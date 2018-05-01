@@ -4,7 +4,7 @@ library nx_attribute_expression_values;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_simple_value.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_attribute_expression_values.g.dart';
 
@@ -18,13 +18,13 @@ abstract class NxAttributeExpressionValues
   /// Original name: qValues
   @nullable
   @BuiltValueField(wireName: 'qValues')
-  BuiltList<NxCell> get values;
+  BuiltList<NxSimpleValue> get values;
 
   factory NxAttributeExpressionValues(
           [updates(NxAttributeExpressionValuesBuilder b)]) =
       _$NxAttributeExpressionValues;
 
-  factory NxAttributeExpressionValues.init({BuiltList<NxCell> values}) =
+  factory NxAttributeExpressionValues.init({BuiltList<NxSimpleValue> values}) =
       _$NxAttributeExpressionValues._;
 
   NxAttributeExpressionValues._();

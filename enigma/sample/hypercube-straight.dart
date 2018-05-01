@@ -15,10 +15,12 @@ main() async {
   var global = enigma.open();
   var doc  = await global.createSessionApp();
   await doc.setScript(loadScript);
-  await doc.doReload(0, false, false);
+  await doc.doReload();
   // var object = await doc.create(new GenericObjectProperties((b) =>
   //  b
   //  ..info.type = 'my-straight-hypercube'
-  //  ..));
+  //  ..hyperCubeDef.update((b) => b
+  //  ..dimensions.add(new NxDimension((b) => b
+  //  ..def.fieldDefs.add(new NxCell('ID'))))));
   await enigma.close();
 }

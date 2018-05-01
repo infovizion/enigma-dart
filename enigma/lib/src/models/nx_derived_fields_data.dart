@@ -4,8 +4,9 @@ library nx_derived_fields_data;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_derived_field.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_derived_group.dart';
 part 'nx_derived_fields_data.g.dart';
 
 abstract class NxDerivedFieldsData
@@ -23,28 +24,28 @@ abstract class NxDerivedFieldsData
   /// Original name: qFieldDefs
   @nullable
   @BuiltValueField(wireName: 'qFieldDefs')
-  BuiltList<NxCell> get fieldDefs;
+  BuiltList<NxDerivedField> get fieldDefs;
 
   /// List of the derived groups.
   /// Original name: qGroupDefs
   @nullable
   @BuiltValueField(wireName: 'qGroupDefs')
-  BuiltList<NxCell> get groupDefs;
+  BuiltList<NxDerivedGroup> get groupDefs;
 
   /// List of tags on the derived fields.
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   factory NxDerivedFieldsData([updates(NxDerivedFieldsDataBuilder b)]) =
       _$NxDerivedFieldsData;
 
   factory NxDerivedFieldsData.init(
       {String derivedDefinitionName,
-      BuiltList<NxCell> fieldDefs,
-      BuiltList<NxCell> groupDefs,
-      BuiltList<NxCell> tags}) = _$NxDerivedFieldsData._;
+      BuiltList<NxDerivedField> fieldDefs,
+      BuiltList<NxDerivedGroup> groupDefs,
+      BuiltList<String> tags}) = _$NxDerivedFieldsData._;
 
   NxDerivedFieldsData._();
 }

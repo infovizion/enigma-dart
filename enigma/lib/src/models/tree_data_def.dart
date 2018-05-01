@@ -4,7 +4,7 @@ library tree_data_def;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_tree_dimension_def.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_calc_cond.dart';
 import 'string_expr.dart';
@@ -26,7 +26,7 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
   /// Original name: qDimensions
   @nullable
   @BuiltValueField(wireName: 'qDimensions')
-  BuiltList<NxCell> get dimensions;
+  BuiltList<NxTreeDimensionDef> get dimensions;
 
   /// Defines the order of the dimension levels/columns in the TreeData object.
   /// Column numbers are separated by a comma.
@@ -35,7 +35,7 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
   /// Original name: qInterColumnSortOrder
   @nullable
   @BuiltValueField(wireName: 'qInterColumnSortOrder')
-  BuiltList<NxCell> get interColumnSortOrder;
+  BuiltList<int> get interColumnSortOrder;
 
   /// Removes zero values.
   /// Original name: qSuppressZero
@@ -81,8 +81,8 @@ abstract class TreeDataDef implements Built<TreeDataDef, TreeDataDefBuilder> {
 
   factory TreeDataDef.init(
       {String stateName,
-      BuiltList<NxCell> dimensions,
-      BuiltList<NxCell> interColumnSortOrder,
+      BuiltList<NxTreeDimensionDef> dimensions,
+      BuiltList<int> interColumnSortOrder,
       bool suppressZero,
       bool suppressMissing,
       bool openFullyExpanded,

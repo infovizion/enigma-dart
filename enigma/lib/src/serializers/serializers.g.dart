@@ -230,492 +230,344 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(VariableList.serializer)
       ..add(VariableListDef.serializer)
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(AlternateStateData)]),
+          () => new ListBuilder<AlternateStateData>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(BookmarkVariableItem)]),
+          () => new ListBuilder<BookmarkVariableItem>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(BookmarkFieldItem)]),
+          () => new ListBuilder<BookmarkFieldItem>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [
+            const FullType(BuiltList, const [const FullType(NxCell)])
+          ]),
+          () => new ListBuilder<BuiltList<NxCell>>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxGroupTail)]),
+          () => new ListBuilder<NxGroupTail>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(CharRange)]),
+          () => new ListBuilder<CharRange>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(ContentLibraryListItem)]),
+          () => new ListBuilder<ContentLibraryListItem>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(DataField)]),
+          () => new ListBuilder<DataField>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(ErrorData)]),
+          () => new ListBuilder<ErrorData>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(ProgressMessage)]),
+          () => new ListBuilder<ProgressMessage>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(FieldInTableData)]),
+          () => new ListBuilder<FieldInTableData>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(FieldValue)]),
+          () => new ListBuilder<FieldValue>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(FieldValue)]),
+          () => new ListBuilder<FieldValue>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(FieldValue)]),
+          () => new ListBuilder<FieldValue>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(GenericDimensionInfo)]),
+          () => new ListBuilder<GenericDimensionInfo>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(GenericObjectEntry)]),
+          () => new ListBuilder<GenericObjectEntry>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(LayoutFieldInfo)]),
+          () => new ListBuilder<LayoutFieldInfo>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(MediaListItem)]),
+          () => new ListBuilder<MediaListItem>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAttrExprDef)]),
+          () => new ListBuilder<NxAttrExprDef>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAttrDimDef)]),
+          () => new ListBuilder<NxAttrDimDef>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAttrExprDef)]),
+          () => new ListBuilder<NxAttrExprDef>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAttrDimDef)]),
+          () => new ListBuilder<NxAttrDimDef>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAttrExprInfo)]),
+          () => new ListBuilder<NxAttrExprInfo>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAttrDimInfo)]),
+          () => new ListBuilder<NxAttrDimInfo>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAxisTicks)]),
+          () => new ListBuilder<NxAxisTicks>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxContainerEntry)]),
+          () => new ListBuilder<NxContainerEntry>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxContainerEntry)]),
+          () => new ListBuilder<NxContainerEntry>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxContainerEntry)]),
+          () => new ListBuilder<NxContainerEntry>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxContainerEntry)]),
+          () => new ListBuilder<NxContainerEntry>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxContainerEntry)]),
+          () => new ListBuilder<NxContainerEntry>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(NxCurrentSelectionItem)]),
+          () => new ListBuilder<NxCurrentSelectionItem>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxDerivedField)]),
+          () => new ListBuilder<NxDerivedField>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxDerivedGroup)]),
+          () => new ListBuilder<NxDerivedGroup>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(NxDerivedFieldsData)]),
+          () => new ListBuilder<NxDerivedFieldsData>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxDimension)]),
+          () => new ListBuilder<NxDimension>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxMeasure)]),
+          () => new ListBuilder<NxMeasure>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxPage)]),
+          () => new ListBuilder<NxPage>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxDimensionInfo)]),
+          () => new ListBuilder<NxDimensionInfo>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxMeasureInfo)]),
+          () => new ListBuilder<NxMeasureInfo>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NxCell)]),
           () => new ListBuilder<NxCell>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxDataPage)]),
+          () => new ListBuilder<NxDataPage>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxPivotPage)]),
+          () => new ListBuilder<NxPivotPage>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxStackPage)]),
+          () => new ListBuilder<NxStackPage>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxFieldDescription)]),
+          () => new ListBuilder<NxFieldDescription>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(NxListObjectExpression)]),
+          () => new ListBuilder<NxListObjectExpression>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxDataPage)]),
+          () => new ListBuilder<NxDataPage>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxMeasure)]),
+          () => new ListBuilder<NxMeasure>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAttrExprDef)]),
+          () => new ListBuilder<NxAttrExprDef>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxAttrDimDef)]),
+          () => new ListBuilder<NxAttrDimDef>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxPage)]),
+          () => new ListBuilder<NxPage>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(NxListObjectExpressionDef)]),
+          () => new ListBuilder<NxListObjectExpressionDef>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(BuiltList, const [const FullType(NxPageTreeNode)]),
+          () => new ListBuilder<NxPageTreeNode>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(NxPivotDimensionCell)]),
+          () => new ListBuilder<NxPivotDimensionCell>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>())
+          const FullType(
+              BuiltList, const [const FullType(NxPivotDimensionCell)]),
+          () => new ListBuilder<NxPivotDimensionCell>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxCell)]),
-          () => new ListBuilder<NxCell>()))
+          const FullType(
+              BuiltList, const [const FullType(NxPivotDimensionCell)]),
+          () => new ListBuilder<NxPivotDimensionCell>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(BuiltList, const [const FullType(NxPivotValuePoint)])
+          ]),
+          () => new ListBuilder<BuiltList<NxPivotValuePoint>>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxRangeSelectInfo)]),
+          () => new ListBuilder<NxRangeSelectInfo>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxSimpleDimValue)]),
+          () => new ListBuilder<NxSimpleDimValue>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxSimpleValue)]),
+          () => new ListBuilder<NxSimpleValue>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxStackedPivotCell)]),
+          () => new ListBuilder<NxStackedPivotCell>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxStackedPivotCell)]),
+          () => new ListBuilder<NxStackedPivotCell>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxTreeDimensionDef)]),
+          () => new ListBuilder<NxTreeDimensionDef>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(int)]),
+          () => new ListBuilder<int>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(NxTreeRangeSelectInfo)]),
+          () => new ListBuilder<NxTreeRangeSelectInfo>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxTreeValue)]),
+          () => new ListBuilder<NxTreeValue>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxTreeNode)]),
+          () => new ListBuilder<NxTreeNode>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxVariableListItem)]),
+          () => new ListBuilder<NxVariableListItem>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(RangeSelectInfo)]),
+          () => new ListBuilder<RangeSelectInfo>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(NxFieldSelectionInfo)]),
+          () => new ListBuilder<NxFieldSelectionInfo>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(NxFieldSelectionInfo)]),
+          () => new ListBuilder<NxFieldSelectionInfo>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(RangeSelectInfo)]),
+          () => new ListBuilder<RangeSelectInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Range)]), () => new ListBuilder<Range>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchCharRange)]), () => new ListBuilder<SearchCharRange>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchCharRange)]), () => new ListBuilder<SearchCharRange>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchAttribute)]), () => new ListBuilder<SearchAttribute>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchFieldMatch)]), () => new ListBuilder<SearchFieldMatch>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchGroupItemMatch)]), () => new ListBuilder<SearchGroupItemMatch>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchGroupOptions)]), () => new ListBuilder<SearchGroupOptions>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchGroupItemOptions)]), () => new ListBuilder<SearchGroupItemOptions>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchSuggestItem)]), () => new ListBuilder<SearchSuggestItem>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchTermResult)]), () => new ListBuilder<SearchTermResult>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(StaticContentListItem)]), () => new ListBuilder<StaticContentListItem>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxTickCell)]), () => new ListBuilder<NxTickCell>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchGroup)]), () => new ListBuilder<SearchGroup>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(DerivedFieldsInTableData)]), () => new ListBuilder<DerivedFieldsInTableData>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchFieldDictionary)]), () => new ListBuilder<SearchFieldDictionary>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                BuiltList, const [const FullType(SearchMatchCombination)])
+          ]),
+          () => new ListBuilder<BuiltList<SearchMatchCombination>>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SortCriteria)]), () => new ListBuilder<SortCriteria>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(FieldAttributes)]), () => new ListBuilder<FieldAttributes>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxAttrExprInfo)]), () => new ListBuilder<NxAttrExprInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxAttrDimInfo)]), () => new ListBuilder<NxAttrDimInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxMeasureInfo)]), () => new ListBuilder<NxMeasureInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxAttrExprInfo)]), () => new ListBuilder<NxAttrExprInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxAttrDimInfo)]), () => new ListBuilder<NxAttrDimInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(String)]), () => new ListBuilder<String>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(TableViewTableWinSaveInfo)]), () => new ListBuilder<TableViewTableWinSaveInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(TableViewBroomPointSaveInfo)]), () => new ListBuilder<TableViewBroomPointSaveInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(TableViewConnectionPointSaveInfo)]), () => new ListBuilder<TableViewConnectionPointSaveInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxTreeDimensionInfo)]), () => new ListBuilder<NxTreeDimensionInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchGroupItem)]), () => new ListBuilder<SearchGroupItem>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>()))
     .build();

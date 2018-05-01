@@ -38,8 +38,8 @@ class _$GenericObjectEntrySerializer
       result
         ..add('qChildren')
         ..add(serializers.serialize(object.children,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(GenericObjectEntry)])));
     }
     if (object.embeddedSnapshotRef != null) {
       result
@@ -69,8 +69,8 @@ class _$GenericObjectEntrySerializer
           break;
         case 'qChildren':
           result.children.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GenericObjectEntry)]))
               as BuiltList);
           break;
         case 'qEmbeddedSnapshotRef':
@@ -89,7 +89,7 @@ class _$GenericObjectEntry extends GenericObjectEntry {
   @override
   final GenericObjectProperties property;
   @override
-  final BuiltList<NxCell> children;
+  final BuiltList<GenericObjectEntry> children;
   @override
   final GenericBookmarkEntry embeddedSnapshotRef;
 
@@ -143,10 +143,11 @@ class GenericObjectEntryBuilder
   set property(GenericObjectPropertiesBuilder property) =>
       _$this._property = property;
 
-  ListBuilder<NxCell> _children;
-  ListBuilder<NxCell> get children =>
-      _$this._children ??= new ListBuilder<NxCell>();
-  set children(ListBuilder<NxCell> children) => _$this._children = children;
+  ListBuilder<GenericObjectEntry> _children;
+  ListBuilder<GenericObjectEntry> get children =>
+      _$this._children ??= new ListBuilder<GenericObjectEntry>();
+  set children(ListBuilder<GenericObjectEntry> children) =>
+      _$this._children = children;
 
   GenericBookmarkEntryBuilder _embeddedSnapshotRef;
   GenericBookmarkEntryBuilder get embeddedSnapshotRef =>

@@ -4,7 +4,6 @@ library search_combination_options;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_combination_options.g.dart';
 
@@ -19,7 +18,7 @@ abstract class SearchCombinationOptions
   /// Original name: qSearchFields
   @nullable
   @BuiltValueField(wireName: 'qSearchFields')
-  BuiltList<NxCell> get searchFields;
+  BuiltList<String> get searchFields;
 
   /// Search context.
   /// The default value is _LockedFieldsOnly_ .
@@ -51,17 +50,17 @@ abstract class SearchCombinationOptions
   /// Original name: qAttributes
   @nullable
   @BuiltValueField(wireName: 'qAttributes')
-  BuiltList<NxCell> get attributes;
+  BuiltList<String> get attributes;
 
   factory SearchCombinationOptions(
           [updates(SearchCombinationOptionsBuilder b)]) =
       _$SearchCombinationOptions;
 
   factory SearchCombinationOptions.init(
-      {BuiltList<NxCell> searchFields,
+      {BuiltList<String> searchFields,
       String context,
       String charEncoding,
-      BuiltList<NxCell> attributes}) = _$SearchCombinationOptions._;
+      BuiltList<String> attributes}) = _$SearchCombinationOptions._;
 
   SearchCombinationOptions._();
 }

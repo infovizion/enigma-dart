@@ -66,15 +66,15 @@ class _$NxTreeNodeSerializer implements StructuredSerializer<NxTreeNode> {
       result
         ..add('qValues')
         ..add(serializers.serialize(object.values,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxTreeValue)])));
     }
     if (object.nodes != null) {
       result
         ..add('qNodes')
         ..add(serializers.serialize(object.nodes,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxTreeNode)])));
     }
     if (object.attrExps != null) {
       result
@@ -129,15 +129,14 @@ class _$NxTreeNodeSerializer implements StructuredSerializer<NxTreeNode> {
           break;
         case 'qValues':
           result.values.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxTreeValue)]))
               as BuiltList);
           break;
         case 'qNodes':
           result.nodes.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(NxTreeNode)])) as BuiltList);
           break;
         case 'qAttrExps':
           result.attrExps.replace(serializers.deserialize(value,
@@ -170,9 +169,9 @@ class _$NxTreeNode extends NxTreeNode {
   @override
   final String type;
   @override
-  final BuiltList<NxCell> values;
+  final BuiltList<NxTreeValue> values;
   @override
-  final BuiltList<NxCell> nodes;
+  final BuiltList<NxTreeNode> nodes;
   @override
   final NxAttributeExpressionValues attrExps;
   @override
@@ -281,14 +280,15 @@ class NxTreeNodeBuilder implements Builder<NxTreeNode, NxTreeNodeBuilder> {
   String get type => _$this._type;
   set type(String type) => _$this._type = type;
 
-  ListBuilder<NxCell> _values;
-  ListBuilder<NxCell> get values =>
-      _$this._values ??= new ListBuilder<NxCell>();
-  set values(ListBuilder<NxCell> values) => _$this._values = values;
+  ListBuilder<NxTreeValue> _values;
+  ListBuilder<NxTreeValue> get values =>
+      _$this._values ??= new ListBuilder<NxTreeValue>();
+  set values(ListBuilder<NxTreeValue> values) => _$this._values = values;
 
-  ListBuilder<NxCell> _nodes;
-  ListBuilder<NxCell> get nodes => _$this._nodes ??= new ListBuilder<NxCell>();
-  set nodes(ListBuilder<NxCell> nodes) => _$this._nodes = nodes;
+  ListBuilder<NxTreeNode> _nodes;
+  ListBuilder<NxTreeNode> get nodes =>
+      _$this._nodes ??= new ListBuilder<NxTreeNode>();
+  set nodes(ListBuilder<NxTreeNode> nodes) => _$this._nodes = nodes;
 
   NxAttributeExpressionValuesBuilder _attrExps;
   NxAttributeExpressionValuesBuilder get attrExps =>

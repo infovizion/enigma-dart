@@ -4,7 +4,6 @@ library nx_library_dimension_def;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_library_dimension_def.g.dart';
 
@@ -28,13 +27,13 @@ abstract class NxLibraryDimensionDef
   /// Original name: qFieldDefs
   @nullable
   @BuiltValueField(wireName: 'qFieldDefs')
-  BuiltList<NxCell> get fieldDefs;
+  BuiltList<String> get fieldDefs;
 
   /// Array of dimension labels.
   /// Original name: qFieldLabels
   @nullable
   @BuiltValueField(wireName: 'qFieldLabels')
-  BuiltList<NxCell> get fieldLabels;
+  BuiltList<String> get fieldLabels;
 
   /// Original name: qLabelExpression
   @nullable
@@ -46,8 +45,8 @@ abstract class NxLibraryDimensionDef
 
   factory NxLibraryDimensionDef.init(
       {String grouping,
-      BuiltList<NxCell> fieldDefs,
-      BuiltList<NxCell> fieldLabels,
+      BuiltList<String> fieldDefs,
+      BuiltList<String> fieldLabels,
       String labelExpression}) = _$NxLibraryDimensionDef._;
 
   NxLibraryDimensionDef._();

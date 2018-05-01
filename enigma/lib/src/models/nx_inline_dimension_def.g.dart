@@ -42,28 +42,28 @@ class _$NxInlineDimensionDefSerializer
         ..add('qFieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.fieldLabels != null) {
       result
         ..add('qFieldLabels')
         ..add(serializers.serialize(object.fieldLabels,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.sortCriterias != null) {
       result
         ..add('qSortCriterias')
         ..add(serializers.serialize(object.sortCriterias,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SortCriteria)])));
     }
     if (object.numberPresentations != null) {
       result
         ..add('qNumberPresentations')
         ..add(serializers.serialize(object.numberPresentations,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(FieldAttributes)])));
     }
     if (object.reverseSort != null) {
       result
@@ -105,25 +105,25 @@ class _$NxInlineDimensionDefSerializer
         case 'qFieldDefs':
           result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qFieldLabels':
           result.fieldLabels.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qSortCriterias':
           result.sortCriterias.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SortCriteria)]))
               as BuiltList);
           break;
         case 'qNumberPresentations':
           result.numberPresentations.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(FieldAttributes)]))
               as BuiltList);
           break;
         case 'qReverseSort':
@@ -149,13 +149,13 @@ class _$NxInlineDimensionDef extends NxInlineDimensionDef {
   @override
   final String grouping;
   @override
-  final BuiltList<NxCell> fieldDefs;
+  final BuiltList<String> fieldDefs;
   @override
-  final BuiltList<NxCell> fieldLabels;
+  final BuiltList<String> fieldLabels;
   @override
-  final BuiltList<NxCell> sortCriterias;
+  final BuiltList<SortCriteria> sortCriterias;
   @override
-  final BuiltList<NxCell> numberPresentations;
+  final BuiltList<FieldAttributes> numberPresentations;
   @override
   final bool reverseSort;
   @override
@@ -239,27 +239,27 @@ class NxInlineDimensionDefBuilder
   String get grouping => _$this._grouping;
   set grouping(String grouping) => _$this._grouping = grouping;
 
-  ListBuilder<NxCell> _fieldDefs;
-  ListBuilder<NxCell> get fieldDefs =>
-      _$this._fieldDefs ??= new ListBuilder<NxCell>();
-  set fieldDefs(ListBuilder<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
+  ListBuilder<String> _fieldDefs;
+  ListBuilder<String> get fieldDefs =>
+      _$this._fieldDefs ??= new ListBuilder<String>();
+  set fieldDefs(ListBuilder<String> fieldDefs) => _$this._fieldDefs = fieldDefs;
 
-  ListBuilder<NxCell> _fieldLabels;
-  ListBuilder<NxCell> get fieldLabels =>
-      _$this._fieldLabels ??= new ListBuilder<NxCell>();
-  set fieldLabels(ListBuilder<NxCell> fieldLabels) =>
+  ListBuilder<String> _fieldLabels;
+  ListBuilder<String> get fieldLabels =>
+      _$this._fieldLabels ??= new ListBuilder<String>();
+  set fieldLabels(ListBuilder<String> fieldLabels) =>
       _$this._fieldLabels = fieldLabels;
 
-  ListBuilder<NxCell> _sortCriterias;
-  ListBuilder<NxCell> get sortCriterias =>
-      _$this._sortCriterias ??= new ListBuilder<NxCell>();
-  set sortCriterias(ListBuilder<NxCell> sortCriterias) =>
+  ListBuilder<SortCriteria> _sortCriterias;
+  ListBuilder<SortCriteria> get sortCriterias =>
+      _$this._sortCriterias ??= new ListBuilder<SortCriteria>();
+  set sortCriterias(ListBuilder<SortCriteria> sortCriterias) =>
       _$this._sortCriterias = sortCriterias;
 
-  ListBuilder<NxCell> _numberPresentations;
-  ListBuilder<NxCell> get numberPresentations =>
-      _$this._numberPresentations ??= new ListBuilder<NxCell>();
-  set numberPresentations(ListBuilder<NxCell> numberPresentations) =>
+  ListBuilder<FieldAttributes> _numberPresentations;
+  ListBuilder<FieldAttributes> get numberPresentations =>
+      _$this._numberPresentations ??= new ListBuilder<FieldAttributes>();
+  set numberPresentations(ListBuilder<FieldAttributes> numberPresentations) =>
       _$this._numberPresentations = numberPresentations;
 
   bool _reverseSort;

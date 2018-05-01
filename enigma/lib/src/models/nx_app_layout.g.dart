@@ -61,7 +61,7 @@ class _$NxAppLayoutSerializer implements StructuredSerializer<NxAppLayout> {
         ..add('qStateNames')
         ..add(serializers.serialize(object.stateNames,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.meta != null) {
       result
@@ -137,7 +137,7 @@ class _$NxAppLayoutSerializer implements StructuredSerializer<NxAppLayout> {
         case 'qStateNames':
           result.stateNames.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qMeta':
@@ -184,7 +184,7 @@ class _$NxAppLayout extends NxAppLayout {
   @override
   final bool hasScript;
   @override
-  final BuiltList<NxCell> stateNames;
+  final BuiltList<String> stateNames;
   @override
   final NxMeta meta;
   @override
@@ -310,10 +310,10 @@ class NxAppLayoutBuilder implements Builder<NxAppLayout, NxAppLayoutBuilder> {
   bool get hasScript => _$this._hasScript;
   set hasScript(bool hasScript) => _$this._hasScript = hasScript;
 
-  ListBuilder<NxCell> _stateNames;
-  ListBuilder<NxCell> get stateNames =>
-      _$this._stateNames ??= new ListBuilder<NxCell>();
-  set stateNames(ListBuilder<NxCell> stateNames) =>
+  ListBuilder<String> _stateNames;
+  ListBuilder<String> get stateNames =>
+      _$this._stateNames ??= new ListBuilder<String>();
+  set stateNames(ListBuilder<String> stateNames) =>
       _$this._stateNames = stateNames;
 
   NxMetaBuilder _meta;

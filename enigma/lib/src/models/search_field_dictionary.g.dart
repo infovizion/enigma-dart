@@ -41,8 +41,8 @@ class _$SearchFieldDictionarySerializer
       result
         ..add('qResult')
         ..add(serializers.serialize(object.result,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchTermResult)])));
     }
 
     return result;
@@ -66,8 +66,8 @@ class _$SearchFieldDictionarySerializer
           break;
         case 'qResult':
           result.result.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchTermResult)]))
               as BuiltList);
           break;
       }
@@ -81,7 +81,7 @@ class _$SearchFieldDictionary extends SearchFieldDictionary {
   @override
   final int field;
   @override
-  final BuiltList<NxCell> result;
+  final BuiltList<SearchTermResult> result;
 
   factory _$SearchFieldDictionary(
           [void updates(SearchFieldDictionaryBuilder b)]) =>
@@ -126,10 +126,10 @@ class SearchFieldDictionaryBuilder
   int get field => _$this._field;
   set field(int field) => _$this._field = field;
 
-  ListBuilder<NxCell> _result;
-  ListBuilder<NxCell> get result =>
-      _$this._result ??= new ListBuilder<NxCell>();
-  set result(ListBuilder<NxCell> result) => _$this._result = result;
+  ListBuilder<SearchTermResult> _result;
+  ListBuilder<SearchTermResult> get result =>
+      _$this._result ??= new ListBuilder<SearchTermResult>();
+  set result(ListBuilder<SearchTermResult> result) => _$this._result = result;
 
   SearchFieldDictionaryBuilder();
 

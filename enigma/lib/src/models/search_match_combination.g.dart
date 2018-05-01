@@ -41,8 +41,8 @@ class _$SearchMatchCombinationSerializer
       result
         ..add('qFieldMatches')
         ..add(serializers.serialize(object.fieldMatches,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(SearchFieldMatch)])));
     }
 
     return result;
@@ -66,8 +66,8 @@ class _$SearchMatchCombinationSerializer
           break;
         case 'qFieldMatches':
           result.fieldMatches.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(SearchFieldMatch)]))
               as BuiltList);
           break;
       }
@@ -81,7 +81,7 @@ class _$SearchMatchCombination extends SearchMatchCombination {
   @override
   final int id;
   @override
-  final BuiltList<NxCell> fieldMatches;
+  final BuiltList<SearchFieldMatch> fieldMatches;
 
   factory _$SearchMatchCombination(
           [void updates(SearchMatchCombinationBuilder b)]) =>
@@ -127,10 +127,10 @@ class SearchMatchCombinationBuilder
   int get id => _$this._id;
   set id(int id) => _$this._id = id;
 
-  ListBuilder<NxCell> _fieldMatches;
-  ListBuilder<NxCell> get fieldMatches =>
-      _$this._fieldMatches ??= new ListBuilder<NxCell>();
-  set fieldMatches(ListBuilder<NxCell> fieldMatches) =>
+  ListBuilder<SearchFieldMatch> _fieldMatches;
+  ListBuilder<SearchFieldMatch> get fieldMatches =>
+      _$this._fieldMatches ??= new ListBuilder<SearchFieldMatch>();
+  set fieldMatches(ListBuilder<SearchFieldMatch> fieldMatches) =>
       _$this._fieldMatches = fieldMatches;
 
   SearchMatchCombinationBuilder();

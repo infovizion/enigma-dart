@@ -4,7 +4,7 @@ library nx_axis_data;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_axis_ticks.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_axis_data.g.dart';
 
@@ -15,11 +15,11 @@ abstract class NxAxisData implements Built<NxAxisData, NxAxisDataBuilder> {
   /// Original name: qAxis
   @nullable
   @BuiltValueField(wireName: 'qAxis')
-  BuiltList<NxCell> get axis;
+  BuiltList<NxAxisTicks> get axis;
 
   factory NxAxisData([updates(NxAxisDataBuilder b)]) = _$NxAxisData;
 
-  factory NxAxisData.init({BuiltList<NxCell> axis}) = _$NxAxisData._;
+  factory NxAxisData.init({BuiltList<NxAxisTicks> axis}) = _$NxAxisData._;
 
   NxAxisData._();
 }

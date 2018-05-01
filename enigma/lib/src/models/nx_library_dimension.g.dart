@@ -39,14 +39,14 @@ class _$NxLibraryDimensionSerializer
         ..add('qFieldDefs')
         ..add(serializers.serialize(object.fieldDefs,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.fieldLabels != null) {
       result
         ..add('qFieldLabels')
         ..add(serializers.serialize(object.fieldLabels,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.labelExpression != null) {
       result
@@ -76,13 +76,13 @@ class _$NxLibraryDimensionSerializer
         case 'qFieldDefs':
           result.fieldDefs.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qFieldLabels':
           result.fieldLabels.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qLabelExpression':
@@ -100,9 +100,9 @@ class _$NxLibraryDimension extends NxLibraryDimension {
   @override
   final String grouping;
   @override
-  final BuiltList<NxCell> fieldDefs;
+  final BuiltList<String> fieldDefs;
   @override
-  final BuiltList<NxCell> fieldLabels;
+  final BuiltList<String> fieldLabels;
   @override
   final String labelExpression;
 
@@ -158,15 +158,15 @@ class NxLibraryDimensionBuilder
   String get grouping => _$this._grouping;
   set grouping(String grouping) => _$this._grouping = grouping;
 
-  ListBuilder<NxCell> _fieldDefs;
-  ListBuilder<NxCell> get fieldDefs =>
-      _$this._fieldDefs ??= new ListBuilder<NxCell>();
-  set fieldDefs(ListBuilder<NxCell> fieldDefs) => _$this._fieldDefs = fieldDefs;
+  ListBuilder<String> _fieldDefs;
+  ListBuilder<String> get fieldDefs =>
+      _$this._fieldDefs ??= new ListBuilder<String>();
+  set fieldDefs(ListBuilder<String> fieldDefs) => _$this._fieldDefs = fieldDefs;
 
-  ListBuilder<NxCell> _fieldLabels;
-  ListBuilder<NxCell> get fieldLabels =>
-      _$this._fieldLabels ??= new ListBuilder<NxCell>();
-  set fieldLabels(ListBuilder<NxCell> fieldLabels) =>
+  ListBuilder<String> _fieldLabels;
+  ListBuilder<String> get fieldLabels =>
+      _$this._fieldLabels ??= new ListBuilder<String>();
+  set fieldLabels(ListBuilder<String> fieldLabels) =>
       _$this._fieldLabels = fieldLabels;
 
   String _labelExpression;

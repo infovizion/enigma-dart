@@ -37,8 +37,8 @@ class _$NxDerivedFieldDescriptionListSerializer
       result
         ..add('qDerivedFieldLists')
         ..add(serializers.serialize(object.derivedFieldLists,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxDerivedFieldsData)])));
     }
 
     return result;
@@ -58,8 +58,8 @@ class _$NxDerivedFieldDescriptionListSerializer
       switch (key) {
         case 'qDerivedFieldLists':
           result.derivedFieldLists.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxDerivedFieldsData)]))
               as BuiltList);
           break;
       }
@@ -71,7 +71,7 @@ class _$NxDerivedFieldDescriptionListSerializer
 
 class _$NxDerivedFieldDescriptionList extends NxDerivedFieldDescriptionList {
   @override
-  final BuiltList<NxCell> derivedFieldLists;
+  final BuiltList<NxDerivedFieldsData> derivedFieldLists;
 
   factory _$NxDerivedFieldDescriptionList(
           [void updates(NxDerivedFieldDescriptionListBuilder b)]) =>
@@ -114,10 +114,10 @@ class NxDerivedFieldDescriptionListBuilder
             NxDerivedFieldDescriptionListBuilder> {
   _$NxDerivedFieldDescriptionList _$v;
 
-  ListBuilder<NxCell> _derivedFieldLists;
-  ListBuilder<NxCell> get derivedFieldLists =>
-      _$this._derivedFieldLists ??= new ListBuilder<NxCell>();
-  set derivedFieldLists(ListBuilder<NxCell> derivedFieldLists) =>
+  ListBuilder<NxDerivedFieldsData> _derivedFieldLists;
+  ListBuilder<NxDerivedFieldsData> get derivedFieldLists =>
+      _$this._derivedFieldLists ??= new ListBuilder<NxDerivedFieldsData>();
+  set derivedFieldLists(ListBuilder<NxDerivedFieldsData> derivedFieldLists) =>
       _$this._derivedFieldLists = derivedFieldLists;
 
   NxDerivedFieldDescriptionListBuilder();

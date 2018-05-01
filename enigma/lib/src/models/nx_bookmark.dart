@@ -4,8 +4,9 @@ library nx_bookmark;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'alternate_state_data.dart';
 import 'package:built_collection/built_collection.dart';
+import 'bookmark_variable_item.dart';
 part 'nx_bookmark.g.dart';
 
 abstract class NxBookmark implements Built<NxBookmark, NxBookmarkBuilder> {
@@ -15,7 +16,7 @@ abstract class NxBookmark implements Built<NxBookmark, NxBookmarkBuilder> {
   /// Original name: qStateData
   @nullable
   @BuiltValueField(wireName: 'qStateData')
-  BuiltList<NxCell> get stateData;
+  BuiltList<AlternateStateData> get stateData;
 
   /// Time when the bookmark was created.
   /// Original name: qUtcModifyTime
@@ -27,14 +28,14 @@ abstract class NxBookmark implements Built<NxBookmark, NxBookmarkBuilder> {
   /// Original name: qVariableItems
   @nullable
   @BuiltValueField(wireName: 'qVariableItems')
-  BuiltList<NxCell> get variableItems;
+  BuiltList<BookmarkVariableItem> get variableItems;
 
   factory NxBookmark([updates(NxBookmarkBuilder b)]) = _$NxBookmark;
 
   factory NxBookmark.init(
-      {BuiltList<NxCell> stateData,
+      {BuiltList<AlternateStateData> stateData,
       num utcModifyTime,
-      BuiltList<NxCell> variableItems}) = _$NxBookmark._;
+      BuiltList<BookmarkVariableItem> variableItems}) = _$NxBookmark._;
 
   NxBookmark._();
 }

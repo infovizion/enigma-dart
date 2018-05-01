@@ -4,7 +4,6 @@ library nx_derived_group;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_derived_group.g.dart';
 
@@ -42,7 +41,7 @@ abstract class NxDerivedGroup
   /// Original name: qFieldDefs
   @nullable
   @BuiltValueField(wireName: 'qFieldDefs')
-  BuiltList<NxCell> get fieldDefs;
+  BuiltList<String> get fieldDefs;
 
   factory NxDerivedGroup([updates(NxDerivedGroupBuilder b)]) = _$NxDerivedGroup;
 
@@ -50,7 +49,7 @@ abstract class NxDerivedGroup
       {String id,
       String name,
       String grouping,
-      BuiltList<NxCell> fieldDefs}) = _$NxDerivedGroup._;
+      BuiltList<String> fieldDefs}) = _$NxDerivedGroup._;
 
   NxDerivedGroup._();
 }

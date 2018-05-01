@@ -4,7 +4,6 @@ library calendar_strings;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'calendar_strings.g.dart';
 
@@ -17,34 +16,34 @@ abstract class CalendarStrings
   /// Original name: qDayNames
   @nullable
   @BuiltValueField(wireName: 'qDayNames')
-  BuiltList<NxCell> get dayNames;
+  BuiltList<String> get dayNames;
 
   /// List of short month names.
   /// Original name: qMonthNames
   @nullable
   @BuiltValueField(wireName: 'qMonthNames')
-  BuiltList<NxCell> get monthNames;
+  BuiltList<String> get monthNames;
 
   /// List of long day names.
   /// Original name: qLongDayNames
   @nullable
   @BuiltValueField(wireName: 'qLongDayNames')
-  BuiltList<NxCell> get longDayNames;
+  BuiltList<String> get longDayNames;
 
   /// List of long month names.
   /// Original name: qLongMonthNames
   @nullable
   @BuiltValueField(wireName: 'qLongMonthNames')
-  BuiltList<NxCell> get longMonthNames;
+  BuiltList<String> get longMonthNames;
 
   factory CalendarStrings([updates(CalendarStringsBuilder b)]) =
       _$CalendarStrings;
 
   factory CalendarStrings.init(
-      {BuiltList<NxCell> dayNames,
-      BuiltList<NxCell> monthNames,
-      BuiltList<NxCell> longDayNames,
-      BuiltList<NxCell> longMonthNames}) = _$CalendarStrings._;
+      {BuiltList<String> dayNames,
+      BuiltList<String> monthNames,
+      BuiltList<String> longDayNames,
+      BuiltList<String> longMonthNames}) = _$CalendarStrings._;
 
   CalendarStrings._();
 }

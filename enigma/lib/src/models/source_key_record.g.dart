@@ -33,14 +33,14 @@ class _$SourceKeyRecordSerializer
         ..add('qKeyFields')
         ..add(serializers.serialize(object.keyFields,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.tables != null) {
       result
         ..add('qTables')
         ..add(serializers.serialize(object.tables,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -60,13 +60,13 @@ class _$SourceKeyRecordSerializer
         case 'qKeyFields':
           result.keyFields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qTables':
           result.tables.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -78,9 +78,9 @@ class _$SourceKeyRecordSerializer
 
 class _$SourceKeyRecord extends SourceKeyRecord {
   @override
-  final BuiltList<NxCell> keyFields;
+  final BuiltList<String> keyFields;
   @override
-  final BuiltList<NxCell> tables;
+  final BuiltList<String> tables;
 
   factory _$SourceKeyRecord([void updates(SourceKeyRecordBuilder b)]) =>
       (new SourceKeyRecordBuilder()..update(updates)).build();
@@ -120,15 +120,15 @@ class SourceKeyRecordBuilder
     implements Builder<SourceKeyRecord, SourceKeyRecordBuilder> {
   _$SourceKeyRecord _$v;
 
-  ListBuilder<NxCell> _keyFields;
-  ListBuilder<NxCell> get keyFields =>
-      _$this._keyFields ??= new ListBuilder<NxCell>();
-  set keyFields(ListBuilder<NxCell> keyFields) => _$this._keyFields = keyFields;
+  ListBuilder<String> _keyFields;
+  ListBuilder<String> get keyFields =>
+      _$this._keyFields ??= new ListBuilder<String>();
+  set keyFields(ListBuilder<String> keyFields) => _$this._keyFields = keyFields;
 
-  ListBuilder<NxCell> _tables;
-  ListBuilder<NxCell> get tables =>
-      _$this._tables ??= new ListBuilder<NxCell>();
-  set tables(ListBuilder<NxCell> tables) => _$this._tables = tables;
+  ListBuilder<String> _tables;
+  ListBuilder<String> get tables =>
+      _$this._tables ??= new ListBuilder<String>();
+  set tables(ListBuilder<String> tables) => _$this._tables = tables;
 
   SourceKeyRecordBuilder();
 

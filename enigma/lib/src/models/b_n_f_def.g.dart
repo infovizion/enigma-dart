@@ -31,7 +31,7 @@ class _$BNFDefSerializer implements StructuredSerializer<BNFDef> {
         ..add('qBnf')
         ..add(serializers.serialize(object.bnf,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.nbr != null) {
       result
@@ -141,7 +141,7 @@ class _$BNFDefSerializer implements StructuredSerializer<BNFDef> {
         case 'qBnf':
           result.bnf.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qNbr':
@@ -213,7 +213,7 @@ class _$BNFDefSerializer implements StructuredSerializer<BNFDef> {
 
 class _$BNFDef extends BNFDef {
   @override
-  final BuiltList<NxCell> bnf;
+  final BuiltList<int> bnf;
   @override
   final int nbr;
   @override
@@ -358,9 +358,9 @@ class _$BNFDef extends BNFDef {
 class BNFDefBuilder implements Builder<BNFDef, BNFDefBuilder> {
   _$BNFDef _$v;
 
-  ListBuilder<NxCell> _bnf;
-  ListBuilder<NxCell> get bnf => _$this._bnf ??= new ListBuilder<NxCell>();
-  set bnf(ListBuilder<NxCell> bnf) => _$this._bnf = bnf;
+  ListBuilder<int> _bnf;
+  ListBuilder<int> get bnf => _$this._bnf ??= new ListBuilder<int>();
+  set bnf(ListBuilder<int> bnf) => _$this._bnf = bnf;
 
   int _nbr;
   int get nbr => _$this._nbr;

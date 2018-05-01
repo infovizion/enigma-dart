@@ -30,22 +30,24 @@ class _$NxPivotPageSerializer implements StructuredSerializer<NxPivotPage> {
       result
         ..add('qLeft')
         ..add(serializers.serialize(object.left,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxPivotDimensionCell)])));
     }
     if (object.top != null) {
       result
         ..add('qTop')
         ..add(serializers.serialize(object.top,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxPivotDimensionCell)])));
     }
     if (object.data != null) {
       result
         ..add('qData')
         ..add(serializers.serialize(object.data,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(
+                  BuiltList, const [const FullType(NxPivotValuePoint)])
+            ])));
     }
     if (object.area != null) {
       result
@@ -70,21 +72,22 @@ class _$NxPivotPageSerializer implements StructuredSerializer<NxPivotPage> {
       switch (key) {
         case 'qLeft':
           result.left.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxPivotDimensionCell)]))
               as BuiltList);
           break;
         case 'qTop':
           result.top.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxPivotDimensionCell)]))
               as BuiltList);
           break;
         case 'qData':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(
+                    BuiltList, const [const FullType(NxPivotValuePoint)])
+              ])) as BuiltList);
           break;
         case 'qArea':
           result.area.replace(serializers.deserialize(value,
@@ -99,11 +102,11 @@ class _$NxPivotPageSerializer implements StructuredSerializer<NxPivotPage> {
 
 class _$NxPivotPage extends NxPivotPage {
   @override
-  final BuiltList<NxCell> left;
+  final BuiltList<NxPivotDimensionCell> left;
   @override
-  final BuiltList<NxCell> top;
+  final BuiltList<NxPivotDimensionCell> top;
   @override
-  final BuiltList<NxCell> data;
+  final BuiltList<BuiltList<NxPivotValuePoint>> data;
   @override
   final Rect area;
 
@@ -149,17 +152,21 @@ class _$NxPivotPage extends NxPivotPage {
 class NxPivotPageBuilder implements Builder<NxPivotPage, NxPivotPageBuilder> {
   _$NxPivotPage _$v;
 
-  ListBuilder<NxCell> _left;
-  ListBuilder<NxCell> get left => _$this._left ??= new ListBuilder<NxCell>();
-  set left(ListBuilder<NxCell> left) => _$this._left = left;
+  ListBuilder<NxPivotDimensionCell> _left;
+  ListBuilder<NxPivotDimensionCell> get left =>
+      _$this._left ??= new ListBuilder<NxPivotDimensionCell>();
+  set left(ListBuilder<NxPivotDimensionCell> left) => _$this._left = left;
 
-  ListBuilder<NxCell> _top;
-  ListBuilder<NxCell> get top => _$this._top ??= new ListBuilder<NxCell>();
-  set top(ListBuilder<NxCell> top) => _$this._top = top;
+  ListBuilder<NxPivotDimensionCell> _top;
+  ListBuilder<NxPivotDimensionCell> get top =>
+      _$this._top ??= new ListBuilder<NxPivotDimensionCell>();
+  set top(ListBuilder<NxPivotDimensionCell> top) => _$this._top = top;
 
-  ListBuilder<NxCell> _data;
-  ListBuilder<NxCell> get data => _$this._data ??= new ListBuilder<NxCell>();
-  set data(ListBuilder<NxCell> data) => _$this._data = data;
+  ListBuilder<BuiltList<NxPivotValuePoint>> _data;
+  ListBuilder<BuiltList<NxPivotValuePoint>> get data =>
+      _$this._data ??= new ListBuilder<BuiltList<NxPivotValuePoint>>();
+  set data(ListBuilder<BuiltList<NxPivotValuePoint>> data) =>
+      _$this._data = data;
 
   RectBuilder _area;
   RectBuilder get area => _$this._area ??= new RectBuilder();

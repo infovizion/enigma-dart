@@ -68,14 +68,14 @@ class _$ListObjectDefSerializer implements StructuredSerializer<ListObjectDef> {
         ..add('qInitialDataFetch')
         ..add(serializers.serialize(object.initialDataFetch,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(NxPage)])));
     }
     if (object.expressions != null) {
       result
         ..add('qExpressions')
         ..add(serializers.serialize(object.expressions,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxListObjectExpressionDef)])));
     }
 
     return result;
@@ -121,14 +121,14 @@ class _$ListObjectDefSerializer implements StructuredSerializer<ListObjectDef> {
         case 'qInitialDataFetch':
           result.initialDataFetch.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(NxPage)]))
               as BuiltList);
           break;
         case 'qExpressions':
           result.expressions.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(NxListObjectExpressionDef)
+              ])) as BuiltList);
           break;
       }
     }
@@ -151,9 +151,9 @@ class _$ListObjectDef extends ListObjectDef {
   @override
   final bool showAlternatives;
   @override
-  final BuiltList<NxCell> initialDataFetch;
+  final BuiltList<NxPage> initialDataFetch;
   @override
-  final BuiltList<NxCell> expressions;
+  final BuiltList<NxListObjectExpressionDef> expressions;
 
   factory _$ListObjectDef([void updates(ListObjectDefBuilder b)]) =>
       (new ListObjectDefBuilder()..update(updates)).build();
@@ -254,16 +254,16 @@ class ListObjectDefBuilder
   set showAlternatives(bool showAlternatives) =>
       _$this._showAlternatives = showAlternatives;
 
-  ListBuilder<NxCell> _initialDataFetch;
-  ListBuilder<NxCell> get initialDataFetch =>
-      _$this._initialDataFetch ??= new ListBuilder<NxCell>();
-  set initialDataFetch(ListBuilder<NxCell> initialDataFetch) =>
+  ListBuilder<NxPage> _initialDataFetch;
+  ListBuilder<NxPage> get initialDataFetch =>
+      _$this._initialDataFetch ??= new ListBuilder<NxPage>();
+  set initialDataFetch(ListBuilder<NxPage> initialDataFetch) =>
       _$this._initialDataFetch = initialDataFetch;
 
-  ListBuilder<NxCell> _expressions;
-  ListBuilder<NxCell> get expressions =>
-      _$this._expressions ??= new ListBuilder<NxCell>();
-  set expressions(ListBuilder<NxCell> expressions) =>
+  ListBuilder<NxListObjectExpressionDef> _expressions;
+  ListBuilder<NxListObjectExpressionDef> get expressions =>
+      _$this._expressions ??= new ListBuilder<NxListObjectExpressionDef>();
+  set expressions(ListBuilder<NxListObjectExpressionDef> expressions) =>
       _$this._expressions = expressions;
 
   ListObjectDefBuilder();

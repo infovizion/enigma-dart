@@ -53,8 +53,8 @@ class _$GenericDimensionLayoutSerializer
       result
         ..add('qDimInfos')
         ..add(serializers.serialize(object.dimInfos,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(GenericDimensionInfo)])));
     }
 
     return result;
@@ -87,8 +87,8 @@ class _$GenericDimensionLayoutSerializer
           break;
         case 'qDimInfos':
           result.dimInfos.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(GenericDimensionInfo)]))
               as BuiltList);
           break;
       }
@@ -106,7 +106,7 @@ class _$GenericDimensionLayout extends GenericDimensionLayout {
   @override
   final NxLibraryDimension dim;
   @override
-  final BuiltList<NxCell> dimInfos;
+  final BuiltList<GenericDimensionInfo> dimInfos;
 
   factory _$GenericDimensionLayout(
           [void updates(GenericDimensionLayoutBuilder b)]) =>
@@ -168,10 +168,11 @@ class GenericDimensionLayoutBuilder
       _$this._dim ??= new NxLibraryDimensionBuilder();
   set dim(NxLibraryDimensionBuilder dim) => _$this._dim = dim;
 
-  ListBuilder<NxCell> _dimInfos;
-  ListBuilder<NxCell> get dimInfos =>
-      _$this._dimInfos ??= new ListBuilder<NxCell>();
-  set dimInfos(ListBuilder<NxCell> dimInfos) => _$this._dimInfos = dimInfos;
+  ListBuilder<GenericDimensionInfo> _dimInfos;
+  ListBuilder<GenericDimensionInfo> get dimInfos =>
+      _$this._dimInfos ??= new ListBuilder<GenericDimensionInfo>();
+  set dimInfos(ListBuilder<GenericDimensionInfo> dimInfos) =>
+      _$this._dimInfos = dimInfos;
 
   GenericDimensionLayoutBuilder();
 

@@ -4,7 +4,7 @@ library alternate_state_data;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'bookmark_field_item.dart';
 import 'package:built_collection/built_collection.dart';
 part 'alternate_state_data.g.dart';
 
@@ -24,14 +24,14 @@ abstract class AlternateStateData
   /// Original name: qFieldItems
   @nullable
   @BuiltValueField(wireName: 'qFieldItems')
-  BuiltList<NxCell> get fieldItems;
+  BuiltList<BookmarkFieldItem> get fieldItems;
 
   factory AlternateStateData([updates(AlternateStateDataBuilder b)]) =
       _$AlternateStateData;
 
   factory AlternateStateData.init(
       {String stateName,
-      BuiltList<NxCell> fieldItems}) = _$AlternateStateData._;
+      BuiltList<BookmarkFieldItem> fieldItems}) = _$AlternateStateData._;
 
   AlternateStateData._();
 }

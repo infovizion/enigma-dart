@@ -4,8 +4,8 @@ library nx_axis_ticks;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_tick_cell.dart';
 part 'nx_axis_ticks.g.dart';
 
 abstract class NxAxisTicks implements Built<NxAxisTicks, NxAxisTicksBuilder> {
@@ -21,20 +21,20 @@ abstract class NxAxisTicks implements Built<NxAxisTicks, NxAxisTicksBuilder> {
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   /// List of ticks.
   /// Original name: qTicks
   @nullable
   @BuiltValueField(wireName: 'qTicks')
-  BuiltList<NxCell> get ticks;
+  BuiltList<NxTickCell> get ticks;
 
   factory NxAxisTicks([updates(NxAxisTicksBuilder b)]) = _$NxAxisTicks;
 
   factory NxAxisTicks.init(
       {String name,
-      BuiltList<NxCell> tags,
-      BuiltList<NxCell> ticks}) = _$NxAxisTicks._;
+      BuiltList<String> tags,
+      BuiltList<NxTickCell> ticks}) = _$NxAxisTicks._;
 
   NxAxisTicks._();
 }

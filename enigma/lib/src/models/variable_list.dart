@@ -4,7 +4,7 @@ library variable_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_variable_list_item.dart';
 import 'package:built_collection/built_collection.dart';
 part 'variable_list.g.dart';
 
@@ -17,11 +17,12 @@ abstract class VariableList
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<NxVariableListItem> get items;
 
   factory VariableList([updates(VariableListBuilder b)]) = _$VariableList;
 
-  factory VariableList.init({BuiltList<NxCell> items}) = _$VariableList._;
+  factory VariableList.init({BuiltList<NxVariableListItem> items}) =
+      _$VariableList._;
 
   VariableList._();
 }

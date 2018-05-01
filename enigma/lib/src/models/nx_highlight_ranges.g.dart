@@ -33,7 +33,7 @@ class _$NxHighlightRangesSerializer
         ..add('qRanges')
         ..add(serializers.serialize(object.ranges,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(CharRange)])));
     }
 
     return result;
@@ -52,9 +52,8 @@ class _$NxHighlightRangesSerializer
       switch (key) {
         case 'qRanges':
           result.ranges.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
-              as BuiltList);
+              specifiedType: const FullType(
+                  BuiltList, const [const FullType(CharRange)])) as BuiltList);
           break;
       }
     }
@@ -65,7 +64,7 @@ class _$NxHighlightRangesSerializer
 
 class _$NxHighlightRanges extends NxHighlightRanges {
   @override
-  final BuiltList<NxCell> ranges;
+  final BuiltList<CharRange> ranges;
 
   factory _$NxHighlightRanges([void updates(NxHighlightRangesBuilder b)]) =>
       (new NxHighlightRangesBuilder()..update(updates)).build();
@@ -104,10 +103,10 @@ class NxHighlightRangesBuilder
     implements Builder<NxHighlightRanges, NxHighlightRangesBuilder> {
   _$NxHighlightRanges _$v;
 
-  ListBuilder<NxCell> _ranges;
-  ListBuilder<NxCell> get ranges =>
-      _$this._ranges ??= new ListBuilder<NxCell>();
-  set ranges(ListBuilder<NxCell> ranges) => _$this._ranges = ranges;
+  ListBuilder<CharRange> _ranges;
+  ListBuilder<CharRange> get ranges =>
+      _$this._ranges ??= new ListBuilder<CharRange>();
+  set ranges(ListBuilder<CharRange> ranges) => _$this._ranges = ranges;
 
   NxHighlightRangesBuilder();
 

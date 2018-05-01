@@ -53,8 +53,8 @@ class _$GenericBookmarkLayoutSerializer
       result
         ..add('qFieldInfos')
         ..add(serializers.serialize(object.fieldInfos,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(LayoutFieldInfo)])));
     }
 
     return result;
@@ -86,8 +86,8 @@ class _$GenericBookmarkLayoutSerializer
           break;
         case 'qFieldInfos':
           result.fieldInfos.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(LayoutFieldInfo)]))
               as BuiltList);
           break;
       }
@@ -105,7 +105,7 @@ class _$GenericBookmarkLayout extends GenericBookmarkLayout {
   @override
   final NxBookmark bookmark;
   @override
-  final BuiltList<NxCell> fieldInfos;
+  final BuiltList<LayoutFieldInfo> fieldInfos;
 
   factory _$GenericBookmarkLayout(
           [void updates(GenericBookmarkLayoutBuilder b)]) =>
@@ -168,10 +168,10 @@ class GenericBookmarkLayoutBuilder
       _$this._bookmark ??= new NxBookmarkBuilder();
   set bookmark(NxBookmarkBuilder bookmark) => _$this._bookmark = bookmark;
 
-  ListBuilder<NxCell> _fieldInfos;
-  ListBuilder<NxCell> get fieldInfos =>
-      _$this._fieldInfos ??= new ListBuilder<NxCell>();
-  set fieldInfos(ListBuilder<NxCell> fieldInfos) =>
+  ListBuilder<LayoutFieldInfo> _fieldInfos;
+  ListBuilder<LayoutFieldInfo> get fieldInfos =>
+      _$this._fieldInfos ??= new ListBuilder<LayoutFieldInfo>();
+  set fieldInfos(ListBuilder<LayoutFieldInfo> fieldInfos) =>
       _$this._fieldInfos = fieldInfos;
 
   GenericBookmarkLayoutBuilder();

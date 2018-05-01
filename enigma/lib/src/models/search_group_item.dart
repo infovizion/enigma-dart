@@ -4,7 +4,7 @@ library search_group_item;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'search_group_item_match.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_group_item.g.dart';
 
@@ -43,13 +43,13 @@ abstract class SearchGroupItem
   /// Original name: qItemMatches
   @nullable
   @BuiltValueField(wireName: 'qItemMatches')
-  BuiltList<NxCell> get itemMatches;
+  BuiltList<SearchGroupItemMatch> get itemMatches;
 
   /// Indexes of the search terms that are included in the group item. These search terms are related to the list of terms defined in _SearchResult.qSearchTerms_ .
   /// Original name: qSearchTermsMatched
   @nullable
   @BuiltValueField(wireName: 'qSearchTermsMatched')
-  BuiltList<NxCell> get searchTermsMatched;
+  BuiltList<int> get searchTermsMatched;
 
   factory SearchGroupItem([updates(SearchGroupItemBuilder b)]) =
       _$SearchGroupItem;
@@ -58,8 +58,8 @@ abstract class SearchGroupItem
       {String itemType,
       int totalNumberOfMatches,
       String identifier,
-      BuiltList<NxCell> itemMatches,
-      BuiltList<NxCell> searchTermsMatched}) = _$SearchGroupItem._;
+      BuiltList<SearchGroupItemMatch> itemMatches,
+      BuiltList<int> searchTermsMatched}) = _$SearchGroupItem._;
 
   SearchGroupItem._();
 }

@@ -6,8 +6,9 @@ import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'field_attributes.dart';
 import 'nx_validation_error.dart';
-import 'nx_cell.dart';
+import 'nx_attr_expr_info.dart';
 import 'package:built_collection/built_collection.dart';
+import 'nx_attr_dim_info.dart';
 part 'nx_measure_info.g.dart';
 
 /// Layout for _NxInlineMeasureDef_.
@@ -89,13 +90,13 @@ abstract class NxMeasureInfo
   /// Original name: qAttrExprInfo
   @nullable
   @BuiltValueField(wireName: 'qAttrExprInfo')
-  BuiltList<NxCell> get attrExprInfo;
+  BuiltList<NxAttrExprInfo> get attrExprInfo;
 
   /// List of attribute dimensions.
   /// Original name: qAttrDimInfo
   @nullable
   @BuiltValueField(wireName: 'qAttrDimInfo')
-  BuiltList<NxCell> get attrDimInfo;
+  BuiltList<NxAttrDimInfo> get attrDimInfo;
 
   /// The message displayed if calculation condition is not fulfilled.
   /// Original name: qCalcCondMsg
@@ -116,8 +117,8 @@ abstract class NxMeasureInfo
       NxValidationError error,
       bool reverseSort,
       bool isAutoFormat,
-      BuiltList<NxCell> attrExprInfo,
-      BuiltList<NxCell> attrDimInfo,
+      BuiltList<NxAttrExprInfo> attrExprInfo,
+      BuiltList<NxAttrDimInfo> attrDimInfo,
       String calcCondMsg}) = _$NxMeasureInfo._;
 
   NxMeasureInfo._();

@@ -76,12 +76,12 @@ class Global extends BaseService {
   /// **In Qlik Sense Desktop:**
   ///
   /// The apps are located in _C:\Users\&lt;user name&gt;\Documents\Qlik\Sense\Apps_.
-  Future<BuiltList<NxCell>> getDocList() async {
+  Future<DocListEntry> getDocList() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetDocList', params);
     var jsonData = rawResult['result']['qDocList'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<DocListEntry>(const FullType(DocListEntry), jsonData);
     return dartData;
   }
 
@@ -109,8 +109,11 @@ class Global extends BaseService {
 
   /// Creates an app and opens an engine session.
   /// <div class=note>This operation is possible only in Qlik Sense Desktop.</div>
-  Future<Doc> createDocEx(String docName, String userName, String password,
-      String serial, String localizedScriptMainSection) async {
+  Future<Doc> createDocEx(String docName,
+      {String userName,
+      String password,
+      String serial,
+      String localizedScriptMainSection}) async {
     var params = <String, dynamic>{};
     params['qDocName'] = docName;
     params['qUserName'] = userName;
@@ -251,7 +254,7 @@ class Global extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> replaceAppFromID(
-      String targetAppId, String srcAppID, BuiltList<NxCell> ids) async {
+      String targetAppId, String srcAppID, BuiltList<String> ids) async {
     var params = <String, dynamic>{};
     params['qTargetAppId'] = targetAppId;
     params['qSrcAppID'] = srcAppID;
@@ -263,7 +266,7 @@ class Global extends BaseService {
   /// The engine copies the app into an app entity that was previously created by the repository. See the [Qlik Sense Repository Service API](#csh-RepositoryServiceAPI-Introduction) for more information.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
   Future<bool> copyApp(
-      String targetAppId, String srcAppId, BuiltList<NxCell> ids) async {
+      String targetAppId, String srcAppId, BuiltList<String> ids) async {
     var params = <String, dynamic>{};
     params['qTargetAppId'] = targetAppId;
     params['qSrcAppId'] = srcAppId;
@@ -293,8 +296,9 @@ class Global extends BaseService {
   ///
   /// The log files are located in:
   /// _%ProgramData%/Qlik/Sense/Log/Engine_
-  Future<bool> exportApp(String targetPath, String srcAppId,
-      BuiltList<NxCell> ids, bool noData) async {
+  Future<bool> exportApp(
+      String targetPath, String srcAppId, BuiltList<String> ids,
+      {bool noData}) async {
     var params = <String, dynamic>{};
     params['qTargetPath'] = targetPath;
     params['qSrcAppId'] = srcAppId;
@@ -341,8 +345,8 @@ class Global extends BaseService {
   /// In Qlik Sense Desktop, apps are automatically backed up before a migration.
   /// The backup files are located in _%userprofile%\Documents\Qlik\Sense\AppsBackup\&lt;Qlik Sense Desktop version&gt;_.
   /// In Qlik Sense Enterprise, no automatic back up is run. The back up should be done manually.
-  Future<ObjectInterface> openDoc(String docName, String userName,
-      String password, String serial, bool noData) async {
+  Future<ObjectInterface> openDoc(String docName,
+      {String userName, String password, String serial, bool noData}) async {
     var params = <String, dynamic>{};
     params['qDocName'] = docName;
     params['qUserName'] = userName;
@@ -422,55 +426,53 @@ class Global extends BaseService {
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. The BNF rules define the syntax for the script statements and the script or chart functions.
   /// In the Qlik engine BNF grammar, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  Future<BuiltList<NxCell>> getBNF(String bnfType) async {
+  Future<BNFDef> getBNF(String bnfType) async {
     var params = <String, dynamic>{};
     params['qBnfType'] = bnfType;
     var rawResult = await query('GetBNF', params);
     var jsonData = rawResult['result']['qBnfDefs'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData = fromJsonFullType<BNFDef>(const FullType(BNFDef), jsonData);
     return dartData;
   }
 
   /// Gets the list of all the script functions.
-  Future<BuiltList<NxCell>> getFunctions(String group) async {
+  Future<Function> getFunctions({String group}) async {
     var params = <String, dynamic>{};
     params['qGroup'] = group;
     var rawResult = await query('GetFunctions', params);
     var jsonData = rawResult['result']['qFunctions'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<Function>(const FullType(Function), jsonData);
     return dartData;
   }
 
   /// Returns the list of the ODBC connectors that are installed in the system.
-  Future<BuiltList<NxCell>> getOdbcDsns() async {
+  Future<OdbcDsn> getOdbcDsns() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetOdbcDsns', params);
     var jsonData = rawResult['result']['qOdbcDsns'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData = fromJsonFullType<OdbcDsn>(const FullType(OdbcDsn), jsonData);
     return dartData;
   }
 
   /// Returns the list of the OLEDB providers installed on the system.
-  Future<BuiltList<NxCell>> getOleDbProviders() async {
+  Future<OleDbProvider> getOleDbProviders() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetOleDbProviders', params);
     var jsonData = rawResult['result']['qOleDbProviders'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData = fromJsonFullType<OleDbProvider>(
+        const FullType(OleDbProvider), jsonData);
     return dartData;
   }
 
   /// Lists the databases in a ODBC, OLEDB or CUSTOM data source.
-  Future<BuiltList<NxCell>> getDatabasesFromConnectionString(
+  Future<Database> getDatabasesFromConnectionString(
       Connection connection) async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetDatabasesFromConnectionString', params);
     var jsonData = rawResult['result']['qDatabases'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<Database>(const FullType(Database), jsonData);
     return dartData;
   }
 
@@ -491,54 +493,54 @@ class Global extends BaseService {
 
   /// Lists the logical drives in the system.
   /// <div class=note>This method applies only if running Qlik Sense Desktop.</div>
-  Future<BuiltList<NxCell>> getLogicalDriveStrings() async {
+  Future<DriveInfo> getLogicalDriveStrings() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetLogicalDriveStrings', params);
     var jsonData = rawResult['result']['qDrives'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<DriveInfo>(const FullType(DriveInfo), jsonData);
     return dartData;
   }
 
   /// Returns the files and folders located at a specified path.
-  Future<BuiltList<NxCell>> getFolderItemsForPath(String path) async {
+  Future<FolderItem> getFolderItemsForPath(String path) async {
     var params = <String, dynamic>{};
     params['qPath'] = path;
     var rawResult = await query('GetFolderItemsForPath', params);
     var jsonData = rawResult['result']['qFolderItems'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<FolderItem>(const FullType(FolderItem), jsonData);
     return dartData;
   }
 
   /// Lists the supported code pages.
-  Future<BuiltList<NxCell>> getSupportedCodePages() async {
+  Future<CodePage> getSupportedCodePages() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetSupportedCodePages', params);
     var jsonData = rawResult['result']['qCodePages'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData =
+        fromJsonFullType<CodePage>(const FullType(CodePage), jsonData);
     return dartData;
   }
 
   /// List the custom connectors available in the system.
-  Future<BuiltList<NxCell>> getCustomConnectors(bool reloadList) async {
+  Future<CustomConnector> getCustomConnectors({bool reloadList}) async {
     var params = <String, dynamic>{};
     params['qReloadList'] = reloadList;
     var rawResult = await query('GetCustomConnectors', params);
     var jsonData = rawResult['result']['qConnectors'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData = fromJsonFullType<CustomConnector>(
+        const FullType(CustomConnector), jsonData);
     return dartData;
   }
 
   /// Lists the streams.
-  Future<BuiltList<NxCell>> getStreamList() async {
+  Future<NxStreamListEntry> getStreamList() async {
     var params = <String, dynamic>{};
     var rawResult = await query('GetStreamList', params);
     var jsonData = rawResult['result']['qStreamList'];
-    var dartData = fromJsonFullType<BuiltList<NxCell>>(
-        const FullType(BuiltList, const [const FullType(NxCell)]), jsonData);
+    var dartData = fromJsonFullType<NxStreamListEntry>(
+        const FullType(NxStreamListEntry), jsonData);
     return dartData;
   }
 

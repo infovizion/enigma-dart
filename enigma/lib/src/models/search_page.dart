@@ -4,8 +4,9 @@ library search_page;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'search_group_options.dart';
 import 'package:built_collection/built_collection.dart';
+import 'search_group_item_options.dart';
 part 'search_page.g.dart';
 
 abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
@@ -38,7 +39,7 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
   /// Original name: qGroupOptions
   @nullable
   @BuiltValueField(wireName: 'qGroupOptions')
-  BuiltList<NxCell> get groupOptions;
+  BuiltList<SearchGroupOptions> get groupOptions;
 
   /// Options of the search group items.
   /// If this property is not set, all values are returned.
@@ -46,7 +47,7 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
   /// Original name: qGroupItemOptions
   @nullable
   @BuiltValueField(wireName: 'qGroupItemOptions')
-  BuiltList<NxCell> get groupItemOptions;
+  BuiltList<SearchGroupItemOptions> get groupItemOptions;
 
   factory SearchPage([updates(SearchPageBuilder b)]) = _$SearchPage;
 
@@ -54,8 +55,8 @@ abstract class SearchPage implements Built<SearchPage, SearchPageBuilder> {
       {int offset,
       int count,
       int maxNbrFieldMatches,
-      BuiltList<NxCell> groupOptions,
-      BuiltList<NxCell> groupItemOptions}) = _$SearchPage._;
+      BuiltList<SearchGroupOptions> groupOptions,
+      BuiltList<SearchGroupItemOptions> groupItemOptions}) = _$SearchPage._;
 
   SearchPage._();
 }

@@ -30,8 +30,8 @@ class _$NxStackPageSerializer implements StructuredSerializer<NxStackPage> {
       result
         ..add('qData')
         ..add(serializers.serialize(object.data,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxStackedPivotCell)])));
     }
     if (object.area != null) {
       result
@@ -56,8 +56,8 @@ class _$NxStackPageSerializer implements StructuredSerializer<NxStackPage> {
       switch (key) {
         case 'qData':
           result.data.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxStackedPivotCell)]))
               as BuiltList);
           break;
         case 'qArea':
@@ -73,7 +73,7 @@ class _$NxStackPageSerializer implements StructuredSerializer<NxStackPage> {
 
 class _$NxStackPage extends NxStackPage {
   @override
-  final BuiltList<NxCell> data;
+  final BuiltList<NxStackedPivotCell> data;
   @override
   final Rect area;
 
@@ -113,9 +113,10 @@ class _$NxStackPage extends NxStackPage {
 class NxStackPageBuilder implements Builder<NxStackPage, NxStackPageBuilder> {
   _$NxStackPage _$v;
 
-  ListBuilder<NxCell> _data;
-  ListBuilder<NxCell> get data => _$this._data ??= new ListBuilder<NxCell>();
-  set data(ListBuilder<NxCell> data) => _$this._data = data;
+  ListBuilder<NxStackedPivotCell> _data;
+  ListBuilder<NxStackedPivotCell> get data =>
+      _$this._data ??= new ListBuilder<NxStackedPivotCell>();
+  set data(ListBuilder<NxStackedPivotCell> data) => _$this._data = data;
 
   RectBuilder _area;
   RectBuilder get area => _$this._area ??= new RectBuilder();

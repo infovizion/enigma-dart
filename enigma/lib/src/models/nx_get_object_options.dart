@@ -4,7 +4,6 @@ library nx_get_object_options;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/json_object.dart';
 part 'nx_get_object_options.g.dart';
@@ -18,7 +17,7 @@ abstract class NxGetObjectOptions
   /// Original name: qTypes
   @nullable
   @BuiltValueField(wireName: 'qTypes')
-  BuiltList<NxCell> get types;
+  BuiltList<String> get types;
 
   /// Set to true to include session objects.
   /// The default value is false.
@@ -37,7 +36,7 @@ abstract class NxGetObjectOptions
       _$NxGetObjectOptions;
 
   factory NxGetObjectOptions.init(
-      {BuiltList<NxCell> types,
+      {BuiltList<String> types,
       bool includeSessionObjects,
       JsonObject data}) = _$NxGetObjectOptions._;
 

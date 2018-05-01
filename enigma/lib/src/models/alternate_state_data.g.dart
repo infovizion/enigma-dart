@@ -38,8 +38,8 @@ class _$AlternateStateDataSerializer
       result
         ..add('qFieldItems')
         ..add(serializers.serialize(object.fieldItems,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(BookmarkFieldItem)])));
     }
 
     return result;
@@ -62,8 +62,8 @@ class _$AlternateStateDataSerializer
           break;
         case 'qFieldItems':
           result.fieldItems.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(BookmarkFieldItem)]))
               as BuiltList);
           break;
       }
@@ -77,7 +77,7 @@ class _$AlternateStateData extends AlternateStateData {
   @override
   final String stateName;
   @override
-  final BuiltList<NxCell> fieldItems;
+  final BuiltList<BookmarkFieldItem> fieldItems;
 
   factory _$AlternateStateData([void updates(AlternateStateDataBuilder b)]) =>
       (new AlternateStateDataBuilder()..update(updates)).build();
@@ -121,10 +121,10 @@ class AlternateStateDataBuilder
   String get stateName => _$this._stateName;
   set stateName(String stateName) => _$this._stateName = stateName;
 
-  ListBuilder<NxCell> _fieldItems;
-  ListBuilder<NxCell> get fieldItems =>
-      _$this._fieldItems ??= new ListBuilder<NxCell>();
-  set fieldItems(ListBuilder<NxCell> fieldItems) =>
+  ListBuilder<BookmarkFieldItem> _fieldItems;
+  ListBuilder<BookmarkFieldItem> get fieldItems =>
+      _$this._fieldItems ??= new ListBuilder<BookmarkFieldItem>();
+  set fieldItems(ListBuilder<BookmarkFieldItem> fieldItems) =>
       _$this._fieldItems = fieldItems;
 
   AlternateStateDataBuilder();

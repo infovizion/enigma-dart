@@ -4,7 +4,7 @@ library nx_multi_range_select_info;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_range_select_info.dart';
 import 'package:built_collection/built_collection.dart';
 part 'nx_multi_range_select_info.g.dart';
 
@@ -16,19 +16,19 @@ abstract class NxMultiRangeSelectInfo
   /// Original name: qRanges
   @nullable
   @BuiltValueField(wireName: 'qRanges')
-  BuiltList<NxCell> get ranges;
+  BuiltList<NxRangeSelectInfo> get ranges;
 
   /// Original name: qColumnsToSelect
   @nullable
   @BuiltValueField(wireName: 'qColumnsToSelect')
-  BuiltList<NxCell> get columnsToSelect;
+  BuiltList<int> get columnsToSelect;
 
   factory NxMultiRangeSelectInfo([updates(NxMultiRangeSelectInfoBuilder b)]) =
       _$NxMultiRangeSelectInfo;
 
   factory NxMultiRangeSelectInfo.init(
-      {BuiltList<NxCell> ranges,
-      BuiltList<NxCell> columnsToSelect}) = _$NxMultiRangeSelectInfo._;
+      {BuiltList<NxRangeSelectInfo> ranges,
+      BuiltList<int> columnsToSelect}) = _$NxMultiRangeSelectInfo._;
 
   NxMultiRangeSelectInfo._();
 }

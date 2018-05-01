@@ -4,7 +4,6 @@ library data_record;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'data_record.g.dart';
 
@@ -17,11 +16,11 @@ abstract class DataRecord implements Built<DataRecord, DataRecordBuilder> {
   /// Original name: qValues
   @nullable
   @BuiltValueField(wireName: 'qValues')
-  BuiltList<NxCell> get values;
+  BuiltList<String> get values;
 
   factory DataRecord([updates(DataRecordBuilder b)]) = _$DataRecord;
 
-  factory DataRecord.init({BuiltList<NxCell> values}) = _$DataRecord._;
+  factory DataRecord.init({BuiltList<String> values}) = _$DataRecord._;
 
   DataRecord._();
 }

@@ -4,7 +4,7 @@ library measure_list;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'nx_container_entry.dart';
 import 'package:built_collection/built_collection.dart';
 part 'measure_list.g.dart';
 
@@ -16,11 +16,12 @@ abstract class MeasureList implements Built<MeasureList, MeasureListBuilder> {
   /// Original name: qItems
   @nullable
   @BuiltValueField(wireName: 'qItems')
-  BuiltList<NxCell> get items;
+  BuiltList<NxContainerEntry> get items;
 
   factory MeasureList([updates(MeasureListBuilder b)]) = _$MeasureList;
 
-  factory MeasureList.init({BuiltList<NxCell> items}) = _$MeasureList._;
+  factory MeasureList.init({BuiltList<NxContainerEntry> items}) =
+      _$MeasureList._;
 
   MeasureList._();
 }

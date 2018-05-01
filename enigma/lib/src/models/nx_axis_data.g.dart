@@ -30,8 +30,8 @@ class _$NxAxisDataSerializer implements StructuredSerializer<NxAxisData> {
       result
         ..add('qAxis')
         ..add(serializers.serialize(object.axis,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxAxisTicks)])));
     }
 
     return result;
@@ -50,8 +50,8 @@ class _$NxAxisDataSerializer implements StructuredSerializer<NxAxisData> {
       switch (key) {
         case 'qAxis':
           result.axis.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxAxisTicks)]))
               as BuiltList);
           break;
       }
@@ -63,7 +63,7 @@ class _$NxAxisDataSerializer implements StructuredSerializer<NxAxisData> {
 
 class _$NxAxisData extends NxAxisData {
   @override
-  final BuiltList<NxCell> axis;
+  final BuiltList<NxAxisTicks> axis;
 
   factory _$NxAxisData([void updates(NxAxisDataBuilder b)]) =>
       (new NxAxisDataBuilder()..update(updates)).build();
@@ -99,9 +99,10 @@ class _$NxAxisData extends NxAxisData {
 class NxAxisDataBuilder implements Builder<NxAxisData, NxAxisDataBuilder> {
   _$NxAxisData _$v;
 
-  ListBuilder<NxCell> _axis;
-  ListBuilder<NxCell> get axis => _$this._axis ??= new ListBuilder<NxCell>();
-  set axis(ListBuilder<NxCell> axis) => _$this._axis = axis;
+  ListBuilder<NxAxisTicks> _axis;
+  ListBuilder<NxAxisTicks> get axis =>
+      _$this._axis ??= new ListBuilder<NxAxisTicks>();
+  set axis(ListBuilder<NxAxisTicks> axis) => _$this._axis = axis;
 
   NxAxisDataBuilder();
 

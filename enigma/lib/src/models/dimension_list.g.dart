@@ -31,8 +31,8 @@ class _$DimensionListSerializer implements StructuredSerializer<DimensionList> {
       result
         ..add('qItems')
         ..add(serializers.serialize(object.items,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxContainerEntry)])));
     }
 
     return result;
@@ -51,8 +51,8 @@ class _$DimensionListSerializer implements StructuredSerializer<DimensionList> {
       switch (key) {
         case 'qItems':
           result.items.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxContainerEntry)]))
               as BuiltList);
           break;
       }
@@ -64,7 +64,7 @@ class _$DimensionListSerializer implements StructuredSerializer<DimensionList> {
 
 class _$DimensionList extends DimensionList {
   @override
-  final BuiltList<NxCell> items;
+  final BuiltList<NxContainerEntry> items;
 
   factory _$DimensionList([void updates(DimensionListBuilder b)]) =>
       (new DimensionListBuilder()..update(updates)).build();
@@ -101,9 +101,10 @@ class DimensionListBuilder
     implements Builder<DimensionList, DimensionListBuilder> {
   _$DimensionList _$v;
 
-  ListBuilder<NxCell> _items;
-  ListBuilder<NxCell> get items => _$this._items ??= new ListBuilder<NxCell>();
-  set items(ListBuilder<NxCell> items) => _$this._items = items;
+  ListBuilder<NxContainerEntry> _items;
+  ListBuilder<NxContainerEntry> get items =>
+      _$this._items ??= new ListBuilder<NxContainerEntry>();
+  set items(ListBuilder<NxContainerEntry> items) => _$this._items = items;
 
   DimensionListBuilder();
 

@@ -38,8 +38,8 @@ class _$NxTreeDataOptionSerializer
       result
         ..add('qTreeNodes')
         ..add(serializers.serialize(object.treeNodes,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxPageTreeNode)])));
     }
     if (object.treeLevels != null) {
       result
@@ -68,8 +68,8 @@ class _$NxTreeDataOptionSerializer
           break;
         case 'qTreeNodes':
           result.treeNodes.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxPageTreeNode)]))
               as BuiltList);
           break;
         case 'qTreeLevels':
@@ -88,7 +88,7 @@ class _$NxTreeDataOption extends NxTreeDataOption {
   @override
   final int maxNbrOfNodes;
   @override
-  final BuiltList<NxCell> treeNodes;
+  final BuiltList<NxPageTreeNode> treeNodes;
   @override
   final NxPageTreeLevel treeLevels;
 
@@ -139,10 +139,11 @@ class NxTreeDataOptionBuilder
   int get maxNbrOfNodes => _$this._maxNbrOfNodes;
   set maxNbrOfNodes(int maxNbrOfNodes) => _$this._maxNbrOfNodes = maxNbrOfNodes;
 
-  ListBuilder<NxCell> _treeNodes;
-  ListBuilder<NxCell> get treeNodes =>
-      _$this._treeNodes ??= new ListBuilder<NxCell>();
-  set treeNodes(ListBuilder<NxCell> treeNodes) => _$this._treeNodes = treeNodes;
+  ListBuilder<NxPageTreeNode> _treeNodes;
+  ListBuilder<NxPageTreeNode> get treeNodes =>
+      _$this._treeNodes ??= new ListBuilder<NxPageTreeNode>();
+  set treeNodes(ListBuilder<NxPageTreeNode> treeNodes) =>
+      _$this._treeNodes = treeNodes;
 
   NxPageTreeLevelBuilder _treeLevels;
   NxPageTreeLevelBuilder get treeLevels =>

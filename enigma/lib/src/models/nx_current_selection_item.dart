@@ -4,9 +4,10 @@ library nx_current_selection_item;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
+import 'range_select_info.dart';
 import 'package:built_collection/built_collection.dart';
 import 'nx_state_counts.dart';
+import 'nx_field_selection_info.dart';
 part 'nx_current_selection_item.g.dart';
 
 abstract class NxCurrentSelectionItem
@@ -74,7 +75,7 @@ abstract class NxCurrentSelectionItem
   /// Original name: qRangeInfo
   @nullable
   @BuiltValueField(wireName: 'qRangeInfo')
-  BuiltList<NxCell> get rangeInfo;
+  BuiltList<RangeSelectInfo> get rangeInfo;
 
   /// Sort index of the field. Indexing starts from 0.
   /// Original name: qSortIndex
@@ -92,13 +93,13 @@ abstract class NxCurrentSelectionItem
   /// Original name: qSelectedFieldSelectionInfo
   @nullable
   @BuiltValueField(wireName: 'qSelectedFieldSelectionInfo')
-  BuiltList<NxCell> get selectedFieldSelectionInfo;
+  BuiltList<NxFieldSelectionInfo> get selectedFieldSelectionInfo;
 
   /// Information about the fields that are not selected.
   /// Original name: qNotSelectedFieldSelectionInfo
   @nullable
   @BuiltValueField(wireName: 'qNotSelectedFieldSelectionInfo')
-  BuiltList<NxCell> get notSelectedFieldSelectionInfo;
+  BuiltList<NxFieldSelectionInfo> get notSelectedFieldSelectionInfo;
 
   /// Maximum values to show in the current selections.
   /// The default value is 6.
@@ -132,11 +133,11 @@ abstract class NxCurrentSelectionItem
       String textSearch,
       int selectedCount,
       String selected,
-      BuiltList<NxCell> rangeInfo,
+      BuiltList<RangeSelectInfo> rangeInfo,
       int sortIndex,
       NxStateCounts stateCounts,
-      BuiltList<NxCell> selectedFieldSelectionInfo,
-      BuiltList<NxCell> notSelectedFieldSelectionInfo,
+      BuiltList<NxFieldSelectionInfo> selectedFieldSelectionInfo,
+      BuiltList<NxFieldSelectionInfo> notSelectedFieldSelectionInfo,
       int selectionThreshold,
       String readableName,
       bool isHidden}) = _$NxCurrentSelectionItem._;

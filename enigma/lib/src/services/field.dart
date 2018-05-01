@@ -28,8 +28,8 @@ class Field extends BaseService {
   }
 
   /// Selects some values in a field, by entering the values to select.
-  Future<bool> selectValues(
-      BuiltList<NxCell> fieldValues, bool toggleMode, bool softLock) async {
+  Future<bool> selectValues(FieldValue fieldValues,
+      {bool toggleMode, bool softLock}) async {
     var params = <String, dynamic>{};
     params['qToggleMode'] = toggleMode;
     params['qSoftLock'] = softLock;
@@ -38,8 +38,8 @@ class Field extends BaseService {
   }
 
   /// Selects field values matching a search string.
-  Future<bool> select(
-      String match, bool softLock, int excludedValuesMode) async {
+  Future<bool> select(String match,
+      {bool softLock, int excludedValuesMode}) async {
     var params = <String, dynamic>{};
     params['qMatch'] = match;
     params['qSoftLock'] = softLock;
@@ -49,8 +49,8 @@ class Field extends BaseService {
   }
 
   /// Toggle selects field values matching a search string.
-  Future<bool> toggleSelect(
-      String match, bool softLock, int excludedValuesMode) async {
+  Future<bool> toggleSelect(String match,
+      {bool softLock, int excludedValuesMode}) async {
     var params = <String, dynamic>{};
     params['qMatch'] = match;
     params['qSoftLock'] = softLock;
@@ -60,7 +60,7 @@ class Field extends BaseService {
   }
 
   /// Maintains the selections in the current field while clearing the selections in the other fields.
-  Future<bool> clearAllButThis(bool softLock) async {
+  Future<bool> clearAllButThis({bool softLock}) async {
     var params = <String, dynamic>{};
     params['qSoftLock'] = softLock;
     var rawResult = await query('ClearAllButThis', params);
@@ -68,7 +68,7 @@ class Field extends BaseService {
   }
 
   /// Selects all possible values in a specific field.
-  Future<bool> selectPossible(bool softLock) async {
+  Future<bool> selectPossible({bool softLock}) async {
     var params = <String, dynamic>{};
     params['qSoftLock'] = softLock;
     var rawResult = await query('SelectPossible', params);
@@ -76,7 +76,7 @@ class Field extends BaseService {
   }
 
   /// Inverts the current selections.
-  Future<bool> selectExcluded(bool softLock) async {
+  Future<bool> selectExcluded({bool softLock}) async {
     var params = <String, dynamic>{};
     params['qSoftLock'] = softLock;
     var rawResult = await query('SelectExcluded', params);
@@ -84,7 +84,7 @@ class Field extends BaseService {
   }
 
   /// Selects all values of a field. Excluded values are also selected.
-  Future<bool> selectAll(bool softLock) async {
+  Future<bool> selectAll({bool softLock}) async {
     var params = <String, dynamic>{};
     params['qSoftLock'] = softLock;
     var rawResult = await query('SelectAll', params);
@@ -132,7 +132,7 @@ class Field extends BaseService {
 
   /// Selects all alternatives values in a specific field.
   /// <div class=note>In a field that contains at least one selected value, the values that are neither selected nor excluded are alternatives values.</div>
-  Future<bool> selectAlternative(bool softLock) async {
+  Future<bool> selectAlternative({bool softLock}) async {
     var params = <String, dynamic>{};
     params['qSoftLock'] = softLock;
     var rawResult = await query('SelectAlternative', params);
@@ -140,8 +140,8 @@ class Field extends BaseService {
   }
 
   /// Selects some values in a field, by entering the element numbers related to the values to select.
-  Future<bool> lowLevelSelect(
-      BuiltList<NxCell> values, bool toggleMode, bool softLock) async {
+  Future<bool> lowLevelSelect(BuiltList<int> values, bool toggleMode,
+      {bool softLock}) async {
     var params = <String, dynamic>{};
     params['qToggleMode'] = toggleMode;
     params['qSoftLock'] = softLock;

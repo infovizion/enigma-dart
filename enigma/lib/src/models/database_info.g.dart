@@ -92,7 +92,7 @@ class _$DatabaseInfoSerializer implements StructuredSerializer<DatabaseInfo> {
         ..add('qKeywords')
         ..add(serializers.serialize(object.keywords,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -152,7 +152,7 @@ class _$DatabaseInfoSerializer implements StructuredSerializer<DatabaseInfo> {
         case 'qKeywords':
           result.keywords.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -184,7 +184,7 @@ class _$DatabaseInfo extends DatabaseInfo {
   @override
   final String defaultDatabase;
   @override
-  final BuiltList<NxCell> keywords;
+  final BuiltList<String> keywords;
 
   factory _$DatabaseInfo([void updates(DatabaseInfoBuilder b)]) =>
       (new DatabaseInfoBuilder()..update(updates)).build();
@@ -315,10 +315,10 @@ class DatabaseInfoBuilder
   set defaultDatabase(String defaultDatabase) =>
       _$this._defaultDatabase = defaultDatabase;
 
-  ListBuilder<NxCell> _keywords;
-  ListBuilder<NxCell> get keywords =>
-      _$this._keywords ??= new ListBuilder<NxCell>();
-  set keywords(ListBuilder<NxCell> keywords) => _$this._keywords = keywords;
+  ListBuilder<String> _keywords;
+  ListBuilder<String> get keywords =>
+      _$this._keywords ??= new ListBuilder<String>();
+  set keywords(ListBuilder<String> keywords) => _$this._keywords = keywords;
 
   DatabaseInfoBuilder();
 

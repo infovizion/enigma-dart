@@ -4,7 +4,6 @@ library search_field_match;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'search_field_match.g.dart';
 
@@ -25,13 +24,13 @@ abstract class SearchFieldMatch
   /// Original name: qValues
   @nullable
   @BuiltValueField(wireName: 'qValues')
-  BuiltList<NxCell> get values;
+  BuiltList<int> get values;
 
   /// Positions of the search terms, starting from 0.
   /// Original name: qTerms
   @nullable
   @BuiltValueField(wireName: 'qTerms')
-  BuiltList<NxCell> get terms;
+  BuiltList<int> get terms;
 
   /// Number of search hits in the field.
   /// The number of values in _qValues_ and the value of _qNoOfMatches_ are equal if _qMaxNbrFieldMatches_ is -1.
@@ -45,8 +44,8 @@ abstract class SearchFieldMatch
 
   factory SearchFieldMatch.init(
       {int field,
-      BuiltList<NxCell> values,
-      BuiltList<NxCell> terms,
+      BuiltList<int> values,
+      BuiltList<int> terms,
       int noOfMatches}) = _$SearchFieldMatch._;
 
   SearchFieldMatch._();

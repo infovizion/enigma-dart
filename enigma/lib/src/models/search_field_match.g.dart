@@ -39,14 +39,14 @@ class _$SearchFieldMatchSerializer
         ..add('qValues')
         ..add(serializers.serialize(object.values,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.terms != null) {
       result
         ..add('qTerms')
         ..add(serializers.serialize(object.terms,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(int)])));
     }
     if (object.noOfMatches != null) {
       result
@@ -76,13 +76,13 @@ class _$SearchFieldMatchSerializer
         case 'qValues':
           result.values.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qTerms':
           result.terms.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(int)]))
               as BuiltList);
           break;
         case 'qNoOfMatches':
@@ -100,9 +100,9 @@ class _$SearchFieldMatch extends SearchFieldMatch {
   @override
   final int field;
   @override
-  final BuiltList<NxCell> values;
+  final BuiltList<int> values;
   @override
-  final BuiltList<NxCell> terms;
+  final BuiltList<int> terms;
   @override
   final int noOfMatches;
 
@@ -156,14 +156,13 @@ class SearchFieldMatchBuilder
   int get field => _$this._field;
   set field(int field) => _$this._field = field;
 
-  ListBuilder<NxCell> _values;
-  ListBuilder<NxCell> get values =>
-      _$this._values ??= new ListBuilder<NxCell>();
-  set values(ListBuilder<NxCell> values) => _$this._values = values;
+  ListBuilder<int> _values;
+  ListBuilder<int> get values => _$this._values ??= new ListBuilder<int>();
+  set values(ListBuilder<int> values) => _$this._values = values;
 
-  ListBuilder<NxCell> _terms;
-  ListBuilder<NxCell> get terms => _$this._terms ??= new ListBuilder<NxCell>();
-  set terms(ListBuilder<NxCell> terms) => _$this._terms = terms;
+  ListBuilder<int> _terms;
+  ListBuilder<int> get terms => _$this._terms ??= new ListBuilder<int>();
+  set terms(ListBuilder<int> terms) => _$this._terms = terms;
 
   int _noOfMatches;
   int get noOfMatches => _$this._noOfMatches;

@@ -50,7 +50,7 @@ class _$TableViewBroomPointSaveInfoSerializer
         ..add('qFields')
         ..add(serializers.serialize(object.fields,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
 
     return result;
@@ -79,7 +79,7 @@ class _$TableViewBroomPointSaveInfoSerializer
         case 'qFields':
           result.fields.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
       }
@@ -95,7 +95,7 @@ class _$TableViewBroomPointSaveInfo extends TableViewBroomPointSaveInfo {
   @override
   final String table;
   @override
-  final BuiltList<NxCell> fields;
+  final BuiltList<String> fields;
 
   factory _$TableViewBroomPointSaveInfo(
           [void updates(TableViewBroomPointSaveInfoBuilder b)]) =>
@@ -149,10 +149,10 @@ class TableViewBroomPointSaveInfoBuilder
   String get table => _$this._table;
   set table(String table) => _$this._table = table;
 
-  ListBuilder<NxCell> _fields;
-  ListBuilder<NxCell> get fields =>
-      _$this._fields ??= new ListBuilder<NxCell>();
-  set fields(ListBuilder<NxCell> fields) => _$this._fields = fields;
+  ListBuilder<String> _fields;
+  ListBuilder<String> get fields =>
+      _$this._fields ??= new ListBuilder<String>();
+  set fields(ListBuilder<String> fields) => _$this._fields = fields;
 
   TableViewBroomPointSaveInfoBuilder();
 

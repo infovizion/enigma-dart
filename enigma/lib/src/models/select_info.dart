@@ -5,8 +5,9 @@ library select_info;
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'field_attributes.dart';
-import 'nx_cell.dart';
+import 'range_select_info.dart';
 import 'package:built_collection/built_collection.dart';
+import 'range.dart';
 part 'select_info.g.dart';
 
 abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
@@ -49,7 +50,7 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
   /// Original name: qRangeInfo
   @nullable
   @BuiltValueField(wireName: 'qRangeInfo')
-  BuiltList<NxCell> get rangeInfo;
+  BuiltList<RangeSelectInfo> get rangeInfo;
 
   /// Original name: qSoftLock
   @nullable
@@ -60,7 +61,7 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
   /// Original name: qContinuousRangeInfo
   @nullable
   @BuiltValueField(wireName: 'qContinuousRangeInfo')
-  BuiltList<NxCell> get continuousRangeInfo;
+  BuiltList<Range> get continuousRangeInfo;
 
   factory SelectInfo([updates(SelectInfoBuilder b)]) = _$SelectInfo;
 
@@ -69,9 +70,9 @@ abstract class SelectInfo implements Built<SelectInfo, SelectInfoBuilder> {
       num rangeLo,
       num rangeHi,
       FieldAttributes numberFormat,
-      BuiltList<NxCell> rangeInfo,
+      BuiltList<RangeSelectInfo> rangeInfo,
       bool softLock,
-      BuiltList<NxCell> continuousRangeInfo}) = _$SelectInfo._;
+      BuiltList<Range> continuousRangeInfo}) = _$SelectInfo._;
 
   SelectInfo._();
 }

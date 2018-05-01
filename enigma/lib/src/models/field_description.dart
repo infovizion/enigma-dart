@@ -4,7 +4,6 @@ library field_description;
 
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
-import 'nx_cell.dart';
 import 'package:built_collection/built_collection.dart';
 part 'field_description.g.dart';
 
@@ -29,7 +28,7 @@ abstract class FieldDescription
   /// Original name: qSrcTables
   @nullable
   @BuiltValueField(wireName: 'qSrcTables')
-  BuiltList<NxCell> get srcTables;
+  BuiltList<String> get srcTables;
 
   /// If set to true, it means that the field is a system field.
   /// The default value is false.
@@ -121,7 +120,7 @@ abstract class FieldDescription
   /// Original name: qTags
   @nullable
   @BuiltValueField(wireName: 'qTags')
-  BuiltList<NxCell> get tags;
+  BuiltList<String> get tags;
 
   /// If set to true, it means that the field is a field on the fly.
   /// The default value is false.
@@ -142,7 +141,7 @@ abstract class FieldDescription
   factory FieldDescription.init(
       {int internalNumber,
       String name,
-      BuiltList<NxCell> srcTables,
+      BuiltList<String> srcTables,
       bool isSystem,
       bool isHidden,
       bool isSemantic,
@@ -156,7 +155,7 @@ abstract class FieldDescription
       bool andMode,
       bool isNumeric,
       String comment,
-      BuiltList<NxCell> tags,
+      BuiltList<String> tags,
       bool isDefinitionOnly,
       int byteSize}) = _$FieldDescription._;
 

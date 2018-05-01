@@ -69,7 +69,7 @@ class _$NxFieldDescriptionSerializer
         ..add('qTags')
         ..add(serializers.serialize(object.tags,
             specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+                const FullType(BuiltList, const [const FullType(String)])));
     }
     if (object.isDefinitionOnly != null) {
       result
@@ -143,7 +143,7 @@ class _$NxFieldDescriptionSerializer
         case 'qTags':
           result.tags.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                      const FullType(BuiltList, const [const FullType(String)]))
               as BuiltList);
           break;
         case 'qIsDefinitionOnly':
@@ -188,7 +188,7 @@ class _$NxFieldDescription extends NxFieldDescription {
   @override
   final int cardinal;
   @override
-  final BuiltList<NxCell> tags;
+  final BuiltList<String> tags;
   @override
   final bool isDefinitionOnly;
   @override
@@ -317,9 +317,9 @@ class NxFieldDescriptionBuilder
   int get cardinal => _$this._cardinal;
   set cardinal(int cardinal) => _$this._cardinal = cardinal;
 
-  ListBuilder<NxCell> _tags;
-  ListBuilder<NxCell> get tags => _$this._tags ??= new ListBuilder<NxCell>();
-  set tags(ListBuilder<NxCell> tags) => _$this._tags = tags;
+  ListBuilder<String> _tags;
+  ListBuilder<String> get tags => _$this._tags ??= new ListBuilder<String>();
+  set tags(ListBuilder<String> tags) => _$this._tags = tags;
 
   bool _isDefinitionOnly;
   bool get isDefinitionOnly => _$this._isDefinitionOnly;

@@ -5,7 +5,7 @@ library generic_object_entry;
 import 'package:built_value/serializer.dart';
 import 'package:built_value/built_value.dart';
 import 'generic_object_properties.dart';
-import 'nx_cell.dart';
+import 'generic_object_entry.dart';
 import 'package:built_collection/built_collection.dart';
 import 'generic_bookmark_entry.dart';
 part 'generic_object_entry.g.dart';
@@ -25,7 +25,7 @@ abstract class GenericObjectEntry
   /// Original name: qChildren
   @nullable
   @BuiltValueField(wireName: 'qChildren')
-  BuiltList<NxCell> get children;
+  BuiltList<GenericObjectEntry> get children;
 
   /// Reference to a bookmark/snapshot that is embedded in the generic object.
   /// Original name: qEmbeddedSnapshotRef
@@ -38,7 +38,7 @@ abstract class GenericObjectEntry
 
   factory GenericObjectEntry.init(
       {GenericObjectProperties property,
-      BuiltList<NxCell> children,
+      BuiltList<GenericObjectEntry> children,
       GenericBookmarkEntry embeddedSnapshotRef}) = _$GenericObjectEntry._;
 
   GenericObjectEntry._();

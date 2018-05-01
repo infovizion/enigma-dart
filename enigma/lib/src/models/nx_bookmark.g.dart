@@ -30,8 +30,8 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
       result
         ..add('qStateData')
         ..add(serializers.serialize(object.stateData,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(AlternateStateData)])));
     }
     if (object.utcModifyTime != null) {
       result
@@ -43,8 +43,8 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
       result
         ..add('qVariableItems')
         ..add(serializers.serialize(object.variableItems,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(BookmarkVariableItem)])));
     }
 
     return result;
@@ -63,8 +63,8 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
       switch (key) {
         case 'qStateData':
           result.stateData.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(AlternateStateData)]))
               as BuiltList);
           break;
         case 'qUtcModifyTime':
@@ -73,8 +73,8 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
           break;
         case 'qVariableItems':
           result.variableItems.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(BookmarkVariableItem)]))
               as BuiltList);
           break;
       }
@@ -86,11 +86,11 @@ class _$NxBookmarkSerializer implements StructuredSerializer<NxBookmark> {
 
 class _$NxBookmark extends NxBookmark {
   @override
-  final BuiltList<NxCell> stateData;
+  final BuiltList<AlternateStateData> stateData;
   @override
   final num utcModifyTime;
   @override
-  final BuiltList<NxCell> variableItems;
+  final BuiltList<BookmarkVariableItem> variableItems;
 
   factory _$NxBookmark([void updates(NxBookmarkBuilder b)]) =>
       (new NxBookmarkBuilder()..update(updates)).build();
@@ -133,19 +133,20 @@ class _$NxBookmark extends NxBookmark {
 class NxBookmarkBuilder implements Builder<NxBookmark, NxBookmarkBuilder> {
   _$NxBookmark _$v;
 
-  ListBuilder<NxCell> _stateData;
-  ListBuilder<NxCell> get stateData =>
-      _$this._stateData ??= new ListBuilder<NxCell>();
-  set stateData(ListBuilder<NxCell> stateData) => _$this._stateData = stateData;
+  ListBuilder<AlternateStateData> _stateData;
+  ListBuilder<AlternateStateData> get stateData =>
+      _$this._stateData ??= new ListBuilder<AlternateStateData>();
+  set stateData(ListBuilder<AlternateStateData> stateData) =>
+      _$this._stateData = stateData;
 
   num _utcModifyTime;
   num get utcModifyTime => _$this._utcModifyTime;
   set utcModifyTime(num utcModifyTime) => _$this._utcModifyTime = utcModifyTime;
 
-  ListBuilder<NxCell> _variableItems;
-  ListBuilder<NxCell> get variableItems =>
-      _$this._variableItems ??= new ListBuilder<NxCell>();
-  set variableItems(ListBuilder<NxCell> variableItems) =>
+  ListBuilder<BookmarkVariableItem> _variableItems;
+  ListBuilder<BookmarkVariableItem> get variableItems =>
+      _$this._variableItems ??= new ListBuilder<BookmarkVariableItem>();
+  set variableItems(ListBuilder<BookmarkVariableItem> variableItems) =>
       _$this._variableItems = variableItems;
 
   NxBookmarkBuilder();

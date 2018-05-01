@@ -98,8 +98,8 @@ class _$NxStackedPivotCellSerializer
       result
         ..add('qSubNodes')
         ..add(serializers.serialize(object.subNodes,
-            specifiedType:
-                const FullType(BuiltList, const [const FullType(NxCell)])));
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NxStackedPivotCell)])));
     }
     if (object.attrExps != null) {
       result
@@ -174,8 +174,8 @@ class _$NxStackedPivotCellSerializer
           break;
         case 'qSubNodes':
           result.subNodes.replace(serializers.deserialize(value,
-                  specifiedType:
-                      const FullType(BuiltList, const [const FullType(NxCell)]))
+                  specifiedType: const FullType(
+                      BuiltList, const [const FullType(NxStackedPivotCell)]))
               as BuiltList);
           break;
         case 'qAttrExps':
@@ -219,7 +219,7 @@ class _$NxStackedPivotCell extends NxStackedPivotCell {
   @override
   final int row;
   @override
-  final BuiltList<NxCell> subNodes;
+  final BuiltList<NxStackedPivotCell> subNodes;
   @override
   final NxAttributeExpressionValues attrExps;
   @override
@@ -372,10 +372,11 @@ class NxStackedPivotCellBuilder
   int get row => _$this._row;
   set row(int row) => _$this._row = row;
 
-  ListBuilder<NxCell> _subNodes;
-  ListBuilder<NxCell> get subNodes =>
-      _$this._subNodes ??= new ListBuilder<NxCell>();
-  set subNodes(ListBuilder<NxCell> subNodes) => _$this._subNodes = subNodes;
+  ListBuilder<NxStackedPivotCell> _subNodes;
+  ListBuilder<NxStackedPivotCell> get subNodes =>
+      _$this._subNodes ??= new ListBuilder<NxStackedPivotCell>();
+  set subNodes(ListBuilder<NxStackedPivotCell> subNodes) =>
+      _$this._subNodes = subNodes;
 
   NxAttributeExpressionValuesBuilder _attrExps;
   NxAttributeExpressionValuesBuilder get attrExps =>
