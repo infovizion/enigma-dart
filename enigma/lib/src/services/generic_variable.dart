@@ -16,8 +16,8 @@ class GenericVariable extends BaseService {
   /// Evaluates an object and displays its properties including the dynamic properties.
   /// If the member _delta_ is set to true in the request object, only the delta is evaluated.
   Future<GenericVariableLayout> getLayout() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetLayout', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLayout', __params);
     var jsonData = rawResult['result']['qLayout'];
     var dartData = fromJsonFullType<GenericVariableLayout>(
         const FullType(GenericVariableLayout), jsonData);
@@ -27,27 +27,27 @@ class GenericVariable extends BaseService {
   /// Applies a patch to the properties of a variable. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
   Future<void> applyPatches(NxPatch patches) async {
-    var params = <String, dynamic>{};
-    params['qPatches'] =
+    var __params = <String, dynamic>{};
+    __params['qPatches'] =
         toJson(patches, specifiedType: const FullType(NxPatch));
-    var rawResult = await query('ApplyPatches', params);
+    var rawResult = await query('ApplyPatches', __params);
   }
 
   /// Sets some properties for a variable.
   /// <div class=note>The identifier of a variable cannot be modified.</div> <div class=note>You cannot update the properties of a script-defined variable using the _SetProperties method_. </div>
   Future<void> setProperties(GenericVariableProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericVariableProperties));
-    var rawResult = await query('SetProperties', params);
+    var rawResult = await query('SetProperties', __params);
   }
 
   /// Shows the properties of an object.
   /// <div class=note>If the member **delta** is set to true in the request, only the delta is retrieved. </div>
   /// The following is always returned in the output:
   Future<GenericVariableProperties> getProperties() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetProperties', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetProperties', __params);
     var jsonData = rawResult['result']['qProp'];
     var dartData = fromJsonFullType<GenericVariableProperties>(
         const FullType(GenericVariableProperties), jsonData);
@@ -56,8 +56,8 @@ class GenericVariable extends BaseService {
 
   /// Returns the type and identifier of the object.
   Future<NxInfo> getInfo() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetInfo', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetInfo', __params);
     var jsonData = rawResult['result']['qInfo'];
     var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
     return dartData;
@@ -66,25 +66,25 @@ class GenericVariable extends BaseService {
   /// Sets a string value to a variable.
   /// <div class=note>These changes are not persistent. They only last the duration of the engine session.</div>
   Future<void> setStringValue(String val) async {
-    var params = <String, dynamic>{};
-    params['qVal'] = val;
-    var rawResult = await query('SetStringValue', params);
+    var __params = <String, dynamic>{};
+    __params['qVal'] = val;
+    var rawResult = await query('SetStringValue', __params);
   }
 
   /// Sets a numerical value to a variable.
   /// <div class=note>These changes are not persistent. They only last the duration of the engine session.</div>
   Future<void> setNumValue(num val) async {
-    var params = <String, dynamic>{};
-    params['qVal'] = val;
-    var rawResult = await query('SetNumValue', params);
+    var __params = <String, dynamic>{};
+    __params['qVal'] = val;
+    var rawResult = await query('SetNumValue', __params);
   }
 
   /// Sets the value of a dual variable.
   /// <div class=note>These changes are not persistent. They only last the duration of the engine session.</div>
   Future<void> setDualValue(String text, num qNum) async {
-    var params = <String, dynamic>{};
-    params['qText'] = text;
-    params['qNum'] = qNum;
-    var rawResult = await query('SetDualValue', params);
+    var __params = <String, dynamic>{};
+    __params['qText'] = text;
+    __params['qNum'] = qNum;
+    var rawResult = await query('SetDualValue', __params);
   }
 }

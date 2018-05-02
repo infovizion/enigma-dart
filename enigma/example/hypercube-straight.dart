@@ -9,7 +9,7 @@ Rand() as Value
 AutoGenerate 100
 ''';
 
-main() async {
+main() async {  
   var channel = new IOWebSocketChannel.connect('ws://localhost:19076/app');
   var enigma = new Enigma(channel);
   var global = enigma.open();

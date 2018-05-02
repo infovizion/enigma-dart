@@ -415,22 +415,22 @@ class ApiGenerator {
     }
     buffer.writeln(
         '  Future<${returnDescriptor.dartType}> $dartMethodName(${paramParts.join(', ')}) async {');
-    buffer.writeln('var params = <String, dynamic>{};');
+    buffer.writeln('var __params = <String, dynamic>{};');
     for (var p in paramsWithDartTypes) {
       if (!_isRequired(p.schemaType)) {
         buffer.writeln("if ( ${p.dartName} != null ) {");
       }
       if (p.typeData.isPrimitive) {
-        buffer.writeln("params['${p.schemaType.name}'] = ${p.dartName};");
+        buffer.writeln("__params['${p.schemaType.name}'] = ${p.dartName};");
       } else {
         buffer.writeln(
-            "params['${p.schemaType.name}'] = toJson(${p.dartName},specifiedType: ${p.typeData.specifiedType});");
+            "__params['${p.schemaType.name}'] = toJson(${p.dartName},specifiedType: ${p.typeData.specifiedType});");
       }
       if (!_isRequired(p.schemaType)) {
         buffer.writeln('}');
       }
     }
-    buffer.writeln("var rawResult = await query('$methodName', params);");
+    buffer.writeln("var rawResult = await query('$methodName', __params);");
     if (returnDescriptor.dartType != 'void') {
       if (returnDescriptor.typeData.isPrimitive) {
         buffer.writeln(

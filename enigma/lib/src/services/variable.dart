@@ -16,8 +16,8 @@ class Variable extends BaseService {
 
   /// Returns the calculated value of a variable.
   Future<AlfaNumString> getContent() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetContent', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetContent', __params);
     var jsonData = rawResult['result']['qContent'];
     var dartData = fromJsonFullType<AlfaNumString>(
         const FullType(AlfaNumString), jsonData);
@@ -26,32 +26,32 @@ class Variable extends BaseService {
 
   /// Returns the raw value of a variable.
   Future<String> getRawContent() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetRawContent', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetRawContent', __params);
     return rawResult['result']['qReturn'];
   }
 
   /// Sets a value to a variable.
   Future<bool> setContent(String content, bool updateMRU) async {
-    var params = <String, dynamic>{};
-    params['qContent'] = content;
-    params['qUpdateMRU'] = updateMRU;
-    var rawResult = await query('SetContent', params);
+    var __params = <String, dynamic>{};
+    __params['qContent'] = content;
+    __params['qUpdateMRU'] = updateMRU;
+    var rawResult = await query('SetContent', __params);
     return rawResult['result']['qReturn'];
   }
 
   /// Sets the value of a dual variable overriding any input constraints.
   Future<void> forceContent(String s, num d) async {
-    var params = <String, dynamic>{};
-    params['qs'] = s;
-    params['qd'] = d;
-    var rawResult = await query('ForceContent', params);
+    var __params = <String, dynamic>{};
+    __params['qs'] = s;
+    __params['qd'] = d;
+    var rawResult = await query('ForceContent', __params);
   }
 
   /// Gets the properties of a variable.
   Future<NxVariableProperties> getNxProperties() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetNxProperties', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetNxProperties', __params);
     var jsonData = rawResult['result']['qProperties'];
     var dartData = fromJsonFullType<NxVariableProperties>(
         const FullType(NxVariableProperties), jsonData);
@@ -60,9 +60,9 @@ class Variable extends BaseService {
 
   /// Sets some properties to a variable.
   Future<void> setNxProperties(NxVariableProperties properties) async {
-    var params = <String, dynamic>{};
-    params['qProperties'] =
+    var __params = <String, dynamic>{};
+    __params['qProperties'] =
         toJson(properties, specifiedType: const FullType(NxVariableProperties));
-    var rawResult = await query('SetNxProperties', params);
+    var rawResult = await query('SetNxProperties', __params);
   }
 }

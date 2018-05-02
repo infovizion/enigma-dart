@@ -15,8 +15,8 @@ class GenericDimension extends BaseService {
 
   /// Evaluates a dimension and displays its properties, including the dynamic properties.
   Future<GenericDimensionLayout> getLayout() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetLayout', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLayout', __params);
     var jsonData = rawResult['result']['qLayout'];
     var dartData = fromJsonFullType<GenericDimensionLayout>(
         const FullType(GenericDimensionLayout), jsonData);
@@ -26,26 +26,26 @@ class GenericDimension extends BaseService {
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
   Future<void> applyPatches(NxPatch patches) async {
-    var params = <String, dynamic>{};
-    params['qPatches'] =
+    var __params = <String, dynamic>{};
+    __params['qPatches'] =
         toJson(patches, specifiedType: const FullType(NxPatch));
-    var rawResult = await query('ApplyPatches', params);
+    var rawResult = await query('ApplyPatches', __params);
   }
 
   /// Sets some properties for a dimension.
   Future<void> setProperties(GenericDimensionProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericDimensionProperties));
-    var rawResult = await query('SetProperties', params);
+    var rawResult = await query('SetProperties', __params);
   }
 
   /// Shows the properties of an object.
   /// Returns the identifier and the definition of the dimension.
   /// <div class=note>If the member delta is set to true in the request object, only the delta is retrieved.</div>
   Future<GenericDimensionProperties> getProperties() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetProperties', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetProperties', __params);
     var jsonData = rawResult['result']['qProp'];
     var dartData = fromJsonFullType<GenericDimensionProperties>(
         const FullType(GenericDimensionProperties), jsonData);
@@ -54,8 +54,8 @@ class GenericDimension extends BaseService {
 
   /// Returns the type and identifier of the object.
   Future<NxInfo> getInfo() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetInfo', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetInfo', __params);
     var jsonData = rawResult['result']['qInfo'];
     var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
     return dartData;
@@ -65,8 +65,8 @@ class GenericDimension extends BaseService {
   ///
   /// The definition of the dimension is returned.
   Future<NxLibraryDimensionDef> getDimension() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetDimension', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetDimension', __params);
     var jsonData = rawResult['result']['qDim'];
     var dartData = fromJsonFullType<NxLibraryDimensionDef>(
         const FullType(NxLibraryDimensionDef), jsonData);
@@ -75,8 +75,8 @@ class GenericDimension extends BaseService {
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
   Future<NxLinkedObjectInfo> getLinkedObjects() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetLinkedObjects', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLinkedObjects', __params);
     var jsonData = rawResult['result']['qItems'];
     var dartData = fromJsonFullType<NxLinkedObjectInfo>(
         const FullType(NxLinkedObjectInfo), jsonData);
@@ -85,13 +85,13 @@ class GenericDimension extends BaseService {
 
   /// Publishes a dimension.
   Future<void> publish() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('Publish', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('Publish', __params);
   }
 
   /// Unpublishes a dimension.
   Future<void> unPublish() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('UnPublish', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('UnPublish', __params);
   }
 }
