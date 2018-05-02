@@ -31,8 +31,8 @@ class GenericObject extends BaseService {
   /// For example, if **qHyperCubeDef** is defined in the generic object, the **GetLayout** method returns the properties described in _HyperCube_.
   /// </div>
   Future<GenericObjectLayout> getLayout() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetLayout', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLayout', __params);
     var jsonData = rawResult['result']['qLayout'];
     var dartData = fromJsonFullType<GenericObjectLayout>(
         const FullType(GenericObjectLayout), jsonData);
@@ -42,10 +42,10 @@ class GenericObject extends BaseService {
   /// Retrieves the values of a list object.
   /// A data set is returned.
   Future<NxDataPage> getListObjectData(String path, NxPage pages) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
-    var rawResult = await query('GetListObjectData', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    var rawResult = await query('GetListObjectData', __params);
     var jsonData = rawResult['result']['qDataPages'];
     var dartData =
         fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
@@ -56,10 +56,10 @@ class GenericObject extends BaseService {
   /// <div class=note>This method works for a hypercube in DATA_MODE_STRAIGHT.</div>
   /// A data set is returned.
   Future<NxDataPage> getHyperCubeData(String path, NxPage pages) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
-    var rawResult = await query('GetHyperCubeData', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    var rawResult = await query('GetHyperCubeData', __params);
     var jsonData = rawResult['result']['qDataPages'];
     var dartData =
         fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
@@ -94,12 +94,12 @@ class GenericObject extends BaseService {
   /// If you have a scatter plot chart and the zoom factor is set to 2, the scatter plot chart resolution is reduced by 4.
   Future<NxDataPage> getHyperCubeReducedData(
       String path, NxPage pages, int zoomFactor, String reductionMode) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
-    params['qZoomFactor'] = zoomFactor;
-    params['qReductionMode'] = reductionMode;
-    var rawResult = await query('GetHyperCubeReducedData', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    __params['qZoomFactor'] = zoomFactor;
+    __params['qReductionMode'] = reductionMode;
+    var rawResult = await query('GetHyperCubeReducedData', __params);
     var jsonData = rawResult['result']['qDataPages'];
     var dartData =
         fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
@@ -109,10 +109,10 @@ class GenericObject extends BaseService {
   /// Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT.</div>
   Future<NxPivotPage> getHyperCubePivotData(String path, NxPage pages) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
-    var rawResult = await query('GetHyperCubePivotData', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    var rawResult = await query('GetHyperCubePivotData', __params);
     var jsonData = rawResult['result']['qDataPages'];
     var dartData =
         fromJsonFullType<NxPivotPage>(const FullType(NxPivotPage), jsonData);
@@ -123,13 +123,13 @@ class GenericObject extends BaseService {
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT_STACK.</div>
   Future<NxStackPage> getHyperCubeStackData(String path, NxPage pages,
       {int maxNbrCells}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
     if (maxNbrCells != null) {
-      params['qMaxNbrCells'] = maxNbrCells;
+      __params['qMaxNbrCells'] = maxNbrCells;
     }
-    var rawResult = await query('GetHyperCubeStackData', params);
+    var rawResult = await query('GetHyperCubeStackData', __params);
     var jsonData = rawResult['result']['qDataPages'];
     var dartData =
         fromJsonFullType<NxStackPage>(const FullType(NxStackPage), jsonData);
@@ -142,13 +142,13 @@ class GenericObject extends BaseService {
   /// <div class=note>This method works for a treedata object or a hypercube in DATA_MODE_TREE.</div>
   Future<NxTreeNode> getHyperCubeTreeData(String path,
       {NxTreeDataOption nodeOptions}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
     if (nodeOptions != null) {
-      params['qNodeOptions'] =
+      __params['qNodeOptions'] =
           toJson(nodeOptions, specifiedType: const FullType(NxTreeDataOption));
     }
-    var rawResult = await query('GetHyperCubeTreeData', params);
+    var rawResult = await query('GetHyperCubeTreeData', __params);
     var jsonData = rawResult['result']['qNodes'];
     var dartData =
         fromJsonFullType<NxTreeNode>(const FullType(NxTreeNode), jsonData);
@@ -296,17 +296,17 @@ class GenericObject extends BaseService {
       int maxNbrCells,
       int queryLevel,
       int binningMethod) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
-    params['qViewport'] =
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    __params['qViewport'] =
         toJson(viewport, specifiedType: const FullType(NxViewPort));
-    params['qDataRanges'] =
+    __params['qDataRanges'] =
         toJson(dataRanges, specifiedType: const FullType(NxDataAreaPage));
-    params['qMaxNbrCells'] = maxNbrCells;
-    params['qQueryLevel'] = queryLevel;
-    params['qBinningMethod'] = binningMethod;
-    var rawResult = await query('GetHyperCubeBinnedData', params);
+    __params['qMaxNbrCells'] = maxNbrCells;
+    __params['qQueryLevel'] = queryLevel;
+    __params['qBinningMethod'] = binningMethod;
+    var rawResult = await query('GetHyperCubeBinnedData', __params);
     var jsonData = rawResult['result']['qDataPages'];
     var dartData =
         fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
@@ -319,29 +319,29 @@ class GenericObject extends BaseService {
   /// Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.
   /// <div class=note>Soft properties apply only to generic objects.</div>
   Future<void> applyPatches(NxPatch patches, {bool softPatch}) async {
-    var params = <String, dynamic>{};
-    params['qPatches'] =
+    var __params = <String, dynamic>{};
+    __params['qPatches'] =
         toJson(patches, specifiedType: const FullType(NxPatch));
     if (softPatch != null) {
-      params['qSoftPatch'] = softPatch;
+      __params['qSoftPatch'] = softPatch;
     }
-    var rawResult = await query('ApplyPatches', params);
+    var rawResult = await query('ApplyPatches', __params);
   }
 
   /// Clears the soft properties of a generic object.
   /// For more information on how to add soft properties to a generic object, see _ApplyPatches Method_.
   Future<void> clearSoftPatches() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('ClearSoftPatches', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('ClearSoftPatches', __params);
   }
 
   /// Sets some properties for a generic object.
   /// <div class=note>The properties depends on the generic object type, see [properties](genericobject-property.html).</div>
   Future<void> setProperties(GenericObjectProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericObjectProperties));
-    var rawResult = await query('SetProperties', params);
+    var rawResult = await query('SetProperties', __params);
   }
 
   /// Returns the identifier, the type and the properties of the object.
@@ -351,8 +351,8 @@ class GenericObject extends BaseService {
   /// <div class=note>The properties depends on the generic object type, see [properties](genericobject-layout.html).</div>
   /// <div class=note>If the member delta is set to true in the request object, only the delta is retrieved.</div>
   Future<GenericObjectProperties> getProperties() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetProperties', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetProperties', __params);
     var jsonData = rawResult['result']['qProp'];
     var dartData = fromJsonFullType<GenericObjectProperties>(
         const FullType(GenericObjectProperties), jsonData);
@@ -367,8 +367,8 @@ class GenericObject extends BaseService {
   /// If the object contains some soft properties, the soft properties are returned.
   /// If the object is linked to another object, the properties of the linking object are returned.
   Future<GenericObjectProperties> getEffectiveProperties() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetEffectiveProperties', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetEffectiveProperties', __params);
     var jsonData = rawResult['result']['qProp'];
     var dartData = fromJsonFullType<GenericObjectProperties>(
         const FullType(GenericObjectProperties), jsonData);
@@ -382,10 +382,10 @@ class GenericObject extends BaseService {
   ///
   /// <div class=note>If the _SetFullPropertyTree method_ is asked to set some properties to a child that does not exist, it creates the child. </div> <div class=note>The type of an object cannot be updated.</div>
   Future<void> setFullPropertyTree(GenericObjectEntry propEntry) async {
-    var params = <String, dynamic>{};
-    params['qPropEntry'] =
+    var __params = <String, dynamic>{};
+    __params['qPropEntry'] =
         toJson(propEntry, specifiedType: const FullType(GenericObjectEntry));
-    var rawResult = await query('SetFullPropertyTree', params);
+    var rawResult = await query('SetFullPropertyTree', __params);
   }
 
   /// Gets the properties of:
@@ -393,8 +393,8 @@ class GenericObject extends BaseService {
   /// * The children of the generic object.
   /// * The bookmarks/embedded snapshots of the generic object.
   Future<GenericObjectEntry> getFullPropertyTree() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetFullPropertyTree', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetFullPropertyTree', __params);
     var jsonData = rawResult['result']['qPropEntry'];
     var dartData = fromJsonFullType<GenericObjectEntry>(
         const FullType(GenericObjectEntry), jsonData);
@@ -403,8 +403,8 @@ class GenericObject extends BaseService {
 
   /// Returns the type and identifier of the object.
   Future<NxInfo> getInfo() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetInfo', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetInfo', __params);
     var jsonData = rawResult['result']['qInfo'];
     var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
     return dartData;
@@ -412,12 +412,12 @@ class GenericObject extends BaseService {
 
   /// Clears the selections in a dimension of a visualization.
   Future<void> clearSelections(String path, {List<int> colIndices}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
     if (colIndices != null) {
-      params['qColIndices'] = colIndices;
+      __params['qColIndices'] = colIndices;
     }
-    var rawResult = await query('ClearSelections', params);
+    var rawResult = await query('ClearSelections', __params);
   }
 
   /// Exports the data of any generic object to an Excel file or a open XML file. If the object contains excluded values, those excluded values are not exported.
@@ -460,14 +460,14 @@ class GenericObject extends BaseService {
   Future<bool> selectListObjectValues(
       String path, List<int> values, bool toggleMode,
       {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qValues'] = values;
-    params['qToggleMode'] = toggleMode;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qValues'] = values;
+    __params['qToggleMode'] = toggleMode;
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('SelectListObjectValues', params);
+    var rawResult = await query('SelectListObjectValues', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -479,12 +479,12 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectListObjectPossible(String path, {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('SelectListObjectPossible', params);
+    var rawResult = await query('SelectListObjectPossible', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -496,12 +496,12 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectListObjectExcluded(String path, {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('SelectListObjectExcluded', params);
+    var rawResult = await query('SelectListObjectExcluded', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -513,12 +513,12 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectListObjectAlternative(String path, {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('SelectListObjectAlternative', params);
+    var rawResult = await query('SelectListObjectAlternative', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -530,12 +530,12 @@ class GenericObject extends BaseService {
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectListObjectAll(String path, {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('SelectListObjectAll', params);
+    var rawResult = await query('SelectListObjectAll', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -543,13 +543,13 @@ class GenericObject extends BaseService {
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> selectListObjectContinuousRange(String path, Range ranges,
       {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRanges'] = toJson(ranges, specifiedType: const FullType(Range));
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRanges'] = toJson(ranges, specifiedType: const FullType(Range));
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('SelectListObjectContinuousRange', params);
+    var rawResult = await query('SelectListObjectContinuousRange', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -558,107 +558,107 @@ class GenericObject extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> searchListObjectFor(String path, String match) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qMatch'] = match;
-    var rawResult = await query('SearchListObjectFor', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qMatch'] = match;
+    var rawResult = await query('SearchListObjectFor', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Aborts the results of a search in a list object.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note> After an abort on a list object search, the _GetLayout Method_ does not return any more search results but it does return the values in the field. </div>
   Future<void> abortListObjectSearch(String path) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    var rawResult = await query('AbortListObjectSearch', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    var rawResult = await query('AbortListObjectSearch', __params);
   }
 
   /// Accept the results of a search in a list object. The search results become selected in the field.
   /// <div class=note>This method applies to list objects (objects with one dimension).</div> <div class=note>The search results are displayed using the _GetLayout Method_. </div>
   Future<void> acceptListObjectSearch(String path, bool toggleMode,
       {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qToggleMode'] = toggleMode;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qToggleMode'] = toggleMode;
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('AcceptListObjectSearch', params);
+    var rawResult = await query('AcceptListObjectSearch', __params);
   }
 
   /// Expands the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
   Future<void> expandLeft(String path, int row, int col, bool all) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRow'] = row;
-    params['qCol'] = col;
-    params['qAll'] = all;
-    var rawResult = await query('ExpandLeft', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRow'] = row;
+    __params['qCol'] = col;
+    __params['qAll'] = all;
+    var rawResult = await query('ExpandLeft', __params);
   }
 
   /// Expands the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
   Future<void> expandTop(String path, int row, int col, bool all) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRow'] = row;
-    params['qCol'] = col;
-    params['qAll'] = all;
-    var rawResult = await query('ExpandTop', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRow'] = row;
+    __params['qCol'] = col;
+    __params['qAll'] = all;
+    var rawResult = await query('ExpandTop', __params);
   }
 
   /// Collapses the left dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
   Future<void> collapseLeft(String path, int row, int col, bool all) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRow'] = row;
-    params['qCol'] = col;
-    params['qAll'] = all;
-    var rawResult = await query('CollapseLeft', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRow'] = row;
+    __params['qCol'] = col;
+    __params['qAll'] = all;
+    var rawResult = await query('CollapseLeft', __params);
   }
 
   /// Collapses the top dimensions of a pivot table. This method applies only to pivot tables that are not always fully expanded.
   /// In the definition of the hypercube (in _HyperCubeDef_ ), the parameter _qAlwaysFullyExpanded_ must be set to false.
   Future<void> collapseTop(String path, int row, int col, bool all) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRow'] = row;
-    params['qCol'] = col;
-    params['qAll'] = all;
-    var rawResult = await query('CollapseTop', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRow'] = row;
+    __params['qCol'] = col;
+    __params['qAll'] = all;
+    var rawResult = await query('CollapseTop', __params);
   }
 
   /// You can use the drillUp method with any object that contains a drill-down group as a dimension.
   /// This method allows you to move between different levels of information (from a detailed level to a less detailed level of information). You can go back to previous visualizations up to the highest level of the hierarchy.
   /// If you try to drill up more steps than there are available levels, the first level of the hierarchy is displayed.
   Future<void> drillUp(String path, int dimNo, int nbrSteps) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qDimNo'] = dimNo;
-    params['qNbrSteps'] = nbrSteps;
-    var rawResult = await query('DrillUp', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qDimNo'] = dimNo;
+    __params['qNbrSteps'] = nbrSteps;
+    var rawResult = await query('DrillUp', __params);
   }
 
   /// Locks the selected values of a generic object.
   Future<void> lock(String path, {List<int> colIndices}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
     if (colIndices != null) {
-      params['qColIndices'] = colIndices;
+      __params['qColIndices'] = colIndices;
     }
-    var rawResult = await query('Lock', params);
+    var rawResult = await query('Lock', __params);
   }
 
   /// Unlocks the selected values of a generic object if the target (or handle ) is a generic object
   Future<void> unlock(String path, {List<int> colIndices}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
     if (colIndices != null) {
-      params['qColIndices'] = colIndices;
+      __params['qColIndices'] = colIndices;
     }
-    var rawResult = await query('Unlock', params);
+    var rawResult = await query('Unlock', __params);
   }
 
   /// Selects some values in one dimension.
@@ -671,12 +671,12 @@ class GenericObject extends BaseService {
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectHyperCubeValues(
       String path, int dimNo, List<int> values, bool toggleMode) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qDimNo'] = dimNo;
-    params['qValues'] = values;
-    params['qToggleMode'] = toggleMode;
-    var rawResult = await query('SelectHyperCubeValues', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qDimNo'] = dimNo;
+    __params['qValues'] = values;
+    __params['qToggleMode'] = toggleMode;
+    var rawResult = await query('SelectHyperCubeValues', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -690,17 +690,17 @@ class GenericObject extends BaseService {
   Future<bool> selectHyperCubeCells(
       String path, List<int> rowIndices, List<int> colIndices,
       {bool softLock, bool deselectOnlyOneSelected}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRowIndices'] = rowIndices;
-    params['qColIndices'] = colIndices;
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRowIndices'] = rowIndices;
+    __params['qColIndices'] = colIndices;
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
     if (deselectOnlyOneSelected != null) {
-      params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+      __params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
     }
-    var rawResult = await query('SelectHyperCubeCells', params);
+    var rawResult = await query('SelectHyperCubeCells', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -742,17 +742,17 @@ class GenericObject extends BaseService {
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
   Future<bool> selectPivotCells(String path, NxSelectionCell selections,
       {bool softLock, bool deselectOnlyOneSelected}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qSelections'] =
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qSelections'] =
         toJson(selections, specifiedType: const FullType(NxSelectionCell));
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
     if (deselectOnlyOneSelected != null) {
-      params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+      __params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
     }
-    var rawResult = await query('SelectPivotCells', params);
+    var rawResult = await query('SelectPivotCells', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -767,54 +767,54 @@ class GenericObject extends BaseService {
       {List<int> columnsToSelect,
       bool orMode,
       bool deselectOnlyOneSelected}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRanges'] =
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRanges'] =
         toJson(ranges, specifiedType: const FullType(NxRangeSelectInfo));
     if (columnsToSelect != null) {
-      params['qColumnsToSelect'] = columnsToSelect;
+      __params['qColumnsToSelect'] = columnsToSelect;
     }
     if (orMode != null) {
-      params['qOrMode'] = orMode;
+      __params['qOrMode'] = orMode;
     }
     if (deselectOnlyOneSelected != null) {
-      params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+      __params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
     }
-    var rawResult = await query('RangeSelectHyperCubeValues', params);
+    var rawResult = await query('RangeSelectHyperCubeValues', __params);
     return rawResult['result']['qSuccess'];
   }
 
   Future<bool> multiRangeSelectHyperCubeValues(
       String path, NxMultiRangeSelectInfo ranges,
       {bool orMode, bool deselectOnlyOneSelected}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRanges'] =
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRanges'] =
         toJson(ranges, specifiedType: const FullType(NxMultiRangeSelectInfo));
     if (orMode != null) {
-      params['qOrMode'] = orMode;
+      __params['qOrMode'] = orMode;
     }
     if (deselectOnlyOneSelected != null) {
-      params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+      __params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
     }
-    var rawResult = await query('MultiRangeSelectHyperCubeValues', params);
+    var rawResult = await query('MultiRangeSelectHyperCubeValues', __params);
     return rawResult['result']['qSuccess'];
   }
 
   Future<bool> multiRangeSelectTreeDataValues(
       String path, NxTreeMultiRangeSelectInfo ranges,
       {bool orMode, bool deselectOnlyOneSelected}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRanges'] = toJson(ranges,
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRanges'] = toJson(ranges,
         specifiedType: const FullType(NxTreeMultiRangeSelectInfo));
     if (orMode != null) {
-      params['qOrMode'] = orMode;
+      __params['qOrMode'] = orMode;
     }
     if (deselectOnlyOneSelected != null) {
-      params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
+      __params['qDeselectOnlyOneSelected'] = deselectOnlyOneSelected;
     }
-    var rawResult = await query('MultiRangeSelectTreeDataValues', params);
+    var rawResult = await query('MultiRangeSelectTreeDataValues', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -823,22 +823,22 @@ class GenericObject extends BaseService {
   Future<bool> selectHyperCubeContinuousRange(
       String path, NxContinuousRangeSelectInfo ranges,
       {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    params['qRanges'] = toJson(ranges,
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qRanges'] = toJson(ranges,
         specifiedType: const FullType(NxContinuousRangeSelectInfo));
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('SelectHyperCubeContinuousRange', params);
+    var rawResult = await query('SelectHyperCubeContinuousRange', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Returns the type of the object and the corresponding handle.
   Future<GenericObject> getChild(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('GetChild', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('GetChild', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -849,8 +849,8 @@ class GenericObject extends BaseService {
   ///
   /// Full dynamic properties are optional and are returned if they exist in the definition of the object.
   Future<NxInfo> getChildInfos() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetChildInfos', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetChildInfos', __params);
     var jsonData = rawResult['result']['qInfos'];
     var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
     return dartData;
@@ -860,14 +860,14 @@ class GenericObject extends BaseService {
   /// <div class=note>It is possible to update the properties of the child's parent at the same time that the child is created. Both operations are performed by the same call.</div> <div class=note>It is possible to create a child that is linked to another generic object. The two objects have the same properties.</div>
   Future<GenericObject> createChild(GenericObjectProperties prop,
       {GenericObjectProperties propForThis}) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericObjectProperties));
     if (propForThis != null) {
-      params['qPropForThis'] = toJson(propForThis,
+      __params['qPropForThis'] = toJson(propForThis,
           specifiedType: const FullType(GenericObjectProperties));
     }
-    var rawResult = await query('CreateChild', params);
+    var rawResult = await query('CreateChild', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -880,38 +880,38 @@ class GenericObject extends BaseService {
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroyChild(String id,
       {GenericObjectProperties propForThis}) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
     if (propForThis != null) {
-      params['qPropForThis'] = toJson(propForThis,
+      __params['qPropForThis'] = toJson(propForThis,
           specifiedType: const FullType(GenericObjectProperties));
     }
-    var rawResult = await query('DestroyChild', params);
+    var rawResult = await query('DestroyChild', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Removes all children and all children to the children on an object.
   Future<void> destroyAllChildren({GenericObjectProperties propForThis}) async {
-    var params = <String, dynamic>{};
+    var __params = <String, dynamic>{};
     if (propForThis != null) {
-      params['qPropForThis'] = toJson(propForThis,
+      __params['qPropForThis'] = toJson(propForThis,
           specifiedType: const FullType(GenericObjectProperties));
     }
-    var rawResult = await query('DestroyAllChildren', params);
+    var rawResult = await query('DestroyAllChildren', __params);
   }
 
   /// Sets the order of the children in a generic object.
   /// <div class=note>To change the order of the children in a generic object, the identifiers of all the children must be included in the list of the identifiers (in _qIds_ ). </div>
   Future<void> setChildArrayOrder(List<String> ids) async {
-    var params = <String, dynamic>{};
-    params['qIds'] = ids;
-    var rawResult = await query('SetChildArrayOrder', params);
+    var __params = <String, dynamic>{};
+    __params['qIds'] = ids;
+    var rawResult = await query('SetChildArrayOrder', __params);
   }
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
   Future<NxLinkedObjectInfo> getLinkedObjects() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetLinkedObjects', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLinkedObjects', __params);
     var jsonData = rawResult['result']['qItems'];
     var dartData = fromJsonFullType<NxLinkedObjectInfo>(
         const FullType(NxLinkedObjectInfo), jsonData);
@@ -922,9 +922,9 @@ class GenericObject extends BaseService {
   /// The source object is specified by the parameter _qFromId_ and the destination object is referenced by its handle.
   /// <div class=note>The identifier of the destination object is the same as before the copy takes place.</div>
   Future<void> copyFrom(String fromId) async {
-    var params = <String, dynamic>{};
-    params['qFromId'] = fromId;
-    var rawResult = await query('CopyFrom', params);
+    var __params = <String, dynamic>{};
+    __params['qFromId'] = fromId;
+    var rawResult = await query('CopyFrom', __params);
   }
 
   /// Begins the selection mode. The app enters the modal state. The specified object enters the selection mode and a modal window is opened. The selection mode can apply to only one object in an app at a time.
@@ -935,36 +935,36 @@ class GenericObject extends BaseService {
   /// ### Example
   /// A sheet contains a list object and a chart. If the list object is in selection mode then the chart cannot be in selection mode. No selection on the chart can be made until the list object exits the selection mode.
   Future<void> beginSelections(List<String> paths) async {
-    var params = <String, dynamic>{};
-    params['qPaths'] = paths;
-    var rawResult = await query('BeginSelections', params);
+    var __params = <String, dynamic>{};
+    __params['qPaths'] = paths;
+    var rawResult = await query('BeginSelections', __params);
   }
 
   /// Ends the selection mode on a visualization. The selections are accepted or aborted when exiting the selection mode, depending on the _qAccept_ parameter value.
   Future<void> endSelections(bool accept) async {
-    var params = <String, dynamic>{};
-    params['qAccept'] = accept;
-    var rawResult = await query('EndSelections', params);
+    var __params = <String, dynamic>{};
+    __params['qAccept'] = accept;
+    var rawResult = await query('EndSelections', __params);
   }
 
   /// Resets all selections made in selection mode.
   Future<void> resetMadeSelections() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('ResetMadeSelections', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('ResetMadeSelections', __params);
   }
 
   /// Adds a snapshot to a generic object.
   /// <div class=note>Only one snapshot can be embedded in a generic object.</div> <div class=note>If you embed a snapshot in an object that already contains a snapshot, the new snapshot overwrites the previous one.</div>
   Future<void> embedSnapshotObject(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('EmbedSnapshotObject', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('EmbedSnapshotObject', __params);
   }
 
   /// Returns the type of the object and the corresponding handle.
   Future<GenericObject> getSnapshotObject() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetSnapshotObject', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetSnapshotObject', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -974,14 +974,14 @@ class GenericObject extends BaseService {
   /// Publishes a generic object.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
   Future<void> publish() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('Publish', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('Publish', __params);
   }
 
   /// Unpublishes a generic object.
   /// <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
   Future<void> unPublish() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('UnPublish', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('UnPublish', __params);
   }
 }

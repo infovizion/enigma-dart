@@ -28,12 +28,12 @@ class Doc extends BaseService {
 
   /// Returns a handle to a field.
   Future<Field> getField(String fieldName, {String stateName}) async {
-    var params = <String, dynamic>{};
-    params['qFieldName'] = fieldName;
+    var __params = <String, dynamic>{};
+    __params['qFieldName'] = fieldName;
     if (stateName != null) {
-      params['qStateName'] = stateName;
+      __params['qStateName'] = stateName;
     }
-    var rawResult = await query('GetField', params);
+    var rawResult = await query('GetField', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -42,9 +42,9 @@ class Doc extends BaseService {
 
   /// Returns the description of a field.
   Future<FieldDescription> getFieldDescription(String fieldName) async {
-    var params = <String, dynamic>{};
-    params['qFieldName'] = fieldName;
-    var rawResult = await query('GetFieldDescription', params);
+    var __params = <String, dynamic>{};
+    __params['qFieldName'] = fieldName;
+    var rawResult = await query('GetFieldDescription', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<FieldDescription>(
         const FullType(FieldDescription), jsonData);
@@ -53,9 +53,9 @@ class Doc extends BaseService {
 
   /// Returns a handle to a variable.
   Future<Variable> getVariable(String name) async {
-    var params = <String, dynamic>{};
-    params['qName'] = name;
-    var rawResult = await query('GetVariable', params);
+    var __params = <String, dynamic>{};
+    __params['qName'] = name;
+    var rawResult = await query('GetVariable', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -72,8 +72,8 @@ class Doc extends BaseService {
   /// <div class=note>The last three values in the vector are for internal use.</div>
   /// <div class=note>In case of circular references, the engine automatically sets the table state to loosely coupled to avoid creating loops.</div>
   Future<BuiltList<String>> getLooselyCoupledVector() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetLooselyCoupledVector', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLooselyCoupledVector', __params);
     return rawResult['result']['qv'];
   }
 
@@ -86,9 +86,9 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The last three values in the vector are for internal use.</div>
   Future<bool> setLooselyCoupledVector(List<String> v) async {
-    var params = <String, dynamic>{};
-    params['qv'] = v;
-    var rawResult = await query('SetLooselyCoupledVector', params);
+    var __params = <String, dynamic>{};
+    __params['qv'] = v;
+    var rawResult = await query('SetLooselyCoupledVector', __params);
     return rawResult['result']['qReturn'];
   }
 
@@ -118,9 +118,9 @@ class Doc extends BaseService {
   /// }
   /// ```
   Future<String> evaluate(String expression) async {
-    var params = <String, dynamic>{};
-    params['qExpression'] = expression;
-    var rawResult = await query('Evaluate', params);
+    var __params = <String, dynamic>{};
+    __params['qExpression'] = expression;
+    var rawResult = await query('Evaluate', __params);
     return rawResult['result']['qReturn'];
   }
 
@@ -150,9 +150,9 @@ class Doc extends BaseService {
   /// }
   /// ```
   Future<FieldValue> evaluateEx(String expression) async {
-    var params = <String, dynamic>{};
-    params['qExpression'] = expression;
-    var rawResult = await query('EvaluateEx', params);
+    var __params = <String, dynamic>{};
+    __params['qExpression'] = expression;
+    var rawResult = await query('EvaluateEx', __params);
     var jsonData = rawResult['result']['qValue'];
     var dartData =
         fromJsonFullType<FieldValue>(const FullType(FieldValue), jsonData);
@@ -161,66 +161,66 @@ class Doc extends BaseService {
 
   /// Clear selections in fields for current state. Locked fields are not cleared by default.
   Future<void> clearAll({bool lockedAlso, String stateName}) async {
-    var params = <String, dynamic>{};
+    var __params = <String, dynamic>{};
     if (lockedAlso != null) {
-      params['qLockedAlso'] = lockedAlso;
+      __params['qLockedAlso'] = lockedAlso;
     }
     if (stateName != null) {
-      params['qStateName'] = stateName;
+      __params['qStateName'] = stateName;
     }
-    var rawResult = await query('ClearAll', params);
+    var rawResult = await query('ClearAll', __params);
   }
 
   /// Locks all selections in fields for current state.
   Future<void> lockAll({String stateName}) async {
-    var params = <String, dynamic>{};
+    var __params = <String, dynamic>{};
     if (stateName != null) {
-      params['qStateName'] = stateName;
+      __params['qStateName'] = stateName;
     }
-    var rawResult = await query('LockAll', params);
+    var rawResult = await query('LockAll', __params);
   }
 
   /// Unlocks all selections in fields for current state.
   Future<void> unlockAll({String stateName}) async {
-    var params = <String, dynamic>{};
+    var __params = <String, dynamic>{};
     if (stateName != null) {
-      params['qStateName'] = stateName;
+      __params['qStateName'] = stateName;
     }
-    var rawResult = await query('UnlockAll', params);
+    var rawResult = await query('UnlockAll', __params);
   }
 
   /// Loads the last logical operation (if any).
   Future<void> back() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('Back', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('Back', __params);
   }
 
   /// Loads the next logical operation (if any).
   Future<void> forward() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('Forward', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('Forward', __params);
   }
 
   /// Creates a variable.
   Future<bool> createVariable(String name) async {
-    var params = <String, dynamic>{};
-    params['qName'] = name;
-    var rawResult = await query('CreateVariable', params);
+    var __params = <String, dynamic>{};
+    __params['qName'] = name;
+    var rawResult = await query('CreateVariable', __params);
     return rawResult['result']['qReturn'];
   }
 
   /// Removes a variable.
   Future<bool> removeVariable(String name) async {
-    var params = <String, dynamic>{};
-    params['qName'] = name;
-    var rawResult = await query('RemoveVariable', params);
+    var __params = <String, dynamic>{};
+    __params['qName'] = name;
+    var rawResult = await query('RemoveVariable', __params);
     return rawResult['result']['qReturn'];
   }
 
   /// Returns locale information.
   Future<LocaleInfo> getLocaleInfo() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetLocaleInfo', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLocaleInfo', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData =
         fromJsonFullType<LocaleInfo>(const FullType(LocaleInfo), jsonData);
@@ -239,8 +239,8 @@ class Doc extends BaseService {
   /// The green circles represent the broom points.
   /// The red circle represents a connection point.
   Future<TableViewDlgSaveInfo> getViewDlgSaveInfo() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetViewDlgSaveInfo', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetViewDlgSaveInfo', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<TableViewDlgSaveInfo>(
         const FullType(TableViewDlgSaveInfo), jsonData);
@@ -255,20 +255,20 @@ class Doc extends BaseService {
   /// The green circles represent the broom points.
   /// The red circle represents a connection point.
   Future<void> setViewDlgSaveInfo(TableViewDlgSaveInfo info) async {
-    var params = <String, dynamic>{};
-    params['qInfo'] =
+    var __params = <String, dynamic>{};
+    __params['qInfo'] =
         toJson(info, specifiedType: const FullType(TableViewDlgSaveInfo));
-    var rawResult = await query('SetViewDlgSaveInfo', params);
+    var rawResult = await query('SetViewDlgSaveInfo', __params);
   }
 
   /// Creates a script that contains one section. This section contains **SET** statements that give localized information from the regional settings of the computer.
   /// <div class=note>The computer regional settings are retrieved when the engine starts.</div>
   Future<String> getEmptyScript({String localizedMainSection}) async {
-    var params = <String, dynamic>{};
+    var __params = <String, dynamic>{};
     if (localizedMainSection != null) {
-      params['qLocalizedMainSection'] = localizedMainSection;
+      __params['qLocalizedMainSection'] = localizedMainSection;
     }
-    var rawResult = await query('GetEmptyScript', params);
+    var rawResult = await query('GetEmptyScript', __params);
     return rawResult['result']['qReturn'];
   }
 
@@ -302,24 +302,24 @@ class Doc extends BaseService {
   /// </tr>
   /// </table>
   Future<bool> doReload({int mode, bool partial, bool debug}) async {
-    var params = <String, dynamic>{};
+    var __params = <String, dynamic>{};
     if (mode != null) {
-      params['qMode'] = mode;
+      __params['qMode'] = mode;
     }
     if (partial != null) {
-      params['qPartial'] = partial;
+      __params['qPartial'] = partial;
     }
     if (debug != null) {
-      params['qDebug'] = debug;
+      __params['qDebug'] = debug;
     }
-    var rawResult = await query('DoReload', params);
+    var rawResult = await query('DoReload', __params);
     return rawResult['result']['qReturn'];
   }
 
   /// Lists the breakpoints in the script of an app.
   Future<EditorBreakpoint> getScriptBreakpoints() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetScriptBreakpoints', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetScriptBreakpoints', __params);
     var jsonData = rawResult['result']['qBreakpoints'];
     var dartData = fromJsonFullType<EditorBreakpoint>(
         const FullType(EditorBreakpoint), jsonData);
@@ -328,16 +328,16 @@ class Doc extends BaseService {
 
   /// Set some breakpoints in the script of an app.
   Future<void> setScriptBreakpoints(EditorBreakpoint breakpoints) async {
-    var params = <String, dynamic>{};
-    params['qBreakpoints'] =
+    var __params = <String, dynamic>{};
+    __params['qBreakpoints'] =
         toJson(breakpoints, specifiedType: const FullType(EditorBreakpoint));
-    var rawResult = await query('SetScriptBreakpoints', params);
+    var rawResult = await query('SetScriptBreakpoints', __params);
   }
 
   /// Gets values in script.
   Future<String> getScript() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetScript', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetScript', __params);
     return rawResult['result']['qScript'];
   }
 
@@ -345,8 +345,8 @@ class Doc extends BaseService {
   ///
   /// <div class=note>If qRefSeqNo and qSetSeqNo are set to 0, it means that the variables were not updated.</div>
   Future<TextMacro> getTextMacros() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetTextMacros', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetTextMacros', __params);
     var jsonData = rawResult['result']['qMacros'];
     var dartData =
         fromJsonFullType<TextMacro>(const FullType(TextMacro), jsonData);
@@ -356,29 +356,29 @@ class Doc extends BaseService {
   /// Limits the number of rows of data to load from a data source.
   /// This method works when reloading in debug mode.
   Future<void> setFetchLimit(int limit) async {
-    var params = <String, dynamic>{};
-    params['qLimit'] = limit;
-    var rawResult = await query('SetFetchLimit', params);
+    var __params = <String, dynamic>{};
+    __params['qLimit'] = limit;
+    var rawResult = await query('SetFetchLimit', __params);
   }
 
   /// Saves an app. All objects and data in the data model are saved.
   Future<void> doSave({String fileName}) async {
-    var params = <String, dynamic>{};
+    var __params = <String, dynamic>{};
     if (fileName != null) {
-      params['qFileName'] = fileName;
+      __params['qFileName'] = fileName;
     }
-    var rawResult = await query('DoSave', params);
+    var rawResult = await query('DoSave', __params);
   }
 
   /// Retrieves the data of a specific table.
   Future<TableRow> getTableData(
       int offset, int rows, bool syntheticMode, String tableName) async {
-    var params = <String, dynamic>{};
-    params['qOffset'] = offset;
-    params['qRows'] = rows;
-    params['qSyntheticMode'] = syntheticMode;
-    params['qTableName'] = tableName;
-    var rawResult = await query('GetTableData', params);
+    var __params = <String, dynamic>{};
+    __params['qOffset'] = offset;
+    __params['qRows'] = rows;
+    __params['qSyntheticMode'] = syntheticMode;
+    __params['qTableName'] = tableName;
+    var rawResult = await query('GetTableData', __params);
     var jsonData = rawResult['result']['qData'];
     var dartData =
         fromJsonFullType<TableRow>(const FullType(TableRow), jsonData);
@@ -389,8 +389,8 @@ class Doc extends BaseService {
   /// Returns dynamic properties (if any) in addition to the engine (fixed) properties.
   /// A data set is returned.
   Future<NxAppLayout> getAppLayout() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetAppLayout', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetAppLayout', __params);
     var jsonData = rawResult['result']['qLayout'];
     var dartData =
         fromJsonFullType<NxAppLayout>(const FullType(NxAppLayout), jsonData);
@@ -399,16 +399,16 @@ class Doc extends BaseService {
 
   /// Sets properties to an app.
   Future<void> setAppProperties(NxAppProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(NxAppProperties));
-    var rawResult = await query('SetAppProperties', params);
+    var rawResult = await query('SetAppProperties', __params);
   }
 
   /// Gets the properties of an app.
   Future<NxAppProperties> getAppProperties() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetAppProperties', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetAppProperties', __params);
     var jsonData = rawResult['result']['qProp'];
     var dartData = fromJsonFullType<NxAppProperties>(
         const FullType(NxAppProperties), jsonData);
@@ -418,8 +418,8 @@ class Doc extends BaseService {
   /// Gets the lineage information of the app. The lineage information includes the LOAD and STORE statements from the data load script associated with this app.
   /// An array of lineage information.
   Future<LineageInfo> getLineage() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetLineage', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLineage', __params);
     var jsonData = rawResult['result']['qLineage'];
     var dartData =
         fromJsonFullType<LineageInfo>(const FullType(LineageInfo), jsonData);
@@ -433,10 +433,10 @@ class Doc extends BaseService {
   /// <div class=note>The linking object cannot be a transient object.</div>
   Future<GenericObject> createSessionObject(
       GenericObjectProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericObjectProperties));
-    var rawResult = await query('CreateSessionObject', params);
+    var rawResult = await query('CreateSessionObject', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -447,9 +447,9 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroySessionObject(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('DestroySessionObject', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('DestroySessionObject', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -459,10 +459,10 @@ class Doc extends BaseService {
   /// The linked object has the same properties as the linking object.
   /// <div class=note>The linking object cannot be a transient object.</div>
   Future<GenericObject> createObject(GenericObjectProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericObjectProperties));
-    var rawResult = await query('CreateObject', params);
+    var rawResult = await query('CreateObject', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -474,17 +474,17 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroyObject(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('DestroyObject', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('DestroyObject', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Returns the type of the app object and the corresponding handle.
   Future<GenericObject> getObject(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('GetObject', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('GetObject', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -492,10 +492,10 @@ class Doc extends BaseService {
   }
 
   Future<NxContainerEntry> getObjects(NxGetObjectOptions options) async {
-    var params = <String, dynamic>{};
-    params['qOptions'] =
+    var __params = <String, dynamic>{};
+    __params['qOptions'] =
         toJson(options, specifiedType: const FullType(NxGetObjectOptions));
-    var rawResult = await query('GetObjects', params);
+    var rawResult = await query('GetObjects', __params);
     var jsonData = rawResult['result']['qList'];
     var dartData = fromJsonFullType<NxContainerEntry>(
         const FullType(NxContainerEntry), jsonData);
@@ -503,10 +503,10 @@ class Doc extends BaseService {
   }
 
   Future<NxContainerEntry> getBookmarks(NxGetBookmarkOptions options) async {
-    var params = <String, dynamic>{};
-    params['qOptions'] =
+    var __params = <String, dynamic>{};
+    __params['qOptions'] =
         toJson(options, specifiedType: const FullType(NxGetBookmarkOptions));
-    var rawResult = await query('GetBookmarks', params);
+    var rawResult = await query('GetBookmarks', __params);
     var jsonData = rawResult['result']['qList'];
     var dartData = fromJsonFullType<NxContainerEntry>(
         const FullType(NxContainerEntry), jsonData);
@@ -520,9 +520,9 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The identifier is set by the engine.</div>
   Future<String> cloneObject(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('CloneObject', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('CloneObject', __params);
     return rawResult['result']['qCloneId'];
   }
 
@@ -532,18 +532,18 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The identifier is set by the engine.</div>
   Future<String> createDraft(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('CreateDraft', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('CreateDraft', __params);
     return rawResult['result']['qDraftId'];
   }
 
   /// Commits the draft of an object that was previously created by invoking the _CreateDraft method_.
   /// Committing a draft replaces the corresponding published object.
   Future<void> commitDraft(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('CommitDraft', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('CommitDraft', __params);
   }
 
   /// Removes the draft of an object.
@@ -552,10 +552,10 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroyDraft(String id, String sourceId) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    params['qSourceId'] = sourceId;
-    var rawResult = await query('DestroyDraft', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    __params['qSourceId'] = sourceId;
+    var rawResult = await query('DestroyDraft', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -563,8 +563,8 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> undo() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('Undo', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('Undo', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -572,25 +572,25 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> redo() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('Redo', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('Redo', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Clears entirely the undo and redo buffer.
   Future<void> clearUndoBuffer() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('ClearUndoBuffer', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('ClearUndoBuffer', __params);
   }
 
   /// Creates a master dimension.
   /// A master dimension is stored in the library of an app and can be used in many objects. Several generic objects can contain the same dimension.
   Future<GenericDimension> createDimension(
       GenericDimensionProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericDimensionProperties));
-    var rawResult = await query('CreateDimension', params);
+    var rawResult = await query('CreateDimension', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -601,17 +601,17 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroyDimension(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('DestroyDimension', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('DestroyDimension', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Returns the handle of a dimension.
   Future<GenericDimension> getDimension(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('GetDimension', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('GetDimension', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -622,19 +622,19 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The identifier is set by the engine.</div>
   Future<String> cloneDimension(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('CloneDimension', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('CloneDimension', __params);
     return rawResult['result']['qCloneId'];
   }
 
   /// Creates a master measure.
   /// A master measure is stored in the library of an app and can be used in many objects. Several generic objects can contain the same measure.
   Future<GenericMeasure> createMeasure(GenericMeasureProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericMeasureProperties));
-    var rawResult = await query('CreateMeasure', params);
+    var rawResult = await query('CreateMeasure', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -645,17 +645,17 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroyMeasure(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('DestroyMeasure', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('DestroyMeasure', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Returns the handle of a measure.
   Future<GenericMeasure> getMeasure(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('GetMeasure', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('GetMeasure', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -666,9 +666,9 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The identifier is set by the engine.</div>
   Future<String> cloneMeasure(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('CloneMeasure', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('CloneMeasure', __params);
     return rawResult['result']['qCloneId'];
   }
 
@@ -685,10 +685,10 @@ class Doc extends BaseService {
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
   Future<GenericVariable> createSessionVariable(
       GenericVariableProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericVariableProperties));
-    var rawResult = await query('CreateSessionVariable', params);
+    var rawResult = await query('CreateSessionVariable', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -699,9 +699,9 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroySessionVariable(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('DestroySessionVariable', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('DestroySessionVariable', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -718,10 +718,10 @@ class Doc extends BaseService {
   /// In a chart, you define the expression _$(x)/12_ . The effect is exactly the same as having the chart expression _Sum(Sales)/12_ .
   /// However, if you change the value of the variable _x_ to _Sum(Budget)_ , the data in the chart are immediately recalculated with the expression interpreted as _Sum(Budget)/12_ .
   Future<Variable> createVariableEx(GenericVariableProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericVariableProperties));
-    var rawResult = await query('CreateVariableEx', params);
+    var rawResult = await query('CreateVariableEx', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -733,9 +733,9 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroyVariableById(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('DestroyVariableById', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('DestroyVariableById', __params);
     return rawResult['result']['qSuccess'];
   }
 
@@ -744,17 +744,17 @@ class Doc extends BaseService {
   ///
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroyVariableByName(String name) async {
-    var params = <String, dynamic>{};
-    params['qName'] = name;
-    var rawResult = await query('DestroyVariableByName', params);
+    var __params = <String, dynamic>{};
+    __params['qName'] = name;
+    var rawResult = await query('DestroyVariableByName', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Gets the handle of a variable.
   Future<Variable> getVariableById(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('GetVariableById', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('GetVariableById', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -763,9 +763,9 @@ class Doc extends BaseService {
 
   /// Gets the handle of a variable.
   Future<GenericVariable> getVariableByName(String name) async {
-    var params = <String, dynamic>{};
-    params['qName'] = name;
-    var rawResult = await query('GetVariableByName', params);
+    var __params = <String, dynamic>{};
+    __params['qName'] = name;
+    var rawResult = await query('GetVariableByName', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -780,24 +780,24 @@ class Doc extends BaseService {
   /// Adds an alternate state in the app.
   /// You can create multiple states within a Qlik Sense app and apply these states to specific objects within the app. Objects in a given state are not affected by user selections in the other states.
   Future<void> addAlternateState(String stateName) async {
-    var params = <String, dynamic>{};
-    params['qStateName'] = stateName;
-    var rawResult = await query('AddAlternateState', params);
+    var __params = <String, dynamic>{};
+    __params['qStateName'] = stateName;
+    var rawResult = await query('AddAlternateState', __params);
   }
 
   /// Removes an alternate state in the app.
   Future<void> removeAlternateState(String stateName) async {
-    var params = <String, dynamic>{};
-    params['qStateName'] = stateName;
-    var rawResult = await query('RemoveAlternateState', params);
+    var __params = <String, dynamic>{};
+    __params['qStateName'] = stateName;
+    var rawResult = await query('RemoveAlternateState', __params);
   }
 
   /// Creates a bookmark.
   Future<GenericBookmark> createBookmark(GenericBookmarkProperties prop) async {
-    var params = <String, dynamic>{};
-    params['qProp'] =
+    var __params = <String, dynamic>{};
+    __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericBookmarkProperties));
-    var rawResult = await query('CreateBookmark', params);
+    var rawResult = await query('CreateBookmark', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -807,17 +807,17 @@ class Doc extends BaseService {
   /// Removes a bookmark.
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> destroyBookmark(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('DestroyBookmark', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('DestroyBookmark', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Returns the handle of a bookmark.
   Future<GenericBookmark> getBookmark(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('GetBookmark', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('GetBookmark', __params);
     var jsonData = rawResult['result']['qReturn'];
     var dartData = fromJsonFullType<ObjectInterface>(
         const FullType(ObjectInterface), jsonData);
@@ -827,18 +827,18 @@ class Doc extends BaseService {
   /// Applies a bookmark.
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> applyBookmark(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('ApplyBookmark', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('ApplyBookmark', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Clones a bookmark.
   /// <div class=note>The identifier is set by the engine.</div>
   Future<String> cloneBookmark(String id) async {
-    var params = <String, dynamic>{};
-    params['qId'] = id;
-    var rawResult = await query('CloneBookmark', params);
+    var __params = <String, dynamic>{};
+    __params['qId'] = id;
+    var rawResult = await query('CloneBookmark', __params);
     return rawResult['result']['qCloneId'];
   }
 
@@ -846,25 +846,25 @@ class Doc extends BaseService {
   /// <div class=note>The expression of a field on the fly is persisted but not its values. </div>
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> addFieldFromExpression(String name, String expr) async {
-    var params = <String, dynamic>{};
-    params['qName'] = name;
-    params['qExpr'] = expr;
-    var rawResult = await query('AddFieldFromExpression', params);
+    var __params = <String, dynamic>{};
+    __params['qName'] = name;
+    __params['qExpr'] = expr;
+    var rawResult = await query('AddFieldFromExpression', __params);
     return rawResult['result']['qSuccess'];
   }
 
   /// Find the field-on-the-fly by passing its readable name.
   Future<String> getFieldOnTheFlyByName(String readableName) async {
-    var params = <String, dynamic>{};
-    params['qReadableName'] = readableName;
-    var rawResult = await query('GetFieldOnTheFlyByName', params);
+    var __params = <String, dynamic>{};
+    __params['qReadableName'] = readableName;
+    var rawResult = await query('GetFieldOnTheFlyByName', __params);
     return rawResult['result']['qName'];
   }
 
   /// Returns the identifier and the type of any generic object in the app.
   Future<NxInfo> getAllInfos() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetAllInfos', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetAllInfos', __params);
     var jsonData = rawResult['result']['qInfos'];
     var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
     return dartData;
@@ -872,39 +872,39 @@ class Doc extends BaseService {
 
   /// Resumes the app as the user left it.
   Future<void> resume() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('Resume', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('Resume', __params);
   }
 
   /// Aborts any selection mode in an app. For more information about selection mode, see _BeginSelections method_.
   Future<void> abortModal(bool accept) async {
-    var params = <String, dynamic>{};
-    params['qAccept'] = accept;
-    var rawResult = await query('AbortModal', params);
+    var __params = <String, dynamic>{};
+    __params['qAccept'] = accept;
+    var rawResult = await query('AbortModal', __params);
   }
 
   /// Publishes an app.
   /// All app objects are published. Generic objects, bookmarks, dimensions and measures inside the app are published.
   /// <div class=note>An app can only be published once and cannot be published to more than one stream.</div>
   Future<void> publish(String streamId, {String name}) async {
-    var params = <String, dynamic>{};
-    params['qStreamId'] = streamId;
+    var __params = <String, dynamic>{};
+    __params['qStreamId'] = streamId;
     if (name != null) {
-      params['qName'] = name;
+      __params['qName'] = name;
     }
-    var rawResult = await query('Publish', params);
+    var rawResult = await query('Publish', __params);
   }
 
   /// Retrieves any fields that match all of the specified tags or just one of them in the data model of an app.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
   Future<NxMatchingFieldInfo> getMatchingFields(List<String> tags,
       {String matchingFieldMode}) async {
-    var params = <String, dynamic>{};
-    params['qTags'] = tags;
+    var __params = <String, dynamic>{};
+    __params['qTags'] = tags;
     if (matchingFieldMode != null) {
-      params['qMatchingFieldMode'] = matchingFieldMode;
+      __params['qMatchingFieldMode'] = matchingFieldMode;
     }
-    var rawResult = await query('GetMatchingFields', params);
+    var rawResult = await query('GetMatchingFields', __params);
     var jsonData = rawResult['result']['qFieldNames'];
     var dartData = fromJsonFullType<NxMatchingFieldInfo>(
         const FullType(NxMatchingFieldInfo), jsonData);
@@ -915,10 +915,10 @@ class Doc extends BaseService {
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
   Future<NxMatchingFieldInfo> findMatchingFields(
       String fieldName, List<String> tags) async {
-    var params = <String, dynamic>{};
-    params['qFieldName'] = fieldName;
-    params['qTags'] = tags;
-    var rawResult = await query('FindMatchingFields', params);
+    var __params = <String, dynamic>{};
+    __params['qFieldName'] = fieldName;
+    __params['qTags'] = tags;
+    var rawResult = await query('FindMatchingFields', __params);
     var jsonData = rawResult['result']['qFieldNames'];
     var dartData = fromJsonFullType<NxMatchingFieldInfo>(
         const FullType(NxMatchingFieldInfo), jsonData);
@@ -928,26 +928,26 @@ class Doc extends BaseService {
   /// Scrambles a field so the data is not recognizable. Some properties are retained to help debugging. For example, special characters are not changed, and small numbers are scrambled to another small number.
   /// <div class=note>Update access is required to use the function in Qlik Sense Enterprise.</div>
   Future<void> scramble(String fieldName) async {
-    var params = <String, dynamic>{};
-    params['qFieldName'] = fieldName;
-    var rawResult = await query('Scramble', params);
+    var __params = <String, dynamic>{};
+    __params['qFieldName'] = fieldName;
+    var rawResult = await query('Scramble', __params);
   }
 
   /// Saves all objects that were modified in the app.
   /// <div class=note>Data from the data model are not saved.</div> <div class=note>This operation is possible only in Qlik Sense Enterprise.</div>
   Future<void> saveObjects() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('SaveObjects', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('SaveObjects', __params);
   }
 
   /// Computes a set of association scores for each pair of fields between two given tables that have been loaded in an app.
   /// When a table contains some synthetic keys, all fields in the synthetic key tables are analyzed against fields in other tables. To denote that a field is a synthetic key, the field name is prefixed by _[Synthetic Key]:_ .
   Future<AssociationScore> getAssociationScores(
       String table1, String table2) async {
-    var params = <String, dynamic>{};
-    params['qTable1'] = table1;
-    params['qTable2'] = table2;
-    var rawResult = await query('GetAssociationScores', params);
+    var __params = <String, dynamic>{};
+    __params['qTable1'] = table1;
+    __params['qTable2'] = table2;
+    var rawResult = await query('GetAssociationScores', __params);
     var jsonData = rawResult['result']['qScore'];
     var dartData = fromJsonFullType<AssociationScore>(
         const FullType(AssociationScore), jsonData);
@@ -967,8 +967,8 @@ class Doc extends BaseService {
   /// ### Qlik Sense Desktop
   /// Returns the global content library and the app specific content library from the disk.
   Future<ContentLibraryList> getContentLibraries() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetContentLibraries', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetContentLibraries', __params);
     var jsonData = rawResult['result']['qList'];
     var dartData = fromJsonFullType<ContentLibraryList>(
         const FullType(ContentLibraryList), jsonData);
@@ -985,9 +985,9 @@ class Doc extends BaseService {
   /// ### App specific content library
   /// The embedded files are returned.
   Future<StaticContentList> getLibraryContent(String name) async {
-    var params = <String, dynamic>{};
-    params['qName'] = name;
-    var rawResult = await query('GetLibraryContent', params);
+    var __params = <String, dynamic>{};
+    __params['qName'] = name;
+    var rawResult = await query('GetLibraryContent', __params);
     var jsonData = rawResult['result']['qList'];
     var dartData = fromJsonFullType<StaticContentList>(
         const FullType(StaticContentList), jsonData);
@@ -1076,12 +1076,12 @@ class Doc extends BaseService {
   ///
   /// If the data load has successfully finished, no matter how the indexing behaves, _true_ is returned. This happens even if there is a timeout, a memory limit is reached or any other error occurs during the indexing.
   Future<DoReloadExResult> doReloadEx({DoReloadExParams params}) async {
-    var params = <String, dynamic>{};
+    var __params = <String, dynamic>{};
     if (params != null) {
-      params['qParams'] =
+      __params['qParams'] =
           toJson(params, specifiedType: const FullType(DoReloadExParams));
     }
-    var rawResult = await query('DoReloadEx', params);
+    var rawResult = await query('DoReloadEx', __params);
     var jsonData = rawResult['result']['qResult'];
     var dartData = fromJsonFullType<DoReloadExResult>(
         const FullType(DoReloadExResult), jsonData);
@@ -1090,23 +1090,23 @@ class Doc extends BaseService {
 
   /// Returns the number of entries on the back stack.
   Future<int> backCount() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('BackCount', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('BackCount', __params);
     return rawResult['result']['qReturn'];
   }
 
   /// Returns the number of entries on the Forward stack.
   Future<int> forwardCount() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('ForwardCount', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('ForwardCount', __params);
     return rawResult['result']['qReturn'];
   }
 
   /// Sets values in script.
   Future<void> setScript(String script) async {
-    var params = <String, dynamic>{};
-    params['qScript'] = script;
-    var rawResult = await query('SetScript', params);
+    var __params = <String, dynamic>{};
+    __params['qScript'] = script;
+    var rawResult = await query('SetScript', __params);
   }
 
   /// Checks the syntax of a script.
@@ -1155,8 +1155,8 @@ class Doc extends BaseService {
   /// </tr>
   /// </table>
   Future<ScriptSyntaxError> checkScriptSyntax() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('CheckScriptSyntax', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('CheckScriptSyntax', __params);
     var jsonData = rawResult['result']['qErrors'];
     var dartData = fromJsonFullType<ScriptSyntaxError>(
         const FullType(ScriptSyntaxError), jsonData);
@@ -1165,33 +1165,33 @@ class Doc extends BaseService {
 
   /// Retrieves the variables that are tagged as favorite.
   Future<BuiltList<String>> getFavoriteVariables() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetFavoriteVariables', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetFavoriteVariables', __params);
     return rawResult['result']['qNames'];
   }
 
   /// Set some variables as favorite.
   Future<void> setFavoriteVariables(List<String> names) async {
-    var params = <String, dynamic>{};
-    params['qNames'] = names;
-    var rawResult = await query('SetFavoriteVariables', params);
+    var __params = <String, dynamic>{};
+    __params['qNames'] = names;
+    var rawResult = await query('SetFavoriteVariables', __params);
   }
 
   /// Gets the content of a file.
   Future<String> getIncludeFileContent(String path) async {
-    var params = <String, dynamic>{};
-    params['qPath'] = path;
-    var rawResult = await query('GetIncludeFileContent', params);
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    var rawResult = await query('GetIncludeFileContent', __params);
     return rawResult['result']['qContent'];
   }
 
   /// Creates a connection.
   /// A connection indicates from which data source the data should be taken.
   Future<String> createConnection(Connection connection) async {
-    var params = <String, dynamic>{};
-    params['qConnection'] =
+    var __params = <String, dynamic>{};
+    __params['qConnection'] =
         toJson(connection, specifiedType: const FullType(Connection));
-    var rawResult = await query('CreateConnection', params);
+    var rawResult = await query('CreateConnection', __params);
     return rawResult['result']['qConnectionId'];
   }
 
@@ -1199,22 +1199,22 @@ class Doc extends BaseService {
   /// <div class=note>The identifier of a connection cannot be updated. qType cannot be modified with the ModifyConnection method.</div>
   Future<void> modifyConnection(String connectionId, Connection connection,
       {bool overrideCredentials}) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
-    params['qConnection'] =
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
+    __params['qConnection'] =
         toJson(connection, specifiedType: const FullType(Connection));
     if (overrideCredentials != null) {
-      params['qOverrideCredentials'] = overrideCredentials;
+      __params['qOverrideCredentials'] = overrideCredentials;
     }
-    var rawResult = await query('ModifyConnection', params);
+    var rawResult = await query('ModifyConnection', __params);
   }
 
   /// Deletes a connection.
   /// <div class=note>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . The AttachedFiles connection can only be removed by the administrator of the system. </div>
   Future<void> deleteConnection(String connectionId) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
-    var rawResult = await query('DeleteConnection', params);
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
+    var rawResult = await query('DeleteConnection', __params);
   }
 
   /// Retrieves a connection and returns:
@@ -1224,9 +1224,9 @@ class Doc extends BaseService {
   /// * The name of the connection.
   /// * The connection string.
   Future<Connection> getConnection(String connectionId) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
-    var rawResult = await query('GetConnection', params);
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
+    var rawResult = await query('GetConnection', __params);
     var jsonData = rawResult['result']['qConnection'];
     var dartData =
         fromJsonFullType<Connection>(const FullType(Connection), jsonData);
@@ -1236,8 +1236,8 @@ class Doc extends BaseService {
   /// Lists the connections in an app.
   /// <div class=note>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . This connection is stored in the Qlik Sense repository. </div>
   Future<Connection> getConnections() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetConnections', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetConnections', __params);
     var jsonData = rawResult['result']['qConnections'];
     var dartData =
         fromJsonFullType<Connection>(const FullType(Connection), jsonData);
@@ -1246,9 +1246,9 @@ class Doc extends BaseService {
 
   /// Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for more details.
   Future<DatabaseInfo> getDatabaseInfo(String connectionId) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
-    var rawResult = await query('GetDatabaseInfo', params);
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
+    var rawResult = await query('GetDatabaseInfo', __params);
     var jsonData = rawResult['result']['qInfo'];
     var dartData =
         fromJsonFullType<DatabaseInfo>(const FullType(DatabaseInfo), jsonData);
@@ -1257,9 +1257,9 @@ class Doc extends BaseService {
 
   /// Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
   Future<Database> getDatabases(String connectionId) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
-    var rawResult = await query('GetDatabases', params);
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
+    var rawResult = await query('GetDatabases', __params);
     var jsonData = rawResult['result']['qDatabases'];
     var dartData =
         fromJsonFullType<Database>(const FullType(Database), jsonData);
@@ -1269,12 +1269,12 @@ class Doc extends BaseService {
   /// Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
   Future<DatabaseOwner> getDatabaseOwners(String connectionId,
       {String database}) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
     if (database != null) {
-      params['qDatabase'] = database;
+      __params['qDatabase'] = database;
     }
-    var rawResult = await query('GetDatabaseOwners', params);
+    var rawResult = await query('GetDatabaseOwners', __params);
     var jsonData = rawResult['result']['qOwners'];
     var dartData = fromJsonFullType<DatabaseOwner>(
         const FullType(DatabaseOwner), jsonData);
@@ -1284,15 +1284,15 @@ class Doc extends BaseService {
   /// Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
   Future<DataTable> getDatabaseTables(String connectionId,
       {String database, String owner}) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
     if (database != null) {
-      params['qDatabase'] = database;
+      __params['qDatabase'] = database;
     }
     if (owner != null) {
-      params['qOwner'] = owner;
+      __params['qOwner'] = owner;
     }
-    var rawResult = await query('GetDatabaseTables', params);
+    var rawResult = await query('GetDatabaseTables', __params);
     var jsonData = rawResult['result']['qTables'];
     var dartData =
         fromJsonFullType<DataTable>(const FullType(DataTable), jsonData);
@@ -1302,16 +1302,16 @@ class Doc extends BaseService {
   /// Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM connection.
   Future<DataField> getDatabaseTableFields(String connectionId, String table,
       {String database, String owner}) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
     if (database != null) {
-      params['qDatabase'] = database;
+      __params['qDatabase'] = database;
     }
     if (owner != null) {
-      params['qOwner'] = owner;
+      __params['qOwner'] = owner;
     }
-    params['qTable'] = table;
-    var rawResult = await query('GetDatabaseTableFields', params);
+    __params['qTable'] = table;
+    var rawResult = await query('GetDatabaseTableFields', __params);
     var jsonData = rawResult['result']['qFields'];
     var dartData =
         fromJsonFullType<DataField>(const FullType(DataField), jsonData);
@@ -1322,12 +1322,12 @@ class Doc extends BaseService {
   /// Lists the items for a folder connection.
   Future<FolderItem> getFolderItemsForConnection(String connectionId,
       {String relativePath}) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
     if (relativePath != null) {
-      params['qRelativePath'] = relativePath;
+      __params['qRelativePath'] = relativePath;
     }
-    var rawResult = await query('GetFolderItemsForConnection', params);
+    var rawResult = await query('GetFolderItemsForConnection', __params);
     var jsonData = rawResult['result']['qFolderItems'];
     var dartData =
         fromJsonFullType<FolderItem>(const FullType(FolderItem), jsonData);
@@ -1363,12 +1363,12 @@ class Doc extends BaseService {
   /// * _KML_ for KML file
   Future<FileDataFormat> guessFileType(String connectionId,
       {String relativePath}) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
     if (relativePath != null) {
-      params['qRelativePath'] = relativePath;
+      __params['qRelativePath'] = relativePath;
     }
-    var rawResult = await query('GuessFileType', params);
+    var rawResult = await query('GuessFileType', __params);
     var jsonData = rawResult['result']['qDataFormat'];
     var dartData = fromJsonFullType<FileDataFormat>(
         const FullType(FileDataFormat), jsonData);
@@ -1393,14 +1393,14 @@ class Doc extends BaseService {
   Future<DataTable> getFileTables(
       String connectionId, FileDataFormat dataFormat,
       {String relativePath}) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
     if (relativePath != null) {
-      params['qRelativePath'] = relativePath;
+      __params['qRelativePath'] = relativePath;
     }
-    params['qDataFormat'] =
+    __params['qDataFormat'] =
         toJson(dataFormat, specifiedType: const FullType(FileDataFormat));
-    var rawResult = await query('GetFileTables', params);
+    var rawResult = await query('GetFileTables', __params);
     var jsonData = rawResult['result']['qTables'];
     var dartData =
         fromJsonFullType<DataTable>(const FullType(DataTable), jsonData);
@@ -1441,14 +1441,14 @@ class Doc extends BaseService {
   Future<DataTableEx> getFileTablesEx(
       String connectionId, FileDataFormat dataFormat,
       {String relativePath}) async {
-    var params = <String, dynamic>{};
-    params['qConnectionId'] = connectionId;
+    var __params = <String, dynamic>{};
+    __params['qConnectionId'] = connectionId;
     if (relativePath != null) {
-      params['qRelativePath'] = relativePath;
+      __params['qRelativePath'] = relativePath;
     }
-    params['qDataFormat'] =
+    __params['qDataFormat'] =
         toJson(dataFormat, specifiedType: const FullType(FileDataFormat));
-    var rawResult = await query('GetFileTablesEx', params);
+    var rawResult = await query('GetFileTablesEx', __params);
     var jsonData = rawResult['result']['qTables'];
     var dartData =
         fromJsonFullType<DataTableEx>(const FullType(DataTableEx), jsonData);
@@ -1463,24 +1463,25 @@ class Doc extends BaseService {
       String method,
       List<String> parameters,
       String appendConnection) async {
-    var params = <String, dynamic>{};
-    params['qProvider'] = provider;
-    params['qCommand'] = command;
-    params['qMethod'] = method;
-    params['qParameters'] = parameters;
-    params['qAppendConnection'] = appendConnection;
-    var rawResult = await query('SendGenericCommandToCustomConnector', params);
+    var __params = <String, dynamic>{};
+    __params['qProvider'] = provider;
+    __params['qCommand'] = command;
+    __params['qMethod'] = method;
+    __params['qParameters'] = parameters;
+    __params['qAppendConnection'] = appendConnection;
+    var rawResult =
+        await query('SendGenericCommandToCustomConnector', __params);
     return rawResult['result']['qResult'];
   }
 
   /// Returns search terms suggestions.
   Future<SearchSuggestionResult> searchSuggest(
       SearchCombinationOptions options, List<String> terms) async {
-    var params = <String, dynamic>{};
-    params['qOptions'] = toJson(options,
+    var __params = <String, dynamic>{};
+    __params['qOptions'] = toJson(options,
         specifiedType: const FullType(SearchCombinationOptions));
-    params['qTerms'] = terms;
-    var rawResult = await query('SearchSuggest', params);
+    __params['qTerms'] = terms;
+    var rawResult = await query('SearchSuggest', __params);
     var jsonData = rawResult['result']['qResult'];
     var dartData = fromJsonFullType<SearchSuggestionResult>(
         const FullType(SearchSuggestionResult), jsonData);
@@ -1508,12 +1509,12 @@ class Doc extends BaseService {
       SearchCombinationOptions options,
       List<String> terms,
       SearchPage page) async {
-    var params = <String, dynamic>{};
-    params['qOptions'] = toJson(options,
+    var __params = <String, dynamic>{};
+    __params['qOptions'] = toJson(options,
         specifiedType: const FullType(SearchCombinationOptions));
-    params['qTerms'] = terms;
-    params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
-    var rawResult = await query('SearchAssociations', params);
+    __params['qTerms'] = terms;
+    __params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
+    var rawResult = await query('SearchAssociations', __params);
     var jsonData = rawResult['result']['qResults'];
     var dartData = fromJsonFullType<SearchAssociationResult>(
         const FullType(SearchAssociationResult), jsonData);
@@ -1526,15 +1527,15 @@ class Doc extends BaseService {
   Future<void> selectAssociations(
       SearchCombinationOptions options, List<String> terms, int matchIx,
       {bool softLock}) async {
-    var params = <String, dynamic>{};
-    params['qOptions'] = toJson(options,
+    var __params = <String, dynamic>{};
+    __params['qOptions'] = toJson(options,
         specifiedType: const FullType(SearchCombinationOptions));
-    params['qTerms'] = terms;
-    params['qMatchIx'] = matchIx;
+    __params['qTerms'] = terms;
+    __params['qMatchIx'] = matchIx;
     if (softLock != null) {
-      params['qSoftLock'] = softLock;
+      __params['qSoftLock'] = softLock;
     }
-    var rawResult = await query('SelectAssociations', params);
+    var rawResult = await query('SelectAssociations', __params);
   }
 
   /// Returns the search matches for one or more search terms.
@@ -1553,12 +1554,12 @@ class Doc extends BaseService {
   /// For every search group item, there are one or several search matches. The position of the match in each search result is given.
   Future<SearchResult> searchResults(SearchCombinationOptions options,
       List<String> terms, SearchPage page) async {
-    var params = <String, dynamic>{};
-    params['qOptions'] = toJson(options,
+    var __params = <String, dynamic>{};
+    __params['qOptions'] = toJson(options,
         specifiedType: const FullType(SearchCombinationOptions));
-    params['qTerms'] = terms;
-    params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
-    var rawResult = await query('SearchResults', params);
+    __params['qTerms'] = terms;
+    __params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
+    var rawResult = await query('SearchResults', __params);
     var jsonData = rawResult['result']['qResult'];
     var dartData =
         fromJsonFullType<SearchResult>(const FullType(SearchResult), jsonData);
@@ -1568,12 +1569,12 @@ class Doc extends BaseService {
   /// Returns the generic objects corresponding to one or more search terms. The search is performed within the title, subtitle, footnote and type. In addition, associated dimension values are also searched in. For example, if the country “Japan” is selected and the object contains the dimension City, the object will appear in the results for “Osaka” but not for “Johannesburg”. The generic objects with the following types will never appear in the results: _slideitem_ , _sheet_ , _story_ , _slide_ , _masterobject_ , _snapshot_ , _LoadModel_ , _appprops_ and _searchhistory_ .
   Future<SearchResult> searchObjects(
       SearchObjectOptions options, List<String> terms, SearchPage page) async {
-    var params = <String, dynamic>{};
-    params['qOptions'] =
+    var __params = <String, dynamic>{};
+    __params['qOptions'] =
         toJson(options, specifiedType: const FullType(SearchObjectOptions));
-    params['qTerms'] = terms;
-    params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
-    var rawResult = await query('SearchObjects', params);
+    __params['qTerms'] = terms;
+    __params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
+    var rawResult = await query('SearchObjects', __params);
     var jsonData = rawResult['result']['qResult'];
     var dartData =
         fromJsonFullType<SearchResult>(const FullType(SearchResult), jsonData);
@@ -1582,8 +1583,8 @@ class Doc extends BaseService {
 
   /// Gets script and script meta-data.
   Future<AppScript> getScriptEx() async {
-    var params = <String, dynamic>{};
-    var rawResult = await query('GetScriptEx', params);
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetScriptEx', __params);
     var jsonData = rawResult['result']['qScript'];
     var dartData =
         fromJsonFullType<AppScript>(const FullType(AppScript), jsonData);
