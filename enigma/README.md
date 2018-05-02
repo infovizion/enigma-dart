@@ -1,4 +1,7 @@
-# Enigma-dart - cross-platform, fully typed dart client for Qlik Assosiative Engine
+# Enigma-dart - cross-platform (for use in server and browser), fully typed dart client for Qlik Assosiative Engine
+
+
+Examples are
 
 To run examples you must accept the [Qlik Core EULA](https://qlikcore.com/beta/) by setting the `ACCEPT_EULA` environment variable and run qlikcore/engine 
 
