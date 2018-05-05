@@ -5,15 +5,15 @@ import 'package:path/path.dart' as path;
 main() {
 //  createFile('enigma','NxValidationError');
 //  createFile('enigma','NxDimensionInfo');
-  createFile('Layout');
+  createFile('CheckExpressionResult');
 }
 
 createFile(String className) {
   var recase = new ReCase(className);
   final camelCase = recase.camelCase;
   final snakeCase = recase.snakeCase;
-  var file = new File(path.join('lib','src','models',snakeCase + '.dart'));
-  file.createSync();
+  var file = new File(path.join('lib','src','extra_models',snakeCase + '.dart'));
+  file.createSync(recursive: true);
   var content = '''
 library $snakeCase;
 

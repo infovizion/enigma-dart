@@ -18,10 +18,10 @@ class Variable extends BaseService {
   Future<AlfaNumString> getContent() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetContent', __params);
-    var jsonData = rawResult['result']['qContent'];
-    var dartData = fromJsonFullType<AlfaNumString>(
-        const FullType(AlfaNumString), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qContent'];
+    var __dartData = fromJsonFullType<AlfaNumString>(
+        const FullType(AlfaNumString), __jsonData);
+    return __dartData;
   }
 
   /// Returns the raw value of a variable.
@@ -52,10 +52,10 @@ class Variable extends BaseService {
   Future<NxVariableProperties> getNxProperties() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetNxProperties', __params);
-    var jsonData = rawResult['result']['qProperties'];
-    var dartData = fromJsonFullType<NxVariableProperties>(
-        const FullType(NxVariableProperties), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qProperties'];
+    var __dartData = fromJsonFullType<NxVariableProperties>(
+        const FullType(NxVariableProperties), __jsonData);
+    return __dartData;
   }
 
   /// Sets some properties to a variable.

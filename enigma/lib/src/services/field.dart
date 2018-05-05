@@ -133,10 +133,10 @@ class Field extends BaseService {
   Future<NxFieldProperties> getNxProperties() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetNxProperties', __params);
-    var jsonData = rawResult['result']['qProperties'];
-    var dartData = fromJsonFullType<NxFieldProperties>(
-        const FullType(NxFieldProperties), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qProperties'];
+    var __dartData = fromJsonFullType<NxFieldProperties>(
+        const FullType(NxFieldProperties), __jsonData);
+    return __dartData;
   }
 
   /// Sets some properties to a field.
