@@ -46,10 +46,10 @@ class GenericBookmark extends BaseService {
     __params['qDataPage'] =
         toJson(dataPage, specifiedType: const FullType(BookmarkFieldPage));
     var rawResult = await query('GetFieldValues', __params);
-    var jsonData = rawResult['result']['qFieldValues'];
-    var dartData =
-        fromJsonFullType<FieldValue>(const FullType(FieldValue), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qFieldValues'];
+    var __dartData =
+        fromJsonFullType<FieldValue>(const FullType(FieldValue), __jsonData);
+    return __dartData;
   }
 
   /// Evaluates an object and displays its properties including the dynamic properties.
@@ -57,10 +57,10 @@ class GenericBookmark extends BaseService {
   Future<GenericBookmarkLayout> getLayout() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLayout', __params);
-    var jsonData = rawResult['result']['qLayout'];
-    var dartData = fromJsonFullType<GenericBookmarkLayout>(
-        const FullType(GenericBookmarkLayout), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qLayout'];
+    var __dartData = fromJsonFullType<GenericBookmarkLayout>(
+        const FullType(GenericBookmarkLayout), __jsonData);
+    return __dartData;
   }
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
@@ -86,10 +86,10 @@ class GenericBookmark extends BaseService {
   Future<GenericBookmarkProperties> getProperties() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetProperties', __params);
-    var jsonData = rawResult['result']['qProp'];
-    var dartData = fromJsonFullType<GenericBookmarkProperties>(
-        const FullType(GenericBookmarkProperties), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qProp'];
+    var __dartData = fromJsonFullType<GenericBookmarkProperties>(
+        const FullType(GenericBookmarkProperties), __jsonData);
+    return __dartData;
   }
 
   /// Returns:
@@ -98,9 +98,10 @@ class GenericBookmark extends BaseService {
   Future<NxInfo> getInfo() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetInfo', __params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qInfo'];
+    var __dartData =
+        fromJsonFullType<NxInfo>(const FullType(NxInfo), __jsonData);
+    return __dartData;
   }
 
   /// Applies a bookmark.

@@ -13,10 +13,7 @@ class _SchemaWithTypeData {
   _SchemaWithTypeData(this.schemaType, this.typeData, this.dartName);
 }
 
-enum ReturnKind {
-  Common,
-  ObjectIterface,
-}
+enum ReturnKind { Common, ObjectIterface, ExtraModel }
 
 class ReturnDescriptor {
   SchemaType schemaType;
@@ -47,40 +44,43 @@ class ApiGenerator {
     typeMap[index] = typeData;
   }
 
-  final Map<String, String> objectFuncToObject =
-      createObjectFunctionToObjectTypeMapping();
+  final Map<String, String> objectFuncToObject = {
+    "Global.GetActiveDoc": "Doc",
+    "Global.OpenDoc": "Doc",
+    "Global.CreateDocEx": "Doc",
+    "Global.CreateSessionAppFromApp": "Doc",
+    "Global.CreateSessionApp": "Doc",
+    "GenericObject.CreateChild": "GenericObject",
+    "GenericObject.GetChild": "GenericObject",
+    "GenericObject.GetSnapshotObject": "GenericObject",
+    "Doc.CreateSessionObject": "GenericObject",
+    "Doc.CreateBookmark": "GenericBookmark",
+    "Doc.GetDimension": "GenericDimension",
+    "Doc.CreateMeasure": "GenericMeasure",
+    "Doc.GetField": "Field",
+    "Doc.CreateSessionVariable": "GenericVariable",
+    "Doc.GetVariable": "Variable",
+    "Doc.GetObject": "GenericObject",
+    "Doc.GetVariableById": "Variable",
+    "Doc.CreateObject": "GenericObject",
+    "Doc.CreateVariableEx": "Variable",
+    "Doc.CreateDimension": "GenericDimension",
+    "Doc.GetBookmark": "GenericBookmark",
+    "Doc.GetVariableByName": "GenericVariable",
+    "Doc.GetMeasure": "GenericMeasure",
+  };
 
-  static Map<String, String> createObjectFunctionToObjectTypeMapping() {
-    // Register mappings that describe what remote object type is created by each method
-    var result = <String, String>{};
-    result["Global.GetActiveDoc"] = "Doc";
-    result["Global.OpenDoc"] = "Doc";
-    result["Global.CreateDocEx"] = "Doc";
-    result["Global.CreateSessionAppFromApp"] = "Doc";
-    result["Global.CreateSessionApp"] = "Doc";
-    result["GenericObject.CreateChild"] = "GenericObject";
-    result["GenericObject.GetChild"] = "GenericObject";
-    result["GenericObject.GetSnapshotObject"] = "GenericObject";
-    result["Doc.CreateSessionObject"] = "GenericObject";
-    result["Doc.CreateBookmark"] = "GenericBookmark";
-    result["Doc.CreateBookmark"] = "GenericBookmark";
-    result["Doc.GetDimension"] = "GenericDimension";
-    result["Doc.CreateMeasure"] = "GenericMeasure";
-    result["Doc.GetField"] = "Field";
-    result["Doc.CreateSessionVariable"] = "GenericVariable";
-    result["Doc.GetVariable"] = "Variable";
-    result["Doc.GetObject"] = "GenericObject";
-    result["Doc.GetVariableById"] = "Variable";
-    result["Doc.CreateObject"] = "GenericObject";
-    result["Doc.CreateVariableEx"] = "Variable";
-    result["Doc.CreateDimension"] = "GenericDimension";
-    result["Doc.GetBookmark"] = "GenericBookmark";
-    result["Doc.GetVariableByName"] = "GenericVariable";
-    result["Doc.GetMeasure"] = "GenericMeasure";
-    return result;
-  }
-
-  var exportList = <String>[];
+  /// For some methods with multuple return values we'll create additional
+  /// models (compound result type)
+  final Map<String, String> method2ExtraModel = {
+    'GenericObject.ExportData': 'ExportDataResult',
+    'GenericObject.GetHyperCubeContinuousData': 'GetHyperCubeContinuousDataResult',
+    'Global.CreateApp': 'CreateAppResult',
+    'Doc.GetTablesAndKeys': 'GetTablesAndKeysResult',
+    'Doc.CheckNumberOrExpression': 'CheckExpressionResult',
+    'Doc.CheckExpression': 'CheckExpressionResult',
+  };
+  var exportList = new Set<String>();
   initBasicTypes() {
     _addType('string', new TypeData(jsonType: 'string', dartType: 'String'));
     _addType('boolean', new TypeData(jsonType: 'boolean', dartType: 'bool'));
@@ -95,6 +95,7 @@ class ApiGenerator {
         new TypeData(jsonType: 'JsonObject', dartType: 'JsonObject')
           ..importDirectives
               .add("import 'package:built_value/json_object.dart';"));
+    exportList.addAll(method2ExtraModel.values);
   }
 
   run() {
@@ -182,11 +183,16 @@ class ApiGenerator {
   }
 
   generateModelExport() {
+    var extraModels = method2ExtraModel.values.toSet();
     var outFile = new File('../enigma/lib/src/models.dart');
     outFile.createSync();
     var buffer = new StringBuffer();
     for (var each in exportList) {
-      buffer.writeln("export 'models/${getModelFileName(each)}';");
+      if (extraModels.contains(each)) {
+        buffer.writeln("export 'extra_models/${getModelFileName(each)}';");
+      } else {
+        buffer.writeln("export 'models/${getModelFileName(each)}';");
+      }
     }
     outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
   }
@@ -354,7 +360,7 @@ class ApiGenerator {
 
   _isRequired(SchemaType param) => param.required != null && param.required;
   generateMethod(String serviceName, String methodName, Method method,
-      StringBuffer buffer, List<String> additionalImports) {
+      StringBuffer buffer, Set<String> additionalImports) {
     addComment(method.description, buffer, '  ');
     var dartMethodName = new ReCase(methodName).camelCase;
     var paramsWithDartTypes = <_SchemaWithTypeData>[];
@@ -376,7 +382,7 @@ class ApiGenerator {
         optionalParams.add('${p.typeData?.paramType} ${p.dartName}');
       }
     }
-    if (methodName == 'CreateSessionVariable') {
+    if (methodName == 'OpenDoc') {
       int debug = 1;
     }
     var paramParts = <String>[];
@@ -390,14 +396,18 @@ class ApiGenerator {
     if (method.responses.isNotEmpty) {
       // print('$methodName ${method.responses}');
       var serviceType = objectFuncToObject['$serviceName.$methodName'];
+      var extraModelName = method2ExtraModel['$serviceName.$methodName'];
       if (serviceType != null) {
         returnDescriptor.schemaType =
             method.responses.firstWhere((r) => r.name == 'qReturn');
         returnDescriptor.dartType = serviceType;
         returnDescriptor.returnKind = ReturnKind.ObjectIterface;
         returnDescriptor.typeData = getTypeData(returnDescriptor.schemaType);
+      } else if (extraModelName != null) {
+        returnDescriptor.dartType = extraModelName;
+        returnDescriptor.returnKind = ReturnKind.ExtraModel;
       } else if (method.responses.length > 1) {
-        print('Cannot generate method $methodName');
+        print('Cannot generate method $serviceName.$methodName. ${method.responses}');
         ambiguousReturns++;
         return;
       } else {
@@ -432,20 +442,29 @@ class ApiGenerator {
     }
     buffer.writeln("var rawResult = await query('$methodName', __params);");
     if (returnDescriptor.dartType != 'void') {
-      if (returnDescriptor.typeData.isPrimitive) {
+      if (returnDescriptor.returnKind == ReturnKind.ExtraModel) {
+        buffer.writeln('var __jsondata = {};');
+        for (var response in method.responses) {
+          buffer.writeln(
+              "__jsondata['${response.name}'] = rawResult['result']['${response.name}'];");
+        }
+        buffer.writeln(
+            "var __dartData = fromJsonFullType<${returnDescriptor.dartType}>(const FullType(${returnDescriptor.dartType}),__jsondata);");
+        buffer.writeln('return __dartData;');
+      } else if (returnDescriptor.typeData.isPrimitive) {
         buffer.writeln(
             "return rawResult['result']['${returnDescriptor.schemaType.name}'];");
       } else {
         buffer.writeln(
-            "var jsonData = rawResult['result']['${returnDescriptor.schemaType.name}'];");
+            "var __jsonData = rawResult['result']['${returnDescriptor.schemaType.name}'];");
         buffer.writeln(
-            "var dartData = fromJsonFullType<${returnDescriptor.typeData.dartType}>(${returnDescriptor.typeData.specifiedType},jsonData);");
+            "var __dartData = fromJsonFullType<${returnDescriptor.typeData.dartType}>(${returnDescriptor.typeData.specifiedType},__jsonData);");
         if (returnDescriptor.returnKind == ReturnKind.ObjectIterface) {
           buffer.writeln(
-              'return new ${returnDescriptor.dartType}(enigma,dartData.handle);');
+              'return new ${returnDescriptor.dartType}(enigma,__dartData.handle);');
           additionalImports.add(returnDescriptor.dartType);
         } else {
-          buffer.writeln('return dartData;');
+          buffer.writeln('return __dartData;');
         }
       }
     }
@@ -473,7 +492,7 @@ class ApiGenerator {
     $className(Enigma enigma, int handle) : super(enigma, handle);
 
       String get serviceType => '$className';''');
-    var additionalImports = <String>[];
+    var additionalImports = new Set<String>();
     service.methods.forEach((methodName, content) {
       generateMethod(className, methodName, content, buffer, additionalImports);
     });

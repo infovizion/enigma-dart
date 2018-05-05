@@ -1,5 +1,6 @@
 import 'package:web_socket_channel/io.dart';
 import 'package:enigma/enigma.dart';
+import 'package:logging/logging.dart';
 
 const loadScript = '''
 TempTable:
@@ -9,7 +10,11 @@ Rand() as Value
 AutoGenerate 100
 ''';
 
-main() async {  
+main() async {
+  Logger.root.level = Level.INFO;
+  Logger.root.onRecord.listen((LogRecord rec) {
+    print('${rec.level.name}: ${rec.time}: ${rec.message}');
+  });
   var channel = new IOWebSocketChannel.connect('ws://localhost:19076/app');
   var enigma = new Enigma(channel);
   var global = enigma.open();
@@ -34,6 +39,7 @@ main() async {
   print('After selection (notice the `qState` values)');
   layout = await object.getLayout();
   print('Hypercube data pages: ${layout.hyperCube.dataPages}');
-
+  var result = await object.exportData('OOXML');
+  print('File is exported to ${result.url}');
   await enigma.close();
 }

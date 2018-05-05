@@ -6,10 +6,6 @@ import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'doc.dart';
-import 'doc.dart';
-import 'doc.dart';
-import 'doc.dart';
-import 'doc.dart';
 
 class Global extends BaseService {
   Global(Enigma enigma, int handle) : super(enigma, handle);
@@ -35,10 +31,10 @@ class Global extends BaseService {
     var __params = <String, dynamic>{};
     __params['qRequestId'] = requestId;
     var rawResult = await query('GetProgress', __params);
-    var jsonData = rawResult['result']['qProgressData'];
-    var dartData =
-        fromJsonFullType<ProgressData>(const FullType(ProgressData), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qProgressData'];
+    var __dartData = fromJsonFullType<ProgressData>(
+        const FullType(ProgressData), __jsonData);
+    return __dartData;
   }
 
   /// Returns the Qlik Sense version number.
@@ -81,10 +77,10 @@ class Global extends BaseService {
   Future<DocListEntry> getDocList() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetDocList', __params);
-    var jsonData = rawResult['result']['qDocList'];
-    var dartData =
-        fromJsonFullType<DocListEntry>(const FullType(DocListEntry), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDocList'];
+    var __dartData = fromJsonFullType<DocListEntry>(
+        const FullType(DocListEntry), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves information on the user interaction that is requested by the engine.
@@ -132,20 +128,20 @@ class Global extends BaseService {
       __params['qLocalizedScriptMainSection'] = localizedScriptMainSection;
     }
     var rawResult = await query('CreateDocEx', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Doc(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Doc(enigma, __dartData.handle);
   }
 
   /// Returns the handle of the current app.
   Future<Doc> getActiveDoc() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetActiveDoc', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Doc(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Doc(enigma, __dartData.handle);
   }
 
   /// Indicates whether or not a user is able to create an app.
@@ -186,6 +182,22 @@ class Global extends BaseService {
   /// <td>%UserProfile%/Documents/Qlik/Sense/Log</td>
   /// </tr>
   /// </table>
+  Future<CreateAppResult> createApp(String appName,
+      {String localizedScriptMainSection}) async {
+    var __params = <String, dynamic>{};
+    __params['qAppName'] = appName;
+    if (localizedScriptMainSection != null) {
+      __params['qLocalizedScriptMainSection'] = localizedScriptMainSection;
+    }
+    var rawResult = await query('CreateApp', __params);
+    var __jsondata = {};
+    __jsondata['qSuccess'] = rawResult['result']['qSuccess'];
+    __jsondata['qAppId'] = rawResult['result']['qAppId'];
+    var __dartData = fromJsonFullType<CreateAppResult>(
+        const FullType(CreateAppResult), __jsondata);
+    return __dartData;
+  }
+
   /// Deletes an app from the Qlik Sense repository or from the file system.
   ///
   /// #### Qlik Sense Enterprise
@@ -377,10 +389,10 @@ class Global extends BaseService {
       __params['qNoData'] = noData;
     }
     var rawResult = await query('OpenDoc', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Doc(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Doc(enigma, __dartData.handle);
   }
 
   /// Creates an empty session app.
@@ -390,10 +402,10 @@ class Global extends BaseService {
   Future<Doc> createSessionApp() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('CreateSessionApp', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Doc(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Doc(enigma, __dartData.handle);
   }
 
   /// Creates a session app from a source app.
@@ -406,10 +418,10 @@ class Global extends BaseService {
     var __params = <String, dynamic>{};
     __params['qSrcAppId'] = srcAppId;
     var rawResult = await query('CreateSessionAppFromApp', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Doc(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Doc(enigma, __dartData.handle);
   }
 
   /// Returns the Qlik Sense version number.
@@ -424,10 +436,10 @@ class Global extends BaseService {
     var __params = <String, dynamic>{};
     __params['qAppID'] = appID;
     var rawResult = await query('GetAppEntry', __params);
-    var jsonData = rawResult['result']['qEntry'];
-    var dartData =
-        fromJsonFullType<AppEntry>(const FullType(AppEntry), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qEntry'];
+    var __dartData =
+        fromJsonFullType<AppEntry>(const FullType(AppEntry), __jsonData);
+    return __dartData;
   }
 
   /// Configures the engine's behavior during a reload.
@@ -453,9 +465,10 @@ class Global extends BaseService {
     var __params = <String, dynamic>{};
     __params['qBnfType'] = bnfType;
     var rawResult = await query('GetBNF', __params);
-    var jsonData = rawResult['result']['qBnfDefs'];
-    var dartData = fromJsonFullType<BNFDef>(const FullType(BNFDef), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qBnfDefs'];
+    var __dartData =
+        fromJsonFullType<BNFDef>(const FullType(BNFDef), __jsonData);
+    return __dartData;
   }
 
   /// Gets the list of all the script functions.
@@ -465,29 +478,30 @@ class Global extends BaseService {
       __params['qGroup'] = group;
     }
     var rawResult = await query('GetFunctions', __params);
-    var jsonData = rawResult['result']['qFunctions'];
-    var dartData =
-        fromJsonFullType<Function>(const FullType(Function), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qFunctions'];
+    var __dartData =
+        fromJsonFullType<Function>(const FullType(Function), __jsonData);
+    return __dartData;
   }
 
   /// Returns the list of the ODBC connectors that are installed in the system.
   Future<OdbcDsn> getOdbcDsns() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetOdbcDsns', __params);
-    var jsonData = rawResult['result']['qOdbcDsns'];
-    var dartData = fromJsonFullType<OdbcDsn>(const FullType(OdbcDsn), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qOdbcDsns'];
+    var __dartData =
+        fromJsonFullType<OdbcDsn>(const FullType(OdbcDsn), __jsonData);
+    return __dartData;
   }
 
   /// Returns the list of the OLEDB providers installed on the system.
   Future<OleDbProvider> getOleDbProviders() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetOleDbProviders', __params);
-    var jsonData = rawResult['result']['qOleDbProviders'];
-    var dartData = fromJsonFullType<OleDbProvider>(
-        const FullType(OleDbProvider), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qOleDbProviders'];
+    var __dartData = fromJsonFullType<OleDbProvider>(
+        const FullType(OleDbProvider), __jsonData);
+    return __dartData;
   }
 
   /// Lists the databases in a ODBC, OLEDB or CUSTOM data source.
@@ -497,10 +511,10 @@ class Global extends BaseService {
     __params['qConnection'] =
         toJson(connection, specifiedType: const FullType(Connection));
     var rawResult = await query('GetDatabasesFromConnectionString', __params);
-    var jsonData = rawResult['result']['qDatabases'];
-    var dartData =
-        fromJsonFullType<Database>(const FullType(Database), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDatabases'];
+    var __dartData =
+        fromJsonFullType<Database>(const FullType(Database), __jsonData);
+    return __dartData;
   }
 
   /// Checks if a connection string is valid.
@@ -525,10 +539,10 @@ class Global extends BaseService {
   Future<DriveInfo> getLogicalDriveStrings() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLogicalDriveStrings', __params);
-    var jsonData = rawResult['result']['qDrives'];
-    var dartData =
-        fromJsonFullType<DriveInfo>(const FullType(DriveInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDrives'];
+    var __dartData =
+        fromJsonFullType<DriveInfo>(const FullType(DriveInfo), __jsonData);
+    return __dartData;
   }
 
   /// Returns the files and folders located at a specified path.
@@ -536,20 +550,20 @@ class Global extends BaseService {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
     var rawResult = await query('GetFolderItemsForPath', __params);
-    var jsonData = rawResult['result']['qFolderItems'];
-    var dartData =
-        fromJsonFullType<FolderItem>(const FullType(FolderItem), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qFolderItems'];
+    var __dartData =
+        fromJsonFullType<FolderItem>(const FullType(FolderItem), __jsonData);
+    return __dartData;
   }
 
   /// Lists the supported code pages.
   Future<CodePage> getSupportedCodePages() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetSupportedCodePages', __params);
-    var jsonData = rawResult['result']['qCodePages'];
-    var dartData =
-        fromJsonFullType<CodePage>(const FullType(CodePage), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qCodePages'];
+    var __dartData =
+        fromJsonFullType<CodePage>(const FullType(CodePage), __jsonData);
+    return __dartData;
   }
 
   /// List the custom connectors available in the system.
@@ -559,30 +573,30 @@ class Global extends BaseService {
       __params['qReloadList'] = reloadList;
     }
     var rawResult = await query('GetCustomConnectors', __params);
-    var jsonData = rawResult['result']['qConnectors'];
-    var dartData = fromJsonFullType<CustomConnector>(
-        const FullType(CustomConnector), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qConnectors'];
+    var __dartData = fromJsonFullType<CustomConnector>(
+        const FullType(CustomConnector), __jsonData);
+    return __dartData;
   }
 
   /// Lists the streams.
   Future<NxStreamListEntry> getStreamList() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetStreamList', __params);
-    var jsonData = rawResult['result']['qStreamList'];
-    var dartData = fromJsonFullType<NxStreamListEntry>(
-        const FullType(NxStreamListEntry), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qStreamList'];
+    var __dartData = fromJsonFullType<NxStreamListEntry>(
+        const FullType(NxStreamListEntry), __jsonData);
+    return __dartData;
   }
 
   /// Returns the version number of the Qlik engine component.
   Future<NxEngineVersion> engineVersion() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('EngineVersion', __params);
-    var jsonData = rawResult['result']['qVersion'];
-    var dartData = fromJsonFullType<NxEngineVersion>(
-        const FullType(NxEngineVersion), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qVersion'];
+    var __dartData = fromJsonFullType<NxEngineVersion>(
+        const FullType(NxEngineVersion), __jsonData);
+    return __dartData;
   }
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language, as well as a string hash calculated from that grammar. The BNF rules define the syntax for the script statements and the script or chart functions. If the hash changes between subsequent calls to this method, this indicates that the BNF has changed.

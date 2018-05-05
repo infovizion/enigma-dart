@@ -17,10 +17,10 @@ class GenericMeasure extends BaseService {
   Future<GenericMeasureLayout> getLayout() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLayout', __params);
-    var jsonData = rawResult['result']['qLayout'];
-    var dartData = fromJsonFullType<GenericMeasureLayout>(
-        const FullType(GenericMeasureLayout), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qLayout'];
+    var __dartData = fromJsonFullType<GenericMeasureLayout>(
+        const FullType(GenericMeasureLayout), __jsonData);
+    return __dartData;
   }
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
@@ -47,39 +47,40 @@ class GenericMeasure extends BaseService {
   Future<GenericMeasureProperties> getProperties() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetProperties', __params);
-    var jsonData = rawResult['result']['qProp'];
-    var dartData = fromJsonFullType<GenericMeasureProperties>(
-        const FullType(GenericMeasureProperties), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qProp'];
+    var __dartData = fromJsonFullType<GenericMeasureProperties>(
+        const FullType(GenericMeasureProperties), __jsonData);
+    return __dartData;
   }
 
   /// Returns the type and identifier of the object.
   Future<NxInfo> getInfo() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetInfo', __params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qInfo'];
+    var __dartData =
+        fromJsonFullType<NxInfo>(const FullType(NxInfo), __jsonData);
+    return __dartData;
   }
 
   /// Returns the definition of a measure.
   Future<NxLibraryMeasureDef> getMeasure() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetMeasure', __params);
-    var jsonData = rawResult['result']['qMeasure'];
-    var dartData = fromJsonFullType<NxLibraryMeasureDef>(
-        const FullType(NxLibraryMeasureDef), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qMeasure'];
+    var __dartData = fromJsonFullType<NxLibraryMeasureDef>(
+        const FullType(NxLibraryMeasureDef), __jsonData);
+    return __dartData;
   }
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
   Future<NxLinkedObjectInfo> getLinkedObjects() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLinkedObjects', __params);
-    var jsonData = rawResult['result']['qItems'];
-    var dartData = fromJsonFullType<NxLinkedObjectInfo>(
-        const FullType(NxLinkedObjectInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qItems'];
+    var __dartData = fromJsonFullType<NxLinkedObjectInfo>(
+        const FullType(NxLinkedObjectInfo), __jsonData);
+    return __dartData;
   }
 
   /// Publishes a measure.

@@ -8,17 +8,9 @@ import 'package:built_collection/built_collection.dart';
 import 'field.dart';
 import 'variable.dart';
 import 'generic_object.dart';
-import 'generic_object.dart';
-import 'generic_object.dart';
-import 'generic_dimension.dart';
 import 'generic_dimension.dart';
 import 'generic_measure.dart';
-import 'generic_measure.dart';
 import 'generic_variable.dart';
-import 'variable.dart';
-import 'variable.dart';
-import 'generic_variable.dart';
-import 'generic_bookmark.dart';
 import 'generic_bookmark.dart';
 
 class Doc extends BaseService {
@@ -34,10 +26,10 @@ class Doc extends BaseService {
       __params['qStateName'] = stateName;
     }
     var rawResult = await query('GetField', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Field(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Field(enigma, __dartData.handle);
   }
 
   /// Returns the description of a field.
@@ -45,10 +37,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qFieldName'] = fieldName;
     var rawResult = await query('GetFieldDescription', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<FieldDescription>(
-        const FullType(FieldDescription), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<FieldDescription>(
+        const FullType(FieldDescription), __jsonData);
+    return __dartData;
   }
 
   /// Returns a handle to a variable.
@@ -56,10 +48,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qName'] = name;
     var rawResult = await query('GetVariable', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Variable(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Variable(enigma, __dartData.handle);
   }
 
   /// Returns a list of table states.
@@ -153,10 +145,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qExpression'] = expression;
     var rawResult = await query('EvaluateEx', __params);
-    var jsonData = rawResult['result']['qValue'];
-    var dartData =
-        fromJsonFullType<FieldValue>(const FullType(FieldValue), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qValue'];
+    var __dartData =
+        fromJsonFullType<FieldValue>(const FullType(FieldValue), __jsonData);
+    return __dartData;
   }
 
   /// Clear selections in fields for current state. Locked fields are not cleared by default.
@@ -221,16 +213,39 @@ class Doc extends BaseService {
   Future<LocaleInfo> getLocaleInfo() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLocaleInfo', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData =
-        fromJsonFullType<LocaleInfo>(const FullType(LocaleInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData =
+        fromJsonFullType<LocaleInfo>(const FullType(LocaleInfo), __jsonData);
+    return __dartData;
   }
 
   /// Returns:
   /// * The list of tables in an app and the fields inside each table.
   /// * The list of derived fields.
   /// * The list of key fields.
+  Future<GetTablesAndKeysResult> getTablesAndKeys(
+      Size windowSize,
+      Size nullSize,
+      int cellHeight,
+      bool syntheticMode,
+      bool includeSysVars) async {
+    var __params = <String, dynamic>{};
+    __params['qWindowSize'] =
+        toJson(windowSize, specifiedType: const FullType(Size));
+    __params['qNullSize'] =
+        toJson(nullSize, specifiedType: const FullType(Size));
+    __params['qCellHeight'] = cellHeight;
+    __params['qSyntheticMode'] = syntheticMode;
+    __params['qIncludeSysVars'] = includeSysVars;
+    var rawResult = await query('GetTablesAndKeys', __params);
+    var __jsondata = {};
+    __jsondata['qtr'] = rawResult['result']['qtr'];
+    __jsondata['qk'] = rawResult['result']['qk'];
+    var __dartData = fromJsonFullType<GetTablesAndKeysResult>(
+        const FullType(GetTablesAndKeysResult), __jsondata);
+    return __dartData;
+  }
+
   /// Returns information about the position of the tables in the data model viewer.
   /// <div class=note>The position of the broom points and the position of the connection points cannot be retrieved in Qlik Sense.</div>
   ///
@@ -241,10 +256,10 @@ class Doc extends BaseService {
   Future<TableViewDlgSaveInfo> getViewDlgSaveInfo() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetViewDlgSaveInfo', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<TableViewDlgSaveInfo>(
-        const FullType(TableViewDlgSaveInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<TableViewDlgSaveInfo>(
+        const FullType(TableViewDlgSaveInfo), __jsonData);
+    return __dartData;
   }
 
   /// Sets the positions of the tables in the data model viewer.
@@ -320,10 +335,10 @@ class Doc extends BaseService {
   Future<EditorBreakpoint> getScriptBreakpoints() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetScriptBreakpoints', __params);
-    var jsonData = rawResult['result']['qBreakpoints'];
-    var dartData = fromJsonFullType<EditorBreakpoint>(
-        const FullType(EditorBreakpoint), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qBreakpoints'];
+    var __dartData = fromJsonFullType<EditorBreakpoint>(
+        const FullType(EditorBreakpoint), __jsonData);
+    return __dartData;
   }
 
   /// Set some breakpoints in the script of an app.
@@ -347,10 +362,10 @@ class Doc extends BaseService {
   Future<TextMacro> getTextMacros() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetTextMacros', __params);
-    var jsonData = rawResult['result']['qMacros'];
-    var dartData =
-        fromJsonFullType<TextMacro>(const FullType(TextMacro), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qMacros'];
+    var __dartData =
+        fromJsonFullType<TextMacro>(const FullType(TextMacro), __jsonData);
+    return __dartData;
   }
 
   /// Limits the number of rows of data to load from a data source.
@@ -379,10 +394,10 @@ class Doc extends BaseService {
     __params['qSyntheticMode'] = syntheticMode;
     __params['qTableName'] = tableName;
     var rawResult = await query('GetTableData', __params);
-    var jsonData = rawResult['result']['qData'];
-    var dartData =
-        fromJsonFullType<TableRow>(const FullType(TableRow), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qData'];
+    var __dartData =
+        fromJsonFullType<TableRow>(const FullType(TableRow), __jsonData);
+    return __dartData;
   }
 
   /// Evaluates an app.
@@ -391,10 +406,10 @@ class Doc extends BaseService {
   Future<NxAppLayout> getAppLayout() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetAppLayout', __params);
-    var jsonData = rawResult['result']['qLayout'];
-    var dartData =
-        fromJsonFullType<NxAppLayout>(const FullType(NxAppLayout), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qLayout'];
+    var __dartData =
+        fromJsonFullType<NxAppLayout>(const FullType(NxAppLayout), __jsonData);
+    return __dartData;
   }
 
   /// Sets properties to an app.
@@ -409,10 +424,10 @@ class Doc extends BaseService {
   Future<NxAppProperties> getAppProperties() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetAppProperties', __params);
-    var jsonData = rawResult['result']['qProp'];
-    var dartData = fromJsonFullType<NxAppProperties>(
-        const FullType(NxAppProperties), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qProp'];
+    var __dartData = fromJsonFullType<NxAppProperties>(
+        const FullType(NxAppProperties), __jsonData);
+    return __dartData;
   }
 
   /// Gets the lineage information of the app. The lineage information includes the LOAD and STORE statements from the data load script associated with this app.
@@ -420,10 +435,10 @@ class Doc extends BaseService {
   Future<LineageInfo> getLineage() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLineage', __params);
-    var jsonData = rawResult['result']['qLineage'];
-    var dartData =
-        fromJsonFullType<LineageInfo>(const FullType(LineageInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qLineage'];
+    var __dartData =
+        fromJsonFullType<LineageInfo>(const FullType(LineageInfo), __jsonData);
+    return __dartData;
   }
 
   /// Creates a transient object. For example, you can use a transient object to create an app overview or a story overview.
@@ -437,10 +452,10 @@ class Doc extends BaseService {
     __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericObjectProperties));
     var rawResult = await query('CreateSessionObject', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericObject(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericObject(enigma, __dartData.handle);
   }
 
   /// Removes a transient object.
@@ -463,10 +478,10 @@ class Doc extends BaseService {
     __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericObjectProperties));
     var rawResult = await query('CreateObject', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericObject(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericObject(enigma, __dartData.handle);
   }
 
   /// Removes an app object.
@@ -485,10 +500,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qId'] = id;
     var rawResult = await query('GetObject', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericObject(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericObject(enigma, __dartData.handle);
   }
 
   Future<NxContainerEntry> getObjects(NxGetObjectOptions options) async {
@@ -496,10 +511,10 @@ class Doc extends BaseService {
     __params['qOptions'] =
         toJson(options, specifiedType: const FullType(NxGetObjectOptions));
     var rawResult = await query('GetObjects', __params);
-    var jsonData = rawResult['result']['qList'];
-    var dartData = fromJsonFullType<NxContainerEntry>(
-        const FullType(NxContainerEntry), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qList'];
+    var __dartData = fromJsonFullType<NxContainerEntry>(
+        const FullType(NxContainerEntry), __jsonData);
+    return __dartData;
   }
 
   Future<NxContainerEntry> getBookmarks(NxGetBookmarkOptions options) async {
@@ -507,10 +522,10 @@ class Doc extends BaseService {
     __params['qOptions'] =
         toJson(options, specifiedType: const FullType(NxGetBookmarkOptions));
     var rawResult = await query('GetBookmarks', __params);
-    var jsonData = rawResult['result']['qList'];
-    var dartData = fromJsonFullType<NxContainerEntry>(
-        const FullType(NxContainerEntry), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qList'];
+    var __dartData = fromJsonFullType<NxContainerEntry>(
+        const FullType(NxContainerEntry), __jsonData);
+    return __dartData;
   }
 
   /// Clones root level objects, such as sheets and stories. The CloneObject method works for both app objects and child objects.
@@ -591,10 +606,10 @@ class Doc extends BaseService {
     __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericDimensionProperties));
     var rawResult = await query('CreateDimension', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericDimension(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericDimension(enigma, __dartData.handle);
   }
 
   /// Removes a dimension.
@@ -612,10 +627,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qId'] = id;
     var rawResult = await query('GetDimension', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericDimension(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericDimension(enigma, __dartData.handle);
   }
 
   /// Clones a dimension.
@@ -635,10 +650,10 @@ class Doc extends BaseService {
     __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericMeasureProperties));
     var rawResult = await query('CreateMeasure', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericMeasure(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericMeasure(enigma, __dartData.handle);
   }
 
   /// Removes a generic measure.
@@ -656,10 +671,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qId'] = id;
     var rawResult = await query('GetMeasure', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericMeasure(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericMeasure(enigma, __dartData.handle);
   }
 
   /// Clones a measure.
@@ -689,10 +704,10 @@ class Doc extends BaseService {
     __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericVariableProperties));
     var rawResult = await query('CreateSessionVariable', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericVariable(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericVariable(enigma, __dartData.handle);
   }
 
   /// Removes a transient variable.
@@ -722,10 +737,10 @@ class Doc extends BaseService {
     __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericVariableProperties));
     var rawResult = await query('CreateVariableEx', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Variable(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Variable(enigma, __dartData.handle);
   }
 
   /// Removes a variable.
@@ -755,10 +770,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qId'] = id;
     var rawResult = await query('GetVariableById', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new Variable(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new Variable(enigma, __dartData.handle);
   }
 
   /// Gets the handle of a variable.
@@ -766,17 +781,47 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qName'] = name;
     var rawResult = await query('GetVariableByName', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericVariable(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericVariable(enigma, __dartData.handle);
   }
 
   /// Checks if a given expression is valid.
   /// <div class=note>The expression is correct if the parameters _qErrorMsg_ , _qBadFieldNames_ and _qDangerousFieldNames_ are empty. </div>
+  Future<CheckExpressionResult> checkExpression(String expr,
+      {List<String> labels}) async {
+    var __params = <String, dynamic>{};
+    __params['qExpr'] = expr;
+    if (labels != null) {
+      __params['qLabels'] = labels;
+    }
+    var rawResult = await query('CheckExpression', __params);
+    var __jsondata = {};
+    __jsondata['qErrorMsg'] = rawResult['result']['qErrorMsg'];
+    __jsondata['qBadFieldNames'] = rawResult['result']['qBadFieldNames'];
+    __jsondata['qDangerousFieldNames'] =
+        rawResult['result']['qDangerousFieldNames'];
+    var __dartData = fromJsonFullType<CheckExpressionResult>(
+        const FullType(CheckExpressionResult), __jsondata);
+    return __dartData;
+  }
+
   /// Checks if:
   /// * A given expression is valid.
   /// * A number is correct according to the locale.
+  Future<CheckExpressionResult> checkNumberOrExpression(String expr) async {
+    var __params = <String, dynamic>{};
+    __params['qExpr'] = expr;
+    var rawResult = await query('CheckNumberOrExpression', __params);
+    var __jsondata = {};
+    __jsondata['qErrorMsg'] = rawResult['result']['qErrorMsg'];
+    __jsondata['qBadFieldNames'] = rawResult['result']['qBadFieldNames'];
+    var __dartData = fromJsonFullType<CheckExpressionResult>(
+        const FullType(CheckExpressionResult), __jsondata);
+    return __dartData;
+  }
+
   /// Adds an alternate state in the app.
   /// You can create multiple states within a Qlik Sense app and apply these states to specific objects within the app. Objects in a given state are not affected by user selections in the other states.
   Future<void> addAlternateState(String stateName) async {
@@ -798,10 +843,10 @@ class Doc extends BaseService {
     __params['qProp'] =
         toJson(prop, specifiedType: const FullType(GenericBookmarkProperties));
     var rawResult = await query('CreateBookmark', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericBookmark(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericBookmark(enigma, __dartData.handle);
   }
 
   /// Removes a bookmark.
@@ -818,10 +863,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qId'] = id;
     var rawResult = await query('GetBookmark', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericBookmark(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericBookmark(enigma, __dartData.handle);
   }
 
   /// Applies a bookmark.
@@ -865,9 +910,10 @@ class Doc extends BaseService {
   Future<NxInfo> getAllInfos() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetAllInfos', __params);
-    var jsonData = rawResult['result']['qInfos'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qInfos'];
+    var __dartData =
+        fromJsonFullType<NxInfo>(const FullType(NxInfo), __jsonData);
+    return __dartData;
   }
 
   /// Resumes the app as the user left it.
@@ -905,10 +951,10 @@ class Doc extends BaseService {
       __params['qMatchingFieldMode'] = matchingFieldMode;
     }
     var rawResult = await query('GetMatchingFields', __params);
-    var jsonData = rawResult['result']['qFieldNames'];
-    var dartData = fromJsonFullType<NxMatchingFieldInfo>(
-        const FullType(NxMatchingFieldInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qFieldNames'];
+    var __dartData = fromJsonFullType<NxMatchingFieldInfo>(
+        const FullType(NxMatchingFieldInfo), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves any fields that belong to the same archipelago as the specified field and that match at least one of the specified tags.
@@ -919,10 +965,10 @@ class Doc extends BaseService {
     __params['qFieldName'] = fieldName;
     __params['qTags'] = tags;
     var rawResult = await query('FindMatchingFields', __params);
-    var jsonData = rawResult['result']['qFieldNames'];
-    var dartData = fromJsonFullType<NxMatchingFieldInfo>(
-        const FullType(NxMatchingFieldInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qFieldNames'];
+    var __dartData = fromJsonFullType<NxMatchingFieldInfo>(
+        const FullType(NxMatchingFieldInfo), __jsonData);
+    return __dartData;
   }
 
   /// Scrambles a field so the data is not recognizable. Some properties are retained to help debugging. For example, special characters are not changed, and small numbers are scrambled to another small number.
@@ -948,10 +994,10 @@ class Doc extends BaseService {
     __params['qTable1'] = table1;
     __params['qTable2'] = table2;
     var rawResult = await query('GetAssociationScores', __params);
-    var jsonData = rawResult['result']['qScore'];
-    var dartData = fromJsonFullType<AssociationScore>(
-        const FullType(AssociationScore), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qScore'];
+    var __dartData = fromJsonFullType<AssociationScore>(
+        const FullType(AssociationScore), __jsonData);
+    return __dartData;
   }
 
   /// Lists the media files.
@@ -969,10 +1015,10 @@ class Doc extends BaseService {
   Future<ContentLibraryList> getContentLibraries() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetContentLibraries', __params);
-    var jsonData = rawResult['result']['qList'];
-    var dartData = fromJsonFullType<ContentLibraryList>(
-        const FullType(ContentLibraryList), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qList'];
+    var __dartData = fromJsonFullType<ContentLibraryList>(
+        const FullType(ContentLibraryList), __jsonData);
+    return __dartData;
   }
 
   /// Returns the content of a library.
@@ -988,10 +1034,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qName'] = name;
     var rawResult = await query('GetLibraryContent', __params);
-    var jsonData = rawResult['result']['qList'];
-    var dartData = fromJsonFullType<StaticContentList>(
-        const FullType(StaticContentList), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qList'];
+    var __dartData = fromJsonFullType<StaticContentList>(
+        const FullType(StaticContentList), __jsonData);
+    return __dartData;
   }
 
   /// Reloads the script that is set in an app and returns the path to the script log file.
@@ -1082,10 +1128,10 @@ class Doc extends BaseService {
           toJson(params, specifiedType: const FullType(DoReloadExParams));
     }
     var rawResult = await query('DoReloadEx', __params);
-    var jsonData = rawResult['result']['qResult'];
-    var dartData = fromJsonFullType<DoReloadExResult>(
-        const FullType(DoReloadExResult), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qResult'];
+    var __dartData = fromJsonFullType<DoReloadExResult>(
+        const FullType(DoReloadExResult), __jsonData);
+    return __dartData;
   }
 
   /// Returns the number of entries on the back stack.
@@ -1157,10 +1203,10 @@ class Doc extends BaseService {
   Future<ScriptSyntaxError> checkScriptSyntax() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('CheckScriptSyntax', __params);
-    var jsonData = rawResult['result']['qErrors'];
-    var dartData = fromJsonFullType<ScriptSyntaxError>(
-        const FullType(ScriptSyntaxError), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qErrors'];
+    var __dartData = fromJsonFullType<ScriptSyntaxError>(
+        const FullType(ScriptSyntaxError), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves the variables that are tagged as favorite.
@@ -1227,10 +1273,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qConnectionId'] = connectionId;
     var rawResult = await query('GetConnection', __params);
-    var jsonData = rawResult['result']['qConnection'];
-    var dartData =
-        fromJsonFullType<Connection>(const FullType(Connection), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qConnection'];
+    var __dartData =
+        fromJsonFullType<Connection>(const FullType(Connection), __jsonData);
+    return __dartData;
   }
 
   /// Lists the connections in an app.
@@ -1238,10 +1284,10 @@ class Doc extends BaseService {
   Future<Connection> getConnections() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetConnections', __params);
-    var jsonData = rawResult['result']['qConnections'];
-    var dartData =
-        fromJsonFullType<Connection>(const FullType(Connection), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qConnections'];
+    var __dartData =
+        fromJsonFullType<Connection>(const FullType(Connection), __jsonData);
+    return __dartData;
   }
 
   /// Gives information about an ODBC, OLEDB or CUSTOM connection. See _Outputs_ for more details.
@@ -1249,10 +1295,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qConnectionId'] = connectionId;
     var rawResult = await query('GetDatabaseInfo', __params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData =
-        fromJsonFullType<DatabaseInfo>(const FullType(DatabaseInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qInfo'];
+    var __dartData = fromJsonFullType<DatabaseInfo>(
+        const FullType(DatabaseInfo), __jsonData);
+    return __dartData;
   }
 
   /// Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
@@ -1260,10 +1306,10 @@ class Doc extends BaseService {
     var __params = <String, dynamic>{};
     __params['qConnectionId'] = connectionId;
     var rawResult = await query('GetDatabases', __params);
-    var jsonData = rawResult['result']['qDatabases'];
-    var dartData =
-        fromJsonFullType<Database>(const FullType(Database), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDatabases'];
+    var __dartData =
+        fromJsonFullType<Database>(const FullType(Database), __jsonData);
+    return __dartData;
   }
 
   /// Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
@@ -1275,10 +1321,10 @@ class Doc extends BaseService {
       __params['qDatabase'] = database;
     }
     var rawResult = await query('GetDatabaseOwners', __params);
-    var jsonData = rawResult['result']['qOwners'];
-    var dartData = fromJsonFullType<DatabaseOwner>(
-        const FullType(DatabaseOwner), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qOwners'];
+    var __dartData = fromJsonFullType<DatabaseOwner>(
+        const FullType(DatabaseOwner), __jsonData);
+    return __dartData;
   }
 
   /// Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
@@ -1293,10 +1339,10 @@ class Doc extends BaseService {
       __params['qOwner'] = owner;
     }
     var rawResult = await query('GetDatabaseTables', __params);
-    var jsonData = rawResult['result']['qTables'];
-    var dartData =
-        fromJsonFullType<DataTable>(const FullType(DataTable), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qTables'];
+    var __dartData =
+        fromJsonFullType<DataTable>(const FullType(DataTable), __jsonData);
+    return __dartData;
   }
 
   /// Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM connection.
@@ -1312,10 +1358,10 @@ class Doc extends BaseService {
     }
     __params['qTable'] = table;
     var rawResult = await query('GetDatabaseTableFields', __params);
-    var jsonData = rawResult['result']['qFields'];
-    var dartData =
-        fromJsonFullType<DataField>(const FullType(DataField), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qFields'];
+    var __dartData =
+        fromJsonFullType<DataField>(const FullType(DataField), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves the values of the specified table of a database for a ODBC, OLEDB or CUSTOM connection.
@@ -1328,10 +1374,10 @@ class Doc extends BaseService {
       __params['qRelativePath'] = relativePath;
     }
     var rawResult = await query('GetFolderItemsForConnection', __params);
-    var jsonData = rawResult['result']['qFolderItems'];
-    var dartData =
-        fromJsonFullType<FolderItem>(const FullType(FolderItem), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qFolderItems'];
+    var __dartData =
+        fromJsonFullType<FolderItem>(const FullType(FolderItem), __jsonData);
+    return __dartData;
   }
 
   /// Guesses the data format for a given file.
@@ -1369,10 +1415,10 @@ class Doc extends BaseService {
       __params['qRelativePath'] = relativePath;
     }
     var rawResult = await query('GuessFileType', __params);
-    var jsonData = rawResult['result']['qDataFormat'];
-    var dartData = fromJsonFullType<FileDataFormat>(
-        const FullType(FileDataFormat), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDataFormat'];
+    var __dartData = fromJsonFullType<FileDataFormat>(
+        const FullType(FileDataFormat), __jsonData);
+    return __dartData;
   }
 
   /// Lists the tables for a folder connection.
@@ -1401,10 +1447,10 @@ class Doc extends BaseService {
     __params['qDataFormat'] =
         toJson(dataFormat, specifiedType: const FullType(FileDataFormat));
     var rawResult = await query('GetFileTables', __params);
-    var jsonData = rawResult['result']['qTables'];
-    var dartData =
-        fromJsonFullType<DataTable>(const FullType(DataTable), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qTables'];
+    var __dartData =
+        fromJsonFullType<DataTable>(const FullType(DataTable), __jsonData);
+    return __dartData;
   }
 
   /// Lists the fields of a table for a folder connection.
@@ -1449,10 +1495,10 @@ class Doc extends BaseService {
     __params['qDataFormat'] =
         toJson(dataFormat, specifiedType: const FullType(FileDataFormat));
     var rawResult = await query('GetFileTablesEx', __params);
-    var jsonData = rawResult['result']['qTables'];
-    var dartData =
-        fromJsonFullType<DataTableEx>(const FullType(DataTableEx), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qTables'];
+    var __dartData =
+        fromJsonFullType<DataTableEx>(const FullType(DataTableEx), __jsonData);
+    return __dartData;
   }
 
   /// Sends a generic command to a custom connector.
@@ -1482,10 +1528,10 @@ class Doc extends BaseService {
         specifiedType: const FullType(SearchCombinationOptions));
     __params['qTerms'] = terms;
     var rawResult = await query('SearchSuggest', __params);
-    var jsonData = rawResult['result']['qResult'];
-    var dartData = fromJsonFullType<SearchSuggestionResult>(
-        const FullType(SearchSuggestionResult), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qResult'];
+    var __dartData = fromJsonFullType<SearchSuggestionResult>(
+        const FullType(SearchSuggestionResult), __jsonData);
+    return __dartData;
   }
 
   /// Returns the search matches for one or more search terms.
@@ -1515,10 +1561,10 @@ class Doc extends BaseService {
     __params['qTerms'] = terms;
     __params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchAssociations', __params);
-    var jsonData = rawResult['result']['qResults'];
-    var dartData = fromJsonFullType<SearchAssociationResult>(
-        const FullType(SearchAssociationResult), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qResults'];
+    var __dartData = fromJsonFullType<SearchAssociationResult>(
+        const FullType(SearchAssociationResult), __jsonData);
+    return __dartData;
   }
 
   /// Selects all search hits for a specified group.
@@ -1560,10 +1606,10 @@ class Doc extends BaseService {
     __params['qTerms'] = terms;
     __params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchResults', __params);
-    var jsonData = rawResult['result']['qResult'];
-    var dartData =
-        fromJsonFullType<SearchResult>(const FullType(SearchResult), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qResult'];
+    var __dartData = fromJsonFullType<SearchResult>(
+        const FullType(SearchResult), __jsonData);
+    return __dartData;
   }
 
   /// Returns the generic objects corresponding to one or more search terms. The search is performed within the title, subtitle, footnote and type. In addition, associated dimension values are also searched in. For example, if the country “Japan” is selected and the object contains the dimension City, the object will appear in the results for “Osaka” but not for “Johannesburg”. The generic objects with the following types will never appear in the results: _slideitem_ , _sheet_ , _story_ , _slide_ , _masterobject_ , _snapshot_ , _LoadModel_ , _appprops_ and _searchhistory_ .
@@ -1575,19 +1621,19 @@ class Doc extends BaseService {
     __params['qTerms'] = terms;
     __params['qPage'] = toJson(page, specifiedType: const FullType(SearchPage));
     var rawResult = await query('SearchObjects', __params);
-    var jsonData = rawResult['result']['qResult'];
-    var dartData =
-        fromJsonFullType<SearchResult>(const FullType(SearchResult), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qResult'];
+    var __dartData = fromJsonFullType<SearchResult>(
+        const FullType(SearchResult), __jsonData);
+    return __dartData;
   }
 
   /// Gets script and script meta-data.
   Future<AppScript> getScriptEx() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetScriptEx', __params);
-    var jsonData = rawResult['result']['qScript'];
-    var dartData =
-        fromJsonFullType<AppScript>(const FullType(AppScript), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qScript'];
+    var __dartData =
+        fromJsonFullType<AppScript>(const FullType(AppScript), __jsonData);
+    return __dartData;
   }
 }

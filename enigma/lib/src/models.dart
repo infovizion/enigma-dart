@@ -1,3 +1,8 @@
+export 'extra_models/export_data_result.dart';
+export 'extra_models/get_hyper_cube_continuous_data_result.dart';
+export 'extra_models/create_app_result.dart';
+export 'extra_models/get_tables_and_keys_result.dart';
+export 'extra_models/check_expression_result.dart';
 export 'models/field_value.dart';
 export 'models/nx_field_properties.dart';
 export 'models/alfa_num_string.dart';

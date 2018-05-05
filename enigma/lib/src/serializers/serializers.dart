@@ -7,6 +7,11 @@ import '../models.dart';
 part 'serializers.g.dart';
 
 @SerializersFor(const [
+  ExportDataResult,
+  GetHyperCubeContinuousDataResult,
+  CreateAppResult,
+  GetTablesAndKeysResult,
+  CheckExpressionResult,
   FieldValue,
   NxFieldProperties,
   AlfaNumString,

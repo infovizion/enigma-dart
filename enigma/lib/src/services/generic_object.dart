@@ -6,8 +6,6 @@ import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'generic_object.dart';
-import 'generic_object.dart';
-import 'generic_object.dart';
 
 /// This class describes all the methods that apply at generic object level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the generic object.
@@ -33,10 +31,10 @@ class GenericObject extends BaseService {
   Future<GenericObjectLayout> getLayout() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLayout', __params);
-    var jsonData = rawResult['result']['qLayout'];
-    var dartData = fromJsonFullType<GenericObjectLayout>(
-        const FullType(GenericObjectLayout), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qLayout'];
+    var __dartData = fromJsonFullType<GenericObjectLayout>(
+        const FullType(GenericObjectLayout), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves the values of a list object.
@@ -46,10 +44,10 @@ class GenericObject extends BaseService {
     __params['qPath'] = path;
     __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
     var rawResult = await query('GetListObjectData', __params);
-    var jsonData = rawResult['result']['qDataPages'];
-    var dartData =
-        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDataPages'];
+    var __dartData =
+        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves the calculated data for a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.
@@ -60,10 +58,10 @@ class GenericObject extends BaseService {
     __params['qPath'] = path;
     __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
     var rawResult = await query('GetHyperCubeData', __params);
-    var jsonData = rawResult['result']['qDataPages'];
-    var dartData =
-        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDataPages'];
+    var __dartData =
+        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), __jsonData);
+    return __dartData;
   }
 
   /// Reduces the data of a bar chart, a line chart or a scatter plot chart and retrieves them.
@@ -100,10 +98,10 @@ class GenericObject extends BaseService {
     __params['qZoomFactor'] = zoomFactor;
     __params['qReductionMode'] = reductionMode;
     var rawResult = await query('GetHyperCubeReducedData', __params);
-    var jsonData = rawResult['result']['qDataPages'];
-    var dartData =
-        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDataPages'];
+    var __dartData =
+        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.
@@ -113,10 +111,10 @@ class GenericObject extends BaseService {
     __params['qPath'] = path;
     __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
     var rawResult = await query('GetHyperCubePivotData', __params);
-    var jsonData = rawResult['result']['qDataPages'];
-    var dartData =
-        fromJsonFullType<NxPivotPage>(const FullType(NxPivotPage), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDataPages'];
+    var __dartData =
+        fromJsonFullType<NxPivotPage>(const FullType(NxPivotPage), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.
@@ -130,14 +128,33 @@ class GenericObject extends BaseService {
       __params['qMaxNbrCells'] = maxNbrCells;
     }
     var rawResult = await query('GetHyperCubeStackData', __params);
-    var jsonData = rawResult['result']['qDataPages'];
-    var dartData =
-        fromJsonFullType<NxStackPage>(const FullType(NxStackPage), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDataPages'];
+    var __dartData =
+        fromJsonFullType<NxStackPage>(const FullType(NxStackPage), __jsonData);
+    return __dartData;
   }
 
   /// Retrieves and packs compressed hypercube and axis data. It is possible to retrieve specific pages of data.
   /// <div class=note>Binning is done on the time stamp data as well as the date. This means that you can zoom in to a level of granularity as low as seconds.</div>
+  Future<GetHyperCubeContinuousDataResult> getHyperCubeContinuousData(
+      String path, NxContinuousDataOptions options,
+      {bool reverseSort}) async {
+    var __params = <String, dynamic>{};
+    __params['qPath'] = path;
+    __params['qOptions'] =
+        toJson(options, specifiedType: const FullType(NxContinuousDataOptions));
+    if (reverseSort != null) {
+      __params['qReverseSort'] = reverseSort;
+    }
+    var rawResult = await query('GetHyperCubeContinuousData', __params);
+    var __jsondata = {};
+    __jsondata['qDataPages'] = rawResult['result']['qDataPages'];
+    __jsondata['qAxisData'] = rawResult['result']['qAxisData'];
+    var __dartData = fromJsonFullType<GetHyperCubeContinuousDataResult>(
+        const FullType(GetHyperCubeContinuousDataResult), __jsondata);
+    return __dartData;
+  }
+
   /// Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a treedata object or a hypercube in DATA_MODE_TREE.</div>
   Future<NxTreeNode> getHyperCubeTreeData(String path,
@@ -149,10 +166,10 @@ class GenericObject extends BaseService {
           toJson(nodeOptions, specifiedType: const FullType(NxTreeDataOption));
     }
     var rawResult = await query('GetHyperCubeTreeData', __params);
-    var jsonData = rawResult['result']['qNodes'];
-    var dartData =
-        fromJsonFullType<NxTreeNode>(const FullType(NxTreeNode), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qNodes'];
+    var __dartData =
+        fromJsonFullType<NxTreeNode>(const FullType(NxTreeNode), __jsonData);
+    return __dartData;
   }
 
   /// This method supports data binning.
@@ -307,10 +324,10 @@ class GenericObject extends BaseService {
     __params['qQueryLevel'] = queryLevel;
     __params['qBinningMethod'] = binningMethod;
     var rawResult = await query('GetHyperCubeBinnedData', __params);
-    var jsonData = rawResult['result']['qDataPages'];
-    var dartData =
-        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qDataPages'];
+    var __dartData =
+        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), __jsonData);
+    return __dartData;
   }
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
@@ -353,10 +370,10 @@ class GenericObject extends BaseService {
   Future<GenericObjectProperties> getProperties() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetProperties', __params);
-    var jsonData = rawResult['result']['qProp'];
-    var dartData = fromJsonFullType<GenericObjectProperties>(
-        const FullType(GenericObjectProperties), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qProp'];
+    var __dartData = fromJsonFullType<GenericObjectProperties>(
+        const FullType(GenericObjectProperties), __jsonData);
+    return __dartData;
   }
 
   /// Returns the identifier, the type and the properties of the object.
@@ -369,10 +386,10 @@ class GenericObject extends BaseService {
   Future<GenericObjectProperties> getEffectiveProperties() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetEffectiveProperties', __params);
-    var jsonData = rawResult['result']['qProp'];
-    var dartData = fromJsonFullType<GenericObjectProperties>(
-        const FullType(GenericObjectProperties), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qProp'];
+    var __dartData = fromJsonFullType<GenericObjectProperties>(
+        const FullType(GenericObjectProperties), __jsonData);
+    return __dartData;
   }
 
   /// Sets the properties of:
@@ -395,19 +412,20 @@ class GenericObject extends BaseService {
   Future<GenericObjectEntry> getFullPropertyTree() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetFullPropertyTree', __params);
-    var jsonData = rawResult['result']['qPropEntry'];
-    var dartData = fromJsonFullType<GenericObjectEntry>(
-        const FullType(GenericObjectEntry), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qPropEntry'];
+    var __dartData = fromJsonFullType<GenericObjectEntry>(
+        const FullType(GenericObjectEntry), __jsonData);
+    return __dartData;
   }
 
   /// Returns the type and identifier of the object.
   Future<NxInfo> getInfo() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetInfo', __params);
-    var jsonData = rawResult['result']['qInfo'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qInfo'];
+    var __dartData =
+        fromJsonFullType<NxInfo>(const FullType(NxInfo), __jsonData);
+    return __dartData;
   }
 
   /// Clears the selections in a dimension of a visualization.
@@ -450,6 +468,28 @@ class GenericObject extends BaseService {
   /// If the exported file is larger than the maximum value, then an out-of-memory error with code 13000 is returned.
   ///
   /// <div class=note>Exported files are temporary and are available only for a certain time span and only to the user who created them.</div>
+  Future<ExportDataResult> exportData(String fileType,
+      {String path, String fileName, String exportState}) async {
+    var __params = <String, dynamic>{};
+    __params['qFileType'] = fileType;
+    if (path != null) {
+      __params['qPath'] = path;
+    }
+    if (fileName != null) {
+      __params['qFileName'] = fileName;
+    }
+    if (exportState != null) {
+      __params['qExportState'] = exportState;
+    }
+    var rawResult = await query('ExportData', __params);
+    var __jsondata = {};
+    __jsondata['qUrl'] = rawResult['result']['qUrl'];
+    __jsondata['qWarnings'] = rawResult['result']['qWarnings'];
+    var __dartData = fromJsonFullType<ExportDataResult>(
+        const FullType(ExportDataResult), __jsondata);
+    return __dartData;
+  }
+
   /// Makes single selections in dimensions.
   /// <div class=note>This method applies to list objects only.</div>
   /// The member **Change** returns the handles of the objects that are updated following the selections.
@@ -839,10 +879,10 @@ class GenericObject extends BaseService {
     var __params = <String, dynamic>{};
     __params['qId'] = id;
     var rawResult = await query('GetChild', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericObject(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericObject(enigma, __dartData.handle);
   }
 
   /// Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.
@@ -851,9 +891,10 @@ class GenericObject extends BaseService {
   Future<NxInfo> getChildInfos() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetChildInfos', __params);
-    var jsonData = rawResult['result']['qInfos'];
-    var dartData = fromJsonFullType<NxInfo>(const FullType(NxInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qInfos'];
+    var __dartData =
+        fromJsonFullType<NxInfo>(const FullType(NxInfo), __jsonData);
+    return __dartData;
   }
 
   /// Creates a generic object that is a child of another generic object.
@@ -868,10 +909,10 @@ class GenericObject extends BaseService {
           specifiedType: const FullType(GenericObjectProperties));
     }
     var rawResult = await query('CreateChild', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericObject(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericObject(enigma, __dartData.handle);
   }
 
   /// Removes a child object.
@@ -912,10 +953,10 @@ class GenericObject extends BaseService {
   Future<NxLinkedObjectInfo> getLinkedObjects() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLinkedObjects', __params);
-    var jsonData = rawResult['result']['qItems'];
-    var dartData = fromJsonFullType<NxLinkedObjectInfo>(
-        const FullType(NxLinkedObjectInfo), jsonData);
-    return dartData;
+    var __jsonData = rawResult['result']['qItems'];
+    var __dartData = fromJsonFullType<NxLinkedObjectInfo>(
+        const FullType(NxLinkedObjectInfo), __jsonData);
+    return __dartData;
   }
 
   /// Copies the properties of a generic object and its children.
@@ -965,10 +1006,10 @@ class GenericObject extends BaseService {
   Future<GenericObject> getSnapshotObject() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetSnapshotObject', __params);
-    var jsonData = rawResult['result']['qReturn'];
-    var dartData = fromJsonFullType<ObjectInterface>(
-        const FullType(ObjectInterface), jsonData);
-    return new GenericObject(enigma, dartData.handle);
+    var __jsonData = rawResult['result']['qReturn'];
+    var __dartData = fromJsonFullType<ObjectInterface>(
+        const FullType(ObjectInterface), __jsonData);
+    return new GenericObject(enigma, __dartData.handle);
   }
 
   /// Publishes a generic object.
