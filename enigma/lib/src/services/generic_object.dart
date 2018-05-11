@@ -39,28 +39,36 @@ class GenericObject extends BaseService {
 
   /// Retrieves the values of a list object.
   /// A data set is returned.
-  Future<NxDataPage> getListObjectData(String path, NxPage pages) async {
+  Future<BuiltList<NxDataPage>> getListObjectData(
+      String path, List<NxPage> pages) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    __params['qPages'] = toJson(pages,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPage)]));
     var rawResult = await query('GetListObjectData', __params);
     var __jsonData = rawResult['result']['qDataPages'];
-    var __dartData =
-        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxDataPage>>(
+        const FullType(BuiltList, const [const FullType(NxDataPage)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Retrieves the calculated data for a chart, a table, or a scatter plot. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_STRAIGHT.</div>
   /// A data set is returned.
-  Future<NxDataPage> getHyperCubeData(String path, NxPage pages) async {
+  Future<BuiltList<NxDataPage>> getHyperCubeData(
+      String path, List<NxPage> pages) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    __params['qPages'] = toJson(pages,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPage)]));
     var rawResult = await query('GetHyperCubeData', __params);
     var __jsonData = rawResult['result']['qDataPages'];
-    var __dartData =
-        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxDataPage>>(
+        const FullType(BuiltList, const [const FullType(NxDataPage)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -90,47 +98,58 @@ class GenericObject extends BaseService {
   ///
   /// ### Example
   /// If you have a scatter plot chart and the zoom factor is set to 2, the scatter plot chart resolution is reduced by 4.
-  Future<NxDataPage> getHyperCubeReducedData(
-      String path, NxPage pages, int zoomFactor, String reductionMode) async {
+  Future<BuiltList<NxDataPage>> getHyperCubeReducedData(String path,
+      List<NxPage> pages, int zoomFactor, String reductionMode) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    __params['qPages'] = toJson(pages,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPage)]));
     __params['qZoomFactor'] = zoomFactor;
     __params['qReductionMode'] = reductionMode;
     var rawResult = await query('GetHyperCubeReducedData', __params);
     var __jsonData = rawResult['result']['qDataPages'];
-    var __dartData =
-        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxDataPage>>(
+        const FullType(BuiltList, const [const FullType(NxDataPage)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Retrieves the values of a pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT.</div>
-  Future<NxPivotPage> getHyperCubePivotData(String path, NxPage pages) async {
+  Future<BuiltList<NxPivotPage>> getHyperCubePivotData(
+      String path, List<NxPage> pages) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    __params['qPages'] = toJson(pages,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPage)]));
     var rawResult = await query('GetHyperCubePivotData', __params);
     var __jsonData = rawResult['result']['qDataPages'];
-    var __dartData =
-        fromJsonFullType<NxPivotPage>(const FullType(NxPivotPage), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxPivotPage>>(
+        const FullType(BuiltList, const [const FullType(NxPivotPage)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Retrieves the values of a stacked pivot table. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a hypercube in DATA_MODE_PIVOT_STACK.</div>
-  Future<NxStackPage> getHyperCubeStackData(String path, NxPage pages,
+  Future<BuiltList<NxStackPage>> getHyperCubeStackData(
+      String path, List<NxPage> pages,
       {int maxNbrCells}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    __params['qPages'] = toJson(pages,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPage)]));
     if (maxNbrCells != null) {
       __params['qMaxNbrCells'] = maxNbrCells;
     }
     var rawResult = await query('GetHyperCubeStackData', __params);
     var __jsonData = rawResult['result']['qDataPages'];
-    var __dartData =
-        fromJsonFullType<NxStackPage>(const FullType(NxStackPage), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxStackPage>>(
+        const FullType(BuiltList, const [const FullType(NxStackPage)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -157,7 +176,7 @@ class GenericObject extends BaseService {
 
   /// Retrieves data for nodes in a tree structure. It is possible to retrieve specific pages of data.
   /// <div class=note>This method works for a treedata object or a hypercube in DATA_MODE_TREE.</div>
-  Future<NxTreeNode> getHyperCubeTreeData(String path,
+  Future<BuiltList<NxTreeNode>> getHyperCubeTreeData(String path,
       {NxTreeDataOption nodeOptions}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
@@ -167,8 +186,9 @@ class GenericObject extends BaseService {
     }
     var rawResult = await query('GetHyperCubeTreeData', __params);
     var __jsonData = rawResult['result']['qNodes'];
-    var __dartData =
-        fromJsonFullType<NxTreeNode>(const FullType(NxTreeNode), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxTreeNode>>(
+        const FullType(BuiltList, const [const FullType(NxTreeNode)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -305,28 +325,32 @@ class GenericObject extends BaseService {
   /// </td>
   /// </tr>
   /// </table>
-  Future<NxDataPage> getHyperCubeBinnedData(
+  Future<BuiltList<NxDataPage>> getHyperCubeBinnedData(
       String path,
-      NxPage pages,
+      List<NxPage> pages,
       NxViewPort viewport,
-      NxDataAreaPage dataRanges,
+      List<NxDataAreaPage> dataRanges,
       int maxNbrCells,
       int queryLevel,
       int binningMethod) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages, specifiedType: const FullType(NxPage));
+    __params['qPages'] = toJson(pages,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPage)]));
     __params['qViewport'] =
         toJson(viewport, specifiedType: const FullType(NxViewPort));
-    __params['qDataRanges'] =
-        toJson(dataRanges, specifiedType: const FullType(NxDataAreaPage));
+    __params['qDataRanges'] = toJson(dataRanges,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxDataAreaPage)]));
     __params['qMaxNbrCells'] = maxNbrCells;
     __params['qQueryLevel'] = queryLevel;
     __params['qBinningMethod'] = binningMethod;
     var rawResult = await query('GetHyperCubeBinnedData', __params);
     var __jsonData = rawResult['result']['qDataPages'];
-    var __dartData =
-        fromJsonFullType<NxDataPage>(const FullType(NxDataPage), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxDataPage>>(
+        const FullType(BuiltList, const [const FullType(NxDataPage)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -335,10 +359,11 @@ class GenericObject extends BaseService {
   /// In that case, the result of the operation on the properties (add, remove or delete) is not shown when doing _GetProperties_ , and only a _GetLayout_ call shows the result of the operation.
   /// Properties that are not persistent are called soft properties. Once the engine session is over, soft properties are cleared.
   /// <div class=note>Soft properties apply only to generic objects.</div>
-  Future<void> applyPatches(NxPatch patches, {bool softPatch}) async {
+  Future<void> applyPatches(List<NxPatch> patches, {bool softPatch}) async {
     var __params = <String, dynamic>{};
-    __params['qPatches'] =
-        toJson(patches, specifiedType: const FullType(NxPatch));
+    __params['qPatches'] = toJson(patches,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPatch)]));
     if (softPatch != null) {
       __params['qSoftPatch'] = softPatch;
     }
@@ -581,11 +606,13 @@ class GenericObject extends BaseService {
 
   /// The following is returned in the output:
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
-  Future<bool> selectListObjectContinuousRange(String path, Range ranges,
+  Future<bool> selectListObjectContinuousRange(String path, List<Range> ranges,
       {bool softLock}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qRanges'] = toJson(ranges, specifiedType: const FullType(Range));
+    __params['qRanges'] = toJson(ranges,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(Range)]));
     if (softLock != null) {
       __params['qSoftLock'] = softLock;
     }
@@ -780,12 +807,13 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> selectPivotCells(String path, NxSelectionCell selections,
+  Future<bool> selectPivotCells(String path, List<NxSelectionCell> selections,
       {bool softLock, bool deselectOnlyOneSelected}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qSelections'] =
-        toJson(selections, specifiedType: const FullType(NxSelectionCell));
+    __params['qSelections'] = toJson(selections,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxSelectionCell)]));
     if (softLock != null) {
       __params['qSoftLock'] = softLock;
     }
@@ -803,14 +831,16 @@ class GenericObject extends BaseService {
   /// * The object contains some invalid fields (fields that are not in the data model).
   /// * The selection applies to a locked field.
   /// * A range selection is performed and the parameter _OneAndOnlyOne_ is set to true in the definition of the object.
-  Future<bool> rangeSelectHyperCubeValues(String path, NxRangeSelectInfo ranges,
+  Future<bool> rangeSelectHyperCubeValues(
+      String path, List<NxRangeSelectInfo> ranges,
       {List<int> columnsToSelect,
       bool orMode,
       bool deselectOnlyOneSelected}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qRanges'] =
-        toJson(ranges, specifiedType: const FullType(NxRangeSelectInfo));
+    __params['qRanges'] = toJson(ranges,
+        specifiedType: const FullType(
+            BuiltList, const [const FullType(NxRangeSelectInfo)]));
     if (columnsToSelect != null) {
       __params['qColumnsToSelect'] = columnsToSelect;
     }
@@ -825,12 +855,13 @@ class GenericObject extends BaseService {
   }
 
   Future<bool> multiRangeSelectHyperCubeValues(
-      String path, NxMultiRangeSelectInfo ranges,
+      String path, List<NxMultiRangeSelectInfo> ranges,
       {bool orMode, bool deselectOnlyOneSelected}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qRanges'] =
-        toJson(ranges, specifiedType: const FullType(NxMultiRangeSelectInfo));
+    __params['qRanges'] = toJson(ranges,
+        specifiedType: const FullType(
+            BuiltList, const [const FullType(NxMultiRangeSelectInfo)]));
     if (orMode != null) {
       __params['qOrMode'] = orMode;
     }
@@ -842,12 +873,13 @@ class GenericObject extends BaseService {
   }
 
   Future<bool> multiRangeSelectTreeDataValues(
-      String path, NxTreeMultiRangeSelectInfo ranges,
+      String path, List<NxTreeMultiRangeSelectInfo> ranges,
       {bool orMode, bool deselectOnlyOneSelected}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
     __params['qRanges'] = toJson(ranges,
-        specifiedType: const FullType(NxTreeMultiRangeSelectInfo));
+        specifiedType: const FullType(
+            BuiltList, const [const FullType(NxTreeMultiRangeSelectInfo)]));
     if (orMode != null) {
       __params['qOrMode'] = orMode;
     }
@@ -861,12 +893,13 @@ class GenericObject extends BaseService {
   /// The following is returned in the output:
   /// <div class=note>The operation is successful if **qSuccess** is set to true. </div>
   Future<bool> selectHyperCubeContinuousRange(
-      String path, NxContinuousRangeSelectInfo ranges,
+      String path, List<NxContinuousRangeSelectInfo> ranges,
       {bool softLock}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
     __params['qRanges'] = toJson(ranges,
-        specifiedType: const FullType(NxContinuousRangeSelectInfo));
+        specifiedType: const FullType(
+            BuiltList, const [const FullType(NxContinuousRangeSelectInfo)]));
     if (softLock != null) {
       __params['qSoftLock'] = softLock;
     }
@@ -888,12 +921,12 @@ class GenericObject extends BaseService {
   /// Returns the identifier and the type for each child in an app object. If the child contains extra properties in _qInfos_ , these properties are returned.
   ///
   /// Full dynamic properties are optional and are returned if they exist in the definition of the object.
-  Future<NxInfo> getChildInfos() async {
+  Future<BuiltList<NxInfo>> getChildInfos() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetChildInfos', __params);
     var __jsonData = rawResult['result']['qInfos'];
-    var __dartData =
-        fromJsonFullType<NxInfo>(const FullType(NxInfo), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxInfo>>(
+        const FullType(BuiltList, const [const FullType(NxInfo)]), __jsonData);
     return __dartData;
   }
 
@@ -950,12 +983,13 @@ class GenericObject extends BaseService {
   }
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
-  Future<NxLinkedObjectInfo> getLinkedObjects() async {
+  Future<BuiltList<NxLinkedObjectInfo>> getLinkedObjects() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLinkedObjects', __params);
     var __jsonData = rawResult['result']['qItems'];
-    var __dartData = fromJsonFullType<NxLinkedObjectInfo>(
-        const FullType(NxLinkedObjectInfo), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxLinkedObjectInfo>>(
+        const FullType(BuiltList, const [const FullType(NxLinkedObjectInfo)]),
+        __jsonData);
     return __dartData;
   }
 

@@ -28,11 +28,12 @@ class Field extends BaseService {
   }
 
   /// Selects some values in a field, by entering the values to select.
-  Future<bool> selectValues(FieldValue fieldValues,
+  Future<bool> selectValues(List<FieldValue> fieldValues,
       {bool toggleMode, bool softLock}) async {
     var __params = <String, dynamic>{};
-    __params['qFieldValues'] =
-        toJson(fieldValues, specifiedType: const FullType(FieldValue));
+    __params['qFieldValues'] = toJson(fieldValues,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(FieldValue)]));
     if (toggleMode != null) {
       __params['qToggleMode'] = toggleMode;
     }

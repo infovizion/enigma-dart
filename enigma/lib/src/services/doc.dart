@@ -332,20 +332,22 @@ class Doc extends BaseService {
   }
 
   /// Lists the breakpoints in the script of an app.
-  Future<EditorBreakpoint> getScriptBreakpoints() async {
+  Future<BuiltList<EditorBreakpoint>> getScriptBreakpoints() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetScriptBreakpoints', __params);
     var __jsonData = rawResult['result']['qBreakpoints'];
-    var __dartData = fromJsonFullType<EditorBreakpoint>(
-        const FullType(EditorBreakpoint), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<EditorBreakpoint>>(
+        const FullType(BuiltList, const [const FullType(EditorBreakpoint)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Set some breakpoints in the script of an app.
-  Future<void> setScriptBreakpoints(EditorBreakpoint breakpoints) async {
+  Future<void> setScriptBreakpoints(List<EditorBreakpoint> breakpoints) async {
     var __params = <String, dynamic>{};
-    __params['qBreakpoints'] =
-        toJson(breakpoints, specifiedType: const FullType(EditorBreakpoint));
+    __params['qBreakpoints'] = toJson(breakpoints,
+        specifiedType: const FullType(
+            BuiltList, const [const FullType(EditorBreakpoint)]));
     var rawResult = await query('SetScriptBreakpoints', __params);
   }
 
@@ -359,12 +361,13 @@ class Doc extends BaseService {
   /// Fetches updated variables after a statement execution.
   ///
   /// <div class=note>If qRefSeqNo and qSetSeqNo are set to 0, it means that the variables were not updated.</div>
-  Future<TextMacro> getTextMacros() async {
+  Future<BuiltList<TextMacro>> getTextMacros() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetTextMacros', __params);
     var __jsonData = rawResult['result']['qMacros'];
-    var __dartData =
-        fromJsonFullType<TextMacro>(const FullType(TextMacro), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<TextMacro>>(
+        const FullType(BuiltList, const [const FullType(TextMacro)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -386,7 +389,7 @@ class Doc extends BaseService {
   }
 
   /// Retrieves the data of a specific table.
-  Future<TableRow> getTableData(
+  Future<BuiltList<TableRow>> getTableData(
       int offset, int rows, bool syntheticMode, String tableName) async {
     var __params = <String, dynamic>{};
     __params['qOffset'] = offset;
@@ -395,8 +398,9 @@ class Doc extends BaseService {
     __params['qTableName'] = tableName;
     var rawResult = await query('GetTableData', __params);
     var __jsonData = rawResult['result']['qData'];
-    var __dartData =
-        fromJsonFullType<TableRow>(const FullType(TableRow), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<TableRow>>(
+        const FullType(BuiltList, const [const FullType(TableRow)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -432,12 +436,13 @@ class Doc extends BaseService {
 
   /// Gets the lineage information of the app. The lineage information includes the LOAD and STORE statements from the data load script associated with this app.
   /// An array of lineage information.
-  Future<LineageInfo> getLineage() async {
+  Future<BuiltList<LineageInfo>> getLineage() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLineage', __params);
     var __jsonData = rawResult['result']['qLineage'];
-    var __dartData =
-        fromJsonFullType<LineageInfo>(const FullType(LineageInfo), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<LineageInfo>>(
+        const FullType(BuiltList, const [const FullType(LineageInfo)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -506,25 +511,29 @@ class Doc extends BaseService {
     return new GenericObject(enigma, __dartData.handle);
   }
 
-  Future<NxContainerEntry> getObjects(NxGetObjectOptions options) async {
+  Future<BuiltList<NxContainerEntry>> getObjects(
+      NxGetObjectOptions options) async {
     var __params = <String, dynamic>{};
     __params['qOptions'] =
         toJson(options, specifiedType: const FullType(NxGetObjectOptions));
     var rawResult = await query('GetObjects', __params);
     var __jsonData = rawResult['result']['qList'];
-    var __dartData = fromJsonFullType<NxContainerEntry>(
-        const FullType(NxContainerEntry), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxContainerEntry>>(
+        const FullType(BuiltList, const [const FullType(NxContainerEntry)]),
+        __jsonData);
     return __dartData;
   }
 
-  Future<NxContainerEntry> getBookmarks(NxGetBookmarkOptions options) async {
+  Future<BuiltList<NxContainerEntry>> getBookmarks(
+      NxGetBookmarkOptions options) async {
     var __params = <String, dynamic>{};
     __params['qOptions'] =
         toJson(options, specifiedType: const FullType(NxGetBookmarkOptions));
     var rawResult = await query('GetBookmarks', __params);
     var __jsonData = rawResult['result']['qList'];
-    var __dartData = fromJsonFullType<NxContainerEntry>(
-        const FullType(NxContainerEntry), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxContainerEntry>>(
+        const FullType(BuiltList, const [const FullType(NxContainerEntry)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -907,12 +916,12 @@ class Doc extends BaseService {
   }
 
   /// Returns the identifier and the type of any generic object in the app.
-  Future<NxInfo> getAllInfos() async {
+  Future<BuiltList<NxInfo>> getAllInfos() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetAllInfos', __params);
     var __jsonData = rawResult['result']['qInfos'];
-    var __dartData =
-        fromJsonFullType<NxInfo>(const FullType(NxInfo), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxInfo>>(
+        const FullType(BuiltList, const [const FullType(NxInfo)]), __jsonData);
     return __dartData;
   }
 
@@ -943,7 +952,7 @@ class Doc extends BaseService {
 
   /// Retrieves any fields that match all of the specified tags or just one of them in the data model of an app.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
-  Future<NxMatchingFieldInfo> getMatchingFields(List<String> tags,
+  Future<BuiltList<NxMatchingFieldInfo>> getMatchingFields(List<String> tags,
       {String matchingFieldMode}) async {
     var __params = <String, dynamic>{};
     __params['qTags'] = tags;
@@ -952,22 +961,24 @@ class Doc extends BaseService {
     }
     var rawResult = await query('GetMatchingFields', __params);
     var __jsonData = rawResult['result']['qFieldNames'];
-    var __dartData = fromJsonFullType<NxMatchingFieldInfo>(
-        const FullType(NxMatchingFieldInfo), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxMatchingFieldInfo>>(
+        const FullType(BuiltList, const [const FullType(NxMatchingFieldInfo)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Retrieves any fields that belong to the same archipelago as the specified field and that match at least one of the specified tags.
   /// <div class=note>Tags set by Qlik Sense are prefixed by the _$_ sign.  </div>
-  Future<NxMatchingFieldInfo> findMatchingFields(
+  Future<BuiltList<NxMatchingFieldInfo>> findMatchingFields(
       String fieldName, List<String> tags) async {
     var __params = <String, dynamic>{};
     __params['qFieldName'] = fieldName;
     __params['qTags'] = tags;
     var rawResult = await query('FindMatchingFields', __params);
     var __jsonData = rawResult['result']['qFieldNames'];
-    var __dartData = fromJsonFullType<NxMatchingFieldInfo>(
-        const FullType(NxMatchingFieldInfo), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxMatchingFieldInfo>>(
+        const FullType(BuiltList, const [const FullType(NxMatchingFieldInfo)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -988,15 +999,16 @@ class Doc extends BaseService {
 
   /// Computes a set of association scores for each pair of fields between two given tables that have been loaded in an app.
   /// When a table contains some synthetic keys, all fields in the synthetic key tables are analyzed against fields in other tables. To denote that a field is a synthetic key, the field name is prefixed by _[Synthetic Key]:_ .
-  Future<AssociationScore> getAssociationScores(
+  Future<BuiltList<AssociationScore>> getAssociationScores(
       String table1, String table2) async {
     var __params = <String, dynamic>{};
     __params['qTable1'] = table1;
     __params['qTable2'] = table2;
     var rawResult = await query('GetAssociationScores', __params);
     var __jsonData = rawResult['result']['qScore'];
-    var __dartData = fromJsonFullType<AssociationScore>(
-        const FullType(AssociationScore), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<AssociationScore>>(
+        const FullType(BuiltList, const [const FullType(AssociationScore)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -1200,12 +1212,13 @@ class Doc extends BaseService {
   /// <td>Boolean</td>
   /// </tr>
   /// </table>
-  Future<ScriptSyntaxError> checkScriptSyntax() async {
+  Future<BuiltList<ScriptSyntaxError>> checkScriptSyntax() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('CheckScriptSyntax', __params);
     var __jsonData = rawResult['result']['qErrors'];
-    var __dartData = fromJsonFullType<ScriptSyntaxError>(
-        const FullType(ScriptSyntaxError), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<ScriptSyntaxError>>(
+        const FullType(BuiltList, const [const FullType(ScriptSyntaxError)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -1281,12 +1294,13 @@ class Doc extends BaseService {
 
   /// Lists the connections in an app.
   /// <div class=note>In Qlik Sense Enterprise, there is an additional file connection named _AttachedFiles_ . This connection is stored in the Qlik Sense repository. </div>
-  Future<Connection> getConnections() async {
+  Future<BuiltList<Connection>> getConnections() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetConnections', __params);
     var __jsonData = rawResult['result']['qConnections'];
-    var __dartData =
-        fromJsonFullType<Connection>(const FullType(Connection), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<Connection>>(
+        const FullType(BuiltList, const [const FullType(Connection)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -1302,18 +1316,19 @@ class Doc extends BaseService {
   }
 
   /// Lists the databases inside a ODBC, OLEDB or CUSTOM data source.
-  Future<Database> getDatabases(String connectionId) async {
+  Future<BuiltList<Database>> getDatabases(String connectionId) async {
     var __params = <String, dynamic>{};
     __params['qConnectionId'] = connectionId;
     var rawResult = await query('GetDatabases', __params);
     var __jsonData = rawResult['result']['qDatabases'];
-    var __dartData =
-        fromJsonFullType<Database>(const FullType(Database), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<Database>>(
+        const FullType(BuiltList, const [const FullType(Database)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Lists the owners of a database for a ODBC, OLEDB or CUSTOM connection.
-  Future<DatabaseOwner> getDatabaseOwners(String connectionId,
+  Future<BuiltList<DatabaseOwner>> getDatabaseOwners(String connectionId,
       {String database}) async {
     var __params = <String, dynamic>{};
     __params['qConnectionId'] = connectionId;
@@ -1322,13 +1337,14 @@ class Doc extends BaseService {
     }
     var rawResult = await query('GetDatabaseOwners', __params);
     var __jsonData = rawResult['result']['qOwners'];
-    var __dartData = fromJsonFullType<DatabaseOwner>(
-        const FullType(DatabaseOwner), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<DatabaseOwner>>(
+        const FullType(BuiltList, const [const FullType(DatabaseOwner)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Lists the tables inside a database for a ODBC, OLEDB or CUSTOM connection.
-  Future<DataTable> getDatabaseTables(String connectionId,
+  Future<BuiltList<DataTable>> getDatabaseTables(String connectionId,
       {String database, String owner}) async {
     var __params = <String, dynamic>{};
     __params['qConnectionId'] = connectionId;
@@ -1340,13 +1356,15 @@ class Doc extends BaseService {
     }
     var rawResult = await query('GetDatabaseTables', __params);
     var __jsonData = rawResult['result']['qTables'];
-    var __dartData =
-        fromJsonFullType<DataTable>(const FullType(DataTable), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<DataTable>>(
+        const FullType(BuiltList, const [const FullType(DataTable)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Lists the fields inside a table of a database for a ODBC, OLEDB or CUSTOM connection.
-  Future<DataField> getDatabaseTableFields(String connectionId, String table,
+  Future<BuiltList<DataField>> getDatabaseTableFields(
+      String connectionId, String table,
       {String database, String owner}) async {
     var __params = <String, dynamic>{};
     __params['qConnectionId'] = connectionId;
@@ -1359,14 +1377,15 @@ class Doc extends BaseService {
     __params['qTable'] = table;
     var rawResult = await query('GetDatabaseTableFields', __params);
     var __jsonData = rawResult['result']['qFields'];
-    var __dartData =
-        fromJsonFullType<DataField>(const FullType(DataField), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<DataField>>(
+        const FullType(BuiltList, const [const FullType(DataField)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Retrieves the values of the specified table of a database for a ODBC, OLEDB or CUSTOM connection.
   /// Lists the items for a folder connection.
-  Future<FolderItem> getFolderItemsForConnection(String connectionId,
+  Future<BuiltList<FolderItem>> getFolderItemsForConnection(String connectionId,
       {String relativePath}) async {
     var __params = <String, dynamic>{};
     __params['qConnectionId'] = connectionId;
@@ -1375,8 +1394,9 @@ class Doc extends BaseService {
     }
     var rawResult = await query('GetFolderItemsForConnection', __params);
     var __jsonData = rawResult['result']['qFolderItems'];
-    var __dartData =
-        fromJsonFullType<FolderItem>(const FullType(FolderItem), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<FolderItem>>(
+        const FullType(BuiltList, const [const FullType(FolderItem)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -1436,7 +1456,7 @@ class Doc extends BaseService {
   /// * _QVX_ for QVX file
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
-  Future<DataTable> getFileTables(
+  Future<BuiltList<DataTable>> getFileTables(
       String connectionId, FileDataFormat dataFormat,
       {String relativePath}) async {
     var __params = <String, dynamic>{};
@@ -1448,8 +1468,9 @@ class Doc extends BaseService {
         toJson(dataFormat, specifiedType: const FullType(FileDataFormat));
     var rawResult = await query('GetFileTables', __params);
     var __jsonData = rawResult['result']['qTables'];
-    var __dartData =
-        fromJsonFullType<DataTable>(const FullType(DataTable), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<DataTable>>(
+        const FullType(BuiltList, const [const FullType(DataTable)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -1484,7 +1505,7 @@ class Doc extends BaseService {
   /// * _JSON_ for JSON format
   /// * _KML_ for KML file
   /// Lists the tables and fields of a JSON or XML file for a folder connection.
-  Future<DataTableEx> getFileTablesEx(
+  Future<BuiltList<DataTableEx>> getFileTablesEx(
       String connectionId, FileDataFormat dataFormat,
       {String relativePath}) async {
     var __params = <String, dynamic>{};
@@ -1496,8 +1517,9 @@ class Doc extends BaseService {
         toJson(dataFormat, specifiedType: const FullType(FileDataFormat));
     var rawResult = await query('GetFileTablesEx', __params);
     var __jsonData = rawResult['result']['qTables'];
-    var __dartData =
-        fromJsonFullType<DataTableEx>(const FullType(DataTableEx), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<DataTableEx>>(
+        const FullType(BuiltList, const [const FullType(DataTableEx)]),
+        __jsonData);
     return __dartData;
   }
 

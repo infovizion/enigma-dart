@@ -5,7 +5,7 @@ import 'package:path/path.dart' as path;
 main() {
 //  createFile('enigma','NxValidationError');
 //  createFile('enigma','NxDimensionInfo');
-  createFile('CheckExpressionResult');
+  createFile('CollectionTypeContainer');
 }
 
 createFile(String className) {

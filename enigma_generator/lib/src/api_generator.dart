@@ -28,6 +28,7 @@ class ApiGenerator {
   int servicesGenerated = 0;
   int methodsGenerated = 0;
   int ambiguousReturns = 0;
+  Map<String, SchemaType> additionalListTypes = new Map<String, SchemaType>();
 
   var typeMap = <String, TypeData>{};
   _addType(String key, TypeData typeData) {
@@ -74,7 +75,8 @@ class ApiGenerator {
   /// models (compound result type)
   final Map<String, String> method2ExtraModel = {
     'GenericObject.ExportData': 'ExportDataResult',
-    'GenericObject.GetHyperCubeContinuousData': 'GetHyperCubeContinuousDataResult',
+    'GenericObject.GetHyperCubeContinuousData':
+        'GetHyperCubeContinuousDataResult',
     'Global.CreateApp': 'CreateAppResult',
     'Doc.GetTablesAndKeys': 'GetTablesAndKeysResult',
     'Doc.CheckNumberOrExpression': 'CheckExpressionResult',
@@ -109,10 +111,16 @@ class ApiGenerator {
     schema.definitions.forEach((key, value) {
       generateStruct(key, value);
     });
-    generateModelExport();
     schema.services.forEach((key, value) {
       generateService(key, value);
     });
+    var listTypeContainer = new SchemaType((b) => b
+      ..description =
+          'DO NOT USE, this is fake object to create some BuiltList serializers'
+          ..jsonType = 'object'
+      ..properties.addAll(additionalListTypes));
+    generateStruct('ListTypeContainer', listTypeContainer);
+    generateModelExport();
     generateSerializers();
     print(''''Generated structs: $structsGenerated, fields: $fieldsGenerated.
      Generated services: $servicesGenerated, methods: $methodsGenerated, ambiguousReturns: $ambiguousReturns''');
@@ -197,14 +205,14 @@ class ApiGenerator {
     outFile.writeAsStringSync(_formatDartContent(buffer.toString()));
   }
 
-  TypeData getTypeData(SchemaType schemaType) {
+  TypeData getTypeData(SchemaType schemaType, {bool saveListType = false}) {
     var result = typeMap[schemaType.jsonType];
     if (result != null) {
       return result;
     }
     result = new TypeData();
     result.jsonType = schemaType.jsonType;
-    if (schemaType.schema != null) {
+    if (schemaType.jsonType != 'array' && schemaType.schema != null) {
       var jsonType = schemaType.schema.ref.replaceFirst('#/definitions/', '');
       return typeMap[jsonType];
     }
@@ -213,9 +221,20 @@ class ApiGenerator {
       return typeMap[jsonType];
     }
     if (schemaType.jsonType == 'array') {
-      var jsonType = schemaType.items.jsonType;
-      if (jsonType == null) {
-        var ref = schemaType.items.ref;
+      String jsonType;
+
+      if (schemaType.items != null) {
+        jsonType = schemaType.items.jsonType;
+        if (jsonType == null) {
+          var ref = schemaType.items.ref;
+          if (ref == null) {
+            print('Error: $schemaType');
+            return null;
+          }
+          jsonType = ref.replaceFirst('#/definitions/', '');
+        }
+      } else {
+        var ref = schemaType.schema.ref;
         if (ref == null) {
           print('Error: $schemaType');
           return null;
@@ -228,6 +247,9 @@ class ApiGenerator {
         return null;
       }
       result.dartType = 'BuiltList<${dataType.dartType}>';
+      if (saveListType && dataType.dartType != 'Function') {
+        additionalListTypes[dataType.dartType + 'List'] = schemaType;
+      }
       result.specifiedType =
           'const FullType(BuiltList, const [const FullType(${dataType.dartType})])';
       result.importDirectives.addAll(dataType.importDirectives);
@@ -382,7 +404,7 @@ class ApiGenerator {
         optionalParams.add('${p.typeData?.paramType} ${p.dartName}');
       }
     }
-    if (methodName == 'OpenDoc') {
+    if (methodName == 'GetDocList') {
       int debug = 1;
     }
     var paramParts = <String>[];
@@ -402,17 +424,20 @@ class ApiGenerator {
             method.responses.firstWhere((r) => r.name == 'qReturn');
         returnDescriptor.dartType = serviceType;
         returnDescriptor.returnKind = ReturnKind.ObjectIterface;
-        returnDescriptor.typeData = getTypeData(returnDescriptor.schemaType);
+        returnDescriptor.typeData =
+            getTypeData(returnDescriptor.schemaType, saveListType: true);
       } else if (extraModelName != null) {
         returnDescriptor.dartType = extraModelName;
         returnDescriptor.returnKind = ReturnKind.ExtraModel;
       } else if (method.responses.length > 1) {
-        print('Cannot generate method $serviceName.$methodName. ${method.responses}');
+        print(
+            'Cannot generate method $serviceName.$methodName. ${method.responses}');
         ambiguousReturns++;
         return;
       } else {
         returnDescriptor.schemaType = method.responses.first;
-        returnDescriptor.typeData = getTypeData(returnDescriptor.schemaType);
+        returnDescriptor.typeData =
+            getTypeData(returnDescriptor.schemaType, saveListType: true);
         if (returnDescriptor.typeData != null) {
           returnDescriptor.dartType = returnDescriptor.typeData.dartType;
         } else {

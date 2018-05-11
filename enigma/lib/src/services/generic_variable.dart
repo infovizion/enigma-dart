@@ -26,10 +26,11 @@ class GenericVariable extends BaseService {
 
   /// Applies a patch to the properties of a variable. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
-  Future<void> applyPatches(NxPatch patches) async {
+  Future<void> applyPatches(List<NxPatch> patches) async {
     var __params = <String, dynamic>{};
-    __params['qPatches'] =
-        toJson(patches, specifiedType: const FullType(NxPatch));
+    __params['qPatches'] = toJson(patches,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPatch)]));
     var rawResult = await query('ApplyPatches', __params);
   }
 

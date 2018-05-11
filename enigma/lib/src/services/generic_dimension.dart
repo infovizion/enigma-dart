@@ -25,10 +25,11 @@ class GenericDimension extends BaseService {
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
-  Future<void> applyPatches(NxPatch patches) async {
+  Future<void> applyPatches(List<NxPatch> patches) async {
     var __params = <String, dynamic>{};
-    __params['qPatches'] =
-        toJson(patches, specifiedType: const FullType(NxPatch));
+    __params['qPatches'] = toJson(patches,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPatch)]));
     var rawResult = await query('ApplyPatches', __params);
   }
 
@@ -75,12 +76,13 @@ class GenericDimension extends BaseService {
   }
 
   /// Lists the linked objects to a generic object, a dimension or a measure.
-  Future<NxLinkedObjectInfo> getLinkedObjects() async {
+  Future<BuiltList<NxLinkedObjectInfo>> getLinkedObjects() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLinkedObjects', __params);
     var __jsonData = rawResult['result']['qItems'];
-    var __dartData = fromJsonFullType<NxLinkedObjectInfo>(
-        const FullType(NxLinkedObjectInfo), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxLinkedObjectInfo>>(
+        const FullType(BuiltList, const [const FullType(NxLinkedObjectInfo)]),
+        __jsonData);
     return __dartData;
   }
 

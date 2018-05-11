@@ -91,6 +91,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(LineageInfo.serializer)
       ..add(ListObject.serializer)
       ..add(ListObjectDef.serializer)
+      ..add(ListTypeContainer.serializer)
       ..add(LocaleInfo.serializer)
       ..add(MeasureList.serializer)
       ..add(MeasureListDef.serializer)
@@ -334,6 +335,100 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(NxCurrentSelectionItem)]),
           () => new ListBuilder<NxCurrentSelectionItem>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxDataPage)]),
+          () => new ListBuilder<NxDataPage>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxPivotPage)]),
+          () => new ListBuilder<NxPivotPage>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxStackPage)]),
+          () => new ListBuilder<NxStackPage>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxTreeNode)]),
+          () => new ListBuilder<NxTreeNode>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxInfo)]),
+          () => new ListBuilder<NxInfo>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxLinkedObjectInfo)]),
+          () => new ListBuilder<NxLinkedObjectInfo>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(FieldValue)]),
+          () => new ListBuilder<FieldValue>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(EditorBreakpoint)]),
+          () => new ListBuilder<EditorBreakpoint>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(TextMacro)]),
+          () => new ListBuilder<TextMacro>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(TableRow)]),
+          () => new ListBuilder<TableRow>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(LineageInfo)]),
+          () => new ListBuilder<LineageInfo>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxContainerEntry)]),
+          () => new ListBuilder<NxContainerEntry>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(NxMatchingFieldInfo)]),
+          () => new ListBuilder<NxMatchingFieldInfo>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(AssociationScore)]),
+          () => new ListBuilder<AssociationScore>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(ScriptSyntaxError)]),
+          () => new ListBuilder<ScriptSyntaxError>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Connection)]),
+          () => new ListBuilder<Connection>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Database)]),
+          () => new ListBuilder<Database>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DatabaseOwner)]),
+          () => new ListBuilder<DatabaseOwner>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DataTable)]),
+          () => new ListBuilder<DataTable>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DataField)]),
+          () => new ListBuilder<DataField>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(FolderItem)]),
+          () => new ListBuilder<FolderItem>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DataTableEx)]),
+          () => new ListBuilder<DataTableEx>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DocListEntry)]),
+          () => new ListBuilder<DocListEntry>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(BNFDef)]),
+          () => new ListBuilder<BNFDef>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(OdbcDsn)]),
+          () => new ListBuilder<OdbcDsn>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(OleDbProvider)]),
+          () => new ListBuilder<OleDbProvider>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(DriveInfo)]),
+          () => new ListBuilder<DriveInfo>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(CodePage)]),
+          () => new ListBuilder<CodePage>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(CustomConnector)]),
+          () => new ListBuilder<CustomConnector>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NxStreamListEntry)]),
+          () => new ListBuilder<NxStreamListEntry>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NxDerivedField)]),
           () => new ListBuilder<NxDerivedField>())
       ..addBuilderFactory(
@@ -434,57 +529,22 @@ Serializers _$serializers = (new Serializers().toBuilder()
             const FullType(BuiltList, const [const FullType(NxPivotValuePoint)])
           ]),
           () => new ListBuilder<BuiltList<NxPivotValuePoint>>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxRangeSelectInfo)]),
-          () => new ListBuilder<NxRangeSelectInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxSimpleDimValue)]),
-          () => new ListBuilder<NxSimpleDimValue>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxSimpleValue)]),
-          () => new ListBuilder<NxSimpleValue>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxStackedPivotCell)]),
-          () => new ListBuilder<NxStackedPivotCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxStackedPivotCell)]),
-          () => new ListBuilder<NxStackedPivotCell>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxTreeDimensionDef)]),
-          () => new ListBuilder<NxTreeDimensionDef>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(int)]),
-          () => new ListBuilder<int>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(NxTreeRangeSelectInfo)]),
-          () => new ListBuilder<NxTreeRangeSelectInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxTreeValue)]),
-          () => new ListBuilder<NxTreeValue>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxTreeNode)]),
-          () => new ListBuilder<NxTreeNode>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(NxVariableListItem)]),
-          () => new ListBuilder<NxVariableListItem>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(RangeSelectInfo)]),
-          () => new ListBuilder<RangeSelectInfo>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(NxFieldSelectionInfo)]),
-          () => new ListBuilder<NxFieldSelectionInfo>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(NxFieldSelectionInfo)]),
-          () => new ListBuilder<NxFieldSelectionInfo>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(RangeSelectInfo)]),
-          () => new ListBuilder<RangeSelectInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxRangeSelectInfo)]), () => new ListBuilder<NxRangeSelectInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxSimpleDimValue)]), () => new ListBuilder<NxSimpleDimValue>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxSimpleValue)]), () => new ListBuilder<NxSimpleValue>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxStackedPivotCell)]), () => new ListBuilder<NxStackedPivotCell>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxStackedPivotCell)]), () => new ListBuilder<NxStackedPivotCell>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxTreeDimensionDef)]), () => new ListBuilder<NxTreeDimensionDef>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(int)]), () => new ListBuilder<int>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxTreeRangeSelectInfo)]), () => new ListBuilder<NxTreeRangeSelectInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxTreeValue)]), () => new ListBuilder<NxTreeValue>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxTreeNode)]), () => new ListBuilder<NxTreeNode>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxVariableListItem)]), () => new ListBuilder<NxVariableListItem>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(RangeSelectInfo)]), () => new ListBuilder<RangeSelectInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxFieldSelectionInfo)]), () => new ListBuilder<NxFieldSelectionInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(NxFieldSelectionInfo)]), () => new ListBuilder<NxFieldSelectionInfo>())
+      ..addBuilderFactory(const FullType(BuiltList, const [const FullType(RangeSelectInfo)]), () => new ListBuilder<RangeSelectInfo>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(Range)]), () => new ListBuilder<Range>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchCharRange)]), () => new ListBuilder<SearchCharRange>())
       ..addBuilderFactory(const FullType(BuiltList, const [const FullType(SearchCharRange)]), () => new ListBuilder<SearchCharRange>())
