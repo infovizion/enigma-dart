@@ -74,12 +74,13 @@ class Global extends BaseService {
   /// **In Qlik Sense Desktop:**
   ///
   /// The apps are located in _C:\Users\&lt;user name&gt;\Documents\Qlik\Sense\Apps_.
-  Future<DocListEntry> getDocList() async {
+  Future<BuiltList<DocListEntry>> getDocList() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetDocList', __params);
     var __jsonData = rawResult['result']['qDocList'];
-    var __dartData = fromJsonFullType<DocListEntry>(
-        const FullType(DocListEntry), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<DocListEntry>>(
+        const FullType(BuiltList, const [const FullType(DocListEntry)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -461,59 +462,62 @@ class Global extends BaseService {
 
   /// Gets the current Backus-Naur Form (BNF) grammar of the Qlik engine scripting language. The BNF rules define the syntax for the script statements and the script or chart functions.
   /// In the Qlik engine BNF grammar, a token is a string of one or more characters that is significant as a group. For example, a token could be a function name, a number, a letter, a parenthesis, and so on.
-  Future<BNFDef> getBNF(String bnfType) async {
+  Future<BuiltList<BNFDef>> getBNF(String bnfType) async {
     var __params = <String, dynamic>{};
     __params['qBnfType'] = bnfType;
     var rawResult = await query('GetBNF', __params);
     var __jsonData = rawResult['result']['qBnfDefs'];
-    var __dartData =
-        fromJsonFullType<BNFDef>(const FullType(BNFDef), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<BNFDef>>(
+        const FullType(BuiltList, const [const FullType(BNFDef)]), __jsonData);
     return __dartData;
   }
 
   /// Gets the list of all the script functions.
-  Future<Function> getFunctions({String group}) async {
+  Future<BuiltList<Function>> getFunctions({String group}) async {
     var __params = <String, dynamic>{};
     if (group != null) {
       __params['qGroup'] = group;
     }
     var rawResult = await query('GetFunctions', __params);
     var __jsonData = rawResult['result']['qFunctions'];
-    var __dartData =
-        fromJsonFullType<Function>(const FullType(Function), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<Function>>(
+        const FullType(BuiltList, const [const FullType(Function)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Returns the list of the ODBC connectors that are installed in the system.
-  Future<OdbcDsn> getOdbcDsns() async {
+  Future<BuiltList<OdbcDsn>> getOdbcDsns() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetOdbcDsns', __params);
     var __jsonData = rawResult['result']['qOdbcDsns'];
-    var __dartData =
-        fromJsonFullType<OdbcDsn>(const FullType(OdbcDsn), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<OdbcDsn>>(
+        const FullType(BuiltList, const [const FullType(OdbcDsn)]), __jsonData);
     return __dartData;
   }
 
   /// Returns the list of the OLEDB providers installed on the system.
-  Future<OleDbProvider> getOleDbProviders() async {
+  Future<BuiltList<OleDbProvider>> getOleDbProviders() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetOleDbProviders', __params);
     var __jsonData = rawResult['result']['qOleDbProviders'];
-    var __dartData = fromJsonFullType<OleDbProvider>(
-        const FullType(OleDbProvider), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<OleDbProvider>>(
+        const FullType(BuiltList, const [const FullType(OleDbProvider)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Lists the databases in a ODBC, OLEDB or CUSTOM data source.
-  Future<Database> getDatabasesFromConnectionString(
+  Future<BuiltList<Database>> getDatabasesFromConnectionString(
       Connection connection) async {
     var __params = <String, dynamic>{};
     __params['qConnection'] =
         toJson(connection, specifiedType: const FullType(Connection));
     var rawResult = await query('GetDatabasesFromConnectionString', __params);
     var __jsonData = rawResult['result']['qDatabases'];
-    var __dartData =
-        fromJsonFullType<Database>(const FullType(Database), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<Database>>(
+        const FullType(BuiltList, const [const FullType(Database)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -536,56 +540,62 @@ class Global extends BaseService {
 
   /// Lists the logical drives in the system.
   /// <div class=note>This method applies only if running Qlik Sense Desktop.</div>
-  Future<DriveInfo> getLogicalDriveStrings() async {
+  Future<BuiltList<DriveInfo>> getLogicalDriveStrings() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLogicalDriveStrings', __params);
     var __jsonData = rawResult['result']['qDrives'];
-    var __dartData =
-        fromJsonFullType<DriveInfo>(const FullType(DriveInfo), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<DriveInfo>>(
+        const FullType(BuiltList, const [const FullType(DriveInfo)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Returns the files and folders located at a specified path.
-  Future<FolderItem> getFolderItemsForPath(String path) async {
+  Future<BuiltList<FolderItem>> getFolderItemsForPath(String path) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
     var rawResult = await query('GetFolderItemsForPath', __params);
     var __jsonData = rawResult['result']['qFolderItems'];
-    var __dartData =
-        fromJsonFullType<FolderItem>(const FullType(FolderItem), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<FolderItem>>(
+        const FullType(BuiltList, const [const FullType(FolderItem)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Lists the supported code pages.
-  Future<CodePage> getSupportedCodePages() async {
+  Future<BuiltList<CodePage>> getSupportedCodePages() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetSupportedCodePages', __params);
     var __jsonData = rawResult['result']['qCodePages'];
-    var __dartData =
-        fromJsonFullType<CodePage>(const FullType(CodePage), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<CodePage>>(
+        const FullType(BuiltList, const [const FullType(CodePage)]),
+        __jsonData);
     return __dartData;
   }
 
   /// List the custom connectors available in the system.
-  Future<CustomConnector> getCustomConnectors({bool reloadList}) async {
+  Future<BuiltList<CustomConnector>> getCustomConnectors(
+      {bool reloadList}) async {
     var __params = <String, dynamic>{};
     if (reloadList != null) {
       __params['qReloadList'] = reloadList;
     }
     var rawResult = await query('GetCustomConnectors', __params);
     var __jsonData = rawResult['result']['qConnectors'];
-    var __dartData = fromJsonFullType<CustomConnector>(
-        const FullType(CustomConnector), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<CustomConnector>>(
+        const FullType(BuiltList, const [const FullType(CustomConnector)]),
+        __jsonData);
     return __dartData;
   }
 
   /// Lists the streams.
-  Future<NxStreamListEntry> getStreamList() async {
+  Future<BuiltList<NxStreamListEntry>> getStreamList() async {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetStreamList', __params);
     var __jsonData = rawResult['result']['qStreamList'];
-    var __dartData = fromJsonFullType<NxStreamListEntry>(
-        const FullType(NxStreamListEntry), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<NxStreamListEntry>>(
+        const FullType(BuiltList, const [const FullType(NxStreamListEntry)]),
+        __jsonData);
     return __dartData;
   }
 

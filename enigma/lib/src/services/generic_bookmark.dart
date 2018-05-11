@@ -38,7 +38,7 @@ class GenericBookmark extends BaseService {
   /// <td>Double</td>
   /// </tr>
   /// </table>
-  Future<FieldValue> getFieldValues(
+  Future<BuiltList<FieldValue>> getFieldValues(
       String field, bool getExcludedValues, BookmarkFieldPage dataPage) async {
     var __params = <String, dynamic>{};
     __params['qField'] = field;
@@ -47,8 +47,9 @@ class GenericBookmark extends BaseService {
         toJson(dataPage, specifiedType: const FullType(BookmarkFieldPage));
     var rawResult = await query('GetFieldValues', __params);
     var __jsonData = rawResult['result']['qFieldValues'];
-    var __dartData =
-        fromJsonFullType<FieldValue>(const FullType(FieldValue), __jsonData);
+    var __dartData = fromJsonFullType<BuiltList<FieldValue>>(
+        const FullType(BuiltList, const [const FullType(FieldValue)]),
+        __jsonData);
     return __dartData;
   }
 
@@ -65,10 +66,11 @@ class GenericBookmark extends BaseService {
 
   /// Applies a patch to the properties of an object. Allows an update to some of the properties.
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
-  Future<void> applyPatches(NxPatch patches) async {
+  Future<void> applyPatches(List<NxPatch> patches) async {
     var __params = <String, dynamic>{};
-    __params['qPatches'] =
-        toJson(patches, specifiedType: const FullType(NxPatch));
+    __params['qPatches'] = toJson(patches,
+        specifiedType:
+            const FullType(BuiltList, const [const FullType(NxPatch)]));
     var rawResult = await query('ApplyPatches', __params);
   }
 

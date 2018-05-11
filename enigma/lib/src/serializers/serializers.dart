@@ -225,6 +225,7 @@ part 'serializers.g.dart';
   CodePage,
   CustomConnector,
   NxStreamListEntry,
-  NxEngineVersion
+  NxEngineVersion,
+  ListTypeContainer
 ])
 final Serializers serializers = _$serializers;
