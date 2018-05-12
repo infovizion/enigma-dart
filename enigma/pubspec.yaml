@@ -17,3 +17,4 @@ dev_dependencies:
   recase: ^1.0.0
   build_runner: ^0.8.5
   built_value_generator: ^5.4.3
+  grinder: ^0.8.2

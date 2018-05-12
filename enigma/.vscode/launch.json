@@ -6,7 +6,7 @@
     "configurations": [
         {
             "name": "Dart",
-            "program": "${workspaceFolder}/bin/main.dart",
+            "program": "${file}",
             "request": "launch",
             "type": "dart"
         }
