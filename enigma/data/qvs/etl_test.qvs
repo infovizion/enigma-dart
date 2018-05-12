@@ -1,0 +1,9 @@
+TestData:
+LOAD Dim1, 
+     Dim2, 
+     Measure1
+FROM
+['lib://data/qvd/test.csv']
+(txt, codepage is 1251, embedded labels, delimiter is ',', msq);
+STORE TestData INTO 
+  ['lib://data/qvd/test2.qvd'] (qvd);

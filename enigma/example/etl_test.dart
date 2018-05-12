@@ -4,7 +4,7 @@ import 'package:logging/logging.dart';
 import 'package:grinder/grinder.dart';
 
 main() async {
-  Logger.root.level = Level.ALL;
+  Logger.root.level = Level.INFO;
   Logger.root.onRecord.listen((LogRecord rec) {
     print('${rec.level.name}: ${rec.time}: ${rec.message}');
   });
@@ -21,33 +21,22 @@ main() async {
   }
   var result = await global.createApp('test_app');
   print('App created, successState: ${result.success}, appId: ${result.appId}');
-  testDoc = docList.firstWhere((d) => d.docName == 'test_app.qvf',
-      orElse: () => null);
-
   const loadScript = '''
-TestData:
-LOAD Dim1, 
-     Dim2, 
-     Measure1
-FROM
-['lib://data/test.csv']
-(txt, codepage is 1251, embedded labels, delimiter is ',', msq);
-STORE TestData INTO 
-['lib://data/test1.csv'] (TXT);
+    \$(must_include='lib://data/qvs/etl_test.qvs');
      ''';
 
-  var doc = await global.openDoc(testDoc.docId);
-  var res = doc.createConnection(new Connection((b) => b
+  var doc = await global.openDoc(result.appId);
+  var res = await doc.createConnection(new Connection((b) => b
     ..type = 'folder'
     ..connectionString = '/data'
     ..name = 'data'));
-  print(res);
+  print('Created connection: $res');
   await doc.setScript(loadScript);
   var reloadRes = await doc.doReloadEx();
   print(reloadRes);
   run('docker', arguments: [
     'cp',
-    'enigma_engine_1:' + reloadRes.scriptLogFile,
+    'enigma_engine_1:${reloadRes.scriptLogFile}',
     'example/create_app.log'
   ]);
   await enigma.close();
