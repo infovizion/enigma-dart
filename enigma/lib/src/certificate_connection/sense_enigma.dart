@@ -8,11 +8,11 @@ class SenseEnigma extends Enigma {
   final String userDir;
   final String userId;
   final int port;
-
-  SenseEnigma(this.host, this.port, this.userDir, this.userId) : super(null);
+  final String certificateDir;
+  SenseEnigma(this.host, this.port, this.userDir, this.userId, {this.certificateDir = '.certificates'}) : super(null);
 
   Future initSession() async {
-    var sessionProvider = new SenseSessionProvider();
+    var sessionProvider = new SenseSessionProvider(certificateDir: certificateDir);
     String cookie =
         await sessionProvider.getSessionCookie(host, port, userDir, userId);
     var headers = {
