@@ -3,6 +3,8 @@
 .pub/
 .idea
 .dart_tool
+.certificates
+.sessions
 build/
 # Remove the following pattern if you wish to check in your lock file
 pubspec.lock

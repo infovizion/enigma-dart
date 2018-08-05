@@ -7,7 +7,7 @@ class Enigma {
   final Logger logger = new Logger('Engine');
   int _nextRequestId = 0;
   int get nextRequestId => _nextRequestId;
-  final WebSocketChannel channel;
+  WebSocketChannel channel;
   bool closed = false;
   Map<String, String> headers;
   final Map<int, Completer> replyCompleters = new Map<int, Completer>();
@@ -17,9 +17,9 @@ class Enigma {
     logger.severe('ERRORL $error');
   }
 
-  onMessage(String message) {
+  onMessage( message) {
     logger.fine('<<<<< $message');
-    Map reply = json.decode(message);
+    Map reply = json.decode(message.toString());
     if (reply['method'] == 'OnLicenseAccessDenied') {
       throw new Exception('OnLicenseAccessDenied ${reply["params"]}');
     }
@@ -50,7 +50,7 @@ class Enigma {
   }
 
   Future<Map> rawQuery(Map queryMessage) {
-    Completer completer = new Completer();
+    var completer = new Completer<Map>();
     if (!closed) {
       assert(queryMessage['id'] != null);
       replyCompleters[queryMessage['id']] = completer;
