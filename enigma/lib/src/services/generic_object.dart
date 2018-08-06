@@ -6,7 +6,7 @@ import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'generic_object.dart';
-
+import 'dart:convert';
 /// This class describes all the methods that apply at generic object level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the generic object.
 class GenericObject extends BaseService {
@@ -32,9 +32,16 @@ class GenericObject extends BaseService {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLayout', __params);
     var __jsonData = rawResult['result']['qLayout'];
+    __jsonData['qPivotDataPages'] = [];
     var __dartData = fromJsonFullType<GenericObjectLayout>(
         const FullType(GenericObjectLayout), __jsonData);
     return __dartData;
+  }
+  Future<Map> getLayoutRaw() async {
+    var __params = <String, dynamic>{};
+    var rawResult = await query('GetLayout', __params);
+    var __jsonData = rawResult['result']['qLayout'];
+    return __jsonData;
   }
 
   /// Retrieves the values of a list object.

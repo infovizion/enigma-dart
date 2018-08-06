@@ -1,0 +1,36 @@
+{
+ "qHyperCube": {
+  "qPivotDataPages": [
+   {
+    "qData": [
+     [
+      {
+       "qText": "1.23",
+       "qNum": 1.23,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      }
+     ]
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,1467 @@
+{
+ "qHyperCube": {
+  "qSize": {
+   "qcx": 5,
+   "qcy": 18
+  },
+  "qDimensionInfo": [
+   {
+    "qFallbackTitle": "Менеджер",
+    "qApprMaxGlyphCount": 23,
+    "qCardinal": 17,
+    "qSortIndicator": "D",
+    "qGroupFallbackTitles": [
+     "Менеджер",
+     "Группа",
+     "Подгруппа",
+     "Номенклатура"
+    ],
+    "qGroupPos": 0,
+    "qStateCounts": {
+     "qLocked": 0,
+     "qSelected": 0,
+     "qOption": 17,
+     "qDeselected": 0,
+     "qAlternative": 0,
+     "qExcluded": 0,
+     "qSelectedExcluded": 0,
+     "qLockedExcluded": 0
+    },
+    "qTags": [
+     "$text"
+    ],
+    "qDimensionType": "D",
+    "qGrouping": "H",
+    "qNumFormat": {
+     "qType": "U",
+     "qnDec": 0,
+     "qUseThou": 0
+    },
+    "qIsAutoFormat": true,
+    "qGroupFieldDefs": [
+     "КатегорийныйМенеджер",
+     "Группа",
+     "Подгруппа",
+     "НоменклатураНаименование"
+    ],
+    "qMin": "NaN",
+    "qMax": "NaN",
+    "qAttrExprInfo": [],
+    "qAttrDimInfo": []
+   },
+   {
+    "qFallbackTitle": "Дивизион",
+    "qApprMaxGlyphCount": 10,
+    "qCardinal": 5,
+    "qSortIndicator": "D",
+    "qGroupFallbackTitles": [
+     "Дивизион"
+    ],
+    "qGroupPos": 0,
+    "qStateCounts": {
+     "qLocked": 0,
+     "qSelected": 0,
+     "qOption": 5,
+     "qDeselected": 0,
+     "qAlternative": 0,
+     "qExcluded": 0,
+     "qSelectedExcluded": 0,
+     "qLockedExcluded": 0
+    },
+    "qTags": [
+     "$text"
+    ],
+    "qDimensionType": "D",
+    "qGrouping": "N",
+    "qNumFormat": {
+     "qType": "U",
+     "qnDec": 0,
+     "qUseThou": 0
+    },
+    "qIsAutoFormat": true,
+    "qGroupFieldDefs": [
+     "Дивизион"
+    ],
+    "qMin": "NaN",
+    "qMax": "NaN",
+    "qAttrExprInfo": [],
+    "qAttrDimInfo": []
+   }
+  ],
+  "qMeasureInfo": [
+   {
+    "qFallbackTitle": "Продажи тыс.руб.",
+    "qApprMaxGlyphCount": 9,
+    "qCardinal": 0,
+    "qSortIndicator": "D",
+    "qNumFormat": {
+     "qType": "M",
+     "qnDec": 0,
+     "qUseThou": 1,
+     "qFmt": "# ##0,00",
+     "qDec": ",",
+     "qThou": " "
+    },
+    "qMin": 0,
+    "qMax": 31008.02600000001,
+    "qAttrExprInfo": [
+     {
+      "qMin": 4283495012,
+      "qMax": 4294638200,
+      "qFallbackTitle": "if((-Sum({<ТипДокумента={'Sales'},_ФлагДействующаяДата={1},ТипПериода={'Current'}>} Сумма)/1000 + Sum({<ТипПериода={'Current'}>} Компания))=0, RGB(250,250,120), if((-Sum({<ТипДокумента={'Sales'},_ФлагДействующаяДата={1},ТипПериода={'Current'}>} Сумма)/1000 + Sum({<ТипПериода={'Current'}>} Компания))<=0, RGB(250,250,120), if(RangeMax(min(TOTAL<КатегорийныйМенеджер> aggr((-Sum({<ТипДокумента={'Sales'},_ФлагДействующаяДата={1},ТипПериода={'Current'}>} Сумма)/1000 + Sum({<ТипПериода={'Current'}>} Компания)),КатегорийныйМенеджер,Дивизион)),0)=max(TOTAL<КатегорийныйМенеджер> aggr((-Sum({<ТипДокумента={'Sales'},_ФлагДействующаяДата={1},ТипПериода={'Current'}>} Сумма)/1000 + Sum({<ТипПериода={'Current'}>} Компания)),КатегорийныйМенеджер,Дивизион)), RGB(80,242,100), ColorMix1( Round(((-Sum({<ТипДокумента={'Sales'},_ФлагДействующаяДата={1},ТипПериода={'Current'}>} Сумма)/1000 + Sum({<ТипПериода={'Current'}>} Компания))-RangeMax(min(TOTAL<КатегорийныйМенеджер> aggr((-Sum({<ТипДокумента={'Sales'},_ФлагДействующаяДата={1},ТипПериода={'Current'}>} Сумма)/1000 + Sum({<ТипПериода={'Current'}>} Компания)),КатегорийныйМенеджер,Дивизион)),0))/(max(TOTAL<КатегорийныйМенеджер> aggr((-Sum({<ТипДокумента={'Sales'},_ФлагДействующаяДата={1},ТипПериода={'Current'}>} Сумма)/1000 + Sum({<ТипПериода={'Current'}>} Компания)),КатегорийныйМенеджер,Дивизион))-RangeMax(min(TOTAL<КатегорийныйМенеджер> aggr((-Sum({<ТипДокумента={'Sales'},_ФлагДействующаяДата={1},ТипПериода={'Current'}>} Сумма)/1000 + Sum({<ТипПериода={'Current'}>} Компания)),КатегорийныйМенеджер,Дивизион)),0)),0.01), RGB(225,253,228) ,RGB(80,242,100) ) )))"
+     }
+    ],
+    "qAttrDimInfo": []
+   }
+  ],
+  "qEffectiveInterColumnSortOrder": [
+   0,
+   1
+  ],
+  "qGrandTotalRow": [],
+  "qDataPages": [],
+  "qPivotDataPages": [
+   {
+    "qLeft": [
+     {
+      "qText": "Менеджер 3",
+      "qElemNo": 2,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 6",
+      "qElemNo": 5,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 12",
+      "qElemNo": 11,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 14",
+      "qElemNo": 13,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 8",
+      "qElemNo": 7,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 13",
+      "qElemNo": 12,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 10",
+      "qElemNo": 9,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 7",
+      "qElemNo": 6,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 4",
+      "qElemNo": 3,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 9",
+      "qElemNo": 8,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 11",
+      "qElemNo": 10,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 2",
+      "qElemNo": 1,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 15",
+      "qElemNo": 14,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Нет данных в разрезе КМ",
+      "qElemNo": 16,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 16",
+      "qElemNo": 15,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 5",
+      "qElemNo": 4,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Менеджер 1",
+      "qElemNo": 0,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "-",
+      "qElemNo": -2,
+      "qValue": "NaN",
+      "qType": "U",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     }
+    ],
+    "qTop": [
+     {
+      "qText": "Дивизион 1",
+      "qElemNo": 0,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Дивизион 3",
+      "qElemNo": 2,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Дивизион 2",
+      "qElemNo": 1,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Дивизион 5",
+      "qElemNo": 4,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     },
+     {
+      "qText": "Дивизион 4",
+      "qElemNo": 3,
+      "qValue": "NaN",
+      "qType": "N",
+      "qUp": 0,
+      "qDown": 0,
+      "qSubNodes": []
+     }
+    ],
+    "qData": [
+     [
+      {
+       "qText": "31 008,03",
+       "qNum": 31008.02600000001,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "13 537,46",
+       "qNum": 13537.461500000016,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290050748
+         }
+        ]
+       }
+      },
+      {
+       "qText": "10 033,17",
+       "qNum": 10033.16650000001,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291296205
+         }
+        ]
+       }
+      },
+      {
+       "qText": "10 779,93",
+       "qNum": 10779.93140000001,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291099594
+         }
+        ]
+       }
+      },
+      {
+       "qText": "5 576,43",
+       "qNum": 5576.4329,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "25 572,27",
+       "qNum": 25572.265999999992,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "10 703,00",
+       "qNum": 10703.00440000002,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290509507
+         }
+        ]
+       }
+      },
+      {
+       "qText": "9 697,31",
+       "qNum": 9697.305400000023,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291034057
+         }
+        ]
+       }
+      },
+      {
+       "qText": "8 788,74",
+       "qNum": 8788.742800000009,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291361742
+         }
+        ]
+       }
+      },
+      {
+       "qText": "5 428,62",
+       "qNum": 5428.620700000009,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "22 636,00",
+       "qNum": 22636.002500000017,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "9 438,89",
+       "qNum": 9438.893900000003,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290312896
+         }
+        ]
+       }
+      },
+      {
+       "qText": "7 929,79",
+       "qNum": 7929.7886000000035,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291099594
+         }
+        ]
+       }
+      },
+      {
+       "qText": "6 474,09",
+       "qNum": 6474.0877,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291886293
+         }
+        ]
+       }
+      },
+      {
+       "qText": "4 209,69",
+       "qNum": 4209.6926,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "20 676,98",
+       "qNum": 20676.979300000043,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "10 022,16",
+       "qNum": 10022.160300000003,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4289788344
+         }
+        ]
+       }
+      },
+      {
+       "qText": "7 152,09",
+       "qNum": 7152.0898,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291492816
+         }
+        ]
+       }
+      },
+      {
+       "qText": "6 899,07",
+       "qNum": 6899.068199999997,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291558353
+         }
+        ]
+       }
+      },
+      {
+       "qText": "4 539,07",
+       "qNum": 4539.072699999999,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "22 563,58",
+       "qNum": 22563.57980000001,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "8 262,77",
+       "qNum": 8262.772700000001,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290509507
+         }
+        ]
+       }
+      },
+      {
+       "qText": "7 966,84",
+       "qNum": 7966.844200000002,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290706117
+         }
+        ]
+       }
+      },
+      {
+       "qText": "6 536,90",
+       "qNum": 6536.895200000004,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291361742
+         }
+        ]
+       }
+      },
+      {
+       "qText": "3 335,07",
+       "qNum": 3335.0703999999987,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "21 019,88",
+       "qNum": 21019.87630000015,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "8 080,05",
+       "qNum": 8080.047100000001,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290640580
+         }
+        ]
+       }
+      },
+      {
+       "qText": "7 067,69",
+       "qNum": 7067.687299999992,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291165132
+         }
+        ]
+       }
+      },
+      {
+       "qText": "7 181,64",
+       "qNum": 7181.6397000000015,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291099594
+         }
+        ]
+       }
+      },
+      {
+       "qText": "3 825,20",
+       "qNum": 3825.204299999995,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "16 566,05",
+       "qNum": 16566.04980000007,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "7 434,54",
+       "qNum": 7434.536100000005,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290181822
+         }
+        ]
+       }
+      },
+      {
+       "qText": "6 274,93",
+       "qNum": 6274.934599999996,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290902984
+         }
+        ]
+       }
+      },
+      {
+       "qText": "5 931,67",
+       "qNum": 5931.6684,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291165132
+         }
+        ]
+       }
+      },
+      {
+       "qText": "3 436,21",
+       "qNum": 3436.2094999999954,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "16 628,76",
+       "qNum": 16628.75940000006,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "7 375,40",
+       "qNum": 7375.402699999996,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290181822
+         }
+        ]
+       }
+      },
+      {
+       "qText": "5 420,55",
+       "qNum": 5420.548799999992,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291558353
+         }
+        ]
+       }
+      },
+      {
+       "qText": "5 721,94",
+       "qNum": 5721.943899999992,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291361742
+         }
+        ]
+       }
+      },
+      {
+       "qText": "3 432,25",
+       "qNum": 3432.245999999995,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "15 322,96",
+       "qNum": 15322.957800000057,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "6 254,01",
+       "qNum": 6254.00919999999,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290312896
+         }
+        ]
+       }
+      },
+      {
+       "qText": "5 535,23",
+       "qNum": 5535.228699999991,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290902984
+         }
+        ]
+       }
+      },
+      {
+       "qText": "5 324,64",
+       "qNum": 5324.636599999989,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291034057
+         }
+        ]
+       }
+      },
+      {
+       "qText": "2 741,92",
+       "qNum": 2741.9199999999973,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "10 110,77",
+       "qNum": 10110.767600000016,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "4 617,80",
+       "qNum": 4617.796899999992,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4289788344
+         }
+        ]
+       }
+      },
+      {
+       "qText": "4 162,62",
+       "qNum": 4162.616399999994,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290247359
+         }
+        ]
+       }
+      },
+      {
+       "qText": "3 391,87",
+       "qNum": 3391.867999999996,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291165132
+         }
+        ]
+       }
+      },
+      {
+       "qText": "1 785,88",
+       "qNum": 1785.8847000000005,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "7 912,66",
+       "qNum": 7912.66419999999,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "3 539,71",
+       "qNum": 3539.705599999994,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4289984955
+         }
+        ]
+       }
+      },
+      {
+       "qText": "2 982,98",
+       "qNum": 2982.9800999999975,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290837191
+         }
+        ]
+       }
+      },
+      {
+       "qText": "2 952,47",
+       "qNum": 2952.469299999995,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4290902984
+         }
+        ]
+       }
+      },
+      {
+       "qText": "1 518,17",
+       "qNum": 1518.1667999999997,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "8 053,20",
+       "qNum": 8053.202999999999,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "3 755,65",
+       "qNum": 3755.6544999999987,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4289788344
+         }
+        ]
+       }
+      },
+      {
+       "qText": "2 703,35",
+       "qNum": 2703.3476999999957,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291296205
+         }
+        ]
+       }
+      },
+      {
+       "qText": "2 646,82",
+       "qNum": 2646.8208999999947,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291361742
+         }
+        ]
+       }
+      },
+      {
+       "qText": "1 542,01",
+       "qNum": 1542.0142999999973,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "105,24",
+       "qNum": 105.24020000000002,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "56,58",
+       "qNum": 56.580000000000005,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4289132720
+         }
+        ]
+       }
+      },
+      {
+       "qText": "40,26",
+       "qNum": 40.2638,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291034057
+         }
+        ]
+       }
+      },
+      {
+       "qText": "53,20",
+       "qNum": 53.195100000000004,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4289460661
+         }
+        ]
+       }
+      },
+      {
+       "qText": "23,09",
+       "qNum": 23.092599999999997,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "60,21",
+       "qNum": 60.211200000000005,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4283495012
+         }
+        ]
+       }
+      },
+      {
+       "qText": "24,82",
+       "qNum": 24.8236,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4289788344
+         }
+        ]
+       }
+      },
+      {
+       "qText": "28,99",
+       "qNum": 28.993500000000004,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4289001646
+         }
+        ]
+       }
+      },
+      {
+       "qText": "15,02",
+       "qNum": 15.015600000000001,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4291492816
+         }
+        ]
+       }
+      },
+      {
+       "qText": "6,40",
+       "qNum": 6.4039,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4293000676
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      }
+     ],
+     [
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      },
+      {
+       "qText": "0,00",
+       "qNum": 0,
+       "qType": "V",
+       "qAttrExps": {
+        "qValues": [
+         {
+          "qNum": 4294638200
+         }
+        ]
+       }
+      }
+     ]
+    ],
+    "qArea": {
+     "qLeft": 0,
+     "qTop": 0,
+     "qWidth": 5,
+     "qHeight": 18
+    }
+   }
+  ],
+  "qStackedDataPages": [],
+  "qMode": "P",
+  "qNoOfLeftDims": 1
+ },
+ "qPivotDataPages": []
+}
