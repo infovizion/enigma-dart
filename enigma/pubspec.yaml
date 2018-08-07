@@ -1,7 +1,7 @@
 name: enigma 
 description: Cross platform client for Qlik Associative Engine
 homepage: https://github.com/infovizion/enigma-dart
-version: 0.0.5
+version: 0.0.6
 author: Vadim Tsushko <vadimtsushko@gmail.com>
 
 environment:

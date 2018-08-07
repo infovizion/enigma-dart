@@ -30,6 +30,7 @@ main() {
     print(stacktrace);
   }
   print('List of lists of cells inside most immediate object fail to deserialize:');
+  print('Update, resolved with additional serializer manually added');
   try {
 
     var jsonPage = jsonMap['qHyperCube']['qPivotDataPages'][0];

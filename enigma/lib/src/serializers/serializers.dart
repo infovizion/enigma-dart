@@ -228,4 +228,9 @@ part 'serializers.g.dart';
   NxEngineVersion,
   ListTypeContainer
 ])
-final Serializers serializers = _$serializers;
+final Serializers _serializers = _$serializers;
+final serializers = (_serializers.toBuilder()
+      ..addBuilderFactory(
+          new FullType(BuiltList, [new FullType(NxPivotValuePoint)]),
+          () => new ListBuilder<NxPivotValuePoint>()))
+    .build();
