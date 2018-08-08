@@ -5,7 +5,7 @@ version: 0.0.6
 author: Vadim Tsushko <vadimtsushko@gmail.com>
 
 environment:
-  sdk: '>=2.0.0-dev.51.0 <2.0.0'
+  sdk: '>=2.0.0-dev.51.0 <3.0.0'
 dependencies:
   path: ^1.5.1
   built_collection: '>=3.1.3'
