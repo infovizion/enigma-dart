@@ -12,6 +12,7 @@ dependencies:
   built_value: ^6.0.0
   logging: ^0.11.3
   web_socket_channel: ^1.0.7
+  stream_channel: ^1.6.8
   tuple: ^1.0.2
 dev_dependencies:
   test: ^1.0.0

@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:web_socket_channel/web_socket_channel.dart';
+import 'package:stream_channel/stream_channel.dart';
 import 'dart:convert';
 import 'package:logging/logging.dart';
 import '../services/global.dart';
@@ -7,7 +7,7 @@ class Enigma {
   final Logger logger = new Logger('Engine');
   int _nextRequestId = 0;
   int get nextRequestId => _nextRequestId;
-  WebSocketChannel channel;
+  StreamChannel channel;
   bool closed = false;
   Map<String, String> headers;
   final Map<int, Completer> replyCompleters = new Map<int, Completer>();
