@@ -3,21 +3,31 @@ import 'package:stream_channel/stream_channel.dart';
 import 'dart:convert';
 import 'package:logging/logging.dart';
 import '../services/global.dart';
+
 class Enigma {
   final Logger logger = new Logger('Engine');
+
   int _nextRequestId = 0;
+
   int get nextRequestId => _nextRequestId;
+
+  void setNextRequestId(int value) {
+    _nextRequestId = value;
+  }
+
   StreamChannel channel;
   bool closed = false;
   Map<String, String> headers;
+  List<bool Function(int, Map)> interceptors = <bool Function(int, Map)>[];
   final Map<int, Completer> replyCompleters = new Map<int, Completer>();
+
   Enigma(this.channel);
 
   onError(error) {
     logger.severe('ERRORL $error');
   }
 
-  onMessage( message) {
+  onMessage(message) {
     logger.fine('<<<<< $message');
     Map reply = json.decode(message.toString());
     if (reply['method'] == 'OnLicenseAccessDenied') {
@@ -30,19 +40,27 @@ class Enigma {
     if (id == null) {
       return;
     }
+    for (var interceptor in interceptors) {
+      if (!interceptor(id, reply)) {
+        return;
+      }
+    }
     var completer = replyCompleters.remove(reply['id']);
     assert(completer != null);
     completer.complete(reply);
   }
 
-  Future<Map> query(int handle, String method, args) async {
+  void updateRequestId() {
     _nextRequestId++;
+  }
 
+  Future<Map> query(int handle, String method, args) async {
+    updateRequestId();
     var request = {
       'method': method,
       'handle': handle,
       'params': args,
-      'id': _nextRequestId,
+      'id': nextRequestId,
       'jsonrpc': '2.0'
     };
     logger.fine('$method >>>>>>>> ${json.encode(request)}');

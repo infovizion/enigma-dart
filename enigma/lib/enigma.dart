@@ -1,6 +1,15 @@
+export 'src/enigma/enigma.dart';
+export 'src/enigma/middleware_enigma.dart';
 export 'src/models.dart';
 export 'src/serializers/json_serializer.dart';
 export 'src/serializers/serializers.dart';
-export 'src/enigma/enigma.dart';
 export 'src/serializers/json_serializer.dart';
 export 'src/serializers/serializers.dart';
+export 'src/services/global.dart';
+export 'src/services/doc.dart';
+export 'src/services/generic_bookmark.dart';
+export 'src/services/generic_measure.dart';
+export 'src/services/generic_object.dart';
+export 'src/services/generic_variable.dart';
+export 'src/services/generic_dimension.dart';
+export 'src/services/field.dart';

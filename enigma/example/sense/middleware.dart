@@ -7,9 +7,12 @@ const APP_ID = '3261f1ef-3b98-460a-bd4a-3bae0e46cef0';
 main() async {
   var enigma = new SenseEnigma(host, port, userDir, userId);
   await enigma.initSession();
+  var middleware = new MiddlewareEnigma.on(enigma);
+  var middlewareGlobal = middleware.open();
   var global = enigma.open();
-
   var doc = await global.openDoc(APP_ID);
+  var middlewareDoc = await middlewareGlobal.openDoc(APP_ID);
+  print(middlewareDoc);
   var properties = new GenericObjectProperties((b) => b
     ..info.type = 'my-straight-hypercube'
     ..hyperCubeDef
@@ -21,9 +24,11 @@ main() async {
       ..width = 2)));
 
   var cube = await doc.createSessionObject(properties);
+  var cubeM = await middlewareDoc.createSessionObject(properties);
   var layout = await cube.getLayout();
-  print('Hypercube data pages: ${layout.hyperCube.dataPages}');
+  var layoutM = await cubeM.getLayout();
 
+  print('Hypercube data pages: ${layout.hyperCube.dataPages}');
+  print('Middleware Hypercube data pages: ${layoutM.hyperCube.dataPages}');
   await enigma.close();
 }
-
