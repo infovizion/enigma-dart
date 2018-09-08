@@ -35,12 +35,17 @@ class MiddlewareEnigma extends Enigma {
     return false;
   }
 
-  bool plainInterceptor(message) {
-    if (!replyCompleters.isEmpty) {
+  bool senseChannelInterceptor(String message) {
+    if (replyCompleters.isEmpty) {
       return true;
     }
     logger.fine('<<<<< $message');
-    Map reply = json.decode(message.toString());
+    print('Interceptor replies $replyCompleters');
+    if (!message.startsWith('{"jsonrpc":"2.0","id":-')) {
+      print('Message does not match: ${message.substring(0,50)}');
+      return true;
+    }
+    Map reply = json.decode(message);
     if (reply['method'] == 'OnLicenseAccessDenied') {
       throw new Exception('OnLicenseAccessDenied ${reply["params"]}');
     }
