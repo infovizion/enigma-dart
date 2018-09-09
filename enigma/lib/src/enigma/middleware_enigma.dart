@@ -25,7 +25,6 @@ class MiddlewareEnigma extends Enigma {
     if (replyCompleters.isEmpty) {
       return true;
     }
-    print('enigmaIntercepror requestId $nextRequestId $reply');
     if (id >= 0) {
       return true;
     }
@@ -40,9 +39,7 @@ class MiddlewareEnigma extends Enigma {
       return true;
     }
     logger.fine('<<<<< $message');
-    print('Interceptor replies $replyCompleters');
     if (!message.startsWith('{"jsonrpc":"2.0","id":-')) {
-      print('Message does not match: ${message.substring(0,50)}');
       return true;
     }
     Map reply = json.decode(message);
