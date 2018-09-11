@@ -345,7 +345,7 @@ class Doc extends BaseService {
   /// Set some breakpoints in the script of an app.
   Future<void> setScriptBreakpoints(List<EditorBreakpoint> breakpoints) async {
     var __params = <String, dynamic>{};
-    __params['qBreakpoints'] = toJson(breakpoints,
+    __params['qBreakpoints'] = toJson(BuiltList<EditorBreakpoint>(breakpoints),
         specifiedType: const FullType(
             BuiltList, const [const FullType(EditorBreakpoint)]));
     var rawResult = await query('SetScriptBreakpoints', __params);

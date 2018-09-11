@@ -10,6 +10,7 @@ class _SchemaWithTypeData {
   SchemaType schemaType;
   TypeData typeData;
   String dartName;
+
   _SchemaWithTypeData(this.schemaType, this.typeData, this.dartName);
 }
 
@@ -31,6 +32,7 @@ class ApiGenerator {
   Map<String, SchemaType> additionalListTypes = new Map<String, SchemaType>();
 
   var typeMap = <String, TypeData>{};
+
   _addType(String key, TypeData typeData) {
     String index = typeData.jsonType;
     if (index == 'array' || index == 'object') {
@@ -83,6 +85,7 @@ class ApiGenerator {
     'Doc.CheckExpression': 'CheckExpressionResult',
   };
   var exportList = new Set<String>();
+
   initBasicTypes() {
     _addType('string', new TypeData(jsonType: 'string', dartType: 'String'));
     _addType('boolean', new TypeData(jsonType: 'boolean', dartType: 'bool'));
@@ -117,7 +120,7 @@ class ApiGenerator {
     var listTypeContainer = new SchemaType((b) => b
       ..description =
           'DO NOT USE, this is fake object to create some BuiltList serializers'
-          ..jsonType = 'object'
+      ..jsonType = 'object'
       ..properties.addAll(additionalListTypes));
     generateStruct('ListTypeContainer', listTypeContainer);
     generateModelExport();
@@ -261,6 +264,7 @@ class ApiGenerator {
   }
 
   var _qPattern = new RegExp('^q');
+
   String toDartVarName(String value) {
     if (value == null) {
       int debug = 1;
@@ -381,6 +385,7 @@ class ApiGenerator {
   }
 
   _isRequired(SchemaType param) => param.required != null && param.required;
+
   generateMethod(String serviceName, String methodName, Method method,
       StringBuffer buffer, Set<String> additionalImports) {
     addComment(method.description, buffer, '  ');
@@ -458,8 +463,11 @@ class ApiGenerator {
       if (p.typeData.isPrimitive) {
         buffer.writeln("__params['${p.schemaType.name}'] = ${p.dartName};");
       } else {
+        var toJsonParam = p.typeData.dartType.startsWith('BuiltList<')
+            ? '${p.typeData.dartType}(${p.dartName})'
+            : p.dartName;
         buffer.writeln(
-            "__params['${p.schemaType.name}'] = toJson(${p.dartName},specifiedType: ${p.typeData.specifiedType});");
+            "__params['${p.schemaType.name}'] = toJson($toJsonParam,specifiedType: ${p.typeData.specifiedType});");
       }
       if (!_isRequired(p.schemaType)) {
         buffer.writeln('}');

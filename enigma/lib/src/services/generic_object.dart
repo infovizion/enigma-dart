@@ -6,7 +6,7 @@ import '../serializers/json_serializer.dart';
 import 'package:built_value/serializer.dart';
 import 'package:built_collection/built_collection.dart';
 import 'generic_object.dart';
-import 'dart:convert';
+
 /// This class describes all the methods that apply at generic object level.
 /// The _handle_ member in the JSON request for all methods listed in this section is the handle of the generic object.
 class GenericObject extends BaseService {
@@ -32,16 +32,9 @@ class GenericObject extends BaseService {
     var __params = <String, dynamic>{};
     var rawResult = await query('GetLayout', __params);
     var __jsonData = rawResult['result']['qLayout'];
-    __jsonData['qPivotDataPages'] = [];
     var __dartData = fromJsonFullType<GenericObjectLayout>(
         const FullType(GenericObjectLayout), __jsonData);
     return __dartData;
-  }
-  Future<Map> getLayoutRaw() async {
-    var __params = <String, dynamic>{};
-    var rawResult = await query('GetLayout', __params);
-    var __jsonData = rawResult['result']['qLayout'];
-    return __jsonData;
   }
 
   /// Retrieves the values of a list object.
@@ -50,7 +43,7 @@ class GenericObject extends BaseService {
       String path, List<NxPage> pages) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages,
+    __params['qPages'] = toJson(BuiltList<NxPage>(pages),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxPage)]));
     var rawResult = await query('GetListObjectData', __params);
@@ -68,7 +61,7 @@ class GenericObject extends BaseService {
       String path, List<NxPage> pages) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages,
+    __params['qPages'] = toJson(BuiltList<NxPage>(pages),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxPage)]));
     var rawResult = await query('GetHyperCubeData', __params);
@@ -109,7 +102,7 @@ class GenericObject extends BaseService {
       List<NxPage> pages, int zoomFactor, String reductionMode) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages,
+    __params['qPages'] = toJson(BuiltList<NxPage>(pages),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxPage)]));
     __params['qZoomFactor'] = zoomFactor;
@@ -128,7 +121,7 @@ class GenericObject extends BaseService {
       String path, List<NxPage> pages) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages,
+    __params['qPages'] = toJson(BuiltList<NxPage>(pages),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxPage)]));
     var rawResult = await query('GetHyperCubePivotData', __params);
@@ -146,7 +139,7 @@ class GenericObject extends BaseService {
       {int maxNbrCells}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages,
+    __params['qPages'] = toJson(BuiltList<NxPage>(pages),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxPage)]));
     if (maxNbrCells != null) {
@@ -342,12 +335,12 @@ class GenericObject extends BaseService {
       int binningMethod) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qPages'] = toJson(pages,
+    __params['qPages'] = toJson(BuiltList<NxPage>(pages),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxPage)]));
     __params['qViewport'] =
         toJson(viewport, specifiedType: const FullType(NxViewPort));
-    __params['qDataRanges'] = toJson(dataRanges,
+    __params['qDataRanges'] = toJson(BuiltList<NxDataAreaPage>(dataRanges),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxDataAreaPage)]));
     __params['qMaxNbrCells'] = maxNbrCells;
@@ -368,7 +361,7 @@ class GenericObject extends BaseService {
   /// <div class=note>Soft properties apply only to generic objects.</div>
   Future<void> applyPatches(List<NxPatch> patches, {bool softPatch}) async {
     var __params = <String, dynamic>{};
-    __params['qPatches'] = toJson(patches,
+    __params['qPatches'] = toJson(BuiltList<NxPatch>(patches),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxPatch)]));
     if (softPatch != null) {
@@ -617,7 +610,7 @@ class GenericObject extends BaseService {
       {bool softLock}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qRanges'] = toJson(ranges,
+    __params['qRanges'] = toJson(BuiltList<Range>(ranges),
         specifiedType:
             const FullType(BuiltList, const [const FullType(Range)]));
     if (softLock != null) {
@@ -818,7 +811,7 @@ class GenericObject extends BaseService {
       {bool softLock, bool deselectOnlyOneSelected}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qSelections'] = toJson(selections,
+    __params['qSelections'] = toJson(BuiltList<NxSelectionCell>(selections),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxSelectionCell)]));
     if (softLock != null) {
@@ -845,7 +838,7 @@ class GenericObject extends BaseService {
       bool deselectOnlyOneSelected}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qRanges'] = toJson(ranges,
+    __params['qRanges'] = toJson(BuiltList<NxRangeSelectInfo>(ranges),
         specifiedType: const FullType(
             BuiltList, const [const FullType(NxRangeSelectInfo)]));
     if (columnsToSelect != null) {
@@ -866,7 +859,7 @@ class GenericObject extends BaseService {
       {bool orMode, bool deselectOnlyOneSelected}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qRanges'] = toJson(ranges,
+    __params['qRanges'] = toJson(BuiltList<NxMultiRangeSelectInfo>(ranges),
         specifiedType: const FullType(
             BuiltList, const [const FullType(NxMultiRangeSelectInfo)]));
     if (orMode != null) {
@@ -884,7 +877,7 @@ class GenericObject extends BaseService {
       {bool orMode, bool deselectOnlyOneSelected}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qRanges'] = toJson(ranges,
+    __params['qRanges'] = toJson(BuiltList<NxTreeMultiRangeSelectInfo>(ranges),
         specifiedType: const FullType(
             BuiltList, const [const FullType(NxTreeMultiRangeSelectInfo)]));
     if (orMode != null) {
@@ -904,7 +897,7 @@ class GenericObject extends BaseService {
       {bool softLock}) async {
     var __params = <String, dynamic>{};
     __params['qPath'] = path;
-    __params['qRanges'] = toJson(ranges,
+    __params['qRanges'] = toJson(BuiltList<NxContinuousRangeSelectInfo>(ranges),
         specifiedType: const FullType(
             BuiltList, const [const FullType(NxContinuousRangeSelectInfo)]));
     if (softLock != null) {

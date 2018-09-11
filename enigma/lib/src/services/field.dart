@@ -31,7 +31,7 @@ class Field extends BaseService {
   Future<bool> selectValues(List<FieldValue> fieldValues,
       {bool toggleMode, bool softLock}) async {
     var __params = <String, dynamic>{};
-    __params['qFieldValues'] = toJson(fieldValues,
+    __params['qFieldValues'] = toJson(BuiltList<FieldValue>(fieldValues),
         specifiedType:
             const FullType(BuiltList, const [const FullType(FieldValue)]));
     if (toggleMode != null) {

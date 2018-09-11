@@ -27,7 +27,7 @@ class GenericDimension extends BaseService {
   /// <div class=tip>Applying a patch takes less time than resetting all the properties.</div>
   Future<void> applyPatches(List<NxPatch> patches) async {
     var __params = <String, dynamic>{};
-    __params['qPatches'] = toJson(patches,
+    __params['qPatches'] = toJson(BuiltList<NxPatch>(patches),
         specifiedType:
             const FullType(BuiltList, const [const FullType(NxPatch)]));
     var rawResult = await query('ApplyPatches', __params);
