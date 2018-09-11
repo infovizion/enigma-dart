@@ -1,6 +1,6 @@
 name: qlient_generator
 description: API generator for qlient
-version: 0.0.2
+version: 0.0.3
 author: Vadim Tsushko <vadimtsushko@gmail.com>
 
 environment:
